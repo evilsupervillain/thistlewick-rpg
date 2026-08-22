@@ -1,0 +1,82 @@
+{
+  "query": "?map=8&x=17&y=28&frames=90",
+  "steps": [
+    {
+      "eval": "$gameSwitches.setValue(1, true); $gameSwitches.setValue(2, true); $gameParty.addActor(3); $gameParty.addActor(4); $gameParty.addActor(5)"
+    },
+    {
+      "check": "$gameParty.size()",
+      "expect": 4,
+      "label": "a full party"
+    },
+    {
+      "eval": "$gameParty.members().forEach(a => a.changeLevel(8, false))"
+    },
+    {
+      "eval": "$gamePlayer.locate(17, 27); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 9,
+      "label": "into the Gloamwood"
+    },
+    {
+      "eval": "$gamePlayer.locate(17, 1); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 10,
+      "label": "through to the deep wood"
+    },
+    {
+      "eval": "$gamePlayer.locate(15, 3); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 10,
+      "label": "the Thing still blocks the way north"
+    },
+    {
+      "eval": "$gameSwitches.setValue(3, true)"
+    },
+    {
+      "eval": "$gamePlayer.locate(15, 3); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 8,
+      "label": "out of the wood, back on the world map"
+    },
+    {
+      "check": "$gameMap.regionId($gamePlayer.x, $gamePlayer.y)",
+      "expect": 2,
+      "label": "now in the dangerous half"
+    },
+    {
+      "eval": "$gamePlayer.locate(31, 8); $gameMap.event(4).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 11,
+      "label": "inside the Obligatory Tower"
+    },
+    {
+      "shot": "journey_tower.png"
+    }
+  ]
+}

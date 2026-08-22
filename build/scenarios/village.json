@@ -1,0 +1,103 @@
+{
+  "query": "?map=1&x=12&y=11&frames=90",
+  "steps": [
+    {
+      "check": "$gameSwitches.value(1)",
+      "expect": false,
+      "label": "not yet Chosen, officially"
+    },
+    {
+      "eval": "$gamePlayer.locate(19, 3); $gameMap.event(1).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 1,
+      "label": "the gate turned Bram back - no quest yet"
+    },
+    {
+      "goto": [
+        3,
+        10,
+        13
+      ]
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 3,
+      "label": "inside Prophecy Hall"
+    },
+    {
+      "eval": "$gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameSwitches.value(1)",
+      "expect": true,
+      "label": "the Elder said the words"
+    },
+    {
+      "check": "$gameParty.gold()",
+      "expect": 500,
+      "label": "parish fund"
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[20])",
+      "expect": 1,
+      "label": "holding The Prophecy"
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[1])",
+      "expect": 3,
+      "label": "three Potions"
+    },
+    {
+      "goto": [
+        5,
+        9,
+        13
+      ]
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 5,
+      "label": "in the chapel"
+    },
+    {
+      "eval": "$gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameParty.size()",
+      "expect": 2,
+      "label": "Merribell joined"
+    },
+    {
+      "check": "$gameParty.members().map(a => a.name())",
+      "expect": [
+        "Bram",
+        "Merribell"
+      ],
+      "label": "the party"
+    },
+    {
+      "check": "$gameSwitches.value(11)",
+      "expect": true,
+      "label": "her recruit switch is set"
+    },
+    {
+      "check": "$gameVariables.value(1)",
+      "expect": 1,
+      "label": "one companion counted"
+    },
+    {
+      "shot": "village_recruited.png"
+    }
+  ]
+}

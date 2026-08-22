@@ -1,0 +1,36 @@
+{
+  "query": "?map=8&x=24&y=40&frames=90",
+  "steps": [
+    {
+      "eval": "$gameParty.addActor(2); $gameParty.addActor(3); $gameParty.addActor(4)"
+    },
+    {
+      "eval": "$gameParty.members().forEach(a => a.changeLevel(6, false))"
+    },
+    {
+      "eval": "$gameParty.members().forEach(a => a.addState(0))"
+    },
+    {
+      "check": "$gameParty.members().map(a => [a.name(), a.mhp, a.atk])",
+      "label": "party going into a random fight"
+    },
+    {
+      "eval": "BattleManager.setup(3, true, false); $gamePlayer.makeEncounterCount(); SceneManager.push(Scene_Battle)"
+    },
+    {
+      "frames": 120
+    },
+    {
+      "check": "SceneManager._scene.constructor.name",
+      "expect": "Scene_Battle",
+      "label": "battle started"
+    },
+    {
+      "check": "$gameTroop.members().map(e => [e.name(), e.mhp])",
+      "label": "what showed up"
+    },
+    {
+      "shot": "battle_mook.png"
+    }
+  ]
+}

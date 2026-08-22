@@ -1,0 +1,35 @@
+{
+  "query": "?map=2&x=8&y=8&frames=90",
+  "steps": [
+    { "check": "$gameParty.size()", "expect": 1, "label": "Bram starts alone" },
+    { "check": "$gameParty.members()[0].name()", "expect": "Bram", "label": "who" },
+    { "check": "[$gameParty.members()[0].level, $gameParty.members()[0].currentClass().name]", "expect": [4, "Chosen One"], "label": "level and class" },
+    { "check": "$gameParty.members()[0].skills().map(s => s.name)", "label": "skills at level 4" },
+    { "check": "$gameMap.displayName()", "expect": "Bram's House", "label": "starting map" },
+
+    { "eval": "$gameMap.event(3).start()" },
+    { "advance": 20 },
+    { "check": "!$gameMap.isEventRunning()", "label": "mother's scene finished" },
+
+    { "eval": "$gameMap.event(4).start()" },
+    { "advance": 20 },
+    { "check": "$gameParty.numItems($dataWeapons[2])", "expect": 1, "label": "took the Village Sword off the wall" },
+    { "check": "$gameVariables.value(2)", "expect": 1, "label": "one trope encountered so far" },
+
+    { "eval": "$gameMap.event(5).start()" },
+    { "advance": 20 },
+    { "check": "$gameParty.numItems($dataItems[6])", "expect": 5, "label": "took five turnips from the pantry" },
+
+    { "eval": "$gameMap.event(2).start()" },
+    { "advance": 8 },
+    { "choose": 1 },
+    { "advance": 10 },
+    { "check": "!$gameMap.isEventRunning()", "label": "declined to go back to bed" },
+
+    { "eval": "$gamePlayer.locate(8, 13); $gameMap.event(1).start()" },
+    { "advance": 6 },
+    { "check": "$gameMap.mapId()", "expect": 1, "label": "walked out into Thistlewick" },
+    { "check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [28, 32], "label": "landed outside the front door" },
+    { "shot": "opening_village.png" }
+  ]
+}

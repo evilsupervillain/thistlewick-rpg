@@ -1,0 +1,73 @@
+{
+  "query": "?map=11&x=16&y=10&frames=90",
+  "steps": [
+    {
+      "eval": "$gameParty.members().forEach(a => a.changeLevel(9, false))"
+    },
+    {
+      "check": "$gameSwitches.value(6)",
+      "expect": false,
+      "label": "the door starts barred"
+    },
+    {
+      "eval": "$gamePlayer.locate(16, 10); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[21])",
+      "expect": 1,
+      "label": "a party without Nix finds the key under the mat"
+    },
+    {
+      "check": "$gameSwitches.value(6)",
+      "expect": false,
+      "label": "finding it is not the same as using it"
+    },
+    {
+      "eval": "$gamePlayer.locate(16, 10); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameSwitches.value(6)",
+      "expect": true,
+      "label": "the spare key unbars the door"
+    },
+    {
+      "eval": "$gamePlayer.locate(14, 8); $gameMap.event(11).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "[4,7,10,13,16,19,22].map(i => $gameParty.numItems($dataWeapons[i]))",
+      "expect": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "label": "the Contingency Cache holds one weapon per Chosen One"
+    },
+    {
+      "eval": "$gamePlayer.locate(16, 10); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 12,
+      "label": "up to the summit"
+    },
+    {
+      "shot": "tower_summit.png"
+    }
+  ]
+}

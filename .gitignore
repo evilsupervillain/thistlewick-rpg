@@ -1,0 +1,14 @@
+# The game is committed whole - engine, data, art, audio, fonts and effects -
+# so that a clone of this repository is a game you can run, with nothing to
+# fetch from anywhere else. That costs about 100MB, which is the price of the
+# thing being self-contained.
+
+# Saved games belong to whoever is playing, not to the game.
+/save/
+
+# Build output: packaged applications and the screenshots the scenarios take.
+/dist/
+/build/scenarios/*.png
+
+__pycache__/
+*.pyc

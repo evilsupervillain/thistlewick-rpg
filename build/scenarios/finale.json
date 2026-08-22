@@ -1,0 +1,37 @@
+{
+  "query": "?map=12&x=12&y=12&frames=90",
+  "steps": [
+    {
+      "eval": "$gameParty.addActor(2); $gameParty.addActor(3); $gameParty.addActor(4)"
+    },
+    {
+      "eval": "$gameParty.members().forEach(a => a.changeLevel(11, false))"
+    },
+    {
+      "eval": "[4,7,10,13].forEach(i => $gameParty.gainItem($dataWeapons[i], 1))"
+    },
+    {
+      "eval": "$gameParty.members().forEach(a => a.optimizeEquipments())"
+    },
+    {
+      "eval": "$gameVariables.setValue(1, 3); $gameVariables.setValue(2, 12); $gameVariables.setValue(3, 4)"
+    },
+    {
+      "check": "$gameParty.members().map(a => [a.name(), a.mhp, a.atk, a.mat])",
+      "label": "the party that fights the finale"
+    },
+    {
+      "eval": "$gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "!!$gameTroop && SceneManager._scene.constructor.name",
+      "label": "which scene we are in now"
+    },
+    {
+      "shot": "finale_battle.png"
+    }
+  ]
+}

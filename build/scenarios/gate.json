@@ -1,0 +1,59 @@
+{
+  "query": "?map=1&x=19&y=4&frames=90",
+  "steps": [
+    {
+      "eval": "$gameSwitches.setValue(1, true)"
+    },
+    {
+      "eval": "$gamePlayer.locate(19, 3); $gameMap.event(1).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 1,
+      "label": "a lone Chosen One is still turned back"
+    },
+    {
+      "eval": "$gameParty.addActor(2); $gameVariables.setValue(1, 1)"
+    },
+    {
+      "check": "$gameParty.size()",
+      "expect": 2,
+      "label": "now travelling with somebody"
+    },
+    {
+      "eval": "$gamePlayer.locate(19, 3); $gameMap.event(1).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 8,
+      "label": "out onto the world map"
+    },
+    {
+      "check": "$gameSwitches.value(2)",
+      "expect": true,
+      "label": "left the village"
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        24,
+        45
+      ],
+      "label": "on the road south of Thistlewick"
+    },
+    {
+      "check": "$gameMap.regionId($gamePlayer.x, $gamePlayer.y)",
+      "expect": 1,
+      "label": "in the gentle half of the world"
+    },
+    {
+      "shot": "gate_world.png"
+    }
+  ]
+}

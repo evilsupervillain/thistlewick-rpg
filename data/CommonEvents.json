@@ -1,0 +1,5 @@
+[
+null,
+{"id":1,"name":"Reallocate: gold","switchId":1,"trigger":0,"list":[{"code":355,"indent":0,"parameters":["const g = 30 + Math.floor(Math.random() * 120);"]},{"code":655,"indent":0,"parameters":["$gameParty.gainGold(g);"]},{"code":655,"indent":0,"parameters":["$gameVariables.setValue(10, g);"]},{"code":101,"indent":0,"parameters":["",0,0,2,""]},{"code":401,"indent":0,"parameters":["Nix reallocates \\C[3]\\V[10]\\C[0]\\G."]},{"code":0,"indent":0,"parameters":[]}]},
+{"id":2,"name":"Turnip eaten","switchId":1,"trigger":0,"list":[{"code":122,"indent":0,"parameters":[3,3,1,0,1]},{"code":0,"indent":0,"parameters":[]}]}
+]

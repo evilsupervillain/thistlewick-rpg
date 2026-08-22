@@ -1,0 +1,1201 @@
+"""The whole database of The Obligatory Quest.
+
+Seven playable characters, one class each, and enough skills that who you take
+with you changes how a fight goes. Every record is upserted by id, so this file
+can be re-run over an existing project without duplicating anything.
+
+Balance notes, so the numbers are not a mystery later:
+  * Physical damage is `a.atk * K - b.def * 2` with K from 3 (a cheap skill) to
+    8 (a level-10 finisher). Magic is `a.mat * K - b.mdf * 2`.
+  * Ordinary enemies sit at 150-500 HP and 8-30 DEF, so a party at the level the
+    area expects kills a mook in one or two actions and a boss in a dozen.
+  * Everyone learns their opener at level 1 and their finisher by level 10, and
+    the game is paced to end around level 11-13.
+"""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import mapkit as K  # noqa: F401  (sets up the path to rmmzdata)
+import rmmzdata as R
+
+# ------------------------------------------------------------------- ids ----
+BRAM, MERRI, HOB, ZEPH, NIX, ALDRIC, PIPER = 1, 2, 3, 4, 5, 6, 7
+CLASSES = {BRAM: 1, MERRI: 2, HOB: 3, ZEPH: 4, NIX: 5, ALDRIC: 6, PIPER: 7}
+
+SK_ATTACK, SK_GUARD = 1, 2
+# Bram
+SK_TURNIP, SK_PLOT_ARMOR, SK_SECOND_WIND, SK_FRIENDSHIP, SK_DESTINED = 10, 11, 12, 13, 14
+# Merribell
+SK_BEDSIDE, SK_HYDRATION, SK_STERN, SK_GET_UP, SK_REST, SK_HOMILY = 20, 21, 22, 23, 24, 25
+# Hob
+SK_ANVIL, SK_PERCUSSIVE, SK_FULL_SWING, SK_QUENCH, SK_REFORGE = 30, 31, 32, 33, 34
+# Zephyrine
+SK_KINDLE, SK_FROSTBITE, SK_STATIC, SK_CONFLAGRATE, SK_METEOR, SK_MANA_SIP = 40, 41, 42, 43, 44, 45
+# Nix
+SK_BACKSTAB, SK_REALLOCATE, SK_TWELVE, SK_VANISH, SK_COUP = 50, 51, 52, 53, 54
+# Aldric
+SK_INTERPOSE, SK_OATH, SK_CHARGE, SK_RALLY, SK_CHIVALRIC = 60, 61, 62, 63, 64
+# Piper
+SK_BALLAD, SK_DISCORD, SK_RECAP, SK_LULLABY, SK_FINALE, SK_FORESHADOW = 70, 71, 72, 73, 74, 75
+# monsters
+SK_NIBBLE, SK_ROOT_GRAB, SK_SHRIEK, SK_EMBER, SK_DRAIN = 90, 91, 92, 93, 94
+SK_DOOM_MONOLOGUE, SK_INEVITABILITY, SK_CLAUSE_TWELVE, SK_ERRATUM = 95, 96, 97, 98
+SK_SMALL_PRINT = 99
+
+# items
+IT_POTION, IT_HI_POTION, IT_ETHER, IT_FEATHER, IT_ANTIDOTE = 1, 2, 3, 4, 5
+IT_TURNIP, IT_ELIXIR, IT_SMELLING_SALTS, IT_TONIC = 6, 7, 8, 9
+IT_PROPHECY, IT_TOWER_KEY, IT_RECEIPT = 20, 21, 22
+
+# weapons, roughly by class
+WP_HOE, WP_SWORD, WP_BROADSWORD, WP_DESTINY = 1, 2, 3, 4
+WP_CENSER, WP_STAFF, WP_HOLY_ROD = 5, 6, 7
+WP_HAMMER, WP_SLEDGE, WP_WORLDBREAKER = 8, 9, 10
+WP_TWIG, WP_WAND, WP_STARFALL = 11, 12, 13
+WP_KNIFE, WP_DIRK, WP_LAST_WORD = 14, 15, 16
+WP_LANCE, WP_HALBERD, WP_OATHKEEPER = 17, 18, 19
+WP_LUTE, WP_FIDDLE, WP_LEGEND = 20, 21, 22
+
+AR_SMOCK, AR_LEATHER, AR_CHAIN, AR_PLATE, AR_ROBE, AR_SILK = 1, 2, 3, 4, 5, 6
+AR_BUCKLER, AR_KITE_SHIELD, AR_HAT, AR_HELM, AR_CIRCLET = 7, 8, 9, 10, 11
+AR_RING_LUCK, AR_RING_SPEED, AR_AMULET, AR_BOOTS = 12, 13, 14, 15
+
+# enemies
+EN_TURNIP, EN_CROW, EN_GOBLIN, EN_BANDIT, EN_TREANT, EN_WISP = 1, 2, 3, 4, 5, 6
+EN_SKELETON, EN_GARGOYLE, EN_MIMIC, EN_BAT, EN_SLIME_ISH = 7, 8, 9, 10, 11
+EN_THING, EN_GRIMSPITE, EN_PROPHECY = 20, 21, 22
+
+TR_TURNIPS, TR_CROWS, TR_GOBLINS, TR_BANDITS, TR_WOOD_MIX = 1, 2, 3, 4, 5
+TR_WISPS, TR_TOWER_MIX, TR_SKELETONS, TR_GARGOYLES, TR_FIELD_MIX = 6, 7, 8, 9, 10
+TR_THING, TR_MIMIC, TR_GRIMSPITE, TR_PROPHECY = 20, 21, 22, 23
+
+# states we add on top of the stock list
+ST_DEAD, ST_SLEEP, ST_POISON = 1, 10, 4
+ST_INTERPOSING, ST_INSPIRED, ST_NARRATED = 31, 32, 33
+
+# common events
+CE_STEAL_GOLD, CE_TURNIP_EATEN = 1, 2
+
+# switches / variables (also written down in CLAUDE.md)
+SW_QUEST, SW_LEFT_VILLAGE, SW_GLOAMWOOD, SW_GRIMSPITE, SW_WON, SW_TOWER_OPEN = 1, 2, 3, 4, 5, 6
+SW_RECRUIT = {MERRI: 11, HOB: 12, ZEPH: 13, NIX: 14, ALDRIC: 15, PIPER: 16}
+SW_MIMIC = 20
+VAR_COMPANIONS, VAR_TROPES, VAR_TURNIPS = 1, 2, 3
+
+# element ids, from System.json
+EL_PHYSICAL, EL_FIRE, EL_ICE, EL_THUNDER, EL_WATER = 1, 2, 3, 4, 5
+EL_EARTH, EL_WIND, EL_LIGHT, EL_DARK = 6, 7, 8, 9
+
+# skill types / equip types / armor types, also from System.json
+STYPE_MAGIC, STYPE_SPECIAL = 1, 2
+ET_WEAPON, ET_SHIELD, ET_HEAD, ET_BODY, ET_ACCESSORY = 1, 2, 3, 4, 5
+AT_GENERAL, AT_MAGIC, AT_LIGHT, AT_HEAVY, AT_SMALL_SHIELD, AT_LARGE_SHIELD = 1, 2, 3, 4, 5, 6
+WT_DAGGER, WT_SWORD, WT_FLAIL, WT_AXE, WT_WHIP, WT_STAFF = 1, 2, 3, 4, 5, 6
+WT_BOW, WT_CROSSBOW, WT_GUN, WT_CLAW, WT_GLOVE, WT_SPEAR = 7, 8, 9, 10, 11, 12
+
+
+# ------------------------------------------------------------- utilities ----
+def upsert(records, entry):
+    """Put a record at its own id, padding the list if it has to.
+
+    The id ranges here are deliberately gappy - skills 20-29 are Merribell's
+    whether or not she has ten of them - so the gaps get filled with the same
+    empty records the editor writes when you raise a list's maximum. A `null`
+    in the middle of a list crashes the editor and the validator; an empty
+    record is just an unused row."""
+    while len(records) <= entry["id"]:
+        records.append(None)
+    records[entry["id"]] = entry
+    return records
+
+
+BLANKS = {
+    "Skills.json": lambda i: {
+        "id": i, "animationId": 0, "description": "", "effects": [],
+        "damage": {"critical": False, "elementId": 0, "formula": "0",
+                   "type": 0, "variance": 20},
+        "hitType": 0, "iconIndex": 0, "message1": "", "message2": "",
+        "messageType": 1, "mpCost": 0, "name": "", "note": "", "occasion": 0,
+        "repeats": 1, "requiredWtypeId1": 0, "requiredWtypeId2": 0, "scope": 1,
+        "speed": 0, "stypeId": 1, "successRate": 100, "tpCost": 0, "tpGain": 0},
+    "Items.json": lambda i: {
+        "id": i, "animationId": 0, "consumable": True, "description": "",
+        "damage": {"critical": False, "elementId": 0, "formula": "0",
+                   "type": 0, "variance": 20},
+        "effects": [], "hitType": 0, "iconIndex": 0, "itypeId": 1, "name": "",
+        "note": "", "occasion": 0, "price": 0, "repeats": 1, "scope": 7,
+        "speed": 0, "successRate": 100, "tpGain": 0},
+    "States.json": lambda i: {
+        "id": i, "autoRemovalTiming": 0, "chanceByDamage": 100, "traits": [],
+        "iconIndex": 0, "maxTurns": 1, "message1": "", "message2": "",
+        "message3": "", "message4": "", "messageType": 1, "minTurns": 1,
+        "motion": 0, "name": "", "note": "", "overlay": 0, "priority": 50,
+        "removeAtBattleEnd": False, "removeByDamage": False,
+        "removeByRestriction": False, "removeByWalking": False,
+        "restriction": 0, "stepsToRemove": 100},
+    "Enemies.json": lambda i: {
+        "id": i, "actions": [], "battlerHue": 0, "battlerName": "",
+        "dropItems": [], "exp": 0, "traits": [], "gold": 0, "name": "",
+        "note": "", "params": [1, 0, 1, 1, 1, 1, 1, 1]},
+    "Troops.json": lambda i: {
+        "id": i, "members": [], "name": "",
+        "pages": [{"conditions": dict(BLANK_TROOP_CONDITIONS),
+                   "list": [{"code": 0, "indent": 0, "parameters": []}],
+                   "span": 0}]},
+    "Weapons.json": lambda i: {
+        "id": i, "animationId": 0, "description": "", "etypeId": 1,
+        "traits": [], "iconIndex": 0, "name": "", "note": "",
+        "params": [0] * 8, "price": 0, "wtypeId": 0},
+    "Armors.json": lambda i: {
+        "id": i, "atypeId": 0, "description": "", "etypeId": 1, "traits": [],
+        "iconIndex": 0, "name": "", "note": "", "params": [0] * 8, "price": 0},
+    "CommonEvents.json": lambda i: {
+        "id": i, "list": [{"code": 0, "indent": 0, "parameters": []}],
+        "name": "", "switchId": 1, "trigger": 0},
+}
+
+
+def save(name, records):
+    """Write a list file, replacing any hole left by a gappy id range with the
+    empty record the editor would have put there."""
+    blank = BLANKS.get(name)
+    if blank:
+        records = [r if r is not None or i == 0 else blank(i)
+                   for i, r in enumerate(records)]
+    R.save_list(name, records)
+
+
+def curve(base, growth, accel=1.0):
+    """One value per level, index 0 unused, 100 entries - the shape MZ stores.
+    `accel` bends the curve upward at high level so late levels still feel
+    like something."""
+    out = [0]
+    for lv in range(1, 100):
+        t = (lv - 1) / 98.0
+        out.append(int(round(base + growth * (lv - 1) * (1.0 + accel * t))))
+    return out
+
+
+def params(hp, mp, atk, dfn, mat, mdf, agi, luk, accel=0.9):
+    """Eight curves from eight (base, growth) pairs."""
+    return [curve(b, g, accel) for b, g in
+            (hp, mp, atk, dfn, mat, mdf, agi, luk)]
+
+
+def trait(code, data_id, value):
+    return {"code": code, "dataId": data_id, "value": value}
+
+
+def effect(code, data_id=0, value1=0, value2=0):
+    return {"code": code, "dataId": data_id, "value1": value1, "value2": value2}
+
+
+def skill(sid, name, desc, formula, *, stype=STYPE_SPECIAL, scope=1, mp=0, tp=0,
+          tp_gain=8, animation=1, icon=76, element=-1, hit_type=1, dmg_type=1,
+          effects=(), critical=False, variance=20, message="%1 uses %2!",
+          occasion=1, repeats=1, success=100, speed=0):
+    return {
+        "id": sid, "name": name, "note": "", "description": desc,
+        "animationId": animation, "iconIndex": icon, "stypeId": stype,
+        "scope": scope, "occasion": occasion, "hitType": hit_type,
+        "mpCost": mp, "tpCost": tp, "tpGain": tp_gain, "speed": speed,
+        "successRate": success, "repeats": repeats,
+        "requiredWtypeId1": 0, "requiredWtypeId2": 0,
+        "message1": message, "message2": "", "messageType": 1,
+        "damage": {"critical": critical, "elementId": element, "type": dmg_type,
+                   "variance": variance, "formula": formula},
+        "effects": list(effects),
+    }
+
+
+def item(iid, name, desc, *, price=0, icon=176, itype=1, scope=7, consumable=True,
+         effects=(), animation=41, occasion=0, formula="0", dmg_type=0,
+         element=0, hit_type=0):
+    return {
+        "id": iid, "name": name, "note": "", "description": desc,
+        "animationId": animation, "iconIndex": icon, "itypeId": itype,
+        "price": price, "consumable": consumable, "scope": scope,
+        "occasion": occasion, "hitType": hit_type, "speed": 0,
+        "successRate": 100, "repeats": 1, "tpGain": 0,
+        "damage": {"critical": False, "elementId": element, "formula": formula,
+                   "type": dmg_type, "variance": 20},
+        "effects": list(effects),
+    }
+
+
+def weapon(wid, name, desc, wtype, price, stats, traits=(), icon=97, animation=6):
+    return {"id": wid, "name": name, "note": "", "description": desc,
+            "animationId": animation, "iconIndex": icon, "etypeId": ET_WEAPON,
+            "wtypeId": wtype, "price": price, "params": list(stats),
+            "traits": list(traits)}
+
+
+def armor(aid, name, desc, etype, atype, price, stats, traits=(), icon=131):
+    return {"id": aid, "name": name, "note": "", "description": desc,
+            "iconIndex": icon, "etypeId": etype, "atypeId": atype,
+            "price": price, "params": list(stats), "traits": list(traits)}
+
+
+def action(skill_id, rating=5, condition=0, p1=0, p2=0):
+    return {"skillId": skill_id, "rating": rating, "conditionType": condition,
+            "conditionParam1": p1, "conditionParam2": p2}
+
+
+def drop(kind=0, data_id=0, denominator=1):
+    return {"kind": kind, "dataId": data_id, "denominator": denominator}
+
+
+NO_DROP = drop()
+
+
+def enemy(eid, name, battler, hue, stats, exp, gold, actions, traits=(),
+          drops=(), note=""):
+    ds = list(drops) + [NO_DROP, NO_DROP, NO_DROP]
+    return {"id": eid, "name": name, "note": note, "battlerName": battler,
+            "battlerHue": hue, "params": list(stats), "exp": exp, "gold": gold,
+            "actions": list(actions), "dropItems": ds[:3], "traits": list(traits)}
+
+
+BLANK_TROOP_CONDITIONS = {
+    "actorHp": 50, "actorId": 1, "actorValid": False, "enemyHp": 50,
+    "enemyIndex": 0, "enemyValid": False, "switchId": 1, "switchValid": False,
+    "turnA": 0, "turnB": 0, "turnEnding": False, "turnValid": False,
+}
+
+
+def troop(tid, name, members, pages=None):
+    """`members` is a list of (enemyId, x, y) - x across the 816-wide battle
+    field, y down it, both in pixels the way the editor stores them."""
+    return {
+        "id": tid, "name": name,
+        "members": [{"enemyId": e, "x": x, "y": y, "hidden": False}
+                    for e, x, y in members],
+        "pages": pages or [{"conditions": dict(BLANK_TROOP_CONDITIONS),
+                            "list": [{"code": 0, "indent": 0, "parameters": []}],
+                            "span": 0}],
+    }
+
+
+def state(sid, name, icon, *, traits=(), restriction=0, max_turns=3, min_turns=3,
+          auto_removal=1, message1="", message4="", priority=50, motion=0,
+          overlay=0, remove_at_battle_end=True):
+    return {
+        "id": sid, "autoRemovalTiming": auto_removal, "chanceByDamage": 100,
+        "iconIndex": icon, "maxTurns": max_turns, "minTurns": min_turns,
+        "message1": message1, "message2": message1, "message3": "",
+        "message4": message4, "messageType": 1, "motion": motion,
+        "overlay": overlay, "name": name, "note": "", "priority": priority,
+        "releaseByDamage": False, "removeAtBattleEnd": remove_at_battle_end,
+        "removeByDamage": False, "removeByRestriction": False,
+        "removeByWalking": False, "restriction": restriction,
+        "stepsToRemove": 100, "traits": list(traits),
+    }
+
+
+# ============================================================== classes =====
+def build_classes():
+    """Each class's traits say what it is allowed to do; its param curves say
+    what it is good at. The two together are the whole of a character's
+    mechanical identity, so they live next to each other."""
+    cl = R.load("Classes.json")
+
+    def cls(cid, name, exp_params, curves, learnings, traits):
+        return {"id": cid, "name": name, "note": "", "expParams": exp_params,
+                "params": curves, "traits": list(traits),
+                "learnings": [{"level": lv, "skillId": s, "note": ""}
+                              for lv, s in learnings]}
+
+    # A gentle curve - the game is short and should not need grinding.
+    EXP = [25, 18, 30, 30]
+    hit = lambda v: trait(22, 0, v)          # xparam 0: hit rate
+    eva = lambda v: trait(22, 1, v)          # xparam 1: evasion
+    crit = lambda v: trait(22, 2, v)         # xparam 2: critical rate
+
+    upsert(cl, cls(
+        CLASSES[BRAM], "Chosen One", EXP,
+        params((400, 44), (60, 7), (18, 3.4), (16, 3.0), (14, 2.6),
+               (15, 2.8), (17, 3.0), (32, 4.2)),
+        [(1, SK_TURNIP), (1, SK_PLOT_ARMOR), (3, SK_SECOND_WIND),
+         (6, SK_FRIENDSHIP), (9, SK_DESTINED)],
+        [trait(23, 0, 1), hit(0.95), eva(0.06), crit(0.06),
+         trait(41, STYPE_SPECIAL, 1),
+         trait(51, WT_SWORD, 1), trait(51, WT_FLAIL, 1),
+         trait(52, AT_LIGHT, 1), trait(52, AT_SMALL_SHIELD, 1),
+         trait(52, AT_GENERAL, 1)]))
+
+    upsert(cl, cls(
+        CLASSES[MERRI], "Field Medic", EXP,
+        params((360, 36), (120, 15), (11, 1.8), (13, 2.4), (23, 4.4),
+               (25, 4.6), (15, 2.7), (18, 2.6)),
+        [(1, SK_BEDSIDE), (1, SK_STERN), (2, SK_HYDRATION), (4, SK_REST),
+         (5, SK_GET_UP), (10, SK_HOMILY)],
+        [trait(23, 0, 0.9), hit(0.92), eva(0.05),
+         trait(41, STYPE_MAGIC, 1), trait(41, STYPE_SPECIAL, 1),
+         trait(11, EL_LIGHT, 0.5), trait(11, EL_DARK, 0.7),
+         trait(23, 2, 1.5),                 # sparam 2: her healing lands harder
+         trait(51, WT_STAFF, 1), trait(51, WT_FLAIL, 1),
+         trait(52, AT_MAGIC, 1), trait(52, AT_GENERAL, 1)]))
+
+    upsert(cl, cls(
+        CLASSES[HOB], "Blacksmith", EXP,
+        params((560, 60), (30, 3), (27, 4.8), (25, 4.4), (6, 1.0),
+               (12, 2.0), (9, 1.6), (12, 1.8)),
+        [(1, SK_ANVIL), (1, SK_PERCUSSIVE), (3, SK_FULL_SWING),
+         (6, SK_QUENCH), (10, SK_REFORGE)],
+        [trait(23, 0, 1.3),                 # sparam 0: enemies aim at him
+         hit(0.9), eva(0.01), crit(0.04),
+         trait(23, 6, 0.85),                # takes less physical damage
+         trait(23, 7, 1.2),                 # and more magical
+         trait(41, STYPE_SPECIAL, 1),
+         trait(51, WT_FLAIL, 1), trait(51, WT_AXE, 1), trait(51, WT_GLOVE, 1),
+         trait(52, AT_HEAVY, 1), trait(52, AT_GENERAL, 1),
+         trait(52, AT_LARGE_SHIELD, 1)]))
+
+    upsert(cl, cls(
+        CLASSES[ZEPH], "Hedge Mage", EXP,
+        params((300, 30), (140, 18), (9, 1.4), (10, 1.8), (29, 5.4),
+               (18, 3.4), (16, 2.9), (15, 2.4)),
+        [(1, SK_KINDLE), (1, SK_MANA_SIP), (2, SK_FROSTBITE), (3, SK_STATIC),
+         (6, SK_CONFLAGRATE), (9, SK_METEOR)],
+        [trait(23, 0, 0.8), hit(0.9), eva(0.04),
+         trait(23, 4, 0.85),                # sparam 4: her spells cost less
+         trait(23, 7, 1.25),                # but magic hurts her more
+         trait(41, STYPE_MAGIC, 1),
+         trait(51, WT_STAFF, 1), trait(51, WT_DAGGER, 1),
+         trait(52, AT_MAGIC, 1), trait(52, AT_GENERAL, 1)]))
+
+    upsert(cl, cls(
+        CLASSES[NIX], "Acquisitions", EXP,
+        params((350, 38), (55, 6), (20, 3.6), (12, 2.2), (12, 2.0),
+               (13, 2.2), (30, 5.4), (28, 4.0)),
+        [(1, SK_BACKSTAB), (1, SK_REALLOCATE), (3, SK_TWELVE),
+         (5, SK_VANISH), (9, SK_COUP)],
+        [trait(23, 0, 0.7),                 # hard to target
+         hit(0.97), eva(0.22), crit(0.16),
+         trait(64, 0, 1),                   # party ability: half encounters
+         trait(41, STYPE_SPECIAL, 1),
+         trait(51, WT_DAGGER, 1), trait(51, WT_CLAW, 1), trait(51, WT_BOW, 1),
+         trait(52, AT_LIGHT, 1), trait(52, AT_GENERAL, 1)]))
+
+    upsert(cl, cls(
+        CLASSES[ALDRIC], "Knight Errant", EXP,
+        params((500, 54), (45, 5), (19, 3.2), (32, 5.6), (8, 1.4),
+               (21, 3.8), (10, 1.8), (14, 2.0)),
+        [(1, SK_INTERPOSE), (1, SK_OATH), (3, SK_CHARGE), (6, SK_RALLY),
+         (10, SK_CHIVALRIC)],
+        [trait(23, 0, 1.4), hit(0.9), eva(0.03),
+         trait(23, 1, 2.0),                 # sparam 1: guarding is worth it
+         trait(23, 6, 0.8),
+         trait(41, STYPE_SPECIAL, 1),
+         trait(51, WT_SPEAR, 1), trait(51, WT_SWORD, 1),
+         trait(52, AT_HEAVY, 1), trait(52, AT_LARGE_SHIELD, 1),
+         trait(52, AT_GENERAL, 1)]))
+
+    upsert(cl, cls(
+        CLASSES[PIPER], "Bard", EXP,
+        params((340, 36), (95, 12), (14, 2.4), (16, 2.8), (19, 3.6),
+               (20, 3.6), (21, 3.8), (24, 3.4)),
+        [(1, SK_BALLAD), (1, SK_DISCORD), (3, SK_RECAP), (5, SK_FORESHADOW),
+         (6, SK_LULLABY), (9, SK_FINALE)],
+        [trait(23, 0, 0.9), hit(0.93), eva(0.1), crit(0.05),
+         trait(61, 0, 1),                   # action plus: sometimes acts twice
+         trait(41, STYPE_MAGIC, 1), trait(41, STYPE_SPECIAL, 1),
+         trait(51, WT_DAGGER, 1), trait(51, WT_WHIP, 1), trait(51, WT_STAFF, 1),
+         trait(52, AT_LIGHT, 1), trait(52, AT_GENERAL, 1)]))
+
+    R.save_list("Classes.json", cl)
+
+
+# =============================================================== actors =====
+def build_actors():
+    """Sprite/face/battler indices are the stock MZ sets; the sv battler name
+    must match a file in img/sv_actors, which only exists for Actor1 1-8,
+    Actor2 1-8 and Actor3 5-8."""
+    ac = R.load("Actors.json")
+
+    def actor(aid, name, nickname, profile, sheet, index, level, equips):
+        return {"id": aid, "name": name, "nickname": nickname, "note": "",
+                "profile": profile, "classId": CLASSES[aid],
+                "initialLevel": level, "maxLevel": 99,
+                "characterName": sheet, "characterIndex": index,
+                "faceName": sheet, "faceIndex": index,
+                "battlerName": "%s_%d" % (sheet, index + 1),
+                "equips": list(equips), "traits": []}
+
+    upsert(ac, actor(
+        BRAM, "Bram", "Chosen One #48",
+        "A turnip farmer. Was asleep during the vote and so did not object to "
+        "being the subject of a prophecy. Owns one hoe and a great deal of "
+        "unearned confidence.",
+        "Actor1", 0, 4, [WP_HOE, AR_BUCKLER, 0, AR_SMOCK, 0]))
+
+    upsert(ac, actor(
+        MERRI, "Merribell", "Sister of Whatever Works",
+        "Village healer. Her order holds that theology is a distraction from "
+        "the actual problem, which is usually that you have not had any water "
+        "today.",
+        "Actor1", 7, 4, [WP_CENSER, 0, 0, AR_ROBE, 0]))
+
+    upsert(ac, actor(
+        HOB, "Hob", "Grumnir the Smith",
+        "Blacksmith. Talks to his hammers. Two of the hammers have names, and "
+        "one of them, he insists, talks back.",
+        "Actor2", 4, 4, [WP_HAMMER, 0, 0, AR_CHAIN, 0]))
+
+    upsert(ac, actor(
+        ZEPH, "Zephyrine", "Formerly of the College",
+        "Hedge mage. Expelled from the Collegium Arcanum over an incident "
+        "involving the Dean, a duck, and what the enquiry called 'an "
+        "unsanctioned quantity of fire'.",
+        "Actor1", 5, 4, [WP_TWIG, 0, AR_HAT, AR_SILK, 0]))
+
+    upsert(ac, actor(
+        NIX, "Nix", "Acquisitions",
+        "Runs the back room of the general store. Does not steal things. "
+        "Locates them, ahead of schedule, on behalf of a client who has not "
+        "yet been identified.",
+        "Actor3", 4, 4, [WP_KNIFE, 0, 0, AR_LEATHER, 0]))
+
+    upsert(ac, actor(
+        ALDRIC, "Aldric", "Pemberton-Gore III",
+        "A knight errant who arrived in Thistlewick six years ago and has been "
+        "trying to leave ever since. Has never once found the north gate.",
+        "Actor3", 6, 4, [WP_LANCE, AR_KITE_SHIELD, AR_HELM, AR_PLATE, 0]))
+
+    upsert(ac, actor(
+        PIPER, "Piper", "Quill, Chronicler",
+        "A bard who narrates events as they happen, in the third person, at "
+        "volume, whether or not this is convenient.",
+        "Actor2", 3, 4, [WP_LUTE, 0, 0, AR_LEATHER, 0]))
+
+    R.save_list("Actors.json", ac)
+
+
+# =============================================================== skills =====
+def build_skills():
+    sk = R.load("Skills.json")
+
+    # -- Bram: buffs the party and gets better the more friends he has -------
+    upsert(sk, skill(
+        SK_TURNIP, "Turnip Toss",
+        "Throws a turnip very hard at one enemy. It is what he has.",
+        "a.atk * 3 - b.def * 2", mp=0, tp=0, animation=1, icon=176,
+        message="%1 throws a turnip!"))
+    upsert(sk, skill(
+        SK_PLOT_ARMOR, "Plot Armor",
+        "The party is briefly too important to the story to be hurt properly.",
+        "0", dmg_type=0, scope=8, mp=10, animation=53, icon=81, hit_type=0,
+        effects=[effect(31, 3, 0, 3), effect(31, 5, 0, 3)],
+        message="%1 is clearly the main character!"))
+    upsert(sk, skill(
+        SK_SECOND_WIND, "Heroic Second Wind",
+        "Stands back up, dusts himself off, and gets on with it.",
+        "a.mhp / 3 + 60", dmg_type=3, scope=11, tp=35, animation=41, icon=72,
+        hit_type=0, effects=[effect(22, ST_POISON, 1.0)],
+        message="%1 gets a second wind!"))
+    upsert(sk, skill(
+        SK_FRIENDSHIP, "The Power of Friendship",
+        "Damages every enemy. Scales with how many people came along, which is "
+        "the entire moral of most of these stories.",
+        "(a.atk + a.mat) * 2 * $gameParty.aliveMembers().length - b.def",
+        scope=2, mp=22, animation=100, icon=84, hit_type=0, element=EL_LIGHT,
+        message="%1 believes in everyone!"))
+    upsert(sk, skill(
+        SK_DESTINED, "Destined Strike",
+        "The blow the prophecy specifically mentions. Always finds its mark.",
+        "a.atk * 6 - b.def * 2", tp=60, animation=25, icon=80, critical=True,
+        message="%1 strikes as foretold!"))
+
+    # -- Merribell: the only real healer, and the only Light damage ----------
+    upsert(sk, skill(
+        SK_BEDSIDE, "Bedside Manner",
+        "Restores an ally's HP while explaining what they did wrong.",
+        "a.mat * 3 + 70", dmg_type=3, scope=7, mp=8, animation=41, icon=72,
+        hit_type=0, stype=STYPE_MAGIC, message="%1 sees to %2."))
+    upsert(sk, skill(
+        SK_HYDRATION, "Aggressive Hydration",
+        "Restores HP to the whole party, whether or not they asked.",
+        "a.mat * 2 + 45", dmg_type=3, scope=8, mp=22, animation=43, icon=72,
+        hit_type=0, stype=STYPE_MAGIC, message="%1 insists everyone drinks!"))
+    upsert(sk, skill(
+        SK_STERN, "Stern Word",
+        "Light damage to one enemy, delivered in the tone of a disappointed "
+        "aunt.",
+        "a.mat * 3 - b.mdf * 2", scope=1, mp=6, animation=96, icon=79,
+        hit_type=2, element=EL_LIGHT, stype=STYPE_MAGIC,
+        message="%1 has a word with %2."))
+    upsert(sk, skill(
+        SK_REST, "Prescribed Rest",
+        "Clears an ally's afflictions and tells them to sit down.",
+        "0", dmg_type=0, scope=7, mp=10, animation=45, icon=73, hit_type=0,
+        stype=STYPE_MAGIC,
+        effects=[effect(22, ST_POISON, 1.0), effect(22, 5, 1.0),
+                 effect(22, 6, 1.0), effect(22, 7, 1.0), effect(22, 8, 1.0),
+                 effect(22, ST_SLEEP, 1.0), effect(22, 12, 1.0)],
+        message="%1 prescribes rest."))
+    upsert(sk, skill(
+        SK_GET_UP, "Get Up",
+        "Revives a fallen ally. The dying is, she says, mostly attitude.",
+        "0", dmg_type=0, scope=9, mp=28, animation=49, icon=72, hit_type=0,
+        stype=STYPE_MAGIC,
+        effects=[effect(22, ST_DEAD, 1.0), effect(11, 0, 0.5, 0)],
+        message="%1 tells %2 to get up."))
+    upsert(sk, skill(
+        SK_HOMILY, "Homily",
+        "Light damage to every enemy. Runs slightly long.",
+        "a.mat * 4 - b.mdf * 2", scope=2, mp=30, animation=100, icon=79,
+        hit_type=2, element=EL_LIGHT, stype=STYPE_MAGIC,
+        message="%1 begins the homily."))
+
+    # -- Hob: one enormous number, and healing by hitting people -------------
+    upsert(sk, skill(
+        SK_ANVIL, "Anvil Drop",
+        "Hits one enemy with an anvil. Where the anvil comes from is his "
+        "business.",
+        "a.atk * 5 - b.def * 2", tp=30, animation=21, icon=100,
+        message="%1 drops an anvil on %2!"))
+    upsert(sk, skill(
+        SK_PERCUSSIVE, "Percussive Maintenance",
+        "Restores an ally's HP by striking them in a knowledgeable place.",
+        "a.atk * 2 + 40", dmg_type=3, scope=7, mp=10, animation=1, icon=76,
+        hit_type=0, message="%1 fixes %2 with a hammer."))
+    upsert(sk, skill(
+        SK_FULL_SWING, "Full Swing",
+        "Swings at everything in front of him. Accuracy is not the point.",
+        "a.atk * 3 - b.def * 2", scope=2, mp=14, animation=38, icon=100,
+        success=85, message="%1 swings wide!"))
+    upsert(sk, skill(
+        SK_QUENCH, "Quench",
+        "Braces up. Raises his own defence sharply and steadies him.",
+        "0", dmg_type=0, scope=11, tp=25, animation=51, icon=81, hit_type=0,
+        effects=[effect(31, 3, 0, 4), effect(21, 15, 1.0)],
+        message="%1 quenches the blade."))
+    upsert(sk, skill(
+        SK_REFORGE, "Reforge The Moment",
+        "The single hardest thing anyone in this village can do.",
+        "a.atk * 8 - b.def * 3", tp=80, animation=22, icon=100, critical=True,
+        variance=10, message="%1 brings the hammer down!"))
+
+    # -- Zephyrine: elements, and one spell that is a gamble -----------------
+    for sid, nm, el, anim, desc in (
+            (SK_KINDLE, "Kindle", EL_FIRE, 66, "A modest fire, aimed carefully."),
+            (SK_FROSTBITE, "Frostbite", EL_ICE, 71, "Ice, in one specific place."),
+            (SK_STATIC, "Static", EL_THUNDER, 76, "A great deal of static.")):
+        upsert(sk, skill(sid, nm, desc, "a.mat * 4 - b.mdf * 2", scope=1, mp=6,
+                         animation=anim, icon=64 + el, hit_type=2, element=el,
+                         stype=STYPE_MAGIC))
+    upsert(sk, skill(
+        SK_MANA_SIP, "Mana Sip",
+        "Takes a little magic back off an enemy who was not using it well.",
+        "12 + a.mat", dmg_type=6, scope=1, mp=0, tp_gain=12, animation=58,
+        icon=163, hit_type=2, stype=STYPE_MAGIC, message="%1 sips."))
+    upsert(sk, skill(
+        SK_CONFLAGRATE, "Conflagrate",
+        "Fire, to every enemy, all at once. This is the one she was expelled "
+        "for.",
+        "a.mat * 4 - b.mdf * 2", scope=2, mp=20, animation=70, icon=66,
+        hit_type=2, element=EL_FIRE, stype=STYPE_MAGIC,
+        message="%1 conflagrates!"))
+    upsert(sk, skill(
+        SK_METEOR, "Extremely Unstable Meteor",
+        "Enormous damage to every enemy, give or take. Mostly give. Sometimes "
+        "take.",
+        "a.mat * 7 - b.mdf", scope=2, mp=45, animation=110, icon=67,
+        hit_type=2, variance=60, stype=STYPE_MAGIC,
+        message="%1 calls down something unstable!"))
+
+    # -- Nix: speed, multi-hits, and taking things ---------------------------
+    upsert(sk, skill(
+        SK_BACKSTAB, "Backstab",
+        "One precise hit from a direction nobody was watching.",
+        "a.atk * 4 - b.def", tp=20, animation=11, icon=91, critical=True,
+        message="%1 finds an opening!"))
+    upsert(sk, skill(
+        SK_REALLOCATE, "Reallocate",
+        "Relieves an enemy of funds it was not going to spend anyway.",
+        "0", dmg_type=0, scope=1, tp=10, animation=58, icon=314, hit_type=0,
+        effects=[effect(44, CE_STEAL_GOLD)], message="%1 reallocates!"))
+    upsert(sk, skill(
+        SK_TWELVE, "Twelve Fingers",
+        "Four quick strikes, at whatever happens to be nearest.",
+        "a.atk * 2 - b.def", scope=4, mp=12, animation=16, icon=91,
+        message="%1 is briefly everywhere!"))
+    upsert(sk, skill(
+        SK_VANISH, "Vanish",
+        "Becomes markedly harder to hit and slightly harder to find.",
+        "0", dmg_type=0, scope=11, tp=30, animation=52, icon=82, hit_type=0,
+        effects=[effect(31, 6, 0, 4), effect(21, 21, 1.0)],
+        message="%1 is suddenly not there."))
+    upsert(sk, skill(
+        SK_COUP, "Coup de Grace",
+        "Hits harder the worse the target is already doing.",
+        "a.atk * 3 * (2 - b.hp / b.mhp) - b.def", mp=18, animation=26,
+        icon=91, critical=True, message="%1 finishes it!"))
+
+    # -- Aldric: the reason anyone else survives -----------------------------
+    upsert(sk, skill(
+        SK_INTERPOSE, "Interpose",
+        "Stands in front. Takes hits meant for the others, on principle.",
+        "0", dmg_type=0, scope=11, mp=8, animation=51, icon=81, hit_type=0,
+        effects=[effect(21, ST_INTERPOSING, 1.0)],
+        message="%1 steps in front!"))
+    upsert(sk, skill(
+        SK_OATH, "Oath of Nearly-Certain Victory",
+        "Raises the party's defence, at some length.",
+        "0", dmg_type=0, scope=8, mp=14, animation=53, icon=81, hit_type=0,
+        effects=[effect(31, 3, 0, 4)], message="%1 swears an oath!"))
+    upsert(sk, skill(
+        SK_CHARGE, "Righteous Charge",
+        "A charge, in a direction that is at least approximately correct.",
+        "a.atk * 4 - b.def", tp=25, animation=26, icon=93,
+        message="%1 charges!"))
+    upsert(sk, skill(
+        SK_RALLY, "Rally",
+        "Raises the party's attack with a short and very sincere speech.",
+        "0", dmg_type=0, scope=8, mp=16, animation=51, icon=80, hit_type=0,
+        effects=[effect(31, 2, 0, 4), effect(21, ST_INSPIRED, 1.0)],
+        message="%1 rallies the party!"))
+    upsert(sk, skill(
+        SK_CHIVALRIC, "Chivalric Finisher",
+        "Everything he has been holding back, plus his armour.",
+        "a.atk * 5 + a.def * 2 - b.def * 2", tp=70, animation=27, icon=93,
+        critical=True, variance=10, message="%1 finishes it properly!"))
+
+    # -- Piper: makes everyone else better -----------------------------------
+    upsert(sk, skill(
+        SK_BALLAD, "Ballad of Adequacy",
+        "Raises the party's attack. The lyrics are honest about the odds.",
+        "0", dmg_type=0, scope=8, mp=10, animation=36, icon=80, hit_type=0,
+        stype=STYPE_MAGIC, effects=[effect(31, 2, 0, 4)],
+        message="%1 strikes up a ballad!"))
+    upsert(sk, skill(
+        SK_DISCORD, "Discordant Note",
+        "One truly awful chord. Every enemy's defence suffers for it.",
+        "a.mat - b.mdf", scope=2, mp=8, animation=34, icon=85, hit_type=2,
+        stype=STYPE_MAGIC, effects=[effect(32, 3, 1.0, 4)],
+        message="%1 plays something unforgivable."))
+    upsert(sk, skill(
+        SK_RECAP, "Previously, On This Quest",
+        "Recaps events so far. The party is restored by the reminder that they "
+        "have survived worse.",
+        "a.mat + 60", dmg_type=3, scope=8, mp=0, tp=40, animation=44, icon=72,
+        hit_type=0, stype=STYPE_MAGIC,
+        effects=[effect(12, 0, 0, 20)], message="%1 recaps!"))
+    upsert(sk, skill(
+        SK_FORESHADOW, "Foreshadowing",
+        "Hints ominously at what is coming. The party braces accordingly.",
+        "0", dmg_type=0, scope=8, mp=12, animation=53, icon=81, hit_type=0,
+        stype=STYPE_MAGIC, effects=[effect(31, 5, 0, 4), effect(31, 6, 0, 4)],
+        message="%1 foreshadows!"))
+    upsert(sk, skill(
+        SK_LULLABY, "Lullaby of Mild Tedium",
+        "A song about crop rotation. One enemy falls asleep.",
+        "0", dmg_type=0, scope=1, mp=12, animation=62, icon=85, hit_type=2,
+        stype=STYPE_MAGIC, success=80,
+        effects=[effect(21, ST_SLEEP, 0.85)], message="%1 sings about turnips."))
+    upsert(sk, skill(
+        SK_FINALE, "Epic Finale",
+        "The last verse, at volume, to every enemy present.",
+        "a.mat * 4 + a.agi * 2 - b.mdf * 2", scope=2, mp=30, animation=110,
+        icon=85, hit_type=2, element=EL_WIND, stype=STYPE_MAGIC,
+        message="%1 reaches the finale!"))
+
+    # -- what the monsters do ------------------------------------------------
+    upsert(sk, skill(SK_NIBBLE, "Nibble", "", "a.atk * 2 - b.def",
+                     animation=16, message="%1 nibbles %2."))
+    upsert(sk, skill(SK_ROOT_GRAB, "Root Grab", "",
+                     "a.atk * 3 - b.def * 2", scope=2, animation=88,
+                     element=EL_EARTH, message="%1 grabs at everyone!"))
+    upsert(sk, skill(SK_SHRIEK, "Portentous Shriek", "", "0", dmg_type=0,
+                     scope=2, animation=34, hit_type=2,
+                     effects=[effect(32, 2, 0.6, 3)],
+                     message="%1 shrieks something about doom."))
+    upsert(sk, skill(SK_EMBER, "Ember", "", "a.mat * 3 - b.mdf * 2",
+                     animation=66, hit_type=2, element=EL_FIRE,
+                     message="%1 spits an ember."))
+    upsert(sk, skill(SK_DRAIN, "Drain", "", "a.mat * 2 - b.mdf", dmg_type=5,
+                     animation=58, hit_type=2, element=EL_DARK,
+                     message="%1 drains %2."))
+    upsert(sk, skill(SK_DOOM_MONOLOGUE, "Doom Monologue", "",
+                     "a.mat * 2 - b.mdf", scope=2, animation=104, hit_type=2,
+                     element=EL_DARK,
+                     effects=[effect(32, 3, 0.5, 3)],
+                     message="%1 explains the plan at length."))
+    upsert(sk, skill(SK_INEVITABILITY, "Inevitability", "",
+                     "a.atk * 4 - b.def * 2", scope=2, animation=39,
+                     message="%1 does the inevitable."))
+    upsert(sk, skill(SK_CLAUSE_TWELVE, "Clause Twelve", "",
+                     "a.mat * 3 - b.mdf", scope=2, animation=105,
+                     hit_type=2, element=EL_DARK,
+                     message="%1 invokes CLAUSE TWELVE."))
+    upsert(sk, skill(SK_ERRATUM, "Erratum", "", "a.mat * 4 - b.mdf",
+                     scope=1, animation=101, hit_type=2, element=EL_DARK,
+                     effects=[effect(21, 6, 0.5)],
+                     message="%1 issues an erratum."))
+    upsert(sk, skill(SK_SMALL_PRINT, "The Small Print", "", "0", dmg_type=0,
+                     scope=11, animation=51, hit_type=0,
+                     effects=[effect(31, 2, 0, 5), effect(31, 3, 0, 5)],
+                     message="%1 refers to the small print."))
+
+    save("Skills.json", sk)
+
+
+# =============================================================== states =====
+def build_states():
+    st = R.load("States.json")
+    upsert(st, state(
+        ST_INTERPOSING, "Interposing", 81,
+        traits=[trait(62, 1, 0), trait(23, 0, 6), trait(23, 6, 0.75)],
+        max_turns=3, min_turns=3,
+        message1="%1 is guarding the others!",
+        message4="%1 stands down."))
+    upsert(st, state(
+        ST_INSPIRED, "Inspired", 80,
+        traits=[trait(22, 2, 0.15), trait(22, 0, 0.05)],
+        max_turns=4, min_turns=4,
+        message1="%1 is inspired!", message4="%1 is no longer inspired."))
+    upsert(st, state(
+        ST_NARRATED, "Narrated", 87,
+        traits=[trait(22, 1, 0.15), trait(23, 0, 1.4)],
+        max_turns=4, min_turns=4,
+        message1="%1 is being described in detail!",
+        message4="%1 is out of the narration."))
+    save("States.json", st)
+
+
+# ============================================================ inventory =====
+def build_items():
+    it = R.load("Items.json")
+    upsert(it, item(IT_POTION, "Potion", "Restores 300 HP to one ally.",
+                    price=60, icon=176,
+                    effects=[effect(11, 0, 0, 300)]))
+    upsert(it, item(IT_HI_POTION, "Hi-Potion", "Restores 900 HP to one ally.",
+                    price=280, icon=176,
+                    effects=[effect(11, 0, 0, 900)]))
+    upsert(it, item(IT_TONIC, "Field Tonic",
+                    "Restores 400 HP to the whole party. Tastes of turnip.",
+                    price=420, icon=177, scope=8, animation=43,
+                    effects=[effect(11, 0, 0, 400)]))
+    upsert(it, item(IT_ETHER, "Ether", "Restores 60 MP to one ally.",
+                    price=200, icon=178,
+                    effects=[effect(12, 0, 0, 60)]))
+    upsert(it, item(IT_ELIXIR, "Elixir",
+                    "Restores an ally completely. There are four in the world "
+                    "and everyone is saving them for later.",
+                    price=1500, icon=179, animation=42,
+                    effects=[effect(11, 0, 1.0, 0), effect(12, 0, 1.0, 0)]))
+    upsert(it, item(IT_FEATHER, "Slightly Singed Feather",
+                    "Revives one fallen ally at half health. Smells of a "
+                    "bonfire.",
+                    price=500, icon=192, scope=9, animation=49,
+                    effects=[effect(22, ST_DEAD, 1.0), effect(11, 0, 0.5, 0)]))
+    upsert(it, item(IT_ANTIDOTE, "Antidote", "Cures poison.",
+                    price=40, icon=194, animation=45,
+                    effects=[effect(22, ST_POISON, 1.0)]))
+    upsert(it, item(IT_SMELLING_SALTS, "Smelling Salts",
+                    "Wakes an ally who is asleep, stunned or confused.",
+                    price=80, icon=195, animation=45,
+                    effects=[effect(22, ST_SLEEP, 1.0), effect(22, 8, 1.0),
+                             effect(22, 13, 1.0)]))
+    upsert(it, item(IT_TURNIP, "Turnip",
+                    "A turnip. Restores 1 HP. Bram grew it and would prefer "
+                    "you did not throw it away.",
+                    price=2, icon=180,
+                    effects=[effect(11, 0, 0, 1), effect(44, CE_TURNIP_EATEN)]))
+
+    # key items: itypeId 2, not consumable, no use in battle
+    upsert(it, item(IT_PROPHECY, "The Prophecy",
+                    "The Forty-Eighth Prophecy of Thistlewick, in triplicate. "
+                    "Clause twelve has been underlined by somebody worried.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=143))
+    upsert(it, item(IT_TOWER_KEY, "Tower Key",
+                    "Opens the Obligatory Tower. Labelled 'SPARE - DO NOT LOSE "
+                    "AGAIN'.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=195))
+    upsert(it, item(IT_RECEIPT, "A Receipt",
+                    "Proof of purchase for one (1) Dark Lord, renewable. "
+                    "Signed, in a hand that has clearly been at this a while.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=147))
+    save("Items.json", it)
+
+
+def build_weapons():
+    wp = R.load("Weapons.json")
+    atk_el = lambda e: trait(31, e, 0)
+
+    # Bram - sword class, sensible numbers all the way up
+    upsert(wp, weapon(WP_HOE, "Turnip Hoe",
+                      "[Sword] A hoe. It has done more honest work than most "
+                      "legendary blades.", WT_SWORD, 40,
+                      [0, 0, 10, 2, 0, 0, 0, 2], icon=97))
+    upsert(wp, weapon(WP_SWORD, "Village Sword",
+                      "[Sword] Kept above the fireplace for exactly this "
+                      "occasion.", WT_SWORD, 340,
+                      [0, 0, 22, 3, 0, 0, 2, 2], icon=98))
+    upsert(wp, weapon(WP_BROADSWORD, "Broadsword",
+                      "[Sword] Heavier. Simpler. Works.", WT_SWORD, 950,
+                      [0, 0, 38, 5, 0, 2, 0, 2], icon=99))
+    upsert(wp, weapon(WP_DESTINY, "Blade of Some Destiny",
+                      "[Sword] Prophesied, though the prophecy is vague about "
+                      "which one.", WT_SWORD, 2600,
+                      [0, 0, 58, 8, 6, 6, 4, 12], icon=100, animation=25,
+                      traits=[atk_el(EL_LIGHT), trait(22, 2, 0.08)]))
+
+    # Merribell - staff/flail
+    upsert(wp, weapon(WP_CENSER, "Censer",
+                      "[Flail] Swung on a chain. Doubles as a weapon, which is "
+                      "not what it was for.", WT_FLAIL, 60,
+                      [0, 0, 6, 0, 8, 4, 0, 0], icon=112))
+    upsert(wp, weapon(WP_STAFF, "Wellwater Staff",
+                      "[Staff] Its healing is 30% better and its jokes are "
+                      "not.", WT_STAFF, 420,
+                      [0, 0, 8, 2, 20, 8, 0, 0], icon=108))
+    upsert(wp, weapon(WP_HOLY_ROD, "Rod of Whatever Works",
+                      "[Staff] Whatever works.", WT_STAFF, 1800,
+                      [0, 0, 12, 4, 40, 16, 2, 4], icon=110,
+                      traits=[atk_el(EL_LIGHT), trait(23, 2, 0.25)]))
+
+    # Hob - flail/axe/glove
+    upsert(wp, weapon(WP_HAMMER, "Shop Hammer",
+                      "[Flail] Named Beatrice. Hob will tell you why.",
+                      WT_FLAIL, 90, [0, 0, 16, 2, 0, 0, -2, 0], icon=113))
+    upsert(wp, weapon(WP_SLEDGE, "Two-Handed Sledge",
+                      "[Axe] Requires both hands and a certain outlook.",
+                      WT_AXE, 780, [0, 0, 40, 4, 0, 0, -4, 0], icon=105))
+    upsert(wp, weapon(WP_WORLDBREAKER, "Beatrice II",
+                      "[Axe] Hob made this one himself, and it shows, in a "
+                      "good way.", WT_AXE, 2400,
+                      [0, 0, 68, 10, 0, 4, -4, 4], icon=106, animation=22,
+                      traits=[trait(22, 2, 0.1)]))
+
+    # Zephyrine - staff/dagger
+    upsert(wp, weapon(WP_TWIG, "A Good Twig",
+                      "[Staff] Structurally, a stick. Magically, a slightly "
+                      "better stick.", WT_STAFF, 30,
+                      [0, 0, 3, 0, 10, 2, 0, 0], icon=107))
+    upsert(wp, weapon(WP_WAND, "Secondhand Wand",
+                      "[Staff] Still has the College's property stamp on it.",
+                      WT_STAFF, 460, [0, 0, 5, 0, 26, 6, 2, 0], icon=109))
+    upsert(wp, weapon(WP_STARFALL, "Unlicensed Starfall",
+                      "[Staff] The College would like a word about this.",
+                      WT_STAFF, 2500, [0, 0, 8, 2, 52, 12, 4, 0], icon=111,
+                      animation=110, traits=[trait(23, 4, -0.15)]))
+
+    # Nix - dagger/claw
+    upsert(wp, weapon(WP_KNIFE, "Borrowed Knife",
+                      "[Dagger] Nix means to give it back.", WT_DAGGER, 50,
+                      [0, 0, 9, 0, 0, 0, 4, 2], icon=101))
+    upsert(wp, weapon(WP_DIRK, "Quiet Dirk",
+                      "[Dagger] Makes no noise at all, which is the expensive "
+                      "part.", WT_DAGGER, 500,
+                      [0, 0, 24, 2, 0, 0, 8, 6], icon=102,
+                      traits=[trait(22, 2, 0.08)]))
+    upsert(wp, weapon(WP_LAST_WORD, "Last Word",
+                      "[Dagger] Ends discussions.", WT_DAGGER, 2300,
+                      [0, 0, 44, 4, 0, 0, 14, 14], icon=103, animation=26,
+                      traits=[trait(22, 2, 0.18), trait(22, 1, 0.06)]))
+
+    # Aldric - spear
+    upsert(wp, weapon(WP_LANCE, "Ancestral Lance",
+                      "[Spear] Three generations of Pemberton-Gores have "
+                      "carried this and none of them found the exit either.",
+                      WT_SPEAR, 120, [0, 0, 14, 4, 0, 2, -2, 0], icon=121))
+    upsert(wp, weapon(WP_HALBERD, "Halberd",
+                      "[Spear] Reach, and a great deal of it.", WT_SPEAR, 700,
+                      [0, 0, 32, 8, 0, 4, -2, 0], icon=122))
+    upsert(wp, weapon(WP_OATHKEEPER, "Oathkeeper",
+                      "[Spear] Sir Aldric swore on it once and has been "
+                      "extremely careful with it since.", WT_SPEAR, 2400,
+                      [0, 0, 54, 16, 0, 10, 0, 4], icon=123, animation=27,
+                      traits=[atk_el(EL_LIGHT)]))
+
+    # Piper - whip/dagger, but the numbers live in her support
+    upsert(wp, weapon(WP_LUTE, "Dented Lute",
+                      "[Whip] Swung by the neck. The strings survive this "
+                      "better than you would think.", WT_WHIP, 70,
+                      [0, 0, 8, 0, 8, 4, 4, 4], icon=116))
+    upsert(wp, weapon(WP_FIDDLE, "Road Fiddle",
+                      "[Whip] Loud enough to be heard over a battle, which is "
+                      "the point.", WT_WHIP, 480,
+                      [0, 0, 18, 2, 20, 10, 8, 8], icon=117))
+    upsert(wp, weapon(WP_LEGEND, "The Instrument of Legend",
+                      "[Whip] Piper wrote the legend first and then had the "
+                      "instrument made to match.", WT_WHIP, 2400,
+                      [0, 0, 34, 6, 40, 20, 14, 16], icon=118, animation=36,
+                      traits=[atk_el(EL_WIND), trait(22, 1, 0.08)]))
+    save("Weapons.json", wp)
+
+
+def build_armors():
+    ar = R.load("Armors.json")
+    upsert(ar, armor(AR_SMOCK, "Farming Smock",
+                     "[Light Armor] Sturdy, practical, covered in soil.",
+                     ET_BODY, AT_LIGHT, 50, [0, 0, 0, 6, 0, 2, 0, 0], icon=131))
+    upsert(ar, armor(AR_LEATHER, "Leather Jerkin",
+                     "[Light Armor] Boiled leather. Quiet, cheap, adequate.",
+                     ET_BODY, AT_LIGHT, 260, [0, 0, 0, 16, 0, 6, 2, 0],
+                     icon=132))
+    upsert(ar, armor(AR_CHAIN, "Chain Shirt",
+                     "[Heavy Armor] Heavy, and worth it.",
+                     ET_BODY, AT_HEAVY, 620, [30, 0, 0, 30, 0, 10, -2, 0],
+                     icon=133))
+    upsert(ar, armor(AR_PLATE, "Family Plate",
+                     "[Heavy Armor] Polished daily by someone with time.",
+                     ET_BODY, AT_HEAVY, 1600, [80, 0, 0, 52, 0, 20, -4, 0],
+                     icon=134))
+    upsert(ar, armor(AR_ROBE, "Sister's Habit",
+                     "[Magic Armor] Practical, washable, deceptively warm.",
+                     ET_BODY, AT_MAGIC, 240, [0, 20, 0, 10, 8, 18, 0, 0],
+                     icon=135))
+    upsert(ar, armor(AR_SILK, "Travelling Robe",
+                     "[Magic Armor] Has more pockets than it appears to.",
+                     ET_BODY, AT_MAGIC, 900, [0, 40, 0, 18, 20, 32, 2, 0],
+                     icon=136))
+    upsert(ar, armor(AR_BUCKLER, "Buckler",
+                     "[Small Shield] A small round shield.",
+                     ET_SHIELD, AT_SMALL_SHIELD, 180, [0, 0, 0, 10, 0, 4, 0, 0],
+                     icon=128))
+    upsert(ar, armor(AR_KITE_SHIELD, "Kite Shield",
+                     "[Large Shield] Enough to stand behind.",
+                     ET_SHIELD, AT_LARGE_SHIELD, 700,
+                     [20, 0, 0, 26, 0, 10, -2, 0], icon=129,
+                     traits=[trait(23, 1, 0.3)]))
+    upsert(ar, armor(AR_HAT, "Wide Hat",
+                     "[Magic Armor] Keeps the rain and the questions off.",
+                     ET_HEAD, AT_MAGIC, 200, [0, 15, 0, 6, 8, 12, 0, 0],
+                     icon=137))
+    upsert(ar, armor(AR_HELM, "Great Helm",
+                     "[Heavy Armor] Excellent protection, no peripheral "
+                     "vision. This may explain a lot about Sir Aldric.",
+                     ET_HEAD, AT_HEAVY, 640, [0, 0, 0, 24, 0, 8, -2, 0],
+                     icon=138, traits=[trait(14, 5, 1)]))
+    upsert(ar, armor(AR_CIRCLET, "Plain Circlet",
+                     "[General Armor] Unassuming. Steadies the mind.",
+                     ET_HEAD, AT_GENERAL, 800, [0, 25, 0, 12, 14, 20, 2, 4],
+                     icon=139))
+    upsert(ar, armor(AR_RING_LUCK, "Ring of Mild Fortune",
+                     "[Accessory] Things go slightly your way.",
+                     ET_ACCESSORY, AT_GENERAL, 900, [0, 0, 0, 0, 0, 0, 0, 24],
+                     icon=161, traits=[trait(22, 2, 0.06)]))
+    upsert(ar, armor(AR_RING_SPEED, "Hasty Ring",
+                     "[Accessory] You arrive before you have decided to.",
+                     ET_ACCESSORY, AT_GENERAL, 1100, [0, 0, 0, 0, 0, 0, 20, 0],
+                     icon=162, traits=[trait(22, 1, 0.08)]))
+    upsert(ar, armor(AR_AMULET, "Amulet of the Committee",
+                     "[Accessory] Resists darkness, and most forms of "
+                     "paperwork.",
+                     ET_ACCESSORY, AT_GENERAL, 1400, [0, 20, 0, 8, 0, 20, 0, 0],
+                     icon=163, traits=[trait(11, EL_DARK, 0.6),
+                                       trait(14, 6, 1)]))
+    upsert(ar, armor(AR_BOOTS, "Walking Boots",
+                     "[Accessory] Broken in by somebody who walked a long way "
+                     "in them and came back with opinions.",
+                     ET_ACCESSORY, AT_GENERAL, 500, [20, 0, 0, 4, 0, 4, 12, 0],
+                     icon=164))
+    save("Armors.json", ar)
+
+
+# ============================================================== bestiary ====
+def build_enemies():
+    en = R.load("Enemies.json")
+    base = [trait(22, 0, 0.95), trait(22, 1, 0.05)]
+
+    upsert(en, enemy(
+        EN_TURNIP, "Militant Turnip", "Matango", 60,
+        [420, 0, 30, 12, 8, 8, 10, 5], 45, 60,
+        [action(SK_ATTACK, 6), action(SK_NIBBLE, 4)],
+        traits=base + [trait(11, EL_FIRE, 1.5)],
+        drops=[drop(0, IT_TURNIP, 1)],
+        note="A turnip that has had enough. Bram takes this personally."))
+
+    upsert(en, enemy(
+        EN_CROW, "Crow of Foreshadowing", "Crow", 0,
+        [380, 20, 28, 8, 18, 12, 26, 12], 65, 80,
+        [action(SK_ATTACK, 5), action(SK_SHRIEK, 3)],
+        traits=base + [trait(22, 1, 0.2), trait(11, EL_WIND, 1.5)],
+        drops=[drop(0, IT_POTION, 4)],
+        note="Caws exactly three times whenever anything important is about "
+             "to happen, which is exhausting for everyone."))
+
+    upsert(en, enemy(
+        EN_GOBLIN, "Disgruntled Goblin", "Goblin", 0,
+        [560, 0, 34, 18, 8, 12, 16, 8], 75, 110,
+        [action(SK_ATTACK, 6)],
+        traits=base + [trait(31, EL_PHYSICAL, 0)],
+        drops=[drop(0, IT_POTION, 3)],
+        note="Has a list of grievances and will read from it."))
+
+    upsert(en, enemy(
+        EN_BANDIT, "Bandit (Trainee)", "Mercenary", 0,
+        [700, 20, 38, 22, 10, 14, 22, 14], 90, 170,
+        [action(SK_ATTACK, 6), action(SK_NIBBLE, 2)],
+        traits=base + [trait(22, 1, 0.12)],
+        drops=[drop(0, IT_POTION, 2), drop(1, WP_KNIFE, 12)],
+        note="On the fourth week of a six-week banditry apprenticeship."))
+
+    upsert(en, enemy(
+        EN_WISP, "Wisp of Mild Concern", "Plasma", 210,
+        [460, 60, 20, 10, 40, 30, 30, 10], 60, 95,
+        [action(SK_EMBER, 5), action(SK_DRAIN, 3)],
+        traits=base + [trait(11, EL_PHYSICAL, 0.4), trait(11, EL_LIGHT, 2.0),
+                       trait(22, 1, 0.25)],
+        drops=[drop(0, IT_ETHER, 5)],
+        note="Hovers nearby looking worried. Attacks anyway."))
+
+    upsert(en, enemy(
+        EN_TREANT, "Grumblewood Treant", "Treant", 0,
+        [1300, 40, 44, 34, 20, 24, 8, 10], 180, 280,
+        [action(SK_ATTACK, 5), action(SK_ROOT_GRAB, 4)],
+        traits=base + [trait(11, EL_FIRE, 2.0), trait(11, EL_EARTH, 0.3),
+                       trait(23, 6, 0.8)],
+        drops=[drop(0, IT_HI_POTION, 4)],
+        note="Objects to being walked past."))
+
+    upsert(en, enemy(
+        EN_BAT, "Tower Bat", "Crow", 180,
+        [420, 0, 32, 10, 10, 10, 34, 10], 60, 80,
+        [action(SK_ATTACK, 6)],
+        traits=base + [trait(22, 1, 0.3)],
+        note="There are always bats. It is in the contract."))
+
+    upsert(en, enemy(
+        EN_SKELETON, "Skeleton (Intern)", "Zombie", 40,
+        [800, 30, 44, 26, 16, 18, 14, 6], 130, 190,
+        [action(SK_ATTACK, 6), action(SK_DRAIN, 2)],
+        traits=base + [trait(11, EL_LIGHT, 2.0), trait(11, EL_DARK, 0.2),
+                       trait(11, EL_FIRE, 1.3)],
+        drops=[drop(0, IT_POTION, 3)],
+        note="Unpaid. Six months, 'for the experience'."))
+
+    upsert(en, enemy(
+        EN_GARGOYLE, "Load-Bearing Gargoyle", "Stoneknight", 0,
+        [1400, 40, 52, 44, 22, 30, 12, 10], 220, 320,
+        [action(SK_ATTACK, 5), action(SK_INEVITABILITY, 2)],
+        traits=base + [trait(11, EL_PHYSICAL, 0.6), trait(11, EL_EARTH, 0.5),
+                       trait(11, EL_THUNDER, 1.6), trait(23, 6, 0.7)],
+        drops=[drop(0, IT_HI_POTION, 3)],
+        note="Structurally important. Attacks anyway, which raises questions "
+             "about the tower."))
+
+    upsert(en, enemy(
+        EN_MIMIC, "Chest (Definitely A Chest)", "Mimic", 0,
+        [1800, 40, 58, 30, 40, 26, 26, 30], 320, 900,
+        [action(SK_ATTACK, 6), action(SK_NIBBLE, 3)],
+        traits=base + [trait(11, EL_FIRE, 1.4)],
+        drops=[drop(0, IT_ELIXIR, 1), drop(2, AR_RING_LUCK, 2)],
+        note="It was going to be a chest. It is not a chest."))
+
+    # -- bosses --------------------------------------------------------------
+    upsert(en, enemy(
+        EN_THING, "The Thing In The Woods", "Hydra", 0,
+        [3600, 200, 44, 36, 34, 34, 24, 20], 900, 1400,
+        [action(SK_ATTACK, 5), action(SK_ROOT_GRAB, 4),
+         action(SK_SHRIEK, 3, condition=1, p1=50)],
+        traits=base + [trait(11, EL_FIRE, 1.6), trait(11, EL_LIGHT, 1.3),
+                       trait(23, 6, 0.85), trait(14, ST_SLEEP, 1),
+                       trait(62, 3, 0)],
+        drops=[drop(0, IT_ELIXIR, 1)],
+        note="Nobody in Thistlewick has ever agreed on what it is, only that "
+             "it is in the woods and it is a thing."))
+
+    upsert(en, enemy(
+        EN_GRIMSPITE, "Grimspite the Inevitable", "Demoncount", 0,
+        [7000, 400, 58, 48, 52, 48, 34, 24], 2000, 3000,
+        [action(SK_ATTACK, 5), action(SK_INEVITABILITY, 4),
+         action(SK_DOOM_MONOLOGUE, 4),
+         action(SK_SMALL_PRINT, 3, condition=1, p1=40)],
+        traits=base + [trait(11, EL_DARK, 0.2), trait(11, EL_LIGHT, 1.5),
+                       trait(14, ST_SLEEP, 1), trait(14, 6, 1),
+                       trait(62, 3, 0), trait(23, 6, 0.9)],
+        note="Four thousand eight hundred years into a renewable engagement. "
+             "Tired in a way that does not show up on a stat block."))
+
+    upsert(en, enemy(
+        EN_PROPHECY, "THE PROPHECY", "Evilbook", 0,
+        [9000, 999, 50, 52, 72, 58, 40, 30], 2500, 4000,
+        [action(SK_CLAUSE_TWELVE, 5), action(SK_ERRATUM, 4),
+         action(SK_DOOM_MONOLOGUE, 3),
+         action(SK_SMALL_PRINT, 4, condition=1, p1=50)],
+        traits=base + [trait(11, EL_PHYSICAL, 0.7), trait(11, EL_DARK, 0.1),
+                       trait(11, EL_LIGHT, 1.4), trait(11, EL_FIRE, 1.6),
+                       trait(14, ST_SLEEP, 1), trait(14, 6, 1), trait(14, 5, 1),
+                       trait(62, 3, 0), trait(61, 0, 1)],
+        note="Clause twelve enforces itself. That is the whole problem."))
+    save("Enemies.json", en)
+
+
+def build_troops():
+    tr = R.load("Troops.json")
+    upsert(tr, troop(TR_TURNIPS, "Militant Turnip*3",
+                     [(EN_TURNIP, 200, 340), (EN_TURNIP, 380, 400),
+                      (EN_TURNIP, 560, 350)]))
+    upsert(tr, troop(TR_CROWS, "Crow*2",
+                     [(EN_CROW, 250, 320), (EN_CROW, 520, 380)]))
+    upsert(tr, troop(TR_FIELD_MIX, "Turnip*2, Crow",
+                     [(EN_TURNIP, 200, 380), (EN_TURNIP, 400, 340),
+                      (EN_CROW, 580, 360)]))
+    upsert(tr, troop(TR_GOBLINS, "Goblin*2",
+                     [(EN_GOBLIN, 260, 370), (EN_GOBLIN, 520, 400)]))
+    upsert(tr, troop(TR_BANDITS, "Bandit*2, Goblin",
+                     [(EN_BANDIT, 220, 350), (EN_GOBLIN, 400, 400),
+                      (EN_BANDIT, 580, 360)]))
+    upsert(tr, troop(TR_WOOD_MIX, "Treant, Wisp*2",
+                     [(EN_WISP, 200, 330), (EN_TREANT, 400, 400),
+                      (EN_WISP, 600, 340)]))
+    upsert(tr, troop(TR_WISPS, "Wisp*3",
+                     [(EN_WISP, 220, 340), (EN_WISP, 400, 390),
+                      (EN_WISP, 580, 330)]))
+    upsert(tr, troop(TR_SKELETONS, "Skeleton*2, Bat",
+                     [(EN_SKELETON, 240, 370), (EN_BAT, 410, 300),
+                      (EN_SKELETON, 570, 390)]))
+    upsert(tr, troop(TR_GARGOYLES, "Gargoyle, Skeleton",
+                     [(EN_GARGOYLE, 300, 390), (EN_SKELETON, 540, 360)]))
+    upsert(tr, troop(TR_TOWER_MIX, "Gargoyle, Bat*2",
+                     [(EN_BAT, 210, 300), (EN_GARGOYLE, 400, 400),
+                      (EN_BAT, 590, 310)]))
+    upsert(tr, troop(TR_MIMIC, "Chest (Definitely A Chest)",
+                     [(EN_MIMIC, 400, 380)]))
+    upsert(tr, troop(TR_THING, "The Thing In The Woods",
+                     [(EN_THING, 400, 400)]))
+    upsert(tr, troop(TR_GRIMSPITE, "Grimspite the Inevitable",
+                     [(EN_GRIMSPITE, 400, 400)]))
+    upsert(tr, troop(TR_PROPHECY, "THE PROPHECY",
+                     [(EN_PROPHECY, 400, 380)]))
+    save("Troops.json", tr)
+
+
+def build_common_events():
+    """Two small ones. `Reallocate` needs script because Change Gold cannot
+    read the enemy it was used on, and eating a turnip is a running joke that
+    has to count itself."""
+    ce = R.load("CommonEvents.json")
+
+    steal = R.script([
+        "const g = 30 + Math.floor(Math.random() * 120);",
+        "$gameParty.gainGold(g);",
+        "$gameVariables.setValue(%d, g);" % 10,
+    ])
+    steal += R.text(["Nix reallocates \\C[3]\\V[10]\\C[0]\\G."])
+    upsert(ce, {"id": CE_STEAL_GOLD, "name": "Reallocate: gold",
+                "switchId": 1, "trigger": 0,
+                "list": steal + [{"code": 0, "indent": 0, "parameters": []}]})
+
+    eaten = [R.control_variable_add(VAR_TURNIPS, 1)]
+    upsert(ce, {"id": CE_TURNIP_EATEN, "name": "Turnip eaten",
+                "switchId": 1, "trigger": 0,
+                "list": eaten + [{"code": 0, "indent": 0, "parameters": []}]})
+    save("CommonEvents.json", ce)
+
+
+def build():
+    build_classes()
+    build_actors()
+    build_skills()
+    build_states()
+    build_items()
+    build_weapons()
+    build_armors()
+    build_enemies()
+    build_troops()
+    build_common_events()

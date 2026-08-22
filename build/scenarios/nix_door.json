@@ -1,0 +1,32 @@
+{
+  "query": "?map=11&x=16&y=10&frames=90",
+  "steps": [
+    {
+      "eval": "$gameParty.addActor(5)"
+    },
+    {
+      "check": "$gameParty.members().map(a => a.name())",
+      "expect": [
+        "Bram",
+        "Nix"
+      ],
+      "label": "Nix came along"
+    },
+    {
+      "eval": "$gamePlayer.locate(16, 10); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameSwitches.value(6)",
+      "expect": true,
+      "label": "Nix opened it without the key"
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[21])",
+      "expect": 0,
+      "label": "and nobody looked under the mat"
+    }
+  ]
+}
