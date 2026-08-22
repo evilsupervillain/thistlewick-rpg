@@ -49,11 +49,32 @@ FACES = {
 # into consecutive windows rather than being quietly drawn off the bottom.
 MESSAGE_LINES = 4
 
+CURRENCY = "cr"          # matches System.json, for the width of \G
+
 
 def _pages(lines):
     lines = list(lines)
     return [lines[i:i + MESSAGE_LINES]
             for i in range(0, len(lines), MESSAGE_LINES)] or [[]]
+
+
+def _check_width(line, face, speaker):
+    """The window has no wrap and no ellipsis: a line too wide for it is drawn
+    off the edge and the player never sees the end of the sentence. A face
+    takes 164 of the 784 pixels, which is why a line that is fine over a
+    narrator's window is not fine over a speaker's.
+
+    This refuses to build rather than wrapping the line, because where a line
+    of dialogue breaks is a decision about timing and belongs to whoever wrote
+    it. `rmmzdata.wrap` is there for prose."""
+    limit = R.message_width(bool(face))
+    width = R.text_width(line, currency=CURRENCY)
+    if width > limit:
+        over = int((width - limit) / (R.FONT_SIZE / 2.0) + 0.999)
+        raise ValueError(
+            "%s's line is %d character(s) too wide for the message window "
+            "(%d of %d px, and a face costs 164 of them). Break it earlier:\n"
+            "  %r" % (speaker or "the narrator", over, width, limit, line))
 
 
 def say(speaker, lines, *, face=True, indent=0, position=2):
@@ -67,6 +88,8 @@ def say(speaker, lines, *, face=True, indent=0, position=2):
         # speech runs over several of them and the player should not have to
         # remember who started talking four windows ago.
         page = ["\\C[6]%s:\\C[0] %s" % (speaker, page[0])] + page[1:]
+        for line in page:
+            _check_width(line, name, speaker)
         out += R.text(page, face_name=name, face_index=index,
                       position=position, indent=indent)
     return out
@@ -76,6 +99,8 @@ def narrate(lines, indent=0):
     """Screen text with nobody speaking - descriptions, and the narrator."""
     out = []
     for page in _pages(lines):
+        for line in page:
+            _check_width(line, "", None)
         out += R.text(page, indent=indent)
     return out
 

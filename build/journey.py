@@ -322,13 +322,14 @@ def gloamwood_events():
         "I'm number forty-six."])
     lost += S.narrate(["You point out that forty-seven came after him."])
     lost += S.say("Regular", [
-        "Did he? Good for him. Did he come back?"])
+        "Did he? Good for him.",
+        "Did he come back?"])
     lost += S.narrate(["You do not answer."])
     lost += S.say("Regular", [
-        "Right. Well. I got as far as the woods and",
-        "decided the woods were enough.",
-        "Nobody writes songs about that. But I'm here,",
-        "and I'm forty-six, and I'm sitting down."])
+        "Right. Well. I got as far as the woods",
+        "and decided the woods were enough.",
+        "Nobody writes songs about that. But I'm",
+        "here, and I'm forty-six, and I'm sitting down."])
     lost += [S.trope()]
     evs.append(S.npc(3, "Number Forty-Six", 7, 26, lost, "People4", 6,
                      direction=6))
@@ -738,11 +739,13 @@ def finale_event(event_id, x, y):
         "words 'so, you have come at last'?"])
     c += S.narrate(["You say you do not."])
     c += S.say("Grimspite", [
-        "Forty-seven. And I meant it the first time."])
+        "Forty-seven.",
+        "And I meant it the first time."])
     c += R.choice_block(
         ["Why don't you stop?", "Draw your weapon"],
         [S.say("Grimspite", [
-            "Ah. The clever one. They're rarer than you'd",
+            "Ah. The clever one.",
+            "They're rarer than you'd",
             "think.",
             "I can't. Look at the wall behind you."]) +
          S.narrate(["You look.",
@@ -753,11 +756,12 @@ def finale_event(event_id, x, y):
              "Clause twelve. It isn't a threat.",
              "It's a renewal notice."]),
          S.say("Grimspite", [
-             "Yes. Good. Let's do the part we're for."])])
+             "Yes. Good.",
+             "Let's do the part we're for."])])
     c += S.say("Grimspite", [
-        "Whatever you were going to say - and I have",
-        "heard all of them - say it while we fight.",
-        "It goes faster that way."])
+        "Whatever you were going to say -",
+        "and I have heard all of them - say it",
+        "while we fight. It goes faster that way."])
     c += [R.play_me("Shock2"), R.wait(30)]
     c += [R.battle(db.TR_GRIMSPITE, can_escape=False, can_lose=False),
           R.control_switch(db.SW_GRIMSPITE, True)]
@@ -785,10 +789,10 @@ def finale_event(event_id, x, y):
         "CLAUSE TWELVE.",
         "THE DARK LORD SHALL RISE AGAIN."])
     c += S.say("Grimspite", [
-        "It renews me. It has renewed me forty-seven",
-        "times. It will do it before you reach the stairs.",
-        "That is the whole of it. That is the whole",
-        "of my life."])
+        "It renews me. It has renewed me",
+        "forty-seven times. It will do it before",
+        "you reach the stairs. That is the whole of",
+        "it. That is the whole of my life."])
     c += S.narrate(["The Prophecy turns, very slowly, to face you.",
                     "It has found a party of the correct size,",
                     "at the correct place, on the correct date."])
@@ -831,8 +835,8 @@ def finale_event(event_id, x, y):
                     "'Proof of purchase,' he says. 'In case",
                     "anyone asks whose fault this was.'"])
     c += S.say("Grimspite", [
-        "Go home, forty-eight. Grow your turnips.",
-        "There isn't a forty-nine.",
+        "Go home, forty-eight.",
+        "Grow your turnips. There isn't a forty-nine.",
         "Say that to them, when you get in.",
         "Say: there isn't a forty-nine."])
     c += [R.fadeout_screen(), R.wait(60), R.play_bgm("Theme6", 80)]

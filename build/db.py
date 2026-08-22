@@ -191,12 +191,26 @@ def effect(code, data_id=0, value1=0, value2=0):
     return {"code": code, "dataId": data_id, "value1": value1, "value2": value2}
 
 
+def described(text):
+    """Break a description across the two lines the help window shows.
+
+    Window_Help draws each line at the window's full width and clips whatever
+    runs past it, so a description written as one long string quietly loses its
+    ending. Descriptions are prose, so a machine may break them; dialogue is
+    not wrapped this way, because there the line breaks are the timing."""
+    lines = R.wrap(text, R.HELP_WIDTH)
+    if len(lines) > 2:
+        raise ValueError("description needs %d lines and the help window shows "
+                         "2: %r" % (len(lines), text))
+    return "\n".join(lines)
+
+
 def skill(sid, name, desc, formula, *, stype=STYPE_SPECIAL, scope=1, mp=0, tp=0,
           tp_gain=8, animation=1, icon=76, element=-1, hit_type=1, dmg_type=1,
           effects=(), critical=False, variance=20, message="%1 uses %2!",
           occasion=1, repeats=1, success=100, speed=0):
     return {
-        "id": sid, "name": name, "note": "", "description": desc,
+        "id": sid, "name": name, "note": "", "description": described(desc),
         "animationId": animation, "iconIndex": icon, "stypeId": stype,
         "scope": scope, "occasion": occasion, "hitType": hit_type,
         "mpCost": mp, "tpCost": tp, "tpGain": tp_gain, "speed": speed,
@@ -213,7 +227,7 @@ def item(iid, name, desc, *, price=0, icon=176, itype=1, scope=7, consumable=Tru
          effects=(), animation=41, occasion=0, formula="0", dmg_type=0,
          element=0, hit_type=0):
     return {
-        "id": iid, "name": name, "note": "", "description": desc,
+        "id": iid, "name": name, "note": "", "description": described(desc),
         "animationId": animation, "iconIndex": icon, "itypeId": itype,
         "price": price, "consumable": consumable, "scope": scope,
         "occasion": occasion, "hitType": hit_type, "speed": 0,
@@ -225,14 +239,14 @@ def item(iid, name, desc, *, price=0, icon=176, itype=1, scope=7, consumable=Tru
 
 
 def weapon(wid, name, desc, wtype, price, stats, traits=(), icon=97, animation=6):
-    return {"id": wid, "name": name, "note": "", "description": desc,
+    return {"id": wid, "name": name, "note": "", "description": described(desc),
             "animationId": animation, "iconIndex": icon, "etypeId": ET_WEAPON,
             "wtypeId": wtype, "price": price, "params": list(stats),
             "traits": list(traits)}
 
 
 def armor(aid, name, desc, etype, atype, price, stats, traits=(), icon=131):
-    return {"id": aid, "name": name, "note": "", "description": desc,
+    return {"id": aid, "name": name, "note": "", "description": described(desc),
             "iconIndex": icon, "etypeId": etype, "atypeId": atype,
             "price": price, "params": list(stats), "traits": list(traits)}
 

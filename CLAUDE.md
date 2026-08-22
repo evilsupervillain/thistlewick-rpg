@@ -163,3 +163,12 @@ survives five or six of its turns.
   not in a strings table - it is read far more often than it is reused.
 * Colour codes in text: `\C[6]` for a speaker's name, `\C[3]` for a thing you
   just got, `\C[2]` for something ominous.
+* A line of dialogue is at most **47 characters** including the `Speaker: `
+  that `say()` puts in front of the first line of every window - so a line by
+  Councillor Fenn has thirty characters to play with and one by Hob has
+  forty-two. Narration, which has no face beside it, gets 60. `say()` and
+  `narrate()` measure every line and refuse to build one that would be drawn
+  off the edge of the window, naming the speaker and how much is over; break
+  it earlier rather than letting anything wrap it, because where a line breaks
+  is the joke landing or not. Item and skill descriptions are prose, so
+  `db.described()` wraps those onto the two lines the help window shows.

@@ -153,16 +153,17 @@ def village_events():
 
     # -- 1: the way out, and the whole first-act gate --------------------------
     leave = S.say("Gatekeeper", [
-        "Right then. North road. Obligatory Tower.",
-        "You'll want to be sure - it's a long walk",
-        "and the scenery repeats."])
+        "Right then. North road.",
+        "Obligatory Tower. You'll want to be sure -",
+        "it's a long walk and the scenery repeats."])
     leave += R.choice_block(
         ["Go north", "Not yet"],
         [[R.play_se("Move1"), R.control_switch(db.SW_LEFT_VILLAGE, True),
           R.transfer(MAP_WORLD, WORLD_VILLAGE_STEP[0],
                      WORLD_VILLAGE_STEP[1], 2, 0)],
-         S.say("Gatekeeper", ["Very sensible. Nobody ever went north",
-                              "and came back saying it was fine."])])
+         S.say("Gatekeeper", [
+         "Very sensible. Nobody ever went",
+         "north and came back saying it was fine."])])
 
     too_few = S.say("Gatekeeper", [
         "Hold up. You're alone.",
@@ -186,8 +187,8 @@ def village_events():
 
     # -- 2: the gatekeeper himself ---------------------------------------------
     keeper = S.say("Gatekeeper", [
-        "Forty-seven Chosen Ones I've waved off through",
-        "that gate."])
+        "Forty-seven Chosen Ones I've waved",
+        "off through that gate."])
     keeper += S.narrate(["He looks north for a while."])
     keeper += S.say("Gatekeeper", ["Forty-seven."])
     keeper += S.narrate(["He does not say how many came back.",
@@ -264,21 +265,22 @@ def village_events():
               S.narrate(["\\C[6]Dog:\\C[0] Woof."]),
               "Nature", 0, move_type=1, move_frequency=2))
     interp = S.say("Neighbour", [
-        "He says the north road is dangerous and you",
-        "should take a coat."])
+        "He says the north road is dangerous",
+        "and you should take a coat."])
     interp += S.narrate(["The dog has not made a sound."])
     interp += S.say("Neighbour", ["He says it again. Louder."])
     add(S.npc(15, "Dog Interpreter", 9, 27, interp, "People1", 1))
 
     # -- 16: the farmer, who is Bram's actual boss -----------------------------
     farmer = S.say("Farmer", [
-        "So you're Chosen. Marvellous. Wonderful.",
+        "So you're Chosen.",
+        "Marvellous. Wonderful.",
         "Who's doing the west field, then?"])
     farmer += S.narrate(["You explain about the Dark Lord."])
     farmer += S.say("Farmer", [
-        "Aye, well. The west field's got weevils and",
-        "the Dark Lord's got a tower. Only one of those",
-        "is going to spoil my supper."])
+        "Aye, well. The west field's got weevils",
+        "and the Dark Lord's got a tower. Only one of",
+        "those is going to spoil my supper."])
     add(S.npc(16, "Farmer", 13, 19, farmer, "People2", 6))
 
     # -- 17: the scarecrow -----------------------------------------------------
@@ -321,11 +323,13 @@ def village_events():
 
     # -- 21: the gossip --------------------------------------------------------
     gossip = S.say("Villager", [
-        "They chose you at the meeting, you know.",
-        "Second vote. First vote was the goat."])
+        "They chose you at the meeting,",
+        "you know. Second vote.",
+        "First vote was the goat."])
     gossip += S.narrate(["She lets that sit."])
     gossip += S.say("Villager", [
-        "Goat abstained. Very dignified about it."])
+        "Goat abstained.",
+        "Very dignified about it."])
     add(S.npc(21, "Gossip", 24, 16, gossip, "People1", 0, direction=4))
 
     # -- 22: the market stall --------------------------------------------------
@@ -366,8 +370,9 @@ def aldric_event(event_id, x, y):
         "I am passing through."])
     pitch += S.narrate(["He has been passing through for six years."])
     pitch += S.say("Aldric", [
-        "I seek only the north gate. It moves, you see.",
-        "A cunning enchantment. I shall find it."])
+        "I seek only the north gate.",
+        "It moves, you see. A cunning",
+        "enchantment. I shall find it."])
     pitch += S.narrate(["The north gate is forty paces north.",
                         "It has never moved."])
     pitch += S.say("Aldric", ["...Unless. Do YOU know the way?"])
@@ -384,8 +389,9 @@ def aldric_event(event_id, x, y):
         "I have narrowed it down to the village."])
 
     full = S.say("Aldric", [
-        "A full company already! Splendid discipline.",
-        "I shall wait here. As I have. For six years."])
+        "A full company already!",
+        "Splendid discipline. I shall wait",
+        "here. As I have. For six years."])
 
     return S.recruit(event_id, db.ALDRIC, "Aldric", x, y, "Actor3", 6,
                      pitch=pitch, accept=accept, decline=decline, full=full,
@@ -471,8 +477,8 @@ def home_events():
 
     # Mother, who has the sword above the fireplace and the whole opening beat.
     intro = S.say("Mother", [
-        "Bram. There are eleven people outside and",
-        "one of them has a scroll."])
+        "Bram. There are eleven people outside",
+        "and one of them has a scroll."])
     intro += S.say("Mother", ["You've been Chosen."])
     intro += S.narrate([
         "You point out that you were asleep.",
@@ -555,10 +561,10 @@ def hall_events():
         "Elder Wispel unrolls a scroll. It keeps",
         "unrolling. It reaches the far wall."])
     first += S.say("Elder Wispel", [
-        "The Prophecy of Thistlewick. Every hundred",
-        "years the Dark Lord rises in the Obligatory",
-        "Tower. Every hundred years we send someone.",
-        "It has worked forty-seven times."])
+        "The Prophecy of Thistlewick.",
+        "Every hundred years the Dark Lord rises in",
+        "the Obligatory Tower. Every hundred years we",
+        "send someone. It has worked forty-seven times."])
     first += S.narrate(["You ask what happened the other times."])
     first += S.say("Elder Wispel", [
         "It has worked forty-seven times."])
@@ -566,9 +572,9 @@ def hall_events():
         "He rolls the scroll back up. It takes a while.",
         "Nobody helps."])
     first += S.say("Elder Wispel", [
-        "Take companions. Up to three - that is the",
-        "clause, not my preference. Then go north.",
-        "Kill the Dark Lord. Come home.",
+        "Take companions. Up to three -",
+        "that is the clause, not my preference.",
+        "Then go north. Kill the Dark Lord. Come home.",
         "In that order, ideally."])
     first += [R.play_me("Mystery"), R.control_switch(db.SW_QUEST, True),
               R.gain_item(db.IT_PROPHECY, 1), R.gain_gold(500),
@@ -583,9 +589,10 @@ def hall_events():
     first += [S.trope()]
 
     again = S.say("Elder Wispel", [
-        "Still here? Take up to three companions and",
-        "go north. The gate is where it has always been,",
-        "whatever Sir Aldric tells you."])
+        "Still here? Take up to three",
+        "companions and go north. The gate is where",
+        "it has always been, whatever Sir Aldric",
+        "tells you."])
 
     evs.append(R.event(2, "Elder Wispel", 10, 5, [
         R.page(first, img=R.image("People1", 6, direction=2), trigger=0,
@@ -607,13 +614,15 @@ def hall_events():
 
     # -- the Committee, still arguing about the wording -----------------------
     arg1 = S.say("Councillor", [
-        "'Shall be slain' or 'shall be defeated'?",
+        "'Shall be slain' or",
+        "'shall be defeated'?",
         "Because 'slain' is a commitment."])
     evs.append(S.npc(4, "Committee Member (Wording)", 13, 8, arg1,
                      "People1", 3, direction=4))
 
     arg2 = S.say("Councillor Fenn", [
-        "I keep saying it. Clause twelve is the problem.",
+        "I keep saying it.",
+        "Clause twelve is the problem.",
         "'THE DARK LORD SHALL RISE AGAIN.'",
         "That's not a warning. That's a subscription."])
     arg2 += S.narrate(["Nobody is listening to him.",
@@ -681,7 +690,8 @@ def inn_events():
     evs.append(piper_event(4, 9, 6))
 
     drunk = S.say("Regular", [
-        "Chosen One, eh? My cousin was a Chosen One."])
+        "Chosen One, eh?",
+        "My cousin was a Chosen One."])
     drunk += S.narrate(["He drinks."])
     drunk += S.say("Regular", ["Number thirty-nine."])
     drunk += S.narrate(["He drinks again."])
@@ -703,9 +713,10 @@ def zephyrine_event(event_id, x, y):
         "Zephyrine Vance has been 'just passing through'",
         "Thistlewick for eleven years."])
     pitch += S.say("Zephyrine", [
-        "I was expelled from the Collegium Arcanum.",
-        "The enquiry used the phrase 'an unsanctioned",
-        "quantity of fire'. Twice."])
+        "I was expelled from the",
+        "Collegium Arcanum. The enquiry used the",
+        "phrase 'an unsanctioned quantity of fire'.",
+        "Twice."])
     pitch += S.narrate(["You ask what happened to the Dean."])
     pitch += S.say("Zephyrine", [
         "The Dean is FINE. The DUCK is fine.",
@@ -725,8 +736,8 @@ def zephyrine_event(event_id, x, y):
         "I'm always here. That's the whole problem."])
 
     full = S.say("Zephyrine", [
-        "You've got three already? And none of them",
-        "can set anything on fire?",
+        "You've got three already?",
+        "And none of them can set anything on fire?",
         "Bold. Genuinely bold."])
     return S.recruit(event_id, db.ZEPH, "Zephyrine", x, y, "Actor1", 5,
                      pitch=pitch, accept=accept, decline=decline, full=full)
@@ -738,8 +749,9 @@ def piper_event(event_id, x, y):
         "She is describing you, out loud, in the third",
         "person, as you approach."])
     pitch += S.say("Piper", [
-        "'And lo, the Chosen One drew near, smelling",
-        "faintly of turnip, and the tavern fell silent -'"])
+        "'And lo, the Chosen One drew near,",
+        "smelling faintly of turnip, and the tavern",
+        "fell silent -'"])
     pitch += S.narrate(["The tavern has not fallen silent.",
                         "The tavern is ignoring her."])
     pitch += S.say("Piper", [
@@ -815,10 +827,12 @@ def chapel_events():
 
 def merribell_event(event_id, x, y):
     pitch = S.say("Merribell", [
-        "Sit down. When did you last drink water?"])
+        "Sit down.",
+        "When did you last drink water?"])
     pitch += S.narrate(["You try to explain about the prophecy."])
     pitch += S.say("Merribell", [
-        "That wasn't the question. Water. When."])
+        "That wasn't the question.",
+        "Water. When."])
     pitch += S.narrate([
         "Sister Merribell of the Order of Whatever Works.",
         "The Order holds that theology is a distraction",
@@ -826,9 +840,9 @@ def merribell_event(event_id, x, y):
         "problem is usually simpler than you want it",
         "to be."])
     pitch += S.say("Merribell", [
-        "Right. A tower, a Dark Lord, and a boy who",
-        "hasn't had a glass of water since Tuesday.",
-        "Someone should go with you."])
+        "Right. A tower, a Dark Lord, and a",
+        "boy who hasn't had a glass of water since",
+        "Tuesday. Someone should go with you."])
 
     accept = S.say("Merribell", [
         "I'm bringing the basin. Don't argue.",
@@ -838,14 +852,14 @@ def merribell_event(event_id, x, y):
     accept += [S.trope()]
 
     decline = S.say("Merribell", [
-        "Then take this, and drink it before the gate.",
-        "I will know if you don't."])
+        "Then take this, and drink it before",
+        "the gate. I will know if you don't."])
     decline += [R.gain_item(db.IT_POTION, 1), R.play_se("Item1")]
     decline += S.narrate(["Got \\I[176]\\C[3]Potion\\C[0]."])
 
     full = S.say("Merribell", [
-        "Three already. Good. One of them had better",
-        "know first aid.",
+        "Three already. Good.",
+        "One of them had better know first aid.",
         "...None of them know first aid, do they."])
     return S.recruit(event_id, db.MERRI, "Merribell", x, y, "Actor1", 7,
                      pitch=pitch, accept=accept, decline=decline, full=full)
@@ -912,16 +926,17 @@ def hob_event(event_id, x, y):
         "knows what breaks."])
 
     accept = S.say("Hob", [
-        "Right. Beatrice comes. I come with Beatrice.",
-        "That's the arrangement and it's not up for",
-        "discussion, mainly because she'd win."])
+        "Right. Beatrice comes.",
+        "I come with Beatrice. That's the arrangement",
+        "and it's not up for discussion, mainly",
+        "because she'd win."])
     accept += [R.gain_weapon(db.WP_HAMMER, 1), R.play_se("Item1")]
     accept += S.narrate(["Got \\I[113]\\C[3]Shop Hammer\\C[0]."])
     accept += [S.trope()]
 
     decline = S.say("Hob", [
-        "Suit yourself. Mind the anvil on the way out.",
-        "Not for your sake. For the anvil's."])
+        "Suit yourself. Mind the anvil on the",
+        "way out. Not for your sake. For the anvil's."])
 
     full = S.say("Hob", [
         "Full up. Beatrice says that's a shame.",
@@ -953,8 +968,9 @@ def store_events():
     evs = [S.exit_tile(1, "Emporium Door", *threshold(MAP_STORE), MAP_VILLAGE, *OUT[MAP_STORE])]
 
     shop = S.say("Shopkeeper", [
-        "Everything here is previously owned.",
-        "By whom, we don't ask. That's the arrangement."])
+        "Everything here is previously",
+        "owned. By whom, we don't ask.",
+        "That's the arrangement."])
     shop += R.shop([
         (0, db.IT_POTION, 0, 0), (0, db.IT_HI_POTION, 0, 0),
         (0, db.IT_TONIC, 0, 0), (0, db.IT_ETHER, 0, 0),
@@ -989,8 +1005,8 @@ def nix_event(event_id, x, y):
         "who has not yet been identified."])
     pitch += S.narrate(["You did not ask."])
     pitch += S.say("Nix", [
-        "Everyone asks eventually. I like to get ahead",
-        "of it. Same as everything else."])
+        "Everyone asks eventually. I like to get",
+        "ahead of it. Same as everything else."])
 
     accept = S.say("Nix", [
         "A tower nobody's been inside for a hundred",
@@ -1004,9 +1020,8 @@ def nix_event(event_id, x, y):
         "Not accusing. Just a good habit."])
 
     full = S.say("Nix", [
-        "Three's a good number. Small, quiet, splits",
-        "four ways.",
-        "...Four ways?"])
+        "Three's a good number.",
+        "Small, quiet, splits four ways."])
     return S.recruit(event_id, db.NIX, "Nix", x, y, "Actor3", 4,
                      pitch=pitch, accept=accept, decline=decline, full=full)
 
