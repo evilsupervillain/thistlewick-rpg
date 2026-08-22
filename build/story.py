@@ -87,6 +87,11 @@ def say(speaker, lines, *, face=True, indent=0, position=2):
         # The speaker's name leads every window, not just the first: a long
         # speech runs over several of them and the player should not have to
         # remember who started talking four windows ago.
+        #
+        # It leads the message rather than sitting in Show Text's `speakerName`
+        # box, which would cost the line nothing. That is a decision about how
+        # the game looks and not an oversight - see CLAUDE.md. When a line is
+        # too wide, break the line.
         page = ["\\C[6]%s:\\C[0] %s" % (speaker, page[0])] + page[1:]
         for line in page:
             _check_width(line, name, speaker)

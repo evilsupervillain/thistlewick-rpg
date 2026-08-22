@@ -163,6 +163,14 @@ survives five or six of its turns.
   not in a strings table - it is read far more often than it is reused.
 * Colour codes in text: `\C[6]` for a speaker's name, `\C[3]` for a thing you
   just got, `\C[2]` for something ominous.
+* **The speaker's name goes inside the message, not in a name box.** MZ's Show
+  Text has a fifth parameter, `speakerName`, which draws the name in its own
+  little window above the message and costs the line nothing - it is the
+  engine's own answer to the width problem, and it is deliberately not used
+  here. `\C[6]Speaker:\C[0] ` in front of the first line of each window is the
+  look this game has settled on, and the eight-to-seventeen characters it costs
+  are a price worth paying. Do not "fix" a long line by moving the name out of
+  it; break the line.
 * A line of dialogue is at most **47 characters** including the `Speaker: `
   that `say()` puts in front of the first line of every window - so a line by
   Councillor Fenn has thirty characters to play with and one by Hob has
