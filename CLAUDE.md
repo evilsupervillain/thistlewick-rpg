@@ -136,6 +136,17 @@ for any long cutscene.
 | `finale_ending` | the ending itself: switches, the receipt, the trope
   tally and the return to the title, with the battles and the message
   windows stripped out of the command list so it runs without input |
+| `reachable_home` | the bed, the sword and the front door of Bram's house,
+  walked to with the arrow keys and triggered with the action button |
+| `reachable_village` | the Fisher on the pond bank, Prophecy Hall's door, the
+  Wall of the Forty-Seven, the Creed and the Organ, the same way |
+
+The two `reachable` scenarios exist because every other scenario here starts
+its events with `$gameMap.event(n).start()`, which proves what an event does
+and nothing at all about whether the player can get to it. They walk instead,
+and check `$gameMap._interpreter.eventId()` to see which event the button
+press actually reached. `validate.py` catches the same class of bug statically
+now, so these are the confirmation rather than the search.
 
     python3 build/balance.py 8
 

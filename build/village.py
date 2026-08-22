@@ -73,7 +73,7 @@ def village_map():
 
     # -- the pond, with reeds on the near bank
     g.blob(35, 25, 3, 3, 0, K.WATER)
-    g.scatter([(32, 24), (32, 27), (38, 23)], 0, K.REEDS)
+    g.scatter([(32, 27), (38, 23)], 0, K.REEDS)   # (32,24) is the Fisher's bank
 
     # -- buildings
     g.building(*HALL, wall=K.WALL_SANDBRICK, roof=K.ROOF_GOLD, wall_rows=3)
@@ -297,7 +297,9 @@ def village_events():
         "Not catching anything, and coming back anyway."])
     fish += S.narrate(["It is, unexpectedly, the best advice",
                        "anyone gives you today."])
-    add(S.npc(18, "Fisher", 33, 24, fish, "People1", 4, direction=6))
+    # On the west bank looking out over the water. The pond itself is
+    # impassable, so a Fisher standing in it is a Fisher nobody can talk to.
+    add(S.npc(18, "Fisher", 32, 24, fish, "People1", 4, direction=6))
 
     # -- 19/20: two barrels, because someone has to say it ---------------------
     loot = S.narrate(["You look in the barrel.",
@@ -460,8 +462,12 @@ def home_events():
           R.fadein_screen()] + S.narrate(["You wake up.",
                                           "You are still the Chosen One."]),
          S.narrate(["You get on with it."])])
+    # Same as characters, not below: the bed tiles block, so nobody can ever
+    # stand on this one, and an action-button event is only triggered from the
+    # tile it is standing on unless its priority is normal.
     evs.append(R.event(2, "Bram's Bed", 4, 5, [R.page(
-        bed, img=R.image(""), trigger=0, priority=0, through=True)]))
+        bed, img=R.image(""), trigger=0, priority=1, direction_fix=True,
+        through=True)]))
 
     # Mother, who has the sword above the fireplace and the whole opening beat.
     intro = S.say("Mother", [
@@ -489,7 +495,11 @@ def home_events():
                        "Equip it. It has waited a century",
                        "and it will not be gracious about waiting longer."])
     take += [S.trope(), R.self_switch("A", True)]
-    evs.append(R.event(4, "Sword Over The Fireplace", 10, 3, [
+    # The sword hangs on the wall at (10,3), but the fireplace fills (9-11,
+    # 3-4) and blocks, so nobody can stand next to the wall tile. The event
+    # goes on the fireplace's lower half instead - the tile the player faces
+    # when they walk up to the hearth.
+    evs.append(R.event(4, "Sword Over The Fireplace", 10, 4, [
         R.page(take, img=R.image(""), trigger=0, priority=1,
                direction_fix=True, through=True),
         R.page(S.narrate(["A clean rectangle of wall where a sword",
@@ -612,7 +622,7 @@ def hall_events():
     evs.append(S.npc(5, "Committee Member (Clause Twelve)", 14, 11, arg2,
                      "People4", 2, direction=4))
 
-    evs.append(S.sign(6, "The Wall of the Forty-Seven", 4, 3, [
+    evs.append(S.sign(6, "The Wall of the Forty-Seven", 4, 4, [
         "Forty-seven portraits.",
         "Forty-six of them are looking at the viewer.",
         "One of them is looking at the door."]))
@@ -787,14 +797,14 @@ def chapel_events():
     evs.append(R.event(3, "Basin", 14, 8, [R.page(
         heal, img=R.image(""), trigger=0, priority=1, direction_fix=True)]))
 
-    evs.append(S.sign(4, "The Creed", 4, 3, [
+    evs.append(S.sign(4, "The Creed", 4, 4, [
         "\\C[6]THE CREED OF WHATEVER WORKS\\C[0]",
         "1. Try the obvious thing.",
         "2. If the obvious thing works, it was correct.",
         "3. There is no rule three. Rule three was",
         "   getting in the way."]))
 
-    evs.append(S.prop(5, "The Organ", 13, 4, [
+    evs.append(S.prop(5, "The Organ", 13, 5, [
         "A pipe organ. Sister Merribell plays it",
         "at people who look tired.",
         "You press one key. The note goes on for",

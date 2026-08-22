@@ -1,0 +1,154 @@
+{
+  "query": "?map=1&x=28&y=32&frames=90",
+  "steps": [
+    {
+      "goto": [
+        1,
+        31,
+        24
+      ]
+    },
+    {
+      "frames": 24
+    },
+    {
+      "key": "ArrowRight",
+      "times": 2
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+      "expect": [
+        31,
+        24,
+        6
+      ],
+      "label": "the Fisher blocks the bank tile, so you stop and face him"
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+      "expect": 18,
+      "label": "the Fisher answers"
+    },
+    {
+      "advance": 12
+    },
+    {
+      "frames": 24
+    },
+    {
+      "shot": "reachable_pond.png"
+    },
+    {
+      "goto": [
+        3,
+        10,
+        14
+      ]
+    },
+    {
+      "frames": 24
+    },
+    {
+      "key": "ArrowDown",
+      "times": 1
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 1,
+      "label": "walking onto Prophecy Hall's threshold puts you outside"
+    },
+    {
+      "goto": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "frames": 24
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+      "expect": 6,
+      "label": "the Wall of the Forty-Seven answers"
+    },
+    {
+      "advance": 12
+    },
+    {
+      "frames": 24
+    },
+    {
+      "goto": [
+        5,
+        4,
+        5
+      ]
+    },
+    {
+      "frames": 24
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+      "expect": 4,
+      "label": "the Creed answers"
+    },
+    {
+      "advance": 12
+    },
+    {
+      "frames": 24
+    },
+    {
+      "goto": [
+        5,
+        13,
+        6
+      ]
+    },
+    {
+      "frames": 24
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+      "expect": 5,
+      "label": "the Organ answers"
+    },
+    {
+      "advance": 12
+    },
+    {
+      "frames": 24
+    },
+    {
+      "shot": "reachable_chapel.png"
+    }
+  ]
+}

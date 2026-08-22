@@ -1,0 +1,123 @@
+{
+  "query": "?map=2&x=8&y=8&frames=90",
+  "steps": [
+    {
+      "check": "$gameMap.displayName()",
+      "expect": "Bram's House",
+      "label": "starting map"
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 4
+    },
+    {
+      "key": "ArrowUp",
+      "times": 3
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+      "expect": [
+        4,
+        6,
+        8
+      ],
+      "label": "walked to the foot of the bed and faced it"
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+      "expect": 2,
+      "label": "the action button reaches Bram's Bed"
+    },
+    {
+      "choose": 1
+    },
+    {
+      "frames": 24
+    },
+    {
+      "advance": 10
+    },
+    {
+      "frames": 24
+    },
+    {
+      "key": "ArrowDown",
+      "times": 1
+    },
+    {
+      "key": "ArrowRight",
+      "times": 6
+    },
+    {
+      "key": "ArrowUp",
+      "times": 3
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+      "expect": [
+        10,
+        5,
+        8
+      ],
+      "label": "walked up to the hearth and faced the sword"
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+      "expect": 4,
+      "label": "the action button reaches the sword over the fireplace"
+    },
+    {
+      "advance": 12
+    },
+    {
+      "frames": 24
+    },
+    {
+      "check": "$gameParty.numItems($dataWeapons[2])",
+      "expect": 1,
+      "label": "took the Village Sword off the wall"
+    },
+    {
+      "key": "ArrowDown",
+      "times": 2
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 2
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        8,
+        7
+      ],
+      "label": "stepped round Mother into the door column"
+    },
+    {
+      "key": "ArrowDown",
+      "times": 5
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 1,
+      "label": "walking onto the threshold puts you outside - no button press"
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        28,
+        32
+      ],
+      "label": "landed outside the front door"
+    }
+  ]
+}

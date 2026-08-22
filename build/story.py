@@ -115,10 +115,16 @@ def door(event_id, name, x, y, target_map, tx, ty, direction=2, sheet="!Door1",
 
 
 def exit_tile(event_id, name, x, y, target_map, tx, ty, direction=2):
-    """An invisible way out of an interior - stand on it and you are outside."""
+    """An invisible way out of an interior - stand on it and you are outside.
+
+    Below characters, not same as characters: `checkEventTriggerHere` only
+    starts events whose priority is *not* normal, so a player-touch tile at
+    "same as characters" is one the player walks straight over. It would still
+    answer the action button from the tile next to it, which is exactly what a
+    door that has stopped working looks like."""
     return R.event(event_id, name, x, y, [R.page(
         [R.play_se("Move1"), R.transfer(target_map, tx, ty, direction, 0)],
-        img=R.image(""), trigger=1, priority=1, through=True)])
+        img=R.image(""), trigger=1, priority=0, through=True)])
 
 
 def sign(event_id, name, x, y, lines, sheet="", index=0):
