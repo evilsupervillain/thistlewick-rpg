@@ -81,12 +81,17 @@ WALL_MOSS_STONE = A(75)
 
 # ---------------------------------------------------------- Outside_C roof ---
 # Each roof is a nine-slice: (left column, top row) of a 3x3 block on Outside_C.
+# There are exactly four, and they sit at columns 8-10 and 13-15 of rows 0-2 and
+# 3-5. Columns 11-12 are *not* a fifth and sixth roof - they are spare hip and
+# valley pieces for the green and gold blocks, with blank cells where the third
+# column of a real block would be. A nine-slice anchored there straddles two
+# different roofs and half of it is empty, which draws a building with a white
+# band across it and a strip of somebody else's roof down one edge. Anchor a
+# roof only at one of these four.
 ROOF_GREEN = (8, 0)
 ROOF_WHITE = (13, 0)      # snow-covered
 ROOF_GOLD = (8, 3)
 ROOF_BROWN = (13, 3)      # plain wooden roof - the village default
-ROOF_YELLOW_BRICK = (11, 3)
-ROOF_GREEN_FLAT = (11, 0)
 TOWER_STONE = (8, 6)      # a round stone tower, not a roof: 2 wide, 5 tall
 TOWER_WHITE = (10, 6)
 
@@ -95,8 +100,11 @@ TREE = ((b_tile(8, 6), b_tile(9, 6)), (b_tile(8, 7), b_tile(9, 7)))
 TREE_DARK = ((b_tile(10, 6), b_tile(11, 6)), (b_tile(10, 7), b_tile(11, 7)))
 STALL = ((b_tile(12, 6), b_tile(13, 6)), (b_tile(12, 7), b_tile(13, 7)))
 STALL_FRUIT = ((b_tile(14, 6), b_tile(15, 6)), (b_tile(14, 7), b_tile(15, 7)))
-TENT = ((b_tile(5, 3), b_tile(6, 3)), (b_tile(5, 4), b_tile(6, 4)),
-        (b_tile(5, 5), b_tile(6, 5)))
+# A market tent: 3 wide and 3 tall, with the awning poles down the outer
+# columns. Drawn two columns wide it is a tent with one wall missing.
+TENT = ((b_tile(5, 3), b_tile(6, 3), b_tile(7, 3)),
+        (b_tile(5, 4), b_tile(6, 4), b_tile(7, 4)),
+        (b_tile(5, 5), b_tile(6, 5), b_tile(7, 5)))
 PALM = ((b_tile(12, 13),), (b_tile(12, 14),))
 
 BUSH = b_tile(8, 3)
@@ -141,7 +149,11 @@ SIGN_COIN = b_tile(3, 9)
 SIGN_HAMMER = b_tile(5, 9)
 SIGN_SUN = b_tile(6, 9)
 
-DOORWAY_DARK = b_tile(12, 0)      # a black opening, for a door you cannot enter
+# On a house front, use DOOR_SHUT: a door that is closed reads as a building
+# somebody lives in, and a bare black square reads as a hole the tiler left.
+# DOORWAY_DARK is the inside of an opening and needs a frame drawn round it.
+DOORWAY_DARK = b_tile(12, 0)      # flat black; only ever inside something
+DOOR_SHUT = (b_tile(2, 14), b_tile(2, 15))       # closed boarded door, 2 tall
 DOORWAY_ARCH = (b_tile(4, 14), b_tile(4, 15))    # tall arched black opening
 WINDOW = b_tile(0, 12)            # window with a flower box
 WINDOW_GLASS = (b_tile(3, 14), b_tile(3, 15))    # stained glass, 2 tall
@@ -306,9 +318,68 @@ WB_HUT = b_tile(0, 1)
 WB_ROCK = b_tile(5, 1)
 
 
+# The only things that belong on the front of a house: what is nailed to the
+# wall, and the holes in it. `Canvas` uses this to tell a shop sign from a
+# barrel that has been drawn halfway up a wall by accident.
+WALL_MOUNTED = frozenset(
+    [WINDOW, DOORWAY_DARK, SIGN_BLADE, SIGN_ORB, SIGN_ARMOR, SIGN_RING,
+     SIGN_POTION, SIGN_INN, SIGN_MUG, SIGN_PLATE, SIGN_WAND, SIGN_COIN,
+     SIGN_HAMMER, SIGN_SUN]
+    + list(WINDOW_GLASS) + list(DOOR_DOUBLE) + list(DOOR_SHUT)
+    + list(DOORWAY_ARCH))
+
+
+class BuildingOverlap(Exception):
+    """Something was drawn on top of a house."""
+
+
 # ================================================================ drawing ====
 class Canvas(R.MapGrid):
-    """A MapGrid that knows how to draw the things above."""
+    """A MapGrid that knows how to draw the things above.
+
+    It also remembers where it put the houses. Scenery is placed by eye from a
+    list of coordinates, houses are placed by corner and size, and the two lists
+    are written at opposite ends of a map function - so a barrel ends up on a
+    roof, or a market stall is drawn across the front of the tavern, and the map
+    still builds and still validates and looks like a bomb went off. Every write
+    into a building's footprint that is not part of the building is refused at
+    the point it happens, which is the only place the mistake is legible.
+
+    Allowed inside a footprint: layer 2 anywhere (that is where chimneys go),
+    anything in `WALL_MOUNTED` on the wall rows, and the shadow and region
+    layers. Everything else raises."""
+
+    def __init__(self, width, height, data=None):
+        R.MapGrid.__init__(self, width, height, data)
+        self.buildings = []          # (x, y, w, h, wall_rows)
+        self._structural = 0         # >0 while the Canvas is drawing its own
+
+    # -- keeping scenery off the houses -------------------------------------
+    def _refuse(self, x, y, z, tile):
+        for bx, by, bw, bh, wall_rows in self.buildings:
+            if not (bx <= x < bx + bw and by <= y < by + bh):
+                continue
+            part = "roof" if y < by + bh - wall_rows else "wall"
+            if z == 2 or z >= 4:
+                return
+            if part == "wall" and z == 3 and tile in WALL_MOUNTED:
+                return
+            raise BuildingOverlap(
+                "tile %d drawn on layer %d at (%d,%d), which is the %s of the "
+                "building at (%d,%d) %dx%d. Move it off the house."
+                % (tile, z, x, y, part, bx, by, bw, bh))
+
+    def set(self, x, y, z, tile):
+        if self.buildings and not self._structural:
+            self._refuse(x, y, z, tile)
+        R.MapGrid.set(self, x, y, z, tile)
+
+    def autotile(self, *args, **kwargs):
+        self._structural += 1
+        try:
+            return R.MapGrid.autotile(self, *args, **kwargs)
+        finally:
+            self._structural -= 1
 
     def blit(self, x, y, z, block):
         """Draw a tuple-of-rows block of raw tile ids with its top-left at x,y."""
@@ -330,24 +401,44 @@ class Canvas(R.MapGrid):
     # -- buildings ----------------------------------------------------------
     def roof(self, x, y, w, h, roof, z=3):
         """Nine-slice a roof over a w x h rectangle. Needs w >= 2 and h >= 2."""
+        if roof not in (ROOF_GREEN, ROOF_WHITE, ROOF_GOLD, ROOF_BROWN):
+            raise ValueError(
+                "%r is not one of the four roof blocks on Outside_C; a "
+                "nine-slice anchored anywhere else straddles two of them"
+                % (roof,))
         col, row = roof
-        for j in range(h):
-            for i in range(w):
-                cx = col if i == 0 else (col + 2 if i == w - 1 else col + 1)
-                cy = row if j == 0 else (row + 2 if j == h - 1 else row + 1)
-                self.set(x + i, y + j, z, c_tile(cx, cy))
+        self._structural += 1
+        try:
+            for j in range(h):
+                for i in range(w):
+                    cx = col if i == 0 else (col + 2 if i == w - 1 else col + 1)
+                    cy = row if j == 0 else (row + 2 if j == h - 1 else row + 1)
+                    self.set(x + i, y + j, z, c_tile(cx, cy))
+        finally:
+            self._structural -= 1
 
-    def building(self, x, y, w, h, wall=WALL_PLANK, roof=ROOF_BROWN, wall_rows=2):
+    def building(self, x, y, w, h, wall=WALL_PLANK, roof=ROOF_BROWN, wall_rows=2,
+                 register=True):
         """A house: `wall_rows` rows of A3 wall along the bottom on layer 0,
         with the roof nine-sliced over everything above it on layer 3.
+
+        The footprint is remembered, so that anything drawn over it afterwards
+        is refused - see the class docstring. `register=False` opts out, for the
+        rare structure that is meant to be built on top of.
 
         Returns the y of the front wall row - where a door event goes."""
         roof_h = h - wall_rows
         if roof_h >= 2:
             self.roof(x, y, w, roof_h, roof)
-        for j in range(wall_rows):
-            for i in range(w):
-                self.set(x + i, y + roof_h + j, 0, wall)
+        self._structural += 1
+        try:
+            for j in range(wall_rows):
+                for i in range(w):
+                    self.set(x + i, y + roof_h + j, 0, wall)
+        finally:
+            self._structural -= 1
+        if register:
+            self.buildings.append((x, y, w, h, wall_rows))
         return y + h - 1
 
     def dungeon_walls(self, top, face, z=0):

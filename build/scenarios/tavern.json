@@ -1,0 +1,59 @@
+{
+  "query": "?map=14&x=12&y=15&frames=90",
+  "steps": [
+    {
+      "check": "$gameVariables.value(4)",
+      "expect": 0,
+      "label": "no tales yet"
+    },
+    {
+      "eval": "$gamePlayer.locate(5, 12); $gameMap.event(4).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "eval": "$gamePlayer.locate(4, 10); $gameMap.event(5).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "eval": "$gamePlayer.locate(7, 12); $gameMap.event(6).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "eval": "$gamePlayer.locate(15, 7); $gameMap.event(8).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "eval": "$gamePlayer.locate(20, 8); $gameMap.event(9).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "eval": "$gamePlayer.locate(17, 12); $gameMap.event(10).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameVariables.value(4)",
+      "expect": 6,
+      "label": "six first-hand accounts heard"
+    },
+    {
+      "check": "$gameVariables.value(2) >= 6",
+      "expect": true,
+      "label": "and every one of them counted as a cliche"
+    },
+    {
+      "shot": "south_tavern.png"
+    }
+  ]
+}

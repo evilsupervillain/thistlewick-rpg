@@ -35,14 +35,23 @@ def walls():
 
 
 def roofs():
+    """Nine-slice whatever anchor you point at, including ones that are not
+    real roofs - that is the point of a sampler. `Canvas.roof` refuses anything
+    but the four proper anchors, so this draws the slice itself."""
     roofs_ = [K.ROOF_GREEN, K.ROOF_WHITE, K.ROOF_GOLD, K.ROOF_BROWN,
-              K.ROOF_YELLOW_BRICK, K.ROOF_GREEN_FLAT,
+              (11, 0), (11, 3),
               (8, 6), (10, 6), (13, 6), (11, 6), (8, 9), (13, 9)]
     g = K.Canvas(32, 30)
     g.fill(0, 0, 31, 29, 0, K.GRASS)
 
     def draw(g, x, y, roof):
-        g.building(x, y, 4, 6, wall=K.WALL_PLANK, roof=roof)
+        col, row = roof
+        for j in range(4):
+            for i in range(4):
+                cx = col if i == 0 else (col + 2 if i == 3 else col + 1)
+                cy = row if j == 0 else (row + 2 if j == 3 else row + 1)
+                g.set(x + i, y + j, 3, K.c_tile(cx, cy))
+        g.fill(x, y + 4, x + 3, y + 5, 0, K.WALL_PLANK)
     grid(g, roofs_, draw, cols=6, cell_w=5, cell_h=7)
     g.autotile(0)
     return g, "Outside_C roof nine-slices"

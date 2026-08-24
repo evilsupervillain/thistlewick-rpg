@@ -1,0 +1,90 @@
+{
+  "query": "?map=15&x=9&y=11&frames=90",
+  "steps": [
+    {
+      "eval": "$gameSwitches.setValue(1, true)"
+    },
+    {
+      "eval": "$gamePlayer.locate(9, 7); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameSwitches.value(25)",
+      "expect": true,
+      "label": "Pell has explained Form A-1"
+    },
+    {
+      "eval": "$gamePlayer.locate(9, 10); $gameMap.event(4).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameSwitches.value(26)",
+      "expect": true,
+      "label": "Form A-1 was under the mat, again"
+    },
+    {
+      "goto": [
+        3,
+        10,
+        13
+      ]
+    },
+    {
+      "eval": "$gamePlayer.locate(10, 6); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[25])",
+      "expect": 1,
+      "label": "the Elder writes a character reference"
+    },
+    {
+      "eval": "$gameParty.gainItem($dataArmors[17], 1)"
+    },
+    {
+      "goto": [
+        15,
+        9,
+        11
+      ]
+    },
+    {
+      "eval": "$gamePlayer.locate(9, 7); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[27])",
+      "expect": 1,
+      "label": "reference plus hat plus form equals a Guild Card"
+    },
+    {
+      "check": "$gameSwitches.value(27)",
+      "expect": true,
+      "label": "registered, provisionally"
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[25])",
+      "expect": 0,
+      "label": "Pell keeps the reference, as the Elder feared"
+    },
+    {
+      "eval": "$gamePlayer.locate(4, 5); $gameMap.event(3).start()"
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 15,
+      "label": "and the board is readable now"
+    }
+  ]
+}

@@ -11,5 +11,13 @@ null,
 {"id":9,"expanded":true,"name":"The Gloamwood","order":9,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":10,"expanded":true,"name":"Gloamwood - The Bit With The Thing","order":10,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":11,"expanded":true,"name":"The Obligatory Tower","order":11,"parentId":8,"scrollX":0,"scrollY":0},
-{"id":12,"expanded":true,"name":"The Obligatory Tower - Summit","order":12,"parentId":8,"scrollX":0,"scrollY":0}
+{"id":12,"expanded":true,"name":"The Obligatory Tower - Summit","order":12,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":13,"expanded":true,"name":"Nether Sopping","order":13,"parentId":0,"scrollX":0,"scrollY":0},
+{"id":14,"expanded":true,"name":"The Slain Wyvern","order":14,"parentId":13,"scrollX":0,"scrollY":0},
+{"id":15,"expanded":true,"name":"The Adventurers' Guild (Provisional)","order":15,"parentId":13,"scrollX":0,"scrollY":0},
+{"id":16,"expanded":true,"name":"Wick & Barrow, Outfitters","order":16,"parentId":13,"scrollX":0,"scrollY":0},
+{"id":17,"expanded":true,"name":"Number Forty-Five's Cottage","order":17,"parentId":13,"scrollX":0,"scrollY":0},
+{"id":18,"expanded":true,"name":"The Lighthouse of Saint Bother","order":18,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":19,"expanded":true,"name":"The Bottomless Pit","order":19,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":20,"expanded":true,"name":"The Barrow of the Forty-Fourth","order":20,"parentId":8,"scrollX":0,"scrollY":0}
 ]

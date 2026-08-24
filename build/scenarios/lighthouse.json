@@ -1,0 +1,46 @@
+{
+  "query": "?map=16&x=8&y=10&frames=90",
+  "steps": [
+    {"comment": "The whole lighthouse quest, with the oil bought rather than granted. Buying is the only part of it that goes through a shop window, so walk to Mrs Barrow and buy through the windows with the key presses a player has."},
+    {"eval": "$gameParty.gainGold(500)"},
+    {"key": "ArrowUp", "times": 4},
+    {"key": "ArrowLeft", "times": 3},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()].join()", "expect": "6,6,4", "label": "the player can walk up to Mrs Barrow's counter"},
+
+    {"comment": "She greets you with one Show Text, and the shop scene is pushed after it: one press to dismiss her, then wait for Scene_Shop rather than pressing blind, because a press that lands on the shop's command window picks Buy early and the next one then means something else."},
+    {"key": "Enter"},
+    {"frames": 60},
+    {"key": "Enter"},
+    {"frames": 60},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Shop", "label": "and the action button opens her shop"},
+    {"key": "Enter", "gap": 20},
+    {"check": "SceneManager._scene._buyWindow.maxItems()", "expect": 15, "label": "the shop has fifteen things on the shelf"},
+    {"key": "ArrowDown", "times": 6},
+    {"check": "SceneManager._scene._buyWindow.item().name", "expect": "Lamp Oil", "label": "one of which is Lamp Oil"},
+    {"check": "SceneManager._scene._buyWindow.isCurrentItemEnabled()", "expect": true, "label": "and it is affordable"},
+    {"key": "Enter", "gap": 20},
+    {"key": "Enter", "gap": 20},
+    {"check": "$gameParty.numItems($dataItems[26])", "expect": 1, "label": "a gallon of oil, bought"},
+    {"key": "Escape", "gap": 20},
+    {"key": "Escape", "gap": 30},
+
+    {"goto": [18, 6, 19]},
+    {"key": "ArrowUp", "times": 2},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()].join()", "expect": "6,18,8", "label": "Bother is one step inside the lighthouse door"},
+    {"key": "Enter"},
+    {"advance": 30},
+    {"check": "$gameSwitches.value(32)", "expect": true, "label": "and he tells you where the oil is"},
+
+    {"comment": "The climb is nineteen rows of nothing and validate.py already proves the lamp is standable, so put the player at it rather than spend a minute of headless walking. The lamp's text and its choice share a window, so the press after the window is up picks 'Fill it and light it' - it does not dismiss the line first."},
+    {"eval": "$gamePlayer.locate(6, 6); $gamePlayer.setDirection(8)"},
+    {"frames": 30},
+    {"key": "Enter"},
+    {"frames": 60},
+    {"key": "Enter"},
+    {"advance": 40},
+    {"check": "$gameSwitches.value(33)", "expect": true, "label": "the light is lit"},
+    {"check": "$gameParty.numItems($dataItems[26])", "expect": 0, "label": "the oil is spent"},
+    {"check": "$gameParty.numItems($dataArmors[18])", "expect": 1, "label": "and Bother parts with the Keeper's Lamp"},
+    {"shot": "lighthouse_lit.png"}
+  ]
+}

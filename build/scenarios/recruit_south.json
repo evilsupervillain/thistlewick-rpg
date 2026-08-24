@@ -1,0 +1,67 @@
+{
+  "query": "?map=14&x=12&y=15&frames=90",
+  "steps": [
+    {
+      "check": "$gameParty.size()",
+      "expect": 1,
+      "label": "Bram, alone"
+    },
+    {
+      "eval": "$gamePlayer.locate(20, 15); $gameMap.event(11).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameParty.members().map(a => a.name())",
+      "expect": [
+        "Bram",
+        "Corvin"
+      ],
+      "label": "Corvin has decided that fate demands it"
+    },
+    {
+      "check": "$gameSwitches.value(17)",
+      "expect": true,
+      "label": "his recruit switch is set"
+    },
+    {
+      "eval": "$gamePlayer.locate(14, 14); $gameMap.event(12).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameParty.size()",
+      "expect": 3,
+      "label": "Wren too"
+    },
+    {
+      "check": "$gameVariables.value(1)",
+      "expect": 2,
+      "label": "two companions counted"
+    },
+    {
+      "eval": "$gameParty.addActor(2)"
+    },
+    {
+      "eval": "$gamePlayer.locate(18, 10); $gameMap.event(13).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameParty.size()",
+      "expect": 4,
+      "label": "a full party is turned down, politely"
+    },
+    {
+      "check": "$gameSwitches.value(19)",
+      "expect": false,
+      "label": "and Roland is still in the tavern"
+    },
+    {
+      "shot": "south_recruited.png"
+    }
+  ]
+}

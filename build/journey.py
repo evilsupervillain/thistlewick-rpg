@@ -18,6 +18,7 @@ import db
 import mapkit as K
 import rmmzdata as R
 import story as S
+import wilds as W
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_VILLAGE_STEP, WORLD_GLOAMWOOD, WORLD_TOWER)
@@ -31,8 +32,10 @@ WOOD_NORTH = (17, 20)                        # where the wood spits you out
 TOWER_DOOR = WORLD_TOWER
 SHRINE = (28, 15)
 
-# Region ids drive which encounters happen where.
+# Region ids drive which encounters happen where. Region 3 is the shingle
+# along the south coast, and belongs to `wilds.py`.
 REG_SOUTH, REG_NORTH = 1, 2
+REG_COAST = W.REG_COAST
 
 # Gloamwood
 GW, GH = 34, 40
@@ -77,7 +80,8 @@ def world_map():
     g.blob(46, 36, 5, 5, 0, K.W_SEA)
     g.blob(5, 13, 4, 5, 0, K.W_SEA)
     g.blob(9, 44, 4, 4, 0, K.W_SEA)
-    g.autotile(0)
+    W.south_ground(g)                             # the south-east shoulder,
+    g.autotile(0)                                 # the headland and the beach
 
     # -- layer 1: the shape of the journey --------------------------------
     # A mountain wall across the middle. Its one gap is full of trees, which
@@ -110,7 +114,8 @@ def world_map():
     road += [(x, 9) for x in range(28, 32)]
     for x, y in road:
         g.set(x, y, 1, K.W_ROAD)
-    g.autotile(1)
+    W.south_layer1(g)                             # the coast road and the
+    g.autotile(1)                                 # two tracks off it
 
     # -- layer 3: the places you can walk into -----------------------------
     g.blit(WORLD_VILLAGE[0] - 1, WORLD_VILLAGE[1] - 1, 3, K.WB_VILLAGE)
@@ -125,6 +130,7 @@ def world_map():
         g.set(x, y, 3, K.WB_TREE)
     for x, y in [(31, 31), (14, 44), (36, 13), (7, 22)]:
         g.set(x, y, 3, K.WB_ROCK)
+    W.south_layer3(g)
 
     # Regions decide which encounters happen where: the south half of the
     # continent is a gentler place than the north half.
@@ -134,6 +140,7 @@ def world_map():
                 continue
             g.set(x, y, 5, REG_SOUTH if y >= 30 else
                   (REG_NORTH if y <= 21 else 0))
+    W.south_regions(g)
 
     m = K.new_map(WW, WH, K.TS_WORLD, name="", bgm="Field1",
                   encounter_step=36, scroll_type=0,
@@ -145,9 +152,13 @@ def world_map():
                       (db.TR_GOBLINS, 5, [REG_NORTH]),
                       (db.TR_BANDITS, 4, [REG_NORTH]),
                       (db.TR_WISPS, 3, [REG_NORTH]),
+                      (db.TR_CRABS, 5, [REG_COAST]),
+                      (db.TR_GULLS, 5, [REG_COAST]),
+                      (db.TR_COAST_MIX, 3, [REG_COAST]),
                   ])
     m["data"] = g.data
-    m["events"] = [None] + world_events()
+    evs = world_events()
+    m["events"] = [None] + evs + W.south_events(len(evs) + 1)
     return m
 
 
@@ -191,8 +202,9 @@ def world_events():
                conditions={"switch1Valid": True, "switch1Id": db.SW_GLOAMWOOD}),
     ]))
 
-    # 4: the tower
-    door = S.narrate([
+    # 4: the tower - and the door at which the guest star always leaves
+    door = roland_departure()
+    door += S.narrate([
         "The Obligatory Tower.",
         "It is exactly as tall as everyone said, which",
         "is somehow the most unsettling thing about it."])
@@ -228,7 +240,8 @@ def world_events():
     # 6/7: signposts, because the road is long
     evs.append(S.sign(6, "Southern Signpost", 23, 38, [
         "\\C[6]NORTH:\\C[0] The Obligatory Tower.",
-        "\\C[6]SOUTH:\\C[0] Thistlewick.",
+        "\\C[6]SOUTH:\\C[0] Thistlewick, and then the coast road",
+        "       east to Nether Sopping.",
         "Under that, freshly carved:",
         "'HE IS NOT THAT BAD ACTUALLY' - and someone",
         "else has carved 'YES HE IS' underneath it."]))
@@ -238,6 +251,74 @@ def world_events():
         "SURVIVORS: [the number has been scratched off]",
         "PLEASE WIPE YOUR FEET"]))
     return evs
+
+
+def roland_departure():
+    """Roland Fairweather is contractually unavailable for the final dungeon.
+
+    This runs at the tower door on the world map rather than inside the tower,
+    so a party that has just lost a member can walk back and get another one.
+    He empties his pockets first: an actor removed from the party keeps
+    whatever is equipped on him, and a guest star who walks off wearing the
+    best armour the player owns is a joke that stops being funny immediately."""
+    leave = [R.save_bgm(), R.fadeout_bgm(1), R.wait(20),
+             R.play_bgm("Theme4", 75)]
+    leave += S.narrate([
+        "At the foot of the tower, Roland Fairweather",
+        "stops walking.",
+        "He does not look surprised. He looks like a",
+        "man who has been checking the time all week."])
+    leave += S.say("Roland", [
+        "Ah.",
+        "Yes. There it is."])
+    leave += S.narrate(["You ask what it is."])
+    leave += S.say("Roland", [
+        "I have to be somewhere.",
+        "I don't know where. I never know where.",
+        "I only ever know that it is not here,",
+        "and that it is now, and that I am going."])
+    leave += S.narrate([
+        "He tries, visibly, to stay.",
+        "It is not a curse and it is not cowardice and",
+        "it does not look like either. It looks like a",
+        "man being gently and firmly asked to leave."])
+    leave += S.say("Roland", [
+        "Eleven times. This is the eleventh.",
+        "I have never once seen the end of one."])
+    leave += R.script(["$gameActors.actor(%d).clearEquipments();" % db.ROLAND])
+    leave += S.narrate([
+        "He puts everything he is carrying on the",
+        "grass, which takes a while, and includes",
+        "several things you had lent him and one you",
+        "had not."])
+    leave += [R.gain_weapon(db.WP_FAIRWEATHER, 1),
+              R.gain_item(db.IT_ELIXIR, 2), R.play_me("Fanfare2")]
+    leave += S.narrate([
+        "Got \\I[113]\\C[3]Fairweather's Own\\C[0] and",
+        "\\I[179]\\C[3]Elixir x2\\C[0]."])
+    leave += S.say("Roland", [
+        "Take it up there. It is a very good",
+        "sword and it has never been in a last",
+        "room. Neither have I. One of us should",
+        "manage it."])
+    leave += S.narrate(["He shakes hands with everyone, including,",
+                        "carefully, anyone who is not looking."])
+    leave += S.say("Roland", [
+        "Right. Well.",
+        "Go on, then. You'll be marvellous.",
+        "I'd stay to watch, but - "])
+    leave += S.narrate(["He is already forty paces away."])
+    # His recruit switch stays on: it is what keeps the "gone" page showing in
+    # the Slain Wyvern, and a guest star you can re-hire after he has made his
+    # exit is not a guest star.
+    leave += [R.change_party(db.ROLAND, add=False),
+              R.control_switch(db.SW_ROLAND_GONE, True),
+              S.trope(), R.fadeout_bgm(2), R.wait(40), R.replay_bgm()]
+    leave += S.narrate([
+        "The party is one smaller.",
+        "It is the shape of the thing. Everybody told",
+        "you it was the shape of the thing."])
+    return R.if_then(R.condition_actor_in_party(db.ROLAND), leave)
 
 
 # ============================================================== the Gloamwood ==
@@ -330,7 +411,20 @@ def gloamwood_events():
         "and decided the woods were enough.",
         "Nobody writes songs about that. But I'm",
         "here, and I'm forty-six, and I'm sitting down."])
-    lost += [S.trope()]
+    lost += S.narrate([
+        "There is a sack beside the log with letters",
+        "in it. A great many letters, in two hands,",
+        "one round and one narrow, going back years."])
+    lost += S.say("Regular", [
+        "Nabb and Tolly. They write.",
+        "Every month, the both of them."])
+    lost += S.narrate(["You ask whether he writes back."])
+    lost += S.say("Regular", [
+        "I read them.",
+        "Reading them's the answer. They know",
+        "that. Nabb doesn't, but Tolly does,",
+        "and Tolly does the stamps."])
+    lost += [R.control_switch(db.SW_MET_46, True), S.trope()]
     evs.append(S.npc(3, "Number Forty-Six", 7, 26, lost, "People4", 6,
                      direction=6))
 
@@ -468,12 +562,12 @@ def deep_events():
     evs.append(S.chest(4, "Deep Wood Chest", 9, 20,
                        [R.gain_armor(db.AR_AMULET, 1),
                         R.gain_item(db.IT_FEATHER, 2)],
-                       ["Found \\I[163]\\C[3]Amulet of the Committee\\C[0]",
-                        "and \\I[192]\\C[3]Slightly Singed Feather x2\\C[0]."]))
+                       ["Found \\I[146]\\C[3]Amulet of the Committee\\C[0]",
+                        "and \\I[185]\\C[3]Slightly Singed Feather x2\\C[0]."]))
 
     evs.append(S.chest(5, "Hollow Log", 22, 16,
                        [R.gain_weapon(db.WP_DIRK, 1), R.gain_gold(250)],
-                       ["Found \\I[102]\\C[3]Quiet Dirk\\C[0] and 250\\G",
+                       ["Found \\I[96]\\C[3]Quiet Dirk\\C[0] and 250\\G",
                         "inside a hollow log.",
                         "Somebody hid these. Somebody did not come back",
                         "for them."]))
@@ -615,19 +709,19 @@ def tower_events():
     evs.append(S.chest(4, "West Store Room", 5, 21,
                        [R.gain_weapon(db.WP_BROADSWORD, 1),
                         R.gain_item(db.IT_HI_POTION, 3)],
-                       ["Found \\I[99]\\C[3]Broadsword\\C[0] and",
+                       ["Found \\I[123]\\C[3]Broadsword\\C[0] and",
                         "\\I[176]\\C[3]Hi-Potion x3\\C[0]."]))
     evs.append(S.chest(5, "East Guard Room", 27, 21,
                        [R.gain_armor(db.AR_PLATE, 1), R.gain_gold(600)],
-                       ["Found \\I[134]\\C[3]Family Plate\\C[0] and 600\\G."]))
+                       ["Found \\I[137]\\C[3]Family Plate\\C[0] and 600\\G."]))
     evs.append(S.chest(6, "West Gallery", 5, 10,
                        [R.gain_weapon(db.WP_STARFALL, 1)],
-                       ["Found \\I[111]\\C[3]Unlicensed Starfall\\C[0].",
+                       ["Found \\I[118]\\C[3]Unlicensed Starfall\\C[0].",
                         "The College would like a word."]))
     evs.append(S.chest(7, "East Gallery", 27, 10,
                        [R.gain_weapon(db.WP_WORLDBREAKER, 1),
                         R.gain_item(db.IT_ELIXIR, 1)],
-                       ["Found \\I[106]\\C[3]Beatrice II\\C[0] and",
+                       ["Found \\I[99]\\C[3]Beatrice II\\C[0] and",
                         "\\I[179]\\C[3]Elixir\\C[0]."]))
 
     evs.append(S.sign(8, "Plaque By The Door", 14, 29, [
@@ -645,19 +739,30 @@ def tower_events():
     # is four of seven and there is no way to know which four in advance.
     cache = [R.play_se("Chest1")]
     cache += S.narrate([
-        "A cupboard. Inside, seven weapons on seven",
-        "hooks, each with a small brass label.",
+        "A cupboard. Inside, nine hooks, each with a",
+        "small brass label.",
         "The labels read: CHOSEN ONE. HEALER. SMITH.",
         "MAGE. SPECIALIST. KNIGHT. MUSICIAN."])
+    cache += S.narrate([
+        "Two more have been added later, in a different",
+        "hand and a cheaper brass: RIVAL. CATALOGUER.",
+        "Somebody has been keeping this list up to date",
+        "for four thousand years, which is unnerving."])
+    cache += S.narrate([
+        "The ninth hook is empty. Its label reads",
+        "\\C[2]GUEST\\C[0], and underneath, in pencil:",
+        "'HE WON'T BE HERE. HE NEVER IS. I LEAVE IT",
+        "OUT ANYWAY.'"])
     cache += [R.gain_weapon(db.WP_DESTINY, 1), R.gain_weapon(db.WP_HOLY_ROD, 1),
               R.gain_weapon(db.WP_WORLDBREAKER, 1),
               R.gain_weapon(db.WP_STARFALL, 1), R.gain_weapon(db.WP_LAST_WORD, 1),
               R.gain_weapon(db.WP_OATHKEEPER, 1), R.gain_weapon(db.WP_LEGEND, 1),
+              R.gain_weapon(db.WP_FORETOLD, 1), R.gain_weapon(db.WP_CITATION, 1),
               R.gain_item(db.IT_ELIXIR, 2), R.play_me("Fanfare2")]
     cache += S.narrate([
         "Got the \\C[3]Contingency Cache\\C[0]: one legendary",
-        "weapon for every kind of Chosen One, and two",
-        "\\I[179]\\C[3]Elixirs\\C[0]."])
+        "weapon for every kind of Chosen One there has",
+        "ever been, and two \\I[179]\\C[3]Elixirs\\C[0]."])
     cache += S.narrate([
         "A note on the inside of the door:",
         "'RESTOCKED EVERY CENTURY. NOBODY HAS EVER",
@@ -741,13 +846,35 @@ def finale_event(event_id, x, y):
     c += S.say("Grimspite", [
         "Forty-seven.",
         "And I meant it the first time."])
+    quy = R.if_then(
+        R.condition_switch(db.SW_MET_QUY),
+        S.narrate(["Grimspite the Inevitable stops."]) +
+        S.say("Grimspite", [
+            "...Somebody told you to ask that.",
+            "Nobody asks that. Forty-seven of them",
+            "and not one. Who told you to ask?"]) +
+        S.narrate(["You tell him: the forty-fifth.",
+                   "A man in a garden, forty miles south,",
+                   "who has thought about a cup of tea for",
+                   "thirty years."]) +
+        S.say("Grimspite", [
+            "Halbert.",
+            "He said no to the tea. I've wondered.",
+            "You go back and you tell him the tea",
+            "was just tea. Will you tell him that?"]) +
+        S.narrate(["You say that you will."]) +
+        S.say("Grimspite", [
+            "Then listen to all of it. He'll ask",
+            "you what I said, and I would like,",
+            "once, for somebody to have listened",
+            "to the whole of it."]))
     c += R.choice_block(
         ["Why don't you stop?", "Draw your weapon"],
         [S.say("Grimspite", [
             "Ah. The clever one.",
             "They're rarer than you'd",
             "think.",
-            "I can't. Look at the wall behind you."]) +
+            "I can't. Look at the wall behind you."]) + quy +
          S.narrate(["You look.",
                     "The wall is covered in the same sentence,",
                     "carved forty-seven times:",
@@ -830,7 +957,7 @@ def finale_event(event_id, x, y):
         "Four thousand eight hundred years and it was",
         "an admin problem."])
     c += [R.gain_item(db.IT_RECEIPT, 1), R.play_se("Item1")]
-    c += S.narrate(["Got \\I[147]\\C[3]A Receipt\\C[0].",
+    c += S.narrate(["Got \\I[188]\\C[3]A Receipt\\C[0].",
                     "Grimspite has signed it over to you.",
                     "'Proof of purchase,' he says. 'In case",
                     "anyone asks whose fault this was.'"])
@@ -845,19 +972,55 @@ def finale_event(event_id, x, y):
     c += S.narrate([
         "\\}\\C[6]THE OBLIGATORY QUEST\\C[0]",
         "Bram Thistle, Chosen One #48, went north",
-        "with \\C[3]\\V[1]\\C[0] companions and came back with",
-        "all of them."])
+        "with \\C[3]\\V[1]\\C[0] companions."])
+    c += R.if_then(
+        R.condition_switch(db.SW_ROLAND_GONE),
+        S.narrate([
+            "He came back with all of them but one, who",
+            "had somewhere to be, and who is at this",
+            "moment being marvellous in somebody else's",
+            "story, and who thinks about this one."]),
+        S.narrate(["He came back with all of them."]))
     c += S.narrate([
         "Along the way he walked into \\C[3]\\V[2]\\C[0] well-worn",
         "adventuring conventions and ate \\C[3]\\V[3]\\C[0] turnips."])
     c += R.if_then(
-        R.condition_variable(db.VAR_TROPES, 18, 1),
+        R.condition_switch(db.SW_SOUTH),
+        S.narrate([
+            "He also went south, which no Chosen One had",
+            "thought to do, and found forty-seven of them",
+            "in a tavern, and sat down, and listened."]))
+    c += R.if_then(
+        R.condition_switch(db.SW_HISTORY_DONE),
+        S.narrate([
+            "There is a song about it now. Hosea",
+            "Bellwether wrote it from first-hand accounts",
+            "and it is, therefore, complete.",
+            "It is not remotely accurate."]))
+    c += R.if_then(
+        R.condition_switch(db.SW_LAMP_LIT),
+        S.narrate([
+            "The Lighthouse of Saint Bother is lit again.",
+            "You can see it from the crossroads, which is",
+            "the whole of what it is for."]))
+    c += R.if_then(
+        R.condition_switch(db.SW_BENCH_DONE),
+        S.narrate([
+            "And on the top of a mound in the eastern",
+            "hills there is a bench, facing the sea,",
+            "which anybody may sit on, and which is what",
+            "Ambrose Fitch asked for and did not get."]))
+    # The thresholds are set against the number of `story.trope()` sites in
+    # the build, which the south roughly doubled. A completionist can reach
+    # about sixty; a player who goes straight north will see twenty.
+    c += R.if_then(
+        R.condition_variable(db.VAR_TROPES, 40, 1),
         S.narrate(["Very nearly all of them. He read the notice",
                    "board, he searched the barrels, he opened",
-                   "things that were obviously not chests.",
-                   "There is not much left to teach him."]),
+                   "things that were obviously not chests, and",
+                   "he went south, which nobody does."]),
         R.if_then(
-            R.condition_variable(db.VAR_TROPES, 10, 1),
+            R.condition_variable(db.VAR_TROPES, 20, 1),
             S.narrate(["A respectable haul of cliches, honestly",
                        "encountered."]),
             S.narrate(["Remarkably few cliches, which the Prophecy",
@@ -868,6 +1031,18 @@ def finale_event(event_id, x, y):
         "records and replaced it with a note reading",
         "'SEE BRAM'.",
         "Nobody has needed to yet."])
+    c += R.if_then(
+        R.condition_switch(db.SW_MET_QUY),
+        S.narrate([
+            "It struck clause nineteen out as well, six",
+            "months later, after a very long meeting.",
+            "Forty miles south, a man in a garden read",
+            "the notice twice and then went indoors."]) +
+        S.narrate([
+            "Bram had already been. He had walked down",
+            "and told him what Grimspite said, all of it,",
+            "in order, including the part about the tea.",
+            "It took most of an afternoon."]))
     c += S.narrate(["\\}\\C[6]THE END\\C[0]"])
     c += [R.wait(90), R.return_to_title()]
 

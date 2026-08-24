@@ -19,6 +19,7 @@ FACES = {
     "Bram": ("Actor1", 0), "Merribell": ("Actor1", 7), "Hob": ("Actor2", 4),
     "Zephyrine": ("Actor1", 5), "Nix": ("Actor3", 4), "Aldric": ("Actor3", 6),
     "Piper": ("Actor2", 3),
+    "Corvin": ("Actor1", 4), "Wren": ("Actor2", 6), "Roland": ("Actor2", 2),
     # Villagers. The stock People sheets are typecast harder than you would
     # expect - People3 is entirely royalty, so nobody in Thistlewick uses it.
     "Gatekeeper": ("People1", 2),
@@ -38,6 +39,39 @@ FACES = {
     "Apprentice": ("People2", 7),
     "Shopkeeper": ("People4", 3),
     "Regular": ("People4", 6),
+    # Nether Sopping. People3 is the royalty sheet, which is why the amnesiac
+    # who does not know she is a princess is drawn from it, and why the two
+    # "very ordinary travellers" in the corner are as well.
+    "Dorcas": ("People4", 5),
+    "Prudence": ("People2", 3),
+    "Hosea": ("People4", 0),
+    "Ysolde": ("People1", 7),
+    "Hulda": ("People2", 1),
+    "Nabb": ("People4", 7),
+    "Tolly": ("People2", 5),
+    "Merrow": ("People3", 6),
+    "Dree": ("People3", 5),
+    "Perpetua": ("People3", 3),
+    "Pell": ("People3", 7),
+    "Mrs Barrow": ("People4", 1),
+    "Bother": ("People3", 4),
+    # #45 is written as a man in his seventies, four stone heavier than his
+    # portrait in Prophecy Hall. Every old man on the People sheets is spoken
+    # for, so he shares one: People4:4, with the old man in Thistlewick square
+    # forty miles north, who is the least likely of the five to be next to him
+    # in a player's memory. The Hermit gave the face up to him.
+    "Halbert Quy": ("People4", 4),
+    "Splint": ("People2", 6),
+    "Ferryman": ("People1", 4),
+    "Sops": ("People2", 2),
+    "Tibb": ("People1", 0),
+    "Traveller": ("People3", 0),
+    "Also A Traveller": ("People3", 1),
+    "Hermit": ("People2", 0),
+    "Crooke": ("People2", 7),
+    # Ambrose Fitch and Ferrety Bother share a face: two grey-bearded old
+    # men who are never in the same room, one of them being dead.
+    "Ambrose": ("People3", 4),
     # Grimspite gets the horned, red-caped Dark Lord off the Evil sheet.
     # The Prophecy deliberately has no face: it is a document, not a person.
     "Grimspite": ("Evil", 6),
@@ -244,28 +278,39 @@ def recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept,
 
 
 # ------------------------------------------------------- who is with you ----
+# Two lists, because Show Choices tops out at six options in the editor and
+# nine companions do not fit in one form. The Committee clerk in Thistlewick
+# holds Form C-12 and can only strike off Thistlewick people; Registrar Pell in
+# Nether Sopping holds Form C-12(S) and can only strike off southern ones.
+# This is funnier than a submenu and it is exactly how the Committee would in
+# fact have arranged it.
 COMPANIONS = [
     (db.MERRI, "Merribell"), (db.HOB, "Hob"), (db.ZEPH, "Zephyrine"),
     (db.NIX, "Nix"), (db.ALDRIC, "Aldric"), (db.PIPER, "Piper"),
 ]
 
+COMPANIONS_SOUTH = [
+    (db.CORVIN, "Corvin"), (db.WREN, "Wren"), (db.ROLAND, "Roland"),
+]
 
-def roster_amendment():
-    """The Committee clerk's dismissal form. Lets the player swap a companion
-    out without restarting, which matters because the whole of the first act
-    is a choice of three from six."""
+
+def roster_amendment(companions=None, clerk="Clerk"):
+    """A dismissal form. Lets the player swap a companion out without
+    restarting, which matters because the whole of the first act is a choice of
+    three from what is now nine."""
     branches = []
-    for actor_id, nm in COMPANIONS:
+    for actor_id, nm in (companions or COMPANIONS):
         remove = [R.change_party(actor_id, add=False),
                   R.control_switch(db.SW_RECRUIT[actor_id], False),
                   R.control_variable_add(db.VAR_COMPANIONS, -1),
                   R.play_se("Cancel1")]
         remove += R.text(["\\C[3]%s\\C[0] has been struck from the roster" % nm,
                           "and has gone home to think about it."])
-        not_here = say("Clerk", ["%s is not on the roster." % nm,
-                                 "I cannot remove someone who is not on the",
-                                 "roster. That would create a negative person."])
+        not_here = say(clerk, ["%s is not on the roster." % nm,
+                               "I cannot remove someone who is not on the",
+                               "roster. That would create a negative person."])
         branches.append(R.if_then(R.condition_actor_in_party(actor_id),
                                   remove, not_here))
-    return R.choice_block([nm for _, nm in COMPANIONS], branches,
-                          cancel=say("Clerk", ["Filed under 'no change'."]))
+    return R.choice_block([nm for _, nm in (companions or COMPANIONS)],
+                          branches,
+                          cancel=say(clerk, ["Filed under 'no change'."]))

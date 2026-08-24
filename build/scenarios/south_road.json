@@ -1,0 +1,37 @@
+{
+  "query": "?map=8&x=24&y=45&frames=90",
+  "steps": [
+    {
+      "check": "[0,1,2,3,4,5,6,7,8,9,10,11,12].every(i => $gameMap.isPassable(24+i,46,6) && $gameMap.isPassable(24+i,46,4))",
+      "expect": true,
+      "label": "the coast road is walkable all the way east"
+    },
+    {
+      "check": "$gameMap.regionId(26,46)",
+      "expect": 3,
+      "label": "the shingle is its own encounter region"
+    },
+    {
+      "eval": "$gamePlayer.locate(36, 45); $gameMap.event(8).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 13,
+      "label": "inside Nether Sopping"
+    },
+    {
+      "check": "$gameSwitches.value(45)",
+      "expect": true,
+      "label": "the south is on the record"
+    },
+    {
+      "eval": "$gamePlayer.locate(20, 3)"
+    },
+    {
+      "shot": "south_sopping.png"
+    }
+  ]
+}

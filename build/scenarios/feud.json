@@ -1,0 +1,80 @@
+{
+  "query": "?map=4&x=9&y=11&frames=90",
+  "steps": [
+    {
+      "eval": "$gameParty.gainGold(2000)"
+    },
+    {
+      "eval": "$gamePlayer.locate(5, 8); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[23])",
+      "expect": 1,
+      "label": "carrying A Jar Of Something"
+    },
+    {
+      "check": "$gameSwitches.value(22)",
+      "expect": true,
+      "label": "and told where Nether Sopping is"
+    },
+    {
+      "goto": [
+        14,
+        12,
+        15
+      ]
+    },
+    {
+      "eval": "$gamePlayer.locate(4, 6); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[23])",
+      "expect": 0,
+      "label": "Dorcas takes the jar"
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[24])",
+      "expect": 1,
+      "label": "and sends something worse back"
+    },
+    {
+      "check": "$gameSwitches.value(23)",
+      "expect": true,
+      "label": "carrying the reply north"
+    },
+    {
+      "goto": [
+        4,
+        9,
+        11
+      ]
+    },
+    {
+      "eval": "$gamePlayer.locate(5, 8); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[24])",
+      "expect": 0,
+      "label": "Prudence opens it"
+    },
+    {
+      "check": "$gameParty.numItems($dataArmors[19])",
+      "expect": 1,
+      "label": "and parts with the Feud Locket"
+    },
+    {
+      "check": "$gameSwitches.value(24)",
+      "expect": true,
+      "label": "thirty years of not speaking, concluded"
+    }
+  ]
+}

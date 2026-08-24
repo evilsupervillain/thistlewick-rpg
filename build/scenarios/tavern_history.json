@@ -1,0 +1,57 @@
+{
+  "query": "?map=14&x=12&y=15&frames=90",
+  "steps": [
+    {
+      "comment": "The six tales are proved in `tavern`; this is the payout, which is the part with state in it.",
+      "eval": "$gamePlayer.locate(9, 7); $gameMap.event(3).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameSwitches.value(41)",
+      "expect": true,
+      "label": "Hosea has asked for six"
+    },
+    {
+      "eval": "$gameVariables.setValue(4, 6)"
+    },
+    {
+      "eval": "$gamePlayer.locate(9, 7); $gameMap.event(3).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameSwitches.value(42)",
+      "expect": true,
+      "label": "the history is complete"
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[28])",
+      "expect": 1,
+      "label": "holding A Complete And Accurate History"
+    },
+    {
+      "check": "$gameParty.numItems($dataArmors[20])",
+      "expect": 1,
+      "label": "and the Footnote"
+    },
+    {
+      "check": "$gameParty.gold()",
+      "expect": 1500,
+      "label": "paid handsomely"
+    },
+    {
+      "eval": "$gamePlayer.locate(18, 5); $gameMap.event(14).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameSwitches.value(46)",
+      "expect": true,
+      "label": "and knows the wyvern is a goose"
+    }
+  ]
+}

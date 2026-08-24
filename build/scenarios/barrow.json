@@ -1,0 +1,90 @@
+{
+  "query": "?map=8&x=33&y=22&frames=90",
+  "steps": [
+    {
+      "eval": "$gameSwitches.setValue(27, true); $gameParty.gainItem($dataItems[27], 1)"
+    },
+    {
+      "eval": "$gameParty.members().forEach(a => a.changeLevel(12, false))"
+    },
+    {
+      "eval": "$gamePlayer.locate(33, 22); $gameMap.event(11).start()"
+    },
+    {
+      "advance": 25
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 20,
+      "label": "the Guild Card opens a Scheduled Monument"
+    },
+    {
+      "comment": "The Forty-Fourth is a three-turn boss fight and headless renders battles at about three frames a second, so run his command list with the battle, the text and the choices filtered out - what is left is every switch and every item, which is the part that can be wrong.",
+      "eval": "const skip = new Set([101, 401, 102, 402, 403, 404, 301]); $gameMap._interpreter.setup($dataMap.events[6].pages[0].list.filter(c => !skip.has(c.code)), 6)"
+    },
+    {
+      "frames": 400
+    },
+    {
+      "check": "$gameSwitches.value(38)",
+      "expect": true,
+      "label": "the Forty-Fourth has stopped"
+    },
+    {
+      "check": "$gameSwitches.value(39)",
+      "expect": true,
+      "label": "and has asked for a bench"
+    },
+    {
+      "eval": "$gameParty.gainItem($dataItems[29], 1)"
+    },
+    {
+      "goto": [
+        8,
+        34,
+        23
+      ]
+    },
+    {
+      "eval": "$gamePlayer.locate(34, 23); $gameMap.event(12).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[29])",
+      "expect": 0,
+      "label": "the bench goes together, one piece left over"
+    },
+    {
+      "check": "$gameSwitches.value(40)",
+      "expect": true,
+      "label": "there is a bench on the mound"
+    },
+    {
+      "goto": [
+        14,
+        12,
+        15
+      ]
+    },
+    {
+      "comment": "Her tale has to be told before the bench payoff will fire - the page is keyed on both, so that a player who finds the barrow before the tavern does not lose it.",
+      "eval": "$gamePlayer.locate(5, 12); $gameMap.event(4).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "eval": "$gamePlayer.locate(5, 12); $gameMap.event(4).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameParty.numItems($dataArmors[22])",
+      "expect": 1,
+      "label": "and Ysolde Marrow parts with her kit"
+    }
+  ]
+}

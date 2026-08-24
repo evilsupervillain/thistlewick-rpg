@@ -1,0 +1,136 @@
+{
+  "query": "?map=13&x=20&y=3&frames=90",
+  "steps": [
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 13,
+      "label": "in at the north road"
+    },
+    {
+      "key": "ArrowDown",
+      "times": 15
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        20,
+        18
+      ],
+      "label": "walked the length of the street"
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 9
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        11,
+        18
+      ],
+      "label": "and west along the lower street"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2
+    },
+    {
+      "frames": 90
+    },
+    {
+      "advance": 6
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 14,
+      "label": "walked into the Slain Wyvern"
+    },
+    {
+      "goto": [
+        13,
+        20,
+        18
+      ]
+    },
+    {
+      "frames": 30
+    },
+    {
+      "key": "ArrowRight",
+      "times": 9
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2
+    },
+    {
+      "frames": 90
+    },
+    {
+      "advance": 6
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 15,
+      "label": "and into the Guild"
+    },
+    {
+      "goto": [
+        13,
+        20,
+        9
+      ]
+    },
+    {
+      "frames": 30
+    },
+    {
+      "key": "ArrowRight",
+      "times": 9
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2
+    },
+    {
+      "frames": 90
+    },
+    {
+      "advance": 6
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 16,
+      "label": "and into the outfitters"
+    },
+    {
+      "goto": [
+        13,
+        20,
+        9
+      ]
+    },
+    {
+      "frames": 30
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 13
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2
+    },
+    {
+      "frames": 90
+    },
+    {
+      "advance": 6
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 17,
+      "label": "and into Number Forty-Five's cottage"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "query": "?map=14&x=12&y=15&frames=90",
+  "steps": [
+    {
+      "eval": "$gamePlayer.locate(18, 10); $gameMap.event(13).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameParty.members().map(a => a.name())",
+      "expect": [
+        "Bram",
+        "Roland"
+      ],
+      "label": "Roland joins, gladly"
+    },
+    {
+      "check": "$gameActors.actor(10).level",
+      "expect": 9,
+      "label": "and is over-levelled, as guest stars are"
+    },
+    {
+      "goto": [
+        8,
+        31,
+        9
+      ]
+    },
+    {
+      "eval": "$gamePlayer.locate(31, 9); $gameMap.event(4).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameSwitches.value(21)",
+      "expect": true,
+      "label": "he had somewhere to be"
+    },
+    {
+      "check": "$gameParty.members().map(a => a.name())",
+      "expect": [
+        "Bram"
+      ],
+      "label": "and the party is one smaller at the tower door"
+    },
+    {
+      "check": "$gameParty.numItems($dataWeapons[30])",
+      "expect": 1,
+      "label": "he left the good sword"
+    },
+    {
+      "check": "$gameParty.numItems($dataArmors[3])",
+      "expect": 1,
+      "label": "and everything else he was wearing"
+    },
+    {
+      "check": "$gameSwitches.value(19)",
+      "expect": true,
+      "label": "his tavern seat stays empty"
+    }
+  ]
+}

@@ -119,7 +119,7 @@ def village_map():
     g.scatter([(26, 24), (31, 25)], 3, K.LOGS)
     g.scatter([(3, 33), (36, 33), (2, 16), (37, 17)], 3, K.ROCK)
     g.scatter([(13, 18), (22, 20), (33, 20), (14, 32), (24, 25)], 3, K.BUSH)
-    g.scatter([(12, 19), (23, 19), (32, 21), (21, 32)], 3, K.BUSH2)
+    g.scatter([(12, 19), (23, 19), (33, 21), (21, 32)], 3, K.BUSH2)
     g.scatter([(9, 16), (25, 16), (18, 19), (34, 17)], 3, K.FLOWERS)
     g.scatter([(10, 17), (26, 17), (21, 18), (35, 18)], 3, K.FLOWERS2)
     g.scatter([(11, 18), (30, 16), (17, 19)], 3, K.FLOWERS3)
@@ -497,7 +497,7 @@ def home_events():
         "The sword comes off the wall with a sound",
         "you can only describe as smug."])
     take += [R.play_me("Item"), R.gain_weapon(db.WP_SWORD, 1)]
-    take += S.narrate(["Got \\I[98]\\C[3]Village Sword\\C[0]!",
+    take += S.narrate(["Got \\I[97]\\C[3]Village Sword\\C[0]!",
                        "Equip it. It has waited a century",
                        "and it will not be gracious about waiting longer."])
     take += [S.trope(), R.self_switch("A", True)]
@@ -580,7 +580,7 @@ def hall_events():
               R.gain_item(db.IT_PROPHECY, 1), R.gain_gold(500),
               R.gain_item(db.IT_POTION, 3)]
     first += S.narrate([
-        "Got \\I[143]\\C[3]The Prophecy\\C[0], 500\\G,",
+        "Got \\I[193]\\C[3]The Prophecy\\C[0], 500\\G,",
         "and \\I[176]\\C[3]Potion x3\\C[0]."])
     first += S.say("Elder Wispel", [
         "The gold is from the parish fund.",
@@ -594,10 +594,46 @@ def hall_events():
         "it has always been, whatever Sir Aldric",
         "tells you."])
 
+    # Once the Guild has asked for a character reference, the Elder is the
+    # nearest thing to a recognised authority for eleven leagues, and is
+    # extremely pleased to be asked.
+    reference = S.say("Elder Wispel", [
+        "A character reference?",
+        "For a GUILD?"])
+    reference += S.narrate(["He is already looking for the good pen."])
+    reference += S.say("Elder Wispel", [
+        "Do they know who you are?",
+        "Have you told them? You are the Forty-Eighth",
+        "Chosen One of Thistlewick, and they want",
+        "a REFERENCE."])
+    reference += S.narrate(["He writes for some time."])
+    reference += [R.gain_item(db.IT_REFERENCE, 1), R.play_me("Item")]
+    reference += S.narrate([
+        "Got \\I[193]\\C[3]A Character Reference\\C[0].",
+        "It confirms that Bram Thistle is the Chosen",
+        "One, is of good character, and grows a decent",
+        "turnip. The last part is underlined."])
+    reference += S.say("Elder Wispel", [
+        "Take it south. And tell them the",
+        "Committee would be glad of a reciprocal",
+        "arrangement, by which I mean tell them",
+        "we exist, because I do not think they know."])
+    reference += [S.trope()]
+
+    elder_again = R.if_then(
+        R.condition_switch(db.SW_GUILD_ASKED),
+        R.if_then(R.condition_item(db.IT_REFERENCE),
+                  S.say("Elder Wispel", [
+                      "You have the reference. Go on.",
+                      "Do not let them keep it - that is",
+                      "Committee stationery."]),
+                  reference),
+        again)
+
     evs.append(R.event(2, "Elder Wispel", 10, 5, [
         R.page(first, img=R.image("People1", 6, direction=2), trigger=0,
                priority=1),
-        R.page(again, img=R.image("People1", 6, direction=2), trigger=0,
+        R.page(elder_again, img=R.image("People1", 6, direction=2), trigger=0,
                priority=1,
                conditions={"switch1Valid": True, "switch1Id": db.SW_QUEST}),
     ]))
@@ -608,6 +644,13 @@ def hall_events():
         "You may strike one companion from the",
         "roster. They will go home. They will not",
         "hold it against you. Much."])
+    clerk += S.narrate(["He anticipates your next question with the",
+                        "weariness of a man who has answered it."])
+    clerk += S.say("Clerk", [
+        "Thistlewick personnel only.",
+        "Anyone you pick up south of the wall is",
+        "Form C-12(S), which is held in Nether",
+        "Sopping, by a man called Pell. Not my circus."])
     clerk += S.roster_amendment()
     evs.append(S.npc(3, "Committee Clerk", 7, 8, clerk, "People2", 0,
                      direction=6))
@@ -671,20 +714,7 @@ def inn_map():
 def inn_events():
     evs = [S.exit_tile(1, "Inn Door", *threshold(MAP_INN), MAP_VILLAGE, *OUT[MAP_INN])]
 
-    rest = S.say("Innkeeper", [
-        "Bed's 20 crowns. Includes breakfast.",
-        "Breakfast is turnip."])
-    rest += R.choice_block(
-        ["Stay the night (20cr)", "No thanks"],
-        [R.if_then(
-            R.condition_script("$gameParty.gold() >= 20"),
-            [R.lose_gold(20), R.fadeout_screen(), R.play_me("Inn1"),
-             R.recover_all(), R.wait(90), R.fadein_screen()] +
-            S.narrate(["The party wakes restored.",
-                       "Breakfast was turnip."]) + [S.trope()],
-            S.say("Innkeeper", ["Come back when you've got 20."]))],
-        cancel=None)
-    evs.append(S.npc(2, "Innkeeper", 5, 7, rest, "People2", 3, direction=2))
+    evs.append(prudence_event(2, 5, 7))
 
     evs.append(zephyrine_event(3, 12, 7))
     evs.append(piper_event(4, 9, 6))
@@ -704,6 +734,121 @@ def inn_events():
         "It is not a metaphor. It is just a turnip",
         "somebody painted."], "", 0, extra=[S.trope()]))
     return evs
+
+
+def prudence_event(event_id, x, y):
+    """The Gilded Turnip's landlady, who is also the near end of a thirty-year
+    feud conducted entirely by parcel.
+
+    Four pages keyed on the quest switches. MZ takes the last page whose
+    conditions hold, so the order here is the order of the argument."""
+    img = R.image("People2", 3, direction=2)
+
+    def beds(lines):
+        cmds = S.say("Prudence", lines)
+        cmds += R.choice_block(
+            ["Stay the night (20cr)", "No thanks"],
+            [R.if_then(
+                R.condition_script("$gameParty.gold() >= 20"),
+                [R.lose_gold(20), R.fadeout_screen(), R.play_me("Inn1"),
+                 R.recover_all(), R.wait(90), R.fadein_screen()] +
+                S.narrate(["The party wakes restored.",
+                           "Breakfast was turnip."]) + [S.trope()],
+                S.say("Prudence", ["Come back when you've got 20."]))],
+            cancel=None)
+        return cmds
+
+    ask = S.say("Prudence", [
+        "Bed's 20 crowns. Includes breakfast.",
+        "Breakfast is turnip."])
+    ask += S.narrate(["She looks at you for slightly too long."])
+    ask += S.say("Prudence", [
+        "You're going out of the village.",
+        "Properly out. Roads and everything."])
+    ask += S.narrate(["You agree that you are."])
+    ask += S.say("Prudence", [
+        "Then you can take something for me.",
+        "There's a town on the south coast.",
+        "Nether Sopping. Follow the road out of",
+        "the gate and turn left at the sea."])
+    ask += S.narrate(["Nobody in Thistlewick has ever mentioned",
+                      "that there is a town on the south coast."])
+    ask += S.say("Prudence", [
+        "There's a woman there runs a tavern.",
+        "Dorcas Thrupp. My sister.",
+        "Give her this. Don't shake it.",
+        "Don't ask what's in it."])
+    ask += [R.gain_item(db.IT_JAR, 1), R.play_me("Item")]
+    ask += S.narrate(["Got \\I[228]\\C[3]A Jar Of Something\\C[0].",
+                      "It is warm on one side."])
+    ask += S.say("Prudence", [
+        "Thirty years we've not spoken.",
+        "That's not a falling-out. We just stopped",
+        "one day and neither of us started again.",
+        "So we send each other things instead."])
+    ask += S.narrate(["You ask how long that has been going on."])
+    ask += S.say("Prudence", [
+        "Thirty years.",
+        "Tell her I said nothing. She'll know",
+        "what I mean by it."])
+    ask += [R.control_switch(db.SW_FEUD_JAR, True), S.trope()]
+    ask += beds(["And the bed's still 20."])
+
+    waiting = beds([
+        "South coast. Nether Sopping.",
+        "Left at the sea. She's the one",
+        "behind the bar looking like me.",
+        "Bed's 20."])
+
+    reply = S.say("Prudence", [
+        "She sent something back."])
+    reply += S.narrate(["It is not a question."])
+    reply += S.narrate([
+        "She takes the parcel, weighs it in both hands,",
+        "puts it on the bar, and does not open it for",
+        "long enough that the whole room notices."])
+    reply += [R.gain_item(db.IT_REPLY, -1), R.play_se("Book1"), R.wait(30)]
+    reply += S.narrate(["Then she opens it."])
+    reply += S.narrate([
+        "Whatever is in there, it is worse than what",
+        "went south, and it is deliberately worse, and",
+        "it has been under construction for some time."])
+    reply += S.say("Prudence", ["...The cow."])
+    reply += S.narrate(["She is laughing. She is trying very hard",
+                        "not to be, and she is laughing."])
+    reply += S.say("Prudence", [
+        "Thirty years and she's still got it.",
+        "Here. Take this. It's hers and mine",
+        "and it's been in a drawer since we were",
+        "girls and I'm sick of the sight of it."])
+    reply += [R.gain_armor(db.AR_LOCKET, 1), R.gain_gold(600),
+              R.play_me("Fanfare3")]
+    reply += S.narrate(["Got \\I[146]\\C[3]Feud Locket\\C[0] and 600\\G."])
+    reply += S.say("Prudence", [
+        "Two portraits, facing opposite ways.",
+        "That was HER idea, that was.",
+        "I'll write to her. Don't tell her that.",
+        "I'll write to her at the weekend."])
+    reply += [R.control_switch(db.SW_FEUD_REPLY, False),
+              R.control_switch(db.SW_FEUD_DONE, True), S.trope()]
+    reply += beds(["Bed's 20. Still 20. Don't argue."])
+
+    done = beds([
+        "I wrote. Four pages.",
+        "Two of them are about you, and one of",
+        "those is complimentary.",
+        "Bed's 20."])
+
+    return R.event(event_id, "Prudence Thrupp (Innkeeper)", x, y, [
+        R.page(ask, img=img, trigger=0, priority=1),
+        R.page(waiting, img=img, trigger=0, priority=1,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_FEUD_JAR}),
+        R.page(reply, img=img, trigger=0, priority=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_FEUD_REPLY}),
+        R.page(done, img=img, trigger=0, priority=1,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_FEUD_DONE}),
+    ])
 
 
 def zephyrine_event(event_id, x, y):
@@ -931,7 +1076,7 @@ def hob_event(event_id, x, y):
         "and it's not up for discussion, mainly",
         "because she'd win."])
     accept += [R.gain_weapon(db.WP_HAMMER, 1), R.play_se("Item1")]
-    accept += S.narrate(["Got \\I[113]\\C[3]Shop Hammer\\C[0]."])
+    accept += S.narrate(["Got \\I[110]\\C[3]Shop Hammer\\C[0]."])
     accept += [S.trope()]
 
     decline = S.say("Hob", [

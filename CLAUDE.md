@@ -26,7 +26,7 @@ the Inevitable does not want to be the Dark Lord; he is four thousand years into
 a renewable engagement he cannot get out of. Beat him and the Prophecy itself
 unrolls to enforce clause twelve, and *that* is the real last boss.
 
-Bram can take up to three of six companions. Each is a different answer to the
+Bram can take up to three of nine companions. Each is a different answer to the
 same fight, so who you pick changes how combat plays:
 
 | who | class | good at | bad at |
@@ -38,6 +38,14 @@ same fight, so who you pick changes how combat plays:
 | Nix | Acquisitions | speed, evasion, multi-hits, stealing | taking a hit |
 | Sir Aldric | Knight Errant | DEF, covering allies, party buffs | damage, speed |
 | Piper Quill | Bard | buffs, debuffs, party utility | raw numbers |
+| Corvin Ash | Doomed Rival | dark damage, and more of it the worse things get | DEF, luck, being told the school is very good |
+| Wren Halloway | Cataloguer | multi-hit range, poison, armour-shredding, double drops | raw damage |
+| Roland Fairweather | Guest Star | everything, genuinely | being there at the end |
+
+The last three are found in a tavern in the south, and the last of them
+**leaves at the door of the Obligatory Tower**, which is deliberate. See
+`EXPANSION.md` - it is the design document for the whole southern half and is
+worth reading before touching any of it.
 
 ## Layout
 
@@ -47,6 +55,12 @@ same fight, so who you pick changes how combat plays:
       db.py          the whole database
       village.py     Maps 1-7: Thistlewick and its interiors
       journey.py     Maps 8-12: overworld, Gloamwood, the Obligatory Tower
+      south.py       Maps 13-18: Nether Sopping, the Slain Wyvern, the Guild,
+                     the outfitters, #45's cottage, the lighthouse
+      wilds.py       Maps 19-20: the Bottomless Pit and the Barrow, plus the
+                     southern half of the world map - `journey.py` still owns
+                     Map 8 and calls four hooks in here while drawing it
+      places.py      map ids, and the coordinates two modules have to agree on
       story.py       shared dialogue helpers and the endgame
       build_game.py  runs all of the above, then System.json and MapInfos
       scenarios/     scripted playthroughs for `tools/scenario.js`
@@ -63,8 +77,8 @@ Append instead.
 
 | range | what |
 | --- | --- |
-| Actors 1-7 | Bram, Merribell, Hob, Zephyrine, Nix, Aldric, Piper |
-| Classes 1-7 | one per actor, same order |
+| Actors 1-10 | Bram, Merribell, Hob, Zephyrine, Nix, Aldric, Piper, Corvin, Wren, Roland |
+| Classes 1-10 | one per actor, same order |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -74,17 +88,30 @@ Append instead.
 | Skills 60-69 | Aldric |
 | Skills 70-79 | Piper |
 | Skills 90-99 | enemy and boss skills |
-| Items 1-19 | consumables |
-| Items 20-29 | key items |
-| Weapons 1-29 | roughly four per class, in class order |
-| Armors 1-29 | shared body/head/accessory |
-| Enemies 1-19 | ordinary encounters |
-| Enemies 20-29 | bosses |
-| Troops 1-19 | encounter groups |
-| Troops 20-29 | set-piece fights |
+| Skills 100-109 | Corvin |
+| Skills 110-119 | Wren |
+| Skills 120-129 | Roland |
+| Skills 130-139 | southern enemy and boss skills |
+| Items 1-19 | consumables (10-12 are southern) |
+| Items 20-29 | key items (23-29 are southern) |
+| Weapons 1-31 | roughly three per class, in class order |
+| Armors 1-22 | shared body/head/accessory; 16-22 are southern |
+| Enemies 1-19 | ordinary encounters (12-18 are southern) |
+| Enemies 20-29 | bosses (23-26 are the optional ones) |
+| Troops 1-19 | encounter groups (11-17 are southern) |
+| Troops 20-29 | set-piece fights (24-27 are southern) |
 | Maps 1-7 | Thistlewick and interiors |
 | Maps 8-12 | the journey |
+| Maps 13-18 | Nether Sopping and its interiors, and the lighthouse |
+| Maps 19-20 | the Bottomless Pit, the Barrow of the Forty-Fourth |
 | Map 99 | the tile sampler, not part of the game |
+
+Icon indices in `db.py` and in the `\I[n]` codes in dialogue were re-checked
+against `img/system/IconSet.png` cell by cell when the south was added; several
+of the original ones pointed at the wrong cell (rings that were orbs, a
+prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
+`wtypeId` order from 96, row 8 is armour from 128, row 11 is consumables from
+176, row 12 is tools and instruments from 192, and the food is at 256-280.
 
 ## Switches and variables
 
@@ -96,8 +123,21 @@ Append instead.
 | 4 | Grimspite defeated |
 | 5 | the Prophecy annulled - the game is won |
 | 6 | the tower door is unbarred |
-| 11-16 | recruited: Merribell, Hob, Zephyrine, Nix, Aldric, Piper |
+| 11-19 | recruited: Merribell, Hob, Zephyrine, Nix, Aldric, Piper, Corvin, Wren, Roland |
 | 20 | the mimic has been met |
+| 21 | Roland has left at the tower door |
+| 22-24 | the Feud: jar going south, reply going north, done |
+| 25-27 | the Guild: asked, Form A-1 found, registered |
+| 28-31 | bounties: crab beaten, Crooke beaten, and each one paid |
+| 32-33 | the lighthouse: asked for oil, lit |
+| 34-36 | the Pit: asked, badger gone, Splint has paid |
+| 37-38 | the Barrow: entered, the Forty-Fourth has stopped |
+| 39-40 | the bench: asked for, built |
+| 41-42 | Hosea's history: asked, complete |
+| 43 | #45 told Bram what to ask Grimspite - this changes the finale |
+| 44 | met #46 on his log |
+| 45 | has been to Nether Sopping |
+| 46 | knows the wyvern is a goose |
 
 | id | variable |
 | --- | --- |
@@ -106,6 +146,8 @@ Append instead.
      into bumps it, and the ending reads the total back to them. Bump it with
      `story.trope()` and nowhere else. |
 | 3 | turnips eaten |
+| 4 | tales heard in the Slain Wyvern - Hosea pays out at six |
+| 5 | bounties claimed |
 
 ## Verifying
 
@@ -140,6 +182,22 @@ for any long cutscene.
   walked to with the arrow keys and triggered with the action button |
 | `reachable_village` | the Fisher on the pond bank, Prophecy Hall's door, the
   Wall of the Forty-Seven, the Creed and the Organ, the same way |
+| `south_road` | the coast road east is walkable end to end, the shingle is
+  its own encounter region, and the town door opens |
+| `reachable_sopping` | all four doors of Nether Sopping, walked to with the
+  arrow keys from the north road |
+| `tavern` | all six tales count, and each one counts as a cliche |
+| `tavern_history` | Hosea asks for six, pays out at six, and the wyvern turns
+  out to be a goose |
+| `recruit_south` | Corvin and Wren join; a full party is turned down |
+| `guest_leaves` | Roland joins over-levelled and is gone - with his gear
+  handed back - by the time the party reaches the tower door |
+| `feud` | the jar goes south, the reply comes north, the locket arrives |
+| `guild` | reference plus hat plus the mat equals a Guild Card |
+| `barrow` | the card opens the mound, the Forty-Fourth stops and asks for a
+  bench, the bench is built, and Ysolde answers |
+| `lighthouse` | Mrs Barrow's shelf is stocked and Lamp Oil can be *bought*
+  through the shop windows, not granted - then Bother, the climb and the lamp |
 
 The two `reachable` scenarios exist because every other scenario here starts
 its events with `$gameMap.event(n).start()`, which proves what an event does
