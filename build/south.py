@@ -51,12 +51,20 @@ SHED_DOORS = [(36, 14), (5, 22), (14, 7), (31, 22)]
 
 # ---------------------------------------------------------------- helpers ---
 def talker(event_id, name, x, y, speaker, first, again, sheet=None, index=None,
-           direction=2, extra=(), move_type=0):
+           direction=2, extra=(), move_type=0, pages=None):
     """Somebody with one thing to say and a shorter version of it afterwards.
 
     Almost every villager in the south is this shape: a set piece the first
     time, and a line that acknowledges you have already heard it. The second
-    page is keyed on a self switch, so it costs no global state."""
+    page is keyed on a self switch, so it costs no global state.
+
+    `pages` appends further pages after those two, and is how somebody who is
+    finished acquires something new to say without a syllable of what they
+    already said being touched. `Game_Event.refresh` takes the **last** page
+    whose conditions hold, so a page added here and guarded by a switch wins
+    over both of the above once that switch is on, and is invisible until
+    then. A player who never trips the condition gets today's game exactly as
+    it stands - which is the whole of NORTH.md's rule 1.7, in one keyword."""
     if sheet is None:
         sheet, index = S.FACES[speaker]
     img = R.image(sheet, index, direction=direction)
@@ -65,7 +73,7 @@ def talker(event_id, name, x, y, speaker, first, again, sheet=None, index=None,
         R.page(said, img=img, trigger=0, priority=1, move_type=move_type),
         R.page(list(again), img=img, trigger=0, priority=1, move_type=move_type,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
-    ])
+    ] + list(pages or []))
 
 
 def tale(event_id, name, x, y, speaker, first, again, direction=2,
@@ -1472,6 +1480,66 @@ def outfit_map():
                   battleback=("Wood1", "Room1"), events=outfit_events())
 
 
+def forty_bolts(shop):
+    """The largest order Mrs Barrow has ever taken, on a page appended to her.
+
+    `NORTH.md` 5.1 ties the two expansions together here on purpose: the north
+    cannot be finished until the south is open, and the reason is forty bolts
+    of oilskin. This is rule 1.7 pattern two - her shop, her lines and her
+    peg are untouched, and a player who never goes north never sees any of it.
+
+    She invoices the works rather than taking the party's money. That is what
+    a works order is, it means nobody can arrive here too poor to finish the
+    airship, and 'on account' is a better joke than a price.
+
+    `shop` is her own first page, handed in so that from the second
+    conversation onwards she is exactly the shopkeeper she was before."""
+    forty = S.narrate([
+        "You ask whether Wick and Barrow can do forty",
+        "bolts of oilskin."])
+    forty += S.say("Mrs Barrow", [
+        "Forty.",
+    ]) + S.narrate([
+        "You say it again. You say the word 'bolts'",
+        "as well, in case that was the trouble."])
+    forty += S.say("Mrs Barrow", [
+        "I heard you the first time.",
+        "I was enjoying it."])
+    forty += S.narrate([
+        "You explain that it is for the Hoyle Works at",
+        "Upper Clanging, and that they will settle."])
+    forty += S.say("Mrs Barrow", [
+        "On account.",
+    ]) + S.say("Mrs Barrow", [
+        "Thirty-nine years in this",
+        "trade, and I have never once had cause",
+        "to write 'on account'."])
+    forty += S.narrate([
+        "She writes it. She writes it in the day book,",
+        "and then in the ledger, and then a third time",
+        "on a card, which she props against the till",
+        "where it can be seen from the door."])
+    forty += S.narrate([
+        "The oilskin comes down off the top shelf.",
+        "It takes both of you and most of the morning."])
+    forty += [R.gain_item(db.IT_OILSKIN_BOLTS, 1), R.play_me("Item")]
+    forty += S.narrate([
+        "Got \\I[227]\\C[3]Forty Bolts of Oilskin\\C[0]."])
+    forty += S.narrate([
+        "You mention that it is going north."])
+    forty += S.say("Mrs Barrow", [
+        "North.",
+    ]) + S.say("Mrs Barrow", [
+        "Well. Something's going",
+        "the right way up that road for once."])
+    forty += [R.self_switch("B", True)]
+
+    return [R.page(
+        R.if_then(R.condition_self_switch("B", False), forty, list(shop)),
+        img=R.image("People4", 1, direction=6), trigger=0, priority=1,
+        conditions={"switch1Valid": True, "switch1Id": db.SW_OILSKIN_ASKED})]
+
+
 def outfit_events():
     evs = [S.exit_tile(1, "Outfitters Door", *threshold(MAP_OUTFIT),
                        MAP_SOPPING, *OUT[MAP_OUTFIT])]
@@ -1489,7 +1557,8 @@ def outfit_events():
         (2, db.AR_A_HAT, 0, 0), (2, db.AR_OILSKIN, 0, 0),
         (2, db.AR_LEATHER, 0, 0), (2, db.AR_BOOTS, 0, 0),
     ])
-    evs.append(S.npc(2, "Mrs Barrow", 5, 6, shop, "People4", 1, direction=6))
+    evs.append(S.npc(2, "Mrs Barrow", 5, 6, shop, "People4", 1, direction=6,
+                     pages=forty_bolts(shop)))
 
     wick = S.narrate([
         "A peg on the wall, at the end of a row of",

@@ -19,5 +19,12 @@ null,
 {"id":17,"expanded":true,"name":"Number Forty-Five's Cottage","order":17,"parentId":13,"scrollX":0,"scrollY":0},
 {"id":18,"expanded":true,"name":"The Lighthouse of Saint Bother","order":18,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":19,"expanded":true,"name":"The Bottomless Pit","order":19,"parentId":8,"scrollX":0,"scrollY":0},
-{"id":20,"expanded":true,"name":"The Barrow of the Forty-Fourth","order":20,"parentId":8,"scrollX":0,"scrollY":0}
+{"id":20,"expanded":true,"name":"The Barrow of the Forty-Fourth","order":20,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":21,"expanded":true,"name":"Upper Clanging","order":21,"parentId":0,"scrollX":0,"scrollY":0},
+{"id":22,"expanded":true,"name":"The Hoyle Works","order":22,"parentId":21,"scrollX":0,"scrollY":0},
+{"id":23,"expanded":true,"name":"The Safety Valve","order":23,"parentId":21,"scrollX":0,"scrollY":0},
+{"id":24,"expanded":true,"name":"Ollerenshaw's","order":24,"parentId":21,"scrollX":0,"scrollY":0},
+{"id":25,"expanded":true,"name":"The Parish Rooms","order":25,"parentId":21,"scrollX":0,"scrollY":0},
+{"id":26,"expanded":true,"name":"The Long Field","order":26,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":27,"expanded":true,"name":"The Wreck of the One Hundred and Ninety-Ninth","order":27,"parentId":8,"scrollX":0,"scrollY":0}
 ]

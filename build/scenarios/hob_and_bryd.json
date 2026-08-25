@@ -1,0 +1,35 @@
+{
+  "query": "?map=24&x=9&y=11&frames=90",
+  "steps": [
+    {"eval": "$gameSystem.disableEncounter()"},
+    {"eval": "$gameParty.addActor(3)"},
+    {"eval": "$gameSwitches.setValue(51, true)"},
+    {"frames": 30},
+    {"check": "$gameVariables.value(7)", "expect": 0,
+     "label": "VAR_BLUSHES starts at nought"},
+    {"check": "$gameSwitches.value(58)", "expect": false,
+     "label": "and nobody has been for a drink"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 2},
+    {"frames": 60},
+    {"shot": "hob_and_bryd_meeting.png"},
+    {"advance": 16},
+    {"frames": 60},
+    {"shot": "hob_and_bryd.png"},
+    {"advance": 60},
+    {"check": "$gameVariables.value(7)", "expect": 2,
+     "label": "with Hob along, the meeting runs first and then the afternoon: two moments"},
+    {"check": "$gameSwitches.value(52)", "expect": true,
+     "label": "the spar is forged in an afternoon, because it wants two"},
+    {"check": "$gameSwitches.value(58)", "expect": true,
+     "label": "and then they go for a drink, and that is all that is said about it"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 2,
+     "label": "asking again counts nothing: the counter counts moments, not tellings"},
+    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 3,
+     "label": "and he has settled on the page that talks about the spar"}
+  ]
+}

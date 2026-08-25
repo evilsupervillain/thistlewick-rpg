@@ -1,0 +1,139 @@
+{
+  "query": "?map=22&x=12&y=16&frames=90",
+  "steps": [
+    {"eval": "$gameSystem.disableEncounter()"},
+    {"check": "$gameVariables.value(7)", "expect": 0,
+     "label": "VAR_BLUSHES starts at nought"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 1,
+     "label": "Ott, first conversation: the drain cock"},
+    {"shot": "clanging_ott.png"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 2,
+     "label": "second conversation: the stuffing box"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 3,
+     "label": "third: the nipples and the small can"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 4,
+     "label": "fourth: the threads, and the face"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 4,
+     "label": "fifth and every one after: she has settled, and does not bump it again"},
+
+    {"eval": "$gameMap.event(3).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 4,
+     "label": "Nib is texture, not a Register A moment"},
+
+    {"goto": [21, 17, 41]},
+    {"eval": "$gameMap.event(13).start()"},
+    {"advance": 40},
+    {"check": "$gameSwitches.value(63)", "expect": true,
+     "label": "Spare has applied to join the party"},
+    {"check": "$gameVariables.value(7)", "expect": 4,
+     "label": "and applying is not one of the moments"},
+
+    {"eval": "$gameMap.event(13).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 5,
+     "label": "Spare, second: Sunday mornings"},
+
+    {"eval": "$gameMap.event(13).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 6,
+     "label": "Spare, third: what his da calls his mam"},
+
+    {"eval": "$gameMap.event(13).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 6,
+     "label": "and from then on he only asks whether he can come yet"},
+
+    {"eval": "$gameMap.event(11).start()"},
+    {"advance": 40},
+    {"check": "$gameSwitches.value(62)", "expect": true,
+     "label": "Mrs Cotterill: the family is met"},
+    {"check": "$gameVariables.value(7)", "expect": 7,
+     "label": "and Mr Cotterill is on nights"},
+
+    {"eval": "$gameMap.event(12).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 7,
+     "label": "Mr Cotterill is the reaction shot and is deliberately not counted"},
+
+    {"eval": "$gameMap.event(10).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 7,
+     "label": "nor is Old Sowerby, who is in the other register entirely"},
+
+    {"goto": [25, 9, 10]},
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameSwitches.value(61)", "expect": true,
+     "label": "Mrs Tunnicliffe: the Cold Winter has been read out"},
+    {"check": "$gameVariables.value(7)", "expect": 8,
+     "label": "and the arithmetic is the eighth thing nobody quite said"},
+    {"shot": "clanging_census.png"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"frames": 60},
+    {"choose": 0},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 8,
+     "label": "she will tell the Cold Winter again, and it is still one moment"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"frames": 60},
+    {"choose": 1},
+
+    {"comment": "The counter branch answers first and opens the shop second, so the choice has to be followed through one message window. It cannot be an `advance`: Shop Processing leaves $gameMap.isEventRunning() true for as long as the shop is up, so `advance` would go on pressing confirm inside Scene_Shop and start buying things."},
+    {"frames": 90},
+    {"key": "Enter"},
+    {"frames": 150},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Shop",
+     "label": "the second option is the counter, and it is a real shop"},
+    {"check": "SceneManager._scene._goods.length", "expect": 9,
+     "label": "nine lines of stock"},
+    {"shot": "clanging_shop.png"},
+
+    {"comment": "One Escape, not two - the second would land on the map and open the menu, which is how this check passed while the shop was not opening at all."},
+    {"key": "Escape"},
+    {"frames": 150},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map",
+     "label": "and you can get out of it again"},
+    {"advance": 10},
+
+    {"goto": [24, 9, 11]},
+    {"check": "$gameParty.members().some(a => a.actorId() === 3)", "expect": false,
+     "label": "Hob is not in the party"},
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 8,
+     "label": "so Bryd introduces himself and nothing else happens"},
+
+    {"eval": "$gameParty.addActor(3)"},
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 9,
+     "label": "Hob walks in and twenty years resumes exactly where it left off"},
+    {"shot": "clanging_hob_bryd.png"},
+
+    {"eval": "$gameMap.event(2).start()"},
+    {"advance": 40},
+    {"check": "$gameVariables.value(7)", "expect": 9,
+     "label": "once, and then they have not moved"},
+
+    {"check": "$gameVariables.value(2)", "expect": 0,
+     "label": "and the town has not touched the cliche counter"}
+  ]
+}
