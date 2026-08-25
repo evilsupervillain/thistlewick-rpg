@@ -1,0 +1,123 @@
+{
+  "query": "?map=8&x=17&y=20&frames=90",
+  "steps": [
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 8,
+      "label": "on the world map at the Gloamwood's north mouth"
+    },
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 8
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        9,
+        20
+      ],
+      "label": "the west road is walkable end to end"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 7
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        9,
+        13
+      ],
+      "label": "and north to the door of Upper Clanging"
+    },
+    {
+      "check": "$gameMap.regionId(9, 16)",
+      "expect": 4,
+      "label": "the lobe is its own encounter region"
+    },
+    {
+      "check": "$gameVariables.value(2)",
+      "expect": 0,
+      "label": "and walking it reads nothing - the stones are off the road"
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 3
+    },
+    {
+      "key": "ArrowUp",
+      "times": 4
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        6,
+        9
+      ],
+      "label": "the crag track reaches the wreck of the 199th"
+    },
+    {
+      "eval": "$gamePlayer.locate(9, 15)"
+    },
+    {
+      "key": "ArrowRight",
+      "times": 3
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        12,
+        15
+      ],
+      "label": "and the spur reaches the Long Field"
+    },
+    {
+      "check": "$gameMap._interpreter.eventId()",
+      "expect": 25,
+      "label": "and the last step of it is the field's own door"
+    },
+    {
+      "frames": 240
+    },
+    {
+      "choose": 1
+    },
+    {
+      "frames": 30
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 8,
+      "label": "carried on past it. The door has to be answered before the player can move again, which is what broke this scenario when the door was added"
+    },
+    {
+      "eval": "$gamePlayer.locate(9, 18)"
+    },
+    {
+      "key": "ArrowRight",
+      "times": 2
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        11,
+        18
+      ],
+      "label": "the Standing Stones are two steps off the road, not on it"
+    },
+    {
+      "check": "$gameMap._interpreter.eventId()",
+      "expect": 13,
+      "label": "and stepping off it reaches the Standing Stones"
+    },
+    {
+      "eval": "$gamePlayer.locate(14, 20)"
+    },
+    {
+      "shot": "north_junction.png"
+    }
+  ]
+}

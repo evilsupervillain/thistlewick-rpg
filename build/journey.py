@@ -19,6 +19,7 @@ import mapkit as K
 import rmmzdata as R
 import story as S
 import wilds as W
+import field as F
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_VILLAGE_STEP, WORLD_GLOAMWOOD, WORLD_TOWER)
@@ -36,6 +37,7 @@ SHRINE = (28, 15)
 # along the south coast, and belongs to `wilds.py`.
 REG_SOUTH, REG_NORTH = 1, 2
 REG_COAST = W.REG_COAST
+REG_CLANG = F.REG_CLANG
 
 # Gloamwood
 GW, GH = 34, 40
@@ -81,7 +83,8 @@ def world_map():
     g.blob(5, 13, 4, 5, 0, K.W_SEA)
     g.blob(9, 44, 4, 4, 0, K.W_SEA)
     W.south_ground(g)                             # the south-east shoulder,
-    g.autotile(0)                                 # the headland and the beach
+    F.north_ground(g)                             # the headland and the beach,
+    g.autotile(0)                                 # and the north-west lobe
 
     # -- layer 1: the shape of the journey --------------------------------
     # A mountain wall across the middle. Its one gap is full of trees, which
@@ -115,7 +118,8 @@ def world_map():
     for x, y in road:
         g.set(x, y, 1, K.W_ROAD)
     W.south_layer1(g)                             # the coast road and the
-    g.autotile(1)                                 # two tracks off it
+    F.north_layer1(g)                             # two tracks off it, and the
+    g.autotile(1)                                 # west road to Upper Clanging
 
     # -- layer 3: the places you can walk into -----------------------------
     g.blit(WORLD_VILLAGE[0] - 1, WORLD_VILLAGE[1] - 1, 3, K.WB_VILLAGE)
@@ -131,6 +135,7 @@ def world_map():
     for x, y in [(31, 31), (14, 44), (36, 13), (7, 22)]:
         g.set(x, y, 3, K.WB_ROCK)
     W.south_layer3(g)
+    F.north_layer3(g)
 
     # Regions decide which encounters happen where: the south half of the
     # continent is a gentler place than the north half.
@@ -141,6 +146,7 @@ def world_map():
             g.set(x, y, 5, REG_SOUTH if y >= 30 else
                   (REG_NORTH if y <= 21 else 0))
     W.south_regions(g)
+    F.north_regions(g)
 
     m = K.new_map(WW, WH, K.TS_WORLD, name="", bgm="Field1",
                   encounter_step=36, scroll_type=0,
@@ -149,16 +155,18 @@ def world_map():
                       (db.TR_TURNIPS, 6, [REG_SOUTH]),
                       (db.TR_CROWS, 5, [REG_SOUTH]),
                       (db.TR_FIELD_MIX, 4, [REG_SOUTH]),
-                      (db.TR_GOBLINS, 5, [REG_NORTH]),
-                      (db.TR_BANDITS, 4, [REG_NORTH]),
-                      (db.TR_WISPS, 3, [REG_NORTH]),
+                      (db.TR_GOBLINS, 5, [REG_NORTH, REG_CLANG]),
+                      (db.TR_BANDITS, 4, [REG_NORTH, REG_CLANG]),
+                      (db.TR_WISPS, 3, [REG_NORTH, REG_CLANG]),
                       (db.TR_CRABS, 5, [REG_COAST]),
                       (db.TR_GULLS, 5, [REG_COAST]),
                       (db.TR_COAST_MIX, 3, [REG_COAST]),
                   ])
     m["data"] = g.data
     evs = world_events()
-    m["events"] = [None] + evs + W.south_events(len(evs) + 1)
+    south = W.south_events(len(evs) + 1)
+    m["events"] = ([None] + evs + south +
+                   F.north_events(len(evs) + len(south) + 1))
     return m
 
 
@@ -213,9 +221,15 @@ def world_events():
         [[R.play_se("Move1")] + tint(TOWER_GLOOM, 1) +
          [R.transfer(MAP_TOWER, *TOWER_IN, 8, 0)],
          S.narrate(["Not yet."])])
+    # `<noairship>` is an assertion, not behaviour: `validate.py` reads it and
+    # checks the tileset flags say an airship cannot set down on this square.
+    # Clause seven of the Prophecy specifies on foot, and the tile the door is
+    # drawn on carries 0x0800 so that the engine agrees - see NORTH.md 5.2 and
+    # `build_game.TILESET_FLAGS`. Not one of Roland's or the door's own lines
+    # is touched by it.
     evs.append(R.event(4, "Tower Door", TOWER_DOOR[0], TOWER_DOOR[1],
                        [R.page(door, img=R.image(""), trigger=1, priority=0,
-                               through=True)]))
+                               through=True)], note="<noairship>"))
 
     # 5: the wayshrine - the one safe place on the road
     shrine = S.narrate([

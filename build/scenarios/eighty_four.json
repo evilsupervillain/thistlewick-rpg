@@ -1,0 +1,51 @@
+{
+  "query": "?map=26&x=2&y=4&frames=90",
+  "steps": [
+    {"comment": "Attempt Eighty-Four: the fight, the stop, and the rebuild. The fight itself is proved the way battle_mook proves one - start it, look at what turned up, and leave the numbers to balance.py, because headless renders a battle at about three frames a second and a seven-thousand-hit-point boss would take the better part of an hour and would only re-test the renderer.",
+     "eval": "$gameSystem.disableEncounter()"},
+    {"eval": "$gameParty.addActor(3); $gameParty.addActor(4); $gameParty.addActor(6)"},
+    {"eval": "$gameParty.allMembers().forEach(a => a.changeLevel(18, false))"},
+    {"check": "$gameSwitches.value(56)", "expect": false,
+     "label": "she has not stopped"},
+    {"check": "$gameSwitches.value(57)", "expect": false,
+     "label": "and there is not going to be a two hundred and first"},
+
+    {"key": "ArrowUp", "times": 2},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [2, 2],
+     "label": "the furrow is walkable from her plot to the top of the field"},
+    {"frames": 30},
+    {"shot": "eighty_four_furrow.png"},
+
+    {"key": "Enter"},
+    {"frames": 60},
+    {"check": "$gameMap._interpreter.isRunning()", "expect": true,
+     "label": "she is at the head of it and the action button reaches her"},
+    {"comment": "{advance} takes the default choice, which is 'Stop her', so this walks all the way into the battle. It overruns: advance presses confirm while $gameMap.isEventRunning(), and Battle Processing keeps the interpreter running for as long as the battle is up, so the spare presses land in Scene_Battle and queue actor commands. That is harmless here only because the very next thing this scenario does is abort the fight - do not copy the pattern into anything that has to survive the battle. Counting the presses instead was tried and is worse: it depends on whether each window had finished printing.",
+     "advance": 20},
+    {"frames": 120},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Battle",
+     "label": "'Stop her' is a decision the player has to make with nothing to go on"},
+    {"check": "$gameTroop.members().map(e => [e.name(), e.mhp, e.atk])",
+     "label": "what is at the top of the Long Field"},
+    {"shot": "eighty_four_battle.png"},
+
+    {"comment": "Aborting hands the interpreter back the way a win does, so everything after the Battle Processing command runs for real.",
+     "eval": "BattleManager.abort()"},
+    {"frames": 180},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map"},
+    {"advance": 40},
+    {"check": "$gameSwitches.value(56)", "expect": true,
+     "label": "she stops, and it takes her a while"},
+    {"check": "$gameSwitches.value(57)", "expect": true,
+     "label": "and Ott comes down the hill and starts a two hundred and first"},
+    {"check": "$gameParty.numItems($dataArmors[26])", "expect": 1,
+     "label": "the governor, given rather than taken, which is the Barrow's rhyme"},
+    {"frames": 60},
+    {"shot": "eighty_four_after.png"},
+
+    {"eval": "$gameMap.event(16).start()"},
+    {"advance": 12},
+    {"check": "$gameMap.event(16).findProperPageIndex()", "expect": 1,
+     "label": "and what is left is a rectangle of ground and nothing on it"}
+  ]
+}
