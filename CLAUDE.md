@@ -47,6 +47,12 @@ The last three are found in a tavern in the south, and the last of them
 `EXPANSION.md` - it is the design document for the whole southern half and is
 worth reading before touching any of it.
 
+`NORTH.md` is the design document for what comes next: Upper Clanging, the
+airship, and a pass over the whole game adding a kind of joke it currently has
+none of. Its section 1 is the specification for every line of dialogue in it,
+including what is deliberately out of bounds; read that before writing any of
+this game's humour, not just the north's.
+
 ## Layout
 
     build/
@@ -60,6 +66,15 @@ worth reading before touching any of it.
       wilds.py       Maps 19-20: the Bottomless Pit and the Barrow, plus the
                      southern half of the world map - `journey.py` still owns
                      Map 8 and calls four hooks in here while drawing it
+      north.py       Maps 21-25: Upper Clanging and its four interiors
+      field.py       Maps 26-27: the Long Field, Attempt Eighty-Four, the
+                     wreck of the 199th and ITEM 1, plus the north-west of the
+                     world map - the same arrangement, five `north_*` hooks
+                     called from `journey.py` - and the three places out at sea
+                     that only the airship can reach. It also holds the three
+                     pages `north.py` appends to Ott and the works stores
+                     ledger, because those are the field's payoff and the
+                     crag's
       places.py      map ids, and the coordinates two modules have to agree on
       story.py       shared dialogue helpers and the endgame
       build_game.py  runs all of the above, then System.json and MapInfos
@@ -92,18 +107,30 @@ Append instead.
 | Skills 110-119 | Wren |
 | Skills 120-129 | Roland |
 | Skills 130-139 | southern enemy and boss skills |
-| Items 1-19 | consumables (10-12 are southern) |
+| Skills 140-149 | northern enemy and boss skills |
+| Items 1-19 | consumables (10-12 are southern, 13-15 northern) |
 | Items 20-29 | key items (23-29 are southern) |
-| Weapons 1-31 | roughly three per class, in class order |
-| Armors 1-22 | shared body/head/accessory; 16-22 are southern |
-| Enemies 1-19 | ordinary encounters (12-18 are southern) |
-| Enemies 20-29 | bosses (23-26 are the optional ones) |
-| Troops 1-19 | encounter groups (11-17 are southern) |
-| Troops 20-29 | set-piece fights (24-27 are southern) |
+| Items 30-36 | northern key items - the 20-29 block is full. 30 is the
+  oilskin, 31 is Attempt 112's number-plate, 32 is ITEM 1 |
+| Weapons 1-33 | roughly three per class, in class order; 32-33 are the north's |
+| Armors 1-26 | shared body/head/accessory; 16-22 are southern, 23-26 northern |
+| Enemies 1-19 | ordinary encounters (12-18 are southern). **Full**: northern
+  ordinary encounters continue at 30 |
+| Enemies 20-29 | bosses (23-26 are the optional ones, 27 is Attempt
+  Eighty-Four) |
+| Enemies 30-35 | northern encounters |
+| Troops 1-19 | encounter groups (11-17 are southern). **Full**: northern
+  groups continue at 30 |
+| Troops 20-29 | set-piece fights (24-27 are southern, 28 is Eighty-Four) |
+| Troops 30-33 | northern encounter groups |
 | Maps 1-7 | Thistlewick and interiors |
 | Maps 8-12 | the journey |
 | Maps 13-18 | Nether Sopping and its interiors, and the lighthouse |
 | Maps 19-20 | the Bottomless Pit, the Barrow of the Forty-Fourth |
+| Maps 21-25 | Upper Clanging and its interiors: the works, the inn, the forge,
+  the Parish Rooms. `north.py` |
+| Maps 26-27 | the Long Field, and the wreck of Attempt 199 on her crag.
+  `field.py` |
 | Map 99 | the tile sampler, not part of the game |
 
 Icon indices in `db.py` and in the `\I[n]` codes in dialogue were re-checked
@@ -138,6 +165,13 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
 | 44 | met #46 on his log |
 | 45 | has been to Nether Sopping |
 | 46 | knows the wyvern is a goose |
+| 47-67 | the north. Named in `db.py` and specified in `NORTH.md` section 10:
+  47 been to Upper Clanging, 48 Ott has explained what she needs, 49-50 the
+  oilskin, 51-52 the spar, 53 the airship flies, 54-55 ITEM 1, 56-57 Attempt
+  Eighty-Four, 58 Hob and Bryd went for a drink, 59-60 the ballad, 61 the
+  Cold Winter, 62 met the Cotterills, 63 the nine-year-old has applied,
+  64 walked the Long Field, 65 clause seven, 66 room four, 67 Gerald,
+  68 the Two Hundred set down beside the tower |
 
 | id | variable |
 | --- | --- |
@@ -148,6 +182,15 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
 | 3 | turnips eaten |
 | 4 | tales heard in the Slain Wyvern - Hosea pays out at six |
 | 5 | bounties claimed |
+| 6 | wreck plaques read - Ott opens up at twelve. The thirteenth plaque
+     deliberately does not count: there are twelve readable plates in the
+     Long Field and the thirteenth is one you make |
+| 7 | **things nobody quite said** - the north's running gag, and the
+     companion to variable 2. Every Register A moment bumps it once, on first
+     sight, and the ending prints the total. Bump it with `story.blush()` and
+     nowhere else. `NORTH.md` 2.3 is the specification and it matters: the
+     joke exists only in aggregate, which is exactly what keeps every
+     individual instance deniable. |
 
 ## Verifying
 
@@ -184,8 +227,28 @@ for any long cutscene.
   Wall of the Forty-Seven, the Creed and the Organ, the same way |
 | `south_road` | the coast road east is walkable end to end, the shingle is
   its own encounter region, and the town door opens |
+| `north_road` | the west road is walked end to end with the arrow keys, from
+  the Gloamwood's north mouth to the door of Upper Clanging, plus both spurs;
+  and the Standing Stones are proved to be *beside* the road rather than on it |
 | `reachable_sopping` | all four doors of Nether Sopping, walked to with the
   arrow keys from the north road |
+| `reachable_clanging` | walking into Upper Clanging off the world map, up the
+  whole street and both flights of steps, and through all four doors - and
+  that the rain stops indoors and does not follow the player home |
+| `clanging_cast` | the town's dialogue: Ott's four steam beats arrive one per
+  conversation and then stop, Spare's three, the Cotterills, the Cold Winter,
+  the Parish Rooms counter opening as a real shop, and Hob and Bryd - with
+  `VAR_BLUSHES` asserted after every one of them, because a counter nobody
+  checks is a counter that silently reads zero in the ending |
+| `two_hundred` | Ott's quest end to end without Hob: the ask amidships, the
+  spar in a day, forty bolts of oilskin on account, and the airship placed on
+  the world map at (10, 13) |
+| `hob_and_bryd` | the same spar with Hob in the party - forged in an
+  afternoon, and then they go for a drink, and `SW_HOB_BRYD` |
+| `airship_lands` | the one that protects the joke. It asserts
+  `isAirshipLandOk` out of the flags, then **flies over the tower door and
+  presses the button**, and the engine refuses; then lands on the grass beside
+  it and walks in. Then all three of the air-only rocks |
 | `tavern` | all six tales count, and each one counts as a cliche |
 | `tavern_history` | Hosea asks for six, pays out at six, and the wyvern turns
   out to be a goose |
@@ -198,6 +261,16 @@ for any long cutscene.
   bench, the bench is built, and Ysolde answers |
 | `lighthouse` | Mrs Barrow's shelf is stocked and Lamp Oil can be *bought*
   through the shop windows, not granted - then Bother, the climb and the lamp |
+| `long_field` | the gate off the spur road, the twelve plaques counting once
+  each, `VAR_PLAQUES` landing on twelve, clause seven out of Ott, and the
+  thirteenth plaque made out of Attempt 112's number-plate - which does *not*
+  count, because twelve is twelve |
+| `eighty_four` | the furrow is walkable from her empty plot to the top of the
+  field, the action button reaches her, "Stop her" starts the right fight
+  against the right enemy, and the stop, the rebuild and the governor |
+| `item_one` | the stores ledger, the crag, the log with seven minutes missing
+  out of it, ITEM 1 off the crag for the first time since 1802, and Ott
+  rendering it down into a weapon and an accessory |
 
 The two `reachable` scenarios exist because every other scenario here starts
 its events with `$gameMap.event(n).start()`, which proves what an event does
