@@ -56,6 +56,10 @@ SK_GUEST_APPEARANCE, SK_ENCOURAGEMENT, SK_FLOURISH, SK_PRIOR = 120, 121, 122, 12
 SK_PINCH, SK_SWOOP, SK_GRAVE_DUTY, SK_WHATS_DONE = 130, 131, 132, 133
 SK_RUMMAGE, SK_OPINION, SK_TRIBUTE = 134, 135, 136
 
+# The north's bestiary. 137-139 are left as a gap, per NORTH.md section 9.
+SK_SCALD, SK_STILL_TRYING, SK_SHED_A_PART = 140, 141, 142
+SK_OVERPRESSURE, SK_DUE_NORTH, SK_MAKE_GOOD = 143, 144, 145
+
 # items
 IT_POTION, IT_HI_POTION, IT_ETHER, IT_FEATHER, IT_ANTIDOTE = 1, 2, 3, 4, 5
 IT_TURNIP, IT_ELIXIR, IT_SMELLING_SALTS, IT_TONIC = 6, 7, 8, 9
@@ -63,6 +67,14 @@ IT_BISCUIT, IT_CHOWDER, IT_PALE = 10, 11, 12
 IT_PROPHECY, IT_TOWER_KEY, IT_RECEIPT = 20, 21, 22
 IT_JAR, IT_REPLY, IT_REFERENCE, IT_LAMP_OIL = 23, 24, 25, 26
 IT_GUILD_CARD, IT_HISTORY, IT_BENCH = 27, 28, 29
+# The north. Section 9 of NORTH.md allots Items 13-19, Weapons 32-36 and
+# Armors 23-28 to Upper Clanging; what is taken here is the Parish Rooms
+# counter, and the rest of each range is left for the works' gear and for
+# whatever ITEM 1 renders down into.
+IT_DRIPPING, IT_STEWED_TEA, IT_LINIMENT = 13, 14, 15
+# The 20-29 key-item block is full, so the north's key items start at 30.
+IT_OILSKIN_BOLTS, IT_PLATE = 30, 31
+IT_ITEM_ONE = 32                # off the works inventory, and never ticked off
 
 # weapons, roughly by class
 WP_HOE, WP_SWORD, WP_BROADSWORD, WP_DESTINY = 1, 2, 3, 4
@@ -75,12 +87,16 @@ WP_LUTE, WP_FIDDLE, WP_LEGEND = 20, 21, 22
 WP_NOTCHED, WP_GRUDGE, WP_FORETOLD = 23, 24, 25
 WP_CROSSBOW, WP_RECURVE, WP_CITATION = 26, 27, 28
 WP_PRACTICE, WP_FAIRWEATHER, WP_FORTY_FOURTH = 29, 30, 31
+WP_WRENCH = 32
+WP_NUMBER_ONE = 33              # what Ott renders ITEM 1 down into
 
 AR_SMOCK, AR_LEATHER, AR_CHAIN, AR_PLATE, AR_ROBE, AR_SILK = 1, 2, 3, 4, 5, 6
 AR_BUCKLER, AR_KITE_SHIELD, AR_HAT, AR_HELM, AR_CIRCLET = 7, 8, 9, 10, 11
 AR_RING_LUCK, AR_RING_SPEED, AR_AMULET, AR_BOOTS = 12, 13, 14, 15
 AR_OILSKIN, AR_A_HAT, AR_LAMP, AR_LOCKET = 16, 17, 18, 19
 AR_FOOTNOTE, AR_SIGNET, AR_KIT = 20, 21, 22
+AR_TROUSERS, AR_WORKS_CAP = 23, 24
+AR_FUSE, AR_GOVERNOR = 25, 26   # ITEM 1's other half, and Eighty-Four's
 
 # enemies
 EN_TURNIP, EN_CROW, EN_GOBLIN, EN_BANDIT, EN_TREANT, EN_WISP = 1, 2, 3, 4, 5, 6
@@ -89,6 +105,9 @@ EN_CRAB, EN_GULL, EN_SANDTHING, EN_OCCUPANT = 12, 13, 14, 15
 EN_LOST_PROPERTY, EN_HOUND, EN_GRAVE_GOODS = 16, 17, 18
 EN_THING, EN_GRIMSPITE, EN_PROPHECY = 20, 21, 22
 EN_BADGER, EN_BIG_CRAB, EN_CROOKE, EN_FORTY_FOURTH = 23, 24, 25, 26
+EN_84 = 27                      # Attempt Eighty-Four, the north's optional boss
+# The 1-19 ordinary block is full, so northern encounters continue at 30.
+EN_PRESSURE, EN_UNNUMBERED, EN_SALVAGE = 30, 31, 32
 
 TR_TURNIPS, TR_CROWS, TR_GOBLINS, TR_BANDITS, TR_WOOD_MIX = 1, 2, 3, 4, 5
 TR_WISPS, TR_TOWER_MIX, TR_SKELETONS, TR_GARGOYLES, TR_FIELD_MIX = 6, 7, 8, 9, 10
@@ -96,6 +115,9 @@ TR_CRABS, TR_GULLS, TR_COAST_MIX, TR_PIT_MIX = 11, 12, 13, 14
 TR_BARROW_MIX, TR_WRAITHS, TR_GRAVE_GOODS = 15, 16, 17
 TR_THING, TR_MIMIC, TR_GRIMSPITE, TR_PROPHECY = 20, 21, 22, 23
 TR_BADGER, TR_BIG_CRAB, TR_CROOKE, TR_FORTY_FOURTH = 24, 25, 26, 27
+TR_84 = 28
+# The 1-19 encounter block is full, so northern groups continue at 30.
+TR_PRESSURE, TR_UNNUMBERED, TR_SALVAGE, TR_CRAG_MIX = 30, 31, 32, 33
 
 # states we add on top of the stock list
 ST_DEAD, ST_SLEEP, ST_POISON = 1, 10, 4
@@ -128,8 +150,34 @@ SW_MET_46 = 44                  # met the man on the log in the Gloamwood
 SW_SOUTH = 45                   # has been to Nether Sopping
 SW_WYVERN = 46                  # knows about the goose
 
+# The north. Upper Clanging, the Two Hundred, and the Register A retrofit
+# threaded back through the rest of the game.
+SW_NORTH = 47                   # has been to Upper Clanging
+SW_TWO_HUNDRED_ASKED = 48       # Ott has explained what she needs
+SW_OILSKIN_ASKED, SW_OILSKIN_GOT = 49, 50
+SW_SPAR_ASKED, SW_SPAR_DONE = 51, 52
+SW_AIRSHIP = 53                 # the Two Hundred flies; the vehicle is placed
+SW_ITEM_ONE_ASKED, SW_ITEM_ONE_DOWN = 54, 55
+SW_84_BEATEN, SW_84_REBUILT = 56, 57
+SW_HOB_BRYD = 58                # they went for a drink. That is all
+SW_BALLAD_ASKED, SW_BALLAD_DONE = 59, 60
+SW_CENSUS = 61                  # heard about the Cold Winter
+SW_COTTERILL = 62               # met the family
+SW_SPARE_ASKED = 63             # the nine-year-old has applied
+SW_LONG_FIELD = 64              # walked the field
+SW_CLAUSE_SEVEN = 65            # Ott showed you the log; changes the finale
+SW_ROOM_FOUR = 66               # room four at the Wyvern
+SW_GERALD = 67                  # that is all that is being said about Gerald
+# Appended after NORTH.md section 10 was written, for the reason recorded at
+# the Clause Seven event in `field.py`: the log entry in 5.4 says REACHED THE
+# TOWER, and nothing else in the game knows whether the Two Hundred ever did.
+SW_TWO_HUNDRED_FLEW = 68        # set down beside the tower, out of the air
+
 VAR_COMPANIONS, VAR_TROPES, VAR_TURNIPS = 1, 2, 3
 VAR_TALES, VAR_BOUNTIES = 4, 5
+VAR_PLAQUES = 6                 # wreck plaques read; Ott opens up at twelve
+VAR_BLUSHES = 7                 # "things nobody quite said" - see story.blush
+# 10 is a scratch variable owned by build_game.py, not a counter.
 
 # element ids, from System.json
 EL_PHYSICAL, EL_FIRE, EL_ICE, EL_THUNDER, EL_WATER = 1, 2, 3, 4, 5
@@ -1001,6 +1049,34 @@ def build_skills():
                      effects=[effect(32, 2, 0, 3)],
                      message="%1 demands tribute, with a syllabus."))
 
+    # -- the north -----------------------------------------------------------
+    # Everything up here is a machine, and every skill is something a machine
+    # does rather than something a monster does: it lets go of its pressure, it
+    # tries to leave the ground, it takes a part off its neighbour. Attempt
+    # Eighty-Four's last one is the whole character - a hundred and forty years
+    # of repairing herself out of the wrecks either side of her, done once more
+    # in front of you, in the middle of a fight.
+    upsert(sk, skill(SK_SCALD, "Let Go", "", "a.atk * 3 - b.def",
+                     animation=67, element=EL_FIRE,
+                     message="%1 lets go of it all at once."))
+    upsert(sk, skill(SK_STILL_TRYING, "Still Trying", "",
+                     "a.atk * 3 - b.def * 2", animation=39,
+                     message="%1 gets a foot off the ground."))
+    upsert(sk, skill(SK_SHED_A_PART, "Take A Part Off", "",
+                     "a.atk * 2 - b.def", animation=21,
+                     effects=[effect(32, 3, 0, 3), effect(21, ST_SLOWED, 0.6)],
+                     message="%1 takes a part off %2."))
+    upsert(sk, skill(SK_OVERPRESSURE, "Overpressure", "",
+                     "a.atk * 3 - b.def", scope=2, animation=68,
+                     element=EL_FIRE,
+                     message="%1 goes over the mark on the gauge."))
+    upsert(sk, skill(SK_DUE_NORTH, "Due North", "", "a.atk * 5 - b.def * 2",
+                     animation=39, critical=True, variance=10,
+                     message="%1 sets off north again."))
+    upsert(sk, skill(SK_MAKE_GOOD, "Make Good", "", "700 + a.atk * 6",
+                     dmg_type=3, scope=11, animation=42, hit_type=0,
+                     message="%1 makes good out of the neighbours."))
+
     save("Skills.json", sk)
 
 
@@ -1099,6 +1175,26 @@ def build_items():
                     price=240, icon=226,
                     effects=[effect(12, 0, 0, 45), effect(13, 0, 25)]))
 
+    # -- what they eat in the north -----------------------------------------
+    # The counter in the Parish Rooms, because in a town this size the
+    # registrar also sells things. Nothing here is magic; it is a works town
+    # and what a works town sells you is fat, tea and something for the hands.
+    upsert(it, item(IT_DRIPPING, "Bread and Dripping",
+                    "Restores 320 HP. The north's answer to ship's biscuit, "
+                    "and it is not close, and the north knows it.",
+                    price=120, icon=269, effects=[effect(11, 0, 0, 320)]))
+    upsert(it, item(IT_STEWED_TEA, "Stewed Tea",
+                    "Restores 55 MP and 20 TP. It has been on the stove since "
+                    "six. That is not a complaint about the tea.",
+                    price=250, icon=208,
+                    effects=[effect(12, 0, 0, 55), effect(13, 0, 20)]))
+    upsert(it, item(IT_LINIMENT, "Works Liniment",
+                    "Cures poison, sleep and blindness. Mrs Tunnicliffe will "
+                    "tell you twice that it is not to go near the eyes.",
+                    price=160, icon=178, animation=45,
+                    effects=[effect(22, ST_POISON, 1.0), effect(22, ST_SLEEP, 1.0),
+                             effect(22, 13, 1.0)]))
+
     # key items: itypeId 2, not consumable, no use in battle
     upsert(it, item(IT_PROPHECY, "The Prophecy",
                     "The Forty-Eighth Prophecy of Thistlewick, in triplicate. "
@@ -1144,6 +1240,27 @@ def build_items():
                     "that is wrong. Somebody wanted somewhere to sit.",
                     price=400, itype=2, consumable=False, scope=0, occasion=3,
                     icon=223))
+
+    # -- the northern key items ---------------------------------------------
+    # Two things the Two Hundred needs that will fit in a pack. The third
+    # thing she needs is the party, and there is no icon for that.
+    upsert(it, item(IT_OILSKIN_BOLTS, "Forty Bolts of Oilskin",
+                    "Forty. Mrs Barrow counted them twice, out loud, and made "
+                    "somebody else count them again after her.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=227))
+    upsert(it, item(IT_PLATE, "Number-Plate, 112",
+                    "A brass oval off an airship, stamped HOYLE WORKS 112. It "
+                    "has been out in the weather for a hundred years.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=188))
+    # The description does not say what it is, because nothing in the works
+    # says what it is either. That is the whole of the joke and the ledger is
+    # in on it: one off, reissued a hundred and ninety-nine times, returned a
+    # hundred and ninety-eight, described in the column headed DESCRIPTION as
+    # "ITEM 1".
+    upsert(it, item(IT_ITEM_ONE, "ITEM 1",
+                    "Heavier than it looks. Stencilled, on all six faces, "
+                    "ITEM 1. Ott would like it out of a field.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=218))
     save("Items.json", it)
 
 
@@ -1302,6 +1419,24 @@ def build_weapons():
                       "that had not written to him in forty years.",
                       WT_SWORD, 2800, [0, 0, 60, 10, 0, 8, 2, 8], icon=123,
                       animation=24, traits=[trait(22, 2, 0.1)]))
+
+    # -- the north ----------------------------------------------------------
+    # Icon 114 is the only spanner on the sheet: row 7, column 2, two nuts and
+    # a jaw. Counted, not guessed.
+    upsert(wp, weapon(WP_WRENCH, "Stillson Wrench",
+                      "[Flail] Eighteen inches of works property. Miss Hoyle "
+                      "wants it back and has said so in writing.",
+                      WT_FLAIL, 1150, [0, 0, 44, 8, 0, 4, -2, 0], icon=114))
+    # ITEM 1, rendered down. A flail, because that is what Bram can hold and
+    # because eighteen pounds of casing on a shaft is not a sword; and the
+    # best weapon in the north, because it was built to end the argument in
+    # one go and in a sense it now does.
+    upsert(wp, weapon(WP_NUMBER_ONE, "Number One",
+                      "[Flail] The casing of ITEM 1, on a shaft. Miss Hoyle "
+                      "stamped it 1 out of habit and then went very quiet.",
+                      WT_FLAIL, 3400, [0, 0, 68, 14, 0, 10, 4, 6], icon=117,
+                      animation=21,
+                      traits=[trait(22, 2, 0.12), trait(22, 0, 0.05)]))
     save("Weapons.json", wp)
 
 
@@ -1415,6 +1550,44 @@ def build_armors():
                      [120, 20, 0, 14, 0, 18, 6, 6], icon=187,
                      traits=[trait(22, 7, 0.06), trait(14, ST_POISON, 1),
                              trait(14, 7, 1)]))
+
+    # -- the north ----------------------------------------------------------
+    # There is no trousers icon on the sheet - row 8 and row 9 were counted
+    # cell by cell and the wardrobe runs smock, robe, dress, coat, jacket. 152
+    # is the long coat, and it is the garment icon nothing else is using.
+    #
+    # The description is the joke and it is a straight one: every set of body
+    # armour in this game is a smock, a jerkin or a shirt of mail, and the
+    # party has walked through a wood, a coast, a bog and a barrow in them.
+    upsert(ar, armor(AR_TROUSERS, "Sensible Trousers",
+                     "[General Armor] Nobody in this story is dressed for the "
+                     "weather. These are. That is the whole of the pitch.",
+                     ET_BODY, AT_GENERAL, 880, [0, 0, 0, 40, 0, 8, -2, 0],
+                     icon=152, traits=[trait(11, EL_ICE, 0.7),
+                                       trait(11, EL_WATER, 0.7)]))
+    upsert(ar, armor(AR_WORKS_CAP, "Works Cap",
+                     "[General Armor] The hooter sounds at six. A cap does "
+                     "not help with that and everybody wears one anyway.",
+                     ET_HEAD, AT_GENERAL, 240, [0, 0, 0, 10, 0, 6, 0, 2],
+                     icon=150))
+    # The other half of ITEM 1. She takes the fuse out first, before anything
+    # else, and hands it over, and does not let go of it for a moment.
+    upsert(ar, armor(AR_FUSE, "The Fuse (Removed)",
+                     "[Accessory] Taken out first, before anything else was "
+                     "touched. Carry it and you will not be surprised again.",
+                     ET_ACCESSORY, AT_GENERAL, 2600,
+                     [100, 20, 0, 12, 0, 14, 12, 16], icon=215,
+                     traits=[trait(22, 1, 0.08), trait(22, 2, 0.06),
+                             trait(14, 13, 1)]))
+    # Given rather than taken, which is the Barrow's rhyme in a different key:
+    # nobody strips Attempt Eighty-Four. Ott takes it off her while rebuilding
+    # her, and says it is coming off anyway.
+    upsert(ar, armor(AR_GOVERNOR, "Governor",
+                     "[Accessory] A brass ball governor off Attempt Eighty-"
+                     "Four. It kept her from running away with herself.",
+                     ET_ACCESSORY, AT_GENERAL, 2200,
+                     [60, 0, 0, 14, 0, 14, 18, 4], icon=163,
+                     traits=[trait(23, 6, 0.92), trait(14, 8, 1)]))
     save("Armors.json", ar)
 
 
@@ -1635,7 +1808,7 @@ def build_enemies():
              "on record that they said 'unusual' and not 'large'."))
 
     upsert(en, enemy(
-        EN_CROOKE, "Meredith Crooke", "Captain", 0,
+        EN_CROOKE, "Meredith Crooke", "Actor3_2", 0,
         [3200, 120, 56, 38, 24, 28, 34, 20], 700, 1400,
         [action(SK_ATTACK, 5), action(SK_TRIBUTE, 4),
          action(SK_INEVITABILITY, 3, condition=1, p1=40)],
@@ -1657,6 +1830,65 @@ def build_enemies():
         note="Chosen One #44. Came home, was pensioned south, died old and "
              "unwritten-to, and was then given a barrow with a curse on it "
              "because that is what you do with a hero."))
+
+    # -- the north ------------------------------------------------------------
+    # Everything in the Long Field is a machine that has not been told it has
+    # stopped, and everything aboard Attempt 199 is a system that is still
+    # sound. Nothing up here is a monster and nothing up here is angry: they
+    # are all doing the job they were built for, in a place where the job no
+    # longer applies, which is also what the town is doing.
+    upsert(en, enemy(
+        EN_PRESSURE, "Loose Pressure", "Plasma", 40,
+        [900, 0, 44, 20, 30, 24, 62, 8], 200, 160,
+        [action(SK_ATTACK, 4), action(SK_SCALD, 6)],
+        traits=base + [trait(11, EL_FIRE, 0.2), trait(11, EL_ICE, 1.6),
+                       trait(11, EL_WATER, 1.5), trait(11, EL_PHYSICAL, 0.6),
+                       trait(14, ST_POISON, 1), trait(14, ST_SLEEP, 1),
+                       trait(22, 1, 0.2)],
+        drops=[drop(0, IT_ETHER, 5)],
+        note="A hundred and forty years of stored steam, finding the way out "
+             "all at once. It is not attacking anybody. It is just leaving."))
+
+    upsert(en, enemy(
+        EN_UNNUMBERED, "Attempt (Unnumbered)", "Machinerybee", 0,
+        [1150, 0, 56, 36, 12, 26, 54, 18], 240, 220,
+        [action(SK_ATTACK, 5), action(SK_STILL_TRYING, 5)],
+        traits=base + [trait(11, EL_THUNDER, 1.4), trait(11, EL_EARTH, 0.6),
+                       trait(14, ST_POISON, 1), trait(14, ST_SLEEP, 1),
+                       trait(22, 1, 0.15)],
+        drops=[drop(0, IT_POTION, 3)],
+        note="Too early to have been given a number. It has been getting one "
+             "foot off the ground since before anybody now alive was born."))
+
+    upsert(en, enemy(
+        EN_SALVAGE, "Ambulant Salvage", "Mechascorpion", 25,
+        [1600, 0, 62, 52, 10, 34, 30, 12], 300, 300,
+        [action(SK_ATTACK, 5), action(SK_SHED_A_PART, 4),
+         action(SK_SCALD, 3, condition=1, p1=40)],
+        traits=base + [trait(11, EL_PHYSICAL, 0.7), trait(11, EL_ICE, 1.4),
+                       trait(11, EL_FIRE, 0.6),
+                       trait(14, ST_POISON, 1), trait(14, ST_SLEEP, 1),
+                       trait(23, 6, 0.85)],
+        drops=[drop(0, IT_HI_POTION, 4)],
+        note="Parts of nine different attempts, walking. Nobody assembled it "
+             "and nobody can prove it was not assembled."))
+
+    upsert(en, enemy(
+        EN_84, "Attempt Eighty-Four", "SF_Slaughterrobot", 0,
+        [7600, 400, 70, 64, 16, 44, 26, 10], 2200, 3000,
+        [action(SK_ATTACK, 5), action(SK_DUE_NORTH, 5),
+         action(SK_OVERPRESSURE, 4),
+         action(SK_MAKE_GOOD, 4, condition=1, p1=45),
+         action(SK_SHED_A_PART, 3)],
+        traits=base + [trait(11, EL_PHYSICAL, 0.7), trait(11, EL_FIRE, 0.4),
+                       trait(11, EL_ICE, 1.5), trait(11, EL_WATER, 1.3),
+                       trait(11, EL_DARK, 0.6), trait(11, EL_LIGHT, 0.8),
+                       trait(14, ST_POISON, 1), trait(14, ST_SLEEP, 1),
+                       trait(14, 8, 1), trait(62, 3, 0),
+                       trait(23, 6, 0.75), trait(23, 7, 1.15)],
+        note="Came down in the Long Field in 1886 and has been repairing "
+             "herself out of her neighbours ever since. Still has pressure. "
+             "Still, faintly, trying to go north."))
     save("Enemies.json", en)
 
 
@@ -1727,6 +1959,20 @@ def build_troops():
                       (EN_BANDIT, 610, 360)]))
     upsert(tr, troop(TR_FORTY_FOURTH, "The Forty-Fourth",
                      [(EN_FORTY_FOURTH, 400, 400)]))
+
+    # -- the north ------------------------------------------------------------
+    upsert(tr, troop(TR_PRESSURE, "Loose Pressure*3",
+                     [(EN_PRESSURE, 220, 340), (EN_PRESSURE, 400, 390),
+                      (EN_PRESSURE, 580, 330)]))
+    upsert(tr, troop(TR_UNNUMBERED, "Attempt (Unnumbered)*2",
+                     [(EN_UNNUMBERED, 260, 350), (EN_UNNUMBERED, 540, 390)]))
+    upsert(tr, troop(TR_SALVAGE, "Ambulant Salvage, Loose Pressure",
+                     [(EN_PRESSURE, 210, 330), (EN_SALVAGE, 450, 400)]))
+    upsert(tr, troop(TR_CRAG_MIX, "Ambulant Salvage, Attempt*2",
+                     [(EN_UNNUMBERED, 200, 330), (EN_SALVAGE, 410, 400),
+                      (EN_UNNUMBERED, 600, 340)]))
+    upsert(tr, troop(TR_84, "Attempt Eighty-Four",
+                     [(EN_84, 400, 400)]))
     save("Troops.json", tr)
 
 

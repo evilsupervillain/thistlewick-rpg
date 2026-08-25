@@ -68,13 +68,39 @@ FACES = {
     "Traveller": ("People3", 0),
     "Also A Traveller": ("People3", 1),
     "Hermit": ("People2", 0),
-    "Crooke": ("People2", 7),
+    # Meredith Crooke is drawn and fought as the same person: face
+    # Actor3:1 and battler Actor3_2, which is that face in armour on the
+    # side-view sheet. She used to share People2:7 with the Apprentice
+    # while being fought as `Captain`, who is a man.
+    "Crooke": ("Actor3", 1),
     # Ambrose Fitch and Ferrety Bother share a face: two grey-bearded old
     # men who are never in the same room, one of them being dead.
     "Ambrose": ("People3", 4),
     # Grimspite gets the horned, red-caped Dark Lord off the Evil sheet.
     # The Prophecy deliberately has no face: it is a document, not a person.
     "Grimspite": ("Evil", 6),
+    # ----------------------------------------------------------- the north --
+    # The People sheets are spent: People1, People2 and People4 are fully
+    # allocated and People3 has one cell left. So Upper Clanging is cast out
+    # of `SF_People1` and `SF_Actor3`, which between them hold thirty-two
+    # faces that nothing in this game has ever used.
+    #
+    # Ott is the exception and is worth the share. `People2:7` has **brass
+    # goggles pushed up on her head** and is the only engineer's face in the
+    # entire stock library, which is not a thing you pass up for a chief
+    # engineer. It is shared with the Thistlewick smithy's Apprentice, forty
+    # miles and two acts away, who has one line about a hammer.
+    "Ott": ("People2", 7),
+    "Mrs Tunnicliffe": ("SF_People1", 7),      # white hair, spectacles, scarf
+    "Mrs Cotterill": ("SF_People1", 5),        # dark braid, unbothered
+    "Mr Cotterill": ("SF_People1", 4),         # moustache, work jacket
+    "Spare": ("SF_People1", 0),                # a lad of nine, blue shirt
+    "Sowerby": ("SF_People1", 6),              # knit cap, white beard
+    "Nib": ("SF_People1", 1),                  # ponytail, red cardigan
+    "Mr Kell": ("SF_People1", 2),              # black hair, blue jacket
+    "Winnie": ("SF_People1", 3),               # strawberry-blonde bob
+    # The only face in either SF set with the mass to stand next to Hob.
+    "Bryd": ("SF_Actor3", 0),
 }
 
 
@@ -150,6 +176,22 @@ def trope(indent=0):
     once - and, because it usually sits behind a self switch, only once per
     playthrough."""
     return R.control_variable_add(db.VAR_TROPES, 1, indent=indent)
+
+
+def blush(indent=0):
+    """Bump the count of things nobody quite said.
+
+    The companion to `trope()`, and the same discipline: bump it here and
+    nowhere else, so the total can be audited with one grep. Every Register A
+    moment in the game calls this exactly once, on first sight, and because it
+    is a bare variable-add with no message it can be appended to any command
+    list without disturbing the pacing of what is already there.
+
+    The joke only exists in aggregate. No single line of dialogue admits to
+    anything - each one is a compliment, a repair, or a census entry - and the
+    ending prints the total, which is the first and only time the game lets on
+    that it was counting."""
+    return R.control_variable_add(db.VAR_BLUSHES, 1, indent=indent)
 
 
 def got(lines, indent=0):
