@@ -542,6 +542,10 @@ def hall_map():
     g.column(7, 3, 2, K.IN_BOOKCASE)
     g.column(13, 3, 2, K.IN_BOOKCASE2)
     g.column(4, 3, 2, K.IN_NOTICE_BOARD)
+    # A second board, next to the old one, for NORTH.md 3.3. The parish keeps
+    # its minutes on the wall where anybody can read them, which is the whole
+    # of the joke and the reason it is a document and not a conversation.
+    g.column(6, 3, 2, K.IN_NOTICE_BOARD)
     g.column(16, 3, 2, K.IN_CURTAIN_GREEN)
     g.set(9, 6, 2, K.IN_TABLE_ROUND)
     g.set(9, 6, 3, K.INC_SCROLL)
@@ -683,7 +687,85 @@ def hall_events():
         "Minutes of the meeting at which you were",
         "Chosen. Under 'apologies for absence':",
         "your name, and one goat."], "", 0, extra=[S.trope()]))
+
+    evs.append(fete_minutes(8, 6, 4))
     return evs
+
+
+def fete_minutes(event_id, x, y):
+    """NORTH.md 3.3: verse seven.
+
+    A new event, and a document rather than a conversation - the most
+    Thistlewick delivery available, and mechanism four exactly. Nobody's lines
+    are touched.
+
+    The event has **no page that qualifies** until Piper has been recruited,
+    which is MZ's own way of saying "not yet": `Game_Event.refresh` finds
+    nothing, `_pageIndex` stays at -1, and the board is not drawn and cannot be
+    read. There is no ballad to strike verses out of before she joins.
+
+    **The content of verse seven is never given.** Not here, not in dialogue,
+    not in the ending. It only ever accrues consequences, and anybody who
+    writes it down has misunderstood the assignment."""
+    minutes = S.narrate([
+        "\\C[6]MINUTES OF THE FETE SUB-COMMITTEE\\C[0]",
+        "",
+        "Verses one to six: approved.",
+        "Verse seven: struck.",
+    ])
+    minutes += S.narrate([
+        "Verse eight: struck, and we would like a word.",
+        "",
+        "Verse nine was read aloud at the fete.",
+        "In error. By Mrs Wispel.",
+    ])
+    minutes += S.narrate([
+        "There were children present.",
+        "There were GRANDPARENTS present.",
+    ])
+    minutes += S.narrate([
+        "Motion to strike verses seven and eight:",
+        "carried, four to one.",
+        "",
+        "The one against is Mrs Wispel.",
+    ])
+
+    # The wyvern's trick, in a different room: what the board says is the
+    # same either way, and the author of the struck verses is standing behind
+    # you or she is not.
+    minutes += R.if_then(
+        R.condition_actor_in_party(db.PIPER),
+        S.say("Piper", ["It scans."]) +
+        S.say("Piper", [
+            "That is all I will say for it.",
+            "It scans, and it is true, and if they",
+            "wanted a different verse they should",
+            "have asked for a different verse.",
+        ]),
+        S.narrate([
+            "Nobody has written down what verse seven was.",
+            "Nobody is going to.",
+        ]))
+    minutes += [S.blush(), R.control_switch(db.SW_BALLAD_DONE, True),
+                R.self_switch("A", True)]
+
+    again = S.narrate([
+        "Verses seven and eight: struck.",
+        "Verse nine: struck, retrospectively, and a",
+        "note asking that it not be set to a tune",
+        "anybody can whistle.",
+    ])
+    page = dict(img=R.image(""), trigger=0, priority=1,
+                direction_fix=True, through=True)
+    return R.event(event_id, "Minutes of the Fete Sub-Committee", x, y, [
+        R.page(minutes, conditions={"switch1Valid": True,
+                                    "switch1Id": db.SW_RECRUIT[db.PIPER]},
+               **page),
+        R.page(again, conditions={"switch1Valid": True,
+                                  "switch1Id": db.SW_RECRUIT[db.PIPER],
+                                  "selfSwitchValid": True,
+                                  "selfSwitchCh": "A"}, **page),
+    ])
 
 
 def inn_map():
@@ -707,6 +789,18 @@ def inn_map():
     g.set(6, 9, 3, K.INC_BOTTLE)
     g.column(14, 4, 2, K.IN_BED_ORANGE)
     g.column(15, 4, 2, K.IN_BED_BROWN)
+    # The washstand, for NORTH.md 3.5. It stands with the beds because that
+    # is where a washstand stands, and its event goes on the lower of its two
+    # tiles so there is a square to stand on in front of it.
+    #
+    # A jug and a basin, and **not** `IN_DRESSER`, which was here first and
+    # was wrong: its lower cell is `Sundries Shelf A`, which has two teddy
+    # bears and a pink rabbit painted on it. At map scale that reads as a
+    # cupboard and the contact sheet says otherwise - which is the whole
+    # argument for cropping every prop a map lays down, and it is a room a
+    # cell crop was never run over because nothing here is new tileset work.
+    g.set(16, 4, 2, K.IN_BARREL)        # "Pot B": a cream ewer with a rope
+    g.set(16, 5, 2, K.IN_BARREL2)       # "Basin", which is what it is called
     g.set(4, 10, 2, K.IN_BARREL)
     g.set(4, 11, 2, K.IN_BARREL2)
     return finish(MAP_INN, g, "The Gilded Turnip", bgm="Town3",
@@ -733,7 +827,62 @@ def inn_events():
         "A small plaque reads: THE GILDED TURNIP.",
         "It is not a metaphor. It is just a turnip",
         "somebody painted."], "", 0, extra=[S.trope()]))
+
+    evs.append(the_washstand(7, 16, 5))
     return evs
+
+
+def the_washstand(event_id, x, y):
+    """NORTH.md 3.5: Merribell, being a professional.
+
+    Mechanism three. She has no embarrassment reflex, because medics do not,
+    and every word of this is her ordinary working vocabulary used correctly
+    on a man with a sore ankle. She is *kind*. Bram is the one who cannot
+    cope, and Bram is the straight man in every scene in this game.
+
+    The wyvern's idiom: the washstand is the same washstand either way, and
+    the field medic is standing behind you or she is not."""
+    look = S.narrate([
+        "A washstand by the beds. Jug, basin, and a",
+        "towel folded by somebody who folds towels",
+        "properly.",
+    ])
+    scene = S.narrate([
+        "You put your weight on the wrong foot",
+        "reaching for the jug, and say so.",
+    ])
+    scene += S.say("Merribell", [
+        "Where does it hurt? Be specific.",
+        "'Down there' is four separate systems",
+        "and I will guess wrong.",
+    ])
+    # Bram does not speak. In two towns of writing he never has once: he is
+    # the narrator's "You ask whether...", which section 1.4 is right to call
+    # the perfect innocent. NORTH.md's scripts give him lines and the finished
+    # game's convention beats the script - and the flat narration is funnier
+    # than the line would have been.
+    scene += S.narrate(["You say that it is your ankle."])
+    scene += S.say("Merribell", ["Then say ankle! Oh, thank goodness."])
+    scene += S.narrate([
+        "She has the boot unlaced before you have",
+        "finished being embarrassed.",
+        "She was not embarrassed. She was working out",
+        "how much water to boil.",
+    ])
+    scene += [S.blush(), R.self_switch("A", True)]
+
+    again = S.narrate([
+        "The towel has been refolded.",
+        "It was already folded.",
+    ])
+    page = dict(img=R.image(""), trigger=0, priority=1,
+                direction_fix=True, through=True)
+    return R.event(event_id, "The Washstand", x, y, [
+        R.page(look + R.if_then(R.condition_actor_in_party(db.MERRI), scene),
+               **page),
+        R.page(again, conditions={"selfSwitchValid": True,
+                                  "selfSwitchCh": "A"}, **page),
+    ])
 
 
 def prudence_event(event_id, x, y):

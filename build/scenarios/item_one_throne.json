@@ -1,0 +1,88 @@
+{
+  "query": "?map=12&x=12&y=12&frames=90",
+  "steps": [
+    {
+      "comment": "NORTH.md 7, the stretch goal. Two passes over the same scene: option 0 keeps the crate and changes nothing, option 1 lights it. Both run the spliced segment on its own rather than the whole finale - the crate lands two hundred commands into page 1's opening, and printing all of that first would cost ten minutes and re-test what finale_ending already covers.",
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    { "eval": "$gameParty.addActor(2); $gameParty.addActor(3); $gameParty.addActor(4)" },
+    { "eval": "$gameVariables.setValue(2, 0)" },
+    { "eval": "$gameParty.gainItem($dataItems[32], 1)" },
+    { "frames": 20 },
+
+    {
+      "check": "$gameParty.numItems($dataItems[32])",
+      "expect": 1,
+      "label": "the party is carrying ITEM 1"
+    },
+    {
+      "comment": "The whole mechanism: the last page whose conditions hold wins, and the crate page is page index 1.",
+      "check": "$gameMap.event(2).findProperPageIndex()",
+      "expect": 1,
+      "label": "and Grimspite is running the crate page, not the ordinary finale"
+    },
+
+    {
+      "comment": "-- pass one: draw your weapon, and the crate stays in the party's hands. The block is found by its label and not by the first code 102 on the page: the finale opens with a choice of its own, and slicing from that one runs the whole introduction and takes the wrong branch while reporting a pass.",
+      "eval": "(function () { const l = $dataMap.events[2].pages[1].list; const i = l.findIndex(c => c.code === 102 && c.parameters[0].includes('Set the crate down')); const j = l.findIndex((c, k) => k > i && c.code === 301); $gameMap._interpreter.setup(l.slice(i - 3, j), 2); })()"
+    },
+    { "frames": 240 },
+    { "shot": "item_one_throne_ask.png" },
+    { "choose": 0 },
+    { "frames": 120 },
+    {
+      "check": "$gameParty.numItems($dataItems[32])",
+      "expect": 1,
+      "label": "drawing your weapon keeps the crate"
+    },
+    {
+      "check": "$gameSwitches.value(71)",
+      "expect": false,
+      "label": "and nothing was set down in front of the throne"
+    },
+
+    {
+      "comment": "-- the picture, on its own. Counting key presses to land a screenshot on the blast does not work: at headless speed a press fast-forwards the printing of a window rather than dismissing it, so the same seven presses land on a different window every run. Set up the tail of the scene instead, from the fade before the fuse to just short of the trope bump, and count frames - there is nothing to press in that stretch and 260 frames is always the same place. It stops before code 122 so this pass changes no state at all: the counters are asserted after the real one below.",
+      "eval": "(function () { const l = $dataMap.events[2].pages[1].list; const c = l.findIndex(x => x.code === 102 && x.parameters[0].includes('Set the crate down')); const i = l.findIndex((x, k) => k > c && x.code === 242); const j = l.findIndex((x, k) => k > i && x.code === 122); $gameMap._interpreter.setup(l.slice(i, j), 2); })()"
+    },
+    { "frames": 260 },
+    { "shot": "item_one_throne_bang.png" },
+    { "advance": 80 },
+
+    {
+      "comment": "-- pass two: set the crate down, for real.",
+      "eval": "(function () { const l = $dataMap.events[2].pages[1].list; const i = l.findIndex(c => c.code === 102 && c.parameters[0].includes('Set the crate down')); const j = l.findIndex((c, k) => k > i && c.code === 301); $gameMap._interpreter.setup(l.slice(i - 3, j), 2); })()"
+    },
+    { "frames": 240 },
+    { "choose": 1 },
+    { "advance": 80 },
+    { "frames": 60 },
+
+    {
+      "check": "$gameSwitches.value(71)",
+      "expect": true,
+      "label": "ITEM 1 was set down in front of the throne"
+    },
+    {
+      "check": "$gameParty.numItems($dataItems[32])",
+      "expect": 0,
+      "label": "and there is no crate any more"
+    },
+    {
+      "check": "$gameVariables.value(2)",
+      "expect": 1,
+      "label": "it counts as a trope"
+    },
+    {
+      "comment": "And the moment the crate is gone the page stops winning, so a player who lights it and walks out and back in gets the ordinary finale.",
+      "check": "$gameMap.event(2).findProperPageIndex()",
+      "expect": 0,
+      "label": "Grimspite is back on the ordinary finale"
+    },
+    {
+      "check": "SceneManager._scene.constructor.name",
+      "expect": "Scene_Map",
+      "label": "and the scene ended cleanly"
+    }
+  ]
+}

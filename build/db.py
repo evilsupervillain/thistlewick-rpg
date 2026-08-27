@@ -160,6 +160,13 @@ SW_AIRSHIP = 53                 # the Two Hundred flies; the vehicle is placed
 SW_ITEM_ONE_ASKED, SW_ITEM_ONE_DOWN = 54, 55
 SW_84_BEATEN, SW_84_REBUILT = 56, 57
 SW_HOB_BRYD = 58                # they went for a drink. That is all
+# 59 was drafted as the ask half of an ask-then-done pair and never got a
+# job: NORTH.md 3.3 specifies the fete minutes as a *readable board*, and a
+# board is a document and not a conversation, so there is nothing to ask and
+# SW_BALLAD_DONE does all of it. It is never set and never read. Ids are not
+# renumbered here, so it stays reserved; it is named as unused in System.json
+# so that the next person to open the editor does not go looking for the
+# event that sets it.
 SW_BALLAD_ASKED, SW_BALLAD_DONE = 59, 60
 SW_CENSUS = 61                  # heard about the Cold Winter
 SW_COTTERILL = 62               # met the family
@@ -172,11 +179,30 @@ SW_GERALD = 67                  # that is all that is being said about Gerald
 # the Clause Seven event in `field.py`: the log entry in 5.4 says REACHED THE
 # TOWER, and nothing else in the game knows whether the Two Hundred ever did.
 SW_TWO_HUNDRED_FLEW = 68        # set down beside the tower, out of the air
+# The retrofit of NORTH.md section 3. Two Very Ordinary Travellers are one
+# joke with two mouths, and either of them can be asked first, so the bump
+# cannot hang off a self switch the way every other guarded blush does - a
+# self switch is keyed on (map, event id, letter) and these are two events.
+SW_TRAVELLERS = 69              # they have been asked how long they have known
+                                # each other, by whichever of them you asked
+# Ott's last beat before you go north asks you to carry a question to the
+# only other person alive who has had four thousand years to look at that
+# tower. It has to be its own switch: the beat sits six deep in her flying
+# chain, so `SW_AIRSHIP` says the ship exists and says nothing at all about
+# whether she got round to asking.
+SW_OTT_MATERIALS = 70           # Ott asked you to ask him what it is made of
+# NORTH.md 7, the stretch goal. The crate is the one thing in the game a
+# player can spend two ways - Ott renders it down into the north's best gear,
+# or you carry it up the tower and light it - and the ending is the only place
+# that ever mentions which. `SW_ITEM_ONE_DOWN` says it came off the crag and
+# says nothing about where it went.
+SW_ITEM_ONE_USED = 71           # it was set down in front of the throne
 
 VAR_COMPANIONS, VAR_TROPES, VAR_TURNIPS = 1, 2, 3
 VAR_TALES, VAR_BOUNTIES = 4, 5
 VAR_PLAQUES = 6                 # wreck plaques read; Ott opens up at twelve
 VAR_BLUSHES = 7                 # "things nobody quite said" - see story.blush
+VAR_OTT_ORDER, VAR_OTT_FLYING = 8, 9    # Ott's stage-2 and stage-3 beat chains
 # 10 is a scratch variable owned by build_game.py, not a counter.
 
 # element ids, from System.json
@@ -637,7 +663,7 @@ def build_actors():
         "Does not fight monsters. Documents them. The fighting is a "
         "regrettable step in the methodology. Carries seventeen specimen jars "
         "and a monograph in progress.",
-        "Actor2", 6, 6, [WP_CROSSBOW, 0, AR_A_HAT, AR_LEATHER, 0]))
+        "Actor2", 7, 6, [WP_CROSSBOW, 0, AR_A_HAT, AR_LEATHER, 0]))
 
     upsert(ac, actor(
         ROLAND, "Roland", "Guest Star",

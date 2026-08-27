@@ -53,6 +53,42 @@ none of. Its section 1 is the specification for every line of dialogue in it,
 including what is deliberately out of bounds; read that before writing any of
 this game's humour, not just the north's.
 
+## The ending
+
+`journey.finale_event` is the longest command list in the game and most of it is
+optional. It is worth knowing its shape before adding to it, because the two
+halves are built differently on purpose.
+
+**Inside the Grimspite scene**, before the fight, are two branches on
+`SW_CLAUSE_SEVEN` and `SW_OTT_MATERIALS` - the two questions Ott can send the
+player up here with. They are separate switches on separate branches so that
+either can be asked without the other, and the finale is the only place either
+is ever answered. He is never told the airship flew.
+
+**After the fight** the Prophecy's tally is fourteen appended `if_then` blocks
+reading `SW_ROLAND_GONE`, `SW_SOUTH`, `VAR_BOUNTIES` (two tiers, the lower
+nested in the higher's else), `SW_HISTORY_DONE`, `SW_LAMP_LIT`,
+`SW_BENCH_DONE`, `SW_TWO_HUNDRED_FLEW`, `SW_84_REBUILT`, `SW_ITEM_ONE_USED`,
+`SW_HOB_BRYD`, `VAR_TROPES` (40 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`
+and `SW_MET_QUY`. Every one is additive: a new line here is a new block, and
+nothing that is already in the tally comes out or gets re-voiced.
+
+**Two counter thresholds are cut against totals that keep moving**, so anything
+that adds a `story.trope()` or a `story.blush()` site has to come back here.
+`VAR_TROPES` is 40 / 20 against about sixty reachable; `VAR_BLUSHES` is 20
+against **twenty-five** reachable, measured off the data in August 2026. Keep
+the blush tier at four fifths of the true total - `NORTH.md` 2.3 has the count
+and, more importantly, why counting it by grep gives 28 and is wrong.
+
+**ITEM 1 is a page, not a branch.** The crate is a whole scene rather than a
+question, so page 1 of the event is `c[:split] + item_one_scene() + c[split:]`
+with an `itemValid` condition, and page 0 rebuilds byte for byte. The splice is
+after the Shock2 sting and before the battle, which is the only placement that
+does not make him a liar: he has just said he has heard all of them, and four
+windows later he says this one is new.
+
+`finale_ending` covers all of it in eight passes; see Verifying.
+
 ## Layout
 
     build/
@@ -110,15 +146,18 @@ Append instead.
 | Skills 140-149 | northern enemy and boss skills |
 | Items 1-19 | consumables (10-12 are southern, 13-15 northern) |
 | Items 20-29 | key items (23-29 are southern) |
-| Items 30-36 | northern key items - the 20-29 block is full. 30 is the
-  oilskin, 31 is Attempt 112's number-plate, 32 is ITEM 1 |
+| Items 30-32 | northern key items - the 20-29 block is full. 30 is the
+  oilskin, 31 is Attempt 112's number-plate, 32 is ITEM 1. The range was
+  reserved to 36 and three were enough |
 | Weapons 1-33 | roughly three per class, in class order; 32-33 are the north's |
-| Armors 1-26 | shared body/head/accessory; 16-22 are southern, 23-26 northern |
+| Armors 1-26 | shared body/head/accessory; 16-22 are southern, 23-26 northern
+  - Sensible Trousers, Works Cap, The Fuse (Removed) and the Governor |
 | Enemies 1-19 | ordinary encounters (12-18 are southern). **Full**: northern
   ordinary encounters continue at 30 |
 | Enemies 20-29 | bosses (23-26 are the optional ones, 27 is Attempt
   Eighty-Four) |
-| Enemies 30-35 | northern encounters |
+| Enemies 30-32 | northern encounters: Loose Pressure, Attempt (Unnumbered),
+  Ambulant Salvage. Reserved to 35 |
 | Troops 1-19 | encounter groups (11-17 are southern). **Full**: northern
   groups continue at 30 |
 | Troops 20-29 | set-piece fights (24-27 are southern, 28 is Eighty-Four) |
@@ -171,7 +210,17 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
   Eighty-Four, 58 Hob and Bryd went for a drink, 59-60 the ballad, 61 the
   Cold Winter, 62 met the Cotterills, 63 the nine-year-old has applied,
   64 walked the Long Field, 65 clause seven, 66 room four, 67 Gerald,
-  68 the Two Hundred set down beside the tower |
+  68 the Two Hundred set down beside the tower, 69 the two travellers
+  have been asked how long, exactly - the retrofit's one global switch,
+  because the joke is one moment across two events and a self switch is
+  keyed on (map, event id, letter), 70 Ott asked you to ask what the tower
+  is made of, which is also the last thing her flying chain sets and so the
+  one switch that means "Ott has nothing left owing", 71 the crate was set
+  down in front of the throne. **59 is reserved and unused** - it was
+  drafted as the ask half of an ask-then-done pair and the fete minutes
+  turned out to be a board rather than a conversation. It is never set and
+  never read, and `System.json` names it as unused so nobody goes looking
+  for the event |
 
 | id | variable |
 | --- | --- |
@@ -190,7 +239,17 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
      sight, and the ending prints the total. Bump it with `story.blush()` and
      nowhere else. `NORTH.md` 2.3 is the specification and it matters: the
      joke exists only in aggregate, which is exactly what keeps every
-     individual instance deniable. |
+     individual instance deniable. **Twenty-five reachable moments**; a grep
+     of `data/` says 28 and over-counts, for the three reasons in 2.3 |
+| 8 | Ott's beat while the oilskin-and-spar order is outstanding - a nine-beat
+     chain. A variable and not a run of self switches because a page
+     condition can name exactly one self switch, and four letters do not
+     reach nine |
+| 9 | the same for the seven beats after the Two Hundred flies. Its last write
+     is the one that sets switch 70, which is what makes that switch usable as
+     "Ott has nothing left owing" - and anything appended to Ott below her
+     ladders has to require it, or it shadows them. `NORTH.md` 16 step 6 is
+     the write-up of the lockout that taught us so |
 
 ## Verifying
 
@@ -199,14 +258,43 @@ screenshots, fights from numbers, and events from a scripted playthrough.
 
     node ../tools/serve.js . 8766                # background it, then
     node ../tools/scenario.js build/scenarios/opening.json
+    ../tools/scenarios.sh .                      # or all thirty-three
+
+The whole suite is a little over an hour, so background it and read
+`build/scenarios/logs/` afterwards rather than watching it. `scenarios.sh`
+checks before it starts that 8766 is serving *this* game and that no Chromium
+has been orphaned by an earlier killed run, because both of those turn an hour
+of machine time into an hour of confusing output.
 
 Headless runs at about twelve frames a second on a map and three in a battle,
 so playing a boss fight through a scenario takes the better part of an hour and
 mostly tests the renderer. `finale_ending` sidesteps that: it feeds the finale's
-own command list to the interpreter with the Battle Processing, Show Text and
-Show Choices commands filtered out, so every switch, item and screen effect
-still runs, in about a minute, with no key presses at all. Use the same trick
-for any long cutscene.
+own command list straight to the interpreter with Battle Processing filtered
+out, so every switch, item and screen effect still runs, with no key presses at
+all. Use the same trick for any long cutscene.
+
+**Filtering the Show Texts out as well is the version of that trick to avoid,
+and it is what this scenario used to do.** An optional ending is *made of*
+Show Text inside a Conditional Branch, so a scenario that deletes the messages
+before running the list can assert nothing whatever about which branch it took
+- and four shipped endings sat behind checks that would have passed with every
+one of them deleted. The fix is to take the blocking out of the messages
+instead of taking the messages out of the list:
+
+    Game_Message.prototype.add = function (t) { window._lines.push(t); };
+    Game_Message.prototype.isBusy = function () { return false; };
+
+The interpreter then runs the whole cutscene without ever opening a window -
+`hasText()` is false, so `Window_Message` does not try - and what comes back is
+every line the player would have read, in order, ready to assert against. Two
+things go with it. A choice must be answered by a shim on `setupChoices`,
+because a choice left unanswered takes *neither* branch: `command402` compares
+against a `_branch` entry nothing ever wrote, and the run silently loses
+everything under both halves. And if the pass is only about what was printed,
+filter the waits and screen effects (`230`, `221`, `222`, `223`, `225`) as
+well - the interpreter will run a hundred thousand commands in a frame before
+it decides it has frozen, so the entire finale executes in one. That is what
+makes eight passes over it cost less than the single pass did before.
 
 | scenario | what it proves |
 | --- | --- |
@@ -218,9 +306,16 @@ for any long cutscene.
 | `nix_door` | Nix opens the same door without it |
 | `battle_mook` | a random encounter at level 6 is a fight, not a formality |
 | `finale` | the throne-room scene runs and the Grimspite fight starts |
-| `finale_ending` | the ending itself: switches, the receipt, the trope
-  tally and the return to the title, with the battles and the message
-  windows stripped out of the command list so it runs without input |
+| `finale_ending` | the ending, in eight passes over the same command list.
+  Seven fast ones capture the narration and assert which optional endings
+  printed: clause seven and the materials question independently and together,
+  the two `VAR_BOUNTIES` tiers each with the other's line asserted *absent*,
+  and the ITEM 1 stores-book line. Pass D is the one worth having - it is the
+  only state in which Grimspite saying she will never get one off the ground
+  and the attempt log reporting that she did are both on screen, which is the
+  game's central joke and had nothing standing behind it. The eighth runs at
+  full length with the waits intact for the switches, the receipt and the
+  return to the title |
 | `reachable_home` | the bed, the sword and the front door of Bram's house,
   walked to with the arrow keys and triggered with the action button |
 | `reachable_village` | the Fisher on the pond bank, Prophecy Hall's door, the
@@ -236,13 +331,31 @@ for any long cutscene.
   whole street and both flights of steps, and through all four doors - and
   that the rain stops indoors and does not follow the player home |
 | `clanging_cast` | the town's dialogue: Ott's four steam beats arrive one per
-  conversation and then stop, Spare's three, the Cotterills, the Cold Winter,
-  the Parish Rooms counter opening as a real shop, and Hob and Bryd - with
-  `VAR_BLUSHES` asserted after every one of them, because a counter nobody
-  checks is a counter that silently reads zero in the ending |
+  conversation and then stop, Spare's three, the whole Cotterill doorstep, the
+  Cold Winter, Gudgeon over the parish ledger, the Parish Rooms counter opening
+  as a real shop, and Hob and Bryd - with `VAR_BLUSHES` asserted after every one
+  of them, because a counter nobody checks is a counter that silently reads zero
+  in the ending. It is also where Ott's first rung is proved **with** Merribell
+  in the party: that moment is a conditional branch, and a conditional blush
+  that has only ever been run one way is indistinguishable from one somebody
+  deleted. `two_hundred` runs the same four rungs without her and asserts the
+  counter does not move |
+| `clanging_faces` | each of the eighteen northern faces read off the **live
+  message window** rather than off the data, and screenshotted. It is the check
+  that catches an off-by-one between `story.FACES` (0-based, like MZ's
+  `faceIndex`) and `img/pictures/` (1-based), which is a mistake that builds,
+  validates and looks like somebody else answering - and the only thing standing
+  behind two casting decisions with reasons: Winnie on `People1` 7 because she
+  is sixty, and Rivet off `SF_Actor2` 2 because that face reads as a girl at
+  both sizes |
 | `two_hundred` | Ott's quest end to end without Hob: the ask amidships, the
   spar in a day, forty bolts of oilskin on account, and the airship placed on
-  the world map at (10, 13) |
+  the world map at (10, 13). It also walks **both of Ott's beat chains** - five
+  conversations of the order chain and all seven of the flying chain - because
+  five of her six Register A moments live in them and nothing else in the suite
+  executes one. The last beat of the flying chain is what sets
+  `SW_OTT_MATERIALS`, so this is also the check that the ladders can be finished
+  at all |
 | `hob_and_bryd` | the same spar with Hob in the party - forged in an
   afternoon, and then they go for a drink, and `SW_HOB_BRYD` |
 | `airship_lands` | the one that protects the joke. It asserts
@@ -264,13 +377,30 @@ for any long cutscene.
 | `long_field` | the gate off the spur road, the twelve plaques counting once
   each, `VAR_PLAQUES` landing on twelve, clause seven out of Ott, and the
   thirteenth plaque made out of Attempt 112's number-plate - which does *not*
-  count, because twelve is twelve |
+  count, because twelve is twelve. Also the guard: twelve plaques on their own
+  must **not** change which page Ott is on, because those pages sit below both
+  of her beat chains and would delete them |
 | `eighty_four` | the furrow is walkable from her empty plot to the top of the
   field, the action button reaches her, "Stop her" starts the right fight
   against the right enemy, and the stop, the rebuild and the governor |
 | `item_one` | the stores ledger, the crag, the log with seven minutes missing
   out of it, ITEM 1 off the crag for the first time since 1802, and Ott
   rendering it down into a weapon and an accessory |
+| `item_one_throne` | the stretch goal: carrying ITEM 1 to the throne room
+  instead. Both branches of the choice - "Draw your weapon" keeps the crate
+  and sets nothing, "Set the crate down" lights it - plus the page mechanism
+  itself, which is that `findProperPageIndex()` returns the crate page while
+  the crate is held and drops back to the ordinary finale the moment it is
+  spent. The crate block is found in the command list **by its label**: the
+  finale opens with a choice of its own, and slicing from the first code 102
+  on the page runs the whole introduction and takes the wrong branch while
+  reporting a pass |
+| `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
+  house register, Sops, both travellers, Perpetua and Gerald, the fete
+  minutes, the washstand, Wren's three specimens and the second notice at the
+  Standing Stones. Every one of them is asked a second time and `VAR_BLUSHES`
+  asserted not to have moved, and the last check is that the retrofit came to
+  eleven - the number 2.3 asked for |
 
 The two `reachable` scenarios exist because every other scenario here starts
 its events with `$gameMap.event(n).start()`, which proves what an event does
@@ -290,6 +420,19 @@ survives five or six of its turns.
 
 * Every event is named for what it is, and the recruitable six are named after
   the character so `Merribell` is findable by grep.
+* **A page appended below a ladder must require that ladder's terminal
+  switch.** `Game_Event.refresh` takes the *last* page whose conditions hold,
+  so appending is not the same as sequencing: a new page whose condition can be
+  true while a page above it still owes the player a beat does not follow that
+  page, it deletes it - silently, permanently, with no symptom but the
+  character saying the wrong thing forever. Ott's three field pages were
+  appended on a plaque count that is reachable on foot long before the works is
+  asked for an airship, which shadowed her fabric page, her handover page and
+  both of her beat chains and made the whole questline unreachable for anyone
+  who read the field first. The fix is to name the switch that means "this
+  character has nothing left owing" - for Ott, `SW_OTT_MATERIALS`, the last
+  thing the flying chain sets - and require it on every appended page.
+  Reordering is not a fix; it only chooses which ladder dies.
 * Dialogue lives in `village.py` / `journey.py` next to the event that says it,
   not in a strings table - it is read far more often than it is reused.
 * Colour codes in text: `\C[6]` for a speaker's name, `\C[3]` for a thing you

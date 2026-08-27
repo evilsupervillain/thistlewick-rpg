@@ -49,7 +49,11 @@
 
     {"eval": "$gameSelfSwitches.setValue([22, 2, 'D'], true)"},
     {"goto": [22, 12, 16]},
-    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 11,
+    {"comment": "Her crate page is appended below both of her beat chains, so like the other two appended pages it requires switch 70 - the last switch the flying chain sets, and therefore the one that means she has nothing else owing. Without that guard, walking in with the crate before the ship was finished deleted the handover page and the airship with it.",
+     "check": "$gameMap.event(2).findProperPageIndex() === 26", "expect": false,
+     "label": "the crate does not talk over anything Ott still owes you"},
+    {"eval": "$gameSwitches.setValue(70, true)"},
+    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 26,
      "label": "the crate in the party beats every other page Ott has"},
     {"eval": "$gameMap.event(2).start()"},
     {"advance": 4},
@@ -64,7 +68,8 @@
      "label": "the rest comes back from Ollerenshaw's as eighteen pounds on a shaft"},
     {"eval": "$gameMap.event(2).start()"},
     {"advance": 20},
-    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 4,
-     "label": "and with the crate gone she drops back to the last rung of the ladder, which is what she says for the rest of the game - nothing in this scenario ever asked her for an airship"}
+    {"comment": "Asserted as a range rather than an index on purpose. What she falls back to depends on how far along she is, and this scenario got to her by setting self switch D directly instead of walking her introduction - so the honest answer here is her opening page, and pinning that number would be pinning the shortcut. What matters is the part that is about the crate: none of her three appended pages hold any more, because the crate is what was holding them.",
+     "check": "$gameMap.event(2).findProperPageIndex() >= 24", "expect": false,
+     "label": "and with the crate gone none of her appended pages hold, so she goes back to whatever she was saying"}
   ]
 }

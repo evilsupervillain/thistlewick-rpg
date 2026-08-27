@@ -1,6 +1,8 @@
 {
   "query": "?map=22&x=12&y=16&frames=90",
   "steps": [
+    {"comment": "Every face here is read off the live message window rather than off the data, because the mistake this is guarding against - an off-by-one between story.FACES, which is 0-based like MZ's faceIndex, and img/pictures/, which is 1-based - builds, validates, and looks exactly like somebody else answering. The .png in each label is the file the index resolves to."},
+
     {"eval": "$gameSystem.disableEncounter()"},
 
     {"eval": "$gameSelfSwitches.setValue([22, 2, 'A'], true); $gameMap.event(2).refresh()"},
@@ -18,6 +20,14 @@
      "expect": ["SF_People1", 1],
      "label": "Nib: SF_People1_2.png, the ponytail"},
     {"shot": "face_nib.png"},
+    {"advance": 40},
+
+    {"eval": "$gameMap.event(9).start()"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["SF_Actor2", 3],
+     "label": "Tappet: SF_Actor2_4.png, the blue cap"},
+    {"shot": "face_tappet.png"},
     {"advance": 40},
 
     {"goto": [21, 17, 41]},
@@ -45,6 +55,40 @@
     {"shot": "face_mr_cotterill.png"},
     {"advance": 40},
 
+    {"comment": "The four children on the doorstep come off SF_Actor1 and SF_Actor2, which nothing in this game had ever used, and they are on their brothers' and sisters' sheet on purpose so that the four of them read as related."},
+    {"eval": "$gameMap.event(14).start()"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["SF_Actor1", 1],
+     "label": "Ferrule: SF_Actor1_2.png, the long braid, and sixteen"},
+    {"shot": "face_ferrule.png"},
+    {"advance": 40},
+
+    {"eval": "$gameMap.event(15).start()"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["SF_Actor1", 2],
+     "label": "Clevis: SF_Actor1_3.png, the red spikes"},
+    {"shot": "face_clevis.png"},
+    {"advance": 40},
+
+    {"eval": "$gameMap.event(16).start()"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["SF_Actor1", 5],
+     "label": "Shim: SF_Actor1_6.png"},
+    {"shot": "face_shim.png"},
+    {"advance": 40},
+
+    {"comment": "Bessie has the face Winnie's recast freed, and the resemblance is meant: she is Winnie's granddaughter."},
+    {"eval": "$gameMap.event(17).start()"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["SF_People1", 3],
+     "label": "Bessie Marsden: SF_People1_4.png, the bob"},
+    {"shot": "face_bessie.png"},
+    {"advance": 40},
+
     {"eval": "$gameMap.event(10).start()"},
     {"frames": 40},
     {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
@@ -62,12 +106,22 @@
     {"shot": "face_kell.png"},
     {"advance": 40},
 
+    {"comment": "Winnie is sixty and was drawn as twenty-five, and Mrs Tunnicliffe was born in June of the same year, so the Class of 'Nineteen is a room full of pensioners and always was. There are exactly two old women in the whole face library and both were spoken for, so she shares Ysolde's on the Halbert Quy precedent - Nether Sopping is forty miles and an act away. The lines are untouched: this is a recast, not a re-voicing."},
     {"eval": "$gameMap.event(4).start()"},
     {"frames": 40},
     {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
-     "expect": ["SF_People1", 3],
-     "label": "Winnie Marsden: SF_People1_4.png, the bob"},
+     "expect": ["People1", 7],
+     "label": "Winnie Marsden: People1_8.png, grey, and sixty, and certain"},
     {"shot": "face_winnie.png"},
+    {"advance": 40},
+
+    {"comment": "Rivet was SF_Actor2_3.png, which is maroon hair and a soft blue shirt and reads as a girl at both sizes - which makes what he says about sharing a bed his whole life a different line entirely. Nothing but this check stands behind that."},
+    {"eval": "$gameMap.event(5).start()"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["SF_Actor1", 0],
+     "label": "Rivet: SF_Actor1_1.png, brown hair and a plain white work jacket"},
+    {"shot": "face_rivet.png"},
     {"advance": 40},
 
     {"goto": [24, 9, 11]},
@@ -79,12 +133,28 @@
     {"shot": "face_bryd.png"},
     {"advance": 40},
 
+    {"eval": "$gameMap.event(4).start()"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["SF_Actor2", 6],
+     "label": "Grommet: SF_Actor2_7.png, the apprentice"},
+    {"shot": "face_grommet.png"},
+    {"advance": 40},
+
     {"goto": [25, 9, 10]},
     {"eval": "$gameMap.event(2).start()"},
     {"frames": 40},
     {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
      "expect": ["SF_People1", 7],
      "label": "Mrs Tunnicliffe: SF_People1_8.png, spectacles and a green scarf"},
-    {"shot": "face_tunnicliffe.png"}
+    {"shot": "face_tunnicliffe.png"},
+    {"advance": 40},
+
+    {"eval": "$gameMap.event(4).start()"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["SF_Actor1", 7],
+     "label": "Gudgeon: SF_Actor1_8.png, the braid and the spectacles"},
+    {"shot": "face_gudgeon.png"}
   ]
 }

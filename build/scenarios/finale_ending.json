@@ -2,6 +2,7 @@
   "query": "?map=12&x=12&y=12&frames=90",
   "steps": [
     {
+      "comment": "A full party at the level the tower expects, and the three numbers the ending reads back out loud. Nothing below depends on them; they are here so that the run is a plausible one rather than a lone level-one Bram.",
       "eval": "$gameParty.addActor(2); $gameParty.addActor(3); $gameParty.addActor(4)"
     },
     {
@@ -11,8 +12,170 @@
       "eval": "$gameVariables.setValue(1, 3); $gameVariables.setValue(2, 12); $gameVariables.setValue(3, 4)"
     },
     {
-      "comment": "Headless renders battle animations in software at about three frames a second, so playing two boss phases here would take an hour and would only re-test what battle_mook and balance.py already cover. Instead, run the finale's own command list with the battles, the message windows and the choice windows stripped out: what is left is the part that changes the game - switches, the receipt, the trope tally, the return to the title screen - and it runs without waiting for a single key press.",
-      "eval": "const skip = new Set([101, 401, 102, 402, 403, 404, 301]); $gameMap._interpreter.setup($dataMap.events[2].pages[0].list.filter(c => !skip.has(c.code)), 2)"
+      "comment": "The harness, and the reason this file was rewritten. The finale's optional content - clause seven, the materials question, the bounty tiers, the stores-book line - is *made of* Show Text inside Conditional Branch, and the previous version of this scenario tested the finale by deleting every Show Text before running it. Everything it asserted was true and none of it was about a branch, so four shipped endings had nothing standing behind them at all.\n\nSo instead of removing the messages, take the blocking out of them: `Game_Message.add` records the line rather than queueing it, and `isBusy` always answers false, so the interpreter runs the whole list start to finish without a key press and without ever opening a window - `hasText()` is false, so `Window_Message` never even tries. What comes back is every line the player would have read, in order, in an array that can be asserted against. The choice fork gets a shim that answers it immediately with `window._pick`, because a choice left unanswered takes *neither* branch: `command402` compares against a `_branch` entry that nothing ever wrote, so both halves are skipped and the run quietly loses a hundred lines.",
+      "eval": "(function () { window._lines = []; window._pick = 0; Game_Message.prototype.add = function (text) { window._lines.push(text); }; Game_Message.prototype.isBusy = function () { return false; }; const setupChoices = Game_Interpreter.prototype.setupChoices; Game_Interpreter.prototype.setupChoices = function (params) {   setupChoices.call(this, params);   $gameMessage.onChoice(window._pick); }; window.SKIP_SLOW = [301, 354, 230, 221, 222, 223, 225]; window.runFinale = function (skips) {   const skip = new Set(skips);   window._lines = [];   $gameMap._interpreter.setup(     $dataMap.events[2].pages[0].list.filter(c => !skip.has(c.code)), 2); }; window.saw = function (s) { return window._lines.join('\\n').indexOf(s) >= 0; }; window.at = function (s) { return window._lines.join('\\n').indexOf(s); };})()"
+    },
+    {
+      "comment": "Pass A: the plain ending, and the control for all seven that follow. The slow-command skip list is the other half of the trick - with 230, the screen tints and the shakes gone the whole finale executes inside a single frame, because `Game_Interpreter.update` will run a hundred thousand commands before it decides it has frozen. That is what makes eight passes affordable where the old one pass cost twelve hundred frames.",
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('Forty-eight. Right on time.')",
+      "expect": true,
+      "label": "the spine of the scene ran, so a negative below means the branch was absent rather than the capture being empty"
+    },
+    {
+      "check": "window.saw('Clause seven. On foot.')",
+      "expect": false,
+      "label": "nobody asked him about clause seven"
+    },
+    {
+      "check": "window.saw('Nobody has ever asked me that.')",
+      "expect": false,
+      "label": "and nobody asked him what the tower is made of"
+    },
+    {
+      "check": "window.saw('One card came off') || window.saw('Both cards came off')",
+      "expect": false,
+      "label": "no bounties, so the Guild's board is not mentioned at all"
+    },
+    {
+      "check": "window.saw('line through ITEM 1')",
+      "expect": false,
+      "label": "and the stores book still has no line through ITEM 1"
+    },
+    {
+      "comment": "Pass B. The two questions Ott can send you up here with are independent switches on independent branches, and the pair of passes that follow exist to prove that they are - a single `if_then` written at the wrong indent would make one of them carry the other, which reads on screen as Grimspite answering a question nobody put to him.",
+      "eval": "$gameSwitches.setValue(65, true); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('Clause seven. On foot.')",
+      "expect": true,
+      "label": "she asked, so he explains why the Prophecy walks its Chosen One"
+    },
+    {
+      "check": "window.saw('It is a Tuesday.')",
+      "expect": true,
+      "label": "and gives the reason, which is that a thing that flies over is not a story"
+    },
+    {
+      "check": "window.saw('Nobody has ever asked me that.')",
+      "expect": false,
+      "label": "clause seven does not drag the materials question up with it"
+    },
+    {
+      "comment": "Pass C, the same test from the other end. This is the switch the Ott page-ordering fix turned into her 'nothing left owing' marker, so it is worth having one assertion in the game that is about what it was actually built for.",
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, true); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('Nobody has ever asked me that.')",
+      "expect": true,
+      "label": "four thousand years and she is the first to ask about materials"
+    },
+    {
+      "check": "window.saw('Tell her the work was good.')",
+      "expect": true,
+      "label": "and he sends the compliment back down the hill"
+    },
+    {
+      "check": "window.saw('Clause seven. On foot.')",
+      "expect": false,
+      "label": "without answering a question that was not asked"
+    },
+    {
+      "comment": "Pass D is the one worth having. Both questions asked, and the Two Hundred flown - which is the state a thorough player finishes in, and the only state in which the game's central joke is on screen. Grimspite says she will never get one off the ground in sight of this place; four hundred lines later the ending reports that she did, and landed next to him. Neither branch knows the other exists and nobody in the game ever reconciles them. Nothing else asserts that the two halves can both be shown in one playthrough, and if a later edit ever makes them exclusive the joke is gone with no other symptom.",
+      "eval": "$gameSwitches.setValue(65, true); $gameSwitches.setValue(70, true); $gameSwitches.setValue(68, true); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('She will never get one')",
+      "expect": true,
+      "label": "he says she never will"
+    },
+    {
+      "check": "window.saw('REACHED THE TOWER.')",
+      "expect": true,
+      "label": "and the attempt log says she did"
+    },
+    {
+      "check": "window.at('She will never get one') >= 0 && window.at('She will never get one') < window.at('REACHED THE TOWER.')",
+      "expect": true,
+      "label": "in that order, so the player hears him be wrong before finding out he was"
+    },
+    {
+      "check": "window.saw('Nobody has ever asked me that.')",
+      "expect": true,
+      "label": "and both of her questions still land in the same run"
+    },
+    {
+      "comment": "Passes E and F. Two tiers written as an `if_then` with a second `if_then` in its else, which is the shape that fails by printing both lines - the player is told one card came off the board and then that both did. The negative half of each pass is the half that matters.",
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 1); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('One card came off')",
+      "expect": true,
+      "label": "one card off the Guild's board"
+    },
+    {
+      "check": "window.saw('Both cards came off')",
+      "expect": false,
+      "label": "and the two-card line stays shut"
+    },
+    {
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 2); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('Both cards came off')",
+      "expect": true,
+      "label": "both cards, and Registrar Pell declines to explain the year"
+    },
+    {
+      "check": "window.saw('One card came off')",
+      "expect": false,
+      "label": "and the one-card line does not print underneath it"
+    },
+    {
+      "comment": "Pass G. The crate can be spent two ways and this line is the only place in the game that ever says which way it went, so it is also the only thing that can tell a player who blew up the Dark Lord that the works found out. `item_one_throne` proves the scene sets switch 71; this proves the ending reads it.",
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, true); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('line through ITEM 1')",
+      "expect": true,
+      "label": "ITEM 1 is ruled out of the stores book a hundred and ninety-eight years late"
+    },
+    {
+      "check": "window.saw('initialled O.H.')",
+      "expect": true,
+      "label": "in her own initials, dated, without adjectives"
+    },
+    {
+      "check": "window.saw('asked one question about it')",
+      "expect": true,
+      "label": "and she asks whether it worked, and does not ask a second question"
+    },
+    {
+      "comment": "Pass H is the original scenario, unchanged in what it asserts and now run last. Only the battles come out of the list this time: the waits, the tints, the shake and the return to the title screen all run at their real length, so this is the pass that says the finale gets to the end of itself rather than the pass that says what it printed on the way. Two boss phases would cost an hour of software-rendered animation here and would only re-test what battle_mook and balance.py already cover. It also throws away the receipts the seven fast passes each gained on their way past, because a check that reads 8 is not asserting that Grimspite signs one over, it is counting how many times this file has run the scene.",
+      "eval": "$gameParty.loseItem($dataItems[22], 99); $gameSwitches.setValue(65, true); $gameSwitches.setValue(70, true); window.runFinale([301])"
     },
     {
       "frames": 900
@@ -29,8 +192,8 @@
     },
     {
       "check": "$gameParty.numItems($dataItems[22])",
-      "expect": 1,
-      "label": "Grimspite signed the receipt over"
+      "label": "Grimspite signed the receipt over",
+      "expect": 1
     },
     {
       "frames": 300

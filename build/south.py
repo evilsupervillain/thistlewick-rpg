@@ -77,15 +77,32 @@ def talker(event_id, name, x, y, speaker, first, again, sheet=None, index=None,
 
 
 def tale(event_id, name, x, y, speaker, first, again, direction=2,
-         sheet=None, index=None):
+         sheet=None, index=None, extra=()):
     """One of the six first-hand accounts in the Slain Wyvern.
 
     Hearing one bumps `VAR_TALES`, which is what Hosea Bellwether counts, and
     `VAR_TROPES`, because every one of them is a genre cliché that happened to
-    somebody who is still cross about it."""
+    somebody who is still cross about it.
+
+    `extra` is appended after both of those, for the one tale that something
+    else in the room wants to know has been heard. Nothing already written is
+    touched by it: it lands at the end of a command list, after the last thing
+    the character says."""
     return talker(event_id, name, x, y, speaker, first, again,
                   sheet=sheet, index=index, direction=direction,
-                  extra=[R.control_variable_add(db.VAR_TALES, 1), S.trope()])
+                  extra=[R.control_variable_add(db.VAR_TALES, 1), S.trope()]
+                        + list(extra))
+
+
+def travellers_count():
+    """One bump for the two of them, whichever one you asked.
+
+    `VAR_BLUSHES` counts *moments*, and NORTH.md 3.6 is one moment with two
+    people in it - so the guard is a global switch and not the self switch
+    every other guarded blush in the game uses. `blushes` asks both of them
+    and asserts the counter moved once."""
+    return R.if_then(R.condition_switch(db.SW_TRAVELLERS, False),
+                     [S.blush(), R.control_switch(db.SW_TRAVELLERS, True)])
 
 
 # =========================================================== Nether Sopping ==
@@ -438,6 +455,19 @@ def wyvern_map():
     g.set(5, 6, 3, K.INC_GOBLET)
     g.set(6, 6, 3, K.INC_MEAL2)
 
+    # The east end of the bar, added for NORTH.md 3.1 and 3.2: Dorcas's board
+    # on the wall and the register open on the counter under it. The counter
+    # tile carries the counter flag, so the action button reaches the register
+    # from the customers' side; the board's event goes on the *lower* of its
+    # two tiles, because the upper one is wall and nobody can stand in front
+    # of a wall.
+    g.column(7, 3, 2, K.IN_NOTICE_BOARD)
+    g.set(7, 6, 2, K.IN_TABLE_ROUND)
+    # INC_BOOK2, not INC_BOOK: the sheet's `.txt` calls them Closed Book A
+    # and Open Book A, and this one is described as open on the bar with
+    # forty entries down the page.
+    g.set(7, 6, 3, K.INC_BOOK2)
+
     g.blit(8, 3, 2, K.IN_PIANO)
     g.column(12, 3, 2, K.IN_NOTICE_BOARD)
     g.column(14, 3, 2, K.IN_BOOKCASE)
@@ -646,8 +676,12 @@ def wyvern_events():
     perp_again = S.say("Perpetua", [
         "I've been thinking. Cheesemaking.",
         "It would explain the four languages."])
+    # One command appended to the end of her list, and not one syllable of it
+    # altered: Dorcas has something to say about Perpetua and cannot read
+    # another event's self switch to find out whether you have met her.
     evs.append(tale(10, "Perpetua Small (the Amnesiac)", 17, 11, "Perpetua",
-                    perp, perp_again, direction=4))
+                    perp, perp_again, direction=4,
+                    extra=[R.control_switch(db.SW_GERALD, True)]))
 
     # -- the three who will come with you -------------------------------------
     evs.append(corvin_event(11, 20, 14))
@@ -671,8 +705,44 @@ def wyvern_events():
         "away with this for four months and is starting",
         "to enjoy it."])
     trav_again = S.say("Traveller", ["Beans. As discussed."])
+
+    # NORTH.md 3.6. They are royalty in disguise **and** newlyweds, and the
+    # second only surfaces once you have found room four. Every existing line
+    # - the peasant crowns, the small farm, the beans - stays exactly where it
+    # is and is still what a first-time player meets.
+    #
+    # One joke with two mouths, and either of them can be asked first, so the
+    # bump hangs off a global switch rather than a self switch: a self switch
+    # is keyed on (map, event id, letter) and these are two events. Whichever
+    # you ask counts; the other one does not count again.
+    trav_four = S.say("Traveller", [
+        "We are peasants, and we are",
+        "unacquainted.",
+    ])
+    trav_four += S.say("Also A Traveller", ["We met on the road."])
+    trav_four += S.say("Traveller", ["Yesterday."])
+    trav_four += S.say("Also A Traveller", ["Yesterday."])
+    trav_four += S.narrate([
+        "They are holding hands.",
+        "They have been holding hands the entire time.",
+    ])
+    trav_four += travellers_count()
+    trav_four += [R.self_switch("B", True)]
+    trav_four_again = S.say("Traveller", [
+        "Beans.",
+        "We have been discussing beans.",
+    ])
+    img_trav = R.image(*S.FACES["Traveller"], direction=6)
     evs.append(talker(15, "A Very Ordinary Traveller", 4, 14, "Traveller",
-                      trav, trav_again, direction=6))
+                      trav, trav_again, direction=6, pages=[
+        R.page(trav_four, img=img_trav, trigger=0, priority=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ROOM_FOUR}),
+        R.page(trav_four_again, img=img_trav, trigger=0, priority=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ROOM_FOUR,
+                           "selfSwitchValid": True, "selfSwitchCh": "B"}),
+    ]))
 
     trav2 = S.say("Also A Traveller", [
         "Do not curtsey. Nobody does.",
@@ -680,8 +750,30 @@ def wyvern_events():
     trav2 += S.narrate(["You had not curtseyed."])
     trav2 += S.say("Also A Traveller", ["Well. Don't start."])
     trav2_again = S.say("Also A Traveller", ["Beans."])
+
+    trav2_four = S.say("Also A Traveller", [
+        "We are unacquainted.",
+        "Do not read anything into the hand.",
+    ])
+    trav2_four += S.narrate(["You had not read anything into the hand."])
+    trav2_four += S.say("Also A Traveller", ["Well. Don't start."])
+    trav2_four += S.say("Traveller", ["We met on the road. Yesterday."])
+    trav2_four += S.say("Also A Traveller", ["Yesterday."])
+    trav2_four += travellers_count()
+    trav2_four += [R.self_switch("B", True)]
+    trav2_four_again = S.say("Also A Traveller", ["Beans. Anniversary beans."])
+    img_trav2 = R.image(*S.FACES["Also A Traveller"], direction=6)
     evs.append(talker(16, "Also A Very Ordinary Traveller", 5, 14,
-                      "Also A Traveller", trav2, trav2_again, direction=6))
+                      "Also A Traveller", trav2, trav2_again, direction=6,
+                      pages=[
+        R.page(trav2_four, img=img_trav2, trigger=0, priority=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ROOM_FOUR}),
+        R.page(trav2_four_again, img=img_trav2, trigger=0, priority=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ROOM_FOUR,
+                           "selfSwitchValid": True, "selfSwitchCh": "B"}),
+    ]))
 
     # -- the potboy ------------------------------------------------------------
     sops = S.say("Sops", [
@@ -694,8 +786,47 @@ def wyvern_events():
         "Mrs Thrupp says it's the prophecy",
         "posture and it ruins the chairs."])
     sops_again = S.say("Sops", ["You're doing the standing again."])
+
+    # NORTH.md 3.2. A third page, on the switch room four sets, and a fourth
+    # so the bit stops rather than loops - which is the shape `talker` already
+    # has, one layer up. Not a syllable of the two pages above is touched, and
+    # a player who never finds the board never sees either of these.
+    #
+    # The child asks the correct question, is answered with pastry, and is
+    # entirely satisfied. He must never work it out.
+    sops_four = S.say("Sops", [
+        "The Forty-Second and his wife are in.",
+        "They come every year for the anniversary.",
+    ])
+    sops_four += S.say("Sops", ["They're SIXTY."])
+    sops_four += S.say("Sops", [
+        "Mrs Thrupp says good for them, and I",
+        "said good for what, and got a bun.",
+    ])
+    sops_four += [S.blush(), R.self_switch("B", True)]
+    sops_four_again = S.say("Sops", [
+        "Room four's still not been down.",
+        "I've stopped taking the tray up.",
+        "I leave it and go.",
+    ])
+    img_sops = R.image(*S.FACES["Sops"], direction=8)
     evs.append(talker(17, "Sops the Potboy", 9, 14, "Sops", sops, sops_again,
-                      direction=8, move_type=1))
+                      direction=8, move_type=1, pages=[
+        R.page(sops_four, img=img_sops, trigger=0, priority=1, move_type=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ROOM_FOUR}),
+        R.page(sops_four_again, img=img_sops, trigger=0, priority=1,
+               move_type=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ROOM_FOUR,
+                           "selfSwitchValid": True, "selfSwitchCh": "B"}),
+    ]))
+
+    # -- NORTH.md 3.1 and 3.2. Two new things to click on at the east end of
+    # the bar. Both are pattern one - a new event - and neither of them
+    # touches a line anybody in this room already had.
+    evs.append(dorcas_board(19, 7, 4))
+    evs.append(the_register(20, 7, 6))
 
     evs.append(S.prop(18, "The Wyvern's Plaque", 17, 4, [
         "A brass plaque under the mounted wyvern:",
@@ -779,6 +910,34 @@ def dorcas_event(event_id, x, y):
         "Bed's 25. For you it's still 25, don't",
         "start."])
 
+    # NORTH.md 3.7, and the one page in the game that turns its own condition
+    # off on the way out.
+    #
+    # `Game_Event.refresh` takes the **last** page whose conditions hold, so a
+    # fifth page here wins over all four above it - including the jar handover
+    # and the reply, which are a thirty-year quest and cannot be shadowed. So
+    # it fires once, the next time you speak to her after hearing Perpetua's
+    # tale, and then clears `SW_GERALD` and gets out of the way for good. Ask
+    # again immediately and the feud is exactly where you left it.
+    #
+    # Nothing is explained. The ceiling does the work, which is the machinery
+    # this room already built for Perpetua herself.
+    gerald = S.narrate([
+        "You mention that you have been talking to",
+        "Perpetua Small.",
+    ])
+    gerald += S.say("Dorcas", ["There was a Gerald."])
+    gerald += S.narrate([
+        "Behind you, the entire tavern is looking very",
+        "hard at the ceiling.",
+    ])
+    gerald += S.say("Dorcas", ["We handled it."])
+    gerald += S.say("Dorcas", [
+        "That is all that is being said",
+        "about Gerald.",
+    ])
+    gerald += [S.blush(), R.control_switch(db.SW_GERALD, False)]
+
     return R.event(event_id, "Dorcas Thrupp", x, y, [
         R.page(first, img=img, trigger=0, priority=1),
         R.page(takes_jar, img=img, trigger=0, priority=1,
@@ -788,6 +947,88 @@ def dorcas_event(event_id, x, y):
                            "switch1Id": db.SW_FEUD_REPLY}),
         R.page(done, img=img, trigger=0, priority=1,
                conditions={"switch1Valid": True, "switch1Id": db.SW_FEUD_DONE}),
+        R.page(gerald, img=img, trigger=0, priority=1,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_GERALD}),
+    ])
+
+
+def dorcas_board(event_id, x, y):
+    """NORTH.md 3.1: room four. Dorcas is *delighted*; she is not being arch,
+    and there is nothing in what she says that is not a landlady being pleased
+    with a quiet pair of guests.
+
+    Sets `SW_ROOM_FOUR`, which the potboy and the two travellers read."""
+    board = S.narrate([
+        # "board", not "slate": the tile is IN_NOTICE_BOARD, which is a
+        # framed paper notice under a pair of crossed swords, and the
+        # room the player is looking at should be the room the line
+        # describes.
+        "A board by the bar. Rooms down the left,",
+        "names down the right, in a small neat hand.",
+        "Room four has a line drawn through it.",
+    ])
+    board += S.say("Dorcas", [
+        "Room four?",
+        "Not been down since Tuesday.",
+    ])
+    board += S.say("Dorcas", [
+        "Best guests I have ever had.",
+        "No trouble. No noise to speak of.",
+    ])
+    board += S.say("Dorcas", [
+        "I leave the tray on the mat.",
+        "Lovely to see young people happy.",
+    ])
+    board += [S.blush(), R.control_switch(db.SW_ROOM_FOUR, True),
+              R.self_switch("A", True)]
+
+    again = S.narrate([
+        "Room four still has a line drawn through it.",
+    ])
+    again += S.say("Dorcas", ["Tray's still on the mat."])
+    return R.event(event_id, "Dorcas's Board", x, y, [
+        R.page(board, img=R.image(""), trigger=0, priority=1,
+               direction_fix=True, through=True),
+        R.page(again, img=R.image(""), trigger=0, priority=1,
+               direction_fix=True, through=True,
+               conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
+    ])
+
+
+def the_register(event_id, x, y):
+    """NORTH.md 3.2: the accidental record. A document does not know what it
+    is saying, and this one has been corrected by somebody who did."""
+    look = S.narrate([
+        "The house register, open on the bar.",
+        "Name, town, nights - and a last column headed",
+        "PURPOSE OF VISIT.",
+    ])
+    look += S.narrate([
+        "Forty entries down the page.",
+        "Thirty-nine of them say 'business'.",
+    ])
+    look += S.narrate([
+        "The fortieth said something else. It has been",
+        "crossed out - once, neatly, in a different",
+        "hand - and 'business' written above it.",
+    ])
+    look += S.narrate([
+        "The different hand is Dorcas's.",
+        "She has not made a fuss about it.",
+        "She has simply written 'business'.",
+    ])
+    look += [S.blush(), R.self_switch("A", True)]
+
+    again = S.narrate([
+        "Forty entries. Thirty-nine say 'business'.",
+        "The fortieth says 'business' too, now.",
+    ])
+    return R.event(event_id, "The House Register", x, y, [
+        R.page(look, img=R.image(""), trigger=0, priority=1,
+               direction_fix=True, through=True),
+        R.page(again, img=R.image(""), trigger=0, priority=1,
+               direction_fix=True, through=True,
+               conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ])
 
 
@@ -1144,7 +1385,7 @@ def wren_event(event_id, x, y):
         "I have a theory about that and no",
         "funding to pursue it."])
 
-    return S.recruit(event_id, db.WREN, "Wren", x, y, "Actor2", 6,
+    return S.recruit(event_id, db.WREN, "Wren", x, y, "Actor2", 7,
                      pitch=pitch, accept=accept, decline=decline, full=full,
                      direction=8)
 

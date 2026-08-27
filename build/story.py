@@ -19,7 +19,7 @@ FACES = {
     "Bram": ("Actor1", 0), "Merribell": ("Actor1", 7), "Hob": ("Actor2", 4),
     "Zephyrine": ("Actor1", 5), "Nix": ("Actor3", 4), "Aldric": ("Actor3", 6),
     "Piper": ("Actor2", 3),
-    "Corvin": ("Actor1", 4), "Wren": ("Actor2", 6), "Roland": ("Actor2", 2),
+    "Corvin": ("Actor1", 4), "Wren": ("Actor2", 7), "Roland": ("Actor2", 2),
     # Villagers. The stock People sheets are typecast harder than you would
     # expect - People3 is entirely royalty, so nobody in Thistlewick uses it.
     "Gatekeeper": ("People1", 2),
@@ -98,9 +98,47 @@ FACES = {
     "Sowerby": ("SF_People1", 6),              # knit cap, white beard
     "Nib": ("SF_People1", 1),                  # ponytail, red cardigan
     "Mr Kell": ("SF_People1", 2),              # black hair, blue jacket
-    "Winnie": ("SF_People1", 3),               # strawberry-blonde bob
     # The only face in either SF set with the mass to stand next to Hob.
     "Bryd": ("SF_Actor3", 0),
+    # Winnie Marsden is sixty and was drawn as twenty-five. Mrs Tunnicliffe is
+    # white-haired and was **born in June of the same year**, so Class of
+    # 'Nineteen is sixty years back and every one of the two hundred and forty
+    # is a pensioner - which is the funnier reading anyway, and the one the
+    # census actually says. Nothing Winnie says implies youth, so this is a
+    # recast and not a re-voicing: the lines are untouched.
+    #
+    # There are exactly two old women in the entire face library and both were
+    # already spoken for. So she shares Ysolde's, on the Halbert Quy precedent
+    # above: Nether Sopping is forty miles and an act away, and the two of them
+    # will never be next to each other in a player's memory.
+    "Winnie": ("People1", 7),                  # grey, and sixty, and certain
+    # ---------------------------------------------------------------------
+    # The Cotterills. Nine children over fifteen years and then nine years of
+    # nothing, which is why the name list ran out, why the ninth is called
+    # Spare, and why the tenth in the spring is a surprise. Seven of them are
+    # placed around the town; Cotter, the eldest, is down the valley at the
+    # big foundry and is represented here by his wife.
+    #
+    # `SF_People1` was spent, and Winnie's move frees exactly the face this
+    # wants: Bessie is Winnie's granddaughter, so the resemblance is meant.
+    # The other seven come off `SF_Actor1` and `SF_Actor2`, which nothing in
+    # this game has ever used.
+    "Bessie": ("SF_People1", 3),               # her grandmother, forty years on
+    # Rivet was SF_Actor2:2, which is maroon hair and a soft blue shirt and
+    # reads as a girl at both sizes - which makes "I have shared a bed my
+    # whole life and one of them is Grommet" a different line entirely. He
+    # takes SF_Actor1:0 instead: brown hair, a plain white work jacket, and
+    # unmistakably a young man. It is also his brothers' and sisters' sheet,
+    # so the four of them off SF_Actor1 read as related. He is the only one
+    # of the nine indoors at the Safety Valve with Mr Kell, who is black hair
+    # and a blue jacket, so brown-and-white is the legible choice there too.
+    "Rivet": ("SF_Actor1", 0),                 # 22, day shift, Da's shadow
+    "Gudgeon": ("SF_Actor1", 7),               # 20, braid and spectacles, clerk
+    "Tappet": ("SF_Actor2", 3),                # 18, blue cap, drives the cart
+    "Ferrule": ("SF_Actor1", 1),               # 16, long braid, in charge
+    "Grommet": ("SF_Actor2", 6),               # 15, apprentice, put-upon
+    "Clevis": ("SF_Actor1", 2),                # 13, red spikes, running a book
+    "Shim": ("SF_Actor1", 5),                  # 11, beret and spectacles, tin
 }
 
 
@@ -259,6 +297,34 @@ def prop(event_id, name, x, y, lines, sheet, index, direction=2, pattern=1,
         narrate(lines) + list(extra),
         img=R.image(sheet, index, direction=direction, pattern=pattern),
         trigger=0, priority=1, direction_fix=True)])
+
+
+def specimen(event_id, name, x, y, lines, wren_says, again,
+             sheet="", index=0):
+    """One of NORTH.md 3.4's three things on the road, for Wren to be correct
+    about.
+
+    Taxonomy is largely the study of how things reproduce, so a taxonomist
+    doing her job out loud is a delivery system that needs no crudeness in it
+    at all - she is describing a display structure, or a gravid female, and
+    every word of it is the right word. She is never once aware. Bram is the
+    one who cannot cope, and Bram does not speak: he is the narrator.
+
+    The shape is the wyvern's, in a different room. The thing on the branch is
+    the same thing either way, and the cataloguer is standing behind you or
+    she is not - so a party without her loses nothing and is told nothing.
+    `VAR_BLUSHES` counts moments, so the bump is behind a self switch and the
+    second page is what you get afterwards."""
+    look = narrate(lines)
+    said = list(wren_says) + [blush(), R.self_switch("A", True)]
+    page = dict(img=R.image(sheet, index, direction=2), trigger=0,
+                priority=1, direction_fix=True, through=(sheet == ""))
+    return R.event(event_id, name, x, y, [
+        R.page(look + R.if_then(R.condition_actor_in_party(db.WREN), said),
+               **page),
+        R.page(narrate(again), conditions={"selfSwitchValid": True,
+                                           "selfSwitchCh": "A"}, **page),
+    ])
 
 
 def chest(event_id, name, x, y, contents, lines):

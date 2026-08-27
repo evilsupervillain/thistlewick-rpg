@@ -62,9 +62,14 @@
     {"check": "$gameMap.event(15).findProperPageIndex()", "expect": 0,
      "label": "and with no number-plate in the party it stays empty"},
 
-    {"comment": "Ott has to have finished the steam ladder before any of her later pages can fire; two_hundred walks that, so set the last rung here.",
+    {"comment": "Ott has to have finished the steam ladder before any of her later pages can fire; two_hundred walks that, so set the last rung here. Switch 70 is the other half of it: the three pages this file exercises are appended below both of Ott's beat chains, so each of them requires the switch the flying chain sets last. Without it, reading the field would delete the chains instead of following them - which is the lockout this condition exists to prevent, and two_hundred is where the chain itself is walked.",
      "eval": "$gameSelfSwitches.setValue([22, 2, 'D'], true)"},
     {"goto": [22, 12, 16]},
+    {"check": "$gameMap.event(2).findProperPageIndex() >= 24", "expect": false,
+     "label": "twelve plaques on their own do not delete anything Ott still owes you"},
+    {"eval": "$gameSwitches.setValue(70, true)"},
+    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 24,
+     "label": "she holds clause seven until the flying chain is finished, and no longer"},
     {"check": "$gameSwitches.value(65)", "expect": false,
      "label": "clause seven is not something anybody up here volunteers"},
     {"eval": "$gameMap.event(2).start()"},
@@ -77,7 +82,7 @@
 
     {"eval": "$gameMap.event(2).start()"},
     {"advance": 20},
-    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 10,
+    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 25,
      "label": "and afterwards she has a page of her own, so the speech happens once"},
 
     {"comment": "The thirteenth. Attempt 112's number-plate is a key item the party keeps, so the field reads it with an itemValid page condition - the same way the Barrow reads the flat-packed bench.",

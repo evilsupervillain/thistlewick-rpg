@@ -193,7 +193,7 @@ them, so the numbers below are the ones to trust:
 | 3 `VAR_TURNIPS` | 1 | - | - | 1 | **Already printed in the ending** - "...and ate `\V[3]` turnips." |
 | 5 `VAR_BOUNTIES` | 2 | - | - | - | **Write-only. The only genuinely dead one.** |
 | 6 `VAR_PLAQUES` | 12 | - | **1** | - | **A real gate**, and the second variable page-condition in the game: Ott's clause-seven page needs `>= 12`. Twelve writes, one per plate, each behind its own self switch. The thirteenth plaque does not write to it. |
-| 7 `VAR_BLUSHES` | 10 sites, **9 reachable** | - | - | - | Write-only until step 8 puts its line in the ending. |
+| 7 `VAR_BLUSHES` | 24 sites, **20 reachable** | - | - | - | Write-only until step 8 puts its line in the ending. Nine moments came with the north and eleven with the retrofit of section 3. Sites over-count moments for the reason at the end of 2.3, and 3.6 adds a second reason: the two travellers are one moment with two mouths, guarded by a global switch. |
 
 So **one** of the five is write-only, not three. Do not add a counter to that
 pile without giving it a job.
@@ -240,6 +240,24 @@ Tunnicliffe's census is the town's one example: two code-122 writes, both
 guarded by `condition_switch(SW_CENSUS, False)`, one reachable moment. Guard
 every appended blush the same way, and prove it the way `clanging_cast` does -
 ask the same question a second time and assert the counter has not moved.
+
+**Measured on the finished build, 2026-08-26: twenty-five.** Counted off
+`data/` and then corrected, which is the only way to get it right - 28 code-122
+writes to variable 7, less three known duplicates: the two travellers are one
+joke with two mouths and one `SW_TRAVELLERS`; Mrs Tunnicliffe's census is the
+first-visit page and the repeat page, both guarded on `SW_CENSUS` being false;
+and Bryd's spar page holds a with-Hob branch and a without-Hob branch that
+cannot both run. Nineteen events carry one, and six of the twenty-five are
+Ott's.
+
+The total was **20** when the ending's threshold was cut at 16 - the town's
+nine (4.6) and the retrofit's eleven (3) - and it has grown since by Ott's
+three flying-chain beats and by Bessie and Gudgeon, neither of whom existed
+when 4.6 was written. **The threshold moved to 20 to match**, because four
+fifths is what "very nearly all of them" was ever supposed to mean and 16 out
+of 25 congratulates a player who missed nine. Anything appended to this counter
+later has to move it again; that instruction is in the comment above the branch
+in `journey.py`, where whoever adds the twenty-sixth will actually be standing.
 
 ---
 
@@ -543,12 +561,37 @@ which becomes Apprentice / Ott, see 8.1).
 | **Spare Cotterill**, aged 9 | `SF_People1_1.png` | `("SF_People1", 0)` | dark-haired lad in a blue shirt |
 | **Bryd Ollerenshaw**, smith | `SF_Actor3_1.png` | `("SF_Actor3", 0)` | broad, square-jawed, dark hair, thick neck. The only face in the SF sets with the mass to stand next to Hob. |
 | **Old Sowerby**, sixty years at the works | `SF_People1_7.png` | `("SF_People1", 6)` | old man, olive knit cap, white beard, tan coat |
-| **Nib**, Ott's apprentice | `SF_People1_2.png` | `("SF_People1", 1)` | young, brown ponytail, red cardigan. The one doing the face. |
+| **Nib**, Ott's apprentice, the fortieth | `SF_People1_2.png` | `("SF_People1", 1)` | young, brown ponytail, red cardigan. The one doing the face. **She**, which the game establishes once and only in Ott's mouth - "I have told her nine times that it is not a question with an answer" - so do not write the line that says it again. |
 | **Mr Kell**, the Safety Valve | `SF_People1_3.png` | `("SF_People1", 2)` | young man, black hair, blue jacket |
-| **Winnie Marsden**, Cold Winter cohort | `SF_People1_4.png` | `("SF_People1", 3)` | short strawberry-blonde bob. Insufferable about the dinner. |
+| **Winnie Marsden**, Cold Winter cohort | `People1_8.png` | `("People1", 7)` | **grey, and sixty, and certain.** Insufferable about the dinner. **Recast after this table was written.** She was `SF_People1_4.png`, a strawberry-blonde of about twenty-five, and Mrs Tunnicliffe - white-haired - was **born in June of the same year**. Class of 'Nineteen is sixty years back and all two hundred and forty of them are pensioners, which is the funnier reading and the one the census actually says. Nothing Winnie says implies youth, so it is a recast and not a re-voicing: not a line was touched. There are exactly two old women in the whole face library and both were spoken for, so she shares Ysolde's on the Halbert Quy precedent - Nether Sopping is forty miles and an act away. |
 
 Everything above was looked at this session, not inferred from a filename. Still
 confirm in a rendered screenshot before committing, per house rules.
+
+#### The rest of the Cotterills
+
+Appended after the table above, and the reason Winnie had to move: nine children
+over fifteen years and then nine years of nothing, which is why the name list ran
+out, why the ninth is called Spare, and why the tenth in the spring is a
+surprise. Seven of them are placed around the town; **Cotter**, the eldest, is
+down the valley at the big foundry and is represented here by his wife.
+
+| who | file | code | where | what they look like, and what they are doing |
+| --- | --- | --- | --- | --- |
+| **Bessie Marsden**, Cotterill now | `SF_People1_4.png` | `("SF_People1", 3)` | Map 21 (5, 40) | Winnie's face, forty years earlier, because Bessie is **Winnie's granddaughter** and the resemblance is meant. Winnie's move off this cell freed exactly the face this wanted. She does four jobs in one event: she is where Cotter is, she is the Marsden marriage, and she is the reason Winnie has an opinion about the seating. |
+| **Rivet**, 22 | `SF_Actor1_1.png` | `("SF_Actor1", 0)` | Map 23 (8, 10) | brown hair, plain white work jacket, unmistakably a young man. Day shift; Da's shadow. **He was drafted onto `SF_Actor2_3.png`** - maroon hair and a soft blue shirt, which reads as a girl at both sizes, and that makes "I have shared a bed my whole life and one of them is Grommet" a different line entirely. He is also the only one of the nine indoors at the Safety Valve with Mr Kell, who is black hair and a blue jacket, so brown-and-white is the legible choice twice over. |
+| **Gudgeon**, 20 | `SF_Actor1_8.png` | `("SF_Actor1", 7)` | Map 25 (11, 6) | braid and spectacles; clerks at the Parish Rooms. **She.** |
+| **Tappet**, 18 | `SF_Actor2_4.png` | `("SF_Actor2", 3)` | Map 22 (14, 13) | blue cap; brings the castings up on Tuesdays and has watched that thing not fly for four years. **She**, and she would still get in it. |
+| **Ferrule**, 16 | `SF_Actor1_2.png` | `("SF_Actor1", 1)` | Map 21 (11, 40) | long braid; in charge until six, when Da wakes up and she gets to sit down. |
+| **Grommet**, 15 | `SF_Actor2_7.png` | `("SF_Actor2", 6)` | Map 24 (7, 11) | apprenticed to Bryd and put upon. **He.** |
+| **Clevis**, 13 | `SF_Actor1_3.png` | `("SF_Actor1", 2)` | Map 21 (8, 41) | red spikes; running a book on the tenth one's name, which is the fastener gag handed to somebody who thinks it is a market. |
+| **Shim**, 11 | `SF_Actor1_6.png` | `("SF_Actor1", 5)` | Map 21 (7, 41) | beret and spectacles, and a tin of washers, three bolts, a doorknob and a bearing. **She**, and the bearing is the best one. |
+
+Four of the seven are off `SF_Actor1`, deliberately, so that they read as
+related. **Neither Ferrule nor Clevis is ever given a pronoun** in the finished
+text - every "he" and "she" in their two events is about Da or Mam - and that is
+not something to tidy up: nothing in either scene needs one, and a line added to
+supply one would be a line added to say something the scene was not saying.
 
 #### Three casting decisions worth knowing the reasons for
 
@@ -968,12 +1011,34 @@ Prophecy has a clause about that too. It produces the funniest failure in the
 game, counts as a trope, and Grimspite is **genuinely delighted** - it is the
 first new thing in four thousand years and he says so.
 
-**Built 2026-08-25, and the stretch goal is still open.** Map 27 is in, the
-stores ledger is in, and Ott renders ITEM 1 down on a page appended to her.
-She only takes it **when you talk to her**, so nothing stops a player carrying
-the crate to the throne room instead - the stretch goal is still a pure
-addition whenever anybody wants it, and it wants a page on the Grimspite
-event guarded by `itemValid` on Item 32. Nothing has to be undone for it.
+**Built 2026-08-25.** Map 27 is in, the stores ledger is in, and Ott renders
+ITEM 1 down on a page appended to her. She only takes it **when you talk to
+her**, which is what left the crate available to be carried anywhere else.
+
+**The stretch goal was built 2026-08-26, and it is a page on the Grimspite
+event guarded by `itemValid` on Item 32**, exactly as this section guessed it
+would have to be. Three things about how it went in that are worth knowing
+before touching it again:
+
+* A page **replaces** page 1 rather than adding to it, so the crate page has
+  to contain the whole finale. It is not written twice. `finale_event` records
+  `split = len(c)` after the battle sting, and the page is built as
+  `c[:split] + item_one_scene() + c[split:]` - one list, spliced. The existing
+  finale rebuilds command for command; the only change to page 1 anywhere is
+  the new ending paragraph, which is an ordinary appended `if_then`.
+* The splice point is **after** `Shock2` and **before** `R.battle`, and that is
+  the only placement that works. He has just said he has heard all of them;
+  four windows later he says this one is new. Put the crate down before the
+  line and he is a liar.
+* It is **offered, not triggered**. `["Draw your weapon", "Set the crate
+  down"]`, weapon first so a confirm pressed out of habit keeps the crate. A
+  player can reach the summit carrying it on the way to Ott - the ledger sends
+  you to the crag, not to the tower - and a page that lit it unasked would cost
+  them Weapon 33 and Armor 25 without ever putting the question.
+
+`SW_ITEM_ONE_USED` (71) carries it to the ending, which prints the stores book
+line ruled through at last. `build/scenarios/item_one_throne.json` runs both
+branches.
 
 ---
 
@@ -1172,7 +1237,8 @@ Animations 120, Maps 20, switches 46, variables 5.
 | 54 / 55 | `SW_ITEM_ONE_ASKED` / `SW_ITEM_ONE_DOWN` |
 | 56 / 57 | `SW_84_BEATEN` / `SW_84_REBUILT` |
 | 58 | `SW_HOB_BRYD` - they went for a drink |
-| 59 / 60 | `SW_BALLAD_ASKED` / `SW_BALLAD_DONE` - verse seven and the fete |
+| ~~59~~ | `SW_BALLAD_ASKED` - **reserved and unused.** Drafted as the ask half of an ask-then-done pair; 3.3 then specified the fete minutes as a readable *board*, and a board is a document rather than a conversation, so there was never anything to ask and `SW_BALLAD_DONE` does the whole job. Never set, never read, so it gates nothing and orphans no page. Ids are not renumbered here, so it stays reserved; `build_game.py` names it `(unused - reserved, see NORTH.md 10)` in `System.json` so that the next person to open the editor does not go hunting for the event that sets it. |
+| 60 | `SW_BALLAD_DONE` - verse seven was struck at the fete |
 | 61 | `SW_CENSUS` - heard the Cold Winter |
 | 62 | `SW_COTTERILL` - met the family |
 | 63 | `SW_SPARE_ASKED` - the nine-year-old has applied |
@@ -1181,11 +1247,16 @@ Animations 120, Maps 20, switches 46, variables 5.
 | 66 | `SW_ROOM_FOUR` - room four at the Wyvern |
 | 67 | `SW_GERALD` - that is all that is being said about Gerald |
 | **68** | `SW_TWO_HUNDRED_FLEW` - set down beside the tower, out of the air. Appended after this table was written; 5.4's log entry says REACHED THE TOWER and nothing else in the game knew whether she had. Set by the Clause Seven event on Map 8 - see 13. |
+| **69** | `SW_TRAVELLERS` - the Two Very Ordinary Travellers have been asked how long, exactly. A switch and not a self switch because they are one joke with two mouths and either can be asked first, and a self switch is keyed on (map, event, letter). |
+| **70** | `SW_OTT_MATERIALS` - Ott asked you to ask him what the tower is made of. Its own switch because the beat sits six deep in her flying chain, and `SW_AIRSHIP` says the ship exists and nothing about whether she got round to asking. It has a second job it was not designed for and is now the only switch that can do: being the *last* thing that chain sets, it is Ott's "nothing left owing" marker, and all three of her appended field pages require it so that they cannot shadow the chains they sit below. |
+| **71** | `SW_ITEM_ONE_USED` - the crate was set down in front of the throne. The stretch goal in 7. `SW_ITEM_ONE_DOWN` says ITEM 1 came off the crag and says nothing about where it went; this is the only thing in the game that knows, and the ending is the only place that says. |
 
 | id | variable |
 | --- | --- |
 | 6 | `VAR_PLAQUES` - wreck plaques read; Ott opens up at twelve. The **thirteenth** plaque does not bump it: twelve is twelve, and the thirteenth is one you make. |
-| 7 | **`VAR_BLUSHES`** - "things nobody quite said". Bump with `story.blush()` **and nowhere else**, exactly as `VAR_TROPES` is handled. |
+| 7 | **`VAR_BLUSHES`** - "things nobody quite said". Bump with `story.blush()` **and nowhere else**, exactly as `VAR_TROPES` is handled. **Twenty-five reachable moments in the finished build** - see 2.3 for how that is counted and why a grep says 28. |
+| **8** | `VAR_OTT_ORDER` - which beat Ott is on while the oilskin-and-spar order is outstanding. Appended after this table was written. A variable and not four self switches because a page condition can name exactly one self switch, and this chain is nine beats long. |
+| **9** | `VAR_OTT_FLYING` - the same thing for the seven beats after the Two Hundred flies. Its last write is the one that sets `SW_OTT_MATERIALS`, which is what makes that switch mean "Ott has nothing left owing" - see 70, and see 16 step 6 for the lockout that fact fixes. |
 
 ## 11. Build modules
 
@@ -1218,7 +1289,7 @@ Same as everything else: screenshots for maps, `balance.py` for the fights,
 | `eighty_four` | **done.** The furrow is walked from her empty plot to the top of the field, the action button reaches her, "Stop her" starts the right fight against the right enemy (asserted off `$gameTroop`), and then `BattleManager.abort()` hands the interpreter back the way a win does, so the stop, the rebuild and the governor all run for real. The numbers are `balance.py`'s job, the same as `battle_mook` |
 | `item_one` | **done, and it was not in this table.** The stores ledger, the crag off the world map, the log, ITEM 1 off the crag, and Ott rendering it down into Weapon 33 and Armor 25 - including that the crate in the party beats every other page she has, and stops beating them the moment she takes it |
 | `blushes` | walk the Register A retrofit and assert `VAR_BLUSHES` lands on the expected total. A counter nobody checks is a counter that silently reads zero in the ending. |
-| `finale_clause_seven` | the finale with `SW_CLAUSE_SEVEN` set, using the existing `finale_ending` trick of filtering Battle Processing and Show Text out of the command list |
+| `finale_clause_seven` | **done, folded into `finale_ending` rather than written as its own file, and it needed the trick rebuilding first.** Filtering Show Text out of the command list is exactly what makes a branch untestable - the branch *is* Show Text - so the messages are now captured instead of deleted, and the finale runs eight times over: clause seven off, on, the materials question on its own, both together with the Two Hundred flown, both bounty tiers with the other tier's line asserted absent, `SW_ITEM_ONE_USED`, and then one full-length pass for the switches, the receipt and the title. Twenty-six checks. See `CLAUDE.md` under Verifying for the harness and the two things that go wrong without it |
 
 **New `validate.py` checks - all in as of 2026-08-25**, because they are a
 genuinely new class of bug that nothing else catches:
@@ -1408,6 +1479,20 @@ write-only variable, and this game already has three.
 **No eleventh party member.** Ten is already more than four slots can use, and
 the north's contribution is a vehicle and a town, not another body.
 
+**Clause seven waits for the airship.** Decided 2026-08-26, and it is a
+decision rather than an accident of the fix in 16 step 6. Ott's two clause-seven
+pages require `SW_OTT_MATERIALS` as well as twelve plaques, and that switch is
+the last thing her flying chain sets - so the player has to have finished the
+Two Hundred before she will get the works ledger out, even though the Long Field
+is walkable on foot long before that. The lockout fix needed *some* terminal
+switch on those pages or they would shadow the ladder above them; requiring this
+one also happens to be right on its own terms. Clause seven is the works'
+founding grievance and she has been carrying it for four generations. She does
+not hand it to a stranger who has read some plaques; she hands it to somebody
+who has built the thing with her. And the alternative order is worse in the
+finale: Grimspite answers a question about a document the player was shown
+before they had any reason to care about it.
+
 **Meredith Crooke is repaired, not merely re-cast.** See 8.1. The face swap was
 first rejected under 1.7 and then reinstated once it turned out she is drawn as
 a woman and fought as a man in armour - which is a contradiction the game
@@ -1429,12 +1514,18 @@ Short list, and none of it blocks a start:
   not assembled). Ambulant Salvage at 1600/52 is the toughest ordinary enemy in
   the game, which is right for the last region, and `balance.py` was run before
   a stat was written.
-* **Whether the north is gated.** Recommendation: no hard gate. It is
-  soft-gated by the oilskin, which needs the south, and by encounters that
-  should hurt. Nether Sopping's precedent is that optional content is open and
-  merely dangerous.
-* **The ITEM 1 stretch goal** (7). Carrying the bomb to the throne room is the
-  funniest failure available and the first thing to cut.
+* ~~**Whether the north is gated**~~ - **settled**, and it shipped as the
+  recommendation: no hard gate. It is soft-gated by the oilskin, which needs
+  the south, and by encounters that hurt. Nether Sopping's precedent held.
+* ~~**The ITEM 1 stretch goal** (7)~~ - **built**, not cut, and it reaches all
+  the way through: the crate comes off the crag, Ott takes the fuse out of it
+  first, and if it is set down in front of the throne instead then
+  `SW_ITEM_ONE_USED` is the only thing in the game that knows and the ending is
+  the only place that says. `item_one`, `item_one_throne` and pass G of
+  `finale_ending` cover it end to end.
+
+Which leaves this section empty. Anything that lands in it from here is new
+work, not unfinished work.
 
 ## 16. Where to start
 
@@ -1686,6 +1777,26 @@ there:
      ledger and four generations annotate it: *does this apply to us* / *it
      does not say it applies to us* / *it does not say it does not* / and the
      fourth, in pencil, recent, is one word, and the word is **quite.**
+   * **Fixed 2026-08-26: those pages have to require `SW_OTT_MATERIALS` as
+     well, and leaving it out was a silent content lockout.** They are appended
+     *below* everything `north.py` built on that event, and `refresh` takes the
+     last page whose conditions hold, so a condition that can be true while a
+     page above still owes a beat does not follow that page - it deletes it.
+     Twelve plaques is reachable on foot before the works has been asked for a
+     ship at all, so reading the field early shadowed the fabric page, the
+     handover page, the nine beats of the order chain and the seven of the
+     flying chain: no airship, no `SW_OTT_MATERIALS`, no way back, and no
+     symptom except Ott saying the wrong thing for the rest of the game.
+     Reordering only chooses which ladder dies. `SW_OTT_MATERIALS` is the last
+     switch the flying chain sets, so it is the one switch that means "Ott has
+     nothing left owing", and requiring it on all three appended pages makes
+     the order the player does things in stop mattering - read the field first
+     and she simply holds clause seven until the ship is finished. **General
+     rule for anything appended to a character later: a page appended below a
+     ladder must require that ladder's terminal switch.** An exhaustive sweep
+     of all 1520 reachable states of that event is in the commit; `long_field`
+     asserts both halves - twelve plaques alone changes nothing, and the moment
+     switch 70 is set she has clause seven ready.
    * **Attempt Eighty-Four** is Enemy 27 / Troop 28, `SF_Slaughterrobot`, 7600
      hp, and strictly harder than the Forty-Fourth on both axes at every level
      `balance.py` was run at. `Make Good` heals her out of the neighbours at
@@ -1768,14 +1879,184 @@ there:
      after a warp catches the fade and comes out black. Put a `wait:120` in
      front of it.
 
-**7. The retrofit (section 3) last.** It reads far better written by somebody
-who already has the north in their ear, and several items are guarded by
-switches the north sets. Every item is an addition under 1.7 - if you find
-yourself editing an existing line, re-read 1.7 and pick pattern 1.
+**7. The retrofit (section 3) last. - DONE 2026-08-25.** All eight items are
+in, `blushes` walks every one of them, and 1.7 held: **not one existing line
+was edited.** Four items are new events (Dorcas's board, the house register,
+the fete minutes, the second notice at the Standing Stones), three are pages
+appended to people who already had pages (Sops, both travellers, Dorcas), one
+is a new prop with a party check in it repeated three times (Wren), and one is
+a new prop in the Gilded Turnip (Merribell). The only edits to existing code
+are the `extra=` parameter `tale()` grew so that Perpetua's list could have a
+command added to the *end* of it, and three tile placements.
 
-**8. The ending.** The counters (2.2, 2.3), the clause-seven branch, the tally
-additions. Appended branches only; nothing comes out.
+**Eleven moments, twelve writes**, which is 2.3's target exactly, and the
+count is 20 with the north's nine. What is worth knowing:
 
-**9. Re-run every scenario, not only the new ones.** The southern expansion
-broke exactly one old scenario and nothing else noticed. That is the argument.
+   * **The two travellers are one joke with two mouths**, and either can be
+     asked first, so the guard cannot be a self switch - those are keyed on
+     (map, event id, letter) and this is two events. `SW_TRAVELLERS` (69) is
+     a global switch and the only one of its kind in the game. `blushes` asks
+     both of them and asserts the counter moved once.
+   * **Dorcas's fifth page turns its own condition off on the way out**, and
+     it is the only page in the game that does. `Game_Event.refresh` takes the
+     *last* qualifying page, so a fifth page on her would otherwise shadow the
+     jar handover and the reply - a thirty-year quest - for the rest of the
+     game. It fires once, clears `SW_GERALD`, and the feud is exactly where it
+     was. Ask her again and she is back to selling beds at 25.
+   * **The fete minutes have no qualifying page until Piper is recruited.**
+     That is MZ's own way of saying "not yet": `_pageIndex` stays at -1, the
+     board is not drawn and cannot be read, and there is no ballad to strike
+     verses out of before she joins. In a scenario, **assert `_pageIndex` is
+     -1 rather than calling `start()`** - `start()` on a page-less event throws
+     on an undefined list.
+   * **Bram does not speak, and 3.5 and 3.4's scripts give him lines.** In two
+     towns of writing he never has once: he is the narrator's "You ask
+     whether...", which 1.4 is right to call the perfect innocent. The
+     finished game's convention beat the script, in both places, and the flat
+     narration is funnier than the line would have been. Do not "fix" this
+     back.
+
+Two props were wrong and a **contact sheet over rooms nobody had changed the
+tileset work in** found them, which is the third time that check has paid for
+itself:
+
+   * the washstand was `IN_DRESSER`, whose lower cell is `Sundries Shelf A` -
+     **two teddy bears and a pink rabbit** - which is the wrong object outright
+     and especially wrong beside that scene. It is a `Pot B` ewer over a
+     `Basin` now, and those are the sheet's own names for them;
+   * the house register was `INC_BOOK`, which the `.txt` calls **Closed Book
+     A**, under four lines of narration about forty entries down an open page.
+     `INC_BOOK2` is Open Book A.
+
+And two scenario-harness facts, both of which cost a run to find:
+
+   * **A stray `{"key": "Escape"}` on an idle map opens the menu**, and every
+     `goto` after it then waits forever for a transfer `Scene_Menu` will never
+     perform. `blushes` asserts `SceneManager._scene.constructor.name` instead,
+     so the same mistake fails a check rather than hanging the run.
+   * **`{"advance": n}` has to come before the counter check, not after it**,
+     for a player-touch event. Walking on starts the list and stops with the
+     text on the screen; `story.blush()` is the last command in it. Check
+     first and you read the value from before the notice was finished.
+
+**8. The ending. - DONE 2026-08-26.** 2.2, 2.3, the clause-seven branch and the
+tally additions are all in, and 1.7 held to the letter: `git diff --stat
+build/journey.py` is **325 insertions and not one deletion**. Nothing that was
+in the ending before the north came out of it, and not a line of it was
+re-voiced. What is there:
+
+   * **Two branches inside the Grimspite scene**, before the fight, on
+     `SW_CLAUSE_SEVEN` and `SW_OTT_MATERIALS` - the two questions Ott can send
+     you up here with, and they are independent because they are two switches
+     on two branches. Clause seven he answers straight: the Prophecy walks its
+     Chosen One because a thing that flies over is not a story, and *it is a
+     Tuesday*. The materials question stops him: nobody has ever asked him
+     that, in four thousand years, and he sends the compliment back down the
+     hill. **He is never told she managed it**, and he never finds out.
+   * **The tally is fourteen appended `if_then` blocks**, in order:
+     `SW_ROLAND_GONE`, `SW_SOUTH`, `VAR_BOUNTIES` (two tiers, the second
+     nested in the first's else), `SW_HISTORY_DONE`, `SW_LAMP_LIT`,
+     `SW_BENCH_DONE`, `SW_TWO_HUNDRED_FLEW`, `SW_84_REBUILT`,
+     `SW_ITEM_ONE_USED`, `SW_HOB_BRYD`, `VAR_TROPES` (40 / 20 / else),
+     `SW_BALLAD_DONE`, `VAR_BLUSHES`, `SW_MET_QUY`.
+   * **2.2 is cashed**: `VAR_BOUNTIES` was the one genuinely dead counter and
+     it now has the two-tier line. The companions and turnip lines were
+     already there and were left exactly as they were - see 2.2, which was
+     wrong about that until it was checked.
+   * **2.3 is the payoff.** `SW_BALLAD_DONE` chooses between "Verses struck by
+     the Committee" and the flatter "Things nobody quite said", same number
+     wearing a joke, and the extra line above four fifths admits there was a
+     pattern without ever saying what it was.
+   * **The blush threshold moved from 16 to 20** on 2026-08-26, because the
+     total moved from 20 to 25 - Ott's flying chain, Bessie and Gudgeon - and
+     nothing had gone back to look. See 2.3. The count is now written down
+     where the branch is, not only here.
+   * **The central irony is two branches that do not know about each other.**
+     Grimspite says she will never get one off the ground in sight of this
+     place; four hundred lines later the attempt log reads REACHED THE TOWER.
+     LANDED ADJACENT. Nobody in the game reconciles them and nobody should.
+
+   **`finale_ending` was rebuilt before any of this could be trusted, and that
+   is the part worth reading.** It ran four checks and every one of them would
+   have passed with all four ending branches deleted from the game, because it
+   tested the finale by *filtering Show Text out of the command list* - and an
+   optional ending is made of Show Text inside a Conditional Branch. It now
+   **captures** the messages instead of deleting them: `Game_Message.add`
+   records the line, `isBusy` always answers false, and the interpreter runs
+   the whole cutscene with no key presses and never opens a window. Eight
+   passes, **26 checks**, and the passes are their own mutation test - the same
+   assertion reads true in one and false in another against real data. Two
+   traps, both of which cost a run: an **unanswered choice takes neither
+   branch** (`command402` compares against a `_branch` entry nothing wrote, so
+   both halves are skipped and a hundred lines vanish silently), and stripping
+   the waits collapses the whole finale into a single frame, which is what
+   makes eight passes cheaper than the old one. The harness is written up in
+   `CLAUDE.md` under Verifying.
+
+**9. Re-run every scenario, not only the new ones. - DONE 2026-08-27.** The
+southern expansion broke exactly one old scenario and nothing else noticed.
+That is the argument, and it was right again: **30 of 33 passed in 120m22s**,
+and all three failures were in scenarios written before this session's work.
+None of them was a broken game. All three were a stale assertion about
+something step 7 and step 8 had deliberately changed, and the entry worth
+keeping is *how you tell those apart*:
+
+   * **`clanging_cast` expected Ott's ladder to yield four blushes.** Step 7
+     rewrote that ladder - the stuffing box, the nipples and the threads are
+     gone, and the surviving drain-cock moment sits inside a conditional
+     branch on Merribell being in the room. Every later check in the scenario
+     was low by exactly four with **every delta correct**, which is the shape
+     of a stale baseline and not of a broken event: a game that had stopped
+     counting would have drifted, not offset.
+   * **`clanging_faces` expected Winnie on `SF_People1` 3**, which is now her
+     granddaughter's. She is sixty and was drawn as twenty-five, and the
+     recast is written up in `story.FACES` with its reason.
+   * **`two_hundred` expected the same four blushes** and is correct at
+     **nought**: that party has no Merribell. Which is the point - the same
+     data, asserted from two states, and only one of them is wrong.
+
+   Two real gaps came out of fixing them, and neither was a failing check:
+
+   * **Five of Ott's six Register A moments were executed by no scenario at
+     all** - two in the order chain, three in the flying chain. 2.3's own
+     warning is that a counter nobody checks reads zero in the ending, and the
+     ending's threshold is cut against that total, so five twenty-fifths of it
+     had never once been run. `two_hundred` now walks five beats of the order
+     chain and all seven of the flying chain, and asserts that the seventh
+     sets `SW_OTT_MATERIALS` - which makes it the check that both ladders can
+     be finished at all.
+   * **A conditional blush that has only ever been run one way is
+     indistinguishable from one somebody deleted.** `clanging_cast` runs Ott's
+     first rung with Merribell and counts one; `two_hundred` runs it without
+     her and asserts nought. Dropping the condition now fails a check in both
+     directions, which is what the four-blush assertion should have been from
+     the start.
+
+   `clanging_faces` also went from ten faces to eighteen, because the town's
+   cast grew by seven Cotterills and a recast and the scenario that exists to
+   catch a face off-by-one was checking none of them. It is the only thing
+   standing behind Rivet being moved off `SF_Actor2` 2, which reads as a girl
+   at both sizes and makes what he says about sharing a bed a different line.
+
+   Re-run: **3 of 3 in 45m04s** - `clanging_cast` 38 checks, `clanging_faces`
+   18, `two_hundred` 37. The tree rebuilds byte-identical and `validate.py` is
+   clean at 27 maps. **Nothing in `data/` was touched to fix any of this**;
+   the three files that changed are scenarios, plus the table in `CLAUDE.md`
+   that describes them.
+
+   `../tools/scenarios.sh .` runs all thirty-three, sequentially, one line
+   each, with the transcripts kept in `build/scenarios/logs/`. It was written
+   for this step, and what it is really guarding is the hour: a suite run is a
+   little over one, and the three ways that hour gets thrown away are all
+   mechanical rather than interesting - a server on 8766 left over from another
+   game, a Chromium orphaned by an earlier killed run making everything after
+   it three times slower, and node's block-buffered stdout meaning a suite you
+   interrupt prints nothing at all about the twenty scenarios that had already
+   passed. It refuses to start on the first two and runs everything under
+   `stdbuf -oL` for the third. Background it and read the logs afterwards.
+
+   Expect any breakage to be in the **old** scenarios. Every new one here has
+   been run at least once, so the interesting failure is the one in something
+   nobody thought was related - which is precisely what the southern precedent
+   was.
 

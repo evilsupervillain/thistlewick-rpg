@@ -174,7 +174,7 @@ def build_system():
             (db.SW_84_BEATEN, "Attempt Eighty-Four has stopped"),
             (db.SW_84_REBUILT, "Attempt Eighty-Four is being rebuilt"),
             (db.SW_HOB_BRYD, "they went for a drink"),
-            (db.SW_BALLAD_ASKED, "the Fete Sub-Committee has met"),
+            (db.SW_BALLAD_ASKED, "(unused - reserved, see NORTH.md 10)"),
             (db.SW_BALLAD_DONE, "verse seven was struck"),
             (db.SW_CENSUS, "heard about the Cold Winter"),
             (db.SW_COTTERILL, "met the Cotterills"),
@@ -183,7 +183,10 @@ def build_system():
             (db.SW_CLAUSE_SEVEN, "Ott showed you clause seven"),
             (db.SW_ROOM_FOUR, "room four has not been down since Tuesday"),
             (db.SW_GERALD, "there was a Gerald"),
-            (db.SW_TWO_HUNDRED_FLEW, "the Two Hundred set down by the tower")]:
+            (db.SW_TWO_HUNDRED_FLEW, "the Two Hundred set down by the tower"),
+            (db.SW_TRAVELLERS, "the travellers said how long, exactly"),
+            (db.SW_OTT_MATERIALS, "Ott asked you to ask about materials"),
+            (db.SW_ITEM_ONE_USED, "ITEM 1 was used on the Dark Lord")]:
         switches[sid] = name
     for actor_id, sid in db.SW_RECRUIT.items():
         switches[sid] = "recruited actor %d" % actor_id
@@ -196,6 +199,8 @@ def build_system():
     variables[db.VAR_BOUNTIES] = "bounties claimed"
     variables[db.VAR_PLAQUES] = "wreck plaques read"
     variables[db.VAR_BLUSHES] = "things nobody quite said"
+    variables[db.VAR_OTT_ORDER] = "Ott's beat, while the order is outstanding"
+    variables[db.VAR_OTT_FLYING] = "Ott's beat, once the Two Hundred flies"
     variables[10] = "scratch: gold reallocated"
 
     system.update({

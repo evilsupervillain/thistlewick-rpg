@@ -1,0 +1,456 @@
+{
+  "query": "?map=14&x=12&y=10&frames=90",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 0,
+      "label": "VAR_BLUSHES starts at nought"
+    },
+    {
+      "eval": "$gameMap.event(19).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 1,
+      "label": "3.1 room four: Dorcas is delighted, and nothing improper has been said"
+    },
+    {
+      "check": "$gameSwitches.value(66)",
+      "expect": true,
+      "label": "and room four is what the potboy and the travellers read"
+    },
+    {
+      "shot": "blush_room_four.png"
+    },
+    {
+      "eval": "$gameMap.event(19).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 1,
+      "label": "looking at the board twice is one moment, not two"
+    },
+    {
+      "eval": "$gameMap.event(20).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 2,
+      "label": "3.2 the register: a document does not know what it is saying"
+    },
+    {
+      "shot": "blush_register.png"
+    },
+    {
+      "eval": "$gameMap.event(20).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 2,
+      "label": "and reading it again does not count it again"
+    },
+    {
+      "eval": "$gameMap.event(17).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 3,
+      "label": "3.2 Sops: the Forty-Second, his wife, and a bun"
+    },
+    {
+      "shot": "blush_sops.png"
+    },
+    {
+      "eval": "$gameMap.event(17).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 3,
+      "label": "and he has a fourth page, so the bit stops rather than loops"
+    },
+    {
+      "eval": "$gameMap.event(15).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 4,
+      "label": "3.6 the travellers: peasants, unacquainted, holding hands"
+    },
+    {
+      "check": "$gameSwitches.value(69)",
+      "expect": true,
+      "label": "and the pair of them are marked as having said it"
+    },
+    {
+      "shot": "blush_travellers.png"
+    },
+    {
+      "eval": "$gameMap.event(16).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 4,
+      "label": "asking the OTHER one is the same joke, and does not count twice - which a self switch could not have known"
+    },
+    {
+      "eval": "$gameMap.event(15).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 4,
+      "label": "nor does going back to the first one"
+    },
+    {
+      "eval": "$gameMap.event(10).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameSwitches.value(67)",
+      "expect": true,
+      "label": "3.7 Perpetua's tale is heard, and one command at the end of it says so"
+    },
+    {
+      "check": "$gameVariables.value(4)",
+      "expect": 1,
+      "label": "and the tale still counts as a tale, exactly as it did before"
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 4,
+      "label": "Perpetua herself is not one of the moments"
+    },
+    {
+      "eval": "$gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 5,
+      "label": "3.7 Gerald, and that is all that is being said about Gerald"
+    },
+    {
+      "check": "$gameSwitches.value(67)",
+      "expect": false,
+      "label": "and the page turns its own condition off, so it cannot shadow the feud"
+    },
+    {
+      "shot": "blush_gerald.png"
+    },
+    {
+      "eval": "$gameMap.event(2).start()"
+    },
+    {
+      "advance": 8
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 5,
+      "label": "ask again and Dorcas is back to selling beds, at 25, as she always was"
+    },
+    {
+      "comment": "No Escape here. The advance above leaves the interpreter idle on the map, so Escape has nothing to close and opens the *menu* instead - and every goto after it then waits forever for a transfer that Scene_Menu will never perform. Assert the scene instead, which turns that mistake into a failed check rather than a hung run.",
+      "check": "SceneManager._scene.constructor.name",
+      "expect": "Scene_Map",
+      "label": "still on the map, and not in a menu somebody opened by accident"
+    },
+    {
+      "goto": [
+        3,
+        10,
+        12
+      ]
+    },
+    {
+      "comment": "Not start(): with Piper unrecruited the board has no page that qualifies, so _pageIndex is -1 and start() throws on an undefined list. That is exactly the state being asserted - the minutes are not on the wall yet - so assert it directly.",
+      "check": "$gameMap.event(8)._pageIndex",
+      "expect": -1,
+      "label": "3.3 the minutes are not there at all until Piper has been recruited"
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 5,
+      "label": "and nothing about them has been counted"
+    },
+    {
+      "eval": "$gameSwitches.setValue(16, true)"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "eval": "$gameMap.event(8).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 6,
+      "label": "3.3 verse seven: struck, and verse eight, and a word"
+    },
+    {
+      "check": "$gameSwitches.value(60)",
+      "expect": true,
+      "label": "and the ending knows the ballad happened"
+    },
+    {
+      "shot": "blush_verse_seven.png"
+    },
+    {
+      "eval": "$gameMap.event(8).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 6,
+      "label": "and reading the minutes twice is one moment"
+    },
+    {
+      "goto": [
+        4,
+        16,
+        6
+      ]
+    },
+    {
+      "eval": "$gameMap.event(7).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 6,
+      "label": "3.5 without a field medic the washstand is a washstand"
+    },
+    {
+      "eval": "$gameParty.addActor(2)"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "eval": "$gameMap.event(7).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 7,
+      "label": "3.5 with one, it is four separate systems, and she is being kind"
+    },
+    {
+      "shot": "blush_merribell.png"
+    },
+    {
+      "eval": "$gameMap.event(7).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 7,
+      "label": "and the towel has been refolded, which is the whole of the second page"
+    },
+    {
+      "goto": [
+        9,
+        13,
+        8
+      ]
+    },
+    {
+      "eval": "$gameMap.event(8).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 7,
+      "label": "3.4 without the cataloguer a nest is a nest"
+    },
+    {
+      "eval": "$gameParty.addActor(9)"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "eval": "$gameMap.event(8).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 8,
+      "label": "3.4 the crest is a display structure, and that is why there are nine of them"
+    },
+    {
+      "shot": "blush_nest.png"
+    },
+    {
+      "eval": "$gameMap.event(8).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 8,
+      "label": "and the nest is where you put it back"
+    },
+    {
+      "goto": [
+        10,
+        19,
+        14
+      ]
+    },
+    {
+      "eval": "$gameMap.event(6).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 9,
+      "label": "3.4 the shed skin: it goes in the monograph"
+    },
+    {
+      "shot": "blush_skin.png"
+    },
+    {
+      "goto": [
+        19,
+        21,
+        6
+      ]
+    },
+    {
+      "eval": "$gameMap.event(8).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 10,
+      "label": "3.4 gravid, and the single most normal thing in this cave"
+    },
+    {
+      "shot": "blush_crack.png"
+    },
+    {
+      "goto": [
+        8,
+        11,
+        20
+      ]
+    },
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "eval": "$gamePlayer.locate(11, 21)"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2,
+      "gap": 30,
+      "comment": "gap 30, not the default 12. keyDown + 4 frames + keyUp + 12 is shorter than a step on the world map, so the second press can arrive while the first one is still moving and Game_Player.moveByInput drops it. The walk then stops one square short and every check after it is wrong by one tile."
+    },
+    {
+      "frames": 90
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        11,
+        19
+      ],
+      "label": "3.8 the second notice is walked onto, one square short of the plaque"
+    },
+    {
+      "shot": "blush_theory_seven.png"
+    },
+    {
+      "comment": "The advance comes BEFORE the counter check, not after it. This is a player-touch event, so walking on starts its list and stops there with two windows of text on the screen - and story.blush() is the last command in that list, after both of them. Checking the counter first reads the value from before the notice was finished.",
+      "advance": 20
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 11,
+      "label": "3.8 theory seven has been removed at the request of the parish AND THE FAMILY"
+    },
+    {
+      "key": "ArrowDown",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 30
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 90
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 11,
+      "label": "and walking over it again does not count again - a tile you cross twice is still one notice"
+    },
+    {
+      "check": "$gameVariables.value(7)",
+      "expect": 11,
+      "label": "the retrofit is eleven moments, and not one of them says the thing"
+    }
+  ]
+}

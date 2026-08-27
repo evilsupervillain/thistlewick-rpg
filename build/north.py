@@ -547,6 +547,144 @@ def clanging_events():
             "The bag is still packed.",
         ]),
     ], direction=8))
+
+    # -- 14-17: the rest of the doorstep ------------------------------------
+    #
+    # Three events was a joke about a family and not a family. Nine children
+    # over fifteen years is ordinary for a foundry town - eighteen months to
+    # two years apart, the whole way down - and the gap that actually wants
+    # explaining is the **nine years between Spare and the tenth**. That is
+    # not a hole in the arithmetic, it is the reason the name list ran out,
+    # the reason the ninth is called Spare, and the reason Mr Cotterill is
+    # very pleased. They thought they were finished.
+    #
+    # Ferrule carries it, and carries it in soft furnishings: they had given
+    # the small clothes away. Not one suggestive word, and it says the whole
+    # thing. That is the pattern for all seven of the children - **the new
+    # material is clean**, because the house had three events and two of
+    # Spare's four beats were blushes, and the fix for that is more family
+    # rather than fewer jokes. Nothing already written is touched.
+    evs.append(talker(
+        14, "Ferrule Cotterill", 11, 40, "Ferrule",
+        S.say("Ferrule", [
+            "I am Ferrule. I am sixteen.",
+            "I am in charge until six.",
+        ]) + S.narrate([
+            "You ask what happens at six.",
+        ]) + S.say("Ferrule", [
+            "Da wakes up. Then he is in charge",
+            "and I get to sit down.",
+        ]) + S.say("Ferrule", [
+            "Mam is not to lift anything.",
+            "She lifts things the moment I turn round.",
+        ]) + S.narrate([
+            "You ask when the baby is due.",
+        ]) + S.say("Ferrule", [
+            "Spring. We had given all the small",
+            "clothes away.",
+        ]) + S.say("Ferrule", [
+            "Mam has had to go round the town",
+            "and ask for them back.",
+        ]),
+        S.say("Ferrule", [
+            "Do not encourage Clevis.",
+        ]), direction=2))
+
+    # Clevis is thirteen and is running a book on the tenth one's name, which
+    # is the whole fastener gag handed to somebody who thinks it is a market.
+    evs.append(talker(
+        15, "Clevis Cotterill", 8, 41, "Clevis",
+        S.say("Clevis", [
+            "Do you want to put money on the name?",
+        ]) + S.narrate([
+            "You ask what the odds are.",
+        ]) + S.say("Clevis", [
+            "Gib is evens. Cleat is two to one.",
+        ]) + S.say("Clevis", [
+            "Washer is twenty to one, because",
+            "Da has said not Washer.",
+        ]) + S.narrate([
+            "You ask what he has against Washer.",
+        ]) + S.say("Clevis", [
+            "Nothing. Mam does.",
+        ]),
+        S.say("Clevis", [
+            "Gib has shortened. I would get in now.",
+        ]), direction=2, move_type=1))
+
+    # Shim is eleven and gets the quiet one, thrown away rather than landed.
+    # Two lines re-read a bag that has been packed for two years without one
+    # syllable of Spare's ladder being touched: he is not running away to be
+    # a hero, he is the youngest of nine and is about to stop being it.
+    evs.append(talker(
+        16, "Shim Cotterill", 7, 41, "Shim",
+        S.say("Shim", [
+            "I collect things.",
+        ]) + S.narrate([
+            "She shows you a tin.",
+        ]) + S.say("Shim", [
+            "Washers, mostly. Three bolts,",
+            "a doorknob, and a bearing.",
+        ]) + S.say("Shim", [
+            "The bearing is the best one. You can",
+            "hold it and it goes round.",
+        ]) + S.narrate([
+            "You agree that it is the best one.",
+        ]) + S.say("Shim", [
+            "Spare says he is going away before",
+            "the baby comes.",
+        ]) + S.say("Shim", [
+            "I said he can have a washer.",
+        ]),
+        S.say("Shim", [
+            "You can hold the bearing if you like.",
+        ]), direction=2, move_type=1))
+
+    # Bessie is the eldest son's wife and does four jobs in one event: she is
+    # where Cotter is, she is the Marsden marriage, she is the reason Winnie
+    # has an opinion about the seating plan, and she is the second generation
+    # starting the same arithmetic over again. She is also drawn as her own
+    # grandmother, which is the point of the recast in `story.FACES`.
+    #
+    # Her blush is the tamest in the game and is deliberately not about an
+    # act: it is about two grandmothers with opposite policies on whether a
+    # thing may be discussed, and the one who will discuss it is not hers.
+    #
+    # She stands at the **west** end of the family, not the east. She was at
+    # (15, 40), which is the one-tile pocket between the east shed's corner
+    # and the street wall - the tile you come up onto from the road, and the
+    # tile you have to get past to reach Spare. Everybody arrives from the
+    # south, so the east end of this street is a doorway and not a place to
+    # put anybody: it made the newest Cotterill the first one you meet, and it
+    # made leaving and coming back the way round the family rather than a walk
+    # down it. Out here at the far end she is the last of the ten instead of
+    # the first, which is also the order she joined them in.
+    evs.append(talker(
+        17, "Bessie Marsden", 5, 40, "Bessie",
+        S.say("Bessie", [
+            "Bessie Marsden. Cotterill, now.",
+        ]) + S.say("Bessie", [
+            "I married Cotter. He is the eldest.",
+            "He is down the valley at the big",
+            "foundry until the spring.",
+        ]) + S.narrate([
+            "You ask whether she minds.",
+        ]) + S.say("Bessie", [
+            "I come here for my dinner. There is",
+            "always more than they need.",
+        ]) + S.narrate([
+            "You ask whether there is any news.",
+        ]) + S.say("Bessie", [
+            "In the summer.",
+        ]) + S.say("Bessie", [
+            "Mrs Cotterill says I am to ask her",
+            "anything at all. My gran says a lady",
+            "does not discuss it.",
+        ]) + [S.blush()],
+        S.say("Bessie", [
+            "Second Saturday she has her dinner.",
+            "I get the house to myself.",
+        ]), direction=2))
     return evs
 
 
@@ -722,19 +860,166 @@ def _still_wants(indent=0):
     return out
 
 
-def ott_the_two_hundred():
-    """The four pages appended to Ott, in the order the quest goes through them.
+def _outside_the_gate():
+    """Where the airship is, and the one instruction that goes with it.
 
-    `Game_Event.refresh` takes the **last** page whose conditions hold, and a
-    page's conditions are ANDed, so the state machine is written by making each
-    page's condition strictly harder than the one before it: the standing
-    order, then the same thing with forty bolts of oilskin in the party's
-    hands, then both parts in and the handover, then afterwards. All four also
-    require self switch D, which is the last rung of the ladder above, so
-    nothing here can fire before she has finished saying what she has to say
-    about the drain cock."""
+    Said once on the first visit after the handover and then again as the
+    standing line for the rest of the game, with six beats in between - so it
+    is a function rather than a block, and the two are the same words by
+    construction instead of by somebody remembering."""
+    return S.say("Ott", [
+        "She is outside the gate.",
+    ]) + S.say("Ott", [
+        "Do not set her down on anything",
+        "with a roof on it. You would be astonished",
+        "how often that has been the finding.",
+    ])
+
+
+def _ott_chain(beats, switch_id, var_id, terminal):
+    """A `ladder` made out of a variable instead of self switches.
+
+    All four of Ott's self switches are spent on the first-meeting ladder and
+    a page condition can name exactly one of them, so her two later stages
+    count their beats on a variable instead. The trick is the same one:
+    `Game_Event.refresh` takes the **last** qualifying page and a variable
+    condition is a `>=` test, so beat *n* is guarded by `>= n`, bumps the
+    variable on its way out, and is beaten next time by the page below it.
+    The terminal sits at the bottom on `>= len(beats)` and is what she says
+    for the rest of that stage.
+
+    Every page also requires self switch D, like everything else appended to
+    this event, so nothing here can speak before she has finished being
+    introduced. NORTH.md 4.7 is the whole reason this exists: one beat per
+    visit is what stops a vocabulary from becoming a routine, and four in a
+    row in the first stage was exactly the routine it was meant to prevent."""
+    def cond(n):
+        c = {"selfSwitchValid": True, "selfSwitchCh": "D",
+             "switch1Valid": True, "switch1Id": switch_id}
+        if n:
+            c.update({"variableValid": True, "variableId": var_id,
+                      "variableValue": n})
+        return c
+    pages = [R.page(list(beat) + [R.control_variable_add(var_id, 1)],
+                    img=_ott_face(), trigger=0, priority=1, conditions=cond(n))
+             for n, beat in enumerate(beats)]
+    pages.append(R.page(terminal, img=_ott_face(), trigger=0, priority=1,
+                        conditions=cond(len(beats))))
+    return pages
+
+
+def ott_the_two_hundred():
+    """Everything Ott says once the order is placed, in two chains and three
+    fixed pages.
+
+    `Game_Event.refresh` takes the last page whose conditions hold and a
+    page's conditions are ANDed, so the state machine is written by making
+    each page's condition strictly harder than the one before it - and, where
+    two could both hold, by putting the one that must win further down the
+    list. That is the whole of the ordering here:
+
+    * the **order chain** (`SW_TWO_HUNDRED_ASKED`) comes first, so anything
+      below it can interrupt it;
+    * `fabric` is below it, so walking in with forty bolts of oilskin delivers
+      them instead of continuing the small talk;
+    * `handover` is below that, so the moment both parts are in she stops
+      chatting and opens the shed;
+    * the **flying chain** (`SW_AIRSHIP`) is below *that*, so it supersedes
+      the order chain the instant the ship exists - a player who rushed the
+      fetch quest simply picks up where they were, on the other variable;
+    * and `field.ott_field_pages()` is appended after all of it by the caller,
+      so twelve plaques and clause seven beat anything she would otherwise be
+      saying, which is correct: it is the last thing she has to give.
+
+    The two chains are what NORTH.md 4.7 asked for and the first build did not
+    do. Her whole vocabulary used to sit in the first stage, four beats
+    running, when the player had known her ninety seconds; the two stages
+    where they have actually done her a favour said one line each, forever."""
+    # -- the order chain. Beat zero is the standing reminder, which is also
+    # the terminal, because what is outstanding is a thing a player has to be
+    # able to re-ask at any point. The ask itself is not here - the chalk line
+    # event does that, and sets the switch - so this page is only ever the
+    # reminder and can be shouldered aside by the beats without losing
+    # anything.
     order = S.say("Ott", ["Well?"]) + _still_wants() + S.say("Ott", [
         "Off you go, then.",
+    ])
+
+    log_and_drawings = S.say("Ott", [
+        "You have read the log.",
+    ]) + S.say("Ott", [
+        "Everybody reads the log.",
+        "Nobody reads the drawings.",
+    ]) + S.say("Ott", [
+        "The drawings are where the work is.",
+        "The log is only where it stopped.",
+    ])
+
+    union = S.say("Ott", [
+        "The union is weeping again.",
+    ]) + S.narrate([
+        "You ask whether that is serious.",
+    ]) + S.say("Ott", [
+        "It is a union. It weeps.",
+        "If it ever stops I shall be worried.",
+    ]) + [S.blush()]
+
+    spite = S.say("Ott", [
+        "Mother kept this works on out of spite.",
+        "I want you to understand that I am not",
+        "criticising her.",
+    ]) + S.say("Ott", [
+        "Spite is a perfectly good reason.",
+        "It built most of this shed.",
+    ])
+
+    # The instruction, and then straight on to the next item on the list. The
+    # flatness of the second window is the whole defence: she has not noticed,
+    # because there is nothing to notice, because it is a box and you stuff it.
+    stuffing = S.say("Ott", [
+        "Get on the stuffing box with the packing,",
+        "and do not be shy with it.",
+    ]) + S.say("Ott", [
+        "Then the swarf tray.",
+        "Then you may have a cup of tea.",
+    ]) + [S.blush()]
+
+    # 4.1: she has looked at a four-thousand-year-old curse and seen a load
+    # case, and she is not joking and she is not wrong.
+    load_case = S.say("Ott", [
+        "A curse is a load.",
+    ]) + S.say("Ott", [
+        "It has a magnitude and it has a direction,",
+        "and somebody has been extremely careless",
+        "about writing down either.",
+    ])
+
+    left_hand = S.say("Ott", [
+        "Left-hand thread on that one.",
+        "It tightens the other way.",
+    ]) + S.say("Ott", [
+        "Anything that can catch fire is threaded",
+        "backwards, so that a fool cannot join it",
+        "to anything that cannot.",
+    ]) + S.narrate([
+        "You ask who decided that.",
+    ]) + S.say("Ott", [
+        "A great many funerals decided that.",
+    ])
+
+    rivets = S.say("Ott", [
+        "Sowerby will have told you about rivets.",
+    ]) + S.narrate([
+        "You admit that he did.",
+    ]) + S.say("Ott", [
+        "He is right. That is the tiresome part.",
+    ])
+
+    surveyor = S.say("Ott", [
+        "Forty-six of them have gone up that road.",
+    ]) + S.say("Ott", [
+        "They keep sending heroes.",
+        "Nobody has ever once sent a surveyor.",
     ])
 
     # The fabric, arriving. She counts it. Everybody in this town counts
@@ -789,34 +1074,108 @@ def ott_the_two_hundred():
         "the town gate.",
     ])
 
-    after = S.say("Ott", [
-        "She is outside the gate.",
+    # -- the flying chain. She has handed over two hundred years of work to
+    # somebody who walked in six weeks ago, and what that turns into is a
+    # woman telling you how to look after it.
+    weight = S.say("Ott", [
+        "Do you know what you weigh?",
+    ]) + S.narrate([
+        "You give a number. You give it confidently.",
     ]) + S.say("Ott", [
-        "Do not set her down on anything",
-        "with a roof on it. You would be astonished",
-        "how often that has been the finding.",
+        "You are wrong, and you are wrong by more",
+        "than you would care for. Everybody is.",
+    ]) + S.say("Ott", [
+        "I want the true one before you go up.",
+        "Bring the sword. It counts.",
     ])
 
-    return [
-        R.page(order, img=_ott_face(), trigger=0, priority=1,
-               conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
-                           "switch1Valid": True,
-                           "switch1Id": db.SW_TWO_HUNDRED_ASKED}),
-        R.page(fabric, img=_ott_face(), trigger=0, priority=1,
-               conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
-                           "switch1Valid": True,
-                           "switch1Id": db.SW_TWO_HUNDRED_ASKED,
-                           "itemValid": True, "itemId": db.IT_OILSKIN_BOLTS}),
-        R.page(handover, img=_ott_face(), trigger=0, priority=1,
-               conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
-                           "switch1Valid": True,
-                           "switch1Id": db.SW_OILSKIN_GOT,
-                           "switch2Valid": True,
-                           "switch2Id": db.SW_SPAR_DONE}),
-        R.page(after, img=_ott_face(), trigger=0, priority=1,
-               conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
-                           "switch1Valid": True, "switch1Id": db.SW_AIRSHIP}),
-    ]
+    run_in = S.say("Ott", [
+        "She has to be run in.",
+    ]) + S.say("Ott", [
+        "Gently, over a long time, by somebody",
+        "who is paying attention the whole while.",
+    ]) + S.say("Ott", [
+        "Most of what goes wrong with an engine",
+        "is somebody being in a hurry with it",
+        "on the first morning.",
+    ]) + [S.blush()]
+
+    fortieth = S.say("Ott", [
+        "Nib is the fortieth.",
+    ]) + S.say("Ott", [
+        "Thirty-two of the others left, six stayed,",
+        "and one of them is Sowerby.",
+    ]) + S.say("Ott", [
+        "The numbering is not a joke.",
+        "It is a record, and a record is a kindness",
+        "to whoever stands here in a hundred years.",
+    ])
+
+    bleeding = S.say("Ott", [
+        "She wants bleeding first thing, before",
+        "she is cold and before anybody has",
+        "had their tea.",
+    ]) + S.say("Ott", [
+        "Nib does it. Nib has done it every",
+        "morning for four years.",
+    ]) + S.narrate([
+        "Nib does not look up.",
+    ]) + [S.blush()]
+
+    # The same four sentences the first build put in front of a stranger, said
+    # instead to the person who now owns the thing. It is a schedule, and the
+    # reason it is a schedule is that she is worried about it.
+    maintenance = S.say("Ott", [
+        "She is yours now, so you had better",
+        "know what she wants.",
+    ]) + S.say("Ott", [
+        "Nipples want doing every forty hours.",
+        "There are thirty-one of them.",
+    ]) + S.say("Ott", [
+        "You will want the small can.",
+    ]) + S.narrate([
+        "Nib, without being asked, hands you the",
+        "small can.",
+    ]) + [S.blush()]
+
+    # 8.2, planted here and answered four thousand years away. Grimspite says
+    # she is the only one who ever came at him with a question about
+    # materials; this is her asking it, through the only person going that
+    # way, and neither end of it ever refers to the other.
+    materials = S.say("Ott", [
+        "Here. When you get up there.",
+    ]) + S.say("Ott", [
+        "Ask him what it is made of.",
+    ]) + S.narrate([
+        "You ask whether she means the tower.",
+    ]) + S.say("Ott", [
+        "Four thousand years in the weather and not",
+        "a run of rust on it. Somebody knew",
+        "something, and I should like to know it.",
+    ]) + S.narrate([
+        "It is the only question anybody has asked you",
+        "about the tower that is not about you.",
+    ]) + [R.control_switch(db.SW_OTT_MATERIALS, True)]
+
+    return (
+        _ott_chain([order, log_and_drawings, union, spite, stuffing,
+                    load_case, left_hand, rivets, surveyor],
+                   db.SW_TWO_HUNDRED_ASKED, db.VAR_OTT_ORDER,
+                   S.say("Ott", ["Well?"]) + _still_wants()) +
+        [R.page(fabric, img=_ott_face(), trigger=0, priority=1,
+                conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
+                            "switch1Valid": True,
+                            "switch1Id": db.SW_TWO_HUNDRED_ASKED,
+                            "itemValid": True, "itemId": db.IT_OILSKIN_BOLTS}),
+         R.page(handover, img=_ott_face(), trigger=0, priority=1,
+                conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
+                            "switch1Valid": True,
+                            "switch1Id": db.SW_OILSKIN_GOT,
+                            "switch2Valid": True,
+                            "switch2Id": db.SW_SPAR_DONE})] +
+        _ott_chain([_outside_the_gate(), weight, run_in, fortieth, bleeding,
+                    maintenance, materials],
+                   db.SW_AIRSHIP, db.VAR_OTT_FLYING, _outside_the_gate()))
 
 
 def _ott_face():
@@ -933,6 +1292,15 @@ def works_events():
     # guarded by its own switch: 1.7 pattern two, and the reason this event
     # will not have to be edited when it arrives.
     evs.append(ladder(2, "Ott", 13, 9, "Ott", [
+        # Rung one: the introduction, and then the state of the work - and
+        # that second half depends on who walked in with you. The drain cock
+        # answer is four real faults reported accurately, and it wants
+        # somebody in the room for whom that is an ordinary sentence, or the
+        # player is left holding it on their own, which is the difference
+        # between a repair and a nudge. Merribell is a field medic; the joke
+        # is that she does not react, and there is no joke without her. So
+        # without her Ott answers a stranger's polite question the way she
+        # would actually answer it, which is in one word.
         S.narrate([
             "A woman with a slide rule, and goggles pushed",
             "up into her hair, does not look up.",
@@ -948,56 +1316,58 @@ def works_events():
             "I will grant you. But none intended.",
         ]) + S.narrate([
             "You ask, politely, how the work is going.",
-        ]) + S.say("Ott", [
-            "She's blowing off at the drain cock,",
-            "the gland has gone on the big end,",
-            "and she primes if you heat her too fast.",
-        ]) + S.say("Ott", [
-            "Otherwise she is sound.",
         ]) + R.if_then(
             R.condition_actor_in_party(db.MERRI),
-            S.narrate([
+            S.say("Ott", [
+                "She's blowing off at the drain cock,",
+                "the gland has gone on the big end,",
+                "and she primes if you heat her too fast.",
+            ]) + S.say("Ott", [
+                "Otherwise she is sound.",
+            ]) + S.narrate([
                 "Merribell nods along. Merribell is a field",
                 "medic and this is a Tuesday.",
-            ]),
-            S.narrate([
-                "You have found something to look at.",
-            ])) + [S.blush()],
+            ]) + [S.blush()],
+            S.say("Ott", [
+                "Behind.",
+            ]) + S.narrate([
+                "That appears to be the whole of the answer.",
+            ])),
 
+        # Rung two: the chalk line, which is the works telling you what it is
+        # before anybody does. Nib is on the wrong side of it and nobody has
+        # ever once mentioned it to her.
         S.say("Ott", [
-            "Get on the stuffing box with the packing,",
-            "and do not be shy with it.",
-        ]) + S.narrate([
-            "You do not say anything for a moment.",
+            "The line on the floor is not decorative.",
         ]) + S.say("Ott", [
-            "It is a box. You stuff it.",
-            "That is what it is called.",
-        ]) + [S.blush()],
+            "Everything past it is hot, sharp, or under",
+            "pressure. Three of them are all three.",
+        ]) + S.narrate([
+            "Nib is standing on the NO side. Nib is always",
+            "standing on the NO side.",
+        ]),
 
+        # Rung three: two hundred years of this has taught her that the only
+        # honest answer to "will it work" is a date.
         S.say("Ott", [
-            "Nipples want doing every forty hours.",
+            "Nib has asked me nine times whether",
+            "we are going to manage it.",
         ]) + S.say("Ott", [
-            "There are thirty-one of them.",
-            "You will want the small can.",
-        ]) + S.narrate([
-            "Nib, without being asked, hands you the",
-            "small can.",
-        ]) + [S.blush()],
+            "I have told her nine times that it is not",
+            "a question with an answer.",
+            "It is a question with a schedule.",
+        ]),
 
-        S.say("Ott", [
-            "That is a male thread, that is a female,",
-            "and they do not go together.",
-        ]) + S.say("Ott", [
-            "I have had this conversation with every",
-            "apprentice I have ever had, and every one",
-            "of them does the face.",
-        ]) + S.say("Ott", [
-            "You are doing the face.",
-        ]) + S.narrate([
-            "Nib has stopped work to watch this happen",
-            "to somebody else for once.",
-        ]) + [S.blush()],
-
+        # Rung four repeats for the rest of the game, so it is the one worth
+        # hearing twice.
+        #
+        # It sets **D by hand**, and must. `ladder` sets "ABCD"[i] on every
+        # rung *but the last*, so a five-beat ladder set D on beat four and a
+        # four-beat one sets only A, B and C - and every single page appended
+        # to this event, the whole airship quest included, is conditioned on
+        # D. Dropping a rung silently orphaned twenty-three pages: the build
+        # was clean, validate.py was clean, and Ott would have said "mind the
+        # swarf" for the rest of the game while the Two Hundred never flew.
         S.say("Ott", [
             "Mind the swarf.",
         ]) + S.say("Ott", [
@@ -1005,7 +1375,7 @@ def works_events():
             "on it. Or a wheel. Or a lever.",
         ]) + S.say("Ott", [
             "Or, on reflection, anything.",
-        ]),
+        ]) + [R.self_switch("D", True)],
     ], direction=2,
         pages=ott_the_two_hundred() + field.ott_field_pages()))
 
@@ -1070,6 +1440,55 @@ def works_events():
     # tell you what is still aboard Attempt 199, and does it by arithmetic.
     # Appended, never inserted: a self switch is keyed on the event id.
     evs.append(field.stores_ledger(8, 5, 4))
+
+    # -- 9: Tappet Cotterill, eighteen, the fourth of the nine. She brings the
+    # castings up from the foundry on Tuesdays, which is the family business
+    # doing what a family business does - putting a Cotterill in a building
+    # where none of the other Cotterills are.
+    #
+    # She is a girl on purpose. A works run by a woman, an apprentice who is
+    # a woman and a delivery driver who is a woman is Upper Clanging being
+    # the town that solves things, and it is a better character than the boy
+    # version was: she has watched the thing fail for four years and would
+    # still get in it, which is the whole of section 4 in eleven words.
+    tappet_flew = S.say("Tappet", [
+        "It flew.",
+    ]) + S.narrate([
+        "That is all she says. She is grinning",
+        "at the empty gantry.",
+    ]) + S.say("Tappet", [
+        "Six crates. Same place as always.",
+    ])
+    t_sheet, t_index = S.FACES["Tappet"]
+    evs.append(talker(
+        9, "Tappet Cotterill", 14, 13, "Tappet",
+        S.say("Tappet", [
+            "Castings. Six crates.",
+            "Where do you want them?",
+        ]) + S.narrate([
+            "You explain that you do not work here.",
+        ]) + S.say("Tappet", [
+            "Nobody does. That is the trouble",
+            "with this place.",
+        ]) + S.narrate([
+            "She looks up at the airship for a while.",
+        ]) + S.say("Tappet", [
+            "I bring the castings up on Tuesdays.",
+            "I have watched that thing not fly",
+            "for four years.",
+        ]) + S.say("Tappet", [
+            "I would still get in it.",
+        ]),
+        S.say("Tappet", [
+            "Tuesdays. And it is still here.",
+        ]), direction=8,
+        pages=[R.page(tappet_flew,
+                      img=R.image(t_sheet, t_index, direction=8),
+                      trigger=0, priority=1,
+                      conditions={"switch1Valid": True,
+                                  "switch1Id": db.SW_AIRSHIP,
+                                  "selfSwitchValid": True,
+                                  "selfSwitchCh": "A"})]))
     return evs
 
 
@@ -1179,6 +1598,31 @@ def valve_events():
         "Number sixty-three is one very long word.",
         "Nobody in the room will say it aloud."]))
 
+    # Winnie's third page, and NORTH.md 1.7 pattern two exactly: not a
+    # syllable of what she already says is touched, and a player who never
+    # meets the Cotterills never sees it. Her granddaughter Bessie has married
+    # the eldest of the nine, which gives a woman with a sixty-year-old
+    # seating plan a demographic problem she is far too polite to name.
+    #
+    # **No blush.** The Cold Winter is one joke and Mrs Tunnicliffe tells it;
+    # counting a third telling would be the game explaining itself, which is
+    # what 1.5's fourth test forbids.
+    winnie_seating = S.say("Winnie", [
+        "My granddaughter has married one",
+        "of the foundry family.",
+    ]) + S.say("Winnie", [
+        "There are nine of them.",
+        "Ten in the spring.",
+    ]) + S.narrate([
+        "You say that you have met them.",
+    ]) + S.say("Winnie", [
+        "They will all want seats.",
+    ]) + S.say("Winnie", [
+        "There is a plan. It was settled",
+        "when we were four.",
+        "It does not have a column for this.",
+    ])
+
     # -- 4: Winnie Marsden. The other half of Mrs Tunnicliffe's census, said
     # by somebody with no idea what she is telling you - which is why she
     # does **not** bump the counter. It is one joke. Counting it twice would
@@ -1200,7 +1644,51 @@ def valve_events():
         ]),
         S.say("Winnie", [
             "Second Saturday. As ever.",
-        ]), direction=4))
+        ]), direction=4,
+        pages=[R.page(winnie_seating,
+                      img=R.image(*S.FACES["Winnie"], direction=4),
+                      trigger=0, priority=1,
+                      conditions={"switch1Valid": True,
+                                  "switch1Id": db.SW_COTTERILL,
+                                  "selfSwitchValid": True,
+                                  "selfSwitchCh": "A"})]))
+
+    # -- 5: Rivet Cotterill, twenty-two, the second of the nine ------------
+    #
+    # The other end of Mr Cotterill's doorway. He says "Six o'clock. Every
+    # day. Sunday and all," and this is who is coming the other way through
+    # it - days at the foundry while his father does nights, which is a whole
+    # relationship conducted in two words on a doorstep and neither of them
+    # minds at all.
+    #
+    # No blush anywhere in it. This is a son being fond of his father and a
+    # man of twenty-two who has never been in a room by himself, and the
+    # house needed somebody in it who is simply pleasant company.
+    evs.append(talker(
+        5, "Rivet Cotterill", 8, 10, "Rivet",
+        S.say("Rivet", [
+            "Days. Da does nights.",
+        ]) + S.say("Rivet", [
+            "We pass at the door at six.",
+            'He says "Rivet." I say "Da."',
+        ]) + S.narrate([
+            "You ask whether that is all.",
+        ]) + S.say("Rivet", [
+            "That is a conversation, that is.",
+            "Some mornings he says the weather.",
+        ]) + S.narrate([
+            "You ask what it is like, being one of nine.",
+        ]) + S.say("Rivet", [
+            "I have shared a bed my whole life",
+            "and one of them is Grommet.",
+        ]) + S.say("Rivet", [
+            "I am twenty-two and I have never",
+            "once been in a room by myself.",
+        ]),
+        S.say("Rivet", [
+            "Half an hour. Then bed.",
+            "Then it is Tuesday.",
+        ]), direction=6))
     return evs
 
 
@@ -1331,6 +1819,59 @@ def forge_events():
         "",
         "Underneath, in a hand that is:",
         "WE SHALL SEE."]))
+
+    # -- 4: Grommet Cotterill, fifteen, apprenticed six months --------------
+    #
+    # "Elder ones being an apprentice" put a sixth of the nine in the forge,
+    # and what he does there is take the family joke apart from the inside.
+    # He has been taught the words and the words are *wrong*: a shim is a
+    # packing piece and a ferrule fastens nothing, so two of his sisters are
+    # misnamed and he has told them so every day since March. Nobody in that
+    # family is going to change their name and he is going to keep saying it.
+    #
+    # His second page is the payoff for a line that has been in Bryd's
+    # narration since the town was built - "somewhere behind you a child says
+    # 'they do this every time' and is removed." That child now has a name, a
+    # trade and eight brothers and sisters.
+    #
+    # It is gated on Hob being **in the party** rather than on `SW_HOB_BRYD`,
+    # which is set much later and only on the path where the spar is forged
+    # together. The meeting fires the moment Hob walks into this room, so a
+    # party with Hob in it standing in the forge has necessarily seen it -
+    # which makes the actor condition exactly equivalent and costs no state.
+    evs.append(talker(
+        4, "Grommet Cotterill", 7, 11, "Grommet",
+        S.say("Grommet", [
+            "I am the apprentice. Six months in.",
+        ]) + S.narrate([
+            "You ask how it is going.",
+        ]) + S.say("Grommet", [
+            "Mr Ollerenshaw says I have got the",
+            "makings. He says it slowly.",
+        ]) + S.narrate([
+            "You mention the family names.",
+        ]) + S.say("Grommet", [
+            "Yes. And they are wrong.",
+        ]) + S.say("Grommet", [
+            "Shim is not a fastener.",
+            "A shim is a packing piece.",
+        ]) + S.say("Grommet", [
+            "Ferrule is a collar. It fastens",
+            "nothing. It only stops a split.",
+        ]) + S.narrate([
+            "You ask whether he has told them.",
+        ]) + S.say("Grommet", [
+            "Every day.",
+        ]),
+        S.say("Grommet", [
+            "A gudgeon is a pin. That one is fine.",
+        ]), direction=8,
+        pages=[R.page(S.say("Grommet", ["They do this every time."]),
+                      img=R.image(*S.FACES["Grommet"], direction=8),
+                      trigger=0, priority=1,
+                      conditions={"actorValid": True, "actorId": db.HOB,
+                                  "selfSwitchValid": True,
+                                  "selfSwitchCh": "A"})]))
     return evs
 
 
@@ -1483,7 +2024,14 @@ def parish_map():
     g.set(8, 7, 3, K.SF_IN_BOOK)
 
     g.set(12, 6, 2, K.SF_IN_SIDE_DESK)            # the register lives here
-    g.set(12, 6, 3, K.SF_IN_BOOK_STAND)
+    # `Book Stand` is a row of upright spines, and the sign beside it says the
+    # register is **lying open at OCCUPATION** while Gudgeon says she copies
+    # it - so the prop contradicted two pieces of text that are about reading
+    # it. `Document` is a stack of loose ruled pages with writing on the top
+    # sheet, which is what a register being copied actually looks like. Same
+    # trap as the house register in the south; found the same way, by cropping
+    # the prop because a new line of dialogue named it.
+    g.set(12, 6, 3, K.SF_IN_DOCUMENT)
     g.set(11, 9, 2, K.SF_IN_STOOL)
     g.set(3, 9, 2, K.SF_IN_STOOL)              # somewhere to wait
     g.set(14, 9, 2, K.SF_IN_POTTED_PLANT)
@@ -1573,6 +2121,55 @@ def parish_events():
         "Somebody has pencilled HOYLE in the margin",
         "beside it and then rubbed it out, because the",
         "register does not take marginal notes."]))
+
+    # -- 4: Gudgeon Cotterill, twenty, third of the nine, Mrs Tunnicliffe's
+    # clerk -----------------------------------------------------------------
+    #
+    # **This is where the family's ages live**, and it was worth an event to
+    # put them somewhere. A player who wants to know how nine children fit
+    # between twenty-four and nine can ask, and the answer comes from a clerk
+    # reading a register, which is the most innocent object in the game and
+    # is already the town's mechanism for saying things it has not said.
+    #
+    # The blush is the last line and it is careful. She does **not** notice
+    # the arithmetic - she notices the *silence*, which is a thing that
+    # genuinely happens to her at that point in the list. The game still has
+    # not said it; the player's head said it and Gudgeon heard the pause.
+    evs.append(talker(
+        4, "Gudgeon Cotterill", 11, 6, "Gudgeon",
+        S.say("Gudgeon", [
+            "I copy the register.",
+        ]) + S.narrate([
+            "You ask whether it is interesting.",
+        ]) + S.say("Gudgeon", [
+            'I have written "Cotterill" four',
+            "hundred and twelve times.",
+        ]) + S.say("Gudgeon", [
+            "Mrs Tunnicliffe says my hand is the",
+            "best she has had. She has had eleven.",
+        ]) + S.narrate([
+            "You ask about the family.",
+        ]) + S.say("Gudgeon", [
+            "It is all in here.",
+            "Cotter is twenty-four. Rivet is",
+            "twenty-two. I am twenty.",
+        ]) + S.say("Gudgeon", [
+            "Tappet eighteen, Ferrule sixteen,",
+            "Grommet fifteen, Clevis thirteen,",
+            "Shim eleven, Spare nine.",
+        ]) + S.say("Gudgeon", [
+            "And Bessie is a Cotterill now,",
+            "which is another one to write.",
+        ]) + S.narrate([
+            "You do the arithmetic.",
+        ]) + S.say("Gudgeon", [
+            "You have gone quiet.",
+            "Everybody goes quiet just there.",
+        ]) + [S.blush()],
+        S.say("Gudgeon", [
+            "Two t's and two l's.",
+            "Everybody gets it wrong.",
+        ]), direction=6))
     return evs
 
 

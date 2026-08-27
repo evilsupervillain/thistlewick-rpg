@@ -29,7 +29,7 @@ from places import (CLANGING_GATE, MAP_CLANGING, MAP_WORLD, MAP_LONG_FIELD,
                     WORLD_LONG_FIELD_STEP, WORLD_CRAG_STEP,
                     WORLD_JUNCTION, WORLD_ISLE, WORLD_ISLE_PAD, WORLD_STACK,
                     WORLD_STACK_PAD, WORLD_MIDDLE, WORLD_MIDDLE_PAD,
-                    WORLD_TOWER)
+                    WORLD_TOWER, WORLD_STONES)
 
 REG_CLANG = 4               # the north-west: whatever the works has let out
 
@@ -234,7 +234,47 @@ def north_events(next_id):
     evs.append(clause_seven(next_id + len(evs)))
     evs.append(long_field_door(next_id + len(evs)))
     evs.append(crag_door(next_id + len(evs)))
+    # NORTH.md 3.8. It belongs beside the Standing Stones, which are event 13,
+    # and it is here at the end of the list instead for the reason above: a
+    # self switch is keyed on (map, event id, letter), and an event inserted
+    # next to its own subject would move every id after it.
+    evs.append(stones_correction(next_id + len(evs)))
     return evs
+
+
+def stones_correction(event_id):
+    """NORTH.md 3.8: a second, newer, smaller notice beside the plaque.
+
+    **The plaque is not edited.** A seventh theory added to the sign would be
+    a longer sign; the parish correcting its own sign, on a separate board,
+    six inches away, is funnier and it is an addition.
+
+    It also does a job. The stones are the turn onto the west road, so this is
+    the last thing a player reads before a whole town of people who will not
+    accept the obvious explanation. Player-touch and below characters, which
+    is the idiom every curiosity on this world map already uses - walk onto
+    the thing and it speaks."""
+    notice = S.narrate([
+        "A second board beside the plaque. Newer,",
+        "smaller, and screwed down much harder.",
+    ])
+    notice += S.narrate([
+        "\\C[6]THEORY SEVEN HAS BEEN REMOVED AT THE\\C[0]",
+        "\\C[6]REQUEST OF THE PARISH AND THE FAMILY.\\C[0]",
+    ])
+    notice += [S.blush(), R.self_switch("A", True)]
+
+    again = S.narrate([
+        "\\C[6]THEORY SEVEN HAS BEEN REMOVED AT THE\\C[0]",
+        "\\C[6]REQUEST OF THE PARISH AND THE FAMILY.\\C[0]",
+    ])
+    page = dict(img=R.image(""), trigger=1, priority=0, through=True)
+    return R.event(event_id, "Theory Seven",
+                   WORLD_STONES[0], WORLD_STONES[1] + 1, [
+        R.page(notice, **page),
+        R.page(again, conditions={"selfSwitchValid": True,
+                                  "selfSwitchCh": "A"}, **page),
+    ])
 
 
 def long_field_door(event_id):
@@ -1336,13 +1376,31 @@ def item_one(event_id, x, y):
 # page's condition strictly harder than the one before it. Ott's own self
 # switches are all four spent on the ladder, so:
 #
-#   ... D + VAR_PLAQUES >= 12   clause seven, which sets SW_CLAUSE_SEVEN
+#   ... D + SW_OTT_MATERIALS    clause seven, which sets SW_CLAUSE_SEVEN
+#       + VAR_PLAQUES >= 12
 #   ... D + SW_CLAUSE_SEVEN     what she says afterwards - and it has to win,
-#                               or clause seven runs every time you say hello
-#   ... D + holding ITEM 1      last, so it beats both of those and the four
-#                               Two Hundred pages while the crate is in the
-#                               party's hands, and stops beating them the
-#                               moment she takes it
+#       + SW_OTT_MATERIALS      or clause seven runs every time you say hello
+#   ... D + SW_OTT_MATERIALS    last, so it beats both of those while the crate
+#       + holding ITEM 1        is in the party's hands, and stops beating them
+#                               the moment she takes it
+#
+# **Being appended last is not the same as being conditioned last, and the
+# difference was a content lockout.** These three sit below every page
+# `north.py` built, so a condition that can hold while one of those pages still
+# has something to say does not "come next" - it deletes it. Twelve plaques is
+# reachable on foot before the works is even asked for a ship, so the first
+# build of this section shadowed the fabric page, the handover page, the nine
+# beats of the order chain and the seven of the flying chain, and reading the
+# field early made SW_OTT_MATERIALS - and therefore the airship, and therefore
+# the whole works questline - permanently unreachable, with no symptom beyond
+# Ott saying the wrong thing forever. Reordering does not fix it; it only
+# chooses which ladder gets deleted.
+#
+# So each of the three requires SW_OTT_MATERIALS, the last switch the flying
+# chain sets and thus the one that means "Ott has nothing left owing". Order
+# stops mattering: read the field first and she simply holds clause seven until
+# the ship is done. The rule for anything appended here later is the same one -
+# **a page appended below a ladder must require that ladder's terminal switch.**
 def stores_ledger(event_id, x, y):
     """The works stores book: mechanism four, the accidental record.
 
@@ -1492,17 +1550,27 @@ def ott_field_pages():
     render += S.say("Ott", [
         "Take it. Please."])
 
+    # Every one of the three carries SW_OTT_MATERIALS, and the reason is at the
+    # top of this section: these pages are appended *below* the two chains
+    # `north.py` built, so without it they shadow them. SW_OTT_MATERIALS is the
+    # last thing the flying chain sets, which makes it the one switch that means
+    # "Ott has nothing left owing" - it implies the airship, which implies the
+    # handover, which implies the fabric and supersedes the order chain. On
+    # `settled` it is redundant, because SW_CLAUSE_SEVEN can only be set by the
+    # page above; it is written out anyway so that the rule is legible on all
+    # three rather than inferable from two.
+    done = {"selfSwitchValid": True, "selfSwitchCh": "D",
+            "switch1Valid": True, "switch1Id": db.SW_OTT_MATERIALS}
     return [
         R.page(clause, img=_ott(), trigger=0, priority=1,
-               conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
-                           "variableValid": True,
-                           "variableId": db.VAR_PLAQUES,
-                           "variableValue": 12}),
+               conditions=dict(done, variableValid=True,
+                               variableId=db.VAR_PLAQUES, variableValue=12)),
         R.page(settled, img=_ott(), trigger=0, priority=1,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
                            "switch1Valid": True,
-                           "switch1Id": db.SW_CLAUSE_SEVEN}),
+                           "switch1Id": db.SW_CLAUSE_SEVEN,
+                           "switch2Valid": True,
+                           "switch2Id": db.SW_OTT_MATERIALS}),
         R.page(render, img=_ott(), trigger=0, priority=1,
-               conditions={"selfSwitchValid": True, "selfSwitchCh": "D",
-                           "itemValid": True, "itemId": db.IT_ITEM_ONE}),
+               conditions=dict(done, itemValid=True, itemId=db.IT_ITEM_ONE)),
     ]

@@ -409,6 +409,25 @@ def gloamwood_events():
         R.page([R.play_se("Move1"), R.transfer(MAP_GLOAM_DEEP, *DW_IN, 8, 0)],
                img=R.image(""), trigger=1, priority=0, through=True)]))
 
+    # NORTH.md 3.4, one of three. New props in existing dungeons; nobody's
+    # existing lines are touched and a party without Wren in it is told
+    # nothing at all.
+    evs.append(S.specimen(8, "A Nest", 13, 7, [
+        "A nest wedged into the fork of a tree, at",
+        "head height. Big, untidy, recently used.",
+        "Caught in the rim of it: one long banded",
+        "crest feather, the colour of a boiled sweet.",
+    ], S.say("Wren", [
+        "The crest isn't for fighting.",
+        "It's a display structure.",
+    ]) + S.say("Wren", [
+        "It is for attracting a mate. It works.",
+        "That is why there are nine of them.",
+    ]), [
+        "The nest, and the feather, where you put",
+        "them back.",
+    ]))
+
     # A lost adventurer, still going.
     lost = S.narrate([
         "A man in very good armour is sitting on a log."])
@@ -543,6 +562,22 @@ def deep_events():
                img=R.image(""), trigger=1, priority=0, through=True),
         R.page(out, img=R.image(""), trigger=1, priority=0, through=True,
                conditions={"switch1Valid": True, "switch1Id": db.SW_GLOAMWOOD}),
+    ]))
+
+    # NORTH.md 3.4, two of three.
+    evs.append(S.specimen(6, "A Shed Skin", 19, 13, [
+        "A shed skin, whole, hooked over a branch and",
+        "left inside out. Four feet of it, and the",
+        "head end is still the right way round.",
+    ], S.say("Wren", [
+        "Everything we have killed this week",
+        "was in the middle of courting.",
+    ]) + S.say("Wren", [
+        "I don't say that to upset you.",
+        "I say it because it goes in the monograph.",
+    ]), [
+        "Four feet of skin, inside out, on a branch.",
+        "Somebody has straightened it since.",
     ]))
 
     # The Thing In The Woods.
@@ -899,11 +934,68 @@ def finale_event(event_id, x, y):
          S.say("Grimspite", [
              "Yes. Good.",
              "Let's do the part we're for."])])
+
+    # -- clause seven, and the question Ott sent you up here with -----------
+    # NORTH.md 8.2. Two appended branches, and the whole point of them is that
+    # they do not know about each other. He explains why the Prophecy sends
+    # its Chosen One on foot, and in explaining it he is wrong: the Two
+    # Hundred did get off the ground in sight of this place, is parked outside
+    # it, and got there because it had a Chosen One aboard. Nobody in the game
+    # ever notices. It is for the player.
+    #
+    # Then, if she asked, he answers the only question anybody has ever put to
+    # him that was not about the person putting it - and thanks her for it,
+    # four lines after writing her off. Neither end of that ever refers to the
+    # other: she is not told what he said, and he is not told what she built.
+    c += R.if_then(
+        R.condition_switch(db.SW_CLAUSE_SEVEN),
+        S.narrate(["You ask him about clause seven."]) +
+        S.say("Grimspite", [
+            "Clause seven. On foot.",
+            "Do you know why?"]) +
+        S.narrate(["You say that you do not."]) +
+        S.say("Grimspite", [
+            "Because a thing that flies over",
+            "and drops something is not a story.",
+            "It is a Tuesday."]) +
+        S.say("Grimspite", [
+            "She will never get one",
+            "off the ground in sight of this place, and",
+            "it has nothing whatever to do with her",
+            "spars."]))
+    c += R.if_then(
+        R.condition_switch(db.SW_OTT_MATERIALS),
+        S.narrate(["You ask him what the tower is made of."]) +
+        S.say("Grimspite", ["...Nobody has ever asked me that."]) +
+        S.narrate(["He looks at the wall behind you as though",
+                   "it has just arrived."]) +
+        S.say("Grimspite", [
+            "I don't know.",
+            "It was here when I got here, and I have",
+            "leaned on that wall every day of four",
+            "thousand years and never once wondered."]) +
+        S.say("Grimspite", ["Tell her the work was good."]) +
+        S.say("Grimspite", [
+            "Four thousand years, and she is the",
+            "only one who ever came at me with a",
+            "question about materials."]))
+
     c += S.say("Grimspite", [
         "Whatever you were going to say -",
         "and I have heard all of them - say it",
         "while we fight. It goes faster that way."])
     c += [R.play_me("Shock2"), R.wait(30)]
+    # NORTH.md 7, the stretch goal, and the reason this is an index and not
+    # another `if_then`: ITEM 1 is a whole scene rather than a question, and it
+    # belongs to a *page*, not to a branch. The page below is built as
+    # `c[:split] + bomb + c[split:]`, so page 1 stays the identical list it has
+    # always been - the existing finale rebuilds byte for byte - and the crate
+    # page is the same finale with one scene spliced into it. Splicing here,
+    # after the sting and before the battle, is also the only placement that
+    # does not make him a liar: he has just said he has heard all of them, and
+    # four windows later he says this one is new, so the crate has to land
+    # after the line, not before it.
+    split = len(c)
     c += [R.battle(db.TR_GRIMSPITE, can_escape=False, can_lose=False),
           R.control_switch(db.SW_GRIMSPITE, True)]
 
@@ -1005,6 +1097,19 @@ def finale_event(event_id, x, y):
             "thought to do, and found forty-seven of them",
             "in a tavern, and sat down, and listened."]))
     c += R.if_then(
+        R.condition_variable(db.VAR_BOUNTIES, 2, 1),
+        S.narrate([
+            "Both cards came off the Guild's board while",
+            "he was down there, and Registrar Pell has",
+            "written the year up as an unusually good one",
+            "and does not intend to explain how."]),
+        R.if_then(
+            R.condition_variable(db.VAR_BOUNTIES, 1, 1),
+            S.narrate([
+                "One card came off the Guild's board while he",
+                "was down there. There are usually two cards.",
+                "There are, at the moment, rather fewer."])))
+    c += R.if_then(
         R.condition_switch(db.SW_HISTORY_DONE),
         S.narrate([
             "There is a song about it now. Hosea",
@@ -1024,6 +1129,60 @@ def finale_event(event_id, x, y):
             "hills there is a bench, facing the sea,",
             "which anybody may sit on, and which is what",
             "Ambrose Fitch asked for and did not get."]))
+    # NORTH.md 2.2 and 8.2: three switches the ending did not know about.
+    # Appended in the shape the lighthouse and the bench already have -
+    # one thing that is different about the world, told flatly, no summary.
+    c += R.if_then(
+        R.condition_switch(db.SW_TWO_HUNDRED_FLEW),
+        S.narrate([
+            "There is a two hundredth entry in the Hoyle",
+            "Works' attempt log. REACHED THE TOWER.",
+            "LANDED ADJACENT. And under it, in the same",
+            "hand as the hundred and ninety-nine above,"]) +
+        S.narrate([
+            "CAUSE: UNDER REVIEW.",
+            "Two hundred years, and the only thing in that",
+            "building Miss Hoyle will not write down is",
+            "the reason it worked."]))
+    c += R.if_then(
+        R.condition_switch(db.SW_84_REBUILT),
+        S.narrate([
+            "In the works shed there is a bay with the",
+            "number eighty-four over it, and for the",
+            "first time in a hundred and forty years",
+            "there is something under it."]) +
+        S.narrate([
+            "It will take years and nobody has costed it",
+            "and nobody has asked to.",
+            "Miss Hoyle had told a great many people that",
+            "there would not be a two hundred and one."]))
+    # The other half of the stretch goal. The crate is the one thing in the
+    # game that can be spent two ways and this is the only place that ever
+    # says which way it went - and it says it the way the works says
+    # everything, which is in a ledger, in a column, without adjectives.
+    c += R.if_then(
+        R.condition_switch(db.SW_ITEM_ONE_USED),
+        S.narrate([
+            "There is a line through ITEM 1 in the Hoyle",
+            "Works' stores book at last, dated, and",
+            "initialled O.H., a hundred and ninety-eight",
+            "years after it was written in."]) +
+        S.narrate([
+            "Miss Hoyle asked one question about it, which",
+            "was whether it had worked, and was told that",
+            "it had worked perfectly, and ruled the line",
+            "through, and has not asked a second."]))
+    c += R.if_then(
+        R.condition_switch(db.SW_HOB_BRYD),
+        S.narrate([
+            "Bryd Ollerenshaw has been down the hill to",
+            "the house that does a pale more times this",
+            "year than in the twenty before it, and not",
+            "once on his own."]) +
+        S.narrate([
+            "Half of Upper Clanging watches them go.",
+            "The other half is told about it inside the",
+            "hour."]))
     # The thresholds are set against the number of `story.trope()` sites in
     # the build, which the south roughly doubled. A completionist can reach
     # about sixty; a player who goes straight north will see twenty.
@@ -1040,6 +1199,45 @@ def finale_event(event_id, x, y):
             S.narrate(["Remarkably few cliches, which the Prophecy",
                        "Committee will record as a procedural",
                        "irregularity."])))
+    # NORTH.md 2.3, and the reason VAR_BLUSHES exists at all. The joke only
+    # works in aggregate - which is exactly what keeps every one of the
+    # twenty instances individually deniable - so this is the one place in
+    # the game that admits there was a pattern, and it still does not say
+    # what the pattern was.
+    c += R.if_then(
+        R.condition_switch(db.SW_BALLAD_DONE),
+        S.narrate([
+            "Verses struck by the Committee: \\C[3]\\V[7]\\C[0].",
+            "Piper had every one of them down. The",
+            "Committee read the fair copy through twice",
+            "and took a pencil to the lot, without comment."]),
+        S.narrate([
+            "Things nobody quite said: \\C[3]\\V[7]\\C[0].",
+            "Nobody wrote them down either. They are only",
+            "the reason certain people in this account",
+            "still do not quite look at one another."]))
+    # One tier and no else, rather than the three-way shape the cliche block
+    # above already uses: doing that twice running reads as a form being
+    # filled in.
+    #
+    # **Twenty-five is every blush moment in the finished build**, measured
+    # 2026-08-26 off the data rather than off the source, because NORTH.md 2.3
+    # is right that a grep over-counts: 28 code-122 writes to variable 7, less
+    # the two travellers (one joke, two events, one `SW_TRAVELLERS`), less Mrs
+    # Tunnicliffe's census (first-visit page and repeat page, both guarded on
+    # `SW_CENSUS` being false), less Bryd's spar page (the with-Hob and the
+    # without-Hob branch cannot both run). The threshold was 16 when the total
+    # was 20 - the town's nine and the retrofit's eleven - and the total has
+    # since grown by Ott's three flying-chain beats, Bessie and Gudgeon. Keep
+    # it at four fifths of whatever the total is, or the line congratulates a
+    # player who missed nine of them.
+    c += R.if_then(
+        R.condition_variable(db.VAR_BLUSHES, 20, 1),
+        S.narrate([
+            "Very nearly all of them, which means he was",
+            "in the room for very nearly all of them,",
+            "which is the part nobody has yet worked out",
+            "how to raise with him."]))
     c += S.narrate([
         "Thistlewick struck clause twelve from the",
         "records and replaced it with a note reading",
@@ -1063,9 +1261,136 @@ def finale_event(event_id, x, y):
     return R.event(event_id, "Grimspite", x, y, [
         R.page(c, img=R.image("Evil", 6, direction=2), trigger=0, priority=1,
                direction_fix=True),
+        # Carrying the crate. Last page wins, so this beats the finale above
+        # for as long as ITEM 1 is in the party's hands, and the SW_WON page
+        # below beats both afterwards.
+        R.page(c[:split] + item_one_scene() + c[split:],
+               img=R.image("Evil", 6, direction=2), trigger=0, priority=1,
+               direction_fix=True,
+               conditions={"itemValid": True, "itemId": db.IT_ITEM_ONE}),
         R.page([], img=R.image(""), trigger=0, priority=0, through=True,
                conditions={"switch1Valid": True, "switch1Id": db.SW_WON}),
     ])
+
+
+def item_one_scene():
+    """ITEM 1, carried up the tower and used on the Dark Lord - NORTH.md 7.
+
+    The funniest failure in the game, and it is funny because the bomb works.
+    The Hoyle Works has spent two hundred years and a hundred and ninety-nine
+    attempts failing to do one thing; the single object in that building that
+    performs exactly as specified, first time, at the first asking, is the one
+    nobody ever wanted to find out about. It goes off perfectly and it changes
+    nothing, because the thing in this room is not a person who can be killed,
+    it is a contract that has to be read.
+
+    It is offered rather than triggered. A player can reach the summit with
+    the crate on the way to Ott - the stores ledger sends you to the crag, not
+    to the tower - and a page that lit it unasked would cost them Number One
+    and the Fuse without ever putting the question. `Draw your weapon` is
+    option zero, so a confirm pressed out of habit keeps the crate.
+
+    And he sends the compliment south a second time without knowing it is the
+    same woman, the same works or the same argument. Nobody at either end ever
+    finds out, which is the arrangement everything else in section 8.2 is
+    built on."""
+    d = S.narrate([
+        "You do not draw your weapon.",
+        "Two of you set the crate down in front of the",
+        "throne. It goes down like an anvil."])
+    d += S.say("Grimspite", ["What is that."])
+    d += S.narrate(["You tell him what is stencilled on it."])
+    d += S.say("Grimspite", [
+        "That is not a name. That is a line",
+        "in somebody's ledger."])
+    d += S.narrate([
+        "You agree that it is.",
+        "Then you light it."])
+    d += S.say("Grimspite", ["...Ah."])
+    d += S.narrate([
+        "He does not get up, and he does not stop you.",
+        "He puts the book down on the arm of the throne",
+        "with the bookmark still in it, and watches the",
+        "crate with real interest."])
+    d += [R.fadeout_bgm(1), R.wait(40)]
+    d += [R.play_se("Explosion2", 100),
+          R.flash_screen([255, 255, 255, 255], 30, True),
+          R.shake_screen(9, 9, 120, False),
+          R.tint_screen([-90, -90, -90, 0], 20, True),
+          R.wait(60)]
+    d += S.narrate([
+        "The Hoyle Works built it in 1802, to a",
+        "specification of which no copy has been kept,",
+        "and it has spent a hundred and ninety-eight",
+        "years strapped down, waiting to be asked."])
+    d += S.narrate([
+        "It does not fail.",
+        "It does precisely what it was built to do, at",
+        "a range of four feet, in a stone room with the",
+        "door shut."])
+    d += [R.tint_screen(CLEAR, 90, True), R.wait(30)]
+    d += S.narrate([
+        "When the smoke goes, the throne is where the",
+        "throne was. The wall is where the wall was.",
+        "All forty-seven sentences carved into it are",
+        "still legible."])
+    d += S.narrate([
+        "Grimspite the Inevitable is sitting exactly as",
+        "he was sitting."])
+    d += S.narrate(["His bookmark is on the floor."])
+    d += S.say("Grimspite", [
+        "Clause thirty-one.",
+        "\\C[2]THE DARK LORD SHALL NOT BE CONCLUDED\\C[0]",
+        "\\C[2]BY MECHANISM.\\C[0]"])
+    d += S.say("Grimspite", [
+        "Ordnance is not provided for.",
+        "Nothing is provided for. That is what a",
+        "renewal notice is."])
+    d += S.narrate([
+        "He leans forward. It is the first time he has",
+        "moved like a man and not like a fixture."])
+    d += S.say("Grimspite", [
+        "Forty-seven of you.",
+        "Swords, mostly. A spear, once.",
+        "A very great deal of fire.",
+        "Nobody has ever brought a bomb."])
+    d += S.say("Grimspite", ["Do you know what that is?"])
+    d += S.narrate(["You say that you do not."])
+    d += S.say("Grimspite", [
+        "That is new.",
+        "That is the first new thing in four thousand",
+        "eight hundred years, and I would like a",
+        "moment with it."])
+    d += S.narrate([
+        "He takes one.",
+        "Nobody says anything. Somewhere behind you a",
+        "piece of the ceiling that has been thinking",
+        "about it for a long time comes down."])
+    d += S.say("Grimspite", [
+        "Whoever made that has never once",
+        "been told that it was any good."])
+    d += S.narrate([
+        "You think about that, and find that he is not",
+        "wrong, and that you are not going to be the",
+        "one to tell her either, because you would have",
+        "to explain what you did with it."])
+    d += S.narrate([
+        "Then he leans down and picks the bookmark up,",
+        "and puts it back in the book, and puts the",
+        "book on the seat of the throne, and stands."])
+    d += S.say("Grimspite", [
+        "Right.",
+        "Thank you for that. Genuinely.",
+        "Now hit me with something."])
+    d += [S.trope(), R.gain_item(db.IT_ITEM_ONE, -1),
+          R.control_switch(db.SW_ITEM_ONE_USED, True)]
+    d += [R.play_me("Shock2"), R.wait(30)]
+
+    ask = S.narrate([
+        "You are carrying a crate that is stencilled on",
+        "all six faces, and it is not for carrying."])
+    return ask + R.choice_block(
+        ["Draw your weapon", "Set the crate down"], [[], d])
 
 
 def build():

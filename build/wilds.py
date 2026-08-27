@@ -627,6 +627,22 @@ def pit_events():
         "The handwriting is the same as the plaque",
         "under the wyvern in the Slain Wyvern."],
         "", 0, extra=[S.trope()]))
+
+    # NORTH.md 3.4, three of three, and the one that needs a cave to be in.
+    evs.append(S.specimen(8, "Something In The Crack", 21, 5, [
+        "A crack in the wall, running back further",
+        "than the lamp reaches.",
+        "There is something asleep in it. It is not",
+        "small, and it has not noticed you.",
+    ], S.say("Wren", ["That one is gravid."]) +
+       S.narrate(["You ask whether that is bad."]) +
+       S.say("Wren", [
+           "It is the single most normal thing",
+           "in this cave.",
+       ]), [
+        "Still asleep. Still enormous.",
+        "Still, apparently, entirely normal.",
+    ]))
     return evs
 
 

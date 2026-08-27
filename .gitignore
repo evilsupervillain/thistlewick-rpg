@@ -9,6 +9,14 @@
 # Build output: packaged applications and the screenshots the scenarios take.
 /dist/
 /build/scenarios/*.png
+/build/scenarios/logs/
+
+# Notes from one session to the next, so that a cleared context can pick the
+# work up. It is scaffolding for whoever is building the game, not part of the
+# game, and it is rewritten wholesale every time - committing it would put a
+# stale set of instructions in the history and a merge conflict in the way of
+# every branch.
+/build/RESTART.md
 
 __pycache__/
 *.pyc
