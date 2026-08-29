@@ -347,42 +347,88 @@ PARTY_LIMIT = 4      # Bram plus three
 
 
 def recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept,
-            decline, full, direction=2, move_type=0, extra_pages=(), after=()):
-    """One of the six.
+            decline, full, direction=2, move_type=0, extra_pages=(), after=(),
+            again=None):
+    """One of the nine.
 
-    The 'already joined' page is keyed on a global switch rather than a self
-    switch, because the Prophecy Hall clerk can amend the roster - and a self
-    switch can only be set by its own event, so nothing else could ever put
-    this person back on the map."""
+    Three pages, because there are three states and only the middle one is
+    obvious: never met, met and sent home, and currently following you around.
+    The last of those is keyed on a global switch rather than a self switch,
+    because a form desk can amend the roster - and a self switch can only be
+    set by its own event, so nothing else could ever put this person back on
+    the map.
+
+    `again` is a dict of the same four command lists - pitch, accept, decline,
+    full - for somebody who has already walked north with you and is now back
+    in their own kitchen explaining it to the neighbours. Any key it leaves
+    out falls back to the first-meeting version."""
     sw = db.SW_RECRUIT[actor_id]
+    known = db.SW_KNOWN[actor_id]
 
-    joins = list(accept) + [
-        R.change_party(actor_id, add=True, initialize=True),
-        R.play_me("Item"),
-    ]
-    joins += R.text(["\\C[3]%s\\C[0] joined the party!" % name])
-    joins += [R.control_switch(sw, True),
-              R.control_variable_add(db.VAR_COMPANIONS, 1)]
-    joins += list(after)
+    def joining(accept_cmds, first_time):
+        """The join itself.
 
-    # Whether there is room changes while the player is standing here, so this
-    # is a branch inside the choice rather than a condition on the page.
-    take_them = R.if_then(
-        R.condition_script("$gameParty.size() < %d" % PARTY_LIMIT),
-        joins, list(full))
+        `initialize` is Change Party Member's flag for `Game_Actor.setup()`,
+        which puts the actor back to their database level with their database
+        equipment. That is right exactly once. On a rejoin it silently deletes
+        every level they earned walking north with you and every piece of kit
+        you ever handed them, which is why it is set on the first join and
+        never again - the actor sits in `$gameActors` the whole time they are
+        at home, with everything still on it."""
+        cmds = list(accept_cmds)
+        cmds += [R.change_party(actor_id, add=True, initialize=first_time),
+                 R.control_switch(known, True)]
+        if not first_time:
+            # They have had a month at home, so they come back rested. A first
+            # join does not need this - `setup()` has just given them full HP
+            # - but a rejoin otherwise hands you back exactly the three hit
+            # points they were struck off on, and a companion who has been
+            # sitting in their own kitchen since Tuesday being quietly bleeding
+            # is a bug the player has no way to read as anything else. Recover
+            # All on one actor works whether or not they are in the party, and
+            # it clears Death, so somebody struck off unconscious wakes up.
+            cmds.append(R.recover_all(actor_id))
+        cmds.append(R.play_me("Item"))
+        cmds += R.text(["\\C[3]%s\\C[0] %s the party!"
+                        % (name, "joined" if first_time else "rejoined")])
+        cmds += [R.control_switch(sw, True),
+                 R.control_variable_add(db.VAR_COMPANIONS, 1)]
+        cmds += list(after)
+        return cmds
 
-    cmds = list(pitch) + R.choice_block(
-        ["Come with me", "Not right now"], [take_them, list(decline)])
+    def conversation(pitch_cmds, accept_cmds, decline_cmds, full_cmds,
+                     first_time):
+        # Whether there is room changes while the player is standing here, so
+        # this is a branch inside the choice rather than a condition on the
+        # page.
+        take_them = R.if_then(
+            R.condition_script("$gameParty.size() < %d" % PARTY_LIMIT),
+            joining(accept_cmds, first_time), list(full_cmds))
+        yes = "Come with me" if first_time else "Come back with me"
+        return list(pitch_cmds) + R.choice_block(
+            [yes, "Not right now"], [take_them, list(decline_cmds)])
+
+    look = dict(img=R.image(sheet, index, direction=direction), trigger=0,
+                priority=1, move_type=move_type)
+    a = dict(again or {})
+
+    first = R.page(conversation(pitch, accept, decline, full, True), **look)
+    # Struck off the roster and back home. Everything they earned is still on
+    # them, and so is everything they know about you.
+    returning = R.page(
+        conversation(a.get("pitch", pitch), a.get("accept", accept),
+                     a.get("decline", decline), a.get("full", full), False),
+        conditions={"switch1Valid": True, "switch1Id": known}, **look)
 
     # Once they are following you around, the copy of them standing in their
     # own kitchen has to go away - invisible, and walk-through so it stops
-    # being a wall in the middle of a room.
+    # being a wall in the middle of a room. It is the last page of the three,
+    # because MZ takes the highest-numbered page whose conditions hold and
+    # anyone who is with you has also, necessarily, been met.
     gone = R.page([], img=R.image(""), trigger=0, priority=1, through=True,
                   conditions={"switch1Valid": True, "switch1Id": sw})
-    return R.event(event_id, name, x, y, [
-        R.page(cmds, img=R.image(sheet, index, direction=direction),
-               trigger=0, priority=1, move_type=move_type),
-        gone] + list(extra_pages))
+    return R.event(event_id, name, x, y,
+                   [first, returning, gone] + list(extra_pages))
 
 
 # ------------------------------------------------------- who is with you ----
@@ -408,12 +454,28 @@ def roster_amendment(companions=None, clerk="Clerk"):
     three from what is now nine."""
     branches = []
     for actor_id, nm in (companions or COMPANIONS):
-        remove = [R.change_party(actor_id, add=False),
+        # `SW_KNOWN` is set here as well as at the join, and the redundancy is
+        # the point: anybody standing at this desk to be struck off has, by
+        # definition, been in the party. `story.recruit` sets it too, but a
+        # save made before these switches existed has it clear for somebody who
+        # is demonstrably a companion - and a clear switch sends them back to
+        # page 0, which introduces them to you all over again and re-initialises
+        # them down to their database level. One command here migrates every
+        # such save at the only moment it matters, without a migration.
+        remove = [R.control_switch(db.SW_KNOWN[actor_id], True),
+                  R.change_party(actor_id, add=False),
                   R.control_switch(db.SW_RECRUIT[actor_id], False),
                   R.control_variable_add(db.VAR_COMPANIONS, -1),
                   R.play_se("Cancel1")]
         remove += R.text(["\\C[3]%s\\C[0] has been struck from the roster" % nm,
                           "and has gone home to think about it."])
+        # Said out loud because the player cannot see it in the menu: a struck
+        # companion keeps their level and their kit, and gets both back the
+        # moment they are re-hired. Nothing is lost by trying somebody else.
+        remove += say(clerk, [
+            "They keep the kit and the experience.",
+            "Both are theirs. It was tried the other way",
+            "once. There is a form about why not."])
         not_here = say(clerk, ["%s is not on the roster." % nm,
                                "I cannot remove someone who is not on the",
                                "roster. That would create a negative person."])

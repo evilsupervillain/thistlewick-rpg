@@ -127,7 +127,7 @@ def build_tilesets():
 def build_system():
     system = R.load("System.json")
 
-    switches = [""] * 72
+    switches = [""] * 81
     for sid, name in [
             (db.SW_QUEST, "quest accepted"),
             (db.SW_LEFT_VILLAGE, "left the village"),
@@ -190,6 +190,8 @@ def build_system():
         switches[sid] = name
     for actor_id, sid in db.SW_RECRUIT.items():
         switches[sid] = "recruited actor %d" % actor_id
+    for actor_id, sid in db.SW_KNOWN.items():
+        switches[sid] = "actor %d has been in the party before" % actor_id
 
     variables = [""] * 32
     variables[db.VAR_COMPANIONS] = "companions recruited"

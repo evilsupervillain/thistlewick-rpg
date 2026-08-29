@@ -1,0 +1,162 @@
+{
+  "query": "?map=14&x=12&y=15&frames=90",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter(); $gameSwitches.setValue(1, true)"
+    },
+    {
+      "eval": "$gamePlayer.locate(20, 15); $gameMap.event(11).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameParty.members().map(a => a.name())",
+      "expect": [
+        "Bram",
+        "Corvin"
+      ],
+      "label": "Corvin joins, the first time, from page 0"
+    },
+    {
+      "check": "$gameSwitches.value(78)",
+      "expect": true,
+      "label": "and is now on the list of people Bram has known"
+    },
+    {
+      "eval": "$gameActors.actor(8).changeLevel(12, false); $gameParty.gainItem($dataWeapons[3], 1); $gameActors.actor(8).changeEquip(0, $dataWeapons[3]); $gameActors.actor(8).level"
+    },
+    {
+      "check": "$gameActors.actor(8).level",
+      "expect": 12,
+      "label": "he goes up eleven levels and is given a broadsword"
+    },
+    {
+      "eval": "$gameActors.actor(8).setHp(3); $gameActors.actor(8).addState(1); $gameActors.actor(8).hp"
+    },
+    {
+      "check": "$gameActors.actor(8).isDead()",
+      "expect": true,
+      "label": "and is then knocked out, three hit points before that"
+    },
+    {
+      "goto": [
+        15,
+        9,
+        11
+      ]
+    },
+    {
+      "eval": "$gamePlayer.locate(9, 7); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "$gameSwitches.value(25)",
+      "expect": true,
+      "label": "Pell has explained Form A-1"
+    },
+    {
+      "check": "$gameSwitches.value(27)",
+      "expect": false,
+      "label": "and Bram is emphatically not registered"
+    },
+    {
+      "eval": "$gamePlayer.locate(9, 7); $gameMap.event(2).start()"
+    },
+    {
+      "frames": 240
+    },
+    {
+      "choose": 1
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "SceneManager._scene.constructor.name",
+      "expect": "Scene_Map",
+      "label": "the desk closes and hands the map back"
+    },
+    {
+      "check": "$gameSwitches.value(27)",
+      "expect": false,
+      "label": "C-12(S) did not require registration after all"
+    },
+    {
+      "check": "$gameSwitches.value(17)",
+      "expect": false,
+      "label": "Corvin has been struck from the southern roster"
+    },
+    {
+      "check": "$gameParty.size()",
+      "expect": 1,
+      "label": "Bram, alone again"
+    },
+    {
+      "check": "$gameActors.actor(8).level",
+      "expect": 12,
+      "label": "he takes his twelve levels home with him"
+    },
+    {
+      "check": "$gameActors.actor(8).equips()[0] ? $gameActors.actor(8).equips()[0].id : null",
+      "expect": 3,
+      "label": "and the broadsword"
+    },
+    {
+      "goto": [
+        14,
+        20,
+        15
+      ]
+    },
+    {
+      "check": "$gameMap.event(11)._pageIndex",
+      "expect": 1,
+      "label": "back in the corner, on the page for somebody he already knows"
+    },
+    {
+      "eval": "$gameMap.event(11).start()"
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "$gameParty.members().map(a => a.name())",
+      "expect": [
+        "Bram",
+        "Corvin"
+      ],
+      "label": "Corvin rejoins"
+    },
+    {
+      "check": "$gameActors.actor(8).level",
+      "expect": 12,
+      "label": "STILL level twelve - the rejoin does not re-initialise him"
+    },
+    {
+      "check": "$gameActors.actor(8).equips()[0] ? $gameActors.actor(8).equips()[0].id : null",
+      "expect": 3,
+      "label": "and is still holding the broadsword"
+    },
+    {
+      "check": "$gameActors.actor(8).hp === $gameActors.actor(8).mhp",
+      "expect": true,
+      "label": "a month at home is a month at home: he comes back rested"
+    },
+    {
+      "check": "$gameActors.actor(8).isDead()",
+      "expect": false,
+      "label": "and awake"
+    },
+    {
+      "check": "$gameVariables.value(1)",
+      "expect": 1,
+      "label": "one companion counted, not two"
+    },
+    {
+      "shot": "roster_rejoined.png"
+    }
+  ]
+}

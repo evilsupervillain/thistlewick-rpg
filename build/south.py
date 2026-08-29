@@ -1330,9 +1330,41 @@ def corvin_event(event_id, x, y):
         "not yet come.",
         "It never is. That's rather the theme."])
 
+    # See `village.aldric_event` for why the three southern ones have an
+    # `again` too, and why none of them bump the trope counter.
+    again = dict(
+        pitch=S.say("Corvin", ["I foresaw this."]) +
+        S.narrate([
+            "He did not foresee this.",
+            "He has been in this corner ever since,",
+            "telling people he foresaw the other thing."]) +
+        S.say("Corvin", [
+            "I said goodbye to this entire room.",
+            "TWICE. There was a small speech.",
+            "Dorcas wept. Dorcas coughed.",
+            "I have been generous about which."]) +
+        S.narrate([
+            "He is not angry. He is a man who has done",
+            "his farewell and now has to walk past",
+            "everybody who watched it."]),
+        accept=S.say("Corvin", [
+            "...If fate demands it. Again.",
+            "Fate is going to have to stop doing this",
+            "to me in front of the regulars."]),
+        decline=S.say("Corvin", [
+            "As I foresaw. Both of them.",
+            "I foresaw both outcomes, which is",
+            "efficient and no comfort whatsoever."]),
+        full=S.say("Corvin", [
+            "Full. Naturally.",
+            "My hour comes, and goes, and comes again,",
+            "and does not once stop for me.",
+            "That's rather the theme."]),
+    )
+
     return S.recruit(event_id, db.CORVIN, "Corvin", x, y, "Actor1", 4,
                      pitch=pitch, accept=accept, decline=decline, full=full,
-                     direction=8)
+                     again=again, direction=8)
 
 
 def wren_event(event_id, x, y):
@@ -1385,9 +1417,36 @@ def wren_event(event_id, x, y):
         "I have a theory about that and no",
         "funding to pursue it."])
 
+    again = dict(
+        pitch=S.narrate([
+            "The jars are back on the table.",
+            "One of them has been relabelled twice."]) +
+        S.say("Wren", [
+            "Chapter nine is a hole.",
+            "It is a hole shaped precisely like the",
+            "stretch of road you did without me."]) +
+        S.say("Wren", [
+            "I have had a month of hearsay from men",
+            "in a tavern. Do you know what they call",
+            "a thing with wings?",
+            "They call it 'basically a dragon'."]),
+        accept=S.say("Wren", [
+            "Same terms. First refusal, I write the",
+            "entries, and nobody says the phrase.",
+            "I have drafted a clause about the phrase."]),
+        decline=S.say("Wren", [
+            "Then bring me the chapter nine wing.",
+            "Whole. I have had 'mostly' from better",
+            "people, and now, twice, from you."]),
+        full=S.say("Wren", [
+            "Four, and not one of them taking notes.",
+            "Four is always the number. I still have",
+            "the theory and still have no funding."]),
+    )
+
     return S.recruit(event_id, db.WREN, "Wren", x, y, "Actor2", 7,
                      pitch=pitch, accept=accept, decline=decline, full=full,
-                     direction=8)
+                     again=again, direction=8)
 
 
 def roland_event(event_id, x, y):
@@ -1446,8 +1505,42 @@ def roland_event(event_id, x, y):
         "Four who'll all be there at the end",
         "beats three and a rumour."])
 
+    # Roland's only shows if he was struck off the roster *before* his own
+    # exit scene on the north road. That scene leaves `SW_RECRUIT` on
+    # deliberately, so afterwards the "gone" page still wins and a guest star
+    # who has made his exit stays made.
+    again = dict(
+        pitch=S.say("Roland", [
+            "Ah! No - don't. Don't do the face.",
+            "You did the right thing and you did it to",
+            "my face, which is a great deal better than",
+            "the last ten managed."]) +
+        S.narrate([
+            "He is being marvellous about it.",
+            "It is considerably worse than if he were not."]) +
+        S.say("Roland", [
+            "Twelfth, this'd be.",
+            "Nobody has ever asked me twice.",
+            "I've been asked once, eleven times, which",
+            "is a different sum altogether."]),
+        accept=S.say("Roland", [
+            "Then I'll fetch the armour.",
+            "It's polished. I polished it. There was a",
+            "fortnight, and a cloth, and only so much",
+            "of me."]),
+        decline=S.say("Roland", [
+            "Course. Quite right.",
+            "I'll be here, being no use to anyone, at",
+            "exactly the standard everyone expects."]),
+        full=S.say("Roland", [
+            "Full again! Good. Better, honestly.",
+            "Four who'll all be there at the end still",
+            "beats three and a rumour and me."]),
+    )
+
     return S.recruit(event_id, db.ROLAND, "Roland", x, y, "Actor2", 2,
-                     pitch=pitch, accept=accept, decline=decline, full=full)
+                     pitch=pitch, accept=accept, decline=decline, full=full,
+                     again=again)
 
 
 # ================================================================== the Guild ==
@@ -1576,6 +1669,33 @@ def pell_event(event_id, x, y):
             missing),
         missing)
 
+    # C-12(S) is not a membership benefit and Pell would be insulted by the
+    # suggestion. Form A-1 registers *you*; C-12(S) strikes off *them*, and
+    # the two have nothing to do with each other except this desk. So the
+    # southern roster is amendable from the second conversation onwards,
+    # rather than from the end of a quest the player may never finish - which
+    # is what used to strand a southern companion in the party while the
+    # northern half of the roster amended away merrily forty miles up the road.
+    unregistered = S.say("Pell", [
+        "Unregistered. Which is not nothing.",
+        "It is a category. Two things I can do",
+        "for a man in a category."])
+    unregistered += R.choice_block(
+        ["Registration", "Amend the southern roster", "Nothing today"],
+        [checking,
+         S.say("Pell", [
+             "Form C-12(S). Certainly.",
+             "A-1 registers you. C-12(S) unregisters",
+             "them. Entirely separate instruments and",
+             "I will not hear otherwise."]) +
+         S.narrate([
+             "You had not suggested otherwise.",
+             "He had the answer ready, which means somebody",
+             "has, and that he has been waiting."]) +
+         S.roster_amendment(S.COMPANIONS_SOUTH, clerk="Pell"),
+         S.say("Pell", ["Then we are both up to date."])],
+        cancel=2)
+
     member = S.say("Pell", [
         "Registered. Provisionally.",
         "Bounties on the board. Barrow's open.",
@@ -1588,7 +1708,7 @@ def pell_event(event_id, x, y):
 
     return R.event(event_id, "Registrar Pell", x, y, [
         R.page(intro, img=img, trigger=0, priority=1),
-        R.page(checking, img=img, trigger=0, priority=1,
+        R.page(unregistered, img=img, trigger=0, priority=1,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_GUILD_ASKED}),
         R.page(member, img=img, trigger=0, priority=1,

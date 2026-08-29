@@ -221,6 +221,18 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
   turned out to be a board rather than a conversation. It is never set and
   never read, and `System.json` names it as unused so nobody goes looking
   for the event |
+| 72-80 | **has been in the party before**: Merribell, Hob, Zephyrine, Nix,
+  Aldric, Piper, Corvin, Wren, Roland. 11-19 mean "is walking behind you right
+  now" and go *off* when a form desk strikes somebody off; these go on at the
+  first join and never go off again. They pay for three things. Change Party
+  Member's *initialise* flag calls `Game_Actor.setup()`, which resets the actor
+  to their database level and database equipment - correct exactly once, and on
+  a rejoin it silently deletes every level they earned with you and every piece
+  of kit you gave them, so `story.recruit` initialises only when the switch is
+  clear. The switch is also page 1 of all nine recruit events: somebody you have
+  already walked north with does not introduce themselves again. And it is why
+  the "gone" page is page 2 of 3 - `Game_Event.refresh` takes the last page
+  whose conditions hold, and anyone with you has necessarily also been met |
 
 | id | variable |
 | --- | --- |

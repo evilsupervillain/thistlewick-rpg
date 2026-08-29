@@ -197,6 +197,21 @@ SW_OTT_MATERIALS = 70           # Ott asked you to ask him what it is made of
 # that ever mentions which. `SW_ITEM_ONE_DOWN` says it came off the crag and
 # says nothing about where it went.
 SW_ITEM_ONE_USED = 71           # it was set down in front of the throne
+# The roster is amendable, so a companion can be recruited, sent home from a
+# form desk, and taken on again - and three different things need to know
+# which of those has happened. `SW_RECRUIT` means "is walking behind you right
+# now" and is switched off the moment the clerk strikes them off. These mean
+# "has walked behind you at some point", and are never switched off again.
+#
+# They pay for two fixes and one joke. Change Party Member's *initialise* flag
+# calls `Game_Actor.setup()`, which puts the actor back to their database level
+# with their database equipment - so re-hiring somebody used to throw away
+# every level they had earned and every thing you had ever given them. The
+# rejoin branch only initialises on a first join, and this is how it knows.
+# And an event page keyed on one of these is a person who does not introduce
+# themselves to somebody they have already been north with.
+SW_KNOWN = {MERRI: 72, HOB: 73, ZEPH: 74, NIX: 75, ALDRIC: 76, PIPER: 77,
+            CORVIN: 78, WREN: 79, ROLAND: 80}
 
 VAR_COMPANIONS, VAR_TROPES, VAR_TURNIPS = 1, 2, 3
 VAR_TALES, VAR_BOUNTIES = 4, 5

@@ -393,9 +393,45 @@ def aldric_event(event_id, x, y):
         "Splendid discipline. I shall wait",
         "here. As I have. For six years."])
 
+    # What he says the second time. Nobody in this game resents being sent
+    # home - the register is embarrassment, not grievance - so each of the
+    # nine processes it through whatever is already wrong with them, and
+    # Aldric's is that he cannot admit to having waited for anything.
+    #
+    # None of these call `trope()`. The first-meeting page can only ever run
+    # once, and this one can run as often as the player likes.
+    again = dict(
+        pitch=S.say("Aldric", [
+            "AH. The very man.",
+            "I have been - and I want to be precise -",
+            "not waiting. Standing. In a condition of",
+            "readiness that greatly resembles waiting."]) +
+        S.narrate([
+            "He has been standing here for a fortnight.",
+            "The villagers have started going round."]) +
+        S.say("Aldric", [
+            "I wrote to my father.",
+            "I have not sent it. The wording has proved",
+            "difficult. 'Currently between quests' is",
+            "accurate and reads extremely badly."]),
+        accept=S.say("Aldric", [
+            "SPLENDID. Providence twice!",
+            "Do you know how few men are chosen a",
+            "second time? Statistically it is none.",
+            "Slightly behind you at all times."]),
+        decline=S.say("Aldric", [
+            "Quite right. A knight does not press.",
+            "I shall resume my readiness.",
+            "It is not waiting."]),
+        full=S.say("Aldric", [
+            "A full company. Again. Splendid.",
+            "Then I shall hold the position.",
+            "I have had, if anything, the practice."]),
+    )
+
     return S.recruit(event_id, db.ALDRIC, "Aldric", x, y, "Actor3", 6,
                      pitch=pitch, accept=accept, decline=decline, full=full,
-                     move_type=1)
+                     again=again, move_type=1)
 
 
 # ================================================================ interiors ==
@@ -1033,8 +1069,36 @@ def zephyrine_event(event_id, x, y):
         "You've got three already?",
         "And none of them can set anything on fire?",
         "Bold. Genuinely bold."])
+    again = dict(
+        pitch=S.say("Zephyrine", [
+            "Oh good. The door.",
+            "Do you know what I have set fire to",
+            "since you left? Nothing. Not one thing."]) +
+        S.narrate([
+            "There is a scorch mark on the ceiling that is",
+            "newer than the last one you saw."]) +
+        S.say("Zephyrine", [
+            "That was a moth.",
+            "It is a long story and it is not a good",
+            "one and I would rather we left it there."]),
+        accept=S.say("Zephyrine", [
+            "Right. Hat. Where's my - no.",
+            "I know where it is. It's on the chair.",
+            "It has been ON THE CHAIR the whole time."]),
+        decline=S.say("Zephyrine", [
+            "Fine. Wonderful. Absolutely fine.",
+            "I'll be here, being fine, not setting",
+            "fire to anything, in a controlled manner."]),
+        full=S.say("Zephyrine", [
+            "Three again. And can any of them",
+            "set something on fire?",
+            "Don't say 'accidentally'. I know the answer",
+            "and I'd rather hear it from a stranger."]),
+    )
+
     return S.recruit(event_id, db.ZEPH, "Zephyrine", x, y, "Actor1", 5,
-                     pitch=pitch, accept=accept, decline=decline, full=full)
+                     pitch=pitch, accept=accept, decline=decline, full=full,
+                     again=again)
 
 
 def piper_event(event_id, x, y):
@@ -1065,8 +1129,36 @@ def piper_event(event_id, x, y):
     full = S.say("Piper", [
         "Four's a crowd, chronicle-wise.",
         "Hard to rhyme four names. Ask anyone."])
+    again = dict(
+        pitch=S.say("Piper", [
+            "'And the Chosen One turned to his",
+            "chronicler, and said unto her -'",
+            "Right. Yes. You're actually here.",
+            "I'd got quite far into the other version."]) +
+        S.narrate([
+            "There are eleven pages on the table.",
+            "Nine of them are the same page."]) +
+        S.say("Piper", [
+            "I had to write the part where I leave.",
+            "There is no good rhyme for it. I tried",
+            "'unmanned'. I want you to know that I",
+            "tried 'unmanned' and that I stopped."]),
+        accept=S.say("Piper", [
+            "'And lo, she was RE-recruited -' no.",
+            "Nobody wants a verse with a hyphen in it.",
+            "I'll fix it on the road. I always do."]),
+        decline=S.say("Piper", [
+            "Back to the eleven pages, then.",
+            "Nine of them are still the same page."]),
+        full=S.say("Piper", [
+            "Four again. Four's still a crowd.",
+            "I have had a month to find a rhyme for",
+            "'four' and I'd like to report no progress."]),
+    )
+
     return S.recruit(event_id, db.PIPER, "Piper", x, y, "Actor2", 3,
-                     pitch=pitch, accept=accept, decline=decline, full=full)
+                     pitch=pitch, accept=accept, decline=decline, full=full,
+                     again=again)
 
 
 def chapel_map():
@@ -1155,8 +1247,36 @@ def merribell_event(event_id, x, y):
         "Three already. Good.",
         "One of them had better know first aid.",
         "...None of them know first aid, do they."])
+    again = dict(
+        pitch=S.narrate([
+            "There is a glass of water on the table.",
+            "It has been on that table for some time, and",
+            "it has been changed."]) +
+        S.say("Merribell", [
+            "Sit down. Drink that.",
+            "I am not going to ask what happened yet.",
+            "I am going to look at your hands first,",
+            "and then I am going to ask what happened."]) +
+        S.narrate([
+            "She has not asked why you sent her home.",
+            "She has washed the glass every morning of it."]),
+        accept=S.say("Merribell", [
+            "The basin is by the door.",
+            "It has been by the door. I unpacked it",
+            "twice, on principle, and repacked it both",
+            "times inside the hour."]),
+        decline=S.say("Merribell", [
+            "Then the glass stays out.",
+            "It is not a reproach. It is a glass."]),
+        full=S.say("Merribell", [
+            "Three already. Good.",
+            "And does one of them know first aid?",
+            "We both know how this bit ends."]),
+    )
+
     return S.recruit(event_id, db.MERRI, "Merribell", x, y, "Actor1", 7,
-                     pitch=pitch, accept=accept, decline=decline, full=full)
+                     pitch=pitch, accept=accept, decline=decline, full=full,
+                     again=again)
 
 
 def smithy_map():
@@ -1235,8 +1355,37 @@ def hob_event(event_id, x, y):
     full = S.say("Hob", [
         "Full up. Beatrice says that's a shame.",
         "Beatrice says a lot of things."])
+    again = dict(
+        pitch=S.say("Hob", [
+            "Beatrice says nothing."]) +
+        S.narrate([
+            "The hammer is exactly where it was.",
+            "It has been dusted."]) +
+        S.say("Hob", [
+            "She's said nothing for a fortnight.",
+            "That's not sulking. Hammers don't sulk.",
+            "That's her being professional about it."]) +
+        S.say("Hob", [
+            "She says if you're back, you're back,",
+            "and there's no call for a speech.",
+            "She says that. I'd have liked the speech."]),
+        accept=S.say("Hob", [
+            "Right. I'll get the coat.",
+            "She says bring the coat. I'd have brought",
+            "the coat. We're saying the same thing and",
+            "she's taking the credit for it."]),
+        decline=S.say("Hob", [
+            "Suit yourself. She's not surprised.",
+            "She says she is. She isn't."]),
+        full=S.say("Hob", [
+            "Full up again. Beatrice says it's fine.",
+            "She's said 'it's fine' four times this",
+            "morning and each one was worse."]),
+    )
+
     return S.recruit(event_id, db.HOB, "Hob", x, y, "Actor2", 4,
-                     pitch=pitch, accept=accept, decline=decline, full=full)
+                     pitch=pitch, accept=accept, decline=decline, full=full,
+                     again=again)
 
 
 def store_map():
@@ -1316,8 +1465,38 @@ def nix_event(event_id, x, y):
     full = S.say("Nix", [
         "Three's a good number.",
         "Small, quiet, splits four ways."])
+    again = dict(
+        pitch=S.say("Nix", [
+            "Before you say it: I didn't take it.",
+            "Whatever it is. I'd like that on the record",
+            "first, and then you can tell me what it is."]) +
+        S.narrate(["You had not been going to say anything."]) +
+        S.say("Nix", [
+            "That's how it starts.",
+            "There's a bag under the counter with your",
+            "name on it. Your share. I kept doing the",
+            "split. Two ways. For a month."]) +
+        S.narrate([
+            "She does not hand it over.",
+            "It is the gesture that counts, and she is",
+            "keeping the gesture."]),
+        accept=S.say("Nix", [
+            "Coat's on. Coat's been on.",
+            "I've been stood about in a coat like a",
+            "woman with somewhere to be, and the whole",
+            "village has been very kind about it."]),
+        decline=S.say("Nix", [
+            "Fair. Check your pockets before you go.",
+            "Still not accusing. Still a good habit."]),
+        full=S.say("Nix", [
+            "Three's a good number. Splits four ways.",
+            "Four's a better number and splits five,",
+            "which is a thing I've had time to work out."]),
+    )
+
     return S.recruit(event_id, db.NIX, "Nix", x, y, "Actor3", 4,
-                     pitch=pitch, accept=accept, decline=decline, full=full)
+                     pitch=pitch, accept=accept, decline=decline, full=full,
+                     again=again)
 
 
 def build():
