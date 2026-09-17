@@ -484,7 +484,9 @@ A generated person who has to be *fought* needs an `img/sv_enemies/` image,
 which the generator cannot make. `art.py`'s `ENEMIES` writes a stand-in cut
 from the battler, and only if the file is not already there - so the real
 art goes in under the same name and stays. `install.py artsheet` makes the
-reference to draw it from. **Norbert's is still the stand-in.**
+reference to draw it from, and Norbert's was drawn from one - so
+`img/sv_enemies/Norbert_Pelling.png` is real art now, and a rebuild leaves it
+alone.
 
 The rest of `BIOS.md`'s cast have settings in `build/characters/` and are not
 installed, because nowhere they live is built yet.

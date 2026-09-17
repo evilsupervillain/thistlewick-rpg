@@ -255,8 +255,9 @@ nicely. He asked.
 **Look:** a red bandana with a braided band, a red scarf, bare arms and
 fingerless gloves, a day's stubble, and the open, honest blue eyes of a man
 who has never once been in a fight he intended to win. His battler in the
-game is a stand-in cut from his side-view sprite until real art replaces it:
-`img/sv_enemies/Norbert_Pelling.png`.
+game - `img/sv_enemies/Norbert_Pelling.png` - is drawn rather than generated,
+off the reference sheet `install.py artsheet` makes: the cudgel up for a swing
+he has already announced, and the sandwiches at his belt.
 
 ---
 

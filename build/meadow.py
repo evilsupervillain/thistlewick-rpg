@@ -23,8 +23,9 @@ across the top of the meadow, so the graduation lawn behind him is reached by
 beating him, which is what a tutorial boss is for.
 
 Every one of the five speaking characters here was made with the Character
-Generator and installed by `art.py` into `Gen_People1`; Norbert's battler is
-`img/sv_enemies/Norbert_Pelling.png`, a stand-in until real art replaces it.
+Generator and installed by `art.py` into `Gen_People1`; Norbert also needs a
+full-body enemy image, which no generator view provides, so
+`img/sv_enemies/Norbert_Pelling.png` is drawn art and `art.py` leaves it be.
 
 **Fizz is one event that moves.** She lives on the graduation lawn, and any
 event in the meadow that needs her calls `fizz_in()`, which puts her beside the
