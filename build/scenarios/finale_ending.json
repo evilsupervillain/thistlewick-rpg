@@ -47,6 +47,7 @@
       "expect": false,
       "label": "and the stores book still has no line through ITEM 1"
     },
+    {"check": "window.saw('Firstfield Meadow reports one tutorial')", "expect": false, "label": "and nobody finished the tutorial, so Firstfield Meadow has nothing to report"},
     {
       "comment": "Pass B. The two questions Ott can send you up here with are independent switches on independent branches, and the pair of passes that follow exist to prove that they are - a single `if_then` written at the wrong indent would make one of them carry the other, which reads on screen as Grimspite answering a question nobody put to him.",
       "eval": "$gameSwitches.setValue(65, true); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
@@ -153,7 +154,7 @@
     },
     {
       "comment": "Pass G. The crate can be spent two ways and this line is the only place in the game that ever says which way it went, so it is also the only thing that can tell a player who blew up the Dark Lord that the works found out. `item_one_throne` proves the scene sets switch 71; this proves the ending reads it.",
-      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, true); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, true); $gameSwitches.setValue(87, true); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
     },
     {
       "frames": 60
@@ -173,6 +174,7 @@
       "expect": true,
       "label": "and she asks whether it worked, and does not ask a second question"
     },
+    {"check": "window.saw('Firstfield Meadow reports one tutorial')", "expect": true, "label": "the same pass has graduated from Firstfield Meadow, and the ending says it was the first on record"},
     {
       "comment": "Pass H is the original scenario, unchanged in what it asserts and now run last. Only the battles come out of the list this time: the waits, the tints, the shake and the return to the title screen all run at their real length, so this is the pass that says the finale gets to the end of itself rather than the pass that says what it printed on the way. Two boss phases would cost an hour of software-rendered animation here and would only re-test what battle_mook and balance.py already cover. It also throws away the receipts the seven fast passes each gained on their way past, because a check that reads 8 is not asserting that Grimspite signs one over, it is counting how many times this file has run the scene.",
       "eval": "$gameParty.loseItem($dataItems[22], 99); $gameSwitches.setValue(65, true); $gameSwitches.setValue(70, true); window.runFinale([301])"

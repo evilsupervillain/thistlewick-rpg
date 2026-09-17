@@ -220,6 +220,27 @@ VAR_BLUSHES = 7                 # "things nobody quite said" - see story.blush
 VAR_OTT_ORDER, VAR_OTT_FLYING = 8, 9    # Ott's stage-2 and stage-3 beat chains
 # 10 is a scratch variable owned by build_game.py, not a counter.
 
+# ------------------------------------------------------ Firstfield Meadow ----
+# Map 28, the optional tutorial west of the village, in `meadow.py`. It takes
+# fresh blocks rather than the free ends of the north's, because SPARE.md has
+# already spoken for those (Enemy 28, Troop 29, Weapon 34, Armor 27, Items
+# 33-34, Skills 146-155).
+SW_FF_ARRIVED = 81              # Fizz has said HEY
+SW_FF_STICK = 82                # Old Hollis has handed over a stick
+SW_FF_SHEEP_ASKED = 83          # Dilys has lost her sheep, officially
+SW_FF_SHEEP_DONE = 84           # and they have been found, where they were
+SW_FF_CHEST = 85                # the most-opened chest in the world
+SW_FF_NORBERT = 86              # Norbert has lost, as contracted
+SW_FF_GRADUATED = 87            # the first completed tutorial on record
+VAR_FF_STATIONS = 11            # stations done, of four; Fizz graduates you at four
+VAR_FF_SHEEP = 12               # sheep found, of three
+VAR_FF_SIGNS = 13               # signs read, which is how Fizz varies her line
+
+AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
+SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
+EN_NORBERT = 40
+TR_NORBERT = 40
+
 # element ids, from System.json
 EL_PHYSICAL, EL_FIRE, EL_ICE, EL_THUNDER, EL_WATER = 1, 2, 3, 4, 5
 EL_EARTH, EL_WIND, EL_LIGHT, EL_DARK = 6, 7, 8, 9
@@ -2040,6 +2061,96 @@ def build_common_events():
     save("CommonEvents.json", ce)
 
 
+# ===================================================== Firstfield Meadow =====
+def build_firstfield():
+    """The tutorial's whole database: two sticks, a certificate, and a man
+    who loses for a living.
+
+    Norbert's fight is written to be won. His turns alternate between saying
+    what he is about to do and doing one point of damage, and his HP is set so
+    that a party of the level that can reach the meadow at all - anybody who
+    has walked out of the village gate - takes him down in two or three turns.
+    The battle is started with "can lose" on anyway, because a tutorial that
+    can end the game is the one cliche this one is not doing."""
+    sk = R.load("Skills.json")
+    upsert(sk, skill(SK_TELEGRAPH, "Telegraph", "",
+                     "0", dmg_type=0, scope=11, animation=0, hit_type=0,
+                     message="%1 winds up. Next turn: an ENORMOUS swing."))
+    upsert(sk, skill(SK_ENORMOUS_SWING, "Enormous Swing", "",
+                     "1", scope=1, animation=1, variance=0,
+                     message="%1 lands the ENORMOUS swing, as promised!"))
+    save("Skills.json", sk)
+
+    ar = R.load("Armors.json")
+    upsert(ar, armor(AR_STICK, "A Stick",
+                     "[Accessory] It is dangerous to go alone. Carried, "
+                     "rather than wielded. Nobody knows why.",
+                     ET_ACCESSORY, AT_GENERAL, 1, [0, 0, 1, 0, 0, 0, 0, 0],
+                     icon=292))
+    upsert(ar, armor(AR_STRAIGHTER_STICK, "A Straighter Stick",
+                     "[Accessory] Nell picked this one out specially. It is "
+                     "noticeably straighter.",
+                     ET_ACCESSORY, AT_GENERAL, 2, [0, 0, 2, 0, 0, 0, 0, 1],
+                     icon=292))
+    upsert(ar, armor(AR_CERTIFICATE, "Certificate of Completion",
+                     "[Accessory] For walking, talking, opening and hitting. "
+                     "The first one the Guild of Guides has issued.",
+                     ET_ACCESSORY, AT_GENERAL, 0, [0, 0, 0, 0, 0, 0, 0, 5],
+                     icon=191))
+    save("Armors.json", ar)
+
+    en = R.load("Enemies.json")
+    upsert(en, enemy(
+        EN_NORBERT, "Norbert", "Norbert_Pelling", 0,
+        [260, 0, 12, 4, 1, 4, 1, 1], 5, 12,
+        # Turn 0 and every even turn he announces; every odd turn he delivers.
+        # `meetsTurnCondition` with a span of 0 is "exactly this turn", and
+        # with a span it needs n > 0, which is why turn 0 has its own entry.
+        [action(SK_TELEGRAPH, 5, condition=1, p1=0, p2=0),
+         action(SK_TELEGRAPH, 5, condition=1, p1=2, p2=2),
+         action(SK_ENORMOUS_SWING, 5, condition=1, p1=1, p2=2)],
+        drops=[drop(0, IT_POTION, 1)],
+        note="Guild of Guides contractor. Three thousand, one hundred and four "
+             "professional losses and no wins, which is the job."))
+    save("Enemies.json", en)
+
+    tr = R.load("Troops.json")
+    fizz = lambda lines: R.text(lines, face_name="Gen_People1", face_index=0)
+    norbert = lambda lines: R.text(lines, face_name="Gen_People1", face_index=1)
+    # His hit points are sized at the start of the fight, to the party that
+    # turned up: about two and a half turns of it. A fixed number is either a
+    # formality for four people at level twelve or a slog for two at level
+    # four, and either way the swing he has been announcing never lands.
+    size_him = R.script([
+        "const e = $gameTroop.members()[0];",
+        "const want = 90 * $gameParty.highestLevel() * "
+        "$gameParty.battleMembers().length;",
+        "e.addParam(0, Math.max(0, want - e.mhp));",
+        "e.setHp(e.mhp);",
+    ])
+    turn0 = size_him + (fizz(["\\C[6]Fizz:\\C[0] This is a BATTLE!",
+                   "Pick ATTACK to ATTACK!",
+                   "Pick GUARD to GUARD!",
+                   "Pick RUN to... he'd understand."]) +
+             norbert(["\\C[6]Norbert:\\C[0] Take your time.",
+                      "No rush. I'm on till four."]))
+    halfway = norbert(["\\C[6]Norbert:\\C[0] Oof! Good one!",
+                       "Textbook, that. Textbook."])
+    pages = [
+        {"conditions": dict(BLANK_TROOP_CONDITIONS, turnValid=True,
+                            turnA=0, turnB=0),
+         "list": turn0 + [{"code": 0, "indent": 0, "parameters": []}],
+         "span": 0},
+        {"conditions": dict(BLANK_TROOP_CONDITIONS, enemyValid=True,
+                            enemyIndex=0, enemyHp=50),
+         "list": halfway + [{"code": 0, "indent": 0, "parameters": []}],
+         "span": 0},
+    ]
+    upsert(tr, troop(TR_NORBERT, "Norbert (Tutorial)",
+                     [(EN_NORBERT, 400, 400)], pages=pages))
+    save("Troops.json", tr)
+
+
 def build():
     build_classes()
     build_actors()
@@ -2051,3 +2162,4 @@ def build():
     build_enemies()
     build_troops()
     build_common_events()
+    build_firstfield()

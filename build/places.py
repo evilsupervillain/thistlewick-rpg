@@ -89,3 +89,11 @@ WORLD_STACK = (2, 5)            # Attempt 112, on its sea stack: 3 tiles east
 WORLD_STACK_PAD = (4, 5)
 WORLD_MIDDLE = (47, 30)         # the Hermit's middle distance: 2 by 3
 WORLD_MIDDLE_PAD = (48, 31)
+
+# ------------------------------------------------------ Firstfield Meadow --
+# The optional tutorial, `meadow.py`. The rainbow stands on the grass west of
+# the village's north road; its foot is the way in, and a two-tile spur of
+# road joins it to the road.
+MAP_MEADOW = 28
+WORLD_MEADOW = (20, 39)         # the foot of the rainbow
+WORLD_MEADOW_STEP = (21, 39)    # on the spur, one east of it

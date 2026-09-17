@@ -20,6 +20,7 @@ import rmmzdata as R
 import story as S
 import wilds as W
 import field as F
+import meadow as M
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_VILLAGE_STEP, WORLD_GLOAMWOOD, WORLD_TOWER)
@@ -119,6 +120,7 @@ def world_map():
         g.set(x, y, 1, K.W_ROAD)
     W.south_layer1(g)                             # the coast road and the
     F.north_layer1(g)                             # two tracks off it, and the
+    M.world_layer1(g)                             # (the meadow's spur)
     g.autotile(1)                                 # west road to Upper Clanging
 
     # -- layer 3: the places you can walk into -----------------------------
@@ -136,6 +138,7 @@ def world_map():
         g.set(x, y, 3, K.WB_ROCK)
     W.south_layer3(g)
     F.north_layer3(g)
+    M.world_layer3(g)
 
     # Regions decide which encounters happen where: the south half of the
     # continent is a gentler place than the north half.
@@ -165,8 +168,9 @@ def world_map():
     m["data"] = g.data
     evs = world_events()
     south = W.south_events(len(evs) + 1)
-    m["events"] = ([None] + evs + south +
-                   F.north_events(len(evs) + len(south) + 1))
+    north = F.north_events(len(evs) + len(south) + 1)
+    m["events"] = ([None] + evs + south + north +
+                   M.world_events(len(evs) + len(south) + len(north) + 1))
     return m
 
 
@@ -1238,6 +1242,16 @@ def finale_event(event_id, x, y):
             "in the room for very nearly all of them,",
             "which is the part nobody has yet worked out",
             "how to raise with him."]))
+    # Firstfield Meadow's one line. Its eight `story.trope()` sites took the
+    # reachable total from about sixty to about sixty-eight, which leaves the
+    # 40 / 20 tiers above where they were meant to be.
+    c += R.if_then(
+        R.condition_switch(db.SW_FF_GRADUATED),
+        S.narrate([
+            "Firstfield Meadow reports one tutorial",
+            "completed, the first on record. Fizz has",
+            "applied for Boss Warning Sprite, First Class,",
+            "and has put Bram down as a reference."]))
     c += S.narrate([
         "Thistlewick struck clause twelve from the",
         "records and replaced it with a note reading",

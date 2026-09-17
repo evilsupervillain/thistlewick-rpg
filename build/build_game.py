@@ -20,6 +20,7 @@ R.use_project(GAME)
 
 import db  # noqa: E402
 import field  # noqa: E402
+import meadow  # noqa: E402
 import journey  # noqa: E402
 import north  # noqa: E402
 import south  # noqa: E402
@@ -57,6 +58,7 @@ MAP_NAMES = [
     (field.MAP_LONG_FIELD, "The Long Field", journey.MAP_WORLD),
     (field.MAP_CRAG, "The Wreck of the One Hundred and Ninety-Ninth",
      journey.MAP_WORLD),
+    (meadow.MAP_MEADOW, "Firstfield Meadow", journey.MAP_WORLD),
 ]
 
 
@@ -127,7 +129,7 @@ def build_tilesets():
 def build_system():
     system = R.load("System.json")
 
-    switches = [""] * 81
+    switches = [""] * 101
     for sid, name in [
             (db.SW_QUEST, "quest accepted"),
             (db.SW_LEFT_VILLAGE, "left the village"),
@@ -186,7 +188,14 @@ def build_system():
             (db.SW_TWO_HUNDRED_FLEW, "the Two Hundred set down by the tower"),
             (db.SW_TRAVELLERS, "the travellers said how long, exactly"),
             (db.SW_OTT_MATERIALS, "Ott asked you to ask about materials"),
-            (db.SW_ITEM_ONE_USED, "ITEM 1 was used on the Dark Lord")]:
+            (db.SW_ITEM_ONE_USED, "ITEM 1 was used on the Dark Lord"),
+            (db.SW_FF_ARRIVED, "Fizz has said HEY"),
+            (db.SW_FF_STICK, "Firstfield: got a stick"),
+            (db.SW_FF_SHEEP_ASKED, "Firstfield: the sheep are lost"),
+            (db.SW_FF_SHEEP_DONE, "Firstfield: the sheep are found"),
+            (db.SW_FF_CHEST, "Firstfield: opened the chest"),
+            (db.SW_FF_NORBERT, "Firstfield: Norbert has lost"),
+            (db.SW_FF_GRADUATED, "Firstfield: tutorial completed")]:
         switches[sid] = name
     for actor_id, sid in db.SW_RECRUIT.items():
         switches[sid] = "recruited actor %d" % actor_id
@@ -204,6 +213,9 @@ def build_system():
     variables[db.VAR_OTT_ORDER] = "Ott's beat, while the order is outstanding"
     variables[db.VAR_OTT_FLYING] = "Ott's beat, once the Two Hundred flies"
     variables[10] = "scratch: gold reallocated"
+    variables[db.VAR_FF_STATIONS] = "Firstfield stations done"
+    variables[db.VAR_FF_SHEEP] = "Firstfield sheep found"
+    variables[db.VAR_FF_SIGNS] = "Firstfield signs read"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
@@ -250,6 +262,7 @@ def main():
     wilds.build()
     north.build()
     field.build()
+    meadow.build()
     build_map_infos()
     build_tilesets()
     build_system()

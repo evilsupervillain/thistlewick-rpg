@@ -139,6 +139,13 @@ FACES = {
     "Grommet": ("SF_Actor2", 6),               # 15, apprentice, put-upon
     "Clevis": ("SF_Actor1", 2),                # 13, red spikes, running a book
     "Shim": ("SF_Actor1", 5),                  # 11, beret and spectacles, tin
+    # Firstfield Meadow. The stock sheets are spent, so these five were made
+    # with the Character Generator and installed by `art.py` into a sheet of
+    # the game's own. The index is the cell they were installed at.
+    "Fizz": ("Gen_People1", 0),
+    "Norbert": ("Gen_People1", 1),
+    "Hollis": ("Gen_People1", 2),
+    "Dilys": ("Gen_People1", 3),
 }
 
 

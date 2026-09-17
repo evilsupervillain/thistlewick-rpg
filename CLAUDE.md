@@ -65,17 +65,18 @@ player up here with. They are separate switches on separate branches so that
 either can be asked without the other, and the finale is the only place either
 is ever answered. He is never told the airship flew.
 
-**After the fight** the Prophecy's tally is fourteen appended `if_then` blocks
+**After the fight** the Prophecy's tally is fifteen appended `if_then` blocks
 reading `SW_ROLAND_GONE`, `SW_SOUTH`, `VAR_BOUNTIES` (two tiers, the lower
 nested in the higher's else), `SW_HISTORY_DONE`, `SW_LAMP_LIT`,
 `SW_BENCH_DONE`, `SW_TWO_HUNDRED_FLEW`, `SW_84_REBUILT`, `SW_ITEM_ONE_USED`,
-`SW_HOB_BRYD`, `VAR_TROPES` (40 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`
-and `SW_MET_QUY`. Every one is additive: a new line here is a new block, and
+`SW_HOB_BRYD`, `VAR_TROPES` (40 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`,
+`SW_FF_GRADUATED` and `SW_MET_QUY`. Every one is additive: a new line here is a new block, and
 nothing that is already in the tally comes out or gets re-voiced.
 
 **Two counter thresholds are cut against totals that keep moving**, so anything
 that adds a `story.trope()` or a `story.blush()` site has to come back here.
-`VAR_TROPES` is 40 / 20 against about sixty reachable; `VAR_BLUSHES` is 20
+`VAR_TROPES` is 40 / 20 against about sixty-eight reachable (Firstfield added
+eight); `VAR_BLUSHES` is 20
 against **twenty-five** reachable, measured off the data in August 2026. Keep
 the blush tier at four fifths of the true total - `NORTH.md` 2.3 has the count
 and, more importantly, why counting it by grep gives 28 and is wrong.
@@ -111,6 +112,13 @@ windows later he says this one is new.
                      pages `north.py` appends to Ott and the works stores
                      ledger, because those are the field's payoff and the
                      crag's
+      meadow.py      Map 28: Firstfield Meadow, the optional tutorial, and the
+                     rainbow on Map 8 - three more hooks `journey.py` calls
+      art.py         generated character art: which settings file is in which
+                     cell of which `Gen_*` sheet. Not part of the data build;
+                     run it when a look changes. See "Generated characters"
+      characters/    the Character Generator settings files - the only copy
+                     of each generated look, including ones not in the game yet
       places.py      map ids, and the coordinates two modules have to agree on
       story.py       shared dialogue helpers and the endgame
       build_game.py  runs all of the above, then System.json and MapInfos
@@ -170,7 +178,13 @@ Append instead.
   the Parish Rooms. `north.py` |
 | Maps 26-27 | the Long Field, and the wreck of Attempt 199 on her crag.
   `field.py` |
+| Map 28 | Firstfield Meadow. `meadow.py` |
 | Map 99 | the tile sampler, not part of the game |
+| **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
+  of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
+  146-155): **Armors 30-32** A Stick, A Straighter Stick, Certificate of
+  Completion; **Skills 160-161** Telegraph, Enormous Swing; **Enemy 40**
+  Norbert; **Troop 40** Norbert (Tutorial) |
 
 Icon indices in `db.py` and in the `\I[n]` codes in dialogue were re-checked
 against `img/system/IconSet.png` cell by cell when the south was added; several
@@ -233,6 +247,10 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
   already walked north with does not introduce themselves again. And it is why
   the "gone" page is page 2 of 3 - `Game_Event.refresh` takes the last page
   whose conditions hold, and anyone with you has necessarily also been met |
+| 81-87 | Firstfield Meadow: 81 Fizz has said HEY, 82 Old Hollis's stick,
+  83-84 Dilys's sheep asked and found, 85 the chest, 86 Norbert has lost,
+  87 graduated. **`SPARE.md` proposes 72-74 for itself**, which `SW_KNOWN`
+  took after it was written - it needs new numbers before it is built |
 
 | id | variable |
 | --- | --- |
@@ -262,6 +280,11 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
      "Ott has nothing left owing" - and anything appended to Ott below her
      ladders has to require it, or it shadows them. `NORTH.md` 16 step 6 is
      the write-up of the lockout that taught us so |
+| 10 | scratch, owned by `build_game.py` - Nix's reallocated gold |
+| 11 | Firstfield stations done, of four. Fizz's graduation page needs all four,
+     and a page condition can name two switches at most |
+| 12 | Firstfield sheep found, of three |
+| 13 | Firstfield signs read - which of her three spare lines Fizz uses |
 
 ## Verifying
 
@@ -270,7 +293,7 @@ screenshots, fights from numbers, and events from a scripted playthrough.
 
     node ../tools/serve.js . 8766                # background it, then
     node ../tools/scenario.js build/scenarios/opening.json
-    ../tools/scenarios.sh .                      # or all thirty-three
+    ../tools/scenarios.sh .                      # or all thirty-six
 
 The whole suite is a little over an hour, so background it and read
 `build/scenarios/logs/` afterwards rather than watching it. `scenarios.sh`
@@ -414,6 +437,16 @@ makes eight passes over it cost less than the single pass did before.
   asserted not to have moved, and the last check is that the retrofit came to
   eleven - the number 2.3 asked for |
 
+| `firstfield` | Firstfield Meadow walked with the arrow keys: in off the rainbow,
+  Fizz in front of you before a step and in front of the sign you try to read,
+  Old Hollis's stick and giving it back, the chest, Dilys's "But thou must"
+  loop taken once, and three sheep that are pigs - with the trope count
+  asserted at each station |
+| `firstfield_graduation` | Norbert in the gap in the fence, the battle against
+  the generated enemy, his knocked-down sprite off the generated damage sheet,
+  the gap opening, the graduation with the lore loop taken once, and the way
+  out back onto the spur |
+
 The two `reachable` scenarios exist because every other scenario here starts
 its events with `$gameMap.event(n).start()`, which proves what an event does
 and nothing at all about whether the player can get to it. They walk instead,
@@ -427,6 +460,34 @@ prints, for every enemy, what each character's best hit does to it and what its
 best hit does to the squishiest party member. Use it before touching a stat: the
 fights were tuned so a four-person party kills a mook in two or three turns and
 survives five or six of its turns.
+
+## Generated characters
+
+The stock face and walking sheets are exhausted (`NORTH.md` 4.6), so new people
+are made with the Character Generator, headless - `../CHARGEN.md` - and
+installed into sheets of this game's own, named `Gen_*`:
+
+    python3 build/art.py        # after adding a character to it, or changing a look
+
+`art.py` lists each sheet's slots and hands them to
+`../tools/chargen/install.py`, which writes the face, walking sprite, damage
+strip, side-view battler and a split face into `img/`, and refuses any cell that
+already holds somebody else. **Append to its lists; never move anybody**, for
+the same reason ids are not renumbered. The images are committed like the rest
+of the art, so the data build never needs the untracked stock generator parts.
+
+| sheet | 0 | 1 | 2 | 3 | 4-7 |
+| --- | --- | --- | --- | --- | --- |
+| `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | free |
+
+A generated person who has to be *fought* needs an `img/sv_enemies/` image,
+which the generator cannot make. `art.py`'s `ENEMIES` writes a stand-in cut
+from the battler, and only if the file is not already there - so the real
+art goes in under the same name and stays. `install.py artsheet` makes the
+reference to draw it from. **Norbert's is still the stand-in.**
+
+The rest of `BIOS.md`'s cast have settings in `build/characters/` and are not
+installed, because nowhere they live is built yet.
 
 ## Conventions
 

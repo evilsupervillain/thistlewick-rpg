@@ -1,15 +1,20 @@
 # Characters from further out
 
 People for places *The Obligatory Quest* has not built yet: towns and cities
-past the edges of the current map. Nothing here is in the game. Each character
-has a bio written to the house rules (funny, trope-heavy, embarrassment and
-never resentment) and a finished look.
+past the edges of the current map. Each character has a bio written to the
+house rules (funny, trope-heavy, embarrassment and never resentment) and a
+finished look.
+
+**Firstfield Meadow is built** (Map 28, `build/meadow.py`), so its four - Fizz,
+and Norbert, Old Hollis and Dilys at the end of this file - are in the game,
+installed into `Gen_People1` by `build/art.py`. Everybody else here is not yet.
 
 Their art is generated, not drawn: `tools/chargen` in the workspace renders the
 Character Generator's four sheets from a settings file the editor can also
-load. Each character's settings and sheets (face, walking, damaged, battler)
-are in `../char-generator/characters/<name>/`, and `lineup.png` there shows
-them side by side. See `../CHARGEN.md`.
+load. Each character's settings file is kept in `build/characters/`, which is
+the copy that is committed; the rendered sheets (face, walking, damaged,
+battler) are in `../char-generator/characters/<name>/`, which is not, and
+`lineup.png` there shows them side by side. See `../CHARGEN.md`.
 
 ---
 
@@ -223,3 +228,82 @@ at the sheep.
 
 **Look:** pink hair in a ribboned ponytail with a feather clip, pointed ears,
 a teal tunic, and a pair of translucent wings that never, ever stop.
+
+---
+
+## Norbert Pelling - the ambush, Firstfield Meadow
+
+The Guild of Guides contracts one bandit per tutorial, and Norbert has held the
+post for nineteen years. He stands in the gap in the fence at the top of the
+meadow with a sandwich, and when a Chosen One arrives he puts the sandwich
+down, adopts a stance, and says "STAND AND DELIVER" and then, more quietly,
+"your best attack, if you'd be so kind".
+
+His record is three thousand, one hundred and four losses and no wins, which
+is the job, and he is very good at it. He announces every swing a turn in
+advance, for the education of the young, and each one does a single point of
+damage. Afterwards he lies down in the grass for twenty minutes, which is in
+the contract and which he considers the best part of it.
+
+His wife Maud packs his lunch, with a note in it every day. The notes say
+things like LOSE WELL, LOVE. She has the first loss framed in the front room
+and tells the neighbours he is the best loser in the county, and she means it
+nicely. He asked.
+
+> "Oh! Hello! Right. Hang on. ...STAND AND DELIVER!"
+
+**Look:** a red bandana with a braided band, a red scarf, bare arms and
+fingerless gloves, a day's stubble, and the open, honest blue eyes of a man
+who has never once been in a fight he intended to win. His battler in the
+game is a stand-in cut from his side-view sprite until real art replaces it:
+`img/sv_enemies/Norbert_Pelling.png`.
+
+---
+
+## Old Hollis - Station One, Firstfield Meadow
+
+Forty-one years outside a tent at the side of the meadow, and eleven thousand,
+two hundred and six sticks, each handed over with the words "It's dangerous to
+go alone! Take this." Parties of four get a short pause and "It's dangerous to
+go as four", because he is a stickler.
+
+Not one stick has ever been brought back. He knows where they go: every hero's
+mother has a cupboard, and in the cupboard is a stick. His wife Nell cuts them
+every evening by the fire and picks out the straight ones, because a hero
+deserves a straight stick. It is why he married her. That, and the sticks.
+
+Bring one back and he will shout for Nell, who will come out, inspect it, and
+give you a straighter one. The first returned stick in forty-one years is on
+their mantelpiece, and she dusts it twice a day.
+
+> "It's dangerous to go- ...there's a few of you, isn't there."
+
+**Look:** a wide-brimmed brown hat, a big white beard, eyes screwed shut in a
+permanent grin, and a green robe with the hood down.
+
+---
+
+## Dilys Fenwick - Station Three, Firstfield Meadow
+
+The Guild requires every tutorial meadow to have a fetch quest, and Dilys has
+the sheep. Her three sheep are not lost. They stand next to her, and one of
+them leans on her. When she told the Guild so, the Guild said to lose them a
+bit, then, and so every morning they are lost, a bit, and every afternoon a
+hero finds them where they were, and they are very good about it.
+
+They are also pigs. The Guild ordered sheep and the Guild sent these, and the
+form says sheep, so they are sheep. They have been practising their baa. (There
+is no sheep in the stock character library, which is how this happened.)
+
+If you say you will not look for them, she says "But thou must", and then
+apologises, because the Guild gave her that line.
+
+She married Tam in the meadow, after Fizz explained the vows to them both.
+Twice. In capitals. Tam cried at the second one; he says it was the capitals.
+He also cries at the harvest supper.
+
+> "They're, um. They're just there."
+
+**Look:** a white patterned headscarf, long brown hair in braids, green eyes,
+and a red-and-white embroidered peasant dress.
+
