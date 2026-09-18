@@ -223,6 +223,34 @@ In order. The first five are the map; the rest is the game.
    `CLAUDE.md`: a map-scale screenshot does not tell you what a prop is.
 6. **`places.py`**, rewritten: every constant in it moves by (35,35) except
    Thistlewick and Nether Sopping, which moved further. Section 3 is the table.
+   **This is also how every exit back onto the world map gets fixed.** Measured
+   on the shipped data: **thirteen `Transfer Player` commands across twelve
+   maps** name Map 8 as their destination, and every one of them is a hardcoded
+   old-50x50 coordinate - Thistlewick's North Gate to (24,45), both Gloamwood
+   mouths, the Tower door, Nether Sopping's North Road, the Lighthouse, the
+   Pit, the Barrow, Upper Clanging's South Road, the Long Field, the Crag, and
+   Firstfield's Way Out twice. None of them is written out: every one is
+   `R.transfer(MAP_WORLD, *WORLD_SOMETHING_STEP)` or `WORLD_SOMETHING[1] + 1`,
+   so this is one file and a rebuild rather than thirteen hand edits. Three
+   things stop it being a `+35` sweep:
+   * **Four do not move by 35.** Thistlewick, Nether Sopping, Upper Clanging
+     and the Lighthouse were all restamped and re-sited by section 4; their
+     exits have to be re-derived from section 3, not offset.
+   * **The `+1` convention breaks for two of them.** Several exits are written
+     as "one square south of the door" - `WORLD_PIT[1] + 1`,
+     `TOWER_DOOR[1] + 1`, `WOOD_MOUTH[1] + 1`. But `run_finish.py` gives
+     Thistlewick and Nether Sopping road spurs to their **north**, which is the
+     side the gate comes out on now, so both of those exits move to the other
+     side of the building. A blind `+1` puts Thistlewick's gate in the water.
+   * **Every destination needs the standable check** - `flags & 0x0F == 0`, per
+     7.6 - and not merely a translated coordinate. The coast mend, the
+     hand-drawn range and the islet drowning all changed terrain that old
+     constants stood on.
+
+   And one entanglement that says why item 7 has to happen alongside this one
+   rather than after it: `wilds.py` has `first_coast = WORLD_VILLAGE_STEP[0] +
+   2`, which is *drawing* code deriving a coastline from a place constant. The
+   coordinates and the drawing are not cleanly separated.
 7. **`journey.py` loses its world map.** Map 8 is currently *drawn* by code -
    roads, coastlines and scenery placed by hand-written coordinate, with hooks
    in `wilds.py`, `field.py` and `meadow.py`. All of that drawing goes; those
@@ -244,6 +272,13 @@ and Olde Evermore are `BIOS.md` places, not `COMPANIONS.md` ones, and all four
 are already on the map. The seventh, **Pellam Quickfoot, is correctly
 placeless** - he is the merchant who is already in the deepest room of every
 dungeon, so he needs no site. He needs dungeons to be in, and the game has two.
+
+**Nothing in this section builds an interior.** A site here is a stamp, a door
+event with no destination, and a line in `run_finish.py` - the same state the
+twenty-one generated ones are already in. The doors chime and go nowhere until
+somebody builds the room behind them, which is section 6 item 10 and is a
+larger effort than this whole document: `COMPANIONS.md` section 7 sketches
+**nineteen maps** for the eight clusters, and names faces as the blocker.
 
 ### 7.1 Four the design documents ask for and the map has not got
 
