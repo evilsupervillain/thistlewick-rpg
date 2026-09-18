@@ -1,0 +1,1150 @@
+{
+  "format": "rmmz-map-template",
+  "version": 1,
+  "generator": "worldgen-w11",
+  "map_file": "world-w7.json",
+  "request": {
+    "seed": "w7-relief",
+    "width": 120,
+    "height": 120,
+    "tileset": 1,
+    "name": "The Obligatory Quest, world map",
+    "seeds": [],
+    "params": {
+      "stage": "sites",
+      "water": 5323,
+      "masses": 4,
+      "preserved": 13938,
+      "undrawn": 1,
+      "quotas": {
+        "grass": 254,
+        "rocky": 139,
+        "wasteland": 69
+      },
+      "counts": {
+        "sea": 5323,
+        "grass": 4926,
+        "rocky": 595,
+        "wasteland": 639,
+        "desert": 1255,
+        "dirtfield": 407,
+        "snow": 1255
+      },
+      "mountain_pct": 15.5,
+      "cols": 0,
+      "stranded": 0,
+      "sites": 1,
+      "kinds": {
+        "village": 1
+      },
+      "roads": 654,
+      "bridges": 0,
+      "turns": 3.0,
+      "anchors": [],
+      "spec": {
+        "seed": "w7-relief",
+        "width": 120,
+        "height": 120,
+        "loop": "none",
+        "compose": {
+          "grass": 55.0,
+          "rocky": 30.0,
+          "wasteland": 15.0
+        },
+        "exclude": [
+          "cloud",
+          "volcanic"
+        ],
+        "name": "The Obligatory Quest, world map",
+        "tileset": 1,
+        "params": {},
+        "anchors": [],
+        "require": [],
+        "preserve": {
+          "at": [
+            0,
+            0
+          ],
+          "water": null,
+          "source": {
+            "width": 120,
+            "height": 120,
+            "path": "step1-w7.json",
+            "preserved": 14400
+          },
+          "doors": [
+            "Ashcombe",
+            "Cinder Fen",
+            "Coldbarrow",
+            "Collegium Arcanum",
+            "Fairholme",
+            "Fenmarch Hall",
+            "Gladhollow",
+            "Great Dunnage",
+            "Hithermost",
+            "Little Gore",
+            "Olde Evermore",
+            "Penultima",
+            "Restwell",
+            "Sable Hart",
+            "Sky Anvil",
+            "Sump",
+            "The Fair",
+            "The Lay-By",
+            "Weeping Bottom",
+            "Wrong Dragon"
+          ],
+          "fill": 462,
+          "fill_cells": 462,
+          "fill_mask": "4870,1,117,5,116,5,91,3,23,4,89,7,22,1,91,5,117,1,145,1,117,5,114,7,113,7,112,9,112,7,113,7,114,5,117,1,205,9,11,24,76,9,11,24,76,9,11,24,76,9,11,24,76,9,11,24,76,9,11,24,76,9,11,24,76,9,11,24,76,9,11,24,76,9,11,24,76,9,111,9,111,9,111,9,356,1,118,4,117,4,117,3,119,1,26,2,5084"
+        }
+      }
+    },
+    "policy": {}
+  },
+  "tileset": {
+    "id": 1,
+    "name": "Overworld",
+    "project": ""
+  },
+  "spawn": {
+    "x": 60,
+    "y": 61
+  },
+  "markers": [
+    {
+      "role": "anchor",
+      "name": "Coldbarrow",
+      "x": 50,
+      "y": 19,
+      "kind": "temple",
+      "stamp": "Temple A (Snow)",
+      "biome": "snow",
+      "cells": [
+        [
+          50,
+          19
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          50,
+          19,
+          3,
+          87
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Hithermost",
+      "x": 30,
+      "y": 23,
+      "kind": "village",
+      "stamp": "Village A",
+      "biome": "grass",
+      "cells": [
+        [
+          30,
+          23
+        ],
+        [
+          31,
+          23
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          30,
+          23,
+          3,
+          116
+        ],
+        [
+          31,
+          23,
+          3,
+          117
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Sky Anvil",
+      "x": 76,
+      "y": 26,
+      "kind": "landmark",
+      "stamp": "Giant Tree (Snow)",
+      "biome": "snow",
+      "cells": [
+        [
+          76,
+          26
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          76,
+          26,
+          3,
+          12
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Penultima",
+      "x": 82,
+      "y": 48,
+      "kind": "town",
+      "stamp": "Town B",
+      "biome": "grass",
+      "cells": [
+        [
+          82,
+          48
+        ],
+        [
+          83,
+          48
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          82,
+          48,
+          3,
+          114
+        ],
+        [
+          83,
+          48,
+          3,
+          115
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Great Dunnage",
+      "x": 31,
+      "y": 52,
+      "kind": "city",
+      "stamp": "Fortress City",
+      "biome": "grass",
+      "cells": [
+        [
+          31,
+          51
+        ],
+        [
+          32,
+          51
+        ],
+        [
+          31,
+          52
+        ],
+        [
+          32,
+          52
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          31,
+          51,
+          3,
+          96
+        ],
+        [
+          32,
+          51,
+          3,
+          97
+        ],
+        [
+          31,
+          52,
+          3,
+          104
+        ],
+        [
+          32,
+          52,
+          3,
+          105
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Sable Hart",
+      "x": 24,
+      "y": 75,
+      "kind": "house",
+      "stamp": "House (Town)",
+      "biome": "wasteland",
+      "cells": [
+        [
+          24,
+          75
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          24,
+          75,
+          3,
+          121
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "The Lay-By",
+      "x": 11,
+      "y": 88,
+      "kind": "camp",
+      "stamp": "Igloo",
+      "biome": "grass",
+      "cells": [
+        [
+          11,
+          88
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          11,
+          88,
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Olde Evermore",
+      "x": 30,
+      "y": 93,
+      "kind": "village",
+      "stamp": "Village C",
+      "biome": "grass",
+      "cells": [
+        [
+          30,
+          93
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          30,
+          93,
+          3,
+          122
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Ashcombe",
+      "x": 102,
+      "y": 55,
+      "kind": "village",
+      "stamp": "Village A",
+      "biome": "grass",
+      "cells": [
+        [
+          102,
+          55
+        ],
+        [
+          103,
+          55
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          102,
+          55,
+          3,
+          116
+        ],
+        [
+          103,
+          55,
+          3,
+          117
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Collegium Arcanum",
+      "x": 112,
+      "y": 38,
+      "kind": "temple",
+      "stamp": "School of Magic",
+      "biome": "grass",
+      "cells": [
+        [
+          112,
+          37
+        ],
+        [
+          113,
+          37
+        ],
+        [
+          112,
+          38
+        ],
+        [
+          113,
+          38
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          112,
+          37,
+          3,
+          102
+        ],
+        [
+          113,
+          37,
+          3,
+          103
+        ],
+        [
+          112,
+          38,
+          3,
+          110
+        ],
+        [
+          113,
+          38,
+          3,
+          111
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Fairholme",
+      "x": 104,
+      "y": 73,
+      "kind": "castle",
+      "stamp": "Castle A",
+      "biome": "grass",
+      "cells": [
+        [
+          104,
+          72
+        ],
+        [
+          105,
+          72
+        ],
+        [
+          104,
+          73
+        ],
+        [
+          105,
+          73
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          104,
+          72,
+          3,
+          32
+        ],
+        [
+          105,
+          72,
+          3,
+          33
+        ],
+        [
+          104,
+          73,
+          3,
+          40
+        ],
+        [
+          105,
+          73,
+          3,
+          41
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Little Gore",
+      "x": 97,
+      "y": 101,
+      "kind": "house",
+      "stamp": "House (Village)",
+      "biome": "grass",
+      "cells": [
+        [
+          97,
+          101
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          97,
+          101,
+          3,
+          123
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Gladhollow",
+      "x": 33,
+      "y": 111,
+      "kind": "village",
+      "stamp": "Village B",
+      "biome": "grass",
+      "cells": [
+        [
+          33,
+          111
+        ],
+        [
+          34,
+          111
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          33,
+          111,
+          3,
+          118
+        ],
+        [
+          34,
+          111,
+          3,
+          119
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Restwell",
+      "x": 43,
+      "y": 81,
+      "kind": "town",
+      "stamp": "Town A",
+      "biome": "grass",
+      "cells": [
+        [
+          43,
+          81
+        ],
+        [
+          44,
+          81
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          43,
+          81,
+          3,
+          112
+        ],
+        [
+          44,
+          81,
+          3,
+          113
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Weeping Bottom",
+      "x": 58,
+      "y": 99,
+      "kind": "temple",
+      "stamp": "Temple B",
+      "biome": "wasteland",
+      "cells": [
+        [
+          58,
+          99
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          58,
+          99,
+          3,
+          94
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Fenmarch Hall",
+      "x": 86,
+      "y": 114,
+      "kind": "manor",
+      "stamp": "Large Mansion",
+      "biome": "grass",
+      "cells": [
+        [
+          86,
+          113
+        ],
+        [
+          87,
+          113
+        ],
+        [
+          86,
+          114
+        ],
+        [
+          87,
+          114
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          86,
+          113,
+          3,
+          100
+        ],
+        [
+          87,
+          113,
+          3,
+          101
+        ],
+        [
+          86,
+          114,
+          3,
+          108
+        ],
+        [
+          87,
+          114,
+          3,
+          109
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Cinder Fen",
+      "x": 47,
+      "y": 118,
+      "kind": "pass",
+      "stamp": "Trail",
+      "biome": "wasteland",
+      "cells": [
+        [
+          47,
+          118
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          47,
+          118,
+          3,
+          201
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "The Fair",
+      "x": 67,
+      "y": 115,
+      "kind": "camp",
+      "stamp": "Large Tent",
+      "biome": "desert",
+      "cells": [
+        [
+          67,
+          115
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          67,
+          115,
+          3,
+          141
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Sump",
+      "x": 78,
+      "y": 102,
+      "kind": "house",
+      "stamp": "House (Desert)",
+      "biome": "desert",
+      "cells": [
+        [
+          78,
+          102
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          78,
+          102,
+          3,
+          142
+        ]
+      ]
+    },
+    {
+      "role": "anchor",
+      "name": "Wrong Dragon",
+      "x": 110,
+      "y": 114,
+      "kind": "cave",
+      "stamp": "Cave B",
+      "biome": "desert",
+      "cells": [
+        [
+          110,
+          114
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          110,
+          114,
+          3,
+          17
+        ]
+      ]
+    },
+    {
+      "role": "site",
+      "name": "Village 1",
+      "x": 60,
+      "y": 61,
+      "kind": "village",
+      "stamp": "Village B",
+      "biome": "grass",
+      "cells": [
+        [
+          60,
+          61
+        ],
+        [
+          61,
+          61
+        ]
+      ],
+      "destination": null,
+      "tiles": [
+        [
+          60,
+          61,
+          3,
+          118
+        ],
+        [
+          61,
+          61,
+          3,
+          119
+        ]
+      ]
+    }
+  ],
+  "liquid": null,
+  "graph": null,
+  "openings": [],
+  "fixtures": [],
+  "footprints": [
+    {
+      "owner": "sites",
+      "x": 50,
+      "y": 19,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Coldbarrow",
+      "kind": "temple"
+    },
+    {
+      "owner": "sites",
+      "x": 30,
+      "y": 23,
+      "w": 2,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Hithermost",
+      "kind": "village"
+    },
+    {
+      "owner": "sites",
+      "x": 76,
+      "y": 26,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Sky Anvil",
+      "kind": "landmark"
+    },
+    {
+      "owner": "sites",
+      "x": 82,
+      "y": 48,
+      "w": 2,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Penultima",
+      "kind": "town"
+    },
+    {
+      "owner": "sites",
+      "x": 31,
+      "y": 51,
+      "w": 2,
+      "h": 2,
+      "layers": [
+        3
+      ],
+      "name": "Great Dunnage",
+      "kind": "city"
+    },
+    {
+      "owner": "sites",
+      "x": 24,
+      "y": 75,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Sable Hart",
+      "kind": "house"
+    },
+    {
+      "owner": "sites",
+      "x": 11,
+      "y": 88,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "The Lay-By",
+      "kind": "camp"
+    },
+    {
+      "owner": "sites",
+      "x": 30,
+      "y": 93,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Olde Evermore",
+      "kind": "village"
+    },
+    {
+      "owner": "sites",
+      "x": 102,
+      "y": 55,
+      "w": 2,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Ashcombe",
+      "kind": "village"
+    },
+    {
+      "owner": "sites",
+      "x": 112,
+      "y": 37,
+      "w": 2,
+      "h": 2,
+      "layers": [
+        3
+      ],
+      "name": "Collegium Arcanum",
+      "kind": "temple"
+    },
+    {
+      "owner": "sites",
+      "x": 104,
+      "y": 72,
+      "w": 2,
+      "h": 2,
+      "layers": [
+        3
+      ],
+      "name": "Fairholme",
+      "kind": "castle"
+    },
+    {
+      "owner": "sites",
+      "x": 97,
+      "y": 101,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Little Gore",
+      "kind": "house"
+    },
+    {
+      "owner": "sites",
+      "x": 33,
+      "y": 111,
+      "w": 2,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Gladhollow",
+      "kind": "village"
+    },
+    {
+      "owner": "sites",
+      "x": 43,
+      "y": 81,
+      "w": 2,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Restwell",
+      "kind": "town"
+    },
+    {
+      "owner": "sites",
+      "x": 58,
+      "y": 99,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Weeping Bottom",
+      "kind": "temple"
+    },
+    {
+      "owner": "sites",
+      "x": 86,
+      "y": 113,
+      "w": 2,
+      "h": 2,
+      "layers": [
+        3
+      ],
+      "name": "Fenmarch Hall",
+      "kind": "manor"
+    },
+    {
+      "owner": "sites",
+      "x": 47,
+      "y": 118,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Cinder Fen",
+      "kind": "pass"
+    },
+    {
+      "owner": "sites",
+      "x": 67,
+      "y": 115,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "The Fair",
+      "kind": "camp"
+    },
+    {
+      "owner": "sites",
+      "x": 78,
+      "y": 102,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Sump",
+      "kind": "house"
+    },
+    {
+      "owner": "sites",
+      "x": 110,
+      "y": 114,
+      "w": 1,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Wrong Dragon",
+      "kind": "cave"
+    },
+    {
+      "owner": "sites",
+      "x": 60,
+      "y": 61,
+      "w": 2,
+      "h": 1,
+      "layers": [
+        3
+      ],
+      "name": "Village 1",
+      "kind": "village"
+    }
+  ],
+  "pools": {
+    "biomes": {
+      "sea": 5323,
+      "snow": 1255,
+      "dirtfield": 407,
+      "grass": 4926,
+      "rocky": 595,
+      "desert": 1255,
+      "wasteland": 639
+    },
+    "records": {
+      "Sea": 5323,
+      "Snowfield": 1255,
+      "Dirt Field A": 407,
+      "Grassland A": 4926,
+      "Rocky Land A": 595,
+      "Desert A": 1255,
+      "Wasteland A": 639,
+      "Deep Sea": 1394,
+      "Icebergs": 85,
+      "Forest (Snow)": 195,
+      "Rock Shoal": 31,
+      "Forest (Dead Trees)": 61,
+      "Desert B": 354,
+      "Road (Dirt)": 661,
+      "Forest (Palm Trees)": 3,
+      "Mountain (Grass)": 645,
+      "Grassland A (Dark)": 97,
+      "Mountain (Rock)": 208,
+      "Forest": 755,
+      "Forest (Conifer)": 129,
+      "Mountain (Snow)": 4,
+      "Mountain (Sandstone)": 520,
+      "Wasteland B": 34,
+      "Mountain (Dirt)": 30,
+      "Hill (Dirt)": 59
+    },
+    "stamps": {
+      "1": 5,
+      "7": 1,
+      "8": 2,
+      "9": 1,
+      "11": 18,
+      "12": 1,
+      "13": 10,
+      "15": 1,
+      "17": 1,
+      "19": 4,
+      "24": 2,
+      "32": 1,
+      "33": 1,
+      "40": 1,
+      "41": 1,
+      "80": 1,
+      "84": 1,
+      "87": 1,
+      "88": 1,
+      "92": 1,
+      "94": 1,
+      "96": 2,
+      "97": 2,
+      "98": 2,
+      "99": 2,
+      "100": 1,
+      "101": 1,
+      "102": 1,
+      "103": 1,
+      "104": 2,
+      "105": 2,
+      "106": 2,
+      "107": 2,
+      "108": 1,
+      "109": 1,
+      "110": 1,
+      "111": 1,
+      "112": 1,
+      "113": 1,
+      "114": 1,
+      "115": 1,
+      "116": 2,
+      "117": 2,
+      "118": 2,
+      "119": 2,
+      "121": 1,
+      "122": 1,
+      "123": 1,
+      "141": 1,
+      "142": 1,
+      "201": 1
+    }
+  },
+  "notes": "stages 1-5: sea, climate, biomes, relief, and 1 site(s) joined by 654 cell(s) of road. A door with no destination chimes and records itself; give `sites.generate` a destination table and it transfers."
+}

@@ -17,6 +17,15 @@
 # stale set of instructions in the history and a merge conflict in the way of
 # every branch.
 /build/RESTART.md
+/WORLDMAP-NEXT.md
 
 __pycache__/
 *.pyc
+
+# Worldgen's intermediates. `build/worldmap/grow2.py` writes its canvas and
+# both grow stages beside its output; `generated.json` is the copy that is kept
+# and never edited, and these are the scratch it was made from.
+/build/worldmap/canvas.json
+/build/worldmap/step1-*.json
+/build/worldmap/world-*.json
+/build/worldmap/world-*.png

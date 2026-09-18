@@ -47,6 +47,16 @@ The last three are found in a tavern in the south, and the last of them
 `EXPANSION.md` - it is the design document for the whole southern half and is
 worth reading before touching any of it.
 
+`WORLDMAP.md` is the design document for the **new 120x120 world map**, built
+with the workspace's `tools/worldgen` around the existing 50x50 and finished by
+hand. It is built and reviewed and **not installed**; its section 6 is the list
+of what installing it needs, and that list includes `journey.py` losing the code
+that draws Map 8. Read it before touching Map 8, `places.py`, or anything that
+walks the overworld by coordinate. Its **section 7** is the sites still to
+place - four the design documents ask for, four sited wrong, a snow town and a
+floating continent - and it is also where the rule lives that a new site is a
+line in `run_finish.py` and never an anchor added to `grow2.py`.
+
 `NORTH.md` is the design document for what comes next: Upper Clanging, the
 airship, and a pass over the whole game adding a kind of joke it currently has
 none of. Its section 1 is the specification for every line of dialogue in it,
