@@ -146,6 +146,19 @@ ridge in it. So the range is hand-drawn instead, along a polyline with its
 thickness from a noise field, and it runs **between the Gloamwood's two
 mouths** so the tunnel pierces it rather than sitting beside it.
 
+**The road network is in eleven pieces, and that is accepted for now.**
+Measured on the finished map by flooding the `Road (Dirt)` and `Road (Paved)`
+autotiles: eleven separate networks, the largest 148 cells. The big one is a
+gap at y 56-61 where the old 50x50's north road used to run - the middle redraw
+erased it and the hand-drawn range now stands in it - so Thistlewick's network
+(57 cells, reaching Nether Sopping) does not join the Tower's (70 cells,
+reaching Upper Clanging). That is mostly the intended geography rather than a
+fault: the two are joined *through the Gloamwood*, whose mouths at (52,62) and
+(52,55) sit either side of the gap, which is what section 4 means by the tunnel
+piercing the range. **Settled: not a blocker.** Roads are cheap - `put_road` is
+four lines - and the places that need joining will declare themselves while the
+campaigns are written. Fix them then, not now.
+
 **The forest corridor stays open, and so does the long way round.** You can
 walk from Thistlewick to the Tower without entering the Gloamwood. That was
 already true on the 50x50 - there is an open corridor at x11..24 - and it is
@@ -256,6 +269,27 @@ In order. The first five are the map; the rest is the game.
    in `wilds.py`, `field.py` and `meadow.py`. All of that drawing goes; those
    modules keep only their events, placed onto the generated map. This is the
    largest single piece of work here and it is much larger than the map was.
+
+   **"Keep only their events" is not the whole instruction, because a lot of
+   the world's furniture is tiles.** Roughly **seventy-four layer-2 and
+   layer-3 tile writes** across `wilds.py`, `field.py`, `meadow.py` and
+   `journey.py` put down huts, signs, rocks, cave mouths, trees and tower
+   icons by hand-written coordinate - `K.WB_HUT`, `K.WB_SIGN`, `K.WB_ROCK`,
+   `K.WB_CAVE_DARK` and the rest. None of them is an event, so a pass that
+   preserves the events and deletes the drawing deletes all of them silently.
+   Each one has to be re-placed, either as a `put_tiles` line in
+   `run_finish.py` or as a hook that survives.
+
+   **The Hermit's hut is the worked example, and it is already gone.** It is
+   `wilds.py` writing `K.WB_HUT` at `WORLD_HERMIT[1] - 1`, which is old
+   (40,29) - and section 4's middle redraw covers old (24,22)-(47,31), so the
+   hut and the Hermit's own square are both inside the band that was erased to
+   kill the mountain fence. The staged map has no hut on it. The Middle
+   Distance's hill, drawn by `field.py` at old (47,30), is in the same box;
+   its *water* is protected by `KEEP_WATER` and `run_finish.py` re-isolates
+   the rock, but the hill itself was not put back. Anything else the redraw
+   box ate is found the same way: check the module's coordinate against
+   `REDRAW` in `grow2.py`.
 8. **The scenarios.** Anything that walks the world map by coordinate breaks.
 9. **`encounterStep`.** Everything is about twice as far - Thistlewick to the
    Tower goes from ~40 steps to ~81 - so at step 36 the walk north has twice
@@ -301,12 +335,15 @@ These are re-sitings, and they are the same class of work as section 4's three
 settlement fixes - not obvious until somebody read the bio and the map at the
 same time.
 
-* **Penultima has to be the last town before the Tower.** That is its name and
-  its entire joke - *The Last Town Before The End. Last Chance For Potions.* It
-  is at (82,48) and the Tower is at (66,43). Whether it stands on the tower
-  approach has not been checked; if it does not, it moves onto it. A shop that
-  doubles its prices when a Chosen One is sighted on the road needs to be on
-  the road.
+* **Penultima has to be the last town before the Tower, and it is not.**
+  That is its name and its entire joke - *The Last Town Before The End. Last
+  Chance For Potions.* **Measured**: it is at (82,48) on the eastern road
+  network, the 104-cell one it shares with the Collegium, Ashcombe and
+  Fairholme. The Tower at (66,43) is on a different 70-cell network with Upper
+  Clanging, and no road joins them. So Penultima is currently the last town
+  before the east coast. **Settled: it moves onto the tower approach.** A shop
+  that doubles its prices when a Chosen One is sighted on the road has to be on
+  the road the Chosen One is on.
 * **Olde Evermore is *hidden*.** `BIOS.md`: "the hidden elven village that every
   party finds eventually, by falling off the same ledge". It currently has a
   road to it like any other village. Hiddenness here is geography, not a
@@ -327,26 +364,116 @@ climate has no town in it, and a world map with a snow region and no snow town
 reads as unfinished.
 
 There is no spare `BIOS.md` character to fill it - Pellam is the only unplaced
-one and he is deliberately placeless - so **this one is new, and it is owed a
-backstory, a reason to go, and people to meet**, in that order and before any
-stamp goes down. A stamp without a reason is the Lay-By without its backstory.
-The vocabulary is there when the decision is made: `Town A/B/C (Snow)`,
-`Village A/B/C (Snow)`, `Large Town A`, `Castle A,B (Snow)`, `Fort (Snow)`.
+one and he is deliberately placeless - so this one is invented. Enough of it is
+settled below to choose a stamp and a square; the rest is written later,
+alongside 7.4, as a stage between the map work and the `COMPANIONS.md` /
+`BIOS.md` build-out.
 
-Three things it should probably be doing, given what the north already is:
-it is far from Upper Clanging and owes it nothing; it is the only reason to go
-above y=32 other than three errands; and `COMPANIONS.md` section 7 names faces
-as **the** blocker, so its cast is a bill as well as a joke - see
-`../CHARGEN.md`, which is now the answer to that.
+**Frostwick - the town that voted to keep the curse.**
+
+*(cliche: the eternal winter, and the hero who broke it)*
+
+Every world has the town under the hundred-year winter, and every one of them
+is waiting for somebody to go and kill the thing that did it. Frostwick's was
+broken. Forty years ago, by a Chosen One two or three numbers back, exactly as
+advertised, and the snow stopped for eleven days.
+
+Then the town held a meeting.
+
+The Winter Festival is the only reason anybody comes to Frostwick, the
+carol-and-lantern trade is four fifths of the parish income, and a working
+group was convened to look into it. The curse is now **maintained** - by a
+retained practitioner, under an annual contract, with a renewal clause and a
+schedule of what constitutes a snowfall - and the town is very proud of the
+arrangement, which it regards as forward-looking. The practitioner, who is not
+an ice witch and would like that on the record, is a perfectly ordinary mage
+whose speciality is refrigeration and who has never been happier. She does the
+whole of January in an afternoon.
+
+The hero who broke it **still lives there**. He is gracious about it. He opens
+the Festival every year, cuts the ribbon, and does the face he has been doing
+for forty years, and the town loves him, and nobody has ever once said the
+quiet thing out loud. His wife thinks it is very funny and has said so only to
+him. *That* is the joke: not a man robbed of his victory, a man who won,
+retired somewhere nice, and married well, and whose one great deed is now a
+line item in the events budget.
+
+It connects to the spine of the game the way everything else here does. The
+Prophecy is a contract; **Frostwick has one too**, and theirs is shorter,
+better drafted, and renewed on time. Grimspite is four thousand years into an
+engagement he cannot get out of. Frostwick's practitioner is nine years into
+one she would renew tomorrow. The same joke, from the other end, in a town that
+is pleased with itself - which is the register Great Dunnage is also written
+in, and it travels.
+
+Things to see, enough to know the place is worth a map: the Festival committee
+and its minutes; the retained practitioner and her schedule of snowfalls; the
+hero, and the ribbon; the visitors' book that has been signed by three Chosen
+Ones; and the eleven days, which are commemorated. What the interiors actually
+are is a later decision.
+
+**What that means for the stamp.** A town, not a village: it has a committee, a
+festival, an inn and a contract. **`Town B (Snow)`**, which is 2x2 and is the
+snowed twin of Thistlewick's own `Town B` - deliberately, because Frostwick is
+what Thistlewick would be if one of the forty-seven had come home and stayed.
+Somewhere around **(62,22)**, subject to the land and standable checks: it
+fills the gap between Coldbarrow (50,19) and the Sky Anvil (76,26), and it can
+sit on the 44-cell northern road network that already joins those two, which
+gives the far north one road with three things on it instead of three errands.
+
+`COMPANIONS.md` section 7 names faces as **the** blocker, so this cast is a
+bill as well as a joke - see `../CHARGEN.md`, which is now the answer to that.
 
 ### 7.4 One floating continent
 
-`Floating Continent`, and its `(Castle)`, `(Temple)`, `(Giant Tree)`,
-`(Cloud)` and `(Shadow)` variants. This is the answer to section 8's question
-about the sea: **the airship currently earns three rocks**, and
+**`Floating Continent (Castle)`**, settled. This is the answer to section 8's
+question about the sea: **the airship currently earns three rocks**, and
 `COMPANIONS.md` says the airship is the delivery mechanism for everything. A
 place that can only be reached by flying, and that is visibly *up*, is what
 makes the Two Hundred worth having flown.
+
+**The Former Premises.**
+
+*(cliche: the floating castle of the ancients, seat of the true final boss)*
+
+The Dark Lord has not always risen in the Obligatory Tower. For the first two
+thousand years of the engagement the venue was a castle in the sky, raised up
+there by somebody's grandfather so that no hero could ever reach it, and it
+worked exactly as intended: **nobody could ever reach it.**
+
+It was vacated on **accessibility grounds.** The Prophecy Committee's minutes
+record a complaint about the climb, then a second complaint, then a
+recommendation, and the engagement was renegotiated onto a ground-floor site
+with a door at the bottom - which is the Obligatory Tower, and is why it is a
+tower with stairs in it rather than a castle on a cloud. An unreachable lair
+turns out to be a poor lair. The business needs the heroes to arrive.
+
+So the one place in the world you cannot walk to is the one place that was
+abandoned *for being impossible to get to*, and the airship is what makes the
+complaint moot four hundred years late. That is the whole joke and it lands the
+moment the player sets down on it.
+
+**Somebody is still up there.** The caretaker has kept the place ready since
+the lease lapsed: the hall is swept, the sconces are lit, the visitors' book is
+open on the lectern with nobody in it, and he has been doing the rounds against
+the day the venue is re-let. He is not bitter and he is not mad. He is
+*delighted*. A Chosen One has finally arrived and he starts the tour
+immediately, and it is a very good tour, and he has been working on it.
+
+It hangs off the spine exactly where Frostwick does. **The Prophecy is a
+contract**, and this is its estate management: a decommissioned property, a
+caretaker still on the books, and a change of premises minuted by a committee.
+Ott gets to ask what it is made of. Grimspite has never seen it and has opinions
+about the old place he has inherited entirely from paperwork.
+
+**What that means for the stamp.** `Floating Continent (Castle)`, out over
+water, far enough from any coast that it reads as *out there* rather than as an
+offshore rock. Built to section 6 item 4's rules - player-touch events, below
+characters, one bare square kept clear for the airship, `<aironly>` on the
+events so `validate.py` asserts on foot that it cannot be reached. The square
+it stands over must be checked with `flags & 0x0F == 0` like any other, because
+a floating castle that the player can walk to is the one thing this joke cannot
+survive.
 
 It is air-only, so it is built to section 6 item 4's rules: player-touch
 events, below characters, one bare square kept clear for the airship to land
@@ -443,8 +570,14 @@ and all three have to be supplied:
 * **Is `Village 1` at (60,61) wanted?** worldgen placed it itself, as an extra
   settlement beyond the anchors. It is in the middle of the old map's country,
   between the range and Thistlewick. Name it or remove it.
-  **Still open.** It is the obvious home for 7.5's graveyard of the
-  Forty-Seven if that ever gets built, being a short walk from Thistlewick.
+  **Still open, and it has no backstory anywhere** - "Village 1" appears in
+  this file and in no other document or module in the game, so nothing is owed
+  to it and nothing breaks if it goes. Looked at (staged as Map 941, probe at
+  x=60 y=61): one building on the western edge of the redrawn middle, forest
+  on two sides, wasteland and mountains immediately east, and a **six-cell
+  road stub that joins nothing** - the smallest of the map's eleven road
+  networks. It is the obvious home for 7.5's graveyard of the Forty-Seven if
+  that is ever built, being a short walk from Thistlewick.
 * **Does the far south want more than four sites?** Sump, the Fair, the Wrong
   Dragon and the Cinder Fen are what hold the desert down. It is a large
   landmass for four things.
