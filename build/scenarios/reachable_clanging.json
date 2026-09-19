@@ -1,5 +1,5 @@
 {
-  "query": "?map=8&x=9&y=16&frames=90",
+  "query": "?map=8&x=44&y=51&frames=90",
   "steps": [
     {"eval": "$gameSystem.disableEncounter()"},
     {"check": "$gameScreen.weatherType()", "expect": "none",

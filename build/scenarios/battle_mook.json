@@ -1,5 +1,5 @@
 {
-  "query": "?map=8&x=24&y=40&frames=90",
+  "query": "?map=8&x=59&y=75&frames=90",
   "steps": [
     {
       "eval": "$gameParty.addActor(2); $gameParty.addActor(3); $gameParty.addActor(4)"

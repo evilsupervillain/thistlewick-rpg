@@ -1,5 +1,5 @@
 {
-  "query": "?map=8&x=21&y=39&frames=90",
+  "query": "?map=8&x=56&y=74&frames=90",
   "steps": [
     {"comment": "Firstfield Meadow's last station and the graduation: Norbert in the gap in the fence (with Corvin, who would like a rival), a battle against the generated enemy, the knocked-down sprite from the generated damage sheet, the gap opening, the lore loop taken once, and the walk out. Stations one to three are set up by switch; firstfield walks them.",
      "eval": "$gameSystem.disableEncounter()"},
@@ -56,7 +56,7 @@
     {"goto": [28, 15, 22]},
     {"key": "ArrowDown", "times": 1, "gap": 30},
     {"frames": 120},
-    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [8, 21, 39],
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [8, 56, 74],
      "label": "the way out puts you back on the spur beside the rainbow"}
   ]
 }

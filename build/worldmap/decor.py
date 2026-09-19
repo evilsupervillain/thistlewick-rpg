@@ -1,6 +1,12 @@
 """The decoration diff: what the old 50x50 drew on layers 2-3 and the new map does not.
 
-`Map008.json` is built output, so it contains every one of `wilds.py`'s,
+**The baseline is `old50.json`, not `data/Map008.json`.** `Map008.json` *was*
+the old 50x50 and is now this map - `journey.world_map` loads `worldmap.json` -
+so diffing against it compares the new world with itself at an offset and
+reports a hundred casualties that are not there. `old50.json` is the frozen
+copy, and it is the only one left outside git history.
+
+The old `Map008.json` was built output, so it contains every one of `wilds.py`'s,
 `field.py`'s, `meadow.py`'s and `journey.py`'s seventy-four hand-written tile
 writes - huts, signs, rocks, cave mouths, trees, tower icons. None of them is an
 event, so the pass that replaces the drawn world map with a generated one
@@ -89,7 +95,7 @@ def main(argv):
     new = os.path.join(ROOT, 'staging', 'data', 'Map%03d.json' % map_id)
     if not os.path.exists(new):
         new = os.path.join(HERE, 'worldmap.json')
-    gone = diff(os.path.join(ROOT, 'thistlewick', 'data', 'Map008.json'), new)
+    gone = diff(os.path.join(HERE, 'old50.json'), new)
     deliberate = [g for g in gone if g[4] in EXPECTED]
     rest = [g for g in gone if g[4] not in EXPECTED]
     moved = [g for g in rest if g[5]]

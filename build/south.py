@@ -21,7 +21,7 @@ import rmmzdata as R
 import story as S
 from places import (MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
-                    WORLD_SOPPING_STEP, WORLD_LIGHTHOUSE)
+                    WORLD_SOPPING_STEP, WORLD_LIGHTHOUSE_STEP)
 
 TOWN_W, TOWN_H = 40, 34
 
@@ -2104,9 +2104,10 @@ def lighthouse_map():
 
 
 def lighthouse_events():
+    # Out onto the spit, not one square south of the door - south of the door
+    # is the sea. See `WORLD_LIGHTHOUSE_STEP` in `places.py`.
     evs = [S.exit_tile(1, "Lighthouse Door", *threshold(MAP_LIGHTHOUSE),
-                       MAP_WORLD, WORLD_LIGHTHOUSE[0],
-                       WORLD_LIGHTHOUSE[1] + 1)]
+                       MAP_WORLD, *WORLD_LIGHTHOUSE_STEP)]
     evs.append(bother_event(2, 6, 17))
     evs.append(the_lamp(3, 6, 5))
 

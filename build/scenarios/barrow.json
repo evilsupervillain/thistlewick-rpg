@@ -1,5 +1,5 @@
 {
-  "query": "?map=8&x=33&y=22&frames=90",
+  "query": "?map=8&x=68&y=57&frames=90",
   "steps": [
     {
       "eval": "$gameSwitches.setValue(27, true); $gameParty.gainItem($dataItems[27], 1)"
@@ -8,7 +8,7 @@
       "eval": "$gameParty.members().forEach(a => a.changeLevel(12, false))"
     },
     {
-      "eval": "$gamePlayer.locate(33, 22); $gameMap.event(11).start()"
+      "eval": "$gamePlayer.locate(68, 57); $gameMap.event(11).start()"
     },
     {
       "advance": 25
@@ -41,12 +41,12 @@
     {
       "goto": [
         8,
-        34,
-        23
+        69,
+        58
       ]
     },
     {
-      "eval": "$gamePlayer.locate(34, 23); $gameMap.event(12).start()"
+      "eval": "$gamePlayer.locate(69, 58); $gameMap.event(12).start()"
     },
     {
       "advance": 40

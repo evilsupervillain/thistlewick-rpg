@@ -15,7 +15,7 @@
     {"frames": 60},
     {"shot": "item_one_ledger.png"},
 
-    {"goto": [8, 6, 10]},
+    {"goto": [8, 41, 45]},
     {"frames": 60},
     {"key": "ArrowUp", "times": 2, "gap": 30},
     {"check": "$gameMap._interpreter.isRunning()", "expect": true,

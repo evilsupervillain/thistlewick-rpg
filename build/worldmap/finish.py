@@ -343,6 +343,46 @@ def add_site(world, at, stamp_name, name, kind, note=None, check=True):
     return doors
 
 
+def make_doors_inert(world):
+    """Strip every site door to a page with no commands, and move what the page
+    said into the event's note.
+
+    A placeholder door plays a chime and goes nowhere, which is right on a
+    review map and wrong in a shipped one: 29 of them means a sound effect that
+    promises a room 29 times and never delivers. An **empty page** is the
+    engine's own way to say "this event exists and does nothing" - `Game_Event.
+    start` requires `list().length > 1`, so a page holding only its terminator
+    never runs, and `validate.py` exempts a page with no commands from every
+    "can this be triggered" question. The stamp on the map already says town;
+    walking over it and getting nothing reads as unfinished country.
+
+    The record is not lost, it moves: the comment lines the page carried go into
+    the note, which the editor shows, which nothing executes, and which is
+    already how `<aironly>` and `<worldgen-site ...>` are carried. Writing the
+    transfer later means replacing the page, and `worldgen.sites.transfer_page`
+    is the shape to replace it with.
+
+    Runs over the generated twenty-one as well as the hand-placed eight -
+    `generated.json` is never edited, so this is the only place the generated
+    doors can be normalised - and is idempotent."""
+    done = 0
+    for e in (world.map.get("events") or ()):
+        if not e or "-site" not in (e.get("note") or ""):
+            continue
+        said = []
+        for page in e["pages"]:
+            said += [c["parameters"][0] for c in page["list"]
+                     if c["code"] in (108, 408) and c["parameters"]]
+            page["list"] = [{"code": 0, "indent": 0, "parameters": []}]
+        extra = " ".join(s for s in said if not s.startswith("no destination"))
+        if extra and extra not in e["note"]:
+            e["note"] = "%s %s - placeholder, no destination yet; replace the " \
+                        "page with worldgen.sites.transfer_page" % (e["note"],
+                                                                   extra)
+        done += 1
+    return done
+
+
 def move_site(world, name, to, stamp_name=None, radius=3):
     """Re-site a generated site: rub the building out, stamp it again, and take
     its door events with it.
@@ -496,7 +536,16 @@ def put_road(world, cells):
 #   `Dirt Field A`, and on the 50x50 every cell of it was shore. On the new map
 #   there are 353, including an inland basin in the far north - so a rule that
 #   says "kind 26 is the coast" puts crabs and gulls in a snowfield.
-REG_SOUTH, REG_NORTH, REG_COAST, REG_CLANG, REG_SNOW, REG_DESERT = 1, 2, 3, 4, 5, 6
+#
+# **The six ids come from `places.py`**, one directory up, which is this game's
+# "the handful of things two modules have to agree on". They have to be the
+# same numbers here and in `journey.world_map`'s `encounters=` list, and a
+# region painted with a number no encounter entry names is a region with no
+# battles in it - which is the whole fault item 3 existed to fix, so it is not
+# a thing to keep two copies of.
+_sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+from places import (REG_SOUTH, REG_NORTH, REG_COAST,        # noqa: E402
+                    REG_CLANG, REG_SNOW, REG_DESERT)
 SHINGLE, SNOW, DESERT = 26, 40, 32
 # The old north-west lobe, translated: `field.py` painted x < 16, y < 21.
 CLANG_LOBE = (AT[0], AT[1], AT[0] + 16, AT[1] + 21)
@@ -578,14 +627,29 @@ def point_at(world, have, also):
 
 
 # ---------------------------------------------------------------- the range --
-def old_events(path='thistlewick/data/Map008.json'):
+# The 50x50 `Map008` as it was before this map replaced it. **Frozen, like
+# `generated.json`, and for a sharper reason**: `Map008.json` in `data/` used to
+# be the old world and is now the new one, so every reference to it as "the old
+# map" silently started pointing at the output instead of the input the moment
+# `journey.py` began loading `worldmap.json`. Two things read it that way -
+# `old_events` below, whose result decides which squares the range is drawn
+# around, and `decor.py`'s whole diff - and re-running `run_finish.py` after the
+# install grew a range **106 cells different** from the committed one before
+# anybody noticed. There is nowhere else this map exists now except git history.
+OLD50 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "old50.json")
+
+
+def old_events(path=None):
     """Every square the 50x50's own events stand on, on the new map.
 
     The generated world carries worldgen's door events and nothing else - the
-    game's events are still in `Map008.json` and arrive when the build script
-    places them - so protecting `world.map["events"]` protects the wrong list,
-    which is how the first draft buried the Barrow."""
-    m = json.load(open(path))
+    game's events were in `Map008.json` and arrive when the build script places
+    them - so protecting `world.map["events"]` protects the wrong list, which is
+    how the first draft buried the Barrow. It reads `old50.json` and not
+    `data/Map008.json`; see `OLD50`."""
+    m = json.load(open(path or OLD50))
+    assert (m["width"], m["height"]) == (50, 50), \
+        "%s is not the old 50x50" % (path or OLD50)
     return [old(e["x"], e["y"]) for e in m["events"] if e]
 
 

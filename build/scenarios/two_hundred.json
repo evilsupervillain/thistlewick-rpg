@@ -111,8 +111,8 @@
      "label": "both parts in, and the Two Hundred is handed over"},
     {"check": "$gameMap.airship()._mapId", "expect": 8,
      "label": "the vehicle is placed on the world map"},
-    {"check": "[$gameMap.airship()._x, $gameMap.airship()._y]", "expect": [10, 13],
-     "label": "on the grass outside the town gate"},
+    {"check": "[$gameMap.airship()._x, $gameMap.airship()._y]", "expect": [45, 48],
+     "label": "on the grass outside the town gate - WORLD_AIRSHIP, `+ (35,35)` from the 50x50's (10,13). Plain world grass and not the road, because a road tile carries 0x0800 and `isAirshipLandOk` refuses it"},
     {"check": "$gameSwitches.value(68)", "expect": false,
      "label": "and she has not reached the tower, so the log still stops at 199"},
 
@@ -159,7 +159,7 @@
     {"check": "$gameVariables.value(9)", "expect": 7,
      "label": "seven beats, and Ott has nothing left owing"},
 
-    {"goto": [8, 9, 14]},
+    {"goto": [8, 44, 49]},
     {"frames": 60},
     {"shot": "two_hundred_parked.png"}
   ]

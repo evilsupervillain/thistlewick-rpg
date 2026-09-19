@@ -10,6 +10,7 @@ The route is a straight line with one fork: the mountains only have one gap in
 them, and the gap is full of trees, so the Gloamwood is not optional. Everything
 else - chests, the mimic, the shrine - is off to the side.
 """
+import json
 import os
 import sys
 
@@ -23,22 +24,39 @@ import field as F
 import meadow as M
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
-                    WORLD_VILLAGE_STEP, WORLD_GLOAMWOOD, WORLD_TOWER)
+                    WORLD_GLOAMWOOD, WORLD_TOWER,
+                    WORLD_SIGN_SOUTH, WORLD_SIGN_NORTH,
+                    REG_SOUTH, REG_NORTH, REG_COAST, REG_CLANG,
+                    REG_SNOW, REG_DESERT)
 
-WW, WH = 50, 50
+# The finished world map. `build/worldmap/run_finish.py` writes it, and it is
+# the one thing on this map nobody edits by hand - see ../WORLDMAP.md 7.6.
+WORLDMAP = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "worldmap", "worldmap.json")
+
+# **Unchanged at 36, and that is a measurement rather than an oversight.**
+# WORLDMAP.md item 9 assumed the 120x120 made everything about twice as far and
+# that this number had to double with it. It does not: the old 50x50 is
+# preserved inside the new map at an offset, so the *relative* geography of
+# everything this game already has is identical, and every leg of the route is
+# the same length it was. Flood-filled on the finished data, from the
+# Gloamwood's north mouth: the tower door 26 steps against 26, Upper Clanging 15
+# against 15, the crag 22 against 22, the Long Field 10 against 10, the Standing
+# Stones 8 against 8, the wayshrine 16 against 16, the Barrow 19 against 17. The
+# whole world-map part of the quest is 50 steps against 51.
+#
+# What did get longer is the **short cut**: walking to the tower without going
+# through the Gloamwood was 48 steps on the 50x50 and is 177 now, because the
+# hand-drawn range stands where the old map's forest corridor was. That is the
+# long way round, it is deliberately still open, and nothing is tuned for it.
+ENCOUNTER_STEP = 36
 
 # The three places on the world map you can walk into, and the tiles beside
 # them that the player actually stands on.
 WOOD_MOUTH = WORLD_GLOAMWOOD                 # south end of the Gloamwood
-WOOD_NORTH = (17, 20)                        # where the wood spits you out
+WOOD_NORTH = (52, 55)                        # where the wood spits you out
 TOWER_DOOR = WORLD_TOWER
-SHRINE = (28, 15)
-
-# Region ids drive which encounters happen where. Region 3 is the shingle
-# along the south coast, and belongs to `wilds.py`.
-REG_SOUTH, REG_NORTH = 1, 2
-REG_COAST = W.REG_COAST
-REG_CLANG = F.REG_CLANG
+SHRINE = (63, 50)                            # the wayshrine, `+ (35,35)`
 
 # Gloamwood
 GW, GH = 34, 40
@@ -71,106 +89,69 @@ CLEAR = [0, 0, 0, 0]
 
 # ============================================================ the overworld ==
 def world_map():
-    """Layer 0 is the base terrain, layer 1 is everything that grows or piles
-    up on it, layer 3 is the landmarks. That split is what the sample's world
-    map does, and it is the only way the forest and mountain autotiles blend
-    into their surroundings instead of cutting holes in them."""
-    g = K.Canvas(WW, WH)
-    g.fill(0, 0, WW - 1, WH - 1, 0, K.W_SEA)
+    """**Map 8 is a file now, not a drawing.**
 
-    # One continent, roughly oval, with a bite out of each coast.
-    g.blob(25, 26, 21, 21, 0, K.W_GRASS)
-    g.blob(46, 36, 5, 5, 0, K.W_SEA)
-    g.blob(5, 13, 4, 5, 0, K.W_SEA)
-    g.blob(9, 44, 4, 4, 0, K.W_SEA)
-    W.south_ground(g)                             # the south-east shoulder,
-    F.north_ground(g)                             # the headland and the beach,
-    g.autotile(0)                                 # and the north-west lobe
+    It used to be built here: a sea fill, four blobs for the continent, a
+    mountain wall on a fixed period, a hand-written list of road cells, and
+    nine hooks into `wilds.py`, `field.py` and `meadow.py` that drew the south,
+    the north-west lobe and the meadow's spur. All of that is gone. The world
+    is `build/worldmap/worldmap.json`, a 120x120 map generated with
+    `tools/worldgen` around the preserved old 50x50 and finished by hand -
+    `../WORLDMAP.md` is its design document and `build/worldmap/run_finish.py`
+    is the only place it can be changed.
 
-    # -- layer 1: the shape of the journey --------------------------------
-    # A mountain wall across the middle. Its one gap is full of trees, which
-    # is why the Gloamwood is not optional.
-    for x in range(5, 46):
-        if 14 <= x <= 21:
-            continue
-        top = 23 + (x * 7 % 3)
-        g.fill(x, top, x, top + 3, 1, K.W_MOUNTAIN)
-    g.blob(17, 25, 7, 6, 1, K.W_FOREST)           # the Gloamwood itself
-    g.fill(13, 20, 22, 30, 1, K.W_FOREST)
+    What is left here is the two things a map file cannot carry: **the header**,
+    which is this game's (its music, its battleback, and above all its encounter
+    list, whose troop ids come from `db.py`), and **the events**, which are this
+    game's world and are still written in the four modules that always wrote
+    them.
 
-    g.blob(35, 34, 6, 3, 1, K.W_HILLS)
-    g.blob(12, 39, 4, 3, 1, K.W_CONIFER)
-    g.blob(38, 16, 4, 4, 1, K.W_HILLS_BROWN)
-    g.blob(11, 11, 5, 3, 1, K.W_CONIFER)
-    g.blob(33, 42, 3, 3, 1, K.W_FOREST)
-    g.blob(8, 30, 3, 3, 1, K.W_HILLS)
-    g.blob(43, 26, 2, 4, 1, K.W_MOUNTAIN)
-    g.blob(35, 8, 4, 3, 1, K.W_MOUNTAIN)
+    Two things about the merge are decisions rather than mechanics.
 
-    # The road, cut through whatever it crosses so it is always walkable.
-    road = []
-    road += [(24, y) for y in range(33, 45)]      # village to the crossroads
-    road += [(x, 33) for x in range(17, 25)]      # west along the foothills
-    road += [(17, y) for y in range(28, 34)]      # up to the wood
-    road += [(17, y) for y in range(15, 21)]      # out of the wood, northward
-    road += [(x, 15) for x in range(17, 29)]      # east past the wayshrine
-    road += [(28, y) for y in range(9, 16)]       # north to the tower
-    road += [(x, 9) for x in range(28, 32)]
-    for x, y in road:
-        g.set(x, y, 1, K.W_ROAD)
-    W.south_layer1(g)                             # the coast road and the
-    F.north_layer1(g)                             # two tracks off it, and the
-    M.world_layer1(g)                             # (the meadow's spur)
-    g.autotile(1)                                 # west road to Upper Clanging
+    **This game's events keep their ids and the placeholders are renumbered
+    after them.** `worldmap.json` arrives with forty-one placeholder door
+    events on its twenty-nine sites, and an event id is an index into the map's
+    own list, so one of the two sets has to move. Moving the placeholders is
+    strictly safer: their pages have no commands at all, so nothing can refer to
+    them, whereas a scenario or a move route naming an event id on Map 8 refers
+    to one of ours.
 
-    # -- layer 3: the places you can walk into -----------------------------
-    g.blit(WORLD_VILLAGE[0] - 1, WORLD_VILLAGE[1] - 1, 3, K.WB_VILLAGE)
-    g.blit(TOWER_DOOR[0], TOWER_DOOR[1] - 1, 3, K.WB_TOWER)
-    g.set(WOOD_MOUTH[0], WOOD_MOUTH[1], 3, K.WB_CAVE_DARK)
-    g.set(WOOD_NORTH[0], WOOD_NORTH[1], 3, K.WB_CAVE_DARK)
-    g.set(SHRINE[0], SHRINE[1], 3, K.WB_HUT)
-    g.set(23, 38, 3, K.WB_SIGN)
-    g.set(29, 11, 3, K.WB_SIGN)
-    for x, y in [(20, 41), (28, 38), (12, 35), (34, 29), (40, 21), (21, 12),
-                 (33, 46), (9, 25), (44, 33)]:
-        g.set(x, y, 3, K.WB_TREE)
-    for x, y in [(31, 31), (14, 44), (36, 13), (7, 22)]:
-        g.set(x, y, 3, K.WB_ROCK)
-    W.south_layer3(g)
-    F.north_layer3(g)
-    M.world_layer3(g)
+    **The encounter list names all six regions.** `finish.paint_regions` paints
+    1-6 and the ids come from `places.py` so there is one copy; snow and desert
+    are pointed at the north's three troops until somebody writes their own,
+    because a region painted with a number no entry names is a region with no
+    battles in it, which is the fault the region layer was added to fix."""
+    m = json.load(open(WORLDMAP))
+    assert m["tilesetId"] == K.TS_WORLD, m["tilesetId"]
+    data, doors = m["data"], [e for e in m["events"] if e]
 
-    # Regions decide which encounters happen where: the south half of the
-    # continent is a gentler place than the north half.
-    for y in range(WH):
-        for x in range(WW):
-            if g.get(x, y, 0) == 0:
-                continue
-            g.set(x, y, 5, REG_SOUTH if y >= 30 else
-                  (REG_NORTH if y <= 21 else 0))
-    W.south_regions(g)
-    F.north_regions(g)
-
-    m = K.new_map(WW, WH, K.TS_WORLD, name="", bgm="Field1",
-                  encounter_step=36, scroll_type=0,
+    m = K.new_map(m["width"], m["height"], K.TS_WORLD, name="", bgm="Field1",
+                  encounter_step=ENCOUNTER_STEP, scroll_type=0,
                   battleback=("Grassland", "Grassland"),
                   encounters=[
                       (db.TR_TURNIPS, 6, [REG_SOUTH]),
                       (db.TR_CROWS, 5, [REG_SOUTH]),
                       (db.TR_FIELD_MIX, 4, [REG_SOUTH]),
-                      (db.TR_GOBLINS, 5, [REG_NORTH, REG_CLANG]),
-                      (db.TR_BANDITS, 4, [REG_NORTH, REG_CLANG]),
-                      (db.TR_WISPS, 3, [REG_NORTH, REG_CLANG]),
+                      (db.TR_GOBLINS, 5, [REG_NORTH, REG_CLANG,
+                                          REG_SNOW, REG_DESERT]),
+                      (db.TR_BANDITS, 4, [REG_NORTH, REG_CLANG,
+                                          REG_SNOW, REG_DESERT]),
+                      (db.TR_WISPS, 3, [REG_NORTH, REG_CLANG,
+                                        REG_SNOW, REG_DESERT]),
                       (db.TR_CRABS, 5, [REG_COAST]),
                       (db.TR_GULLS, 5, [REG_COAST]),
                       (db.TR_COAST_MIX, 3, [REG_COAST]),
                   ])
-    m["data"] = g.data
+    m["data"] = data
+
     evs = world_events()
     south = W.south_events(len(evs) + 1)
     north = F.north_events(len(evs) + len(south) + 1)
-    m["events"] = ([None] + evs + south + north +
-                   M.world_events(len(evs) + len(south) + len(north) + 1))
+    meadow = M.world_events(len(evs) + len(south) + len(north) + 1)
+    ours = evs + south + north + meadow
+    for i, door in enumerate(doors):
+        door["id"] = len(ours) + 1 + i
+    m["events"] = [None] + ours + doors
     return m
 
 
@@ -256,14 +237,14 @@ def world_events():
         shrine, img=R.image(""), trigger=1, priority=0, through=True)]))
 
     # 6/7: signposts, because the road is long
-    evs.append(S.sign(6, "Southern Signpost", 23, 38, [
+    evs.append(S.sign(6, "Southern Signpost", *WORLD_SIGN_SOUTH, [
         "\\C[6]NORTH:\\C[0] The Obligatory Tower.",
         "\\C[6]SOUTH:\\C[0] Thistlewick, and then the coast road",
         "       east to Nether Sopping.",
         "Under that, freshly carved:",
         "'HE IS NOT THAT BAD ACTUALLY' - and someone",
         "else has carved 'YES HE IS' underneath it."]))
-    evs.append(S.sign(7, "Northern Signpost", 29, 11, [
+    evs.append(S.sign(7, "Northern Signpost", *WORLD_SIGN_NORTH, [
         "\\C[6]THE OBLIGATORY TOWER\\C[0]",
         "VISITORS: 47",
         "SURVIVORS: [the number has been scratched off]",

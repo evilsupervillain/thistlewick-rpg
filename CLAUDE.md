@@ -47,15 +47,19 @@ The last three are found in a tavern in the south, and the last of them
 `EXPANSION.md` - it is the design document for the whole southern half and is
 worth reading before touching any of it.
 
-`WORLDMAP.md` is the design document for the **new 120x120 world map**, built
-with the workspace's `tools/worldgen` around the existing 50x50 and finished by
-hand. It is built and reviewed and **not installed**; its section 6 is the list
-of what installing it needs, and that list includes `journey.py` losing the code
-that draws Map 8. Read it before touching Map 8, `places.py`, or anything that
-walks the overworld by coordinate. Its **section 7** is the sites still to
-place - four the design documents ask for, four sited wrong, a snow town and a
-floating continent - and it is also where the rule lives that a new site is a
-line in `run_finish.py` and never an anchor added to `grow2.py`.
+`WORLDMAP.md` is the design document for the **120x120 world map**, built with
+the workspace's `tools/worldgen` around the old 50x50 and finished by hand. It
+is **installed**: `Map008.json` is that map, `journey.world_map` loads
+`build/worldmap/worldmap.json`, and `places.py`'s every world-map coordinate was
+re-cut for it. Read it before touching Map 8, `places.py`, or anything that
+walks the overworld by coordinate. Two rules in it are the ones that bite:
+**a change to the map is a line in `build/worldmap/run_finish.py`** - never a
+hand edit to the JSON and never an anchor added to `grow2.py`, which would
+change the RNG stream and grow a different world - and **`build/worldmap/decor.py`
+is the check to re-run after any such change**, because it is the only thing
+that can see a decoration tile the map has quietly stopped carrying. Its
+section 6 item 10, the quests behind twenty-nine placeholder doors, is all that
+is left of it.
 
 `NORTH.md` is the design document for what comes next: Upper Clanging, the
 airship, and a pass over the whole game adding a kind of joke it currently has
@@ -107,29 +111,37 @@ windows later he says this one is new.
                      things look like, and were confirmed in screenshots
       db.py          the whole database
       village.py     Maps 1-7: Thistlewick and its interiors
-      journey.py     Maps 8-12: overworld, Gloamwood, the Obligatory Tower
+      journey.py     Maps 8-12: overworld, Gloamwood, the Obligatory Tower.
+                     **Map 8 is a file, not a drawing** - `world_map()` loads
+                     `build/worldmap/worldmap.json` and adds this game's
+                     header and events to it
       south.py       Maps 13-18: Nether Sopping, the Slain Wyvern, the Guild,
                      the outfitters, #45's cottage, the lighthouse
-      wilds.py       Maps 19-20: the Bottomless Pit and the Barrow, plus the
-                     southern half of the world map - `journey.py` still owns
-                     Map 8 and calls four hooks in here while drawing it
+      wilds.py       Maps 19-20: the Bottomless Pit and the Barrow, and the
+                     events on the south of Map 8. The four hooks that used to
+                     draw that half of the world map are gone
       north.py       Maps 21-25: Upper Clanging and its four interiors
       field.py       Maps 26-27: the Long Field, Attempt Eighty-Four, the
-                     wreck of the 199th and ITEM 1, plus the north-west of the
-                     world map - the same arrangement, five `north_*` hooks
-                     called from `journey.py` - and the three places out at sea
+                     wreck of the 199th and ITEM 1, the events on the
+                     north-west of Map 8 - its five `north_*` drawing hooks are
+                     gone too - and the three places out at sea
                      that only the airship can reach. It also holds the three
                      pages `north.py` appends to Ott and the works stores
                      ledger, because those are the field's payoff and the
                      crag's
-      meadow.py      Map 28: Firstfield Meadow, the optional tutorial, and the
-                     rainbow on Map 8 - three more hooks `journey.py` calls
+      meadow.py      Map 28: Firstfield Meadow, the optional tutorial, and
+                     the event at the foot of the rainbow on Map 8. Its two
+                     drawing hooks are gone; the rainbow itself is a tile on
+                     the world map now
       art.py         generated character art: which settings file is in which
                      cell of which `Gen_*` sheet. Not part of the data build;
                      run it when a look changes. See "Generated characters"
       characters/    the Character Generator settings files - the only copy
                      of each generated look, including ones not in the game yet
-      places.py      map ids, and the coordinates two modules have to agree on
+      places.py      map ids, the six world-map region ids, and the
+                     coordinates two modules have to agree on - **every
+                     world-map coordinate in it was re-cut for the 120x120
+                     map**, and its docstring says which ones are not `+ (35,35)`
       story.py       shared dialogue helpers and the endgame
       build_game.py  runs all of the above, then System.json and MapInfos
       scenarios/     scripted playthroughs for `tools/scenario.js`
@@ -440,6 +452,12 @@ makes eight passes over it cost less than the single pass did before.
   finale opens with a choice of its own, and slicing from the first code 102
   on the page runs the whole introduction and takes the wrong branch while
   reporting a pass |
+| `placeholder_doors` | that the world map's **41 site doors do nothing**. Every
+  page of every one of them has no commands, which is how an event says "this
+  exists and is not finished" - and it is asserted out of the live game rather
+  than off the data, because the day somebody wires the first real transfer is
+  the day it stops being true for one of them. It walks onto Frostwick's door
+  and Village 1's and checks the interpreter does not start |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -463,6 +481,14 @@ and nothing at all about whether the player can get to it. They walk instead,
 and check `$gameMap._interpreter.eventId()` to see which event the button
 press actually reached. `validate.py` catches the same class of bug statically
 now, so these are the confirmation rather than the search.
+
+    python3 build/worldmap/coords.py
+
+checks every world-map coordinate the scenarios name against the finished
+Map 8, in under a second. The suite is the ground truth and takes nearly three
+hours; this is the cheap half of it, and it exists because the 120x120
+migration left fifteen stale coordinates behind and the suite found the last
+one as scenario thirty-six of thirty-seven.
 
     python3 build/balance.py 8
 

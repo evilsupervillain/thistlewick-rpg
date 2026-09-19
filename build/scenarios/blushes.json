@@ -384,15 +384,15 @@
     {
       "goto": [
         8,
-        11,
-        20
+        46,
+        55
       ]
     },
     {
       "eval": "$gameSystem.disableEncounter()"
     },
     {
-      "eval": "$gamePlayer.locate(11, 21)"
+      "eval": "$gamePlayer.locate(46, 56)"
     },
     {
       "key": "ArrowUp",
@@ -406,8 +406,8 @@
     {
       "check": "[$gamePlayer.x, $gamePlayer.y]",
       "expect": [
-        11,
-        19
+        46,
+        54
       ],
       "label": "3.8 the second notice is walked onto, one square short of the plaque"
     },

@@ -9,8 +9,14 @@ import json
 import sys
 
 
-def grid(project, map_id):
-    m = json.load(open("%s/data/Map%03d.json" % (project, map_id)))
+def grid(project, map_id, path=None):
+    """`path` overrides the map file, for a map that is no longer where it was.
+
+    `Map008.json` used to be Thistlewick's 50x50 world and is now its 120x120
+    one, so "the old map" has to be named explicitly - see
+    `build/worldmap/old50.json`. Everything else still comes from the project,
+    including the tileset, because the flags are the game's."""
+    m = json.load(open(path or "%s/data/Map%03d.json" % (project, map_id)))
     ts = json.load(open("%s/data/Tilesets.json" % project))[m["tilesetId"]]["flags"]
     w, h, d = m["width"], m["height"], m["data"]
     blocked = set()

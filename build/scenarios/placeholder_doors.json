@@ -1,0 +1,45 @@
+{
+  "query": "?map=8&x=61&y=22&frames=90",
+  "comment": "WORLDMAP.md 6.7. The world map carries 41 placeholder door events on its 29 sites, and they are deliberately INERT: a page whose command list is just the terminator, so Game_Event.start never runs it. This asserts that in the engine rather than in the data, because the day somebody wires the first real transfer is the day this stops being true for one of them and nothing else would say so. Frostwick (61,21) and Village 1 (60,61) are the two walked onto here; the Former Premises is checked from the data because it can only be reached by air.",
+  "steps": [
+    {"eval": "$gameSystem.disableEncounter()"},
+    {"check": "$gameMap.mapId()", "expect": 8,
+     "label": "the world map is 120x120 and installed"},
+    {"check": "[$dataMap.width, $dataMap.height]", "expect": [120, 120]},
+
+    {"check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).length",
+     "expect": 41,
+     "label": "41 placeholder doors, on 29 sites"},
+    {"check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).every(e => e.pages.every(p => p.list.every(c => c.code === 0)))",
+     "expect": true,
+     "label": "and every page of every one of them has no commands at all"},
+    {"check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).every(e => (e.note||'').indexOf('placeholder, no destination yet') >= 0)",
+     "expect": true,
+     "label": "with what the page used to say moved into the note, where the editor shows it and nothing runs it"},
+
+    {"comment": "Frostwick's western door cell is one square north. Walking onto it must start nothing.",
+     "key": "ArrowUp", "times": 1, "gap": 30},
+    {"frames": 60},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [61, 21],
+     "label": "standing on Frostwick's door"},
+    {"check": "$gameMap.eventsXy(61, 21).length", "expect": 1,
+     "label": "there is an event on this square"},
+    {"check": "$gameMap._interpreter.isRunning()", "expect": false,
+     "label": "THE POINT: walking onto it starts nothing - no chime, no window, no transfer to a room that does not exist"},
+    {"shot": "placeholder_frostwick.png"},
+
+    {"comment": "Village 1, which section 8 keeps deliberately surplus and unnamed.",
+     "goto": [8, 60, 62]},
+    {"key": "ArrowUp", "times": 1, "gap": 30},
+    {"frames": 60},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [60, 61],
+     "label": "and onto Village 1's door, which has no backstory and no room"},
+    {"check": "$gameMap._interpreter.isRunning()", "expect": false,
+     "label": "which also does nothing"},
+
+    {"comment": "And the airship's one is air-only, so it is asserted off the data: validate.py already proves it cannot be walked to.",
+     "check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('<aironly>') >= 0).length",
+     "expect": 6,
+     "label": "six <aironly> events: the Isle's two, Attempt 112, the Middle Distance, and the Former Premises' two"}
+  ]
+}

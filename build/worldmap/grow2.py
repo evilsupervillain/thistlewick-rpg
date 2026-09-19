@@ -36,7 +36,15 @@ from worldgen import noise as nz                               # noqa: E402
 from worldgen import pipeline, preserve, preview, spec         # noqa: E402
 
 OUT = os.path.dirname(os.path.abspath(__file__))
-SRC = 'thistlewick/data/Map008.json'
+# **The source is the frozen 50x50, not `data/Map008.json`.** That file *was*
+# the old world and is now this one - `journey.world_map` loads `worldmap.json`
+# - so this script would read its own descendant as its input and blit a
+# 120x120 map into a 120x120 canvas at an offset of 35. Nothing would report it;
+# `generated.json` would simply stop being reproducible from this file, which
+# WORLDMAP.md 7.6 promises it is. `old50.json` is the only copy left outside git
+# history. Re-running this at all grows a *different* world - see 7.6 - so the
+# point of keeping it correct is the promise, not the re-run.
+SRC = os.path.join(OUT, 'old50.json')
 W = H = 120
 AT = (35, 35)                       # the old map occupies 35..84 in both axes
 RADIUS = 10

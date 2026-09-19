@@ -1,12 +1,19 @@
-"""The optional places off the road, and the half of the world map that leads
-to them: Maps 19-20, plus the south of Map 8.
+"""The optional places off the road, and the events on the south of Map 8:
+Maps 19-20.
 
     19  The Bottomless Pit                 four feet deep. Admission 2cr.
     20  The Barrow of the Forty-Fourth     a hero in a mound who wanted a bench
 
-`journey.py` still owns Map 8 - it calls the four hooks at the top of this file
-while it is drawing, so the world map is built in one place and the southern
-content is written in one place. See `EXPANSION.md`.
+**This file used to draw the southern half of the world map**, through four
+hooks `journey.py` called while it built Map 8: `south_ground` grew the
+shoulder and scanned a shingle beach onto it, `south_layer1` laid the coast
+road and the tracks to the Pit and the Barrow, `south_layer3` put the town, the
+lighthouse, the cave mouths, the standing stones and eight trees down by
+coordinate, and `south_regions` painted the shingle. All four are gone: Map 8
+is `build/worldmap/worldmap.json` now and every one of those tiles either came
+across with the preserved 50x50 or is a line in `build/worldmap/run_finish.py`.
+See `../WORLDMAP.md` section 6 item 7. What is left here is the events, which
+were always the half worth keeping, and the two maps.
 """
 import os
 import sys
@@ -17,106 +24,15 @@ import mapkit as K
 import rmmzdata as R
 import story as S
 from places import (MAP_WORLD, MAP_SOPPING, MAP_LIGHTHOUSE, MAP_PIT,
-                    MAP_BARROW, SOPPING_GATE, WORLD_SOPPING, WORLD_SOPPING_STEP,
+                    MAP_BARROW, SOPPING_GATE, WORLD_SOPPING,
                     WORLD_LIGHTHOUSE, WORLD_PIT, WORLD_BARROW, WORLD_STONES,
-                    WORLD_HERMIT, WORLD_CRAB, WORLD_CAMP,
-                    WORLD_VILLAGE_STEP)
-
-REG_COAST = 3               # the shingle: crabs, gulls, and something in it
+                    WORLD_HERMIT, WORLD_CRAB, WORLD_CAMP, WORLD_SIGN_COAST)
 
 PIT_W, PIT_H = 26, 24
 PIT_IN = (12, 20)
 
 BARROW_W, BARROW_H = 30, 26
 BARROW_IN = (14, 22)
-
-
-# ================================================ the south of the world map ==
-def south_ground(g):
-    """Layer 0. Called after the coastline blobs and before `autotile(0)`.
-
-    The continent grows a south-east shoulder for Nether Sopping to stand on,
-    a headland for the lighthouse, and a shingle beach along the whole southern
-    shore, which is its own encounter region."""
-    g.blob(34, 46, 9, 4, 0, K.W_GRASS)            # the shoulder
-    g.blob(41, 44, 2, 2, 0, K.W_GRASS)            # the lighthouse headland
-
-    # The beach: the lowest two land rows of every column south of the
-    # midpoint. Doing it by scan rather than by hand means the shingle follows
-    # the coast wherever the coast turns out to be.
-    sea = R.autotile_kind(K.W_SEA)
-    for x in range(g.width):
-        land = [y for y in range(34, g.height)
-                if not (R.is_autotile(g.get(x, y, 0)) and
-                        R.autotile_kind(g.get(x, y, 0)) == sea)]
-        if not land:
-            continue
-        edge = max(land)
-        for y in range(max(edge - 1, 34), edge + 1):
-            g.set(x, y, 0, K.W_SAND)
-
-
-def south_layer1(g):
-    """Layer 1: the coast road east to Nether Sopping, and the two tracks that
-    take you off it. Called before `autotile(1)`."""
-    track = []
-    track += [(24, 45), (24, 46)]                       # out of Thistlewick
-    track += [(x, 46) for x in range(24, 37)]           # the coast road east
-    track += [(WORLD_SOPPING[0], 45)]
-    track += [(x, 45) for x in range(37, 42)]           # on to the headland
-    track += [(41, 45)]
-    track += [(x, 34) for x in range(8, 18)]            # west, to the Pit
-    track += [(17, y) for y in range(34, 36)]
-    track += [(8, y) for y in range(34, 37)]
-    track += [(x, 18) for x in range(17, 34)]           # east, to the Barrow
-    track += [(33, y) for y in range(18, 23)]
-    for x, y in track:
-        if 0 <= x < g.width and 0 <= y < g.height:
-            g.set(x, y, 1, K.W_ROAD)
-
-    g.blob(30, 42, 3, 2, 1, K.W_FOREST)
-    g.blob(38, 42, 2, 2, 1, K.W_CONIFER)
-    g.blob(10, 33, 2, 2, 1, K.W_FOREST)
-
-
-def south_layer3(g):
-    """Layer 3: the four places you can walk into down here, and the things
-    that are only there to be looked at."""
-    g.blit(WORLD_SOPPING[0] - 1, WORLD_SOPPING[1] - 1, 3, K.WB_TOWN)
-    g.blit(WORLD_LIGHTHOUSE[0], WORLD_LIGHTHOUSE[1] - 1, 3, K.WB_TOWER_WHITE)
-    g.set(WORLD_PIT[0], WORLD_PIT[1], 3, K.WB_CAVE)
-    g.set(WORLD_BARROW[0], WORLD_BARROW[1], 3, K.WB_CAVE_DARK)
-
-    for x, y in [(10, 17), (12, 17), (10, 19), (12, 19)]:
-        g.set(x, y, 3, K.WB_ROCK)                 # the standing stones
-    g.set(WORLD_HERMIT[0], WORLD_HERMIT[1] - 1, 3, K.WB_HUT)
-    g.set(WORLD_CRAB[0] - 1, WORLD_CRAB[1], 3, K.WB_ROCK)
-    g.set(WORLD_CAMP[0] - 1, WORLD_CAMP[1], 3, K.WB_HUT)
-    g.set(28, 45, 3, K.WB_SIGN)   # beside the road, not on it
-    for x, y in [(31, 44), (39, 43), (27, 41), (35, 47), (7, 33), (30, 19),
-                 (37, 22), (14, 16)]:
-        g.set(x, y, 3, K.WB_TREE)
-
-
-def south_regions(g):
-    """The shingle gets its own encounter list, so the walk to Nether Sopping
-    is not the same three fights as the walk to the gate.
-
-    Thistlewick sits close enough to the south coast that the beach scan runs
-    right past its front door, and the tile you step onto leaving the village
-    is shingle. It stays in the gentle half all the same: a level-five party
-    two steps out of the gate should be meeting turnips, not crabs. The
-    shingle only becomes crab country once the coast road is clear of the
-    village, which is what the `x` test is - beach you can see, beach that
-    bites."""
-    sand = R.autotile_kind(K.W_SAND)
-    first_coast = WORLD_VILLAGE_STEP[0] + 2
-    for y in range(g.height):
-        for x in range(first_coast, g.width):
-            t = g.get(x, y, 0)
-            if R.is_autotile(t) and R.autotile_kind(t) == sand:
-                if g.get(x, y, 5):
-                    g.set(x, y, 5, REG_COAST)
 
 
 # ------------------------------------------------------ the events out there --
@@ -231,7 +147,8 @@ def south_events(next_id):
     evs.append(crooke_bounty(next_id + len(evs)))
 
     # -- the southern signpost -------------------------------------------------
-    evs.append(S.sign(next_id + len(evs), "Coast Road Signpost", 28, 45, [
+    evs.append(S.sign(next_id + len(evs), "Coast Road Signpost",
+                      *WORLD_SIGN_COAST, [
         "\\C[6]EAST:\\C[0] Nether Sopping. 4 leagues.",
         "\\C[6]WEST:\\C[0] Thistlewick.",
         "Somebody from one end of this road has",

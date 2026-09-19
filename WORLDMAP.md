@@ -6,27 +6,50 @@ too small to hold the expansion: `COMPANIONS.md` wants eight new location
 clusters and seven world-map-only sites, `BIOS.md` wants six more towns, and
 the 50x50 was already crowded.
 
-**Status: the map is finished, reviewed, and not installed.** It is
-`build/worldmap/worldmap.json`, it stages cleanly, and nothing in `data/` or
-`build/` points at it yet. **Section 6 items 1-5 are done - all of "the map"** -
-which means every site is placed, the region layer is painted so the encounters
-fire, the lost decoration is back, and a contact-sheet pass has been run over
-the whole thing. What is left is **section 6 items 6-10, "the game"**: rewiring
-`places.py`, taking the drawing out of `journey.py`, the scenarios,
-`encounterStep`, and then the quests. That is Phase B and it is much larger
-than the map was; do not start it in the same session as anything else.
+**Status: the map is finished and INSTALLED.** `Map008.json` is the 120x120
+map: `journey.world_map` loads `build/worldmap/worldmap.json`, puts this game's
+header on it and merges this game's twenty-eight world-map events into it.
+`python3 build/build_game.py` builds the game and `python3 ../tools/validate.py .`
+reports no problems, which is the check that all thirteen exits back onto the
+world map land on standable, reachable squares.
+
+**Section 6 items 1-9 are done.** Items 1-5 were the map - every site placed,
+the region layer painted so the encounters fire, the lost decoration back, and a
+contact-sheet pass over the whole thing. Items 6-9 were the game - `places.py`
+re-cut, the drawing taken out of `journey.py`, `wilds.py`, `field.py` and
+`meadow.py`, the scenarios updated, and `encounterStep` measured and left alone.
+
+**What is left is item 10, the quests**, which is what the whole thing was for
+and is a larger effort than everything above it: `COMPANIONS.md` section 7
+sketches nineteen maps for the eight clusters, and there are twenty-nine sites
+on the map whose doors are placeholders with nothing behind them.
 
     python3 build/worldmap/run_finish.py --stage 941   # rebuild and stage it
     python3 build/worldmap/review.py 941               # old map vs new, measured
     python3 build/worldmap/decor.py 941                # the decoration diff; 0 casualties
+    python3 build/worldmap/coords.py                   # the scenarios' world-map squares
     python3 build/worldmap/look.py 66 74 92 88         # a window of it, as text
     node ../tools/serve.js ../staging 8770 &           # then _probe.html?map=941
     RMMZ_PORT=8770 node ../tools/shots.js /tmp/s 941:79:80 941:80:88
     python3 ../tools/propsheet.py ../staging /tmp/p.png 941   # what the props *are*
 
+and then, because the map is installed, the game has to be rebuilt to pick it up:
+
+    python3 build/build_game.py                        # journey.py reloads worldmap.json
+    python3 ../tools/validate.py .                     # no problems found
+    ../tools/scenarios.sh .                            # an hour; background it
+
 Run `decor.py` after every change - it exits non-zero on a casualty. And a
 screenshot is still the only thing that catches a stamp reading as the wrong
-object; four of Phase A's five items found something no check could see.
+object; **eight of section 6's nine items found something no check could see**,
+and `CHARGEN.md` is not the only document here whose estimates were wrong in
+the same direction. Do not trust a measurement in this file that does not say
+it was measured.
+
+**`build/worldmap/old50.json` is the old 50x50 and must not be deleted.**
+`data/Map008.json` is the *new* map now, so four things - `grow2.py`,
+`finish.old_events`, `decor.py` and `review.py` - would otherwise be reading
+this map as their own input. See section 6 item 7.
 
 **What a session on this map needs to read, and what it does not.** The
 workspace `CLAUDE.md` says to read `ROOMGEN2.md` and stop. **That instruction
@@ -80,6 +103,13 @@ Four things were true of the specification and are worth not rediscovering:
       grow2.py        the specification: the canvas, the painted sea, the
                       twenty new sites, the two grow passes. Produces
                       `generated.json`; re-running it re-generates the world
+      old50.json      the 50x50 `Map008` as it was before this map replaced
+                      it. **NEVER EDITED**, and load-bearing: `data/Map008.json`
+                      is the new map now, so this is the only copy of the input
+                      outside git history. `grow2.py` reads it, `finish.
+                      old_events` reads it to decide where the range is drawn
+                      around the old events, and `decor.py` and `review.py`
+                      both diff against it
       generated.json  the template worldgen produced, seed `w7`. NEVER EDITED
       generated.meta.json   its sidecar: the spec it was grown from, and a
                       marker per site with the stamp and the door cell
@@ -88,11 +118,19 @@ Four things were true of the specification and are worth not rediscovering:
                       drown an islet. Nothing in here decides anything
       run_finish.py   the decisions. Always starts from `generated.json` and
                       writes `worldmap.json`, so every edit is a line of code
-      worldmap.json   the finished map. This is what gets installed
+      worldmap.json   the finished map. **This is Map 8**: `journey.world_map`
+                      loads it, so a rebuild of the game picks up whatever
+                      `run_finish.py` last wrote. Never edited by hand
       review.py       old map against new: which events changed access, which
                       sites are unreachable, what is stranded
       reach.py        the flood fill both of those use
       place.py        put the party and the airship somewhere they can stand
+      coords.py       every world-map coordinate the 37 scenarios name,
+                      checked against the finished map in under a second.
+                      The suite is the ground truth and takes 169 minutes;
+                      this asks the cheap half of the same question, and the
+                      signature it hunts is "unconverted" - not standable now,
+                      standable at `+ (35,35)`. Non-zero exit on a stale one
       decor.py        the decoration diff: `Map008`'s layer 2-3 cells against
                       the new map at + (35,35), with deliberate losses,
                       nudges and casualties counted apart. Non-zero exit if
@@ -219,12 +257,14 @@ piercing the range. **Settled: not a blocker.** Roads are cheap - `put_road` is
 four lines - and the places that need joining will declare themselves while the
 campaigns are written. Fix them then, not now.
 
-**The forest corridor stays open, and so does the long way round.** You can
-walk from Thistlewick to the Tower without entering the Gloamwood. That was
-already true on the 50x50 - there is an open corridor at x11..24 - and it is
-deliberately left alone: it makes testing easier and will be closed some other
-way later. Walking all the way round the range to approach the Tower from the
-north is also allowed; it is simply much further.
+**The forest corridor stays open, and the range has quietly dealt with it.**
+You can still walk from Thistlewick to the Tower without entering the
+Gloamwood, and that is deliberately left alone. But it is no longer a *short
+cut*: measured on the finished map it is **177 steps against 48 on the 50x50**,
+where the route through the wood is 50 either way. The hand-drawn range stands
+where the old corridor at x11..24 ran, so this paragraph's own "will be closed
+some other way later" has happened by accident - what is left is the long way
+round, which is what it was always supposed to be.
 
 **Three settlements were drawn wrong in the shipped game**, and the new map
 fixes all three. They were not obvious until the world had a climate:
@@ -288,11 +328,17 @@ Four faults in `tools/worldgen`, all fixed and **committed** - the workspace's
   `selftest.py` asserted the wrong value outright; corrected against the
   engine's own constant. Full selftest: 0 failures.
 
-## 6. What is left to do
+## 6. What was left to do - items 1-9 done, item 10 left
 
-**Items 1-5 are done** - the whole of Phase A - and what each of them turned
-out to be is below, because four of the five found something the plan had not
-predicted. Items 6 onwards are untouched and are Phase B.
+**Items 1-9 are done.** Items 1-5 were the map and items 6-9 the game, and
+what each of them turned out to be is below - because **eight of the nine found
+something the plan had not predicted**, which is the single most useful fact
+about this list. Two of those were faults the plan would have shipped (a trunk
+road cut by accident, a lighthouse door opening into the sea), two were claims
+in this document that measurement disproved (the northern road's connectivity,
+and everything being twice as far), and two were wrong objects that only a
+contact sheet of tile ids could see. **Item 10, the quests, is what is left**,
+and it is larger than everything above it.
 
 1. ~~**The Lighthouse's own geography.**~~ **Done.** It is a spit: three cells
    of `Rocky Land A` reaching east out of the coast at x=76, two deep, water cut
@@ -396,64 +442,138 @@ predicted. Items 6 onwards are untouched and are Phase B.
    at (55,73) and the `Bridge (H)` at (72,109) are `meadow.py`'s and
    worldgen's respectively, both correct, both surprising in a list.
 
-6. **`places.py`**, rewritten: every constant in it moves by (35,35) except
-   Thistlewick and Nether Sopping, which moved further. Section 3 is the table.
-   **This is also how every exit back onto the world map gets fixed.** Measured
-   on the shipped data: **thirteen `Transfer Player` commands across twelve
-   maps** name Map 8 as their destination, and every one of them is a hardcoded
-   old-50x50 coordinate - Thistlewick's North Gate to (24,45), both Gloamwood
-   mouths, the Tower door, Nether Sopping's North Road, the Lighthouse, the
-   Pit, the Barrow, Upper Clanging's South Road, the Long Field, the Crag, and
-   Firstfield's Way Out twice. None of them is written out: every one is
-   `R.transfer(MAP_WORLD, *WORLD_SOMETHING_STEP)` or `WORLD_SOMETHING[1] + 1`,
-   so this is one file and a rebuild rather than thirteen hand edits. Three
-   things stop it being a `+35` sweep:
-   * **Four do not move by 35, and one of those moved twice.** Thistlewick,
-     Nether Sopping, Upper Clanging and the Lighthouse were all restamped and
-     re-sited by section 4; their exits have to be re-derived from section 3,
-     not offset. The Lighthouse has since moved again, out onto its headland:
-     it is **(79,80)**, not (76,79) and certainly not `+35`. Penultima moved
-     too - to (64,48) - and while it has no exit of its own yet, anything that
-     learns its coordinate has to learn it from section 3 and not the sidecar.
-   * **The `+1` convention breaks for two of them.** Several exits are written
-     as "one square south of the door" - `WORLD_PIT[1] + 1`,
-     `TOWER_DOOR[1] + 1`, `WOOD_MOUTH[1] + 1`. But `run_finish.py` gives
-     Thistlewick and Nether Sopping road spurs to their **north**, which is the
-     side the gate comes out on now, so both of those exits move to the other
-     side of the building. A blind `+1` puts Thistlewick's gate in the water.
-   * **Every destination needs the standable check** - `flags & 0x0F == 0`, per
-     7.6 - and not merely a translated coordinate. The coast mend, the
-     hand-drawn range and the islet drowning all changed terrain that old
-     constants stood on.
+6. ~~**`places.py`**, rewritten~~ **Done.** Every world-map coordinate in it was
+   re-cut, and with it **every exit back onto the world map**: thirteen
+   `Transfer Player` commands across twelve maps name Map 8, and not one of
+   them was written out - each is `R.transfer(MAP_WORLD, *WORLD_SOMETHING_STEP)`
+   - so it was one file and a rebuild. `validate.py` floods each map from its
+   transfer destinations, so **"no problems found" on the whole game is the
+   check** that all thirteen land on standable, reachable squares.
 
-   And one entanglement that says why item 7 has to happen alongside this one
-   rather than after it: `wilds.py` has `first_coast = WORLD_VILLAGE_STEP[0] +
-   2`, which is *drawing* code deriving a coastline from a place constant. The
-   coordinates and the drawing are not cleanly separated.
-7. **`journey.py` loses its world map.** Map 8 is currently *drawn* by code -
-   roads, coastlines and scenery placed by hand-written coordinate, with hooks
-   in `wilds.py`, `field.py` and `meadow.py`. All of that drawing goes; those
-   modules keep only their events, placed onto the generated map. This is the
-   largest single piece of work here and it is much larger than the map was.
+   **There are fourteen, not thirteen.** The count in this item was of
+   `Transfer Player` commands and missed a **`Set Vehicle Location`** - the one
+   in the works on Map 22 that parks the Two Hundred on the world map when Ott
+   hands her over, which is `WORLD_AIRSHIP` and is now (45,48). It is the only
+   world-map coordinate in the data that is not a transfer, and it moved with
+   the rest because it was written as a constant too.
 
-   **"Keep only their events" is not the whole instruction, because a lot of
-   the world's furniture is tiles.** Roughly **seventy-four layer-2 and
-   layer-3 tile writes** across `wilds.py`, `field.py`, `meadow.py` and
-   `journey.py` put down huts, signs, rocks, cave mouths, trees and tower
-   icons by hand-written coordinate - `K.WB_HUT`, `K.WB_SIGN`, `K.WB_ROCK`,
-   `K.WB_CAVE_DARK` and the rest. None of them is an event, so a pass that
-   preserves the events and deletes the drawing deletes all of them silently.
-   Each one has to be re-placed, either as a `put_tiles` line in
-   `run_finish.py` or as a hook that survives.
+   The three things that stopped it being a `+35` sweep, and what they came to:
 
-   **Thirteen of them were already gone; all thirteen are back.** `decor.py`
-   is that diff, and it is the check to re-run after any change to
-   `run_finish.py`: it compares `Map008`'s layer-2 and layer-3 cells against the
-   new map at `+ (35,35)`, and it exits non-zero on a casualty so it is a check
-   rather than a report. Twenty-seven cells differed. **Fourteen are
-   deliberate** - the three `Fortress City` stamps at Thistlewick, Nether
-   Sopping and Upper Clanging, and the Lighthouse's `Tower A (Snow)`, all
-   restamped by section 4. The other thirteen were casualties:
+   * **Four did not move by 35 and one of those moved twice.** Thistlewick
+     (60,79), Nether Sopping (71,84), Upper Clanging (44,47) and the
+     Lighthouse - which is **(79,80)**, not (76,79) and not `+35`, because item
+     1 moved it out onto its headland.
+   * **The `+1` convention broke for two of them, in the direction predicted.**
+     `run_finish.py` gives Thistlewick and Nether Sopping road spurs to their
+     **north**, so `WORLD_VILLAGE_STEP` went from two rows *south* of the icon
+     to one row *north* of it, (60,78), and `WORLD_SOPPING_STEP` likewise to
+     (71,83). Both are on road.
+   * **Every destination was checked with `flags & 0x0F == 0`** against the
+     finished map before it went in the file, and the four world-map signposts
+     read as *blocked* - correctly, because a `WB_SIGN` tile blocks its own cell
+     and is read from beside it, which was true on the 50x50 too.
+
+   And two things the plan had not predicted:
+
+   * **Three of the four signposts were hand-written coordinates, not
+     constants**, buried in `journey.py` and `wilds.py`. They were the only
+     world-map events this rewrite could have silently missed, and they are
+     `WORLD_SIGN_SOUTH`, `WORLD_SIGN_NORTH` and `WORLD_SIGN_COAST` now.
+   * **The `wilds.py` entanglement dissolved.** `first_coast =
+     WORLD_VILLAGE_STEP[0] + 2` was drawing code deriving a coastline from a
+     place constant, and it lived in `south_ground`, which item 7 deleted. The
+     coordinates and the drawing are cleanly separated because the drawing is
+     gone.
+
+   **And one of the thirteen was wrong, and the tool that should have caught it
+   was looking the other way.** The Lighthouse's way out is written "one square
+   south of the door", and item 1 had just moved the Lighthouse onto a spit of
+   rock that runs east - so one square south of the door is **the sea**, and
+   coming out of the lighthouse put the party in the water. `validate.py` said
+   no problems: it floods each map from its transfer destinations, and a flood
+   *filters* its seeds, so a seed in the sea contributes nothing to the flood
+   and is never mentioned while the other twelve entrances cover the map. Three
+   lines above that filter sits a function whose whole docstring is about this
+   fault. It is an assertion now, not a filter, and the check found one further
+   true positive on the engine's own BasicSample. The Lighthouse has a
+   `WORLD_LIGHTHOUSE_STEP` of its own - (78,80), back along the spit - which is
+   the only curiosity on the map that needs one. **A check that silently skips
+   what it cannot handle is not a check.**
+
+   `places.py` also now holds the **six region ids**, which
+   `finish.paint_regions` imports and `journey.world_map`'s `encounters=` names.
+   A region painted with a number no encounter entry names is a region with no
+   battles in it, which is the fault item 3 existed to fix, so it is not a
+   thing to keep two copies of.
+7. ~~**`journey.py` loses its world map.**~~ **Done, and it was smaller than
+   feared for one reason worth knowing.** `world_map()` is now forty lines that
+   load `build/worldmap/worldmap.json`, put this game's header on it and merge
+   this game's events into it. The nine drawing hooks - `south_ground`,
+   `south_layer1`, `south_layer3`, `south_regions`, `north_ground`,
+   `north_layer1`, `north_layer3`, `north_regions`, and the meadow's two - are
+   deleted, with everything that only they used: `_upland`, `_air_only_ground`,
+   `AIR_ONLY`, `RAINBOW`, and `wilds.REG_COAST` / `field.REG_CLANG`, which
+   `places.py` owns now.
+
+   **And installing the map made the generator's own input become its output.**
+   `data/Map008.json` *was* the old 50x50; the moment `journey.world_map` began
+   loading `worldmap.json`, that file became the 120x120 map - and **four things
+   were still reading it as "the old map"**:
+
+   | reads it as the old 50x50 | what went wrong |
+   | --- | --- |
+   | `grow2.py`'s `SRC` | would blit a 120x120 map into a 120x120 canvas at an offset of 35, so `generated.json` stops being reproducible from it - which 7.6 promises it is |
+   | `finish.old_events` | feeds `draw_range`'s `keep=`, so **the range moved**: re-running `run_finish.py` produced a world **106 layer-1 cells different** from the committed one |
+   | `decor.py`'s baseline | diffed the new world against itself and reported **107 casualties** that were not there |
+   | `review.py`'s old half | reported "old 1 walkable" and **48 events as having changed access** when none had |
+
+   Only the second of those changed anything, and it changed the map. So the
+   50x50 is frozen as **`build/worldmap/old50.json`**, committed beside
+   `generated.json` and never edited, and all four point at it; `run_finish.py`
+   now reproduces `worldmap.json` byte for byte again, which is the proof the
+   snapshot is the right file. `old_events` asserts its input is 50x50 so this
+   cannot happen quietly a second time.
+
+   **The general shape is worth more than the incident.** A build that replaces
+   a file with something derived from that file has a window in which every
+   reader of it is reading the wrong generation, and nothing in the data says
+   so - two of these four were *checks*, which is the worst place for it. If a
+   pipeline's output can land where its input used to live, freeze the input.
+
+   **The seventy-four hand-written tile writes were mostly not lost, because
+   `grow2.py` preserved layers 0-3 of the old 50x50 and not just its terrain.**
+   Every `_STEP` cell still has its road under it; the coast road at y=81 is
+   walkable end to end; the rainbow, the wayshrine's hut, the Isle's sign,
+   Attempt 112's rock and the four standing stones are all still there. So
+   deleting the drawing deleted tiles only where the *middle redraw* had already
+   taken them - which is the thirteen `decor.py` counts, all of which are back -
+   and under the hand-drawn range. That is why this item cost a morning and not
+   a week, and it is the single most useful thing to know before touching it.
+
+   Two decisions about the merge:
+
+   * **This game's events keep their ids and the placeholders are renumbered
+     after them.** `worldmap.json` arrives with **41 placeholder door events**
+     on its 29 sites, and an event id is an index into the map's own list, so
+     one set has to move. Moving the placeholders is strictly safer: their pages
+     have no commands, so nothing can refer to them, whereas a scenario or a
+     move route naming an event id on Map 8 refers to one of ours. It paid off
+     immediately - `airship_lands` asserts `eventId()` is 4, 20, 21, 22 and 23,
+     and all five still are. Map 8 is 28 game events (ids 1-28) then 41
+     placeholders (29-69).
+   * **The placeholder doors are inert.** A door that chimes and goes nowhere is
+     right on a review map and wrong in a shipped one; 41 of them is a sound
+     effect that promises a room and never delivers. `finish.make_doors_inert`
+     strips each page to its terminator - `Game_Event.start` needs
+     `list().length > 1`, so it never runs, and `validate.py` exempts a page
+     with no commands - and folds what the page said into the **note**, which
+     the editor shows and nothing executes. Writing the transfer later means
+     replacing the page with `worldgen.sites.transfer_page`. It is done in
+     `run_finish.py` rather than in `journey.py` so the staged map and the
+     installed map behave the same.
+
+   **The record of what the thirteen casualties were, and the four nudges, is
+   below and is still the check to re-run.**
 
    | what | old | new | outcome |
    | --- | --- | --- | --- |
@@ -463,42 +583,96 @@ predicted. Items 6 onwards are untouched and are Phase B.
    | Giant Tree scenery (`WB_TREE`), 7 cells | (40,21) (37,22) (9,25) (34,29) (7,33) (44,33) (12,35) | `+35` | 3 as asked, **4 nudged** |
    | Rock scenery (`WB_ROCK`, `Dirt`), 3 cells | (36,13) (7,22) (31,31) | `+35` | restored |
 
-   **The Pit was the one that mattered** and it is a cave mouth again -
-   `run_finish.py` already dug its terrain back out of the mountain the redraw
-   buried it under, but the mouth is a *decoration tile* and nothing had put
-   that back, so the Pit was an invisible hole in open ground with a transfer
-   event on it. The two tents were the same fault one step down: the Hermit and
-   Crooke both had their events and their squares and nothing to look at.
+8. ~~**The scenarios.**~~ **Done.** **Fifteen** of the thirty-six touch the
+   world map - one more than anybody had counted - and every one of them is
+   updated and passing, plus a new sixteenth. Most were a `+35` sweep on
+   a `goto`, a `query` string or an `expect`; three needed thought:
+   * **`airship_lands` is the one that mattered**, and it came through on `+35`
+     alone - every `isAirshipLandOk` assertion in it still holds, including the
+     two that are the joke (the tower door refuses her, the grass beside it does
+     not) and the Middle Distance's hill, which only holds because item 4 put
+     that hill back. Its five `eventId()` assertions still hold too, because
+     item 7 renumbered the placeholders rather than our events.
+   * **`south_road`'s shingle check was wrong rather than stale**, and it is the
+     one place the new geography changed what is true. On the 50x50 the beach
+     was a two-row scan of every southern column and the coast road ran *on* the
+     sand, so the walk east was crab country; the 120x120's shore falls away to
+     the south-east and the road stays inland of it, so only two of its thirteen
+     cells are shingle. The check now asserts the pair - the road is region 1
+     and the beach three rows below it is region 3 - which is a stronger check
+     than the old one and says the true thing: **you step down onto the beach to
+     meet the crabs.**
+   * **`gate`'s position check moved to the other side of the town**, per item
+     6's `_STEP` change, and its `regionId` check passes unaltered.
 
-   **Four of the seven trees moved a cell or two, and that is the right
-   answer.** Three of them now stand under the hand-drawn range and one is out
-   past the mended coast, and `put_tiles` writes where it is told - so a Giant
-   Tree goes onto a mountain, or into the sea, without complaint, and looks like
-   a fault in the map. These tiles are *scatter*: hand-typed coordinate lists in
-   `journey.py`, `wilds.py` and `field.py` with no meaning attached to any one
-   cell. So `finish.put_scenery` refuses sea, mountain relief, an existing
-   stamp footprint and an event's square, and nudges to the nearest cell that
-   will take one - which keeps the dressing and costs nothing, where clearing a
-   mountain to make room would hole the range for a decoration. `decor.py`
-   counts a nudge as accounted for and a loss as a casualty, so the number can
-   reach zero and stay a check. **It is 0 casualties, 4 nudged.**
+   **The coordinates hide in three places and two of them are not obvious.**
+   A first pass over the `"expect"` arrays and the `"goto"` steps looked
+   complete and was not: `airship_lands` then failed with no useful output,
+   because a scenario's coordinates also live
+   * **inside `eval` strings** - `$gamePlayer.locate(31, 8)`,
+     `$gameMap.airship().setLocation(8, 10, 13)`, `$gameMap.regionId(9, 16)`,
+     `$gameMap.isAirshipLandOk(22, 48)` - which no amount of looking at
+     `expect` will find; and
+   * **in the `"query"` string**, the `?map=8&x=..&y=..` that says where the
+     scenario starts. Six were still on old coordinates, two of them in
+     scenarios (`long_field`, `battle_mook`) that no search for `goto` or
+     `mapId` had turned up at all, because they *begin* on the world map and
+     never mention it again.
 
-   **The events themselves are all fine**, which is worth knowing because it is
-   the half that could have been much worse: all twenty-eight of `Map008`'s
-   events land on a square exactly as standable as the one they left. Four
-   signposts report as blocked, and were blocked on the 50x50 too - a
-   `WB_SIGN` tile blocks its own cell and is read from beside it - so that is
-   the idiom, not a regression.
+   So the sweep was done properly the second time, by walking each scenario's
+   steps, tracking which map it is on through its query, its `goto`s and its
+   `mapId()` checks, extracting every coordinate-bearing construct while that
+   map is 8, and flagging any that is **not standable now but would be at
+   `+ (35,35)`** - which is a near-perfect signature for "unconverted".
 
-   One that was confirmed and fixed: **the Middle Distance's anchor cell had
-   gone from blocked to open.** `field.py` drew a hill there at old (47,30) and
-   the redraw took it. Item 4 above has the write-up and `review.py` now checks
-   all four sea places by name.
+   **And the sweep still missed one, for a reason worth stating.** It matched a
+   position check by looking for `gamePlayer.x`, and `two_hundred` asserts where
+   the **airship** is parked - `[$gameMap.airship()._x, $gameMap.airship()._y]`.
+   A position check is not necessarily about the player. The full suite caught
+   it (36 of 37, one failure, fixed) and the sweep now matches any check that
+   reads an `_x`/`.x` and an `_y`/`.y` together, whoever it is about, which
+   takes it from 51 world-map coordinates to **64**. Fifteen scenarios carry
+   them; one flag remains and it is a true negative -
+   `isAirshipLandOk(37, 40)` expecting **false**, which is Attempt 112's rock
+   and is supposed to be unstandable.
 
-8. **The scenarios.** Anything that walks the world map by coordinate breaks.
-9. **`encounterStep`.** Everything is about twice as far - Thistlewick to the
-   Tower goes from ~40 steps to ~81 - so at step 36 the walk north has twice
-   the battles it had. Re-cut it, or the trek stops being funny.
+   The suite is the ground truth and there was no substitute for running it:
+   **37 of 37 passing, 498 checks, 169 minutes** - and the one failure was
+   scenario thirty-six of thirty-seven, which is what three hours buys that a
+   second-long check does not. `coords.py` is that second-long check, written
+   afterwards so the next map change gets the cheap answer first.
+   One new scenario, **`placeholder_doors`**, because item 7's inertness is the
+   kind of thing that stops being true the day somebody wires the first real
+   transfer and nothing else would say so. It asserts out of the live game that
+   there are 41 site doors, that every page of every one of them has no
+   commands, that the note carries what the page used to say, and then walks
+   onto two of them - Frostwick's and Village 1's - and checks the interpreter
+   does not start. Six `<aironly>` events are counted off the data in the same
+   pass.
+9. ~~**`encounterStep`.**~~ **Nothing to do, and the premise was wrong.** This
+   item said everything is about twice as far - "Thistlewick to the Tower goes
+   from ~40 steps to ~81" - and that step 36 would therefore double the battles
+   on the trek north. **Measured on the finished data, by flood fill, it is not
+   true.** The old 50x50 is preserved inside the new map at an offset, so the
+   *relative* geography of everything this game already has is identical, and
+   every leg is the length it was. From the Gloamwood's north mouth: the tower
+   door 26 steps against 26, Upper Clanging 15 against 15, the crag 22 against
+   22, the Long Field 10 against 10, the Standing Stones 8 against 8, the
+   wayshrine 16 against 16, the Barrow 19 against 17. The world-map half of the
+   quest is **50 steps against 51**. `encounterStep` stays at 36.
+
+   It was briefly changed to 72 on the strength of this item before anybody
+   measured, which would have quietly **halved** the encounter rate of the
+   shipped game on a route that had not changed length - so the note is worth
+   keeping: *the map got bigger and the game did not get further apart.*
+
+   What did get longer is the **short cut**. Walking to the tower without
+   entering the Gloamwood was 48 steps on the 50x50 and is **177** now, and the
+   Barrow the same way went from 37 to 192, because the hand-drawn range stands
+   where the old forest corridor was. Section 4 wanted that corridor closed
+   "some other way later"; the range has effectively done it, and what is left
+   is a long way round rather than a shortcut. Nothing is tuned for it and
+   nothing needs to be.
 10. **Then the new quests**, which is what the whole thing is for.
 
 ## 7. The sites still to place - **placed**
@@ -561,7 +735,7 @@ a lair somebody visits weekly has a path to it.
 **Emberthwaite is not the Wrong Dragon.** ALD-6's dragon is at (110,114), forty
 cells south. Two dragons is the joke working twice, not a duplicate.
 
-### 7.2 Four whose bios assert a geography the map does not honour
+### 7.2 Four whose bios asserted a geography the map did not honour - **all four re-sited**
 
 These are re-sitings, and they are the same class of work as section 4's three
 settlement fixes - not obvious until somebody read the bio and the map at the
@@ -619,7 +793,7 @@ was actually done is the line after it.
   and a southern arm down the one-cell corridor at x=46 that the mountains leave
   open, which is a piece of the map that had no road on it at all.
 
-### 7.3 A snow town, which is new
+### 7.3 A snow town, which is new - **placed at (61,21)**
 
 **The far north has no settlement at all.** Coldbarrow is a one-room chapter
 house, the Sky Anvil is a meteorite used as a gatepost, and Hithermost is a
@@ -704,7 +878,7 @@ the general lesson.
 `COMPANIONS.md` section 7 names faces as **the** blocker, so this cast is a
 bill as well as a joke - see `../CHARGEN.md`, which is now the answer to that.
 
-### 7.4 One floating continent
+### 7.4 One floating continent - **placed at (79,88)**
 
 **`Floating Continent (Castle)`**, settled. This is the answer to section 8's
 question about the sea: **the airship currently earns three rocks**, and
@@ -822,9 +996,11 @@ would be worth doing:
 8. **A broken bridge** (`Broken Bridge A/B`, `Collapsed Bridge`) - the classic
    "you must go the long way", and the map already has a deliberate long way
    round the range.
-9. **Signposts** (`Signboard A-D`, `Sign`). Everything is twice as far now, and
-   a sign is a joke vehicle this game already owns: Fizz appears in front of
-   every one you try to read.
+9. **Signposts** (`Signboard A-D`, `Sign`). There are five on the map and the
+   world is much wider than they cover - **not** "everything is twice as far",
+   which section 6 item 9 measured and disproved, but the *unvisited* country
+   genuinely is all new and unmarked. A sign is a joke vehicle this game already
+   owns: Fizz appears in front of every one you try to read.
 10. **Gates and watchtowers** (`Gate A-D`, `Watchtower`, `Lookout Post`) -
     border checkpoints, which is Aldric's entire comic register.
 

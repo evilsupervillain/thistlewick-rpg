@@ -6,15 +6,20 @@ os.chdir(ROOT)
 sys.path.insert(0, os.path.join(ROOT,'tools'))
 from reach import grid, walk
 AT=(35,35)
+# The 50x50 as it was. `thistlewick/data/Map008.json` is the NEW map now, so
+# "old against new" has to name the frozen copy or it compares the new world
+# with itself at an offset - which it did, and reported 48 events as having
+# changed access when none had. See `finish.OLD50`.
+OLD50=os.path.join(HERE,'old50.json')
 
 def main(map_id=941):
-    om,ow,oh,oopen=grid('thistlewick',8)
+    om,ow,oh,oopen=grid('thistlewick',8,path=OLD50)
     old=walk(ow,oh,oopen,(24,45))
     nm,nw,nh,nopen=grid('staging',map_id)
     new=walk(nw,nh,nopen,(24+AT[0],45+AT[1]))
     print("walkable from Thistlewick:  old %d   new %d" % (len(old),len(new)))
 
-    ev=[e for e in json.load(open('thistlewick/data/Map008.json'))['events'] if e]
+    ev=[e for e in om['events'] if e]
     changed=[]
     for e in ev:
         x,y=e['x'],e['y']

@@ -396,6 +396,17 @@ def main(argv):
     # `settle`, because a passability flag belongs to an autotile shape rather
     # than to a kind, so a pass that asks "can the player stand here" over
     # every cell has to be looking at the shapes the engine will see.
+    # --- the placeholder doors ----------------------------------------------
+    # Twenty-nine doors with nothing behind them. On a review map a chime is
+    # useful; in the shipped game it is a sound effect that promises a room
+    # twenty-nine times and never delivers, so they are made **inert** - a page
+    # with no commands, which the engine never starts and `validate.py` exempts
+    # from every "can this be triggered" question - and what the page said moves
+    # into the note. Normalised here rather than in `journey.py` so the staged
+    # map and the installed map behave the same; `generated.json` is never
+    # edited, so this is the only place the generated twenty-one can be reached.
+    print("placeholder doors made inert: %d" % F.make_doors_inert(w))
+
     w.settle()
     quiet = ([(55 + i, 83) for i in range(4)]            # the Isle
              + [(37 + i, 40) for i in range(3)]          # Attempt 112's stack

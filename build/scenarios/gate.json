@@ -42,10 +42,10 @@
     {
       "check": "[$gamePlayer.x, $gamePlayer.y]",
       "expect": [
-        24,
-        45
+        60,
+        78
       ],
-      "label": "on the road south of Thistlewick"
+      "label": "on the road spur north of Thistlewick - the gate comes out on the north side now, and the step moved with it"
     },
     {
       "check": "$gameMap.regionId($gamePlayer.x, $gamePlayer.y)",

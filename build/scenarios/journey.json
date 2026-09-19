@@ -1,5 +1,5 @@
 {
-  "query": "?map=8&x=17&y=28&frames=90",
+  "query": "?map=8&x=52&y=63&frames=90",
   "steps": [
     {
       "eval": "$gameSwitches.setValue(1, true); $gameSwitches.setValue(2, true); $gameParty.addActor(3); $gameParty.addActor(4); $gameParty.addActor(5)"
@@ -13,7 +13,7 @@
       "eval": "$gameParty.members().forEach(a => a.changeLevel(8, false))"
     },
     {
-      "eval": "$gamePlayer.locate(17, 27); $gameMap.event(2).start()"
+      "eval": "$gamePlayer.locate(52, 62); $gameMap.event(2).start()"
     },
     {
       "advance": 25
@@ -65,7 +65,7 @@
       "label": "now in the dangerous half"
     },
     {
-      "eval": "$gamePlayer.locate(31, 8); $gameMap.event(4).start()"
+      "eval": "$gamePlayer.locate(66, 43); $gameMap.event(4).start()"
     },
     {
       "advance": 25

@@ -1,5 +1,5 @@
 {
-  "query": "?map=8&x=11&y=15&frames=90",
+  "query": "?map=8&x=46&y=50&frames=90",
   "steps": [
     {"comment": "The Long Field, from the spur off the town road: the gate opens, the twelve plaques count once each, and the twelfth stops Ott working. The thirteenth is the number-plate off the sea stack, and it does not count - there are twelve readable plates in this field and the thirteenth is one you make.",
      "eval": "$gameSystem.disableEncounter()"},

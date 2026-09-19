@@ -738,19 +738,11 @@ def meadow_events():
 
 
 # ====================================================== on the world map ====
-# The rainbow's two cells: B-sheet 7 is its blocked top and 15 its open foot,
-# and the foot is the door. A short spur of road runs to it off the village's
-# north road.
-RAINBOW = (K.b_tile(7, 0), K.b_tile(7, 1))
-
-
-def world_layer1(g):
-    for x in range(WORLD_MEADOW[0] + 1, 24):
-        g.set(x, WORLD_MEADOW[1], 1, K.W_ROAD)
-
-
-def world_layer3(g):
-    g.column(WORLD_MEADOW[0], WORLD_MEADOW[1] - 1, 3, RAINBOW)
+# The rainbow's two cells are **tiles on the world map now**, at (55,73) and
+# (55,74), carried across with the preserved 50x50 - B-sheet 7 is its blocked
+# top and 15 its open foot, and the foot is the door. The two hooks that used to
+# draw them and the spur of road beside them are gone with the rest of Map 8's
+# drawing; see `../WORLDMAP.md` section 6 item 7.
 
 
 def world_events(next_id):

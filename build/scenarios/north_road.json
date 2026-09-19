@@ -1,5 +1,5 @@
 {
-  "query": "?map=8&x=17&y=20&frames=90",
+  "query": "?map=8&x=52&y=55&frames=90",
   "steps": [
     {
       "check": "$gameMap.mapId()",
@@ -16,8 +16,8 @@
     {
       "check": "[$gamePlayer.x, $gamePlayer.y]",
       "expect": [
-        9,
-        20
+        44,
+        55
       ],
       "label": "the west road is walkable end to end"
     },
@@ -28,13 +28,13 @@
     {
       "check": "[$gamePlayer.x, $gamePlayer.y]",
       "expect": [
-        9,
-        13
+        44,
+        48
       ],
       "label": "and north to the door of Upper Clanging"
     },
     {
-      "check": "$gameMap.regionId(9, 16)",
+      "check": "$gameMap.regionId(44, 51)",
       "expect": 4,
       "label": "the lobe is its own encounter region"
     },
@@ -54,13 +54,13 @@
     {
       "check": "[$gamePlayer.x, $gamePlayer.y]",
       "expect": [
-        6,
-        9
+        41,
+        44
       ],
       "label": "the crag track reaches the wreck of the 199th"
     },
     {
-      "eval": "$gamePlayer.locate(9, 15)"
+      "eval": "$gamePlayer.locate(44, 50)"
     },
     {
       "key": "ArrowRight",
@@ -69,8 +69,8 @@
     {
       "check": "[$gamePlayer.x, $gamePlayer.y]",
       "expect": [
-        12,
-        15
+        47,
+        50
       ],
       "label": "and the spur reaches the Long Field"
     },
@@ -94,7 +94,7 @@
       "label": "carried on past it. The door has to be answered before the player can move again, which is what broke this scenario when the door was added"
     },
     {
-      "eval": "$gamePlayer.locate(9, 18)"
+      "eval": "$gamePlayer.locate(44, 53)"
     },
     {
       "key": "ArrowRight",
@@ -103,8 +103,8 @@
     {
       "check": "[$gamePlayer.x, $gamePlayer.y]",
       "expect": [
-        11,
-        18
+        46,
+        53
       ],
       "label": "the Standing Stones are two steps off the road, not on it"
     },
@@ -114,7 +114,7 @@
       "label": "and stepping off it reaches the Standing Stones"
     },
     {
-      "eval": "$gamePlayer.locate(14, 20)"
+      "eval": "$gamePlayer.locate(49, 55)"
     },
     {
       "shot": "north_junction.png"

@@ -23,12 +23,12 @@
     {
       "goto": [
         8,
-        31,
-        9
+        66,
+        44
       ]
     },
     {
-      "eval": "$gamePlayer.locate(31, 9); $gameMap.event(4).start()"
+      "eval": "$gamePlayer.locate(66, 44); $gameMap.event(4).start()"
     },
     {
       "advance": 40

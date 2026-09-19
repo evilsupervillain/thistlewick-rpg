@@ -1,5 +1,5 @@
 {
-  "query": "?map=8&x=21&y=39&frames=90",
+  "query": "?map=8&x=56&y=74&frames=90",
   "steps": [
     {"comment": "Firstfield Meadow, walked: in off the rainbow, Fizz's HEY, a sign she gets to first, Old Hollis's stick (and giving it back), the chest with Nix watching, and Dilys's sheep - with the 'But thou must' loop taken once. Norbert and the graduation are firstfield_graduation, because the battle alone is a few minutes headless.",
      "eval": "$gameSystem.disableEncounter()"},

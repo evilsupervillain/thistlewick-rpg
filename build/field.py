@@ -3,17 +3,23 @@
     26  The Long Field                     one hundred and ninety-nine wrecks
     27  The Wreck of the 199th             a crag, a dungeon, and ITEM 1
 
-`journey.py` still owns Map 8 - it calls the five hooks at the top of this file
-while it is drawing, so the world map is built in one place and the northern
-content is written in one place. That is exactly the arrangement `wilds.py`
-already has for the south; see `NORTH.md` sections 4.3 and 11.
+**This file used to draw the north-west of the world map**, through five hooks
+`journey.py` called while it built Map 8 - the lobe Upper Clanging stands on,
+the uplands, the west road and its two spurs, the landmarks, the three
+air-only rocks' ground, and the regions. All five are gone: Map 8 is
+`build/worldmap/worldmap.json` now, and every one of those tiles either came
+across with the preserved 50x50 or is a line in
+`build/worldmap/run_finish.py` - including the Middle Distance's hill, which
+the generated map had quietly lost. See `../WORLDMAP.md` section 6 items 4
+and 7.
 
-The three **air-only places** of section 5.6 are here too, and they are not in
-the north-west: one is in the bay off the south coast, one is a sea stack in
-the north-western approaches, and one is seven squares out to sea due east of
-the Hermit. They live in this file rather than a fourth module because they are
-the airship's content and the airship is the north's, and because they are
-three rocks and two dozen lines between them.
+The three **air-only places** of `NORTH.md` 5.6 keep their events here, and
+they are not in the north-west: one is in the bay off the south coast, one is a
+sea stack in the north-western approaches, and one is seven squares out to sea
+due east of the Hermit. They live in this file rather than a fourth module
+because they are the airship's content and the airship is the north's. There is
+a fourth rock out there now, the Former Premises, which is the world map's own
+and has nothing of this game on it yet.
 """
 import os
 import sys
@@ -24,166 +30,16 @@ import mapkit as K
 import rmmzdata as R
 import story as S
 from places import (CLANGING_GATE, MAP_CLANGING, MAP_WORLD, MAP_LONG_FIELD,
-                    MAP_CRAG, MAP_WORKS, WORLD_CLANGING,
-                    WORLD_CLANGING_STEP, WORLD_LONG_FIELD, WORLD_CRAG,
+                    MAP_CRAG, WORLD_CLANGING, WORLD_LONG_FIELD, WORLD_CRAG,
                     WORLD_LONG_FIELD_STEP, WORLD_CRAG_STEP,
-                    WORLD_JUNCTION, WORLD_ISLE, WORLD_ISLE_PAD, WORLD_STACK,
-                    WORLD_STACK_PAD, WORLD_MIDDLE, WORLD_MIDDLE_PAD,
+                    WORLD_JUNCTION, WORLD_ISLE, WORLD_STACK, WORLD_MIDDLE,
                     WORLD_TOWER, WORLD_STONES)
-
-REG_CLANG = 4               # the north-west: whatever the works has let out
-
-
-# ============================================== the north of the world map ==
-def north_ground(g):
-    """Layer 0. Called after the coastline blobs and before `autotile(0)`.
-
-    The continent grows a north-west lobe for Upper Clanging to stand on. Its
-    east side merges into the existing coast rather than making a bay, because
-    the conifer wood `journey.py` plants at (11, 11) is eleven tiles wide and
-    the old coastline only reached the eastern third of it - the other two
-    thirds have been standing in open sea since the world map was drawn. The
-    lobe puts ground under all of it."""
-    g.blob(9, 12, 6, 7, 0, K.W_GRASS)             # the lobe itself
-    g.blob(6, 9, 3, 3, 0, K.W_GRASS)              # the crag's shoulder
-    g.blob(11, 17, 4, 2, 0, K.W_GRASS)            # down to the stones
-    g.blob(3, 16, 2, 2, 0, K.W_SEA)               # a bite back out of it
-    g.blob(13, 6, 2, 2, 0, K.W_SEA)
-    _air_only_ground(g)
-
-
-# ----------------------------------------------- the three air-only places --
-# NORTH.md 5.6. An airship that only revisits places you have already walked to
-# is a fast-travel toy, so three things go where no foot can reach them: put
-# things in the sea and on top of things.
-#
-# The engine does all of the gating and none of it is scripted. Sea is flagged
-# 0x080f, which is impassable on foot **and** sets the airship's own 0x0800, so
-# a rock in open water with plain grass on top of it can only be landed on -
-# and `validate.py` now asserts, out of the flags rather than by playing, that
-# each of them is unreachable on the ground.
-#
-# Each rock keeps one square clear of events, because `Game_Vehicle.isLandOk`
-# refuses to set an airship down on a square that has an event standing on it,
-# and a landing site with a sheep on it is not a landing site.
-ISLE = [(WORLD_ISLE[0] + i, WORLD_ISLE[1]) for i in range(4)]
-STACK = [(WORLD_STACK[0] + i, WORLD_STACK[1]) for i in range(3)]
-MIDDLE = [(WORLD_MIDDLE[0] + dx, WORLD_MIDDLE[1] + dy)
-          for dy in range(3) for dx in range(2)]
-AIR_ONLY = ISLE + STACK + MIDDLE
-
 
 # `validate.py` reads this note off the finished data and asserts two things:
 # that the event cannot be walked to from any transfer on the map, and that
 # there is an airship on the map at all. An air-only joke that turns out to be
 # walkable is a joke nobody will ever notice was one.
 AIR_ONLY_NOTE = "<aironly>"
-
-
-def _air_only_ground(g):
-    """Layer 0: three rocks, drawn as plain world grass so that the top tile of
-    each is 0x0600 - passable, and landable, and surrounded by water."""
-    for x, y in AIR_ONLY:
-        g.set(x, y, 0, K.W_GRASS)
-
-
-def _upland(g, cx, cy, rx, ry, tile):
-    """A layer-1 blob that stops at the water's edge.
-
-    `Canvas.blob` does not know where the coast is, which is how eleven tiles
-    of conifer came to be standing in the sea off this coast for the whole of
-    the game so far. Anything drawn out here goes through this instead."""
-    grass = R.autotile_kind(K.W_GRASS)
-    for y in range(cy - ry, cy + ry + 1):
-        for x in range(cx - rx, cx + rx + 1):
-            if not (0 <= x < g.width and 0 <= y < g.height):
-                continue
-            dx, dy = (x - cx) / float(rx or 1), (y - cy) / float(ry or 1)
-            if dx * dx + dy * dy > 1.0:
-                continue
-            under = g.get(x, y, 0)
-            if R.is_autotile(under) and R.autotile_kind(under) == grass:
-                g.set(x, y, 1, tile)
-
-
-def north_layer1(g):
-    """Layer 1: the high ground, the west road and its two spurs. Called
-    before `autotile(1)`."""
-    # A clearing for the town to stand in, cut out of the wood `journey.py`
-    # planted here before there was any ground under it. The wood is two
-    # hundred years older than the works and the works has been cutting into
-    # it ever since. This goes first so the ridge can be drawn back into it.
-    for y in range(9, 15):
-        for x in range(7, 13):
-            g.set(x, y, 1, 0)
-
-    # High ground, and only where there is ground to put it on.
-    _upland(g, 6, 7, 3, 2, K.W_MOUNTAIN)          # the crag
-    _upland(g, 12, 9, 3, 2, K.W_HILLS_BROWN)      # the ridge behind the works
-    _upland(g, 4, 14, 2, 3, K.W_HILLS)            # the west shoulder
-    _upland(g, 7, 17, 2, 1, K.W_CONIFER)          # a copse below the town
-
-    # The west road leaves the north road at the Gloamwood's north mouth and
-    # runs along the top of the wood. It goes *past* the Standing Stones and
-    # not between them: the plaque at (11, 18) is a player-touch event with no
-    # self switch, so a road over it would re-read all four windows - and bump
-    # the cliche counter the ending prints - every single time anybody walked
-    # to Upper Clanging and back.
-    track = []
-    track += [(x, 20) for x in range(9, 18)]      # west, along the wood
-    track += [(9, y) for y in range(WORLD_CLANGING_STEP[1], 21)]   # and north
-    track += [(x, 15) for x in range(9, 13)]      # the Long Field spur
-    track += [(x, 13) for x in range(6, 10)]      # the crag track
-    track += [(6, y) for y in range(9, 14)]
-    for x, y in track:
-        g.set(x, y, 1, K.W_ROAD)
-
-    # The Hermit's middle distance is a hill, so it gets a hill: two tiles of
-    # it along the back of the rock. `W_HILLS` is flagged 0x0e0f, which is
-    # impassable *and* sets 0x0800, so the hill is scenery you cannot land on
-    # and the two rows of grass in front of it are where the airship goes and
-    # where the bench is.
-    g.set(WORLD_MIDDLE[0], WORLD_MIDDLE[1], 1, K.W_HILLS)
-    g.set(WORLD_MIDDLE[0] + 1, WORLD_MIDDLE[1], 1, K.W_HILLS)
-
-
-def north_layer3(g):
-    """Layer 3: the three places you can walk into up here, and the things
-    that are only there to be looked at."""
-    g.blit(WORLD_CLANGING[0] - 1, WORLD_CLANGING[1] - 1, 3, K.WB_TOWN)
-    g.set(WORLD_LONG_FIELD[0], WORLD_LONG_FIELD[1], 3, K.WB_HUT)
-    g.set(WORLD_CRAG[0], WORLD_CRAG[1], 3, K.WB_CAVE_DARK)
-    g.set(WORLD_JUNCTION[0], WORLD_JUNCTION[1], 3, K.WB_SIGN)
-    for x, y in [(7, 15), (12, 14), (5, 11), (13, 16), (5, 17), (4, 9)]:
-        g.set(x, y, 3, K.WB_TREE)
-    for x, y in [(7, 7), (3, 12), (14, 13)]:
-        g.set(x, y, 3, K.WB_ROCK)
-
-    # The plaque at the west end of the Isle, and the stack Attempt 112 came
-    # down on. Both `WB_SIGN` and `WB_ROCK` are flagged 0x060f - impassable,
-    # and not landable either, because `isAirshipLandOk` wants 0x0f clear as
-    # well as 0x0800 - so each of them is scenery that also narrows the rock
-    # down to one square an airship can use.
-    g.set(WORLD_ISLE[0], WORLD_ISLE[1], 3, K.WB_SIGN)
-    g.set(WORLD_STACK[0], WORLD_STACK[1], 3, K.WB_ROCK)
-
-
-def north_regions(g):
-    """The lobe is its own encounter region. It is pointed at the same three
-    troops as the rest of the north today, so nothing about a walk up here has
-    changed yet - but the region exists, and `NORTH.md` section 15's northern
-    encounters have somewhere to go that is not "everywhere north of the
-    mountains"."""
-    for y in range(21):
-        for x in range(16):
-            if g.get(x, y, 5):
-                g.set(x, y, 5, REG_CLANG)
-
-    # And nothing at all lives on the three rocks. `journey.py` hands every
-    # square of the map a region by latitude, sea included, so without this the
-    # Isle of Uncertain Ownership would have turnip encounters on it.
-    for x, y in AIR_ONLY:
-        g.set(x, y, 5, 0)
 
 
 # ------------------------------------------------------ the events out there --
