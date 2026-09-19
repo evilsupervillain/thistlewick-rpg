@@ -17,7 +17,7 @@
 # stale set of instructions in the history and a merge conflict in the way of
 # every branch.
 /build/RESTART.md
-/WORLDMAP-NEXT.md
+/*-NEXT.md
 
 __pycache__/
 *.pyc
