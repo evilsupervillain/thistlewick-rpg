@@ -37,6 +37,12 @@ SHEETS = {
         (3, "dilys-fenwick.json"),      # the sheep are not lost
         (4, "gideon-markup.json"),      # Penultima: Ye Final Shoppe
         (5, "dorothy-markup.json"),     # and the ledger
+        # Restwell, and the last two cells of the sheet. `../SITES.md` step 1:
+        # the Ashburys are the site, so they are the two that get drawn, and
+        # step 2 opens a `Gen_People2`. Dr Pike shares `SF_Actor3:6` rather
+        # than costing a sheet of his own - see `story.FACES`.
+        (6, "mrs-ashbury.json"),        # Restwell: The Eight Hours
+        (7, "walt-ashbury.json"),       # and the tune at the foot of the stairs
     ],
 }
 

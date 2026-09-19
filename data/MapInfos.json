@@ -29,5 +29,7 @@ null,
 {"id":27,"expanded":true,"name":"The Wreck of the One Hundred and Ninety-Ninth","order":27,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":28,"expanded":true,"name":"Firstfield Meadow","order":28,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":29,"expanded":true,"name":"Penultima","order":29,"parentId":8,"scrollX":0,"scrollY":0},
-{"id":30,"expanded":true,"name":"Ye Final Shoppe","order":30,"parentId":29,"scrollX":0,"scrollY":0}
+{"id":30,"expanded":true,"name":"Ye Final Shoppe","order":30,"parentId":29,"scrollX":0,"scrollY":0},
+{"id":31,"expanded":true,"name":"Restwell","order":31,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":32,"expanded":true,"name":"The Eight Hours","order":32,"parentId":31,"scrollX":0,"scrollY":0}
 ]

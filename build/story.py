@@ -150,6 +150,22 @@ FACES = {
     # map's twenty-nine sites to get a room behind its door.
     "Gideon": ("Gen_People1", 4),
     "Dorothy": ("Gen_People1", 5),
+    # Restwell, and the last two cells of `Gen_People1`. SITES.md step 1: the
+    # Ashburys are the site, so they are the two that get drawn, and the sheet
+    # is full after them - step 2 opens a `Gen_People2`.
+    "Mrs Ashbury": ("Gen_People1", 6),
+    "Walt": ("Gen_People1", 7),
+    # Dr Pike shares a face rather than costing a new sheet on his own, on the
+    # Halbert Quy and Winnie Marsden precedent above: `SF_Actor3` is the
+    # north's sheet and has one face on it, Bryd's, forty miles and an act
+    # away. Index 6 is black hair and a dark jacket and is the only face in
+    # either SF set that reads as a professional man rather than a crew
+    # member, which is what a retired country doctor in a bar needs to be.
+    "Dr Pike": ("SF_Actor3", 6),
+    # The guest on Restwell's street is an ordinary person and shares the
+    # Neighbour's face; `Traveller` is People3:0, which is the royalty sheet
+    # and is already carrying a joke of its own in Nether Sopping.
+    "Guest": ("People1", 1),
 }
 
 

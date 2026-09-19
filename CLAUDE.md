@@ -93,12 +93,13 @@ nothing that is already in the tally comes out or gets re-voiced.
 that adds a `story.trope()` or a `story.blush()` site has to come back here.
 `VAR_TROPES` is 40 / 20 against about sixty-eight reachable (Firstfield added
 eight); `VAR_BLUSHES` is 20
-against **twenty-six** reachable - twenty-five measured off the data in August
+against **twenty-eight** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
-north. The tier is meant to be four fifths of the true total and is now 77%;
-`NORTH.md` 2.3 has the count, why counting it by grep gives 28 and is wrong,
-and why it is being left alone until the `BIOS.md` build-out has added more
-than one.
+north, and Walt's tune and the register in Restwell. The tier is meant to be
+four fifths of the true total and is now **71%**; `NORTH.md` 2.3 has the count,
+why counting it by grep over-counts and is wrong, and why it is being left
+alone. `SITES.md` section 4 item 5 is where it finally gets re-cut, and it is
+the one thing on that list that cannot be done incrementally.
 
 **ITEM 1 is a page, not a branch.** The crate is a whole scene rather than a
 question, so page 1 of the event is `c[:split] + item_one_scene() + c[split:]`
@@ -138,6 +139,11 @@ windows later he says this one is new.
                      the event at the foot of the rainbow on Map 8. Its two
                      drawing hooks are gone; the rainbow itself is a tile on
                      the world map now
+      restwell.py    Maps 31-32: Restwell and The Eight Hours, and the real
+                     door events on Map 8 for that site. `SITES.md` step 1, and
+                     the second site to be wired: the same shape as
+                     `penultima.py` with an **inn** where the shop was, which
+                     is what it was built to prove
       penultima.py   Maps 29-30: Penultima and Ye Final Shoppe, and the
                      **real** door events on Map 8 that replace the two
                      placeholders worldmap.json ships for that site. It is the
@@ -216,6 +222,7 @@ Append instead.
   the new world map's twenty-nine sites to have anything behind its door -
   `../WORLDMAP.md` item 10. **The places behind those doors start here and run
   up**, and each one is a module of its own |
+| Maps 31-32 | Restwell and The Eight Hours. `restwell.py`, `SITES.md` step 1 |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -467,8 +474,14 @@ makes eight passes over it cost less than the single pass did before.
   finale opens with a choice of its own, and slicing from the first code 102
   on the page runs the whole introduction and takes the wrong branch while
   reporting a pass |
-| `placeholder_doors` | that the world map's **41 site doors do nothing**. Every
-  page of every one of them has no commands, which is how an event says "this
+| `restwell` | `SITES.md` step 1, walked: onto Restwell's door off the world
+  map, in at the west gate, the fingerpost, in at the Eight Hours, Walt's tune
+  and the register (a blush each), **a night in a bed that actually restores
+  the party** - which is the mechanic the site exists to prove - Dr Pike, and
+  back out onto `places.RESTWELL_STEP` |
+| `placeholder_doors` | that the world map's **remaining site doors do nothing**.
+  It was 41 on 29 sites and is **37** now, Penultima's two and Restwell's two
+  having become real doors. Every page of every one of the rest has no commands, which is how an event says "this
   exists and is not finished" - and it is asserted out of the live game rather
   than off the data, because the day somebody wires the first real transfer is
   the day it stops being true for one of them. It walks onto Frostwick's door
@@ -529,7 +542,13 @@ of the art, so the data build never needs the untracked stock generator parts.
 
 | sheet | 0 | 1 | 2 | 3 | 4 | 5 | 6-7 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | free |
+| `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
+
+**`Gen_People1` is full.** The next generated face adds a `Gen_People2` to
+`art.py`'s `SHEETS`, which is one line. Restwell's third speaking part, Dr Pike,
+**shares `SF_Actor3:6`** instead - `story.FACES` records every such share and
+the reasoning, and sharing is the cheaper answer whenever a character is a
+single scene in one room.
 
 A generated person who has to be *fought* needs an `img/sv_enemies/` image,
 which the generator cannot make. `art.py`'s `ENEMIES` writes a stand-in cut

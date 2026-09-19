@@ -164,6 +164,15 @@ WORLD_MEADOW_STEP = (56, 74)    # was (21,39); on the spur, one east of it
 MAP_PENULTIMA, MAP_SHOPPE = 29, 30
 PENULTIMA_STEP = (63, 48)       # the tower road, one west of the western door
 
+MAP_RESTWELL, MAP_EIGHT_HOURS = 31, 32
+# One west of the western of Restwell's two `Town A` cells, and checked open
+# (`flags & 0x0F == 0`) against the finished `data/Map008.json` rather than
+# merely passable - a tile can be passable and still be blocked on three
+# sides. All four of Restwell's roads come back out here, which is a
+# simplification the map can afford: the crossroads is the town's joke and
+# not a junction of the world's.
+RESTWELL_STEP = (42, 81)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

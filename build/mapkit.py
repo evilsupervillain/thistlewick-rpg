@@ -267,7 +267,9 @@ INC_MEAL = c_tile(0, 5)
 INC_MEAL2 = c_tile(2, 5)
 INC_ARMOR_STAND = c_tile(4, 14)
 INC_LAMP = c_tile(6, 13)
-INC_BELL = c_tile(0, 15)
+INC_BELL = c_tile(0, 15)      # **`Globe`**, not a bell. Left alone: the
+                             # Thistlewick store ships it. Use the next one
+INC_DESK_BELL = c_tile(1, 15)  # `Bell`, which is what a counter wants
 INC_SWORD_STAND = c_tile(8, 2)   # `Sword Rack A`: one sword, on a stand
 INC_CASE = c_tile(0, 11)         # `Case A`: a glass display case
 INC_OPEN_BOOK = c_tile(4, 8)     # `Open Book A (V)`, which is what a ledger

@@ -24,6 +24,7 @@ import meadow  # noqa: E402
 import journey  # noqa: E402
 import north  # noqa: E402
 import penultima  # noqa: E402
+import restwell  # noqa: E402
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -63,6 +64,8 @@ MAP_NAMES = [
     (penultima.MAP_PENULTIMA, "Penultima", journey.MAP_WORLD),
     (penultima.MAP_SHOPPE, "Ye Final Shoppe",
      penultima.MAP_PENULTIMA),
+    (restwell.MAP_RESTWELL, "Restwell", journey.MAP_WORLD),
+    (restwell.MAP_EIGHT_HOURS, "The Eight Hours", restwell.MAP_RESTWELL),
 ]
 
 
@@ -268,6 +271,7 @@ def main():
     field.build()
     meadow.build()
     penultima.build()
+    restwell.build()
     build_map_infos()
     build_tilesets()
     build_system()

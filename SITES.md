@@ -70,8 +70,11 @@ Penultima is the worked example and `build/penultima.py` is the template.
 5. **A scenario that walks in from the world map and back out.** Not
    `$gameMap.event(n).start()` - walking is the only thing that proves the door
    swap landed on the right squares.
-6. **Faces.** `build/art.py`, `Gen_People1` slots 6 and 7 are free and then it
-   is a new sheet. Six `BIOS.md` characters already have settings files in
+6. **Faces.** `build/art.py`. **`Gen_People1` is full** - Restwell took the
+   last two cells - so the next site that needs a generated face adds a
+   `Gen_People2` to `SHEETS`, which is one line. A face can also be *shared*
+   rather than drawn, which is what Dr Pike does; `story.FACES` records every
+   such share and why. Six `BIOS.md` characters already have settings files in
    `build/characters/`; everybody else has to be drawn with `tools/chargen`,
    which is about fifteen minutes per person including looking at the result.
 
@@ -94,7 +97,7 @@ that is not - and **one module per session**, so a step is a session.
 | # | step | sites | maps | new faces | source |
 | --- | --- | --- | --- | --- | --- |
 | — | ~~Penultima~~ | 1 | 2 | 0 | **done** |
-| 1 | Restwell | 1 | 2 | 2 | `BIOS.md` |
+| — | ~~Restwell~~ | 1 | 2 | 1 | **done** |
 | 2 | Hithermost cluster | **3** | 2-3 | 1 | `BIOS.md` |
 | 3 | Fairholme and the lair | **2** | 3 | 1-2 | `BIOS.md` |
 | 4 | Olde Evermore | 1 | 2 | 1-2 | `BIOS.md` |
@@ -155,6 +158,32 @@ twenty-six years she is no longer sure it isn't the tune that does it.
   left and has taken a room himself for the rest, are new.
 * Walt's tune is the site's Register A candidate and the marriage is a good one,
   which is the rule - `NORTH.md` 1.2.
+
+**Done.** `build/restwell.py`, Maps 31 and 32, `build/scenarios/restwell.json`.
+The template generalises: the module is `penultima.py` with the shop swapped
+for `village.py`'s Gilded Turnip beds, and nothing about the door mechanism
+needed a second thought. `placeholder_doors` is **37**. Four things are worth
+carrying forward:
+
+* **The face bill came out at one new drawing, not two.** `Gen_People1` had two
+  cells and Restwell had three people in it, so the **Ashburys** took 6 and 7 -
+  she was already drawn, he was made here - and **Dr Pike shares `SF_Actor3:6`**
+  on the Halbert Quy and Winnie Marsden precedent. `Gen_People1` is now full and
+  **step 2 opens a `Gen_People2`**, which is a line in `art.py` and not a
+  problem.
+* **Two blushes, not one**, so `VAR_BLUSHES` is now 28 reachable against a tier
+  of 20 - 71%, under `NORTH.md` 2.3's four fifths. Section 4 item 5 is where
+  that gets cut and it is still the right place for it.
+* **A building's only face is its south side**, which decides the shape of a
+  street with buildings on both sides of it: the south row has to be read from
+  a lane *behind* it. The first draft put that row against the tree line and
+  left its doorsteps in a sealed four-cell pocket. `validate.py` found it; four
+  screenshots did not.
+* **`INC_BELL` is a `Globe`**, found by `propsheet.py` over the finished inn and
+  now recorded in `../TILES-AND-ASSETS.md` with the other five. `INC_DESK_BELL`
+  is it corrected. `IN_TABLE_ONE` is a sixth of a different kind - it is the
+  right object and is *illegible*, a red drape with no other detail, which at
+  forty-eight pixels is a red drum.
 
 ### 2. The Hithermost cluster — (30,23), (30,22), (30,21)
 
@@ -466,7 +495,8 @@ Only then, and in this order:
 5. Re-cut the two counter thresholds in `journey.finale_event`. `VAR_TROPES` is
    40/20 and `VAR_BLUSHES` is 20; both are cut against totals this work moves,
    and `NORTH.md` 2.3 says to keep the blush tier at four fifths of the true
-   total. It is already at 77% after Penultima's one moment. **This is the one
+   total. It is at **71%** after Penultima's one moment and Restwell's two -
+   twenty-eight reachable - and every site from here makes it worse. **This is the one
    thing on this list that genuinely cannot be done incrementally**, because it
    is a judgement about a total that is not known until the total stops moving.
 6. Then, and only then, push `master` to **`live-rpg`**.
