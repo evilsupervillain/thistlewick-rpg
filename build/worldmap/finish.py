@@ -67,6 +67,30 @@ class World:
         for z in (1, 2, 3):
             self.g.set(x, y, z, 0)
 
+    def put_land(self, x, y, biome='grass'):
+        """Ground where there was sea, with nothing standing on it.
+
+        The inverse of `put_sea`, and it is needed for exactly one thing a
+        generator cannot be asked for after the fact: a shape. The Lighthouse's
+        headland is three cells of rock reaching out past a coastline that is
+        otherwise where the erosion left it, and cutting water alone can only
+        ever make a coast straighter."""
+        self.g.set(x, y, 0, R.make_autotile(PALETTE.biomes[biome].base.kind, 0))
+        for z in (1, 2, 3):
+            self.g.set(x, y, z, 0)
+
+    def put_forest(self, x, y):
+        """Trees where a road was, which is how a village stops having a road.
+
+        Clearing layer 1 leaves bare ground, and a bare cell threading a wood
+        is a path - so Olde Evermore with its road merely deleted still has a
+        visible way in, which is the opposite of hidden."""
+        kind = FOREST_OF.get(self.base(x, y))
+        if kind is None:
+            return False
+        self.g.set(x, y, 1, R.make_autotile(kind, 0))
+        return True
+
     def put_mountain(self, x, y):
         kind = MOUNTAIN_OF.get(self.base(x, y))
         if kind is None:
@@ -79,9 +103,20 @@ class World:
     def clear_relief(self, x, y):
         self.g.set(x, y, 1, 0)
 
-    def save(self, path=None):
+    def settle(self):
+        """Autotile layers 0 and 1 *now*.
+
+        Everything in here writes shape 0 and lets `save` autotile at the end,
+        which is fine for tiles - but not for anything that then asks the
+        engine's passability flags, because a flag belongs to a *shape* and not
+        to a kind. So a pass that reads `_openness` over the whole map has to
+        settle first or it is reading shapes the engine will never see. Calling
+        it twice is free: a round trip through `autotile` is byte-exact."""
         for z in (0, 1):
             self.g.autotile(z)
+
+    def save(self, path=None):
+        self.settle()
         self.map["data"] = self.g.data
         json.dump(self.map, open(path or self.path, "w"), ensure_ascii=False)
 
@@ -245,12 +280,178 @@ def restamp(world, at, name, clear=()):
     return stamp
 
 
+# --------------------------------------------------------- hand-placed sites --
+# WORLDMAP.md 7.6: the generated twenty-one got three things for free that a
+# site put down by hand has to be given - the stamp, a door event per walkable
+# cell with no destination, and a standable check on every door cell. These are
+# the three, in one call, so a new site cannot be half-placed.
+
+def add_site(world, at, stamp_name, name, kind, note=None, check=True):
+    """A site: the stamp, and one player-touch door event per walkable cell.
+
+    **Player touch, below characters**, which is worldgen's own rule and the
+    engine's: an event at "same as characters" is triggered from the tile
+    beside it, so a door the player is meant to walk into is walked straight
+    over. The door chimes and goes nowhere, exactly like the generated
+    twenty-one, until somebody builds the room behind it.
+
+    `check` refuses to place a site whose stamp leaves no walkable cell to put
+    a door on, or that lands on another stamp's footprint - the two mistakes
+    arithmetic makes silently. A `Floating Continent` is all star tiles, so its
+    walkable cell is decided by the ground underneath, which is why the check
+    asks the finished map rather than the stamp.
+
+    `stamp_name` may be None, for a site whose landmark is *terrain*. Ashcombe
+    Lake is a body of water, and `Pond` is one small round pond drawn on a
+    single tile - repeat it over eight cells and the result is eight small
+    round ponds rather than a lake, which is only visible in a screenshot. The
+    three air-only rocks are the same category the other way up: events on bare
+    ground. So the door goes down, nothing is drawn, and the caller draws the
+    landmark out of terrain."""
+    stamp = _catalogue().stamp(stamp_name) if stamp_name else None
+    cells = [(at[0] + dx, at[1] + dy)
+             for dy in range(stamp.h) for dx in range(stamp.w)] if stamp \
+        else [at]
+    if check:
+        for x, y in cells:
+            if not (0 <= x < world.w and 0 <= y < world.h):
+                raise ValueError("%s: (%d,%d) is off the map" % (name, x, y))
+            if world.g.get(x, y, 2) or world.g.get(x, y, 3):
+                raise ValueError("%s: (%d,%d) already carries a stamp"
+                                 % (name, x, y))
+    if stamp:
+        restamp(world, at, stamp_name)
+    flags = _openness(world)
+    doors = [c for c in cells if flags[c[1]][c[0]]]
+    if check and not doors:
+        raise ValueError("%s at %s: no walkable cell for a door - the stamp "
+                         "blocks every cell of its own footprint, or the "
+                         "ground under a star stamp is not standable"
+                         % (name, at))
+    events = world.map.setdefault("events", [None])
+    for x, y in doors:
+        events.append(R.event(
+            len(events), name, x, y,
+            [R.page(R.comment(["hand-placed site %r" % name,
+                               "%s, drawn with %s"
+                               % (kind, stamp.name if stamp
+                                  else "terrain, not a stamp"),
+                               "no destination yet - see "
+                               "worldgen.sites.transfer_page"])
+                    + [R.play_se("Move1")], trigger=1, priority=0)],
+            note=note or "<worldmap-site %s>" % kind))
+    return doors
+
+
+def move_site(world, name, to, stamp_name=None, radius=3):
+    """Re-site a generated site: rub the building out, stamp it again, and take
+    its door events with it.
+
+    Four of the twenty-one are in the wrong place because a bio asserts a
+    geography the allocator could not know about - Penultima is *The Last Town
+    Before The End* and was standing on the wrong road. Moving one is three
+    things that have to agree: the tiles, the events, and the hand-maintained
+    site table in WORLDMAP.md. This does the first two and reports the third.
+
+    The events move by the same offset as the stamp, so a 2x1 town's two doors
+    stay one apart. Nothing is deleted: an event id is an index into the map's
+    own list and a hole in it is a hole for ever, so re-siting moves events and
+    never drops them."""
+    evs = [e for e in (world.map.get("events") or ()) if e and e["name"] == name]
+    if not evs:
+        raise ValueError("no events named %r to move" % name)
+    at = (min(e["x"] for e in evs), min(e["y"] for e in evs))
+    stamp = _catalogue().stamp(stamp_name) if stamp_name else None
+    if stamp_name:
+        # The door row of a stamp is its BOTTOM row, so a 2x1 town's footprint
+        # starts where its doors are and a 1x2 tower's one row above them.
+        unstamp(world, at, stamp_name, radius=radius)
+    dx, dy = to[0] - at[0], to[1] - at[1]
+    if stamp:
+        restamp(world, (at[0] + dx, at[1] + dy - (stamp.h - 1)), stamp_name)
+    flags = _openness(world)
+    for e in evs:
+        e["x"], e["y"] = e["x"] + dx, e["y"] + dy
+        if not flags[e["y"]][e["x"]]:
+            raise ValueError("%s: door (%d,%d) is not standable"
+                             % (name, e["x"], e["y"]))
+    return [(e["x"], e["y"]) for e in evs]
+
+
+def site_doors(world, name):
+    return [(e["x"], e["y"]) for e in (world.map.get("events") or ())
+            if e and e["name"] == name]
+
+
 def put_tiles(world, cells, name, z=3):
     """One stamp's single tile, repeated - what a pier is."""
     stamp = _catalogue().stamp(name)
     for x, y in cells:
         world.g.set(x, y, z, stamp.tile(0, 0))
     return len(cells)
+
+
+def put_scenery(world, cells, name, z=3, radius=3):
+    """Scenery back onto a square, or onto the nearest square that will take it.
+
+    `put_tiles` writes where it is told, which is right for a pier and wrong
+    for the thirteen decoration cells the middle redraw ate: three of the old
+    map's scatter trees now stand under the hand-drawn range and one is out at
+    sea, and writing a Giant Tree onto a mountain or onto water puts the tile
+    down without complaint and looks like a fault in the map. These tiles are
+    *scatter* - hand-typed lists in `journey.py`, `wilds.py` and `field.py`
+    with no meaning attached to any one coordinate - so nudging one to the next
+    open cell keeps the dressing and costs nothing, whereas clearing a mountain
+    to make room for it would hole the range for a decoration.
+
+    Refuses sea, refuses a cell with mountain relief on it, refuses a cell that
+    already carries a layer 2-3 tile (a stamp's own footprint) and refuses a
+    cell an event stands on. Returns the list of (asked, placed) so the caller
+    can print which ones moved; `placed` is None for one that found nowhere."""
+    stamp = _catalogue().stamp(name)
+    ev = {(e["x"], e["y"]) for e in (world.map.get("events") or ()) if e}
+    mountains = set(MOUNTAIN_OF.values())
+    taken = set()
+
+    def ok(x, y):
+        if not (0 <= x < world.w and 0 <= y < world.h) or (x, y) in taken:
+            return False
+        if world.base(x, y) in (None, SEA) or world.relief(x, y) in mountains:
+            return False
+        if world.g.get(x, y, 2) or world.g.get(x, y, 3) or (x, y) in ev:
+            return False
+        return True
+
+    out = []
+    for cx, cy in cells:
+        found = None
+        for r in range(radius + 1):
+            for dy in range(-r, r + 1):
+                for dx in range(-r, r + 1):
+                    if max(abs(dx), abs(dy)) == r and ok(cx + dx, cy + dy):
+                        found = (cx + dx, cy + dy)
+                        break
+                if found:
+                    break
+            if found:
+                break
+        if found:
+            world.g.set(found[0], found[1], z, stamp.tile(0, 0))
+            taken.add(found)
+        out.append(((cx, cy), found))
+    return out
+
+
+def report_scenery(label, placed):
+    kept = sum(1 for a, b in placed if b == a)
+    moved = [(a, b) for a, b in placed if b and b != a]
+    lost = [a for a, b in placed if b is None]
+    print("%-22s %d as asked%s%s" % (
+        label + ":", kept,
+        ", %d nudged %s" % (len(moved), " ".join(
+            "(%d,%d)->(%d,%d)" % (a[0], a[1], b[0], b[1]) for a, b in moved))
+        if moved else "",
+        ", %d LOST %s" % (len(lost), lost) if lost else ""))
 
 
 ROAD = 29                                                   # Road (Dirt)
@@ -261,6 +462,119 @@ def put_road(world, cells):
     for x, y in cells:
         world.g.set(x, y, 1, R.make_autotile(ROAD, 0))
     return len(cells)
+
+
+# -------------------------------------------------------------- the regions --
+# `Map008`'s `encounterList` filters every random battle by region, and a
+# generated map has no region layer - so the new world had **no random
+# encounters anywhere**, with nine perfectly good encounter entries sitting in
+# its header pointing at regions nothing was painted with. WORLDMAP.md item 3.
+#
+# The old 50x50's scheme, from `journey.py` and its two hooks:
+#   1 SOUTH  y >= 30, the gentle half    turnips, crows, field mix
+#   2 NORTH  y <= 21                     goblins, bandits, wisps
+#   3 COAST  the shingle, x >= 26        crabs, gulls, coast mix
+#   4 CLANG  the north-west lobe         the same three as NORTH
+#   0        the mountain band, y 22-29, and the three air-only rocks
+#
+# Three things change, and each is a decision rather than a translation:
+#
+# * **The divide is the range, not a latitude.** The 50x50 split at y=21/30
+#   because its mountain fence was on a fixed period across those rows; the new
+#   map has a drawn range whose spine runs from y=62 in the west to y=56 in the
+#   east, so the divide follows it per column. The eight-row dead band between
+#   the two goes: it was the fence, the fence is gone, and "no encounters here"
+#   was never the intent.
+# * **Snow and desert get regions of their own** - 5 and 6 - because a third of
+#   this map's climate did not exist on the 50x50 and pointing it at turnips
+#   would be worse than leaving it empty. They are *pointed at* the north's
+#   three troops for now, by adding them to those entries' `regionSet`, so
+#   nothing is empty today; the reason they are separate ids rather than just
+#   painted as 2 is so that a campaign writing real snow and desert encounters
+#   has somewhere to hang them without repainting the map.
+# * **The shingle has to be adjacent to sea.** `K.W_SAND` is autotile kind 26,
+#   `Dirt Field A`, and on the 50x50 every cell of it was shore. On the new map
+#   there are 353, including an inland basin in the far north - so a rule that
+#   says "kind 26 is the coast" puts crabs and gulls in a snowfield.
+REG_SOUTH, REG_NORTH, REG_COAST, REG_CLANG, REG_SNOW, REG_DESERT = 1, 2, 3, 4, 5, 6
+SHINGLE, SNOW, DESERT = 26, 40, 32
+# The old north-west lobe, translated: `field.py` painted x < 16, y < 21.
+CLANG_LOBE = (AT[0], AT[1], AT[0] + 16, AT[1] + 21)
+
+
+def paint_regions(world, spine, quiet=(), start=None):
+    """Region-tag every cell the player can stand on.
+
+    `quiet` is the cells that get region 0 - the air-only rocks, because nothing
+    lives out there and a party that has just landed on the Isle of Uncertain
+    Ownership should not be met by turnips. Everything else standable gets a
+    region, sea excluded by construction: `_openness` reads the engine's own
+    flags, so a cell is tagged exactly when it could have been walked on."""
+    flags = _openness(world)
+    quiet = set(quiet)
+    divide = _divide(world.w, spine)
+    x0, y0, x1, y1 = CLANG_LOBE
+    counts = {}
+    for y in range(world.h):
+        for x in range(world.w):
+            if not flags[y][x]:
+                world.g.set(x, y, 5, 0)
+                continue
+            if (x, y) in quiet:
+                r = 0
+            else:
+                base = world.base(x, y)
+                if base == SHINGLE and _by_sea(world, x, y):
+                    r = REG_COAST
+                elif base == SNOW:
+                    r = REG_SNOW
+                elif base == DESERT:
+                    r = REG_DESERT
+                elif y >= divide[x]:
+                    r = REG_SOUTH
+                elif x0 <= x < x1 and y0 <= y < y1:
+                    r = REG_CLANG
+                else:
+                    r = REG_NORTH
+            world.g.set(x, y, 5, r)
+            counts[r] = counts.get(r, 0) + 1
+    return counts
+
+
+def _divide(width, spine):
+    """The range's own latitude per column, so "north of the mountains" means
+    north of *these* mountains rather than north of a number."""
+    out = [spine[0][1]] * width
+    for (ax, ay), (bx, by) in zip(spine, spine[1:]):
+        for x in range(ax, min(bx, width - 1) + 1):
+            out[x] = ay + (by - ay) * (x - ax) / max(1, bx - ax)
+    for x in range(spine[-1][0], width):
+        out[x] = spine[-1][1]
+    return [int(round(v)) for v in out]
+
+
+def _by_sea(world, x, y):
+    for nx, ny in ((x+1, y), (x-1, y), (x, y+1), (x, y-1),
+                   (x+1, y+1), (x-1, y-1), (x+1, y-1), (x-1, y+1)):
+        if 0 <= nx < world.w and 0 <= ny < world.h and world.base(nx, ny) == SEA:
+            return True
+    return False
+
+
+def point_at(world, have, also):
+    """Add regions to the `regionSet` of every encounter entry that already
+    names `have`, so a newly painted region is not an empty one.
+
+    The nine entries came across from `Map008` in the map header `grow2.py`
+    copied, troop ids and all, so this needs no access to the game's database -
+    which is the point: the encounter *list* is `journey.py`'s to own and this
+    only widens where its existing entries apply."""
+    n = 0
+    for e in world.map.get("encounterList") or ():
+        if have in e["regionSet"]:
+            e["regionSet"] = sorted(set(e["regionSet"]) | set(also))
+            n += 1
+    return n
 
 
 # ---------------------------------------------------------------- the range --

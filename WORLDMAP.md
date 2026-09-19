@@ -6,14 +6,27 @@ too small to hold the expansion: `COMPANIONS.md` wants eight new location
 clusters and seven world-map-only sites, `BIOS.md` wants six more towns, and
 the 50x50 was already crowded.
 
-**Status: the map is built and reviewed, and is not installed.** It is
+**Status: the map is finished, reviewed, and not installed.** It is
 `build/worldmap/worldmap.json`, it stages cleanly, and nothing in `data/` or
-`build/` points at it yet. Section 6 is the list of what a session picking this
-up has to do.
+`build/` points at it yet. **Section 6 items 1-5 are done - all of "the map"** -
+which means every site is placed, the region layer is painted so the encounters
+fire, the lost decoration is back, and a contact-sheet pass has been run over
+the whole thing. What is left is **section 6 items 6-10, "the game"**: rewiring
+`places.py`, taking the drawing out of `journey.py`, the scenarios,
+`encounterStep`, and then the quests. That is Phase B and it is much larger
+than the map was; do not start it in the same session as anything else.
 
     python3 build/worldmap/run_finish.py --stage 941   # rebuild and stage it
     python3 build/worldmap/review.py 941               # old map vs new, measured
+    python3 build/worldmap/decor.py 941                # the decoration diff; 0 casualties
+    python3 build/worldmap/look.py 66 74 92 88         # a window of it, as text
     node ../tools/serve.js ../staging 8770 &           # then _probe.html?map=941
+    RMMZ_PORT=8770 node ../tools/shots.js /tmp/s 941:79:80 941:80:88
+    python3 ../tools/propsheet.py ../staging /tmp/p.png 941   # what the props *are*
+
+Run `decor.py` after every change - it exits non-zero on a casualty. And a
+screenshot is still the only thing that catches a stamp reading as the wrong
+object; four of Phase A's five items found something no check could see.
 
 **What a session on this map needs to read, and what it does not.** The
 workspace `CLAUDE.md` says to read `ROOMGEN2.md` and stop. **That instruction
@@ -80,6 +93,16 @@ Four things were true of the specification and are worth not rediscovering:
                       sites are unreachable, what is stranded
       reach.py        the flood fill both of those use
       place.py        put the party and the airship somewhere they can stand
+      decor.py        the decoration diff: `Map008`'s layer 2-3 cells against
+                      the new map at + (35,35), with deliberate losses,
+                      nudges and casualties counted apart. Non-zero exit if
+                      anything is a casualty, so it is a check and not a report
+      look.py         the map as text, one character per cell - biome, relief,
+                      stamps, roads, events. A screenshot is the only way to
+                      judge whether a map *reads*, and the wrong tool for
+                      asking where a coastline is; this answers "what shape is
+                      this headland" for a thousandth of the cost and can be
+                      diffed between runs
 
 **`MapGrid.autotile` reproduces worldgen's own output byte for byte** - 0 cells
 differ on a round trip, measured - which is what makes the hand pass safe.
@@ -93,21 +116,25 @@ Old-map places are at `old + (35,35)`. The doors that moved are marked.
 | --- | --- | --- | --- |
 | Thistlewick | (24,43) | **(60,79)** | moved: was astride the road |
 | Nether Sopping | (36,44) | **(71,84)** | moved down onto its own shore |
-| The Lighthouse | (41,44) | (76,79) | |
+| The Lighthouse | (41,44) | **(79,80)** | moved out onto its headland (6.1) |
 | Upper Clanging | (9,12) | (44,47) | |
 | Gloamwood Mouth | (17,27) | (52,62) | |
 | Gloamwood North Mouth | (17,20) | (52,55) | |
 | Obligatory Tower | (31,8) | (66,43) | |
 | everything else | | `+ (35,35)` | unchanged |
 
-The twenty new sites, from `generated.meta.json`:
+**The twenty-one generated sites.** Two of these rows have since been changed
+by hand and the sidecar does not know: **Penultima moved** and **the Sky Anvil
+was restamped**, both marked below. `generated.meta.json` describes what
+worldgen grew and is not editable, so from here on this table is the authority
+and 7.6's rule applies - the hand-placed sites are the second table under it.
 
 | site | at | stamp | for |
 | --- | --- | --- | --- |
 | Coldbarrow | (50,19) | Temple A (Snow) | ALD-3, ALD-2 |
 | Hithermost | (30,23) | Village A | `BIOS.md` Brother Quillon |
-| Sky Anvil | (76,26) | Giant Tree (Snow) | HOB-4 |
-| Penultima | (82,48) | Town B | `BIOS.md` Gideon Markup |
+| Sky Anvil | (76,26) | **Shrine** | HOB-4 - restamped; see 6.5 |
+| Penultima | ~~(82,48)~~ **(64,48)** | Town B | `BIOS.md` Gideon Markup - moved onto the tower road; see 7.2 |
 | Great Dunnage | (31,52) | Fortress City | HOB-1, NIX-1/2, ALD-4, PIP-3, COR-5, ROL-1 |
 | Sable Hart | (24,75) | House (Town) | COR-3, COR-4 |
 | The Lay-By | (11,88) | **Igloo** | ZEPH-5 - and see section 4 |
@@ -126,8 +153,28 @@ The twenty new sites, from `generated.meta.json`:
 | Wrong Dragon | (110,114) | Cave B | ALD-6 |
 | Village 1 | (60,61) | Village B | unclaimed - worldgen's own extra |
 
-Each has a door event on it already, generated, with no destination. They are
-**placeholders**: the transfer has to be written when the interior exists.
+**The eight placed by hand**, which is the table 7.6 asks for. Same state as
+the twenty-one: a stamp, a door event with no destination, and nothing behind
+the door. Every door cell was checked with `flags & 0x0F == 0` by
+`finish.add_site`, which refuses a site with no standable cell to put one on.
+
+| site | at | stamp | for |
+| --- | --- | --- | --- |
+| Ashcombe Lake | (104,54) | **terrain** - inland water, no stamp | COR-2 |
+| The Duck's Pond | (115,40) | Pond | ZEPH-2 |
+| Mrs Emberthwaite's lair | (111,69) | Cave A, in a drawn hill | `BIOS.md` Rosamund |
+| Tobias Frayne | (66,82) | House (Town) | MER-4 |
+| The Door into the Mountain | (30,21) | Tunnel | `BIOS.md` Brother Quillon |
+| Chapel of Continuance | (30,22) | Temple C | `BIOS.md` Brother Quillon |
+| Frostwick | (61,21) (62,21) | Town B (Snow) | 7.3 - invented |
+| The Former Premises | (79,88) (80,88) | Floating Continent (Castle) | 7.4 - invented, **air-only** |
+
+Each of the twenty-nine has a door event on it, with no destination. They are
+**placeholders**: the transfer has to be written when the interior exists. The
+hand-placed ones are noted `<worldmap-site ...>` rather than
+`<worldgen-site ...>`, which is how `review.py` tells them apart, and the
+Former Premises also carries `<aironly>` so `validate.py` asserts on foot that
+it cannot be reached.
 
 ## 4. Settled, and why
 
@@ -146,9 +193,22 @@ ridge in it. So the range is hand-drawn instead, along a polyline with its
 thickness from a noise field, and it runs **between the Gloamwood's two
 mouths** so the tunnel pierces it rather than sitting beside it.
 
-**The road network is in eleven pieces, and that is accepted for now.**
-Measured on the finished map by flooding the `Road (Dirt)` and `Road (Paved)`
-autotiles: eleven separate networks, the largest 148 cells. The big one is a
+**The road network is in pieces, and that is accepted for now** - but the
+count was misleading and the reason is worth knowing. Measured on the finished
+map by flooding the `Road (Dirt)` and `Road (Paved)` autotiles: **eleven**
+networks of ten cells or more, the largest 148, plus eight scraps of nine cells
+or fewer that were not counted. `review.py` now prints all of them, so the
+number it reports is larger than the one in this paragraph and always was.
+
+**Most of the fragmentation is diagonal joins, not gaps.** At four-connectivity
+the generated map is 19 pieces; at eight it is 16. MZ has no diagonal movement,
+so a road that meets the next road corner-to-corner is a road that stops - and
+that is what three of the biggest "separate networks" turned out to be. Closing
+one such corner at each end of the northern road merged **three** networks of
+148, 47 and 109 cells into one of 306 carrying fifteen sites (7.3). Roads are
+cheap and these are cheaper than that: the lever is one cell, and the thing to
+measure before drawing any new road is whether the two ends are already
+touching. The big one is a
 gap at y 56-61 where the old 50x50's north road used to run - the middle redraw
 erased it and the hand-drawn range now stands in it - so Thistlewick's network
 (57 cells, reaching Nether Sopping) does not join the Tower's (70 cells,
@@ -179,6 +239,24 @@ fixes all three. They were not obvious until the world had a climate:
 * Upper Clanging was `Fortress City (Snow)` on grass. Now `World_C/Slum`, which
   is 2x2 - the same footprint - and reads as an industrial village.
 
+**Half of the Lighthouse's restamp has since been reversed, and the reason is
+the only thing a contact sheet can find.** Section 4 unsnowed it - "the same
+tower, without the snow on it" - into `World_B/Tower A`, ids 80 and 88. That is
+exactly what `journey.py` draws the **Obligatory Tower** with, at (66,42). So
+the coastal landmark east of Nether Sopping and the final dungeon of the game
+were the identical graphic, and nothing could see it: not `validate.py`, not
+`review.py`, not a screenshot of either place, because each looks correct on
+its own. Item 5's `propsheet.py` pass resolves tiles back to catalogue records
+and lists them side by side, which is how two entries reading `Tower A` at two
+sites turned up. It is back on `Tower A (Snow)`, whose white top is a **lamp
+room** - the shipped game's own constant for it is `WB_TOWER_WHITE` - and the
+whole tower field was cropped before choosing: `Tower B` is `Tower A` in
+browner stone and indistinguishable at 48 pixels, `Tower C` is a pink ziggurat,
+`Tower D` is one cell, and every `World_C` tower including `World_C/Lighthouse`
+is a skyscraper or a modern light. **A few snow flecks in temperate country is
+a smaller fault than the final dungeon having a twin**, and that is the trade
+that was made.
+
 **The 50x50 has two cells nobody can reach**, at (6,27) and (9,27): single
 walkable holes sealed inside the western mountain mass. Stage 4 refuses to
 build on a map with those in it, so `grow2.py` walls them up (`SEALED`). Both
@@ -186,7 +264,8 @@ are inside the band that gets redrawn, so they are gone either way.
 
 ## 5. What was found in the tools
 
-Four faults in `tools/worldgen`, all fixed, **none committed yet**:
+Four faults in `tools/worldgen`, all fixed and **committed** - the workspace's
+`875abe3 worldgen: four fixes found by growing a world around a real map`:
 
 * `climate.py`, `allocate.py`, `preserve.py`: `np.unique` on a label array
   containing `None` raises `TypeError`. It fires the moment a source map has a
@@ -211,29 +290,112 @@ Four faults in `tools/worldgen`, all fixed, **none committed yet**:
 
 ## 6. What is left to do
 
-In order. The first five are the map; the rest is the game.
+**Items 1-5 are done** - the whole of Phase A - and what each of them turned
+out to be is below, because four of the five found something the plan had not
+predicted. Items 6 onwards are untouched and are Phase B.
 
-1. **The Lighthouse's own geography.** It sits on flat coast rather than a
-   headland. Cosmetic, and the one piece of section 4's settlement work that
-   was not finished.
-2. **The sites still to place, and the four that are sited wrong.** Section 7
-   is the list: four places the design documents ask for and the map has not
-   got, four whose bios assert a geography the map does not honour, a snow
-   town the far north has no substitute for, and one floating continent. All
-   of it is hand-stamp work in `run_finish.py`, and it comes before the region
-   layer because regions are painted over a finished map.
-3. **The region layer.** A generated map has none, and `Map008`'s
-   `encounterList` keys off `regionSet` 1-4 - so **the new world has no random
-   encounters anywhere**. Paint regions by biome; the sidecar has every cell's
-   biome. Remember that region 1 painted over a map reads back as tile 1, which
-   on some sheets is a real tile.
-4. **The three air-only rocks.** The Isle of Uncertain Ownership (55,83),
-   Attempt 112's sea stack (37,40) and the Middle Distance (82,65) are the only
-   three walkable places off the mainland, which is correct, but their events
-   are not on the map. Re-place them per `places.py`'s rules: player-touch,
-   below characters, one bare square each for the airship.
-5. **A pass with `propsheet.py`** over the finished map, per the workspace
-   `CLAUDE.md`: a map-scale screenshot does not tell you what a prop is.
+1. ~~**The Lighthouse's own geography.**~~ **Done.** It is a spit: three cells
+   of `Rocky Land A` reaching east out of the coast at x=76, two deep, water cut
+   either side of the neck, the track running out along it, and the tower at the
+   tip - so the Lighthouse **moves to (79,80)**, which item 6 has to re-derive
+   its exit from rather than offsetting. `EXPANSION.md` always called it "a
+   world-map landmark east of Sopping **on a spit of rock**" and `places.py`'s
+   own constant has read `# on its own headland` the whole time; the generated
+   coast left it two cells inland of a blunt corner, which is a lighthouse
+   standing in a field. `finish.put_land` exists for this and only this:
+   cutting water can only ever make a coast *straighter*, so a shape that
+   reaches out has to be drawn. The stamp changed too, and that was item 5's
+   find - see section 4.
+2. ~~**The sites still to place, and the four that are sited wrong.**~~
+   **Done, all nine.** Section 7 has each one; section 3's second table is the
+   hand-maintained list 7.6 asked for. Two things learned that generalise:
+   * **A stamp's own cell has to be *open*, because the door stands on it.**
+     Every site door is a player-touch, below-characters event on the stamp
+     cell, so `World_C/Hut` (0x60f) cannot carry one and `House (Town)` can -
+     which is why 7.1 offered both for Frayne. It is also the constraint that
+     produced the Sky Anvil's wrong stamp, and why a rock is hard to draw: every
+     rock in the catalogue is blocked. `finish.add_site` refuses a site whose
+     footprint leaves no standable cell, and refuses one that lands on another
+     stamp - the two mistakes arithmetic makes in silence.
+   * **A stamp repeated is not a bigger thing, it is more things.** Ashcombe
+     Lake was placed as `Pond`, which is one small round pond drawn on a single
+     tile, and read as a puddle with a drowned village allegedly under it. Seven
+     of them would have read as seven puddles. It is inland **water** now, the
+     sea autotile with a sand shore, and the door is a square of shoreline -
+     which is also the better joke, because COR-2's lake is drawn down for the
+     sluices and "if you are there that week you can walk in". Only a
+     screenshot finds this.
+3. ~~**The region layer.**~~ **Done, and the encounters work.** `generated.json`
+   already carried `Map008`'s nine `encounterList` entries and `encounterStep`
+   36 - `grow2.py` copied the map header - so the only thing missing was the
+   layer, and nine good encounter entries were pointing at regions nothing was
+   painted with. Three decisions, in `finish.paint_regions`:
+   * **The divide is the range, not a latitude.** The 50x50 split at y<=21 /
+     y>=30 with a dead band between, because its mountain fence stood in those
+     rows. The new map has a drawn range whose spine runs y=62 in the west to
+     y=56 in the east, so the divide is interpolated per column. The dead band
+     is gone: it was the fence, and "no encounters here" was never the point.
+   * **Snow and desert get regions 5 and 6.** A third of this map's climate did
+     not exist on the 50x50, and pointing it at turnips would be worse than
+     leaving it empty. They are *widened into* the north's three troops for now
+     by adding 5 and 6 to those entries' `regionSet` - so nothing is empty
+     today, and a campaign writing real snow and desert encounters has
+     somewhere to hang them without repainting the map. `finish.point_at` does
+     that without touching the database: the troop ids came across in the
+     header, so the encounter *list* stays `journey.py`'s to own.
+   * **The shingle has to be next to the sea.** `K.W_SAND` is autotile kind 26,
+     `Dirt Field A`, and on the 50x50 every cell of it was shore. The new map
+     has 353 including an inland basin in the far north, so "kind 26 is the
+     coast" puts crabs and gulls in a snowfield. 58 cells qualify.
+
+   Painted: south 2786, north 2310, coast 58, clanging 193, snow 1251, desert
+   669, and 12 quiet. **It has to run after `World.settle`**, which is new: a
+   passability flag belongs to an autotile *shape* and not to a kind, and
+   everything in `finish.py` writes shape 0 and lets `save` autotile at the end
+   - so a pass that asks "can the player stand here" of every cell has to
+   settle first or it is reading shapes the engine will never see.
+4. ~~**The three air-only rocks.**~~ **The map half is done; the events are
+   item 6's.** Their events live in `field.py` and arrive with it, so what was
+   checkable here was the geometry, and item 7's suspicion was right:
+   **the Middle Distance had lost one of its two hill cells.** `field.py` puts
+   `W_HILLS` on the back row - 0x0e0f, impassable *and* carrying 0x0800, so it
+   is scenery an airship cannot set down on and the two rows in front are where
+   the airship goes and where the bench is - and the middle redraw took (82,65),
+   which came back **open**. The rock had five walkable cells instead of four
+   and the Hermit had a hill with a hole in it. Restored.
+
+   **`decor.py` cannot see a fault like that and is not going to be made to.**
+   It diffs layers 2 and 3, where a decoration is a tile that is either there or
+   not; layer 1 is autotiled terrain that differs almost everywhere on purpose,
+   so a diff of it reports the whole new world. The four places off the mainland
+   are checked **by name** in `review.py` instead, which prints each one's cell
+   count, walkable count, landable count and region, and says so out loud if any
+   of them becomes walkable from the mainland. All four are region 0: nothing
+   lives out there, and a party that has just set down on the Isle of Uncertain
+   Ownership should not be met by turnips.
+5. ~~**A pass with `propsheet.py`**~~ **Done, and it earned its place twice.**
+   Sixty distinct prop tiles over the finished map. Two findings, neither of
+   which any other check could have produced:
+   * **The Lighthouse was the Obligatory Tower.** Section 4 has the write-up.
+   * **The Sky Anvil was a tree.** "A meteorite used as a gatepost since 1749",
+     HOB-4's whole joke, stamped `Giant Tree (Snow)` by worldgen - a snowy tree
+     standing in for a rock, which at 48 pixels is a plausible landmark that
+     contradicts the only line of dialogue about it. This is exactly the
+     workspace `CLAUDE.md`'s "a prop that was the wrong *object*". It is
+     `Shrine` now: a stone trilithon with a boulder resting across the top, a
+     gatepost with a rock on it, and open, so the door event did not move. The
+     **unsnowed** variant, which is the opposite call to the Lighthouse's and
+     for the opposite reason - both were rendered in place, and `Shrine (Snow)`
+     is white stone under white snow on a white snowfield and vanishes. A
+     landmark you cannot see is not a landmark.
+
+   Two things worth not rediscovering from the same sheet. `Mine` is the
+   catalogue's name for `WB_CAVE_DARK`, which is already the tile for both
+   Gloamwood mouths, the Barrow and the Crag - so 7.5 item 2's mine would look
+   like the Barrow, and needs a different stamp or a reason. And the `Rainbow`
+   at (55,73) and the `Bridge (H)` at (72,109) are `meadow.py`'s and
+   worldgen's respectively, both correct, both surprising in a list.
+
 6. **`places.py`**, rewritten: every constant in it moves by (35,35) except
    Thistlewick and Nether Sopping, which moved further. Section 3 is the table.
    **This is also how every exit back onto the world map gets fixed.** Measured
@@ -246,9 +408,13 @@ In order. The first five are the map; the rest is the game.
    `R.transfer(MAP_WORLD, *WORLD_SOMETHING_STEP)` or `WORLD_SOMETHING[1] + 1`,
    so this is one file and a rebuild rather than thirteen hand edits. Three
    things stop it being a `+35` sweep:
-   * **Four do not move by 35.** Thistlewick, Nether Sopping, Upper Clanging
-     and the Lighthouse were all restamped and re-sited by section 4; their
-     exits have to be re-derived from section 3, not offset.
+   * **Four do not move by 35, and one of those moved twice.** Thistlewick,
+     Nether Sopping, Upper Clanging and the Lighthouse were all restamped and
+     re-sited by section 4; their exits have to be re-derived from section 3,
+     not offset. The Lighthouse has since moved again, out onto its headland:
+     it is **(79,80)**, not (76,79) and certainly not `+35`. Penultima moved
+     too - to (64,48) - and while it has no exit of its own yet, anything that
+     learns its coordinate has to learn it from section 3 and not the sidecar.
    * **The `+1` convention breaks for two of them.** Several exits are written
      as "one square south of the door" - `WORLD_PIT[1] + 1`,
      `TOWER_DOOR[1] + 1`, `WOOD_MOUTH[1] + 1`. But `run_finish.py` gives
@@ -280,31 +446,42 @@ In order. The first five are the map; the rest is the game.
    Each one has to be re-placed, either as a `put_tiles` line in
    `run_finish.py` or as a hook that survives.
 
-   **Thirteen of them are already gone, and here is the list.** `Map008.json`
-   is built output, so it contains every one of those tile writes; diffing its
-   layer-2 and layer-3 cells against the new map at `+ (35,35)` finds all of
-   them at once, which is the check to re-run after any change to
-   `run_finish.py`. Twenty-seven decoration cells differ. **Fourteen are
+   **Thirteen of them were already gone; all thirteen are back.** `decor.py`
+   is that diff, and it is the check to re-run after any change to
+   `run_finish.py`: it compares `Map008`'s layer-2 and layer-3 cells against the
+   new map at `+ (35,35)`, and it exits non-zero on a casualty so it is a check
+   rather than a report. Twenty-seven cells differed. **Fourteen are
    deliberate** - the three `Fortress City` stamps at Thistlewick, Nether
    Sopping and Upper Clanging, and the Lighthouse's `Tower A (Snow)`, all
-   restamped by section 4. The other **thirteen are casualties** and have to be
-   put back:
+   restamped by section 4. The other thirteen were casualties:
 
-   | what | old | new | note |
+   | what | old | new | outcome |
    | --- | --- | --- | --- |
-   | The Hermit's hut (`WB_HUT`, a `Tent`) | (40,29) | (75,64) | inside the redraw box |
-   | Meredith Crooke's camp tent (`WB_HUT`) | (11,32) | (46,67) | inside the redraw box |
-   | **The Bottomless Pit's cave mouth** (`WB_CAVE`, `Cave A`) | (8,35) | (43,70) | inside the redraw box |
-   | Giant Tree scenery (`WB_TREE`), 7 cells | (40,21) (37,22) (9,25) (34,29) (7,33) (44,33) (12,35) | `+35` | 5 in the box, 2 under the range |
-   | Rock scenery (`WB_ROCK`, `Dirt`), 3 cells | (36,13) (7,22) (31,31) | `+35` | 1 in the box, 2 elsewhere |
+   | The Hermit's hut (`WB_HUT`, a `Tent`) | (40,29) | (75,64) | restored |
+   | Meredith Crooke's camp tent (`WB_HUT`) | (11,32) | (46,67) | restored |
+   | **The Bottomless Pit's cave mouth** (`WB_CAVE`, `Cave A`) | (8,35) | (43,70) | restored |
+   | Giant Tree scenery (`WB_TREE`), 7 cells | (40,21) (37,22) (9,25) (34,29) (7,33) (44,33) (12,35) | `+35` | 3 as asked, **4 nudged** |
+   | Rock scenery (`WB_ROCK`, `Dirt`), 3 cells | (36,13) (7,22) (31,31) | `+35` | restored |
 
-   **The Pit is the one that matters.** It is a real destination with a
-   transfer event on it, and `run_finish.py` already digs its terrain back out
-   of the mountain the redraw buried it under - but the cave mouth is a
-   *decoration tile*, and nothing put that back. The Pit is currently an
-   invisible hole in open ground. The two tents are the same class of fault
-   one step down: the Hermit and Crooke both still have their events and their
-   squares, and neither has anything to look at.
+   **The Pit was the one that mattered** and it is a cave mouth again -
+   `run_finish.py` already dug its terrain back out of the mountain the redraw
+   buried it under, but the mouth is a *decoration tile* and nothing had put
+   that back, so the Pit was an invisible hole in open ground with a transfer
+   event on it. The two tents were the same fault one step down: the Hermit and
+   Crooke both had their events and their squares and nothing to look at.
+
+   **Four of the seven trees moved a cell or two, and that is the right
+   answer.** Three of them now stand under the hand-drawn range and one is out
+   past the mended coast, and `put_tiles` writes where it is told - so a Giant
+   Tree goes onto a mountain, or into the sea, without complaint, and looks like
+   a fault in the map. These tiles are *scatter*: hand-typed coordinate lists in
+   `journey.py`, `wilds.py` and `field.py` with no meaning attached to any one
+   cell. So `finish.put_scenery` refuses sea, mountain relief, an existing
+   stamp footprint and an event's square, and nudges to the nearest cell that
+   will take one - which keeps the dressing and costs nothing, where clearing a
+   mountain to make room would hole the range for a decoration. `decor.py`
+   counts a nudge as accounted for and a loss as a casualty, so the number can
+   reach zero and stay a check. **It is 0 casualties, 4 nudged.**
 
    **The events themselves are all fine**, which is worth knowing because it is
    the half that could have been much worse: all twenty-eight of `Map008`'s
@@ -313,19 +490,23 @@ In order. The first five are the map; the rest is the game.
    `WB_SIGN` tile blocks its own cell and is read from beside it - so that is
    the idiom, not a regression.
 
-   One to confirm rather than fix: **the Middle Distance's anchor cell went
-   from blocked to open.** `field.py` drew a hill there at old (47,30) and the
-   redraw took it; `KEEP_WATER` protects the water round it and
-   `run_finish.py` re-isolates the rock, so the air-only geometry should still
-   hold - but "walkable" is the one thing that joke cannot survive, so check it
-   when item 4 re-places the rocks.
+   One that was confirmed and fixed: **the Middle Distance's anchor cell had
+   gone from blocked to open.** `field.py` drew a hill there at old (47,30) and
+   the redraw took it. Item 4 above has the write-up and `review.py` now checks
+   all four sea places by name.
+
 8. **The scenarios.** Anything that walks the world map by coordinate breaks.
 9. **`encounterStep`.** Everything is about twice as far - Thistlewick to the
    Tower goes from ~40 steps to ~81 - so at step 36 the walk north has twice
    the battles it had. Re-cut it, or the trek stops being funny.
 10. **Then the new quests**, which is what the whole thing is for.
 
-## 7. The sites still to place
+## 7. The sites still to place - **placed**
+
+**All nine are on the map**: 7.1's four, 7.2's four re-sitings, 7.3's snow town
+and 7.4's floating continent. Each subsection below keeps the design reasoning,
+which is the half worth re-reading, and records under it what was actually done
+and what it cost. Section 3's second table is the coordinates.
 
 Measured by reading `COMPANIONS.md` and `BIOS.md` back against section 3's
 twenty-one. The headline is that the map is in better shape than it looks:
@@ -343,17 +524,39 @@ somebody builds the room behind them, which is section 6 item 10 and is a
 larger effort than this whole document: `COMPANIONS.md` section 7 sketches
 **nineteen maps** for the eight clusters, and names faces as the blocker.
 
-### 7.1 Four the design documents ask for and the map has not got
+### 7.1 Four the design documents ask for - **all four placed**
 
 Each is one stamp, one door event and a line in `run_finish.py`. None needs an
-interior to exist first; they are placeholders like the twenty.
+interior to exist first; they are placeholders like the twenty-one. Where each
+one went, and what each cost beyond a line, is below the table; section 3's
+second table is the authority for the coordinates.
 
 | site | for | wants | near |
 | --- | --- | --- | --- |
-| **Ashcombe Lake** | COR-2, and it is in `COMPANIONS.md`'s world-map-only table | `Pond` | Ashcombe (102,55) |
-| **The Duck's Pond** | ZEPH-2, same table; "four miles from the Collegium" | `Pond` | Collegium (112,38) |
-| **Mrs Emberthwaite's hill** | `BIOS.md` Rosamund - the retired, widowed, card-playing dragon, and the whole point of her bio | a hill with a lair on it; `Cave A` or `Tower` | Fairholme (104,73) |
-| **Tobias Frayne's cottage** | MER-4; `COMPANIONS.md` section 4 sites him on "the coast road cottage", which is a real coordinate now | `Hut` or `House (Town)` | the old coast road, `+ (35,35)` |
+| **Ashcombe Lake** | COR-2 | **inland water**, not `Pond` - see below | (104,54), two cells from Ashcombe's east door |
+| **The Duck's Pond** | ZEPH-2, "four miles from the Collegium" | `Pond`, one cell, which is right for one duck | (115,40), with the Collegium in shot |
+| **Mrs Emberthwaite's hill** | `BIOS.md` Rosamund | `Cave A` in a **drawn** hill - the palette has no hill | (111,69), seven cells from Fairholme |
+| **Tobias Frayne's cottage** | MER-4, "the coast road cottage" | `House (Town)`; `World_C/Hut` is blocked | (66,82), on the old coast road, now y=81 |
+
+**Ashcombe Lake is water, and `Pond` was the wrong tool.** `Pond` is one small
+round pond drawn on a single tile - correct for the Duck's, and a puddle for the
+lake a village is supposed to be under. Repeating it would have given seven
+puddles, not a lake. It is the sea autotile inland now, seven cells with a sand
+shore in the valley north-east of the village, and the door is a square of
+*shoreline* - which is the better joke anyway, because COR-2's lake is drawn
+down one week a year for the sluices and "if you are there that week you can
+walk in". Only a screenshot finds a fault like this; the text view and every
+check said it was fine.
+
+**The lair is a hill drawn by hand, and a cave mouth over mountain relief reads
+back as open.** Eleven cells of `Mountain (Grass)` in a three-five-three
+diamond - a 3x3 block reads as a plantation - with `Cave A` on layer 3 in the
+middle of the southern face. The topmost non-star tile decides passage, so the
+cave cell is standable inside a mountain, which is exactly how the Bottomless
+Pit and the Barrow have always worked. It also gets a **five-cell track** off
+the Fairholme road, and it is the only road on the map that goes to a dragon:
+Rosamund "has started going round on Thursdays **without being carried**", and
+a lair somebody visits weekly has a path to it.
 
 **Emberthwaite is not the Wrong Dragon.** ALD-6's dragon is at (110,114), forty
 cells south. Two dragons is the joke working twice, not a duplicate.
@@ -364,25 +567,57 @@ These are re-sitings, and they are the same class of work as section 4's three
 settlement fixes - not obvious until somebody read the bio and the map at the
 same time.
 
-* **Penultima has to be the last town before the Tower, and it is not.**
+**All four are done.** Each is written up below as the problem it was; what
+was actually done is the line after it.
+
+* **Penultima has to be the last town before the Tower, and it was not.**
   That is its name and its entire joke - *The Last Town Before The End. Last
   Chance For Potions.* **Measured**: it is at (82,48) on the eastern road
   network, the 104-cell one it shares with the Collegium, Ashcombe and
   Fairholme. The Tower at (66,43) is on a different 70-cell network with Upper
-  Clanging, and no road joins them. So Penultima is currently the last town
-  before the east coast. **Settled: it moves onto the tower approach.** A shop
-  that doubles its prices when a Chosen One is sighted on the road has to be on
-  the road the Chosen One is on.
+  Clanging, and no road joins them. So Penultima was the last town before the
+  east coast. A shop that doubles its prices when a Chosen One is sighted on the
+  road has to be on the road the Chosen One is on.
+  **Done: (64,48)**, five cells south of the tower door with its two doors
+  against the approach road at x=63, and no spur needed. Measured after:
+  Penultima is now the only site on that 70-cell network, which is the whole
+  point - it is alone on the road to the end of the world. `finish.move_site`
+  is the operation: it rubs the building out by its own ids, restamps it, and
+  carries its door events with it by the same offset. **Nothing is deleted** -
+  an event id is an index into the map's own list and a hole in it is a hole
+  for ever - so re-siting moves events and never drops them.
 * **Olde Evermore is *hidden*.** `BIOS.md`: "the hidden elven village that every
-  party finds eventually, by falling off the same ledge". It currently has a
-  road to it like any other village. Hiddenness here is geography, not a
-  switch: no road, and a ledge to fall off.
+  party finds eventually, by falling off the same ledge". It had a road to its
+  door like any other village. Hiddenness here is geography, not a switch: no
+  road, and a ledge to fall off.
+  **Done**, and it very nearly broke the south-west. The road past it is the
+  **trunk**, not a spur: it comes down x=28, doglegs east to x=29 for three rows
+  straight past the village door, and carries on south to Gladhollow. Deleting
+  those cells dropped Gladhollow's road network from 79 cells to 21 - a change
+  nothing on the map says out loud and no screenshot shows. So the trunk is
+  *re-routed* straight down x=28 first, and only then does the dogleg go back to
+  trees: `finish.put_forest`, not a clear, because a cleared cell threading a
+  wood is a path. The village is now a pocket with mountain closed round its
+  north and east - the ledge - forest on its western approach, and no road to
+  its door. **If any road is ever removed again, measure every site's network
+  before and after**; `review.py` prints the pieces for exactly this.
 * **Hithermost's chapel stands beside the only door into the mountain**, at the
   top of the pass above the village. The Chapel of Continuance is *for* that
   door - travellers write their names in the Book and then go through it. There
   is a `Tunnel` stamp for exactly this and the site is built around it.
-* **Restwell is a crossroads town** - "one street and nineteen inns". It wants
-  roads that actually cross at (43,81).
+  **Done, as two sites.** The pass is the neck at y=21 where the western massif
+  reaches the road at x=31, two cells above the village; the `Tunnel` is set into
+  that face at **(30,21)** and the **Chapel of Continuance** stands below it at
+  **(30,22)**, so the Book is the last thing on the near side. Village, chapel,
+  door into the mountain, stacked up the pass in that order. `Temple C` for the
+  chapel, because Coldbarrow has `Temple A (Snow)` and Weeping Bottom has
+  `Temple B`.
+* **Restwell is a crossroads town** - "one street and nineteen inns" - and the
+  road merely arrived from the north-west and stopped.
+  **Done: eighteen cells.** Road on all four sides of the town block and four
+  arms leaving it - the existing one north-west, a street west and a lane east,
+  and a southern arm down the one-cell corridor at x=46 that the mountains leave
+  open, which is a piece of the map that had no road on it at all.
 
 ### 7.3 A snow town, which is new
 
@@ -442,13 +677,29 @@ Ones; and the eleven days, which are commemorated. What the interiors actually
 are is a later decision.
 
 **What that means for the stamp.** A town, not a village: it has a committee, a
-festival, an inn and a contract. **`Town B (Snow)`**, which is 2x2 and is the
-snowed twin of Thistlewick's own `Town B` - deliberately, because Frostwick is
-what Thistlewick would be if one of the forty-seven had come home and stayed.
-Somewhere around **(62,22)**, subject to the land and standable checks: it
-fills the gap between Coldbarrow (50,19) and the Sky Anvil (76,26), and it can
-sit on the 44-cell northern road network that already joins those two, which
-gives the far north one road with three things on it instead of three errands.
+festival, an inn and a contract. **`Town B (Snow)`**, which is 2x1 - not 2x2 -
+and is the snowed twin of Thistlewick's own `Town B`, deliberately, because
+Frostwick is what Thistlewick would be if one of the forty-seven had come home
+and stayed.
+
+**Placed at (61,21)-(62,21)**, all snow, no relief under it, with a three-cell
+road spur east along y=22 to meet the northern road at (65,22).
+
+**And the reason this square was chosen was not true, which is worth recording
+because the fix was two cells.** 7.3 said the site "can sit on the 44-cell
+northern road network that already joins" Coldbarrow and the Sky Anvil. Measured:
+that network joined **neither**. It ran between the two and touched them only
+*diagonally* - (50,20) beside (49,19) at Coldbarrow, (76,25) beside (77,26) at
+the Anvil - and MZ has no diagonal movement, so a diagonal join is a road that
+stops. Frostwick would have been alone on a 47-cell road going nowhere.
+**One cell at each end** - (49,20) and (77,25) - closed both corners and merged
+three networks of 148, 47 and 109 into **one of 306 carrying fifteen sites**:
+Coldbarrow, Frostwick, the Sky Anvil, Hithermost, Great Dunnage, Sable Hart,
+the Lay-By, Ashcombe, Ashcombe Lake, the Collegium, Fairholme, Emberthwaite's
+lair, the Duck's Pond, the Chapel and the Door into the Mountain. So the far
+north is one road from the chapter house to the gatepost with a town on it,
+which is what this section asked for and thought it already had. Section 4 has
+the general lesson.
 
 `COMPANIONS.md` section 7 names faces as **the** blocker, so this cast is a
 bill as well as a joke - see `../CHARGEN.md`, which is now the answer to that.
@@ -495,14 +746,27 @@ caretaker still on the books, and a change of premises minuted by a committee.
 Ott gets to ask what it is made of. Grimspite has never seen it and has opinions
 about the old place he has inherited entirely from paperwork.
 
-**What that means for the stamp.** `Floating Continent (Castle)`, out over
-water, far enough from any coast that it reads as *out there* rather than as an
-offshore rock. Built to section 6 item 4's rules - player-touch events, below
-characters, one bare square kept clear for the airship, `<aironly>` on the
-events so `validate.py` asserts on foot that it cannot be reached. The square
-it stands over must be checked with `flags & 0x0F == 0` like any other, because
-a floating castle that the player can walk to is the one thing this joke cannot
-survive.
+**What that means for the stamp, and what it turned out to need.**
+`Floating Continent (Castle)` is two **star** tiles (0x610), so the stamp
+decides *nothing* about passage and the ground underneath decides everything -
+which is the whole difference between this and a stamp on the water. A star
+stamp over sea is a castle nobody can stand on, and the check that catches it
+is `finish.add_site`'s: it asks the finished map for a standable cell rather
+than asking the stamp, and refuses a site that has none.
+
+So it is **three cells of `Clouds`** - autotile kind 42, which is open at 0x600,
+and which is plainly what the palette carries a cloud biome *for* - out in the
+middle of the southern sea at **(79,88)-(81,88)**, with six cells of open water
+on every side, which is what makes it read as *out there* rather than as an
+offshore rock. Two cells carry the castle and its doors and **the third is left
+bare**, because `Game_Vehicle.isLandOk` refuses a square with an event on it:
+a castle with a door on every cell is a castle with no way in. The events carry
+`<aironly>`, `review.py` confirms none of the three is walkable from the
+mainland, and they are region 0 like the other three rocks.
+
+One thing it had to be told: **`sink_islets` would have drowned it.** Three
+walkable cells nobody can walk to is precisely what that pass exists to drown,
+so the Premises is in `run_finish.py`'s `rocks` list beside the other three.
 
 It is air-only, so it is built to section 6 item 4's rules: player-touch
 events, below characters, one bare square kept clear for the airship to land
@@ -517,10 +781,30 @@ now** - there is enough in section 6 already - but they are written down here
 so the next person does not have to do the audit again, and in the order they
 would be worth doing:
 
-1. **A graveyard** (`Cemetery A/B`). The best of them: the premise is
-   forty-seven dead Chosen Ones, the Wall of the Forty-Seven is already an
-   event in Prophecy Hall, and a field of forty-seven headstones with the
-   forty-eighth plot dug and waiting is one stamp.
+1. **A graveyard** (`Cemetery A/B`). One stamp, and the premise as first
+   written here was **wrong** - do not build it as stated. "Forty-seven dead
+   Chosen Ones" contradicts the spine of `EXPANSION.md`, which asks "forty-seven
+   went north; where are they?" and answers **Nether Sopping**: they came back,
+   they were quietly resettled, and they are all alive in the Slain Wyvern.
+   Exactly one is buried, and elsewhere - Ambrose Fitch, #44, in the Barrow of
+   the Forty-Fourth in the eastern hills, who is not even dead in the useful
+   sense because he stands up and fights you. The dead are already counted, and
+   not by Thistlewick: the Sopping harbour memorial has a hundred and
+   eighty-one names against the Wall's forty-seven portraits, and nobody in
+   Thistlewick has counted the difference. There is also already a Thistlewick
+   churchyard in the lore - Beatrice Grumnir's headstone, `COMPANIONS.md` - and
+   it is inside the village.
+
+   A graveyard is still available, and the version that *pays off* the
+   181-against-47 count instead of breaking it is **the stones being wrong, not
+   the people**: Thistlewick built the Forty-Fourth a heroic barrow forty years
+   late because that is what you do with a hero, and the same instinct at scale
+   is forty-seven memorial stones, voted and paid for and unveiled, for
+   forty-seven people who are alive eleven cells south and have written in to
+   ask that they come down. The parish will not, because the stones are paid for
+   and the unveiling is minuted. The forty-eighth plot is dug and waiting,
+   because nobody has learned anything. **Offered and not taken** (section 8);
+   written down so the audit is not repeated and the wrong version is not built.
 2. **A mine** (`Mine`). Great Dunnage is nine works and no ore, and there are
    exactly two dungeons between the Gloamwood and the Tower - which is also
    Pellam's problem.
@@ -581,18 +865,32 @@ reviewed map. New sites go in as `F.restamp()` / `F.put_road()` /
 `F.put_tiles()` lines in `run_finish.py`, which is exactly how Thistlewick,
 Nether Sopping, Upper Clanging and the Lighthouse were re-sited.
 
-A hand-placed site does not get three things the generated twenty got for free,
-and all three have to be supplied:
+A hand-placed site does not get three things the generated twenty got for free.
+All three are now supplied by **`finish.add_site`**, in one call, so a site
+cannot be half-placed:
 
-* **a door event**, written by hand, with no destination, like the others;
+* **a door event**, written by hand, with no destination, like the others -
+  player-touch and below characters, which is worldgen's rule and the engine's;
 * **a check that the door cell is standable** - `flags & 0x0F == 0`, not
   `is_passable`, and not on another stamp's footprint. `place.py` does this
-  properly and is the thing to copy; two squares picked by arithmetic instead
-  were both mountains, and neither the build nor `validate.py` said so;
-* **an entry in a site table that is maintained by hand**, because
-  `generated.meta.json` is worldgen's output and is no more editable than
-  `generated.json`. Section 6 item 6 wants one source for `places.py` and the
-  door events both; this is where it comes from.
+  properly and was the thing copied; two squares picked by arithmetic instead
+  were both mountains, and neither the build nor `validate.py` said so. It asks
+  the **finished map** rather than the stamp, which is what makes it work for a
+  star stamp like the Floating Continent, where the ground underneath decides;
+* **an entry in the hand-maintained site table**, which is now section 3's
+  second table. Section 6 item 6 wants one source for `places.py` and the door
+  events both; that is where it comes from.
+
+Two more things a hand pass has to know, both learned the hard way in 7.1-7.4:
+
+* **The stamp's own cell has to be open, because the door stands on it.** That
+  rules out every rock in the catalogue (`Dirt`, every `Rocky Mountain`, both
+  `Statue`s - all 0x60f) and `World_C/Hut`, and it is why worldgen drew a
+  meteorite as a tree. `add_site` takes `stamp_name=None` for a site whose
+  landmark is *terrain* instead - Ashcombe Lake's water, and the three air-only
+  rocks are the same category the other way up.
+* **A stamp repeated is more things, not a bigger thing.** See Ashcombe Lake in
+  7.1. A `Pond` laid over seven cells is seven ponds.
 
 ## 8. Open questions
 
@@ -605,14 +903,32 @@ and all three have to be supplied:
   x=60 y=61): one building on the western edge of the redrawn middle, forest
   on two sides, wasteland and mountains immediately east, and a **six-cell
   road stub that joins nothing** - the smallest of the map's eleven road
-  networks. It is the obvious home for 7.5's graveyard of the Forty-Seven if
-  that is ever built, being a short walk from Thistlewick.
+  networks.
+
+  **Still open after a second look, and deliberately left standing.** Two
+  candidates were measured against it and both were refused. It is *not* a home
+  for Corvin Ash's resettled village, which is a question worth recording
+  because it is the one thing on the map that sounds like it wants a spare
+  settlement: Ashcombe (New) is already stamped at (102,55) and **Ashcombe
+  Lake** - the drowned Ashcombe (Old), 7.1's first item - has to be adjacent to
+  it, so that COR-2's draw-down week is a walk from COR-1's dinner. Moving
+  either forty-two cells west across the range breaks that adjacency, and there
+  is nothing else at (60,61) to gain by it. A sweep of `COMPANIONS.md`'s
+  seven world-map-only sites and its new-NPC table found **no unplaced thing
+  that wants a settlement here**: five of the seven are stamped, and the other
+  two plus Mrs Emberthwaite's hill and Tobias Frayne's cottage are each pinned
+  to somewhere else by their own bio. And it is not 7.5's graveyard either,
+  whose premise was wrong - see that entry. So the site is surplus and is being
+  kept surplus rather than filled with the first idea that fits.
 * **Does the far south want more than four sites?** Sump, the Fair, the Wrong
   Dragon and the Cinder Fen are what hold the desert down. It is a large
   landmass for four things.
   7.5 item 7 is the cheap version of an answer and is deferred.
 * **Nothing has been said about the sea.** There is a lot of it and only three
   rocks in it. `COMPANIONS.md` says the airship is the delivery mechanism for
-  everything; a few more islands would earn it. **Half-answered**: 7.4 adds one
-  floating continent, which is the part of this that was worth doing first.
-  Islands are 7.5 item 5 and are deferred.
+  everything; a few more islands would earn it. **Half-answered and half-done**:
+  7.4's floating continent is **placed**, at (79,88), which was the part of this
+  worth doing first - the airship now earns a destination that is visibly *up*
+  and that was abandoned for being impossible to reach. Islands are 7.5 item 5
+  and remain deferred. The sea is still mostly empty and that is still an open
+  question, just a smaller one.

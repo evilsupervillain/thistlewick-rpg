@@ -28,6 +28,12 @@ import finish as F                                             # noqa: E402
 GENERATED = os.path.join(HERE, 'generated.json')
 OUT = os.path.join(HERE, 'worldmap.json')
 
+# The Former Premises: two cells of cloud under the castle and one left bare
+# for the airship. Named up here because `sink_islets` has to be told to spare
+# it - three walkable cells nobody can walk to is precisely what that pass is
+# for drowning, and it would take the floating continent with the sandbars.
+PREMISES = [(79, 88), (80, 88), (81, 88)]
+
 
 def main(argv):
     shutil.copy(GENERATED, OUT)
@@ -67,9 +73,70 @@ def main(argv):
     F.put_road(w, [(60, 78), (61, 78)])
     F.restamp(w, (60, 79), 'World_B/Town B')
 
-    # The Lighthouse: the same tower, without the snow on it.
+    # The Lighthouse: the same tower, without the snow on it, and on a
+    # headland instead of on flat coast. `EXPANSION.md` calls it "a world-map
+    # landmark east of Sopping **on a spit of rock**", and the generated coast
+    # left it two cells inland of a blunt corner - a lighthouse standing in a
+    # field, which is the one thing a lighthouse cannot be.
+    #
+    # So: a spit, three cells long and two deep, of Rocky Land A - the bracket
+    # in the design document is "rock" and the palette has one - reaching east
+    # out of the coast at x=76, water cut on both sides of it, and the tower
+    # moved to its tip. The door is the stamp's lower cell and `Tower A`'s is
+    # walkable, exactly as `Tower A (Snow)`'s was, so the transfer event still
+    # stands on open ground. **The Lighthouse therefore moves to (79,80)**, and
+    # section 6 item 6 has to re-derive its exit from that and not from +35.
     F.unstamp(w, o(41, 44), 'World_B/Tower A (Snow)')
-    F.restamp(w, o(41, 43), 'World_B/Tower A')
+    for y in (79, 80):
+        for x in (77, 78, 79):
+            w.put_land(x, y, 'rocky')
+    for x, y in [(77, 78), (77, 81), (78, 81), (77, 82)]:
+        w.put_sea(x, y)                     # the water either side of the neck
+    F.put_road(w, [(77, 80), (78, 80)])     # the track out to the light
+    #
+    # **And the tower keeps its snow, which reverses half of section 4.** The
+    # `propsheet.py` pass of item 5 found that section 4's "the same tower,
+    # without the snow on it" made the Lighthouse `Tower A` - ids 80 and 88 -
+    # which is exactly what `journey.py` draws the **Obligatory Tower** with, at
+    # (66,42). So the landmark east of Nether Sopping and the final dungeon were
+    # the identical graphic, which no reachability check, no validator and no
+    # single screenshot can see; it takes a contact sheet of the ids.
+    #
+    # The whole field was cropped and looked at. `Tower B` is `Tower A` in
+    # browner stone and indistinguishable at 48 pixels. `Tower C` is a pink
+    # ziggurat. `Tower D` is one cell, so the spit loses its vertical landmark.
+    # Every `World_C` tower - including `World_C/Lighthouse` - is a skyscraper,
+    # a steel mast or a modern light, which is the wrong century for a keeper
+    # whose great-grandmother kept the same lamp. `Tower A (Snow)`'s white top
+    # is a **lamp room**, which is why the shipped game's own constant for it is
+    # `WB_TOWER_WHITE`. A few snow flecks on the stonework in temperate country
+    # is a far smaller fault than the final dungeon having a twin.
+    F.restamp(w, (79, 79), 'World_B/Tower A (Snow)')
+
+    # The Sky Anvil: a meteorite used as a gatepost since 1749, and HOB-4's
+    # whole joke - Elias Meech will not sell a very good gatepost and will trade
+    # for a gate. worldgen drew it with `Giant Tree (Snow)`, so it was a snowy
+    # tree standing in for a rock, which the item 5 contact sheet found and no
+    # screenshot of the map would have: at 48 pixels it is a plausible landmark
+    # that contradicts the only line of dialogue about it.
+    #
+    # The constraint that produced the tree is real and worth writing down: a
+    # site's door is a **player-touch, below-characters** event standing on the
+    # stamp's own cell, so the stamp has to be *open*, and every rock in the
+    # catalogue is blocked - `Dirt` (which is what this game's own Standing
+    # Stones are drawn with) is 0x60f, and so is every `Rocky Mountain` and both
+    # `Statue`s. Of the 74 open one-cell stamps, `Shrine` is a stone trilithon
+    # with a boulder resting across the top - a gatepost with a rock on it - and
+    # it is open, so the door does not move.
+    #
+    # **The unsnowed one, even though this is snow country**, which is the
+    # opposite call to the Lighthouse's two paragraphs up and for the opposite
+    # reason. Both variants were rendered in place and looked at: `Shrine (Snow)`
+    # is white stone under white snow on a white snowfield and disappears, and a
+    # landmark you cannot see is not a landmark. Grey stone reads at 48 pixels.
+    # People keep the snow off a gatepost.
+    F.unstamp(w, (76, 26), 'World_B/Giant Tree (Snow)')
+    F.restamp(w, (76, 26), 'World_B/Shrine')
 
     # Nether Sopping: unsnowed, down on the last land row, road spur to its
     # north, one pier below it.
@@ -86,10 +153,212 @@ def main(argv):
         w, o(9, 12), 'World_B/Fortress City (Snow)'))
     F.restamp(w, o(8, 11), 'World_C/Slum')
 
+    # --- the sites the design documents ask for (WORLDMAP.md 7.1) -----------
+    # Each is one stamp and one player-touch door event per walkable cell, with
+    # no destination - the same state the generated twenty-one are in. None of
+    # them needs an interior to exist first. `F.add_site` refuses a stamp that
+    # lands on another footprint or that leaves no standable cell to put a door
+    # on, which is the check 7.6 asks for and arithmetic does not do.
+
+    # Ashcombe Lake, for COR-2: the drowned Ashcombe (Old) is under it, and it
+    # is drawn down one week a year for the sluices. It has to be a *walk* from
+    # Ashcombe (102,55) so that the draw-down week is a walk from COR-1's
+    # drainage dinner, and Ashcombe sits in a mountain valley, which is where a
+    # reservoir belongs. Two cells, north-east of the village, against the
+    # massif; the door is the southern one, which is the shore you arrive on.
+    # **The lake is water, not a `Pond`.** `Pond` is one small round pond drawn
+    # on a single tile, which is right for the Duck's below and wrong here: laid
+    # over seven cells it is seven small round ponds, and the thing that has to
+    # read is a lake with a village underneath it. So the sea autotile, inland -
+    # the same way the water below the Bottomless Pit is drawn - and the door on
+    # the southern shore. Which is also the better joke: COR-2 says the lake is
+    # drawn down for the sluices and "if you are there that week you can walk
+    # in", so the way into Ashcombe (Old) is a square of shoreline.
+    for c in [(105, 51), (104, 52), (105, 52), (106, 52),
+              (104, 53), (105, 53), (106, 53)]:
+        w.put_sea(*c)
+    print("Ashcombe Lake:  door at %s" % F.add_site(
+        w, (104, 54), None, 'Ashcombe Lake', 'lake'))
+
+    # The Duck's Pond, for ZEPH-2. `COMPANIONS.md` puts it "four miles from the
+    # Collegium" (112,38) and the Duck is an honorary Fellow who holds a chair
+    # and votes, so it is close enough to commute from.
+    print("The Duck's Pond: door at %s" % F.add_site(
+        w, (115, 40), 'World_B/Pond', "The Duck's Pond", 'pond'))
+
+    # Mrs Emberthwaite's hill, for `BIOS.md` Rosamund. The dragon is retired,
+    # widowed and wants somebody to play cards with, and the whole point of the
+    # bio is that Rosamund "has started going round on Thursdays **without
+    # being carried**" - so it has to be a walk from Fairholme (104,73), not a
+    # flight. A hill is drawn rather than stamped, because the palette has no
+    # hill: nine cells of mountain, with the lair as a `Cave A` on layer 3 in
+    # the middle of its southern face. A cave mouth over mountain relief reads
+    # back as *open* - the topmost non-star tile decides - which is exactly how
+    # the Bottomless Pit and the Barrow have always worked.
+    # Shaped by hand rather than as a 3x3 block, because a square of nine
+    # identical peaks reads as a plantation. Three, five, three - wider in the
+    # middle - with the lair in the centre of the southern face.
+    hill = ([(x, 67) for x in range(110, 113)]
+            + [(x, 68) for x in range(109, 114)]
+            + [(x, 69) for x in range(110, 113)])
+    print("Emberthwaite's hill: %d cells of mountain"
+          % sum(1 for c in hill if w.put_mountain(*c)))
+    # And a track to it, off the Fairholme road - five cells, and the only road
+    # on the map that goes to a dragon. Rosamund goes round on Thursdays and
+    # carries the cake tin herself; a lair nobody visits has no path to it, and
+    # this one is visited weekly.
+    F.put_road(w, [(x, 70) for x in range(107, 112)])
+    print("the lair:       door at %s" % F.add_site(
+        w, (111, 69), 'World_B/Cave A', "Mrs Emberthwaite's lair", 'lair'))
+
+    # Tobias Frayne's cottage, for MER-4 - revived eleven times, and has
+    # developed a relationship with mortality. `COMPANIONS.md` sites him on
+    # "the coast road cottage", which is a real coordinate now: the old map's
+    # coast road is y=45 from Thistlewick to Nether Sopping, which is **y=81**
+    # here, and this is the south side of it, half way along. `World_C/Hut` is
+    # blocked on its own cell and so cannot carry a door the player walks into;
+    # `House (Town)` is open, which is why 7.1 offered both.
+    print("Frayne's cottage: door at %s" % F.add_site(
+        w, (66, 82), 'World_B/House (Town)', 'Tobias Frayne', 'cottage'))
+
+    # --- the four sited wrong (WORLDMAP.md 7.2) -----------------------------
+    # Penultima is *The Last Town Before The End. Last Chance For Potions*, and
+    # it was standing on the eastern road network with the Collegium, Ashcombe
+    # and Fairholme - the last town before the east coast. The Tower (66,43) is
+    # on a different network, whose approach runs south from the tower door
+    # along x=63. Gideon Markup's prices double whenever a Chosen One is
+    # sighted on the road, so he has to be on the road the Chosen One is on.
+    # Five cells south of the tower, with its doors against that road.
+    print("Penultima ->    %s" % F.move_site(
+        w, 'Penultima', (64, 48), 'World_B/Town B'))
+
+    # Olde Evermore is *hidden* - `BIOS.md`: "the hidden elven village that
+    # every party finds eventually, by falling off the same ledge" - and it had
+    # a road to its door like any other village. Hiddenness is geography here,
+    # so: the spur goes, and it goes back to **forest** rather than to bare
+    # ground, because a cleared cell threading a wood is a path. And a ledge to
+    # fall off, which is the mountain shoulder closed round its north and east,
+    # leaving the village a pocket in the trees reachable only on foot.
+    #
+    # **The road past it is the trunk, not a spur, and deleting it cut the
+    # south-west off.** The road comes down x=28, doglegs east to x=29 for
+    # three rows - right past the village door - and carries on south to
+    # Gladhollow; taking those cells out dropped Gladhollow's road network from
+    # 79 cells to 21, which nothing on the map says out loud and no screenshot
+    # shows. So the trunk is *re-routed* straight down x=28 first, and only then
+    # does the dogleg go back to trees.
+    F.put_road(w, [(28, 94), (28, 95), (28, 96)])
+    for x, y in [(29, 93), (29, 94), (29, 95), (30, 94)]:
+        w.put_forest(x, y)
+    print("Evermore's ledge: %d cells of mountain" % sum(
+        1 for c in [(29, 92), (30, 92), (31, 92), (31, 93), (31, 94)]
+        if w.put_mountain(*c)))
+
+    # Hithermost's chapel "stands at the top of the pass above Hithermost,
+    # beside the only door into the mountain" - and the Chapel of Continuance
+    # is *for* that door: travellers write their names in the Book and then go
+    # through it. Both halves were missing. The pass is the neck at y=21 where
+    # the western massif reaches the road at x=31, two cells above the village;
+    # the `Tunnel` is set into that face and the chapel stands below it, so the
+    # Book is the last thing on the near side. `Temple C` because Coldbarrow
+    # already has `Temple A (Snow)` and Weeping Bottom has `Temple B`.
+    print("the mountain door: %s" % F.add_site(
+        w, (30, 21), 'World_B/Tunnel', 'The Door into the Mountain', 'tunnel'))
+    print("Chapel of Continuance: %s" % F.add_site(
+        w, (30, 22), 'World_B/Temple C', 'Chapel of Continuance', 'chapel'))
+
+    # Restwell is "a crossroads town of one street and nineteen inns", and the
+    # road merely arrived at it from the north-west and stopped. So: road on all
+    # four sides of the town block, and four arms leaving it - the existing one
+    # north-west, a street west and east, and a southern arm down the corridor
+    # at x=46 that the mountains leave open, which is a piece of the map that
+    # had no road on it at all.
+    print("Restwell crossroads: %d cells of road" % F.put_road(w, (
+        [(44, 80)]                                       # north, beside (43,80)
+        + [(42, 81), (41, 81), (40, 81)]                 # west, to the old road
+        + [(45, 81), (46, 81), (47, 81)]                 # east, the lane
+        + [(43, 82), (44, 82), (45, 82), (46, 82)]        # south, out of town
+        + [(46, y) for y in range(83, 90)])))            # and down the corridor
+
+    # --- Frostwick (WORLDMAP.md 7.3) ----------------------------------------
+    # The town that voted to keep the curse. A third of the map's climate had no
+    # town in it: Coldbarrow is a chapter house, the Sky Anvil is a gatepost and
+    # Hithermost is a pass village. `Town B (Snow)` because it has a committee,
+    # a festival, an inn and a contract - and because it is the snowed twin of
+    # Thistlewick's own `Town B`, which is the joke: Frostwick is what
+    # Thistlewick would be if one of the forty-seven had come home and stayed.
+    #
+    # Between Coldbarrow (50,19) and the Sky Anvil (76,26), on the 44-cell
+    # northern road network that already joins those two, with a three-cell spur
+    # east to meet it - so the far north has one road with three things on it
+    # instead of three errands.
+    #
+    # **The northern road did not actually join Coldbarrow to the Sky Anvil**,
+    # which is the reason 7.3 gave for this square. Measured: it is its own
+    # network of 44 cells that ran between the two and touched neither, because
+    # at each end it meets the next network *diagonally* - (50,20) beside
+    # (49,19) at Coldbarrow, (76,25) beside (77,26) at the Anvil - and MZ has no
+    # diagonal movement, so a diagonal join is a road that stops. That is also
+    # most of what the eleven pieces of section 4 are: 20 networks at
+    # four-connectivity and 16 at eight. Two cells close both corners, and the
+    # far north becomes one road from the chapter house to the gatepost with a
+    # town on it, which is what 7.3 asked for and thought it already had.
+    F.put_road(w, [(49, 20), (77, 25)])
+    F.put_road(w, [(62, 22), (63, 22), (64, 22)])
+    print("Frostwick:      doors at %s" % F.add_site(
+        w, (61, 21), 'World_B/Town B (Snow)', 'Frostwick', 'town'))
+
+    # --- The Former Premises (WORLDMAP.md 7.4) ------------------------------
+    # The floating castle the engagement was vacated from, on accessibility
+    # grounds, because nobody could ever reach it. The airship makes the
+    # complaint moot four hundred years late, which is the whole joke and lands
+    # the moment the player sets down on it.
+    #
+    # `Floating Continent (Castle)` is two **star** tiles, so the stamp decides
+    # nothing about passage and the ground under it decides everything - which
+    # is why this is three cells of `Clouds` out in the middle of the southern
+    # sea rather than a stamp on the water. Clouds are open (0x600), so the
+    # party can stand up there; six cells of open water on every side is what
+    # makes it read as *out there* rather than as an offshore rock. Two cells
+    # carry the castle and its doors and the third is left bare, because
+    # `Game_Vehicle.isLandOk` refuses a square with an event on it - so a
+    # castle with a door on every cell is a castle with no way in.
+    for c in PREMISES:
+        w.put_land(*c, biome='cloud')
+    print("Former Premises: doors at %s   airship pad %s" % (
+        F.add_site(w, PREMISES[0], 'World_B/Floating Continent (Castle)',
+                   'The Former Premises', 'castle',
+                   note='<worldmap-site castle> <aironly>'), PREMISES[2]))
+
+    # --- the decoration the middle redraw ate -------------------------------
+    # Thirteen layer-3 cells the 50x50 drew by hand and the generated map has
+    # not got. They are not events, so the pass that replaced a drawn world map
+    # with a generated one deleted them in silence; `decor.py` is the diff that
+    # finds them and is the check to re-run after any change here.
+    #
+    # The Pit is the one that matters: it is a real destination with a transfer
+    # event on it, `dig_out` above already takes it back out of the mountain the
+    # redraw buried it under, and without this line it is an invisible hole in
+    # open ground. The two tents are the same fault one step down - the Hermit
+    # and Meredith Crooke both kept their events and their squares and had
+    # nothing to look at.
+    F.report_scenery("Pit's cave mouth", F.put_scenery(w, [o(8, 35)], 'World_B/Cave A'))
+    F.report_scenery("the two tents", F.put_scenery(
+        w, [o(40, 29), o(11, 32)], 'World_B/Tent'))          # Hermit, Crooke
+    # Scatter, from the hand-typed lists in `journey.py`, `wilds.py` and
+    # `field.py`. Three of the seven trees now stand under the hand-drawn range
+    # and one is out past the mended coast, so those nudge rather than hole the
+    # range for a decoration; see `put_scenery`.
+    F.report_scenery("scatter trees", F.put_scenery(
+        w, [o(40, 21), o(37, 22), o(9, 25), o(34, 29), o(7, 33), o(44, 33),
+            o(12, 35)], 'World_B/Giant Tree'))
+    F.report_scenery("scatter rocks", F.put_scenery(
+        w, [o(36, 13), o(7, 22), o(31, 31)], 'World_B/Dirt'))
+
     # --- the tidy-up --------------------------------------------------------
     # Scraps of beach the coast mend left standing go back to sea, except the
     # three rocks only the airship can reach.
-    rocks = [o(21, 48), o(3, 5), o(47, 31)]
+    rocks = [o(21, 48), o(3, 5), o(47, 31), PREMISES[1]]
     flags = F._openness(w)
     start, main_land = o(24, 45), None
     main_land, q = {start}, collections.deque([start])
@@ -101,6 +370,44 @@ def main(argv):
                 main_land.add((nx, ny)); q.append((nx, ny))
     islets, sunk = F.sink_islets(w, main_land, rocks)
     print("islets drowned: %d (%d cells)" % (islets, sunk))
+
+    # --- the three air-only rocks (WORLDMAP.md item 4) ----------------------
+    # The Middle Distance's back row is a **hill** - `field.py`'s `W_HILLS`, on
+    # layer 1, flagged 0x0e0f, which is impassable and carries 0x0800 as well,
+    # so it is scenery an airship cannot set down on and the two rows of grass
+    # in front of it are where the airship goes and where the bench is. The
+    # middle redraw took one of the two cells and nothing reported it: item 7
+    # suspected as much, and it is confirmed - (82,65) came back **open**, so
+    # the rock had five walkable cells instead of four and the Hermit had a
+    # hill with a hole in it.
+    #
+    # `decor.py` cannot see this and is not going to be made to. It diffs
+    # layers 2 and 3, where a decoration is a tile that is either there or not;
+    # layer 1 is autotiled terrain that differs almost everywhere on purpose,
+    # so a diff of it reports the whole new world. The rocks are checked by
+    # name in `review.py` instead.
+    for c in [o(47, 30), o(48, 30)]:
+        if w.relief(*c) is None:
+            print("Middle Distance: hill restored at %s" % (c,))
+            w.put_mountain(*c)
+
+    # --- the region layer (WORLDMAP.md item 3) ------------------------------
+    # Last, because regions are painted over a *finished* map - and after
+    # `settle`, because a passability flag belongs to an autotile shape rather
+    # than to a kind, so a pass that asks "can the player stand here" over
+    # every cell has to be looking at the shapes the engine will see.
+    w.settle()
+    quiet = ([(55 + i, 83) for i in range(4)]            # the Isle
+             + [(37 + i, 40) for i in range(3)]          # Attempt 112's stack
+             + [(82 + dx, 65 + dy) for dy in range(3) for dx in range(2)]
+             + PREMISES)                                 # and the castle in the sky
+    counts = F.paint_regions(w, spine, quiet=quiet)
+    print("regions painted: %s" % ", ".join(
+        "%s %d" % (n, counts.get(r, 0)) for n, r in
+        [("south", 1), ("north", 2), ("coast", 3), ("clanging", 4),
+         ("snow", 5), ("desert", 6), ("quiet", 0)]))
+    print("encounter entries widened to snow and desert: %d"
+          % F.point_at(w, F.REG_NORTH, (F.REG_SNOW, F.REG_DESERT)))
 
     w.save()
     print("wrote %s" % OUT)
