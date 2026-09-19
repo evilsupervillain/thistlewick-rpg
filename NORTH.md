@@ -241,6 +241,15 @@ guarded by `condition_switch(SW_CENSUS, False)`, one reachable moment. Guard
 every appended blush the same way, and prove it the way `clanging_cast` does -
 ask the same question a second time and assert the counter has not moved.
 
+**Twenty-six, and the last one is not the north's.** Penultima's Dorothy
+Markup was added in September 2026 - `WORLDMAP.md` item 10, the first room
+built behind one of the new world map's doors - and she is the proof that this
+counter is the game's and not this document's: a new site feeds the counter, it
+does not earn a block in the ending (`COMPANIONS.md` 7's first risk). The
+threshold is **left at 20**, which is 77% of twenty-six rather than the four
+fifths below; it needs re-cutting once the `BIOS.md` build-out has added a few
+more, and not one site at a time.
+
 **Measured on the finished build, 2026-08-26: twenty-five.** Counted off
 `data/` and then corrected, which is the only way to get it right - 28 code-122
 writes to variable 7, less three known duplicates: the two travellers are one
@@ -1254,7 +1263,7 @@ Animations 120, Maps 20, switches 46, variables 5.
 | id | variable |
 | --- | --- |
 | 6 | `VAR_PLAQUES` - wreck plaques read; Ott opens up at twelve. The **thirteenth** plaque does not bump it: twelve is twelve, and the thirteenth is one you make. |
-| 7 | **`VAR_BLUSHES`** - "things nobody quite said". Bump with `story.blush()` **and nowhere else**, exactly as `VAR_TROPES` is handled. **Twenty-five reachable moments in the finished build** - see 2.3 for how that is counted and why a grep says 28. |
+| 7 | **`VAR_BLUSHES`** - "things nobody quite said". Bump with `story.blush()` **and nowhere else**, exactly as `VAR_TROPES` is handled. **Twenty-six reachable moments** - twenty-five measured in the finished north, plus Penultima's, which is the first from outside it. See 2.3 for how that is counted and why a grep over the north alone says 28. |
 | **8** | `VAR_OTT_ORDER` - which beat Ott is on while the oilskin-and-spar order is outstanding. Appended after this table was written. A variable and not four self switches because a page condition can name exactly one self switch, and this chain is nine beats long. |
 | **9** | `VAR_OTT_FLYING` - the same thing for the seven beats after the Two Hundred flies. Its last write is the one that sets `SW_OTT_MATERIALS`, which is what makes that switch mean "Ott has nothing left owing" - see 70, and see 16 step 6 for the lockout that fact fixes. |
 

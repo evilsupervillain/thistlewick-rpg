@@ -147,6 +147,23 @@ MAP_MEADOW = 28
 WORLD_MEADOW = (55, 74)         # was (20,39); the foot of the rainbow
 WORLD_MEADOW_STEP = (56, 74)    # was (21,39); on the spur, one east of it
 
+# ----------------------------------------- the places behind the new doors --
+# `../WORLDMAP.md` item 10. The 120x120 arrived carrying twenty-nine sites
+# whose doors go nowhere; these are the ones that have a room behind them now.
+# **There is no `WORLD_PENULTIMA` constant and that is deliberate** - see
+# `WORLDMAP.md` 7.6. Every other world-map coordinate in this file is written
+# down here because two modules have to agree on it; a site door's cell is
+# written down in `worldmap.json`, which is the one file that knows where the
+# stamp is, and `journey.world_map` reads it off the placeholder it replaces.
+# A constant here would be a second copy of a number that has already moved
+# once - 7.2 shifted Penultima forty-two cells west - and would have gone
+# stale in silence.
+#
+# What a site *does* need here is the square the player is put back on coming
+# out, because that is this game's own decision and not the map's.
+MAP_PENULTIMA, MAP_SHOPPE = 29, 30
+PENULTIMA_STEP = (63, 48)       # the tower road, one west of the western door
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

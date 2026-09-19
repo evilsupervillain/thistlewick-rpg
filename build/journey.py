@@ -22,6 +22,7 @@ import story as S
 import wilds as W
 import field as F
 import meadow as M
+import penultima as P
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
@@ -125,6 +126,24 @@ def world_map():
     assert m["tilesetId"] == K.TS_WORLD, m["tilesetId"]
     data, doors = m["data"], [e for e in m["events"] if e]
 
+    # **A site with a room behind it stops being a placeholder and becomes one
+    # of ours.** `worldmap.json` still owns *where* the door is - the module
+    # below is handed the cells its placeholders were standing on and builds
+    # real doors on exactly those - and this game owns what is behind it.
+    # WORLDMAP.md 7.6 has the reasoning and the two rejected alternatives.
+    claims = {P.SITE: P.world_doors}
+    cells = {}
+    for e in doors:
+        if "-site" in (e.get("note") or ""):
+            cells.setdefault(e["name"], []).append((e["x"], e["y"]))
+    # A claim that matches nothing is the failure this has to be loud about:
+    # it would leave the site's placeholders standing *and* put a real door on
+    # top of them, and the map would build, validate and look correct.
+    for name in claims:
+        assert cells.get(name), \
+            "no placeholder door named %r on the world map" % name
+    doors = [e for e in doors if e["name"] not in claims]
+
     m = K.new_map(m["width"], m["height"], K.TS_WORLD, name="", bgm="Field1",
                   encounter_step=ENCOUNTER_STEP, scroll_type=0,
                   battleback=("Grassland", "Grassland"),
@@ -149,6 +168,8 @@ def world_map():
     north = F.north_events(len(evs) + len(south) + 1)
     meadow = M.world_events(len(evs) + len(south) + len(north) + 1)
     ours = evs + south + north + meadow
+    for name, make in claims.items():
+        ours += make(len(ours) + 1, cells[name])
     for i, door in enumerate(doors):
         door["id"] = len(ours) + 1 + i
     m["events"] = [None] + ours + doors

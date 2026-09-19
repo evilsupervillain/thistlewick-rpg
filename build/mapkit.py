@@ -229,6 +229,21 @@ IN_MIRROR = (b_tile(6, 14), b_tile(6, 15))
 IN_THRONE = (b_tile(7, 12), b_tile(7, 13))
 IN_RAILING = b_tile(12, 14)
 IN_STOVE = (b_tile(10, 7), b_tile(10, 8))
+IN_KITCHEN_COUNTER = b_tile(10, 9)        # `Kitchen Counter A`, one cell
+
+# Clean furniture, read off the `.txt` name tables rather than off a
+# screenshot, because three of the constants above are named for what they
+# looked like at 48 pixels and are something else: `IN_TABLE_ROUND` is
+# **Table A (Ruins)**, `IN_TABLE_SMALL` is **Stool (Ruins)**, and `IN_COUNTER`
+# is **Sundries Shelf A** - the one with two teddy bears painted on it. They
+# are load-bearing in maps that already shipped and are left alone; anything
+# new should use these.
+IN_TABLE = ((b_tile(0, 14), b_tile(1, 14)),)   # `Table A`, two cells wide
+IN_TABLE_ONE = b_tile(2, 14)               # `Table B`, a single square table
+IN_STOOL = b_tile(0, 15)                   # `Stool A`, not the ruined one
+IN_TABLE_PLAIN = b_tile(3, 14)             # `Table C`, a plain square one
+IN_BOOKSHELF = (b_tile(13, 3), b_tile(13, 4))   # `Bookshelf A`
+IN_WINE_RACK = (b_tile(13, 1), b_tile(13, 2))   # `Wine Rack`
 IN_KITCHEN = (b_tile(8, 8), b_tile(8, 9))
 
 # Inside_C: the small things that sit on top of furniture.
@@ -253,6 +268,11 @@ INC_MEAL2 = c_tile(2, 5)
 INC_ARMOR_STAND = c_tile(4, 14)
 INC_LAMP = c_tile(6, 13)
 INC_BELL = c_tile(0, 15)
+INC_SWORD_STAND = c_tile(8, 2)   # `Sword Rack A`: one sword, on a stand
+INC_CASE = c_tile(0, 11)         # `Case A`: a glass display case
+INC_OPEN_BOOK = c_tile(4, 8)     # `Open Book A (V)`, which is what a ledger
+                                 # being written in has to be - `INC_BOOK` is
+                                 # `Closed Book A (V)` and contradicts the line
 
 # ------------------------------------------------ Dungeon tileset (id = 4) ---
 # Read off the sample project's Cave B1, which is the reference for how a cave

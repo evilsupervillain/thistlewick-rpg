@@ -59,7 +59,9 @@ change the RNG stream and grow a different world - and **`build/worldmap/decor.p
 is the check to re-run after any such change**, because it is the only thing
 that can see a decoration tile the map has quietly stopped carrying. Its
 section 6 item 10, the quests behind twenty-nine placeholder doors, is all that
-is left of it.
+is left of it - and **`SITES.md` is that queue**: the ordered list of the
+twenty-eight sites still to build, one step per session, with the working rules
+for the effort. Penultima (Maps 29-30) is the first and is done.
 
 `NORTH.md` is the design document for what comes next: Upper Clanging, the
 airship, and a pass over the whole game adding a kind of joke it currently has
@@ -91,9 +93,12 @@ nothing that is already in the tally comes out or gets re-voiced.
 that adds a `story.trope()` or a `story.blush()` site has to come back here.
 `VAR_TROPES` is 40 / 20 against about sixty-eight reachable (Firstfield added
 eight); `VAR_BLUSHES` is 20
-against **twenty-five** reachable, measured off the data in August 2026. Keep
-the blush tier at four fifths of the true total - `NORTH.md` 2.3 has the count
-and, more importantly, why counting it by grep gives 28 and is wrong.
+against **twenty-six** reachable - twenty-five measured off the data in August
+2026, plus Dorothy Markup's in Penultima, which is the first from outside the
+north. The tier is meant to be four fifths of the true total and is now 77%;
+`NORTH.md` 2.3 has the count, why counting it by grep gives 28 and is wrong,
+and why it is being left alone until the `BIOS.md` build-out has added more
+than one.
 
 **ITEM 1 is a page, not a branch.** The crate is a whole scene rather than a
 question, so page 1 of the event is `c[:split] + item_one_scene() + c[split:]`
@@ -133,6 +138,12 @@ windows later he says this one is new.
                      the event at the foot of the rainbow on Map 8. Its two
                      drawing hooks are gone; the rainbow itself is a tile on
                      the world map now
+      penultima.py   Maps 29-30: Penultima and Ye Final Shoppe, and the
+                     **real** door events on Map 8 that replace the two
+                     placeholders worldmap.json ships for that site. It is the
+                     first of the new world map's twenty-nine sites to have a
+                     room behind its door, and the shape every other one
+                     should copy - `WORLDMAP.md` 7.6
       art.py         generated character art: which settings file is in which
                      cell of which `Gen_*` sheet. Not part of the data build;
                      run it when a look changes. See "Generated characters"
@@ -201,6 +212,10 @@ Append instead.
 | Maps 26-27 | the Long Field, and the wreck of Attempt 199 on her crag.
   `field.py` |
 | Map 28 | Firstfield Meadow. `meadow.py` |
+| Maps 29-30 | Penultima and Ye Final Shoppe. `penultima.py`, and the first of
+  the new world map's twenty-nine sites to have anything behind its door -
+  `../WORLDMAP.md` item 10. **The places behind those doors start here and run
+  up**, and each one is a module of its own |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -512,9 +527,9 @@ already holds somebody else. **Append to its lists; never move anybody**, for
 the same reason ids are not renumbered. The images are committed like the rest
 of the art, so the data build never needs the untracked stock generator parts.
 
-| sheet | 0 | 1 | 2 | 3 | 4-7 |
-| --- | --- | --- | --- | --- | --- |
-| `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | free |
+| sheet | 0 | 1 | 2 | 3 | 4 | 5 | 6-7 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | free |
 
 A generated person who has to be *fought* needs an `img/sv_enemies/` image,
 which the generator cannot make. `art.py`'s `ENEMIES` writes a stand-in cut
@@ -526,6 +541,13 @@ alone.
 
 The rest of `BIOS.md`'s cast have settings in `build/characters/` and are not
 installed, because nowhere they live is built yet.
+
+**Dorothy Markup is the first look drawn for this game rather than taken from
+`BIOS.md`.** The bio gives Gideon a look and not his wife, so hers was built
+the way `CHARGEN.md` says to - `swatches.py` for the two colours that mattered,
+then `lineup.py`, then a screenshot of the room she stands in. Iron-grey hair
+up, a plain dark dress, and **the same gold wire spectacles Gideon wears**,
+which is the one deliberate thing in it.
 
 ## Conventions
 

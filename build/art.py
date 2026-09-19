@@ -35,6 +35,8 @@ SHEETS = {
         (1, "norbert-pelling.json"),    # the tutorial bandit
         (2, "old-hollis.json"),         # it's dangerous to go alone
         (3, "dilys-fenwick.json"),      # the sheep are not lost
+        (4, "gideon-markup.json"),      # Penultima: Ye Final Shoppe
+        (5, "dorothy-markup.json"),     # and the ledger
     ],
 }
 

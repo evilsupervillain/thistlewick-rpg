@@ -146,6 +146,10 @@ FACES = {
     "Norbert": ("Gen_People1", 1),
     "Hollis": ("Gen_People1", 2),
     "Dilys": ("Gen_People1", 3),
+    # Penultima. WORLDMAP.md item 10: the first of the new world
+    # map's twenty-nine sites to get a room behind its door.
+    "Gideon": ("Gen_People1", 4),
+    "Dorothy": ("Gen_People1", 5),
 }
 
 

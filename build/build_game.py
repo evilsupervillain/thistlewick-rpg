@@ -23,6 +23,7 @@ import field  # noqa: E402
 import meadow  # noqa: E402
 import journey  # noqa: E402
 import north  # noqa: E402
+import penultima  # noqa: E402
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -59,6 +60,9 @@ MAP_NAMES = [
     (field.MAP_CRAG, "The Wreck of the One Hundred and Ninety-Ninth",
      journey.MAP_WORLD),
     (meadow.MAP_MEADOW, "Firstfield Meadow", journey.MAP_WORLD),
+    (penultima.MAP_PENULTIMA, "Penultima", journey.MAP_WORLD),
+    (penultima.MAP_SHOPPE, "Ye Final Shoppe",
+     penultima.MAP_PENULTIMA),
 ]
 
 
@@ -263,6 +267,7 @@ def main():
     north.build()
     field.build()
     meadow.build()
+    penultima.build()
     build_map_infos()
     build_tilesets()
     build_system()

@@ -24,6 +24,18 @@ and is a larger effort than everything above it: `COMPANIONS.md` section 7
 sketches nineteen maps for the eight clusters, and there are twenty-nine sites
 on the map whose doors are placeholders with nothing behind them.
 
+**One of the twenty-nine is built**, and **`SITES.md` is the queue for the
+other twenty-eight** - the ordered work list, eighteen steps, what each site is
+and what it is for, plus the working rules this effort runs under (nothing has
+to be atomic; no full suite between sites; nothing is published until it is
+pushed to `live-rpg`). Read that rather than this file to pick up the work.
+
+**Penultima** - `BIOS.md`'s Gideon Markup, at (64,48) on the tower road - is
+Maps 29 and 30, `build/penultima.py`, and its two doors are real. 7.6's last
+subsection is how that was done and is the shape every other site should copy;
+the placeholder count is **39** now and `placeholder_doors` is the check that
+noticed. 7.3 and 7.4 have their casts written.
+
     python3 build/worldmap/run_finish.py --stage 941   # rebuild and stage it
     python3 build/worldmap/review.py 941               # old map vs new, measured
     python3 build/worldmap/decor.py 941                # the decoration diff; 0 casualties
@@ -172,7 +184,7 @@ and 7.6's rule applies - the hand-placed sites are the second table under it.
 | Coldbarrow | (50,19) | Temple A (Snow) | ALD-3, ALD-2 |
 | Hithermost | (30,23) | Village A | `BIOS.md` Brother Quillon |
 | Sky Anvil | (76,26) | **Shrine** | HOB-4 - restamped; see 6.5 |
-| Penultima | ~~(82,48)~~ **(64,48)** | Town B | `BIOS.md` Gideon Markup - moved onto the tower road; see 7.2 |
+| Penultima | ~~(82,48)~~ **(64,48)** | Town B | `BIOS.md` Gideon Markup - moved onto the tower road (7.2), and **built**: Maps 29-30, `build/penultima.py` |
 | Great Dunnage | (31,52) | Fortress City | HOB-1, NIX-1/2, ALD-4, PIP-3, COR-5, ROL-1 |
 | Sable Hart | (24,75) | House (Town) | COR-3, COR-4 |
 | The Lay-By | (11,88) | **Igloo** | ZEPH-5 - and see section 4 |
@@ -674,6 +686,29 @@ and it is larger than everything above it.
    is a long way round rather than a shortcut. Nothing is tuned for it and
    nothing needs to be.
 10. **Then the new quests**, which is what the whole thing is for.
+    **Penultima is the first and is finished**: Maps 29-30
+    (`build/penultima.py`), Gideon and Dorothy Markup rendered with
+    `tools/chargen` into `Gen_People1` 4 and 5, a scenario that walks the
+    whole way in from the world map and back out (39 checks), and 7.6's
+    settled answer to how a placeholder becomes a door. Three things it found
+    that the next site will hit too:
+    * **Five `mapkit` furniture constants are named for what they looked like
+      at forty-eight pixels and are something else** - `IN_COUNTER` is the
+      shelf with teddy bears on it, `IN_TABLE_SMALL` is a broken stool,
+      `INC_BOOK` is a *closed* book under a line about writing in a ledger.
+      `tools/propsheet.py` over the new room found all five in one look, and
+      the workspace's `TILES-AND-ASSETS.md` now lists them with what to use
+      instead. **Run it over any new interior before believing the room.**
+    * **A display that is legible in the catalogue can be illegible on the
+      map.** `Sword Rack A` on a red-draped plinth is exactly what the bio
+      describes and reads as a red drum at map scale, because the swords lie
+      flat and the cloth is the only thing with area. Only a screenshot finds
+      that, and the fix was a wall mount.
+    * **A player-touch event on the route home eats the walk.** Penultima's
+      Sighting Bell is on the lower row of the street, so a scenario walking
+      back to the gate along it stops dead and every arrow press after that
+      goes into a message window. It reads exactly like a dropped press and is
+      not one; the route goes along the other row.
 
 ## 7. The sites still to place - **placed**
 
@@ -878,6 +913,94 @@ the general lesson.
 `COMPANIONS.md` section 7 names faces as **the** blocker, so this cast is a
 bill as well as a joke - see `../CHARGEN.md`, which is now the answer to that.
 
+**The cast.** Six people, written to `NORTH.md` section 1, which this game's
+`CLAUDE.md` calls the law for every line of its humour and not only the
+north's. Nothing below is built; this is the stage the synopsis above said was
+owed, and it is what a `frostwick.py` would be written from.
+
+**First, a correction the synopsis needs, because the fix is one word.** 7.3
+says the curse was broken "by a Chosen One two or three numbers back". That
+cannot be true and it is worth saying why rather than quietly editing it: the
+Dark Lord rises **every hundred years**, Bram is forty-eight, so two or three
+numbers back is two or three *centuries* back and not forty years. The hero
+who broke Frostwick's winter is therefore **not a Chosen One at all**, and the
+version that is both true and funnier is already established elsewhere in the
+game - `EXPANSION.md` is explicit that **everybody** went north, not just the
+Chosen Ones, and the Sopping harbour memorial has a hundred and eighty-one
+names against the Wall's forty-seven portraits. He is one of the unnumbered.
+He went north with everyone else, he never got anywhere near the Tower, and on
+the way he solved somebody else's problem entirely and has been a hero of that
+town ever since. Frostwick has spent forty years calling him a Chosen One
+because it is better for the Festival, and he has spent forty years not
+correcting anybody, which is a smaller and more embarrassing thing to be
+gracious about than a victory. **This also pays off the 181-against-47 count
+that 7.5 leans on**, from the other end: Thistlewick cannot account for the
+difference, and here is one of the difference, opening a fete.
+
+* **Percival Stagg**, who broke it. Everybody calls him Perce. He opens the
+  Festival, cuts the ribbon, and does the face he has been doing for forty
+  years - which the town can describe precisely, because it is the same face.
+  He is not diminished by any of this and must not be written as though he
+  were (1.6): he won, he retired somewhere nice, and he married well. The
+  ribbon is the same ribbon, re-tied annually, and kept in a case. There have
+  been forty of them and there has been one.
+* **Ida Stagg**, his wife, who thinks the whole arrangement is very funny and
+  has said so to exactly one person. She is **the Register A carrier of the
+  town**, by mechanism 1 - the innocent superlative offered as praise. The
+  line to aim at is her, mildly, on the subject of the ribbon: that he did one
+  great thing forty years ago and has done a great many things since, and
+  none of *those* ever got a ribbon. It is a compliment, it is defensible as
+  literal, the game never says anything, and the marriage is plainly a good
+  one, which is 1.2 exactly.
+* **Clem Blagg, aged seven**, the leaky child (mechanism 2), and the reason
+  the town can be funny without anybody in it saying anything. The committee
+  minutes live on his nan's table, so he has read them, and he reports at
+  volume, in company, in the wrong order. He thinks the subject is the
+  lanterns. He is the one who says the thing about Mr Stagg that his nan said
+  in the kitchen, and the room looks at the ceiling - which is the machinery
+  the tavern already has for Perpetua and which 1.3 item 6 says to reuse.
+* **Mrs Wilhelmina Blagg**, chair of the Festival committee, his grandmother,
+  and the town's pride in the arrangement made flesh. Her register is parish
+  bureaucracy played entirely straight: the curse is **an asset**, it is on
+  the asset register, and there is a depreciation schedule. She is the reason
+  Frostwick is written in Great Dunnage's register rather than Thistlewick's -
+  a place that is pleased with itself.
+* **Eudora Pargeter**, the retained practitioner, nine years into a contract
+  she would renew tomorrow. She is not an ice witch and would like that on the
+  record; her speciality is **refrigeration**, which is a trade with
+  customers, a season, and a great deal of paperwork. She does the whole of
+  January in an afternoon and is home by four. Her half of the joke is that
+  she is the only person in the story who has read the contract, and the only
+  one with no feelings about the curse whatsoever.
+* **Mrs Tibby Marchpane**, of the **Eleven Days** - the inn, named for the
+  thaw, which is a thing you can only name an inn after in a town that took
+  the other decision. She keeps the **visitors' book that has been signed by
+  three Chosen Ones**, and will show it to you, and the third signature is the
+  one worth reading twice.
+
+**The accidental record** (mechanism 4) is where most of this should actually
+land, because it is the cheapest thing on the list to build and the hardest to
+get wrong: the **schedule of snowfalls**, an appendix to the contract,
+specifying depth, duration, and a light dusting for the ribbon; and the
+**minutes** of the working group, which record a vote, a division, and an
+abstention. A document does not know what it is saying, and neither of these
+needs a face.
+
+**And the eleven days are commemorated**, on the wall of the Eleven Days: a
+mark at the height the snow reached during them, which is the floor, under a
+brass plate giving the year. It is a sight, not a person, and it is the whole
+town in one object.
+
+**What this costs.** Six faces - and only four of them have to speak to be
+worth building, because Perce, Ida and the child carry the register and Mrs
+Blagg carries the premise, while Pargeter and Marchpane can be a shop and a
+bed with two conversations on them. The interiors it implies are the inn, the
+parish room (minutes, asset register, chair), the practitioner's cold room and
+the Staggs' house, which is four and is one more than Upper Clanging needed.
+**Register A count: one moment**, the child's, which bumps variable 7 like
+every other and adds nothing to the ending's nine blocks - a new town feeds
+the counter, it does not earn a block (`COMPANIONS.md` 7's first risk).
+
 ### 7.4 One floating continent - **placed at (79,88)**
 
 **`Floating Continent (Castle)`**, settled. This is the answer to section 8's
@@ -946,6 +1069,65 @@ It is air-only, so it is built to section 6 item 4's rules: player-touch
 events, below characters, one bare square kept clear for the airship to land
 on, and `<aironly>` on the events so `validate.py` asserts it cannot be walked
 to.
+
+**The cast, and it is one man and a great deal of paperwork.** The synopsis
+above says "somebody is still up there", singular, and the singular is the
+joke: a castle with a staff of one, kept ready for a tenant who left four
+hundred years ago. Filling it with people would make it a place rather than a
+**vacancy**, which is the thing the player is supposed to be standing in.
+
+* **Mr Prosper Hollowell, Caretaker (Retained).** He has kept the place ready
+  since the lease lapsed: the hall swept, the sconces lit, the book open on
+  the lectern. He is not bitter and he is not mad - both are specified in 1.6
+  and in the synopsis, and both would be easy to drift into, so the rule for
+  writing him is that **every single thing he says is good news**. A Chosen
+  One has arrived. He begins the tour immediately. It is a very good tour and
+  he has been working on it, and the correct player experience is to be
+  slightly unable to leave.
+* His title is the rhyme, and it is deliberate: Frostwick has a **retained
+  practitioner** and the Premises has a **retained caretaker**, and they are
+  the same joke from the two ends the spine already runs between. The Prophecy
+  is a contract; this is its estate management and its facilities budget.
+* **The quarterly reports.** He writes them. They are filed. The replies are
+  form letters, and one of them - recent, on the lectern, and the only thing
+  in the room he is not pleased about - is a **change of address notification**
+  for the Obligatory Tower, sent to him as a matter of course by a committee
+  that has not thought about this building in four hundred years.
+* **The visitors' book, open, with nobody in it.** Not a single name in four
+  hundred years, because nobody could get here, which is the complaint that
+  closed the place. And it is the one gap in his record, so he has an **ask**:
+  when the party reaches the current incumbent, would they have him sign it.
+  That costs one item, one page on Grimspite, and it lands at the finale -
+  a four-thousand-eight-hundred-year-old contractor being asked to sign a
+  guest book for a building he has never seen and has inherited opinions about
+  entirely from paperwork.
+* **The lift.** This is the sight the whole place is for. The accessibility
+  complaint was upheld, a recommendation was made, and a lift was duly
+  commissioned and installed - **inside the castle**, from the courtyard to
+  the battlements, where it works perfectly and always has. The climb that was
+  complained about was the one from the ground, which is four thousand feet of
+  sky and was never what the works order said. Nobody noticed, because by the
+  time it was finished the engagement had been renegotiated onto a ground-floor
+  site. It is a committee solving the wrong climb, minuted, and it is funny
+  without a word of dialogue.
+* **The deeds**, which name the builder - **Malagant the Provisional** - and
+  which are **Ott's payoff**. She gets to ask what holds it up. The deeds say
+  "as before". There is no before.
+
+**No Register A here, and it must not be forced.** There is one man in the
+building and he is delighted; there is no couple, no household news and no
+leaky child, so mechanisms 1, 2 and 6 have nothing to work with, and reaching
+for the second reading with a lone caretaker would be a wink, which 1.2's
+corollary puts out of bounds. The Premises is **Register B and contract
+comedy** - which is the register the game is already very good at - and the
+right thing is to let it be. It bumps variable 2 (`story.trope`) for the
+floating castle of the ancients and variable 7 not at all.
+
+**What this costs.** One face, one interior, and the finale page. That is the
+cheapest site in this document by a wide margin, which is worth knowing when
+the build-out is prioritised: it is the only air-only destination in the game,
+it is the thing that makes the Two Hundred worth having flown, and it needs
+less work than any of the six `BIOS.md` towns.
 
 ### 7.5 Deferred, on purpose
 
@@ -1067,6 +1249,63 @@ Two more things a hand pass has to know, both learned the hard way in 7.1-7.4:
   rocks are the same category the other way up.
 * **A stamp repeated is more things, not a bigger thing.** See Ashcombe Lake in
   7.1. A `Pond` laid over seven cells is seven ponds.
+
+### How a placeholder door becomes a real one - **settled**
+
+The constraint is a pincer and is worth stating before the answer. The doors
+live in `worldmap.json`, which `run_finish.py` owns and which has to stay free
+of game content - a transfer names a map id and a square inside a room this
+map knows nothing about, and putting one there would make the world map a file
+that cannot be regenerated without the game. But `journey.world_map` only
+*merges* what it finds. So **the transfer cannot be written where the door
+is**, and something has to bridge the two.
+
+**Settled: the game claims a site by name, and the placeholder is dropped
+rather than rewritten.** A module that builds a site exports two things - a
+`SITE` string, which is the name `finish.add_site` gave that site's door
+events, and a `world_doors(base_id, cells)` function. `journey.world_map`
+collects the cells of every placeholder carrying a claimed name, drops those
+placeholders, and calls the module to build real doors on **exactly those
+cells**, inside this game's own block of events. Penultima is the first, and
+`build/penultima.py` is the shape to copy.
+
+Four things fall out of it, and three of them are the reason it was chosen
+over the alternatives:
+
+* **The world map keeps the geometry and the game keeps the destination.**
+  The module is *handed* the squares; it does not know them and must not write
+  them down. 7.2 moved Penultima forty-two cells west after the map was
+  reviewed, and a coordinate copied into `places.py` would have gone stale in
+  silence - which is section 6 item 7's lesson in a new place. `places.py`
+  therefore has **no `WORLD_PENULTIMA`**, only the square the player is put
+  back on coming out, which is the game's own decision.
+* **A real door is one of ours, so it gets a stable id and the game's own
+  idiom.** It sits in the block before the placeholders, numbered like
+  Thistlewick's and the Gloamwood's, and it is written the way this game
+  writes a door - narration, then a Go in / Press on choice - rather than as
+  `worldgen.sites.transfer_page`, which is a bare transfer and reads nothing
+  like the rest of the map.
+* **The placeholder count goes down, and `placeholder_doors` is the check that
+  notices.** It was 41 and is 39, because a `Town B` stamp is two cells and
+  both of them became doors. That scenario asserts the count, and asserts that
+  every *remaining* placeholder still has no commands on any page - so the day
+  somebody half-wires a site, it says so. Adjusting the number is part of
+  wiring a door, deliberately: a check nobody has to touch is a check that
+  stopped meaning anything.
+* **A claim that matches nothing is an assertion, not a no-op.** If the name
+  is misspelled or the site is renamed, the filter drops nothing, the module
+  still builds its doors, and the map ends up with a real door and an inert
+  one on the same square - which builds, validates and looks correct.
+  `world_map` asserts that every claimed name matched at least one
+  placeholder. Section 6 item 7's general shape again: *a check that silently
+  skips what it cannot handle is not a check.*
+
+**Two alternatives, and why not.** Rewriting the placeholder's page in place
+leaves a real door sitting in the renumbered tail with a `<worldgen-site ...>`
+note still on it, so `placeholder_doors` needs a per-event exemption and the
+event's id moves whenever a site ahead of it is wired - both of which make the
+next wiring harder than this one. Writing the transfer into `run_finish.py`
+puts game content in the map file and is what 7.6 exists to forbid.
 
 ## 8. Open questions
 
