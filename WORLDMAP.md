@@ -280,16 +280,45 @@ In order. The first five are the map; the rest is the game.
    Each one has to be re-placed, either as a `put_tiles` line in
    `run_finish.py` or as a hook that survives.
 
-   **The Hermit's hut is the worked example, and it is already gone.** It is
-   `wilds.py` writing `K.WB_HUT` at `WORLD_HERMIT[1] - 1`, which is old
-   (40,29) - and section 4's middle redraw covers old (24,22)-(47,31), so the
-   hut and the Hermit's own square are both inside the band that was erased to
-   kill the mountain fence. The staged map has no hut on it. The Middle
-   Distance's hill, drawn by `field.py` at old (47,30), is in the same box;
-   its *water* is protected by `KEEP_WATER` and `run_finish.py` re-isolates
-   the rock, but the hill itself was not put back. Anything else the redraw
-   box ate is found the same way: check the module's coordinate against
-   `REDRAW` in `grow2.py`.
+   **Thirteen of them are already gone, and here is the list.** `Map008.json`
+   is built output, so it contains every one of those tile writes; diffing its
+   layer-2 and layer-3 cells against the new map at `+ (35,35)` finds all of
+   them at once, which is the check to re-run after any change to
+   `run_finish.py`. Twenty-seven decoration cells differ. **Fourteen are
+   deliberate** - the three `Fortress City` stamps at Thistlewick, Nether
+   Sopping and Upper Clanging, and the Lighthouse's `Tower A (Snow)`, all
+   restamped by section 4. The other **thirteen are casualties** and have to be
+   put back:
+
+   | what | old | new | note |
+   | --- | --- | --- | --- |
+   | The Hermit's hut (`WB_HUT`, a `Tent`) | (40,29) | (75,64) | inside the redraw box |
+   | Meredith Crooke's camp tent (`WB_HUT`) | (11,32) | (46,67) | inside the redraw box |
+   | **The Bottomless Pit's cave mouth** (`WB_CAVE`, `Cave A`) | (8,35) | (43,70) | inside the redraw box |
+   | Giant Tree scenery (`WB_TREE`), 7 cells | (40,21) (37,22) (9,25) (34,29) (7,33) (44,33) (12,35) | `+35` | 5 in the box, 2 under the range |
+   | Rock scenery (`WB_ROCK`, `Dirt`), 3 cells | (36,13) (7,22) (31,31) | `+35` | 1 in the box, 2 elsewhere |
+
+   **The Pit is the one that matters.** It is a real destination with a
+   transfer event on it, and `run_finish.py` already digs its terrain back out
+   of the mountain the redraw buried it under - but the cave mouth is a
+   *decoration tile*, and nothing put that back. The Pit is currently an
+   invisible hole in open ground. The two tents are the same class of fault
+   one step down: the Hermit and Crooke both still have their events and their
+   squares, and neither has anything to look at.
+
+   **The events themselves are all fine**, which is worth knowing because it is
+   the half that could have been much worse: all twenty-eight of `Map008`'s
+   events land on a square exactly as standable as the one they left. Four
+   signposts report as blocked, and were blocked on the 50x50 too - a
+   `WB_SIGN` tile blocks its own cell and is read from beside it - so that is
+   the idiom, not a regression.
+
+   One to confirm rather than fix: **the Middle Distance's anchor cell went
+   from blocked to open.** `field.py` drew a hill there at old (47,30) and the
+   redraw took it; `KEEP_WATER` protects the water round it and
+   `run_finish.py` re-isolates the rock, so the air-only geometry should still
+   hold - but "walkable" is the one thing that joke cannot survive, so check it
+   when item 4 re-places the rocks.
 8. **The scenarios.** Anything that walks the world map by coordinate breaks.
 9. **`encounterStep`.** Everything is about twice as far - Thistlewick to the
    Tower goes from ~40 steps to ~81 - so at step 36 the walk north has twice
