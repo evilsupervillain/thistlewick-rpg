@@ -113,8 +113,19 @@ windows later he says this one is new.
 ## Layout
 
     build/
+      API.md         **generated** - every signature and one-line docstring in
+                     `rmmzdata`, `mapkit` and `story`, the id constants in
+                     `places` and `db`, and everybody who already has a face.
+                     `python3 ../tools/apidigest.py . --write`; `--check` fails
+                     while it is stale. **Read it instead of opening a module
+                     to find out what it does** - and grep it, do not scroll it
+      TILENAMES.md   **generated** - what every `mapkit` tile constant actually
+                     is, off the sheet's own `.txt`. A constant is named for
+                     what the tile looked like at 48 pixels and is often
+                     something else. `python3 ../tools/tileaudit.py . --write`
       mapkit.py      tile vocabulary and drawing helpers; names are what
-                     things look like, and were confirmed in screenshots
+                     things look like, and were confirmed in screenshots -
+                     which is exactly why `TILENAMES.md` exists
       db.py          the whole database
       village.py     Maps 1-7: Thistlewick and its interiors
       journey.py     Maps 8-12: overworld, Gloamwood, the Obligatory Tower.
