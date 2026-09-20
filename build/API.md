@@ -3,11 +3,11 @@
 **Generated - `python3 ../../tools/apidigest.py . --write`.** Do not
 edit by hand. `--check` exits non-zero when it is stale.
 
-Signatures and the first line of each docstring, for the four
-modules that are *libraries*. The content modules - `village.py`,
-`journey.py`, `south.py`, `north.py`, `field.py`, `meadow.py` and
-one per site - are not here: their functions are used once each and
-`CLAUDE.md` says in a line what each file holds.
+Signatures and the first line of each docstring, for the modules
+that are *libraries*. The content modules - every other
+`build/*.py`, one per region or site - are deliberately not here:
+their functions are used once each, and `CLAUDE.md` already says in
+a line what each file holds.
 
 **Read this instead of opening a module to find out what it does.**
 Open one when you are *changing* it, and then open only that one.
