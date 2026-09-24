@@ -173,6 +173,26 @@ FACES = {
     # a red cloak and a plume.
     "Quillon": ("Gen_People2", 0),
     "Sir Dunstable": ("Gen_People2", 1),
+    # Fairholme, SITES.md step 3. Aldous is drawn - the circlet, the red robe
+    # - and Rosamund is BIOS.md's look, the travelling cloak over the ball
+    # gown. Mrs Emberthwaite is a dragon, `$BigMonster2`, and has no entry
+    # here on purpose: no face sheet in the box has a dragon on it, so she
+    # speaks with her name and no portrait, which is also sixty characters a
+    # line instead of forty-seven.
+    "King Aldous": ("Gen_People2", 2),
+    "Rosamund": ("Gen_People2", 3),
+    # The shareholders round the council table all share stock faces: each is
+    # one line in one room. The nine heroes take the Actor-sheet faces that no
+    # companion and nobody else in the game is wearing, which is the joke - a
+    # hero is a hero is a hero. The two farmers are a married couple, one
+    # rescue between them; Mr Budge is the `Farmer`'s face, since he is one,
+    # and Mrs Budge the bonnet. Mr Pilbeam, who was only passing, has the most
+    # ordinary face in the box.
+    "Tamsin": ("Actor1", 1), "Brannoc": ("Actor1", 2), "Kit": ("Actor1", 3),
+    "Osric": ("Actor1", 6), "Aurel": ("Actor2", 0), "Hild": ("Actor2", 1),
+    "Morwen": ("Actor2", 5), "Leof": ("Actor2", 6), "Valen": ("Actor3", 2),
+    "Mr Budge": ("People2", 6), "Mrs Budge": ("People4", 1),
+    "Mr Pilbeam": ("People4", 0),
 }
 
 

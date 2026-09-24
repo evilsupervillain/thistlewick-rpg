@@ -430,7 +430,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (81)
+### `FACES` — who already has a face (95)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -455,7 +455,10 @@ Tappet                Ferrule               Grommet               Clevis
 Shim                  Fizz                  Norbert               Hollis
 Dilys                 Gideon                Dorothy               Mrs Ashbury
 Walt                  Dr Pike               Guest                 Quillon
-Sir Dunstable
+Sir Dunstable         King Aldous           Rosamund              Tamsin
+Brannoc               Kit                   Osric                 Aurel
+Hild                  Morwen                Leof                  Valen
+Mr Budge              Mrs Budge             Mr Pilbeam
 ```
 
 
@@ -463,7 +466,7 @@ Sir Dunstable
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-79 constants.
+84 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -542,6 +545,11 @@ RESTWELL_STEP                (42, 81)
 MAP_HITHERMOST               33
 MAP_CONTINUANCE              34
 HITHERMOST_STEP              (30, 24)
+MAP_FAIRHOLME                35
+MAP_ROSAMUND                 36
+MAP_LAIR                     37
+FAIRHOLME_STEP               (104, 74)
+LAIR_STEP                    (111, 70)
 WORLD_SIGN_SOUTH             (58, 73)
 WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)

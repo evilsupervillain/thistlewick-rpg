@@ -93,12 +93,13 @@ nothing that is already in the tally comes out or gets re-voiced.
 that adds a `story.trope()` or a `story.blush()` site has to come back here.
 `VAR_TROPES` is 40 / 20 against about sixty-eight reachable (Firstfield added
 eight; Hithermost adds four more - the sign, the villager, Sir Dunstable and
-Quillon); `VAR_BLUSHES` is 20
-against **twenty-nine** reachable - twenty-five measured off the data in August
+Quillon - and Fairholme three, the King, Rosamund and Mrs Emberthwaite);
+`VAR_BLUSHES` is 20
+against **thirty** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
 north, Walt's tune and the register in Restwell, and the Book in Hithermost's
-chapel. The tier is meant to be
-four fifths of the true total and is now **69%**; `NORTH.md` 2.3 has the count,
+chapel, and Rosamund's card. The tier is meant to be
+four fifths of the true total and is now **67%**; `NORTH.md` 2.3 has the count,
 why counting it by grep over-counts and is wrong, and why it is being left
 alone. `SITES.md` section 4 item 5 is where it finally gets re-cut, and it is
 the one thing on that list that cannot be done incrementally.
@@ -164,6 +165,12 @@ windows later he says this one is new.
                      name-to-builder dict, instead of one `SITE` string. The
                      Book on the lectern is a **save point**, and the Door
                      into the Mountain is a door that says no
+      fairholme.py   Maps 35-37: the council chamber of Fairholme, Princess
+                     Rosamund's tower room, and Mrs Emberthwaite's lair, and
+                     the real doors on Map 8 for **two** sites - `SITES.md`
+                     step 3, a `SITES` dict like `hithermost.py`. The council
+                     table is three tables end to end, and the lair's dragon is
+                     `$BigMonster2` with no face
       penultima.py   Maps 29-30: Penultima and Ye Final Shoppe, and the
                      **real** door events on Map 8 that replace the two
                      placeholders worldmap.json ships for that site. It is the
@@ -246,6 +253,9 @@ Append instead.
 | Maps 33-34 | Hithermost and the Chapel of Continuance. `hithermost.py`,
   `SITES.md` step 2. **`MAP_CONTINUANCE`, not `MAP_CHAPEL`** - that name is
   Thistlewick's chapel, Map 5 |
+| Maps 35-37 | Fairholme's council chamber, Rosamund's tower, Mrs
+  Emberthwaite's lair. `fairholme.py`, `SITES.md` step 3. **`MAP_ROSAMUND`,
+  not `MAP_TOWER`** - that is the Obligatory Tower, Map 11 |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -509,9 +519,15 @@ makes eight passes over it cost less than the single pass did before.
   for "Again? Of course", Quillon, out through the porch, the Door into the
   Mountain refusing, back out onto `places.HITHERMOST_STEP`, and then the
   chapel's and the mountain's own world-map doors |
+| `fairholme` | `SITES.md` step 3, walked: onto Fairholme's door off the world
+  map, the minutes, round the end of the table to King Aldous, up to Rosamund,
+  **the card in her bag, which is the blush**, the bag, back down, Sir
+  Dunstable's empty chair and its place card, Mr Pilbeam, out onto
+  `places.FAIRHOLME_STEP`; then the lair's door, the tablet, Mrs Emberthwaite
+  and a hand of whist, Mr Emberthwaite's chair, and out onto `places.LAIR_STEP` |
 | `placeholder_doors` | that the world map's **remaining site doors do nothing**.
-  It was 41 on 29 sites and is **33** now, Penultima's two, Restwell's two and
-  the Hithermost cluster's four having become real doors. Every page of every one of the rest has no commands, which is how an event says "this
+  It was 41 on 29 sites and is **30** now, Penultima's two, Restwell's two,
+  the Hithermost cluster's four and Fairholme's three having become real doors. Every page of every one of the rest has no commands, which is how an event says "this
   exists and is not finished" - and it is asserted out of the live game rather
   than off the data, because the day somebody wires the first real transfer is
   the day it stops being true for one of them. It walks onto Frostwick's door
@@ -573,9 +589,10 @@ of the art, so the data build never needs the untracked stock generator parts.
 | sheet | 0 | 1 | 2 | 3 | 4 | 5 | 6-7 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
-| `Gen_People2` | Brother Quillon | Sir Dunstable | | | | | |
+| `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | | | |
 
-**`Gen_People1` is full**, and `Gen_People2` was opened by Hithermost. Restwell's third speaking part, Dr Pike,
+**`Gen_People1` is full**, and `Gen_People2` was opened by Hithermost; Fairholme
+took 2 and 3, and the twelve shareholders round its table share stock faces. Restwell's third speaking part, Dr Pike,
 **shares `SF_Actor3:6`** instead - `story.FACES` records every such share and
 the reasoning, and sharing is the cheaper answer whenever a character is a
 single scene in one room.

@@ -56,8 +56,8 @@ Penultima is the worked example and `build/penultima.py` is the template.
 
 1. **A module per site or cluster**, `build/<name>.py`, with a `build()` that
    saves its maps. Import it in `build_game.py`, add its maps to `MAP_NAMES`.
-2. **Map ids continue upward from 35.** Penultima took 29 and 30, Restwell
-   31 and 32, Hithermost 33 and 34. Never renumber.
+2. **Map ids continue upward from 38.** Penultima took 29 and 30, Restwell
+   31 and 32, Hithermost 33 and 34, Fairholme 35 to 37. Never renumber.
 3. **The door is claimed by name, not by coordinate.** The module exports
    `SITE = "<the name worldmap.json's door events carry>"` and
    `world_doors(base_id, cells)`; `journey.world_map` drops the placeholders
@@ -65,7 +65,7 @@ Penultima is the worked example and `build/penultima.py` is the template.
    world-map coordinate into `places.py`** - only the square the player is put
    back on coming out.
 4. **`placeholder_doors.json`'s count goes down by the number of cells you
-   claimed**, and you edit that number on purpose. It is 33 now. That scenario
+   claimed**, and you edit that number on purpose. It is 30 now. That scenario
    is the check that notices a half-wired site.
 5. **A scenario that walks in from the world map and back out.** Not
    `$gameMap.event(n).start()` - walking is the only thing that proves the door
@@ -99,7 +99,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Penultima~~ | 1 | 2 | 0 | **done** |
 | — | ~~Restwell~~ | 1 | 2 | 1 | **done** |
 | — | ~~Hithermost cluster~~ | **3** | 2 | 1 | **done** |
-| 3 | Fairholme and the lair | **2** | 3 | 1-2 | `BIOS.md` |
+| — | ~~Fairholme and the lair~~ | **2** | 3 | 1 | **done** |
 | 4 | Olde Evermore | 1 | 2 | 1-2 | `BIOS.md` |
 | 5 | Gladhollow | 1 | 1-2 | 0 | `BIOS.md` |
 | 6 | The Former Premises | 1 | 1 | 1 | `WORLDMAP.md` 7.4 |
@@ -273,6 +273,47 @@ the rescue economy of three kingdoms is in uproar.
   route if she needs drawing.
 * The shareholders' council is the best sight gag here and it is a room, not a
   conversation.
+
+**Done.** `build/fairholme.py`, Maps 35-37, `build/scenarios/fairholme.json`.
+`placeholder_doors` is **30**. What is worth carrying forward:
+
+* **The face bill came out at one drawing.** King Aldous is `Gen_People2` 2,
+  drawn here (acca `p02` is the gold circlet, clothing `p14` the red robe,
+  cloak `p02`, beard `p11`); Rosamund, whose settings were already written,
+  is 3. `Gen_People2` has **four cells left**. The twelve shareholders round
+  the table all **share** stock faces, and the nine heroes are the Actor-sheet
+  faces nobody else in the game wears - `story.FACES` says which.
+* **A dragon is `$BigMonster2`, character 0, facing down** - a whole-sheet
+  character whose four direction rows are four different monsters, so
+  `direction_fix` is not optional. No stock face sheet has a dragon on it, so
+  Mrs Emberthwaite has **no `FACES` entry on purpose**: `say()` then prints
+  her name with no portrait, and her lines get 60 characters instead of 47.
+* **`IN_DRESSER` is the teddy-bear shelf** - its lower cell is `Sundries
+  Shelf A`, which `../CLAUDE.md` already warns about - and it went into a
+  princess's bedroom without anybody noticing until the first screenshot.
+  `Inside_B`'s `Closet` and `Dresser` (a vanity, with a mirror) are the
+  bedroom furniture.
+* **The sight gag is three tables, not one long one.** `Table E` (purple),
+  eleven cells of `Table C` (the red royal cloth) and two `Table A`s (plain
+  kitchen wood) end to end, in a room one cell wider than the table at each
+  end. Chairs down the north side, **stools** down the south - there were not
+  enough chairs - and Sir Dunstable's chair empty, with a place card; his seat
+  is open, so the card is read by sitting in it.
+* **The arithmetic carries the council**: eleven halves leave the King a
+  two-thousand-and-forty-eighth, the two farmers are one rescue between them
+  (Mr and Mrs Budge, a good marriage), and Mr Pilbeam, who was only passing,
+  rescued her from **the eagle** - which the Palace does not count, so the
+  council cannot settle his share and he cannot leave. That is the bio's
+  "a man who was only passing" and its "twelve if you count the eagle" as one
+  joke.
+* **The blush is the card in her bag**, headed FOR WHOEVER IT IS THIS TIME -
+  mechanism four, the bio's own line, and nobody reacts. Three tropes: the
+  King's reward, Rosamund's eleven kidnappings, and the dragon on the hill.
+  So `VAR_BLUSHES` is **30** reachable against a tier of 20 (67%), and
+  `VAR_TROPES` is three higher than it was. Still section 4 item 5's problem.
+* **The widowhood is a chair.** Mr Emberthwaite's, at the card table, with a
+  pipe on the seat. Rosamund has never sat in it; she pulls up the stool.
+  Register B, and no joke is made of it.
 
 ### 4. Olde Evermore — (30,93), `Village C`
 

@@ -183,6 +183,16 @@ MAP_HITHERMOST, MAP_CONTINUANCE = 33, 34
 # come back out here; the Door into the Mountain does not go anywhere yet.
 HITHERMOST_STEP = (30, 24)
 
+MAP_FAIRHOLME, MAP_ROSAMUND, MAP_LAIR = 35, 36, 37
+# Fairholme is the council chamber, Rosamund's tower room is up its stairs,
+# and the lair is Mrs Emberthwaite's, on the hill to the north-east. Not
+# `MAP_TOWER`, which is the Obligatory Tower, Map 11. Both steps were checked
+# open four ways (`flags & 0x0F == 0`) against the finished `data/Map008.json`,
+# in region 1 and with nothing standing on them: one south of the western of
+# the castle's two `Castle A` cells, and one south of the cave mouth.
+FAIRHOLME_STEP = (104, 74)
+LAIR_STEP = (111, 70)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

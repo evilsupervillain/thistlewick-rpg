@@ -51,6 +51,13 @@ SHEETS = {
         # somebody else coming in at a quarter past four.
         (0, "brother-quillon.json"),    # Chapel of Continuance: the Book
         (1, "sir-dunstable.json"),      # two hundred and twelve times
+        # Fairholme, `../SITES.md` step 3. Aldous is drawn here - the gold
+        # circlet, the red robe and cape, a long white beard - because he
+        # is the one who keeps posting the reward. Rosamund is `../BIOS.md`'s
+        # look: the travelling cloak over the ball gown, because she has
+        # learned.
+        (2, "king-aldous.json"),        # half the kingdom, every time
+        (3, "princess-rosamund.json"),  # the packed bag by the window
     ],
 }
 
