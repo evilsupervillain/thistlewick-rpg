@@ -28,6 +28,7 @@ import restwell  # noqa: E402
 import hithermost  # noqa: E402
 import fairholme  # noqa: E402
 import evermore  # noqa: E402
+import gladhollow  # noqa: E402
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -77,6 +78,8 @@ MAP_NAMES = [
     (fairholme.MAP_LAIR, "Mrs Emberthwaite's Lair", journey.MAP_WORLD),
     (evermore.MAP_EVERMORE, "Olde Evermore", journey.MAP_WORLD),
     (evermore.MAP_ARCHIVE, "The Forbidden Archive", evermore.MAP_EVERMORE),
+    (gladhollow.MAP_GLADHOLLOW, "Gladhollow", journey.MAP_WORLD),
+    (gladhollow.MAP_MAYORS, "The Mayor's House", gladhollow.MAP_GLADHOLLOW),
 ]
 
 
@@ -234,6 +237,7 @@ def build_system():
     variables[db.VAR_FF_STATIONS] = "Firstfield stations done"
     variables[db.VAR_FF_SHEEP] = "Firstfield sheep found"
     variables[db.VAR_FF_SIGNS] = "Firstfield signs read"
+    variables[db.VAR_TOBY] = "Toby's delivery"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
@@ -286,6 +290,7 @@ def main():
     hithermost.build()
     fairholme.build()
     evermore.build()
+    gladhollow.build()
     build_map_infos()
     build_tilesets()
     build_system()

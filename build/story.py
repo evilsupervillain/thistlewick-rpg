@@ -201,6 +201,11 @@ FACES = {
     "Mirabel": ("Gen_People2", 4),
     "Elder Faelan": ("Actor3", 0),
     "Elder Lirien": ("Nature", 6),
+    # Gladhollow, SITES.md step 5. Toby is drawn, BIOS.md's look to the letter
+    # - the saucepan, the plaster, the braces. His brother at the east gate and
+    # his granny have no entries on purpose: each is one short scene, and they
+    # speak with their names and no portrait, the way Olde Evermore's raker does.
+    "Toby": ("Gen_People2", 5),
 }
 
 

@@ -27,6 +27,7 @@ import restwell as RW
 import hithermost as HM
 import fairholme as FH
 import evermore as EV
+import gladhollow as GLAD
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
@@ -139,7 +140,8 @@ def world_map():
     # exports them as a `SITES` dict of name to builder - Hithermost is three
     # sites stacked up one pass, with one module behind all of them.
     claims = {P.SITE: P.world_doors, RW.SITE: RW.world_doors, **HM.SITES,
-              **FH.SITES, EV.SITE: EV.world_doors}
+              **FH.SITES, EV.SITE: EV.world_doors,
+              GLAD.SITE: GLAD.world_doors}
     cells = {}
     for e in doors:
         if "-site" in (e.get("note") or ""):

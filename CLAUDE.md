@@ -91,10 +91,11 @@ nothing that is already in the tally comes out or gets re-voiced.
 
 **Two counter thresholds are cut against totals that keep moving**, so anything
 that adds a `story.trope()` or a `story.blush()` site has to come back here.
-`VAR_TROPES` is 40 / 20 against about sixty-eight reachable (Firstfield added
+`VAR_TROPES` is 40 / 20 against about seventy-four reachable (Firstfield added
 eight; Hithermost adds four more - the sign, the villager, Sir Dunstable and
 Quillon - Fairholme three, the King, Rosamund and Mrs Emberthwaite, and Olde
-Evermore two, the ARRIVALS sign and Mirabel's biscuit);
+Evermore two, the ARRIVALS sign and Mirabel's biscuit, and Gladhollow four -
+Toby, Granny Wendle's barrels, the key under the pot and the bookcase);
 `VAR_BLUSHES` is 20
 against **thirty-one** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -264,6 +265,9 @@ Append instead.
   not `MAP_TOWER`** - that is the Obligatory Tower, Map 11 |
 | Maps 38-39 | Olde Evermore and the Forbidden Archive. `evermore.py`,
   `SITES.md` step 4. `MAP_EVERMORE`, `MAP_ARCHIVE` |
+| Maps 40-41 | Gladhollow and the mayor's house, whose back room is on the
+  same map. `gladhollow.py`, `SITES.md` step 5. `MAP_GLADHOLLOW`,
+  `MAP_MAYORS` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -370,6 +374,11 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
      and a page condition can name two switches at most |
 | 12 | Firstfield sheep found, of three |
 | 13 | Firstfield signs read - which of her three spare lines Fizz uses |
+| 14 | Toby's delivery: which of his fourteen he did last, 15 being the one he
+     is still working on, and round to 1 again. A variable because the joke
+     is a list of fifteen and a page condition can name one self switch.
+     Gladhollow's hint is this mod three. The first new global of the
+     world-map sites |
 
 ## Verifying
 

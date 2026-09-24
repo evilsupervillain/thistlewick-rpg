@@ -235,6 +235,7 @@ SW_FF_GRADUATED = 87            # the first completed tutorial on record
 VAR_FF_STATIONS = 11            # stations done, of four; Fizz graduates you at four
 VAR_FF_SHEEP = 12               # sheep found, of three
 VAR_FF_SIGNS = 13               # signs read, which is how Fizz varies her line
+VAR_TOBY = 14                   # which of his fourteen Toby did last; see gladhollow.py
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

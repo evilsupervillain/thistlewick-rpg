@@ -200,6 +200,13 @@ MAP_EVERMORE, MAP_ARCHIVE = 38, 39
 # Everybody arrives by falling off the ledge; this is where the path out ends.
 EVERMORE_STEP = (30, 94)
 
+MAP_GLADHOLLOW, MAP_MAYORS = 40, 41
+# Gladhollow, and the mayor's room with the bookcase. One south of the western
+# of the village's two `Village B` cells, checked open four ways (`flags &
+# 0x0F == 0`, it is 0x600) against the finished `data/Map008.json`, region 1,
+# nothing standing on it. Both gates come back out here.
+GLADHOLLOW_STEP = (33, 112)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

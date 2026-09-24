@@ -101,7 +101,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Hithermost cluster~~ | **3** | 2 | 1 | **done** |
 | — | ~~Fairholme and the lair~~ | **2** | 3 | 1 | **done** |
 | — | ~~Olde Evermore~~ | 1 | 2 | 1 | **done** |
-| 5 | Gladhollow | 1 | 1-2 | 0 | `BIOS.md` |
+| — | ~~Gladhollow~~ | 1 | 2 | 1 | **done** |
 | 6 | The Former Premises | 1 | 1 | 1 | `WORLDMAP.md` 7.4 |
 | 7 | The seven with no map | **7** | **0** | 3-5 | `COMPANIONS.md` 3 |
 | 8 | Tobias Frayne | 1 | 1 | 1 | `COMPANIONS.md` 4 |
@@ -399,6 +399,47 @@ Boy at the east gate, who gets *two*.
   room is skipped, which makes it the cheapest of the five `BIOS.md` sites.
 * His fourteen deliveries are a variable and a list, and they are the whole
   joke. The barrels are his granny's and she would like her potions back.
+
+**Done.** `build/gladhollow.py`, Maps 40 and 41, `build/scenarios/gladhollow.json`.
+`placeholder_doors` is **27**. What is worth carrying forward:
+
+* **The fourteen took the first new global of the world-map sites**,
+  `db.VAR_TOBY`, variable 14. A self switch cannot count to fifteen and a page
+  condition can name only one, so Toby is two pages - walking into him, and
+  the cycle - and the cycle is fifteen `if_then` blocks on the variable. The
+  narrator names each delivery ("Number seven: the Slow One") because Toby is
+  not allowed to. The fifteenth is "...Welcome to Gladhollow?", once a lap.
+* **He tells you everything by delivery.** Asked about the town he says
+  "...Welcome to Gladhollow." and his hands slide a bookcase aside, or his eyes
+  go well, pot, well, pot - `VAR_TOBY` mod three, so asking again gets another.
+  No global switch was needed for the rest: the bio's "Welcome BACK to Glad- I'm
+  not allowed that one" is a `condition_script` at the top of the cycle page,
+  reading the ledger's self switch on the other map and his own B.
+* **The mayor's room is two rooms on one map.** The office is
+  `K.interior`; the back room is the same wall recipe copied into
+  `gladhollow._room` and drawn in the black space to its east, and the
+  bookcase is an ordinary shelf with a transfer behind a choice. No sliding
+  furniture, no second map id. The payoff is the Council's ledger - a copper
+  matched for every copper Toby has saved, a bag FOR THE UNIFORM, a Farewell
+  Boy's cap in his size - and DO NOT TELL TOBY, and under it in pencil, "I
+  havent." He knew; it would have been a second sentence.
+* **No Register A candidate, on purpose**; the site is warm, not red. Four
+  tropes: Toby, Granny Wendle's barrels, the key under the pot, the bookcase.
+  `VAR_TROPES` is about seventy-four reachable; `VAR_BLUSHES` is unchanged.
+* **Nobody but Toby has a face.** Granny Wendle (`People1:7`, the old woman
+  Ysolde's face already belongs to) and Ned the Farewell Boy (`People1:0`) speak
+  with their names and no portrait, the raker's precedent. `Gen_People2` has
+  **two cells left**.
+* **Two props did not match their text until they were cropped.** The
+  well's "flowerpot with a geranium in it" is `Pot`, a plain clay jar, so it is
+  a pot now; and Ned's line gave him a blue cap his sprite does not have.
+  Neither shows at map scale and both are the thing the player reads.
+* **`journey.py` already has a `GH`** - the Gloamwood's height - and
+  `import gladhollow as GH` shadowed it; the build died on `'int' object has
+  no attribute 'SITE'`. It is `GLAD`. Grep the importing module for an alias
+  before picking one, the same lesson as `MAP_CHAPEL` one layer up.
+* **`TREE_DARK` down a map edge is the flat hedge square** step 2 warned about
+  on open grass; the edges here are all `TREE`.
 
 **Steps 1-5 finish `BIOS.md` entirely** except Pellam Quickfoot, who is
 correctly placeless - he is already in the deepest room of every dungeon, so he

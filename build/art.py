@@ -62,6 +62,10 @@ SHEETS = {
         # `../BIOS.md`'s: silver hair and fringe, the circlet with the blue
         # stone, the purple and gold robe. The Elders share stock faces.
         (4, "mirabel.json"),            # Last Oracle; in bed by half seven
+        # Gladhollow, `../SITES.md` step 5. Toby's look is `../BIOS.md`'s:
+        # shirt and braces, the saucepan, the plaster from a paladin, and
+        # enormous, eager eyes. Nobody else on that street needs a face.
+        (5, "toby-gladhollow.json"),    # Official Welcomer; one sentence
     ],
 }
 
