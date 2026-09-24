@@ -185,11 +185,20 @@ carrying forward:
   right object and is *illegible*, a red drape with no other detail, which at
   forty-eight pixels is a red drum.
 
-### 2. The Hithermost cluster — (30,23), (30,22), (30,21)
+### 2. The Hithermost cluster — (30,23)-(31,23), (30,22), (30,21)
 
-**Three doors, one module, one face**, which is the best ratio on the list.
-`Village A` at (30,23), **Chapel of Continuance** `Temple C` at (30,22), and
-**The Door into the Mountain** `Tunnel` at (30,21), stacked up the pass.
+**Three sites, four door cells, one module, one face**, which is the best ratio
+on the list. **Hithermost** `Village A` at (30,23) *and* (31,23), **Chapel of
+Continuance** `Temple C` at (30,22), and **The Door into the Mountain** `Tunnel`
+at (30,21), stacked up the pass.
+
+The names in bold are the `SITE` strings, read off `worldmap.json`'s door events
+and not invented here - a claim that matches nothing is not a no-op, it leaves a
+real door and an inert one on the same square. **`Village A` is two cells wide**,
+which this heading said otherwise until somebody counted, so
+`placeholder_doors.json` goes **37 → 33** and not 34. Count the cells of any
+stamp before writing its number down; `SITES.md` section 1 item 4 is the rule and
+this is the first step where it would have bitten.
 
 `BIOS.md`: **Brother Quillon**, Keeper of the Record. A lectern, and on it the
 Book, which glows. Travellers write their names in it "in case of misfortune",
