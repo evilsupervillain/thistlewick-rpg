@@ -99,7 +99,7 @@ Toby, Granny Wendle's barrels, the key under the pot and the bookcase, and
 the Former Premises one, Hollowell's tour - the floating castle of the
 ancients - and the seven with no map five: the Sky Anvil, the hedge mages'
 secret order, the Wrong Dragon, Mother Selvidge's reading and the bell under
-Ashcombe Lake);
+Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven);
 `VAR_BLUSHES` is 20
 against **thirty-one** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -288,6 +288,9 @@ Append instead.
   continent. `premises.py`, `SITES.md` step 6. **`MAP_PREMISES`, not
   `MAP_HALL`** - that is Prophecy Hall, Map 3. Air only: its way out carries
   `<airreturn>`, see `../CLAUDE.md` on vehicles |
+| Map 43 | Tobias Frayne's cottage on the coast road. `frayne.py`, `SITES.md`
+  step 8. **`MAP_FRAYNE`, not `MAP_COTTAGE`** - that is Number Forty-Five's,
+  Map 17 |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -571,6 +574,11 @@ makes eight passes over it cost less than the single pass did before.
   the Archive, Mirabel four times - the biscuit, the horse, **the secret, which
   is the blush**, and bedtime - the Archive's copy of the Prophecy, and back
   out down the path onto `places.EVERMORE_STEP` |
+| `frayne` | `SITES.md` step 8, walked: onto Tobias Frayne's door off the world
+  map, a knock, Tobias and the eleven (the trope, counted once), the jar he
+  pays out of and does not open here, the medicine shelf, **the foot of the
+  ladder, which blocks** - the upper cells are ladder tiles over a wall face -
+  the book, and back out onto `places.FRAYNE_STEP` |
 | `placeholder_doors` | that the world map's **remaining site doors do nothing**.
   It was 41 on 29 sites and is **29** now, Penultima's two, Restwell's two,
   the Hithermost cluster's four, Fairholme's three and Olde Evermore's one
@@ -636,7 +644,8 @@ of the art, so the data build never needs the untracked stock generator parts.
 | sheet | 0 | 1 | 2 | 3 | 4 | 5 | 6-7 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
-| `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | | |
+| `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
+| `Gen_People3` | Tobias Frayne | | | | | | |
 
 **`Gen_People1` is full**, and `Gen_People2` was opened by Hithermost; Fairholme
 took 2 and 3, and the twelve shareholders round its table share stock faces;

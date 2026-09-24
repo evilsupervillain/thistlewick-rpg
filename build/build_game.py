@@ -30,6 +30,7 @@ import fairholme  # noqa: E402
 import evermore  # noqa: E402
 import gladhollow  # noqa: E402
 import premises  # noqa: E402
+import frayne  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import south  # noqa: E402
 import village  # noqa: E402
@@ -83,6 +84,7 @@ MAP_NAMES = [
     (gladhollow.MAP_GLADHOLLOW, "Gladhollow", journey.MAP_WORLD),
     (gladhollow.MAP_MAYORS, "The Mayor's House", gladhollow.MAP_GLADHOLLOW),
     (premises.MAP_PREMISES, "The Former Premises", journey.MAP_WORLD),
+    (frayne.MAP_FRAYNE, "Tobias Frayne's Cottage", journey.MAP_WORLD),
 ]
 
 
@@ -296,6 +298,7 @@ def main():
     evermore.build()
     gladhollow.build()
     premises.build()
+    frayne.build()
     build_map_infos()
     build_tilesets()
     build_system()

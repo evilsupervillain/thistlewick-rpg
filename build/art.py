@@ -78,6 +78,14 @@ SHEETS = {
         # has none.
         (7, "elias-meech.json"),        # the Sky Anvil; between gates
     ],
+    "Gen_People3": [
+        # Tobias Frayne, `../SITES.md` step 8, and the first of a new sheet.
+        # Nobody wrote his look down, so he is drawn to `../COMPANIONS.md`'s
+        # one line - revived eleven times and delighted about it: the shirt
+        # of a man who lives on the coast road, a moustache, an open grin,
+        # and a scar on the cheek.
+        (0, "tobias-frayne.json"),      # the coast road; eleven times
+    ],
 }
 
 # battlerName -> settings file. `install.py enemy` writes a stand-in only when

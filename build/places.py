@@ -217,6 +217,14 @@ MAP_PREMISES = 42
 # `MAP_PREMISES`, not `MAP_HALL` - that is Prophecy Hall, Map 3.
 PREMISES_STEP = (81, 88)
 
+MAP_FRAYNE = 43
+# Tobias Frayne's cottage on the coast road, `../SITES.md` step 8. One south
+# of the `House (Town)` stamp's one cell, on the sand between the grass it
+# stands on and the sea: checked open four ways (0x600) against the finished
+# `data/Map008.json`, with nothing standing on it. `MAP_FRAYNE`, not
+# `MAP_COTTAGE` - that is Number Forty-Five's, Map 17.
+FRAYNE_STEP = (66, 83)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

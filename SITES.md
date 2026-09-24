@@ -104,7 +104,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Gladhollow~~ | 1 | 2 | 1 | **done** |
 | — | ~~The Former Premises~~ | 1 | 1 | 1 | **done** |
 | — | ~~The seven with no map~~ | **7** | **0** | 1 | **done** |
-| 8 | Tobias Frayne | 1 | 1 | 1 | `COMPANIONS.md` 4 |
+| — | ~~Tobias Frayne~~ | 1 | 1 | 1 | **done** |
 | 9 | Village 1 | 1 | 0 | 0 | `WORLDMAP.md` 8 |
 | 10 | Frostwick | 1 | 4 | 6 | `WORLDMAP.md` 7.3 |
 | 11 | Coldbarrow | 1 | 1 | 1 | `COMPANIONS.md` L6 |
@@ -603,6 +603,54 @@ Merribell's MER-4.
 * **Build:** the cottage (1). One face.
 * Cheap, close to country the player already walks, and it is a good one to do
   while the pattern is fresh.
+
+**Done.** `build/frayne.py`, Map 43, `build/scenarios/frayne.json`.
+`placeholder_doors` is **17**. What is worth carrying forward:
+
+* **`COMPANIONS.md` disagrees with this step, and this step won.** Its section
+  5 files MER-4 under "no new map at all", and its own entry says *Needs: one
+  world-map cottage, one bad ladder* - which reads as a world-map event, like
+  step 7's seven. This list said one map, and a bad ladder has to lean against
+  something, so it is a room: one 9x5 cottage behind the one-cell `House
+  (Town)` stamp. Same shape of disagreement as Ashcombe Lake in step 7, and the
+  same answer - `SITES.md` is the queue. **What MER-4 inherits**: Tobias is
+  event 2 on Map 43 with a two-page self-switch pair, the ladder is event 3,
+  the book event 4, the jar event 5 - **sealed and unpaid**, labelled FOR
+  WHOEVER IS GOING THAT WAY - and the shelf event 6. The book's twelfth line
+  is ruled and dated today and left empty, which is the quest's ending if
+  Merribell's cure is leaving: it stays empty.
+* **The stamp was what its name said** - shot this time, per step 7: a single
+  green-roofed house on a square of grass between the coast road and the
+  beach. `FRAYNE_STEP` is the sand below it.
+* **Gen_People3 is open**, and Tobias is 0: face `p11`, fronthair `p03`, hair
+  swatch 3 (brown), a moustache (`beard p01`), an open grin (`mouth p05`), the
+  cottager's shirt (`clothing p22`) and **`facialmark p03`, the scar across
+  the cheek** - the one of the eleven that shows. Seven cells left.
+* **Three props were not what they were called, and `propsheet.py` found all
+  three.** The jar was going to be `Pot A` on `Inside_C`, which is a white milk
+  jug; `Pot C` and `Pot D` are brass ewers. The only thing on either sheet that
+  reads as a jar is `Pot B` on `Inside_B` - `IN_BARREL`, a stoneware crock with
+  the lid tied down with string - so the jar is that, on the floor, and the
+  line says so. And `Medicine Shelf` is bottles, not bandages; its line was
+  written to the crop ("tonics, liniments and smelling salts").
+* **A ladder over a wall face makes the wall walkable.** `Wood Ladder` is
+  `Inside_B` column 6, three cells; the foot is `0x600` and the two upper
+  cells are **`0x626`** - the ladder bit, open up and down - and since the
+  topmost non-star tile decides passage, laying them over the wall face opens
+  a staircase up the wall. The ladder's event stands on the foot at "same as
+  characters", which blocks it, and it is read from the square below; the
+  scenario asserts the player stops there.
+* **The eleven add up**, because a player will count: the ladder four, the
+  well two, the bull two, the cliff one, and two he would sooner not go into.
+  The book writes seven of them out and sums the rest. **One trope** (Tobias,
+  the healer as a vending machine, seen from the patient's side), **no
+  blush** - he is fond of kneeling adventurers holding his hand, and it is
+  meant exactly as said. `VAR_TROPES` is about eighty-one reachable.
+* **Nobody in it is unhappy**, and that was the only hard part: a man who
+  keeps falling off a ladder on purpose is a sad story unless he is not in
+  danger in his own mind. "Oh, nobody DIES on the coast road. Somebody always
+  comes by." The new rung is leaning beside the old one, planed and sound,
+  and still in its paper, which has gone yellow.
 
 ### 9. Village 1 — (60,61), `Village B`
 

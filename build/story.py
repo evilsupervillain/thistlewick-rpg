@@ -226,6 +226,11 @@ FACES = {
     "Dunnock": ("Evil", 0),
     "Miss Privet": ("Actor3", 3),
     "Mrs Quickset": ("Actor3", 7),
+    # Tobias Frayne, SITES.md step 8, and the first cell of `Gen_People3`:
+    # drawn, because he is the whole site. A cottager's shirt, a moustache, an
+    # open grin, and one scar across the cheek, which is the only one of the
+    # eleven that shows.
+    "Tobias": ("Gen_People3", 0),
 }
 
 

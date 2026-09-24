@@ -1,6 +1,6 @@
 {
   "query": "?map=8&x=61&y=22&frames=90",
-  "comment": "WORLDMAP.md 6.7. The world map carries 18 placeholder door events on the 12 of its 29 sites that have nothing behind them yet, and they are deliberately INERT: a page whose command list is just the terminator, so Game_Event.start never runs it. This asserts that in the engine rather than in the data, because the day somebody wires the first real transfer is the day this stops being true for one of them and nothing else would say so. Frostwick (61,21) and Village 1 (60,61) are the two walked onto here. The Former Premises was the one placeholder that could only be reached by air, and it has been built, so every placeholder left is on the ground and walking onto two of them is the whole test.",
+  "comment": "WORLDMAP.md 6.7. The world map carries 17 placeholder door events on the 11 of its 29 sites that have nothing behind them yet, and they are deliberately INERT: a page whose command list is just the terminator, so Game_Event.start never runs it. This asserts that in the engine rather than in the data, because the day somebody wires the first real transfer is the day this stops being true for one of them and nothing else would say so. Frostwick (61,21) and Village 1 (60,61) are the two walked onto here. The Former Premises was the one placeholder that could only be reached by air, and it has been built, so every placeholder left is on the ground and walking onto two of them is the whole test.",
   "steps": [
     {"eval": "$gameSystem.disableEncounter()"},
     {"check": "$gameMap.mapId()", "expect": 8,
@@ -8,8 +8,8 @@
     {"check": "[$dataMap.width, $dataMap.height]", "expect": [120, 120]},
 
     {"check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).length",
-     "expect": 18,
-     "label": "18 placeholder doors left. It was 41 on 29 sites; Penultima's two, Restwell's two, the Hithermost cluster's four - Village A is two cells, and the chapel and the Door into the Mountain one each - Fairholme's three - Castle A is two cells, and Mrs Emberthwaite's lair one - Olde Evermore's one, Village C - Gladhollow's two, Village B is two cells - the Former Premises' two, Floating Continent (Castle) is two cells - and the seven world-map-only sites' seven, one cell each and no map behind any of them - are real doors now and are in this game's own block of events, which is what wiring a site does - see WORLDMAP.md 7.6. This number goes down by the width of a stamp every time somebody builds a room, and that is the check"},
+     "expect": 17,
+     "label": "17 placeholder doors left. It was 41 on 29 sites; Penultima's two, Restwell's two, the Hithermost cluster's four - Village A is two cells, and the chapel and the Door into the Mountain one each - Fairholme's three - Castle A is two cells, and Mrs Emberthwaite's lair one - Olde Evermore's one, Village C - Gladhollow's two, Village B is two cells - the Former Premises' two, Floating Continent (Castle) is two cells - and the seven world-map-only sites' seven, one cell each and no map behind any of them - and Tobias Frayne's one, House (Town) - are real doors now and are in this game's own block of events, which is what wiring a site does - see WORLDMAP.md 7.6. This number goes down by the width of a stamp every time somebody builds a room, and that is the check"},
     {"check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).every(e => e.pages.every(p => p.list.every(c => c.code === 0)))",
      "expect": true,
      "label": "and every page of every one of them has no commands at all"},
