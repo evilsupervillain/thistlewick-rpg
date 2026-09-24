@@ -103,7 +103,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Olde Evermore~~ | 1 | 2 | 1 | **done** |
 | — | ~~Gladhollow~~ | 1 | 2 | 1 | **done** |
 | — | ~~The Former Premises~~ | 1 | 1 | 1 | **done** |
-| 7 | The seven with no map | **7** | **0** | 3-5 | `COMPANIONS.md` 3 |
+| — | ~~The seven with no map~~ | **7** | **0** | 1 | **done** |
 | 8 | Tobias Frayne | 1 | 1 | 1 | `COMPANIONS.md` 4 |
 | 9 | Village 1 | 1 | 0 | 0 | `WORLDMAP.md` 8 |
 | 10 | Frostwick | 1 | 4 | 6 | `WORLDMAP.md` 7.3 |
@@ -545,6 +545,54 @@ and is why building them now is safe.
 * **`COMPANIONS.md` contradicts itself about Ashcombe Lake** - it is in this
   table as one event and in L3 as "the drawn-down street (1 small map)". Build
   the event here; the small map, if it is ever wanted, belongs to step 14.
+
+**Done.** `build/nomap.py`, no maps, `build/scenarios/nomap.json`.
+`placeholder_doors` is **18**. What is worth carrying forward:
+
+* **The Sky Anvil is a `Shrine` after all.** Its cell's layer-3 tile is
+  `World_B` 22, which `World_B.txt` calls `Shrine` and a screenshot shows as a
+  little stone building with a domed top - this heading had it right and the
+  step-6 measurement, which said `Giant Tree (Snow)`, did not. So the text is
+  about a shrine: the pilgrims call the stone the Sky Anvil and built the shrine
+  round its foot in 1750, and Elias Meech hangs his gates off it. **Shoot the
+  stamp before believing any measurement of it**, including the one in the
+  prompt you were given.
+* **A world-map scene asks first.** Each event is two pages: the first is a
+  line of narration and a Stop / Press on choice, so a player crossing the cell
+  on the way somewhere else loses one window and not a scene; the scene sets
+  self switch A, and page two is the short version (with a second choice where
+  somebody lives there, one window where nobody does). Mother Selvidge's A is
+  set inside the branch that pays her, so walking off without paying leaves
+  her first page standing.
+* **The money is crowns.** `COMPANIONS.md` says twopence and nothing in the
+  game is priced in pence; `System.json`'s unit is `cr` and Splint charges two
+  crowns for the pit. Mother Selvidge charges two crowns.
+* **One drawing: Elias Meech is `Gen_People2` 7**, and that sheet is full; the
+  next site to draw anybody opens `Gen_People3`. Mother Selvidge is `Evil` 2,
+  the old woman in the pointed hat, which is the look a fair expects and the
+  only mystical thing about her. The three hedge mages are `Evil` 0 (Dunnock,
+  the pipe-smoker, self-taught) and the two `Actor3` women nobody had used,
+  3 and 7 (Miss Privet and Mrs Quickset). The Commissioner and "Somebody Large"
+  in the Wrong Dragon's cave have no face on purpose.
+* **What the Wrong Dragon is stays a closed subject** - `NORTH.md` 1.3's fifth
+  mechanism - because Mrs Emberthwaite is already a dragon in every sense and
+  a second kindly one would be a repeat. It is "a dragon in the sense that the
+  map says so", has a blanket over what you think are its knees, and
+  remembers a very correct young knight twelve years ago who talked about
+  Horace until dark. ALD-6 can decide the rest.
+* **Nothing here spends a quest's payoff.** Mother Selvidge tells Bram what is
+  true of him - a long walk, a lot of company, and somebody very surprised to
+  see him at the end - and not the four young men a year, which is Corvin's
+  third reading. The Fen has its form and no fire person; the duck has its
+  medal and walks into the bank twice, and nobody escorts it.
+* **Five tropes, no blush**: the Sky Anvil, the hedge mages' secret order, the
+  dragon's lair, the fortune-teller and the bell under the lake (which rings -
+  up the road in the new Ashcombe, which took it with them). `VAR_TROPES` is
+  about eighty reachable; `VAR_BLUSHES` is unchanged.
+* **Step 8's door is measured**: `Tobias Frayne` at (66,82), `House (Town)`,
+  one cell, open all four ways, so `placeholder_doors` goes 18 → 17. And
+  **Village 1 is two cells**, (60,61) and (61,61), which step 9 should count
+  before it writes its number down.
 
 ### 8. Tobias Frayne — (66,82), `House (Town)`
 

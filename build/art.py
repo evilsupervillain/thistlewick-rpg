@@ -71,6 +71,12 @@ SHEETS = {
         # single thing he says is good news: a pressed suit and a tie, the
         # spectacles, and his eyes shut in contentment.
         (6, "prosper-hollowell.json"),  # Caretaker (Retained); delighted
+        # The seven with no map, `../SITES.md` step 7, and the last cell of
+        # the sheet. Elias Meech is the one of them drawn: a hill farmer in
+        # the snow, the olive work coat, a brown hat with a grey band and a
+        # grey beard. Everybody else at those seven shares a stock face, or
+        # has none.
+        (7, "elias-meech.json"),        # the Sky Anvil; between gates
     ],
 }
 

@@ -1,0 +1,560 @@
+{
+ "query": "?map=8&x=76&y=27&frames=90",
+ "comment": "SITES.md step 7: the seven world-map sites with no map behind them, build/nomap.py. Each is walked onto from an open neighbour, its scene is played through with the default choices - which stop, and pay Mother Selvidge - and its self switch A is asserted. Nothing is started by hand. The shots are each scene's second window, so the faces show.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._tropes = $gameVariables.value(2); $gameParty.gainGold(10); window._gold = $gameParty.gold()"
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8
+  },
+  {
+   "check": "$dataMap.events.filter(e => e && [\"Sky Anvil\", \"The Lay-By\", \"Cinder Fen\", \"Wrong Dragon\", \"The Fair\", \"Ashcombe Lake\", \"The Duck's Pond\"].includes(e.name)).map(e => [e.name, e.x, e.y, (e.note||'').includes('-site')])",
+   "expect": [
+    [
+     "Sky Anvil",
+     76,
+     26,
+     false
+    ],
+    [
+     "The Lay-By",
+     11,
+     88,
+     false
+    ],
+    [
+     "Cinder Fen",
+     47,
+     118,
+     false
+    ],
+    [
+     "Wrong Dragon",
+     110,
+     114,
+     false
+    ],
+    [
+     "The Fair",
+     67,
+     115,
+     false
+    ],
+    [
+     "Ashcombe Lake",
+     104,
+     54,
+     false
+    ],
+    [
+     "The Duck's Pond",
+     115,
+     40,
+     false
+    ]
+   ],
+   "label": "seven real events, one cell each, where the placeholders were, and none of them a placeholder"
+  },
+  {
+   "comment": "Sky Anvil: from (76,27), one press onto (76,26) - Meech, who is between gates.",
+   "goto": [
+    8,
+    76,
+    27
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    76,
+    26
+   ],
+   "label": "standing on Sky Anvil"
+  },
+  {
+   "check": "$gameMap._interpreter.eventId() === $dataMap.events.find(e => e && e.name === \"Sky Anvil\").id",
+   "expect": true,
+   "label": "and walking onto it started it"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "shot": "nomap_sky_anvil.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": false
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameSelfSwitches.value([8, $dataMap.events.find(e => e && e.name === \"Sky Anvil\").id, 'A'])",
+   "expect": true,
+   "label": "Sky Anvil has happened, and says so in its own self switch"
+  },
+  {
+   "comment": "The Lay-By: from (11,89), one press onto (11,88) - Miss Privet, and item one.",
+   "goto": [
+    8,
+    11,
+    89
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    11,
+    88
+   ],
+   "label": "standing on The Lay-By"
+  },
+  {
+   "check": "$gameMap._interpreter.eventId() === $dataMap.events.find(e => e && e.name === \"The Lay-By\").id",
+   "expect": true,
+   "label": "and walking onto it started it"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "shot": "nomap_lay_by.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": false
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameSelfSwitches.value([8, $dataMap.events.find(e => e && e.name === \"The Lay-By\").id, 'A'])",
+   "expect": true,
+   "label": "The Lay-By has happened, and says so in its own self switch"
+  },
+  {
+   "comment": "Cinder Fen: from (47,117), one press onto (47,118) - the Drainage Commissioner. Row 118 is the map's second-last, so it is entered from the north.",
+   "goto": [
+    8,
+    47,
+    117
+   ]
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    47,
+    118
+   ],
+   "label": "standing on Cinder Fen"
+  },
+  {
+   "check": "$gameMap._interpreter.eventId() === $dataMap.events.find(e => e && e.name === \"Cinder Fen\").id",
+   "expect": true,
+   "label": "and walking onto it started it"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "shot": "nomap_cinder_fen.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": false
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameSelfSwitches.value([8, $dataMap.events.find(e => e && e.name === \"Cinder Fen\").id, 'A'])",
+   "expect": true,
+   "label": "Cinder Fen has happened, and says so in its own self switch"
+  },
+  {
+   "comment": "Wrong Dragon: from (110,113), one press onto (110,114) - Somebody Large. Cave B here is open from the north and nowhere else.",
+   "goto": [
+    8,
+    110,
+    113
+   ]
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    110,
+    114
+   ],
+   "label": "standing on Wrong Dragon"
+  },
+  {
+   "check": "$gameMap._interpreter.eventId() === $dataMap.events.find(e => e && e.name === \"Wrong Dragon\").id",
+   "expect": true,
+   "label": "and walking onto it started it"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "shot": "nomap_wrong_dragon.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": false
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameSelfSwitches.value([8, $dataMap.events.find(e => e && e.name === \"Wrong Dragon\").id, 'A'])",
+   "expect": true,
+   "label": "Wrong Dragon has happened, and says so in its own self switch"
+  },
+  {
+   "comment": "The Fair: from (67,116), one press onto (67,115) - Mother Selvidge, two crowns.",
+   "goto": [
+    8,
+    67,
+    116
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    67,
+    115
+   ],
+   "label": "standing on The Fair"
+  },
+  {
+   "check": "$gameMap._interpreter.eventId() === $dataMap.events.find(e => e && e.name === \"The Fair\").id",
+   "expect": true,
+   "label": "and walking onto it started it"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "shot": "nomap_fair.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": false
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameSelfSwitches.value([8, $dataMap.events.find(e => e && e.name === \"The Fair\").id, 'A'])",
+   "expect": true,
+   "label": "The Fair has happened, and says so in its own self switch"
+  },
+  {
+   "check": "window._gold - $gameParty.gold()",
+   "expect": 2,
+   "label": "and she was paid two crowns"
+  },
+  {
+   "comment": "Ashcombe Lake: from (104,55), one press onto (104,54) - not this week.",
+   "goto": [
+    8,
+    104,
+    55
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    104,
+    54
+   ],
+   "label": "standing on Ashcombe Lake"
+  },
+  {
+   "check": "$gameMap._interpreter.eventId() === $dataMap.events.find(e => e && e.name === \"Ashcombe Lake\").id",
+   "expect": true,
+   "label": "and walking onto it started it"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "shot": "nomap_ashcombe_lake.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": false
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameSelfSwitches.value([8, $dataMap.events.find(e => e && e.name === \"Ashcombe Lake\").id, 'A'])",
+   "expect": true,
+   "label": "Ashcombe Lake has happened, and says so in its own self switch"
+  },
+  {
+   "comment": "The Duck's Pond: from (115,41), one press onto (115,40) - the Fellow.",
+   "goto": [
+    8,
+    115,
+    41
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    115,
+    40
+   ],
+   "label": "standing on The Duck's Pond"
+  },
+  {
+   "check": "$gameMap._interpreter.eventId() === $dataMap.events.find(e => e && e.name === \"The Duck's Pond\").id",
+   "expect": true,
+   "label": "and walking onto it started it"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "shot": "nomap_ducks_pond.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": false
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameSelfSwitches.value([8, $dataMap.events.find(e => e && e.name === \"The Duck's Pond\").id, 'A'])",
+   "expect": true,
+   "label": "The Duck's Pond has happened, and says so in its own self switch"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 5,
+   "label": "five tropes: the Sky Anvil, the hedge mages, the dragon, the fortune-teller and the bell under the lake. The Fen and the duck are the quests' to count"
+  },
+  {
+   "comment": "And the second time is the short version. Off the pond and back on.",
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    115,
+    40
+   ]
+  },
+  {
+   "check": "$gameMap.event($dataMap.events.find(e => e && e.name === \"The Duck's Pond\").id)._pageIndex",
+   "expect": 1,
+   "label": "page two now"
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": true
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": false
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 5,
+   "label": "and nothing counted twice"
+  }
+ ]
+}

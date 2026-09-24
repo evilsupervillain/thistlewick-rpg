@@ -210,6 +210,22 @@ FACES = {
     # drawn to WORLDMAP.md 7.4's one rule for him - every single thing he says
     # is good news - so his eyes are shut in contentment.
     "Hollowell": ("Gen_People2", 6),
+    # The seven with no map, SITES.md step 7, and the last cell of
+    # `Gen_People2`: Elias Meech, who is drawn, because the Sky Anvil is his
+    # gatepost and HOB-4 comes back to him. The rest share faces nobody else
+    # in the game is wearing. Mother Selvidge is `Evil`'s old woman in the
+    # pointed hat, which is the look a fair expects of a fortune-teller and
+    # is the only thing about her that is mystical. The three hedge mages at
+    # the Lay-By are the pipe-smoker on the same sheet - self-taught, and it
+    # shows - and the two `Actor3` women nobody has used: the white hat, and
+    # the one with the staff at her shoulder. The Drainage Commissioner and
+    # whatever lives in the Wrong Dragon's cave speak with a name and no
+    # portrait, on the raker's precedent; neither has a face in the box.
+    "Meech": ("Gen_People2", 7),
+    "Mother Selvidge": ("Evil", 2),
+    "Dunnock": ("Evil", 0),
+    "Miss Privet": ("Actor3", 3),
+    "Mrs Quickset": ("Actor3", 7),
 }
 
 

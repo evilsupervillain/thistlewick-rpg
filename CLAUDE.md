@@ -91,13 +91,15 @@ nothing that is already in the tally comes out or gets re-voiced.
 
 **Two counter thresholds are cut against totals that keep moving**, so anything
 that adds a `story.trope()` or a `story.blush()` site has to come back here.
-`VAR_TROPES` is 40 / 20 against about seventy-five reachable (Firstfield added
+`VAR_TROPES` is 40 / 20 against about eighty reachable (Firstfield added
 eight; Hithermost adds four more - the sign, the villager, Sir Dunstable and
 Quillon - Fairholme three, the King, Rosamund and Mrs Emberthwaite, and Olde
 Evermore two, the ARRIVALS sign and Mirabel's biscuit, and Gladhollow four -
 Toby, Granny Wendle's barrels, the key under the pot and the bookcase, and
 the Former Premises one, Hollowell's tour - the floating castle of the
-ancients);
+ancients - and the seven with no map five: the Sky Anvil, the hedge mages'
+secret order, the Wrong Dragon, Mother Selvidge's reading and the bell under
+Ashcombe Lake);
 `VAR_BLUSHES` is 20
 against **thirty-one** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the

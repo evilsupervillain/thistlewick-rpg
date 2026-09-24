@@ -430,7 +430,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (100)
+### `FACES` — who already has a face (105)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -460,6 +460,8 @@ Brannoc               Kit                   Osric                 Aurel
 Hild                  Morwen                Leof                  Valen
 Mr Budge              Mrs Budge             Mr Pilbeam            Mirabel
 Elder Faelan          Elder Lirien          Toby                  Hollowell
+Meech                 Mother Selvidge       Dunnock               Miss Privet
+Mrs Quickset
 ```
 
 

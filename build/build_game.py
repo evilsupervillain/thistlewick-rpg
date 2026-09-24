@@ -30,6 +30,7 @@ import fairholme  # noqa: E402
 import evermore  # noqa: E402
 import gladhollow  # noqa: E402
 import premises  # noqa: E402
+import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
