@@ -93,13 +93,14 @@ nothing that is already in the tally comes out or gets re-voiced.
 that adds a `story.trope()` or a `story.blush()` site has to come back here.
 `VAR_TROPES` is 40 / 20 against about sixty-eight reachable (Firstfield added
 eight; Hithermost adds four more - the sign, the villager, Sir Dunstable and
-Quillon - and Fairholme three, the King, Rosamund and Mrs Emberthwaite);
+Quillon - Fairholme three, the King, Rosamund and Mrs Emberthwaite, and Olde
+Evermore two, the ARRIVALS sign and Mirabel's biscuit);
 `VAR_BLUSHES` is 20
-against **thirty** reachable - twenty-five measured off the data in August
+against **thirty-one** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
 north, Walt's tune and the register in Restwell, and the Book in Hithermost's
-chapel, and Rosamund's card. The tier is meant to be
-four fifths of the true total and is now **67%**; `NORTH.md` 2.3 has the count,
+chapel, and Rosamund's card, and Mirabel's secret. The tier is meant to be
+four fifths of the true total and is now **65%**; `NORTH.md` 2.3 has the count,
 why counting it by grep over-counts and is wrong, and why it is being left
 alone. `SITES.md` section 4 item 5 is where it finally gets re-cut, and it is
 the one thing on that list that cannot be done incrementally.
@@ -171,6 +172,11 @@ windows later he says this one is new.
                      step 3, a `SITES` dict like `hithermost.py`. The council
                      table is three tables end to end, and the lair's dragon is
                      `$BigMonster2` with no face
+      evermore.py    Maps 38-39: Olde Evermore and the Forbidden Archive, and
+                     the real door on Map 8 - `SITES.md` step 4, one `SITE`
+                     like `penultima.py`. **Touches the spine**: the horse in
+                     the margin sits beside clause twelve, and the game never
+                     says why; the docstring says what it may not contradict
       penultima.py   Maps 29-30: Penultima and Ye Final Shoppe, and the
                      **real** door events on Map 8 that replace the two
                      placeholders worldmap.json ships for that site. It is the
@@ -256,6 +262,8 @@ Append instead.
 | Maps 35-37 | Fairholme's council chamber, Rosamund's tower, Mrs
   Emberthwaite's lair. `fairholme.py`, `SITES.md` step 3. **`MAP_ROSAMUND`,
   not `MAP_TOWER`** - that is the Obligatory Tower, Map 11 |
+| Maps 38-39 | Olde Evermore and the Forbidden Archive. `evermore.py`,
+  `SITES.md` step 4. `MAP_EVERMORE`, `MAP_ARCHIVE` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -525,9 +533,15 @@ makes eight passes over it cost less than the single pass did before.
   Dunstable's empty chair and its place card, Mr Pilbeam, out onto
   `places.FAIRHOLME_STEP`; then the lair's door, the tablet, Mrs Emberthwaite
   and a hand of whist, Mr Emberthwaite's chair, and out onto `places.LAIR_STEP` |
+| `evermore` | `SITES.md` step 4, walked: onto Olde Evermore's door off the world
+  map, over the edge and into the leaves, the ARRIVALS sign, the raker, into
+  the Archive, Mirabel four times - the biscuit, the horse, **the secret, which
+  is the blush**, and bedtime - the Archive's copy of the Prophecy, and back
+  out down the path onto `places.EVERMORE_STEP` |
 | `placeholder_doors` | that the world map's **remaining site doors do nothing**.
-  It was 41 on 29 sites and is **30** now, Penultima's two, Restwell's two,
-  the Hithermost cluster's four and Fairholme's three having become real doors. Every page of every one of the rest has no commands, which is how an event says "this
+  It was 41 on 29 sites and is **29** now, Penultima's two, Restwell's two,
+  the Hithermost cluster's four, Fairholme's three and Olde Evermore's one
+  having become real doors. Every page of every one of the rest has no commands, which is how an event says "this
   exists and is not finished" - and it is asserted out of the live game rather
   than off the data, because the day somebody wires the first real transfer is
   the day it stops being true for one of them. It walks onto Frostwick's door
@@ -589,10 +603,12 @@ of the art, so the data build never needs the untracked stock generator parts.
 | sheet | 0 | 1 | 2 | 3 | 4 | 5 | 6-7 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
-| `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | | | |
+| `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | | |
 
 **`Gen_People1` is full**, and `Gen_People2` was opened by Hithermost; Fairholme
-took 2 and 3, and the twelve shareholders round its table share stock faces. Restwell's third speaking part, Dr Pike,
+took 2 and 3, and the twelve shareholders round its table share stock faces;
+Olde Evermore's Mirabel is 4, and its two Elders share `Actor3:0` and
+`Nature:6`. Restwell's third speaking part, Dr Pike,
 **shares `SF_Actor3:6`** instead - `story.FACES` records every such share and
 the reasoning, and sharing is the cheaper answer whenever a character is a
 single scene in one room.

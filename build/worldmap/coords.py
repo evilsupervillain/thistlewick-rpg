@@ -111,10 +111,14 @@ def world_coords(path):
                             (int(hit.group(1)), int(hit.group(2))),
                             not denied))
         if POSITION.search(check) and isinstance(expect, list):
-            if len(expect) == 2:
-                out.append(("expect %d" % i, (expect[0], expect[1]), True))
-            elif len(expect) == 3:
-                out.append(("expect %d" % i, (expect[1], expect[2]), True))
+            # One position, or a list of them - `[[name, x, y], ...]` is how a
+            # site's scenario lists its door events.
+            many = expect and all(isinstance(e, list) for e in expect)
+            for e in (expect if many else [expect]):
+                if len(e) == 2:
+                    out.append(("expect %d" % i, (e[0], e[1]), True))
+                elif len(e) == 3:
+                    out.append(("expect %d" % i, (e[1], e[2]), True))
     return out
 
 

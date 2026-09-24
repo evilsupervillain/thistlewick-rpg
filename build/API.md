@@ -430,7 +430,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (95)
+### `FACES` — who already has a face (98)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -458,7 +458,8 @@ Walt                  Dr Pike               Guest                 Quillon
 Sir Dunstable         King Aldous           Rosamund              Tamsin
 Brannoc               Kit                   Osric                 Aurel
 Hild                  Morwen                Leof                  Valen
-Mr Budge              Mrs Budge             Mr Pilbeam
+Mr Budge              Mrs Budge             Mr Pilbeam            Mirabel
+Elder Faelan          Elder Lirien
 ```
 
 
@@ -466,7 +467,7 @@ Mr Budge              Mrs Budge             Mr Pilbeam
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-84 constants.
+87 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -550,6 +551,9 @@ MAP_ROSAMUND                 36
 MAP_LAIR                     37
 FAIRHOLME_STEP               (104, 74)
 LAIR_STEP                    (111, 70)
+MAP_EVERMORE                 38
+MAP_ARCHIVE                  39
+EVERMORE_STEP                (30, 94)
 WORLD_SIGN_SOUTH             (58, 73)
 WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)

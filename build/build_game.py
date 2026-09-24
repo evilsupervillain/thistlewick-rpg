@@ -27,6 +27,7 @@ import penultima  # noqa: E402
 import restwell  # noqa: E402
 import hithermost  # noqa: E402
 import fairholme  # noqa: E402
+import evermore  # noqa: E402
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -74,6 +75,8 @@ MAP_NAMES = [
     (fairholme.MAP_FAIRHOLME, "Fairholme", journey.MAP_WORLD),
     (fairholme.MAP_ROSAMUND, "Rosamund's Tower", fairholme.MAP_FAIRHOLME),
     (fairholme.MAP_LAIR, "Mrs Emberthwaite's Lair", journey.MAP_WORLD),
+    (evermore.MAP_EVERMORE, "Olde Evermore", journey.MAP_WORLD),
+    (evermore.MAP_ARCHIVE, "The Forbidden Archive", evermore.MAP_EVERMORE),
 ]
 
 
@@ -282,6 +285,7 @@ def main():
     restwell.build()
     hithermost.build()
     fairholme.build()
+    evermore.build()
     build_map_infos()
     build_tilesets()
     build_system()

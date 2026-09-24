@@ -193,6 +193,13 @@ MAP_FAIRHOLME, MAP_ROSAMUND, MAP_LAIR = 35, 36, 37
 FAIRHOLME_STEP = (104, 74)
 LAIR_STEP = (111, 70)
 
+MAP_EVERMORE, MAP_ARCHIVE = 38, 39
+# Olde Evermore and its Forbidden Archive. One south of the village's one
+# `Village C` cell, checked open four ways (`flags & 0x0F == 0`, it is 0xe00)
+# against the finished `data/Map008.json`, region 1, nothing standing on it.
+# Everybody arrives by falling off the ledge; this is where the path out ends.
+EVERMORE_STEP = (30, 94)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

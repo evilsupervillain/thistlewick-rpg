@@ -100,7 +100,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Restwell~~ | 1 | 2 | 1 | **done** |
 | — | ~~Hithermost cluster~~ | **3** | 2 | 1 | **done** |
 | — | ~~Fairholme and the lair~~ | **2** | 3 | 1 | **done** |
-| 4 | Olde Evermore | 1 | 2 | 1-2 | `BIOS.md` |
+| — | ~~Olde Evermore~~ | 1 | 2 | 1 | **done** |
 | 5 | Gladhollow | 1 | 1-2 | 0 | `BIOS.md` |
 | 6 | The Former Premises | 1 | 1 | 1 | `WORLDMAP.md` 7.4 |
 | 7 | The seven with no map | **7** | **0** | 3-5 | `COMPANIONS.md` 3 |
@@ -334,7 +334,55 @@ is a horse.
   with: the margin doodle and the drawing are statements about the Prophecy, and
   the Prophecy is the last boss. Nothing here should contradict the finale.
 
-### 5. Gladhollow — (33,111), `Village B`
+**Done.** `build/evermore.py`, Maps 38 and 39, `build/scenarios/evermore.json`.
+`placeholder_doors` is **29**. What is worth carrying forward:
+
+* **The spine is handled by placing the horse, not by explaining it.** Mirabel
+  drew a horse in the margin at the signing because it was very long and she
+  was bored; the Archive keeps a fair copy made there and then, by a copyist
+  who was told to copy everything, and the horse is in its margin **beside
+  clause twelve**. Asked who the villain really is, she draws it, and it is a
+  horse - "I'm only very good at horses." Nothing connects the two horses and
+  nothing says what the villain is. The finale's Prophecy is a scroll whose
+  twelfth clause renews the Dark Lord, and the player's own copy (`db`'s key
+  item) already has clause twelve "underlined by somebody worried", so a player
+  can join it up at the top of the Tower and the game never does. The module
+  says nothing about who signed it, when, or where the original is, which is
+  what keeps it from disagreeing with anything. `CLAUDE.md`'s "The ending"
+  summary was not quite enough for this: it says what the tally reads and not
+  what the Prophecy *is*, so twenty lines of `journey.finale_event` (the scroll
+  unrolling, "CLAUSE TWELVE") were read to check it. Worth adding one line to
+  that summary if another site touches the spine.
+* **The Register A candidate is mechanism two, and the blush is Mirabel's
+  secret**: Elder Lirien is going to have a baby, Mirabel foresaw it and told
+  them at breakfast, she has known "since the ninth of March", and it is going
+  to be called Biscuit. The secret she thinks she is telling is the name. The
+  Elders go red and cannot stop smiling. `VAR_BLUSHES` is **31** reachable
+  against a tier of 20 (65%); two tropes (the ARRIVALS sign, the biscuit).
+* **The face bill was one install and no drawing.** Mirabel's settings were
+  written; she is `Gen_People2` 4. The Elders share faces nobody else wears:
+  Faelan `Actor3:0`, Lirien `Nature:6`, the one face in the box that already
+  looks as if she lives in a hidden elven village. The raker has no `FACES`
+  entry and speaks as "Elf", with no portrait. `Gen_People2` has **three cells
+  left**.
+* **`build/worldmap/coords.py` was broken by step 3 and nobody noticed**:
+  `fairholme.json` checks its door events as a list of `[name, x, y]`, which
+  matches the position pattern, and the tool crashed on a list of lists. It
+  reads a list of positions now. The per-site check list says to run it; it
+  had not been run since step 2.
+* **Everybody arrives by falling**, so the world-map door's first option is
+  "Look over the edge", with the `Fall` sound effect, and the landing is
+  `Outside_B`'s `Fallen Leaves` under a `Ledge A (Meadow)` cliff. `blob()` for a
+  three-cell pond comes out as a sand-edged speck with the lily pads on the
+  grass; a filled rectangle of `WATER` autotiles into a proper pond.
+
+### 5. Gladhollow — (33,111)-(34,111), `Village B`
+
+**`Village B` is two cells** - `worldmap.json` names both `Gladhollow` - so
+`placeholder_doors.json` goes **29 → 27**, not 28. Measured at the end of step
+4. Toby's settings are already written, as `build/characters/toby-gladhollow.json`,
+and he is not in `story.FACES` yet: he is an install into `Gen_People2` 5, not
+a drawing.
 
 `BIOS.md`: **Toby Wendle, aged ten**, Official Welcomer, paid a copper a day to
 stand by the gate and say "Welcome to Gladhollow!" and nothing else, per his job

@@ -58,6 +58,10 @@ SHEETS = {
         # learned.
         (2, "king-aldous.json"),        # half the kingdom, every time
         (3, "princess-rosamund.json"),  # the packed bag by the window
+        # Olde Evermore, `../SITES.md` step 4. Mirabel's look is
+        # `../BIOS.md`'s: silver hair and fringe, the circlet with the blue
+        # stone, the purple and gold robe. The Elders share stock faces.
+        (4, "mirabel.json"),            # Last Oracle; in bed by half seven
     ],
 }
 

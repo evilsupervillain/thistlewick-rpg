@@ -193,6 +193,14 @@ FACES = {
     "Morwen": ("Actor2", 5), "Leof": ("Actor2", 6), "Valen": ("Actor3", 2),
     "Mr Budge": ("People2", 6), "Mrs Budge": ("People4", 1),
     "Mr Pilbeam": ("People4", 0),
+    # Olde Evermore, SITES.md step 4. Mirabel is drawn, BIOS.md's look to the
+    # letter. The two Elders are one scene in one room, so they share faces
+    # nobody else in the game wears: Faelan the long-haired man on `Actor3`,
+    # and Lirien `Nature`'s woman with the circlet, who is the only face in
+    # the box that already looks as if she lives in a hidden elven village.
+    "Mirabel": ("Gen_People2", 4),
+    "Elder Faelan": ("Actor3", 0),
+    "Elder Lirien": ("Nature", 6),
 }
 
 

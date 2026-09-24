@@ -36,5 +36,7 @@ null,
 {"id":34,"expanded":true,"name":"Chapel of Continuance","order":34,"parentId":33,"scrollX":0,"scrollY":0},
 {"id":35,"expanded":true,"name":"Fairholme","order":35,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":36,"expanded":true,"name":"Rosamund's Tower","order":36,"parentId":35,"scrollX":0,"scrollY":0},
-{"id":37,"expanded":true,"name":"Mrs Emberthwaite's Lair","order":37,"parentId":8,"scrollX":0,"scrollY":0}
+{"id":37,"expanded":true,"name":"Mrs Emberthwaite's Lair","order":37,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":38,"expanded":true,"name":"Olde Evermore","order":38,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":39,"expanded":true,"name":"The Forbidden Archive","order":39,"parentId":38,"scrollX":0,"scrollY":0}
 ]
