@@ -173,6 +173,16 @@ MAP_RESTWELL, MAP_EIGHT_HOURS = 31, 32
 # not a junction of the world's.
 RESTWELL_STEP = (42, 81)
 
+MAP_HITHERMOST, MAP_CONTINUANCE = 33, 34
+# One south of the western of Hithermost's two `Village A` cells, which is the
+# bottom of a stack of three sites - the village, the Chapel of Continuance
+# above it and the Door into the Mountain above that, all in column 30 - so it
+# is the one square below all of them. Checked open four ways
+# (`flags & 0x0F == 0`) against the finished `data/Map008.json`, region 2, and
+# nothing else standing on it. The village's road and the chapel's porch both
+# come back out here; the Door into the Mountain does not go anywhere yet.
+HITHERMOST_STEP = (30, 24)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

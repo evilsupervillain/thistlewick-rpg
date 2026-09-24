@@ -166,6 +166,13 @@ FACES = {
     # Neighbour's face; `Traveller` is People3:0, which is the royalty sheet
     # and is already carrying a joke of its own in Nether Sopping.
     "Guest": ("People1", 1),
+    # Hithermost, SITES.md step 2, and the first two cells of `Gen_People2`.
+    # Quillon is BIOS.md's look to the letter - bald, the long white beard,
+    # the ochre habit and the eyes shut. Sir Dunstable is the bio's joke, so
+    # he is drawn rather than borrowed: an old knight with a waxed moustache,
+    # a red cloak and a plume.
+    "Quillon": ("Gen_People2", 0),
+    "Sir Dunstable": ("Gen_People2", 1),
 }
 
 

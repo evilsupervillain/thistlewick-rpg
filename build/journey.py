@@ -24,6 +24,7 @@ import field as F
 import meadow as M
 import penultima as P
 import restwell as RW
+import hithermost as HM
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
@@ -132,7 +133,10 @@ def world_map():
     # below is handed the cells its placeholders were standing on and builds
     # real doors on exactly those - and this game owns what is behind it.
     # WORLDMAP.md 7.6 has the reasoning and the two rejected alternatives.
-    claims = {P.SITE: P.world_doors, RW.SITE: RW.world_doors}
+    # A module that builds a *cluster* claims several names at once and
+    # exports them as a `SITES` dict of name to builder - Hithermost is three
+    # sites stacked up one pass, with one module behind all of them.
+    claims = {P.SITE: P.world_doors, RW.SITE: RW.world_doors, **HM.SITES}
     cells = {}
     for e in doors:
         if "-site" in (e.get("note") or ""):

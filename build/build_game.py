@@ -25,6 +25,7 @@ import journey  # noqa: E402
 import north  # noqa: E402
 import penultima  # noqa: E402
 import restwell  # noqa: E402
+import hithermost  # noqa: E402
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -66,6 +67,9 @@ MAP_NAMES = [
      penultima.MAP_PENULTIMA),
     (restwell.MAP_RESTWELL, "Restwell", journey.MAP_WORLD),
     (restwell.MAP_EIGHT_HOURS, "The Eight Hours", restwell.MAP_RESTWELL),
+    (hithermost.MAP_HITHERMOST, "Hithermost", journey.MAP_WORLD),
+    (hithermost.MAP_CONTINUANCE, "Chapel of Continuance",
+     hithermost.MAP_HITHERMOST),
 ]
 
 
@@ -272,6 +276,7 @@ def main():
     meadow.build()
     penultima.build()
     restwell.build()
+    hithermost.build()
     build_map_infos()
     build_tilesets()
     build_system()

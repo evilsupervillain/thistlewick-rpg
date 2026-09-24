@@ -44,6 +44,14 @@ SHEETS = {
         (6, "mrs-ashbury.json"),        # Restwell: The Eight Hours
         (7, "walt-ashbury.json"),       # and the tune at the foot of the stairs
     ],
+    "Gen_People2": [
+        # Hithermost, `../SITES.md` step 2. Quillon's look is `../BIOS.md`'s
+        # to the letter; Sir Dunstable is drawn here, an old knight with a
+        # plume, because he is the bio's joke and a borrowed face would be
+        # somebody else coming in at a quarter past four.
+        (0, "brother-quillon.json"),    # Chapel of Continuance: the Book
+        (1, "sir-dunstable.json"),      # two hundred and twelve times
+    ],
 }
 
 # battlerName -> settings file. `install.py enemy` writes a stand-in only when

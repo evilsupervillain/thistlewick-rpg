@@ -56,8 +56,8 @@ Penultima is the worked example and `build/penultima.py` is the template.
 
 1. **A module per site or cluster**, `build/<name>.py`, with a `build()` that
    saves its maps. Import it in `build_game.py`, add its maps to `MAP_NAMES`.
-2. **Map ids continue upward from 31.** Penultima took 29 and 30. Never
-   renumber.
+2. **Map ids continue upward from 35.** Penultima took 29 and 30, Restwell
+   31 and 32, Hithermost 33 and 34. Never renumber.
 3. **The door is claimed by name, not by coordinate.** The module exports
    `SITE = "<the name worldmap.json's door events carry>"` and
    `world_doors(base_id, cells)`; `journey.world_map` drops the placeholders
@@ -65,7 +65,7 @@ Penultima is the worked example and `build/penultima.py` is the template.
    world-map coordinate into `places.py`** - only the square the player is put
    back on coming out.
 4. **`placeholder_doors.json`'s count goes down by the number of cells you
-   claimed**, and you edit that number on purpose. It is 39 now. That scenario
+   claimed**, and you edit that number on purpose. It is 33 now. That scenario
    is the check that notices a half-wired site.
 5. **A scenario that walks in from the world map and back out.** Not
    `$gameMap.event(n).start()` - walking is the only thing that proves the door
@@ -98,7 +98,7 @@ that is not - and **one module per session**, so a step is a session.
 | --- | --- | --- | --- | --- | --- |
 | — | ~~Penultima~~ | 1 | 2 | 0 | **done** |
 | — | ~~Restwell~~ | 1 | 2 | 1 | **done** |
-| 2 | Hithermost cluster | **3** | 2-3 | 1 | `BIOS.md` |
+| — | ~~Hithermost cluster~~ | **3** | 2 | 1 | **done** |
 | 3 | Fairholme and the lair | **2** | 3 | 1-2 | `BIOS.md` |
 | 4 | Olde Evermore | 1 | 2 | 1-2 | `BIOS.md` |
 | 5 | Gladhollow | 1 | 1-2 | 0 | `BIOS.md` |
@@ -217,9 +217,42 @@ one thing: saying that he remembers.
   nothing; the joke and the mechanic are the same object.
 * **Faces:** Quillon has one. Sir Dunstable is new.
 
-### 3. Fairholme and Mrs Emberthwaite's lair — (104,73) `Castle A`, (111,69) `Cave A`
+**Done.** `build/hithermost.py`, Maps 33 and 34, `build/scenarios/hithermost.json`.
+`placeholder_doors` is **33**. What is worth carrying forward:
 
-Two doors, one module: they are one bio.
+* **A cluster exports `SITES`, a dict of name to builder**, and
+  `journey.world_map` merges it into `claims` with `**HM.SITES`. Three names,
+  three claims, one module, and nothing else about the mechanism changed. The
+  Door into the Mountain's world-map door is a *claimed* door that transfers
+  nowhere - a refusal - which is legal: a claim replaces the placeholder, it
+  does not have to go anywhere.
+* **The Book is a save point**, `R.open_save_screen()` behind a choice, and a
+  scenario cannot catch `Scene_Save` in the act: `advance` goes on pressing
+  Enter inside it, which saves. `hithermost.json` counts openings with a spy on
+  `Scene_Save.prototype.start` and asserts `DataManager.savefileInfo(1)`.
+* **`places.py` already had a `MAP_CHAPEL`** - Thistlewick's, Map 5 - and
+  defining a second one silently re-pointed `village.py` at Map 34; the build
+  printed `dropped stray Map005.json` and that line was the only symptom.
+  Grep `places.py` for a constant's name before adding it. This one is
+  `MAP_CONTINUANCE`.
+* **Pick the ground from the cliff's family.** `Ledge B (Dirt)` over `Meadow`
+  grass is two materials; over `Grass (Dirt)` and `Road (Dirt)` it is one
+  place. `A(25)`/`A(26)` have no `mapkit` constant and are local to the
+  module. And `TREE_DARK` drawn free-standing on grass is a flat square of
+  hedge, not a tree - `TREE` is the one that reads.
+* **`Gen_People2` is open**: Quillon at 0, Sir Dunstable at 1. The Tolleys'
+  entry in the Book is the blush, so `VAR_BLUSHES` is **29** reachable against
+  a tier of 20 - 69%, and still section 4 item 5's problem.
+* **`serve.js` needs an absolute root.** `node ../tools/serve.js . 8766` serves
+  404 for everything - its prefix check compares a joined relative path
+  against `"."` - and `shots.js` then times out on a probe that never loads.
+  Pass `$(pwd)`.
+
+### 3. Fairholme and Mrs Emberthwaite's lair — (104,73)-(105,73) `Castle A`, (111,69) `Cave A`
+
+**Two sites, three door cells, one module**: they are one bio. **`Castle A` is
+two cells wide** - measured off `worldmap.json`, which names them `Fairholme`
+and `Mrs Emberthwaite's lair` - so `placeholder_doors.json` goes **33 → 30**.
 
 `BIOS.md`: **Princess Rosamund**, kidnapped eleven times - twelve if you count
 the eagle, which the Palace does not. She keeps a packed bag by the tower
