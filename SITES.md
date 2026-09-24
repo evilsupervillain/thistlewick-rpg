@@ -102,7 +102,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Fairholme and the lair~~ | **2** | 3 | 1 | **done** |
 | — | ~~Olde Evermore~~ | 1 | 2 | 1 | **done** |
 | — | ~~Gladhollow~~ | 1 | 2 | 1 | **done** |
-| 6 | The Former Premises | 1 | 1 | 1 | `WORLDMAP.md` 7.4 |
+| — | ~~The Former Premises~~ | 1 | 1 | 1 | **done** |
 | 7 | The seven with no map | **7** | **0** | 3-5 | `COMPANIONS.md` 3 |
 | 8 | Tobias Frayne | 1 | 1 | 1 | `COMPANIONS.md` 4 |
 | 9 | Village 1 | 1 | 0 | 0 | `WORLDMAP.md` 8 |
@@ -469,6 +469,53 @@ nobody in it and he would like the current incumbent to sign it.
 * Cheapest whole site on the list by payoff, and it is what makes the Two
   Hundred worth having flown.
 
+**Done.** `build/premises.py`, Map 42, `build/scenarios/premises.json`.
+`placeholder_doors` is **25**, and every placeholder left is on the ground.
+What is worth carrying forward:
+
+* **The way out of an air-only place needed a fourth note in `validate.py`.**
+  The hall's exit puts the party back on (81,88), where the airship is, and a
+  transfer destination is an on-foot entrance - so the flood walked straight
+  onto both `<aironly>` doors and reported them. `<airreturn>` on the exit
+  event keeps its destinations out of the on-foot flood and asserts instead
+  that they are airship-landable. Both halves were proved on a throwaway copy
+  (drop the note: the doors are reported; move the destination into the sea:
+  the landing is). It is in the workspace `CLAUDE.md`'s vehicle bullet, and
+  it is the only change this step made outside the game.
+* **An appended page on Grimspite is three pages, because of the two already
+  there.** Last page wins, so a signing page added on its own beats the ITEM 1
+  page whenever both hold, and beats the empty `SW_WON` page after the win,
+  which would put the finale back on the throne. So page 3 is the book, page
+  4 is the book and the crate, and page 5 is the `SW_WON` page again, the
+  same bytes. Pages 0-2 are byte for byte what they were, checked against
+  `HEAD`. `journey.visitors_book_pages` splices at two new indices, `sig` and
+  `tally`, the way ITEM 1 does at `split`; `CLAUDE.md`'s "The ending" has it.
+  **Anybody appending to Grimspite after this has the same problem**, and
+  `premises.json` asserts which page wins in each of the four states.
+* **The first new switch of the sites**, `db.SW_VISITORS_BOOK`, 88. The
+  book never leaves its lectern, so Hollowell gives you a slip ruled to match
+  - which is also why no item was needed. He signs it before the fight:
+  "Never been. Heard marvellous things about the lift." The tally reads it
+  back before clause twelve is struck.
+* **Hollowell is `Gen_People2` 6**, drawn here: suit and tie, spectacles,
+  waxed moustache, and eyes shut in contentment (`eyes p25`), because 7.4's
+  rule for him is that every single thing he says is good news. `Gen_People2`
+  has **one cell left**.
+* **The lift is `!$Gate2` character 1**, a pair of engraved stone doors that
+  slide apart; the four rows of the sheet are the frames, walked with route
+  codes 17-19, so the page must not fix its direction. It goes up to the
+  battlements and back and "does not go any further than that. Nobody asked
+  it to." No stock tile is a lift and nothing on the Inside sheets is a
+  sconce; the sconces are `!Flame` 0 facing up, the wall candelabrum.
+* **`Wall O (Demon Castle)` is green gemstone**, which is not what its name
+  says - the first screenshot was a hall walled in emerald. The hall is
+  `Wall K (Stone)` over `Interior Floor I (Marble)`, white and polished, and
+  the old black-and-red throne is the one thing left of the tenant.
+* **The first draft was a row too tall and half-empty**; four pillars down
+  the aisle and this quarter's report on a desk (VISITORS: "Yes!", underlined
+  twice) filled it. One trope, for the floating castle, and no blush, as 7.4
+  insists. `VAR_TROPES` is about seventy-five reachable.
+
 ### 7. The seven that need no map at all
 
 `COMPANIONS.md` 3's "world-map-only sites (no maps, one event each)". **Seven
@@ -490,6 +537,11 @@ and is why building them now is safe.
 * **Faces:** three to five, and some of these want no face at all - Ashcombe
   Lake and the Duck's Pond can be narration, the way the Standing Stones and
   the Hermit already are.
+* **Measured at the end of step 6, and three of the names above are wrong as
+  `SITE` strings**: `worldmap.json` calls them `Sky Anvil`, `Cinder Fen` and
+  `Wrong Dragon`, with no "The". The Sky Anvil is stamped `Giant Tree (Snow)`,
+  not a shrine. All seven are one cell, so `placeholder_doors` goes 25 → 18,
+  and the Wrong Dragon's cave is open only from the north.
 * **`COMPANIONS.md` contradicts itself about Ashcombe Lake** - it is in this
   table as one event and in L3 as "the drawn-down street (1 small map)". Build
   the event here; the small map, if it is ever wanted, belongs to step 14.

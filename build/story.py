@@ -206,6 +206,10 @@ FACES = {
     # his granny have no entries on purpose: each is one short scene, and they
     # speak with their names and no portrait, the way Olde Evermore's raker does.
     "Toby": ("Gen_People2", 5),
+    # The Former Premises, SITES.md step 6. The only person in the building,
+    # drawn to WORLDMAP.md 7.4's one rule for him - every single thing he says
+    # is good news - so his eyes are shut in contentment.
+    "Hollowell": ("Gen_People2", 6),
 }
 
 

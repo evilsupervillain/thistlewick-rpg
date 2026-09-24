@@ -28,6 +28,7 @@ import hithermost as HM
 import fairholme as FH
 import evermore as EV
 import gladhollow as GLAD
+import premises as FP
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
@@ -141,7 +142,7 @@ def world_map():
     # sites stacked up one pass, with one module behind all of them.
     claims = {P.SITE: P.world_doors, RW.SITE: RW.world_doors, **HM.SITES,
               **FH.SITES, EV.SITE: EV.world_doors,
-              GLAD.SITE: GLAD.world_doors}
+              GLAD.SITE: GLAD.world_doors, FP.SITE: FP.world_doors}
     cells = {}
     for e in doors:
         if "-site" in (e.get("note") or ""):
@@ -996,6 +997,9 @@ def finale_event(event_id, x, y):
             "only one who ever came at me with a",
             "question about materials."]))
 
+    # The Former Premises' visitors' book is signed here, on pages of its
+    # own - see the page list at the bottom - so this is only where it goes.
+    sig = len(c)
     c += S.say("Grimspite", [
         "Whatever you were going to say -",
         "and I have heard all of them - say it",
@@ -1264,6 +1268,7 @@ def finale_event(event_id, x, y):
             "completed, the first on record. Fizz has",
             "applied for Boss Warning Sprite, First Class,",
             "and has put Bram down as a reference."]))
+    tally = len(c)
     c += S.narrate([
         "Thistlewick struck clause twelve from the",
         "records and replaced it with a note reading",
@@ -1296,7 +1301,76 @@ def finale_event(event_id, x, y):
                conditions={"itemValid": True, "itemId": db.IT_ITEM_ONE}),
         R.page([], img=R.image(""), trigger=0, priority=0, through=True,
                conditions={"switch1Valid": True, "switch1Id": db.SW_WON}),
-    ])
+    ] + visitors_book_pages(c, sig, split, tally))
+
+
+def visitors_book_pages(c, sig, split, tally):
+    """The Former Premises' signature - SITES.md step 6, WORLDMAP.md 7.4.
+
+    NORTH.md 1.7 pattern 2, and three pages rather than one because of where
+    the three above already sit. Last page wins: a page carrying the book
+    appended on its own would beat the crate page whenever both were true, so
+    the book gets its own copy of each - with the slip, and with the slip and
+    the crate. And it would beat the empty `SW_WON` page too, which would put
+    the finale back on the throne after the Prophecy is gone, so that page is
+    appended again last, the same bytes. Pages 0-2 are untouched: a player
+    who never flew to the Premises sees today's finale.
+
+    The slip is signed before the fight - the only time he is the incumbent
+    he is being asked as - and read back in the tally, before clause twelve
+    is struck. It is spliced into copies of the list at `sig` and `tally`,
+    the way ITEM 1 is at `split`, so nothing already in the list moves."""
+    img = R.image("Evil", 6, direction=2)
+    book = S.narrate([
+        "You take out Mr Hollowell's slip for the visitors'",
+        "book, ruled into three columns: NAME, FROM and",
+        "REMARKS."])
+    book += S.say("Grimspite", ["What is that."])
+    book += S.narrate([
+        "You explain: the Former Premises. The caretaker.",
+        "Four hundred years, and nobody in the book."])
+    book += S.say("Grimspite", [
+        "The old place. On the cloud.",
+        "I've never been. I've read the file.",
+        "The drains were a disgrace, and the",
+        "east wing faced the wrong way."])
+    book += S.narrate([
+        "You say that the caretaker would like him to sign",
+        "it."])
+    book += S.say("Grimspite", [
+        "Nobody has asked me to sign anything",
+        "in four thousand years that wasn't",
+        "binding."])
+    book += S.narrate([
+        "He signs it with care, the way he put the bookmark",
+        "in. NAME: GRIMSPITE THE INEVITABLE. FROM: HERE."])
+    book += S.narrate([
+        "Under REMARKS, after some thought, he writes:",
+        "",
+        "   Never been. Heard marvellous things",
+        "   about the lift."])
+    framed = S.narrate([
+        "Mr Prosper Hollowell, Caretaker (Retained), has",
+        "pasted the first signature in four hundred years",
+        "into the visitors' book, and has written it up in",
+        "his quarterly report. It runs to forty pages."])
+
+    def signed(bomb):
+        return (c[:sig] + book + c[sig:split] + bomb + c[split:tally]
+                + framed + c[tally:])
+    return [
+        R.page(signed([]), img=img, trigger=0, priority=1,
+               direction_fix=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_VISITORS_BOOK}),
+        R.page(signed(item_one_scene()), img=img, trigger=0, priority=1,
+               direction_fix=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_VISITORS_BOOK,
+                           "itemValid": True, "itemId": db.IT_ITEM_ONE}),
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_WON}),
+    ]
 
 
 def item_one_scene():

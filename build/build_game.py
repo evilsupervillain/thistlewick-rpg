@@ -29,6 +29,7 @@ import hithermost  # noqa: E402
 import fairholme  # noqa: E402
 import evermore  # noqa: E402
 import gladhollow  # noqa: E402
+import premises  # noqa: E402
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -80,6 +81,7 @@ MAP_NAMES = [
     (evermore.MAP_ARCHIVE, "The Forbidden Archive", evermore.MAP_EVERMORE),
     (gladhollow.MAP_GLADHOLLOW, "Gladhollow", journey.MAP_WORLD),
     (gladhollow.MAP_MAYORS, "The Mayor's House", gladhollow.MAP_GLADHOLLOW),
+    (premises.MAP_PREMISES, "The Former Premises", journey.MAP_WORLD),
 ]
 
 
@@ -216,7 +218,8 @@ def build_system():
             (db.SW_FF_SHEEP_DONE, "Firstfield: the sheep are found"),
             (db.SW_FF_CHEST, "Firstfield: opened the chest"),
             (db.SW_FF_NORBERT, "Firstfield: Norbert has lost"),
-            (db.SW_FF_GRADUATED, "Firstfield: tutorial completed")]:
+            (db.SW_FF_GRADUATED, "Firstfield: tutorial completed"),
+            (db.SW_VISITORS_BOOK, "Hollowell wants the visitors' book signed")]:
         switches[sid] = name
     for actor_id, sid in db.SW_RECRUIT.items():
         switches[sid] = "recruited actor %d" % actor_id
@@ -291,6 +294,7 @@ def main():
     fairholme.build()
     evermore.build()
     gladhollow.build()
+    premises.build()
     build_map_infos()
     build_tilesets()
     build_system()

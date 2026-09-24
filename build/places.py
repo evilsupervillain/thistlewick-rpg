@@ -207,6 +207,16 @@ MAP_GLADHOLLOW, MAP_MAYORS = 40, 41
 # nothing standing on it. Both gates come back out here.
 GLADHOLLOW_STEP = (33, 112)
 
+MAP_PREMISES = 42
+# The Former Premises: the hall with the lift, on the floating continent. Air
+# only, so this is not "one south of the door": it is the one square of the
+# three `Clouds` cells with no door on it, east of the two, checked open four
+# ways and airship-landable (0x600, the 0x800 bit clear) against the finished
+# `data/Map008.json`, with sea (0x80f) on every other side. It is where the
+# airship is standing, because it is the only place she can have landed.
+# `MAP_PREMISES`, not `MAP_HALL` - that is Prophecy Hall, Map 3.
+PREMISES_STEP = (81, 88)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

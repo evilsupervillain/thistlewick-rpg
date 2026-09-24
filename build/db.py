@@ -236,6 +236,9 @@ VAR_FF_STATIONS = 11            # stations done, of four; Fizz graduates you at 
 VAR_FF_SHEEP = 12               # sheep found, of three
 VAR_FF_SIGNS = 13               # signs read, which is how Fizz varies her line
 VAR_TOBY = 14                   # which of his fourteen Toby did last; see gladhollow.py
+# The Former Premises, SITES.md step 6. Set on Map 42 and read by a page on
+# Grimspite at the top of the tower, Map 12, so it cannot be a self switch.
+SW_VISITORS_BOOK = 88           # Hollowell has asked for the incumbent's signature
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

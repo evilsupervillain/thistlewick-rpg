@@ -430,7 +430,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (99)
+### `FACES` — who already has a face (100)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -459,7 +459,7 @@ Sir Dunstable         King Aldous           Rosamund              Tamsin
 Brannoc               Kit                   Osric                 Aurel
 Hild                  Morwen                Leof                  Valen
 Mr Budge              Mrs Budge             Mr Pilbeam            Mirabel
-Elder Faelan          Elder Lirien          Toby
+Elder Faelan          Elder Lirien          Toby                  Hollowell
 ```
 
 
@@ -467,7 +467,7 @@ Elder Faelan          Elder Lirien          Toby
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-90 constants.
+92 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -557,6 +557,8 @@ EVERMORE_STEP                (30, 94)
 MAP_GLADHOLLOW               40
 MAP_MAYORS                   41
 GLADHOLLOW_STEP              (33, 112)
+MAP_PREMISES                 42
+PREMISES_STEP                (81, 88)
 WORLD_SIGN_SOUTH             (58, 73)
 WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)
@@ -567,7 +569,7 @@ WORLD_SIGN_COAST             (63, 80)
 
 The whole database of The Obligatory Quest.
 
-371 constants.
+372 constants.
 
 ```
 BRAM                         1
@@ -897,6 +899,7 @@ VAR_FF_STATIONS              11
 VAR_FF_SHEEP                 12
 VAR_FF_SIGNS                 13
 VAR_TOBY                     14
+SW_VISITORS_BOOK             88
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

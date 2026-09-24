@@ -91,11 +91,13 @@ nothing that is already in the tally comes out or gets re-voiced.
 
 **Two counter thresholds are cut against totals that keep moving**, so anything
 that adds a `story.trope()` or a `story.blush()` site has to come back here.
-`VAR_TROPES` is 40 / 20 against about seventy-four reachable (Firstfield added
+`VAR_TROPES` is 40 / 20 against about seventy-five reachable (Firstfield added
 eight; Hithermost adds four more - the sign, the villager, Sir Dunstable and
 Quillon - Fairholme three, the King, Rosamund and Mrs Emberthwaite, and Olde
 Evermore two, the ARRIVALS sign and Mirabel's biscuit, and Gladhollow four -
-Toby, Granny Wendle's barrels, the key under the pot and the bookcase);
+Toby, Granny Wendle's barrels, the key under the pot and the bookcase, and
+the Former Premises one, Hollowell's tour - the floating castle of the
+ancients);
 `VAR_BLUSHES` is 20
 against **thirty-one** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -113,7 +115,19 @@ after the Shock2 sting and before the battle, which is the only placement that
 does not make him a liar: he has just said he has heard all of them, and four
 windows later he says this one is new.
 
-`finale_ending` covers all of it in eight passes; see Verifying.
+**The Former Premises' signature is three pages, not a branch** - 3, 4 and 5.
+`journey.visitors_book_pages` splices the signing into copies of the list at
+`sig`, before "Whatever you were going to say", and Hollowell's line into the
+tally at `tally`, before clause twelve is struck; page 3 is that on
+`SW_VISITORS_BOOK`, page 4 is that with ITEM 1's scene too, and page 5 is the
+empty `SW_WON` page again, because a page appended after page 2 would
+otherwise beat it and put the finale back on the throne. Pages 0-2 are byte
+for byte what they were. Anything appended to Grimspite after this has the
+same problem, and the same answer.
+
+`finale_ending` covers pages 0 and 1 in eight passes; see Verifying.
+`premises` runs page 3 through the same harness and asserts which page wins
+in each of the four states.
 
 ## Layout
 
@@ -268,6 +282,10 @@ Append instead.
 | Maps 40-41 | Gladhollow and the mayor's house, whose back room is on the
   same map. `gladhollow.py`, `SITES.md` step 5. `MAP_GLADHOLLOW`,
   `MAP_MAYORS` |
+| Map 42 | The Former Premises, the hall with the lift, on the floating
+  continent. `premises.py`, `SITES.md` step 6. **`MAP_PREMISES`, not
+  `MAP_HALL`** - that is Prophecy Hall, Map 3. Air only: its way out carries
+  `<airreturn>`, see `../CLAUDE.md` on vehicles |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -340,6 +358,10 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
   83-84 Dilys's sheep asked and found, 85 the chest, 86 Norbert has lost,
   87 graduated. **`SPARE.md` proposes 72-74 for itself**, which `SW_KNOWN`
   took after it was written - it needs new numbers before it is built |
+| 88 | the Former Premises: Hollowell has given you the slip for the visitors'
+  book. Set on Map 42 and read by a page on Grimspite on Map 12, which is why
+  it is a global - a page condition cannot name another event's self switch.
+  The first new switch of the world-map sites |
 
 | id | variable |
 | --- | --- |

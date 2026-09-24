@@ -40,5 +40,6 @@ null,
 {"id":38,"expanded":true,"name":"Olde Evermore","order":38,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":39,"expanded":true,"name":"The Forbidden Archive","order":39,"parentId":38,"scrollX":0,"scrollY":0},
 {"id":40,"expanded":true,"name":"Gladhollow","order":40,"parentId":8,"scrollX":0,"scrollY":0},
-{"id":41,"expanded":true,"name":"The Mayor's House","order":41,"parentId":40,"scrollX":0,"scrollY":0}
+{"id":41,"expanded":true,"name":"The Mayor's House","order":41,"parentId":40,"scrollX":0,"scrollY":0},
+{"id":42,"expanded":true,"name":"The Former Premises","order":42,"parentId":8,"scrollX":0,"scrollY":0}
 ]

@@ -66,6 +66,11 @@ SHEETS = {
         # shirt and braces, the saucepan, the plaster from a paladin, and
         # enormous, eager eyes. Nobody else on that street needs a face.
         (5, "toby-gladhollow.json"),    # Official Welcomer; one sentence
+        # The Former Premises, `../SITES.md` step 6. Nobody wrote Hollowell's
+        # look down, so he is drawn to `../WORLDMAP.md` 7.4's one rule - every
+        # single thing he says is good news: a pressed suit and a tie, the
+        # spectacles, and his eyes shut in contentment.
+        (6, "prosper-hollowell.json"),  # Caretaker (Retained); delighted
     ],
 }
 
