@@ -31,6 +31,7 @@ import gladhollow as GLAD
 import premises as FP
 import nomap as NOMAP
 import frayne as TF
+import frostwick as FW
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
@@ -145,7 +146,7 @@ def world_map():
     claims = {P.SITE: P.world_doors, RW.SITE: RW.world_doors, **HM.SITES,
               **FH.SITES, EV.SITE: EV.world_doors,
               GLAD.SITE: GLAD.world_doors, FP.SITE: FP.world_doors,
-              TF.SITE: TF.world_doors,
+              TF.SITE: TF.world_doors, FW.SITE: FW.world_doors,
               **NOMAP.SITES}
     cells = {}
     for e in doors:

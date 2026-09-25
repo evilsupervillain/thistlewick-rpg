@@ -225,6 +225,15 @@ MAP_FRAYNE = 43
 # `MAP_COTTAGE` - that is Number Forty-Five's, Map 17.
 FRAYNE_STEP = (66, 83)
 
+MAP_FROSTWICK, MAP_ELEVEN_DAYS, MAP_WORKING_GROUP, MAP_COLD_ROOM = 44, 45, 46, 47
+# Frostwick, `../SITES.md` step 10: the street, the inn, the room the committee
+# meets in, and the practitioner's. One south of the western of the `Town B
+# (Snow)` stamp's two cells, on snow, checked open four ways (0x600) against
+# the finished `data/Map008.json`, with nothing standing on it. **Not
+# `MAP_PARISH`** - that is Upper Clanging's Parish Rooms, Map 25 - so the room
+# is named for the thing that meets in it.
+FROSTWICK_STEP = (61, 22)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

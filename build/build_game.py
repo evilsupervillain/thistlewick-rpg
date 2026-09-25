@@ -31,6 +31,7 @@ import evermore  # noqa: E402
 import gladhollow  # noqa: E402
 import premises  # noqa: E402
 import frayne  # noqa: E402
+import frostwick  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import south  # noqa: E402
 import village  # noqa: E402
@@ -85,6 +86,11 @@ MAP_NAMES = [
     (gladhollow.MAP_MAYORS, "The Mayor's House", gladhollow.MAP_GLADHOLLOW),
     (premises.MAP_PREMISES, "The Former Premises", journey.MAP_WORLD),
     (frayne.MAP_FRAYNE, "Tobias Frayne's Cottage", journey.MAP_WORLD),
+    (frostwick.MAP_FROSTWICK, "Frostwick", journey.MAP_WORLD),
+    (frostwick.MAP_ELEVEN_DAYS, "The Eleven Days", frostwick.MAP_FROSTWICK),
+    (frostwick.MAP_WORKING_GROUP, "The Working Group",
+     frostwick.MAP_FROSTWICK),
+    (frostwick.MAP_COLD_ROOM, "The Cold Room", frostwick.MAP_FROSTWICK),
 ]
 
 
@@ -299,6 +305,7 @@ def main():
     gladhollow.build()
     premises.build()
     frayne.build()
+    frostwick.build()
     build_map_infos()
     build_tilesets()
     build_system()

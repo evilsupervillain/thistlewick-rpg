@@ -99,13 +99,15 @@ Toby, Granny Wendle's barrels, the key under the pot and the bookcase, and
 the Former Premises one, Hollowell's tour - the floating castle of the
 ancients - and the seven with no map five: the Sky Anvil, the hedge mages'
 secret order, the Wrong Dragon, Mother Selvidge's reading and the bell under
-Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven);
+Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven, and Frostwick three,
+the town sign, Pargeter and Perce);
 `VAR_BLUSHES` is 20
-against **thirty-one** reachable - twenty-five measured off the data in August
+against **thirty-three** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
 north, Walt's tune and the register in Restwell, and the Book in Hithermost's
-chapel, and Rosamund's card, and Mirabel's secret. The tier is meant to be
-four fifths of the true total and is now **65%**; `NORTH.md` 2.3 has the count,
+chapel, and Rosamund's card, and Mirabel's secret, and Frostwick's two, Ida
+on the ribbon and Clem at the committee's table - **thirty-three**. The tier
+is meant to be four fifths of the true total and is now **61%**; `NORTH.md` 2.3 has the count,
 why counting it by grep over-counts and is wrong, and why it is being left
 alone. `SITES.md` section 4 item 5 is where it finally gets re-cut, and it is
 the one thing on that list that cannot be done incrementally.
@@ -291,6 +293,11 @@ Append instead.
 | Map 43 | Tobias Frayne's cottage on the coast road. `frayne.py`, `SITES.md`
   step 8. **`MAP_FRAYNE`, not `MAP_COTTAGE`** - that is Number Forty-Five's,
   Map 17 |
+| Maps 44-47 | Frostwick, the Eleven Days, the Working Group and the Cold
+  Room. `frostwick.py`, `SITES.md` step 10. **`MAP_WORKING_GROUP`, not
+  `MAP_PARISH`** - that is Upper Clanging's Parish Rooms, Map 25. It snows on
+  the street and nowhere else: `north.py`'s weather idiom, with a local
+  `door()` that clears it |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -579,14 +586,25 @@ makes eight passes over it cost less than the single pass did before.
   pays out of and does not open here, the medicine shelf, **the foot of the
   ladder, which blocks** - the upper cells are ladder tiles over a wall face -
   the book, and back out onto `places.FRAYNE_STEP` |
+| `frostwick` | `SITES.md` step 10, walked: onto Frostwick's door off the world
+  map, the town sign, the Cold Room and Pargeter (with the Prophecy in the bag,
+  so her branch runs), the Schedule of Snowfalls and the larder, the Working
+  Group - Clem's blush, Mrs Blagg, the minutes, the asset register, the
+  ribbon - the Eleven Days, **a room that restores a party at 1 HP** for
+  eleven crowns, the visitors' book and the plate, then Ida's blush and Perce
+  on the green, the ribbon post, the Staggs' shut door, and out onto
+  `places.FROSTWICK_STEP`. The weather is asserted at every door: snow on the
+  street, none indoors, none on the world map |
 | `placeholder_doors` | that the world map's **remaining site doors do nothing**.
   It was 41 on 29 sites and is **29** now, Penultima's two, Restwell's two,
   the Hithermost cluster's four, Fairholme's three and Olde Evermore's one
   having become real doors. Every page of every one of the rest has no commands, which is how an event says "this
   exists and is not finished" - and it is asserted out of the live game rather
   than off the data, because the day somebody wires the first real transfer is
-  the day it stops being true for one of them. It walks onto Frostwick's door
-  and Village 1's and checks the interpreter does not start |
+  the day it stops being true for one of them. It walks onto Great Dunnage's
+  door - the last site on `SITES.md`'s list, so the walk will not have to
+  move again soon - and Village 1's, and checks the interpreter does not
+  start. **15** left after Frostwick |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -645,7 +663,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
 | `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
-| `Gen_People3` | Tobias Frayne | | | | | | |
+| `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, - |
 
 **`Gen_People1` is full**, and `Gen_People2` was opened by Hithermost; Fairholme
 took 2 and 3, and the twelve shareholders round its table share stock faces;

@@ -231,6 +231,15 @@ FACES = {
     # open grin, and one scar across the cheek, which is the only one of the
     # eleven that shows.
     "Tobias": ("Gen_People3", 0),
+    # Frostwick, SITES.md step 10: all six of WORLDMAP.md 7.3's cast, drawn,
+    # in `Gen_People3` 1-6. Only four have to speak to be worth building, and
+    # all six do.
+    "Perce": ("Gen_People3", 1),
+    "Ida": ("Gen_People3", 2),
+    "Clem": ("Gen_People3", 3),
+    "Mrs Blagg": ("Gen_People3", 4),
+    "Pargeter": ("Gen_People3", 5),
+    "Mrs Marchpane": ("Gen_People3", 6),
 }
 
 

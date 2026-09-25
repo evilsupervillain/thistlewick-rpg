@@ -42,5 +42,9 @@ null,
 {"id":40,"expanded":true,"name":"Gladhollow","order":40,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":41,"expanded":true,"name":"The Mayor's House","order":41,"parentId":40,"scrollX":0,"scrollY":0},
 {"id":42,"expanded":true,"name":"The Former Premises","order":42,"parentId":8,"scrollX":0,"scrollY":0},
-{"id":43,"expanded":true,"name":"Tobias Frayne's Cottage","order":43,"parentId":8,"scrollX":0,"scrollY":0}
+{"id":43,"expanded":true,"name":"Tobias Frayne's Cottage","order":43,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":44,"expanded":true,"name":"Frostwick","order":44,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":45,"expanded":true,"name":"The Eleven Days","order":45,"parentId":44,"scrollX":0,"scrollY":0},
+{"id":46,"expanded":true,"name":"The Working Group","order":46,"parentId":44,"scrollX":0,"scrollY":0},
+{"id":47,"expanded":true,"name":"The Cold Room","order":47,"parentId":44,"scrollX":0,"scrollY":0}
 ]

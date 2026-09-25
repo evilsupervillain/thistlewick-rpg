@@ -85,6 +85,18 @@ SHEETS = {
         # of a man who lives on the coast road, a moustache, an open grin,
         # and a scar on the cheek.
         (0, "tobias-frayne.json"),      # the coast road; eleven times
+        # Frostwick, `../SITES.md` step 10: all six of `../WORLDMAP.md`
+        # 7.3's cast, drawn to its lines. Perce in a red coat with a white
+        # fur collar, which is the Festival's; Ida in a shawl, amused; Clem
+        # in a winter coat; Mrs Blagg in spectacles and the committee's
+        # navy and gold; Miss Pargeter in pale ice-blue and practical
+        # spectacles, and no pointed hat; Mrs Marchpane in the inn's cap.
+        (1, "perce-stagg.json"),        # Frostwick: broke it; opens it
+        (2, "ida-stagg.json"),          # thinks it is very funny
+        (3, "clem-blagg.json"),         # aged seven; has read the minutes
+        (4, "wilhelmina-blagg.json"),   # chair of the Festival committee
+        (5, "eudora-pargeter.json"),    # retained; refrigeration
+        (6, "tibby-marchpane.json"),    # the Eleven Days
     ],
 }
 

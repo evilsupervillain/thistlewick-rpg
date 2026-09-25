@@ -106,7 +106,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~The seven with no map~~ | **7** | **0** | 1 | **done** |
 | — | ~~Tobias Frayne~~ | 1 | 1 | 1 | **done** |
 | — | ~~Village 1~~ | 1 | 0 | 0 | **deferred to section 4** |
-| 10 | Frostwick | 1 | 4 | 6 | `WORLDMAP.md` 7.3 |
+| — | ~~Frostwick~~ | 1 | 4 | 6 | **done** |
 | 11 | Coldbarrow | 1 | 1 | 1 | `COMPANIONS.md` L6 |
 | 12 | The Sable Hart | 1 | 1 | 5 | `COMPANIONS.md` L7 |
 | 13 | Little Gore and Sump | **2** | 2 | 2 | `COMPANIONS.md` L8 |
@@ -715,6 +715,58 @@ an ice witch; and **Mrs Tibby Marchpane** of **the Eleven Days**.
 * Read 7.3's correction before writing a line of it: the hero is **not** a
   Chosen One, he is one of the unnumbered who went north with everybody else,
   and that is load-bearing.
+
+**Done.** `build/frostwick.py`, Maps 44-47, `build/scenarios/frostwick.json`.
+`placeholder_doors` is **15**. What is worth carrying forward:
+
+* **All six faces were drawn**, not four: `Gen_People3` 1-6 are Perce, Ida,
+  Clem, Mrs Blagg, Pargeter and Mrs Marchpane. That took about an hour
+  including the lineups, which is cheaper than 7.3 feared. `Gen_People3` has
+  **one cell left**, so the next site to draw anybody opens `Gen_People4`.
+  Perce is male clothing `p26`, the red coat with the white fur collar, which
+  is exactly the Festival. Clem is kid clothing `p12`, recoloured blue.
+* **Two blushes, not one.** 7.3 counts only Clem's, and this list gave the
+  site's moment to Ida. They are different lines and both pass 1.5, so both
+  are in. Ida's is 7.3's own target: one great thing forty years ago, a great
+  many since, none of which got a ribbon. Mr Stagg goes pink across the
+  green. Clem's is his nan's kitchen at the committee's table: Mrs Stagg has
+  not been cold in forty winters, "and that's Mr Stagg, that is". He thinks
+  it is the lanterns, and the committee finds the ceiling interesting.
+  `VAR_BLUSHES` is **33** reachable against a tier of 20, which is 61%.
+  Three tropes: the town sign, Pargeter and Perce.
+* **7.3's correction is the Perce scene, and the visitors' book is its
+  record.** Bram is a real Chosen One, and Perce tells him and nobody else
+  that he never was one. In the book, the third of the "three Chosen Ones"
+  is P. Stagg, marked Y in Mrs Marchpane's hand over a rubbed-out N in his.
+  The two older entries are a century apart and too faded to have names,
+  which keeps them from disagreeing with anybody the game has numbered. The
+  minutes carry the rest: Item 4, Mr Stagg to open the Festival, carried
+  unanimously with one abstention, Mr Stagg.
+* **Pargeter reads the Prophecy as a contract**, if it is in the bag: no
+  break clause, no notice period, "and clause twelve renews itself...
+  Somebody's underlined it, I see. Somebody's worried." That is the item's
+  own description and step 4's clause twelve, read by the one person in the
+  game with no feelings about contracts. It says nothing about who signed it.
+* **It snows on the street and nowhere else**, with `north.py`'s idiom: an
+  autorun that erases itself, and a local `door()` that clears the weather
+  after the walk and before the fade. The scenario asserts it at every door.
+  **A `shots.js` batch carries weather across its teleports**, so an
+  interior shot straight after a street shot shows snow indoors. That is the
+  tool, not the map.
+* **Snow tiles had no `mapkit` constants**, so they are local to the module:
+  A2 `Snow` 40 and `Road (Snow)` 42, A3 `Snow Outer Wall` 77 and 78, and on
+  `Outside_B` the 2x2 snow conifer, the three-cell snow streetlight (its foot
+  blocks), `Sign A (Snow)`, the snowman, and the snow barrel and crate.
+  `ROOF_WHITE` was already the snow roof. `MAP_PARISH` was taken (Upper
+  Clanging, Map 25), so the committee's room is `MAP_WORKING_GROUP`.
+* **The Staggs' house is a shut door** with a card in two hands, AT THE
+  RIBBON - P. / BACK FOR TEA - I. That was cheaper than a fifth map and says
+  more. `propsheet.py` found `DOOR_SHUT` is `Large Window C`. It reads as a
+  door at map scale, but there is no wreath on it, so the line lost its
+  wreath.
+* **`placeholder_doors` now walks onto Great Dunnage** at (31,52), from
+  (31,53), because Frostwick's cell is a real door now. Great Dunnage is the
+  last step on this list.
 
 ### 11. Coldbarrow — (50,19), `Temple A (Snow)`
 
