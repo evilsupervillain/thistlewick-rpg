@@ -251,6 +251,12 @@ FACES = {
     "Rook": ("Gen_People4", 2),
     "Veyle": ("Gen_People4", 3),
     "Blackwood": ("Gen_People4", 4),
+    # Little Gore and Sump, SITES.md step 13, drawn, `Gen_People4` 5 and 6.
+    # **Not "Hester"**: Mrs Hester Ashbury is Restwell's, above, and a first
+    # name only shows in a speaker box if it is put there. Mr Thurle is the
+    # Parish Clerk of Sump, who cannot allocate the wasps.
+    "Mrs Vane": ("Gen_People4", 5),
+    "Mr Thurle": ("Gen_People4", 6),
 }
 
 

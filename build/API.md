@@ -430,7 +430,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (118)
+### `FACES` — who already has a face (120)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -464,7 +464,7 @@ Meech                 Mother Selvidge       Dunnock               Miss Privet
 Mrs Quickset          Tobias                Perce                 Ida
 Clem                  Mrs Blagg             Pargeter              Mrs Marchpane
 Mordaunt              Crake                 Morrow                Rook
-Veyle                 Blackwood
+Veyle                 Blackwood             Mrs Vane              Mr Thurle
 ```
 
 
@@ -472,7 +472,7 @@ Veyle                 Blackwood
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-103 constants.
+107 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -575,6 +575,10 @@ MAP_COLDBARROW               48
 COLDBARROW_STEP              (50, 20)
 MAP_SABLE_HART               49
 SABLE_HART_STEP              (24, 76)
+MAP_LITTLE_GORE              50
+MAP_SUMP                     51
+LITTLE_GORE_STEP             (97, 102)
+SUMP_STEP                    (78, 103)
 WORLD_SIGN_SOUTH             (58, 73)
 WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)

@@ -249,6 +249,16 @@ MAP_SABLE_HART = 49
 # standing on it. **Not `MAP_INN`** - that is Thistlewick's, Map 4.
 SABLE_HART_STEP = (24, 76)
 
+MAP_LITTLE_GORE, MAP_SUMP = 50, 51
+# Little Gore and Sump, `../SITES.md` step 13: two hamlets, one street each,
+# one module (`hamlets.py`). Each step is one south of its stamp's one cell -
+# `House (Village)` and `House (Desert)` - checked open four ways (0x600)
+# against the finished `data/Map008.json`, with nothing standing on it.
+# Sump's door has the sea west of it and north of it, so south is the only
+# side of it there is to come back out on.
+LITTLE_GORE_STEP = (97, 102)
+SUMP_STEP = (78, 103)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

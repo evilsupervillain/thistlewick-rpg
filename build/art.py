@@ -130,6 +130,15 @@ SHEETS = {
         (2, "thaddeus-rook.json"),      # keeps the league table
         (3, "silas-veyle.json"),        # has the darkest corner this week
         (4, "kit-blackwood.json"),      # newest; on the waiting list
+        # Little Gore and Sump, `../SITES.md` step 13: one face each. Nobody
+        # wrote either look down. Mrs Vane is drawn to `../COMPANIONS.md`'s
+        # one line - married nine years, three children, delighted: her hair
+        # up out of the way, a village dress and an open smile. The Parish
+        # Clerk of Sump is drawn to MER-5's symptoms - headache, irritability,
+        # poor sleep - in a waistcoat and a hat against the sun, with a frown
+        # and the eyes of a man who has not slept since 1794.
+        (5, "hester-vane.json"),        # Little Gore; married nine years
+        (6, "parish-clerk-sump.json"),  # cannot allocate the wasps
     ],
 }
 

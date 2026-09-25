@@ -101,7 +101,8 @@ ancients - and the seven with no map five: the Sky Anvil, the hedge mages'
 secret order, the Wrong Dragon, Mother Selvidge's reading and the bell under
 Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven, and Frostwick three,
 the town sign, Pargeter and Perce, and Coldbarrow one, Mordaunt's nine files,
-and the Sable Hart one, five doomed rivals being fair about seating);
+and the Sable Hart one, five doomed rivals being fair about seating, and
+Sump one, the cursed village and its ancient affliction);
 `VAR_BLUSHES` is 20
 against **thirty-three** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -307,6 +308,9 @@ Append instead.
   `SITES.md` step 12. **`MAP_SABLE_HART`, not `MAP_INN`** - that is
   Thistlewick's, Map 4. Its `journey.py` alias is `HART`: `SH` is the
   Gloamwood's height there |
+| Maps 50-51 | Little Gore and Sump, two hamlets of one street each.
+  `hamlets.py`, `SITES.md` step 13, a `SITES` dict like `hithermost.py`.
+  `MAP_LITTLE_GORE`, `MAP_SUMP`; its `journey.py` alias is `HAM` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -611,6 +615,15 @@ makes eight passes over it cost less than the single pass did before.
   **the league table, asserted to stop at fourth**, the rota, Veyle twice, the
   empty table, Morrow, the newsletter with Corvin's apologies, and back out
   onto `places.SABLE_HART_STEP` |
+| `hamlets` | `SITES.md` step 13, walked: onto Little Gore's door off the
+  world map, the three Vanes playing weddings on the green, Mrs Vane twice -
+  asserted to say nothing of a letter, a mantelpiece or Aldric - Dame Winifred
+  Cope, **the banns, with INVITATIONS TO FOLLOW under them**, the fingerpost
+  and out onto `places.LITTLE_GORE_STEP`; then onto Sump's door, the sign (the
+  trope, counted once), the well, the pool that is the sea, Mr Gammage twice,
+  the Parish Clerk, the Parish Clerk with Merribell in the party - the reaction
+  shot, asserted to say nothing of what the curse is - the minutes, Mrs Pardew,
+  and out onto `places.SUMP_STEP` |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
@@ -626,7 +639,7 @@ makes eight passes over it cost less than the single pass did before.
   the day it stops being true for one of them. It walks onto Great Dunnage's
   door - the last site on `SITES.md`'s list, so the walk will not have to
   move again soon - and Village 1's, and checks the interpreter does not
-  start. **13** left after the Sable Hart |
+  start. **11** left after Little Gore and Sump |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -686,7 +699,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
 | `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
 | `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
-| `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | - | - |
+| `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | Hester Vane | Mr Thurle, - |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding

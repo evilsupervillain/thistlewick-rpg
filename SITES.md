@@ -109,7 +109,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Frostwick~~ | 1 | 4 | 6 | **done** |
 | — | ~~Coldbarrow~~ | 1 | 1 | 1 | **done** |
 | — | ~~The Sable Hart~~ | 1 | 1 | 5 | **done** |
-| 13 | Little Gore and Sump | **2** | 2 | 2 | `COMPANIONS.md` L8 |
+| — | ~~Little Gore and Sump~~ | **2** | 2 | 2 | **done** |
 | 14 | Ashcombe | 1 | 2 | 2 | `COMPANIONS.md` L3 |
 | 15 | Weeping Bottom | 1 | 2 | 2 | `COMPANIONS.md` L4 |
 | 16 | Fenmarch Hall | 1 | 2 | 2 | `COMPANIONS.md` L5 |
@@ -902,6 +902,79 @@ cannot allocate. Either can host PIP-4's eleven interviews. Serves ALD-1,
 MER-5, PIP-4.
 
 * **Build:** 2 maps, 2 faces, one module.
+
+**Done.** `build/hamlets.py`, Maps 50 and 51, `build/scenarios/hamlets.json`.
+`placeholder_doors` is **11**. What is worth carrying forward:
+
+* **A cluster of two**, `SITES = {"Little Gore": ..., "Sump": ...}`, merged
+  into `journey.world_map`'s claims as `**HAM.SITES` - Hithermost's shape, and
+  nothing else about the mechanism changed. `HAM` was free in `journey.py`;
+  `LG` and `SU` were never needed. Both doors were measured again and both
+  stamps shot: nothing on the map had moved since step 12.
+* **Little Gore's reason is the wedding, and ALD-1's letter is untouched.**
+  Mrs Vane married Tom from Fenmarch at Fenmarch nine years ago this summer,
+  and the whole hamlet - eleven of them - walked the four miles over in the
+  rain. Tom works in the gardens at Fenmarch and walks it daily, which is new
+  and which step 16 is free to use or ignore. The notice board still carries
+  the banns, and pinned under them a brown card: **INVITATIONS TO FOLLOW**.
+  That is the set-up for ALD-1 and none of its payoff - no letter, no
+  mantelpiece - and the scenario asserts she mentions neither. **There is no
+  reaction shot with Aldric**, unlike Coldbarrow and the Sable Hart, on
+  purpose: he cannot stand four miles from home with the letter in his tabard
+  and have nothing happen, and anything that happened would be the quest. So
+  ALD-1 inherits a Little Gore where Aldric walks in and nobody notices, and
+  should deal with that however it likes.
+* **Coldbarrow's white pin at Little Gore is Dame Winifred Cope**, the
+  Order's knight in the field there for eleven years - "There's a pin in me at
+  Coldbarrow. Just the one." - who writes NOTHING TO REPORT every quarter and
+  treasures the replies. She has no face (`Actor2` 1). **`Actor3` 6 is
+  Aldric's own sprite**, and was the first armoured sprite reached for.
+* **Sump puts the two facts one line apart and never joins them.** The
+  minutes: 1794, wasps in the well, deferred; 1794, the Water Committee wound
+  up, there being no water; 1795, a general sense that things used to be
+  better, suspected curse. The Clerk, Mr Thurle, explains that a wasp is the
+  Pound's, a nest is Buildings', and a well is Water's, "and the Water
+  Committee was wound up in 1794, on the grounds that there wasn't any." With
+  Merribell in the party she looks at him for about nine seconds and opens her
+  mouth, and he asks her to speak through the chair; there is no chair, he is
+  the chair. The scenario asserts nobody says thirst, drink or dehydration.
+  **What MER-5 inherits**: Thurle is event 3 on Map 51 with a two-page
+  self-switch pair, Gammage 4, Mrs Pardew 5, the well 6, the minutes 7, the
+  sign 8, the pool 9.
+* **The stamp's oasis is the sea**, come in under the sand, with a sign in
+  it that says NO. It is drawn as three by two of A1 `Water D (Sand)` - the
+  same kind as the sea round the spit - in a rim of `Grass (Sand)`, drawn by
+  hand: `blob()` left a detached green speck.
+* **Four tile traps, all cheap.** `K.PALM` is a block for `blit`, not a
+  column - `column` put a list into the map data, and `validate.py` died on it
+  rather than reporting it. `K.SOIL` is the sheet's `Sand` and `K.SAND` its
+  `Dirt`; `Road (Sand)` is grey cobbles, which is a town, so Sump's street is
+  `Dirt`. `SIGNPOST` (`Sign A`) is a two-armed fingerpost and `FENCE_PANEL`
+  (`Sign B`) is a notice board between two posts - the banns and the minutes
+  are on `Sign B`, and both fingerposts' text says two arms. And `Well` is an
+  open stone ring: `propsheet.py` found the line that gave it a winch.
+* **No wasps in the box.** Nothing on `Monster`, `Nature` or `!Other1` is an
+  insect (`!Other1` 4 is spike traps), so the nest is a hum and "something
+  small and striped" that comes up, looks at you and goes back down to report.
+* **Two faces, `Gen_People4` 5 and 6**: Mrs Vane (face `p05`, `fronthair p07`
+  over a bun, `rearhair p18`, the village dress `clothing p09`, and an open
+  smile, `mouth p21`) and Mr Thurle (face `p10`, a frown `p16`, shadowed eyes
+  `p19`, a waistcoat `p10` and a wide hat `accb p03` whose lime band is
+  recoloured black through `accessory 1 sub 2`). `Gen_People4` has **one
+  cell left**. The children, Mr Gammage, Mrs Pardew and Dame Winifred share
+  stock sprites and speak without portraits - and **a faceless speaker's name
+  goes inside the line**, so their lines are ~45 characters, not 60.
+* **PIP-4 is not here.** Little Gore has more people in it who liked each
+  other, which is what an elegy wants; nobody in either hamlet has died.
+* **One trope** - Sump's sign, the cursed village - **and no blush**: both
+  places are warm. `VAR_TROPES` is about eighty-seven reachable.
+* **Step 14's door is measured and shot.** `Ashcombe` is **two cells**,
+  `Village A` at (102,55) and (103,55) - events **61 and 62** now, layer 3
+  `World_B` 116 and 117 - so `placeholder_doors` goes 11 -> 9. (102,56) is
+  `0x600` with nothing on it. Shot: a small fenced hamlet of two wooden huts
+  and a garden on open grass, forest to the west, a dirt road coming up from
+  the south-east, and Ashcombe Lake - step 7's event, at (104,54) - a large
+  square pond with sandy banks just to its north-east.
 
 ### 14. Ashcombe — (102,55), `Village A`
 
