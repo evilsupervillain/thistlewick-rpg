@@ -242,6 +242,13 @@ MAP_COLDBARROW = 48
 # the second of those is Thistlewick's chapel, Map 5.
 COLDBARROW_STEP = (50, 20)
 
+MAP_SABLE_HART = 49
+# The Sable Hart, `../SITES.md` step 12: an inn where every corner is taken.
+# One south of the `House (Town)` stamp's one cell, on the sandy waste, checked
+# open four ways (0x600) against the finished `data/Map008.json`, with nothing
+# standing on it. **Not `MAP_INN`** - that is Thistlewick's, Map 4.
+SABLE_HART_STEP = (24, 76)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

@@ -244,6 +244,13 @@ FACES = {
     # `Gen_People3`: the Order's black coat, reading glasses, a trimmed grey
     # beard. The next person drawn opens `Gen_People4`.
     "Mordaunt": ("Gen_People3", 7),
+    # The Sable Hart, SITES.md step 12: five doomed rivals, drawn, in
+    # `Gen_People4` 0-4 - one look five times, hooded, which is the joke.
+    "Crake": ("Gen_People4", 0),
+    "Morrow": ("Gen_People4", 1),
+    "Rook": ("Gen_People4", 2),
+    "Veyle": ("Gen_People4", 3),
+    "Blackwood": ("Gen_People4", 4),
 }
 
 

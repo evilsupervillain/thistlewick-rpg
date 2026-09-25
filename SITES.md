@@ -108,7 +108,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Village 1~~ | 1 | 0 | 0 | **deferred to section 4** |
 | — | ~~Frostwick~~ | 1 | 4 | 6 | **done** |
 | — | ~~Coldbarrow~~ | 1 | 1 | 1 | **done** |
-| 12 | The Sable Hart | 1 | 1 | 5 | `COMPANIONS.md` L7 |
+| — | ~~The Sable Hart~~ | 1 | 1 | 5 | **done** |
 | 13 | Little Gore and Sump | **2** | 2 | 2 | `COMPANIONS.md` L8 |
 | 14 | Ashcombe | 1 | 2 | 2 | `COMPANIONS.md` L3 |
 | 15 | Weeping Bottom | 1 | 2 | 2 | `COMPANIONS.md` L4 |
@@ -837,6 +837,60 @@ at step 7.
 * **Build:** 1 map. **Five faces**, which is the whole joke and is why a cheap
   map is not a cheap step. They can be five variations on one look; doubling up
   is established practice.
+
+**Done.** `build/sable_hart.py`, Map 49, `build/scenarios/sable_hart.json`.
+`placeholder_doors` is **13**. What is worth carrying forward:
+
+* **The five are hooded after all, on a borrowed hood.** The male body has
+  none (`../CHARGEN.md`), but the female `AccB p10` riding hood sits on a male
+  head without an offset in all four views and recolours down to black.
+  `art.py`'s `BORROWED` lends it by rendering against a symlinked copy of the
+  stock generator with those files added to `Male`; no male part used the
+  id, so a dry run left all twenty-four people already drawn `unchanged`.
+  The look is one hood over cloak `p03` and clothing `p25`, all in one
+  colour, and the five are told apart by that colour (teal, grey,
+  mauve-grey, black, brown), the hair under it, the eyes and one thing each:
+  Crake's moustache, Morrow's spectacles, Rook's beard, Veyle's scar,
+  Blackwood's grin. **`Gen_People4` is open**, 0-4, three cells left. The
+  editor has no male `AccB p10`, so those settings files load there hoodless.
+* **Four corners, five rivals** is the room's arithmetic, and it is drawn
+  rather than said: Crake the Secretary by the window, "because somebody has
+  to be able to read the rota"; Veyle in the darkest, north-east, until
+  Monday; Rook, who keeps the league table, south-west; Morrow, who edits
+  OVERSHADOWED, south-east; and Blackwood, first on the waiting list for any
+  corner since March, on a stool **by the fire**, brooding as hard as he can
+  in the brightest seat in the inn. The middle of the room is two tables and
+  four stools with dust on them. Mrs Garrow at the bar has no face and says
+  they tip beautifully.
+* **Nothing of COR-3 is spent.** Its payoff is the league table, on which
+  Corvin is seventeenth, so **the table on the wall stops at fourth**: the
+  rota is pinned over the rest with four pins, "and somebody has put in a
+  fifth, to be sure". The newsletter sends C. Ash's apologies "(as ever)" and
+  keeps his chair, which is COR-3's premise. With Corvin in the party, Crake
+  has him down as a member, Corvin is not here, and Crake writes something
+  very small in a book; the scenario asserts no line in that branch mentions
+  a league, a rank or seventeen. **What COR-3 inherits**: Crake is event 2
+  with a two-page self-switch pair, Veyle 3, Rook 4, Morrow 5, Blackwood 6,
+  Mrs Garrow 7, the league table 8, the rota 9, the newsletter 10.
+* **Veyle says Corvin's line.** "Don't ask about the scar" is Corvin's, word
+  for word, in the Slain Wyvern; here the player does not ask, and Veyle is
+  briefly disappointed. It is the dark mirror, which is the room's one trope.
+  **No blush**: the room is warm, not red. `VAR_TROPES` is about eighty-six
+  reachable.
+* **Two props were wrong in the first screenshot, and neither was a
+  misnamed tile.** `Curtains A` is a pale sheer that made the darkest corner
+  the brightest thing on the wall; `Curtains B` is the heavy drawn one. And
+  A2 `Ground D (Black Floor)` laid on layer 1 to darken the corner autotiles
+  into what reads as rubble, so the darkness is the curtain and the text.
+  The stock `Large Fireplace` is **unlit** - an empty black grate, which
+  contradicts "by the fire" - so the fire is an event, `!Flame` 3 facing
+  left, on the grate's middle cell. And **an event list's index is its
+  id**: appending the fire as event 12 before 8-11 in the list is a map
+  whose ids do not match their slots, so append in id order.
+* **Step 13's doors are measured and shot** - see its restart prompt. Sump's
+  stamp is a desert house with **its own oasis pool**, on a spit with the sea
+  on three sides, for a hamlet with no water since 1794. And the game already
+  has a **Hester**: Mrs Hester Ashbury, Restwell's innkeeper.
 
 ### 13. Little Gore and Sump — (97,101) `House (Village)`, (78,102) `House (Desert)`
 

@@ -100,7 +100,8 @@ the Former Premises one, Hollowell's tour - the floating castle of the
 ancients - and the seven with no map five: the Sky Anvil, the hedge mages'
 secret order, the Wrong Dragon, Mother Selvidge's reading and the bell under
 Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven, and Frostwick three,
-the town sign, Pargeter and Perce, and Coldbarrow one, Mordaunt's nine files);
+the town sign, Pargeter and Perce, and Coldbarrow one, Mordaunt's nine files,
+and the Sable Hart one, five doomed rivals being fair about seating);
 `VAR_BLUSHES` is 20
 against **thirty-three** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -302,6 +303,10 @@ Append instead.
   `coldbarrow.py`, `SITES.md` step 11. `MAP_COLDBARROW`. The great map is
   a **picture**, `img/pictures/Coldbarrow_Map.png`, drawn by running the
   module - not by the data build - with every pin placed by site name |
+| Map 49 | The Sable Hart, the inn where every corner is taken. `sable_hart.py`,
+  `SITES.md` step 12. **`MAP_SABLE_HART`, not `MAP_INN`** - that is
+  Thistlewick's, Map 4. Its `journey.py` alias is `HART`: `SH` is the
+  Gloamwood's height there |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -599,6 +604,13 @@ makes eight passes over it cost less than the single pass did before.
   on the green, the ribbon post, the Staggs' shut door, and out onto
   `places.FROSTWICK_STEP`. The weather is asserted at every door: snow on the
   street, none indoors, none on the world map |
+| `sable_hart` | `SITES.md` step 12, walked: onto the Sable Hart's door off
+  the world map, Crake (the trope, counted once), Crake again, Crake with
+  Corvin in the party - the reaction shot, asserted to say nothing of the
+  league table or where he is on it - Rook, Mrs Garrow, Blackwood by the fire,
+  **the league table, asserted to stop at fourth**, the rota, Veyle twice, the
+  empty table, Morrow, the newsletter with Corvin's apologies, and back out
+  onto `places.SABLE_HART_STEP` |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
@@ -614,7 +626,7 @@ makes eight passes over it cost less than the single pass did before.
   the day it stops being true for one of them. It walks onto Great Dunnage's
   door - the last site on `SITES.md`'s list, so the walk will not have to
   move again soon - and Village 1's, and checks the interpreter does not
-  start. **14** left after Coldbarrow |
+  start. **13** left after the Sable Hart |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -674,6 +686,15 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
 | `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
 | `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
+| `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | - | - |
+
+**The Sable Hart's five wear a borrowed hood.** The male body has no hood
+among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding
+hood to it under the same id, by rendering against a symlinked copy of the
+stock generator with those files added. No male part used that id, so
+nobody drawn before changed - `art.py --dry-run` said `unchanged` for all
+twenty-four - and the editor, which has no male `AccB p10`, loads those five
+settings files without the hood.
 
 **`Gen_People1` is full**, and `Gen_People2` was opened by Hithermost; Fairholme
 took 2 and 3, and the twelve shareholders round its table share stock faces;
