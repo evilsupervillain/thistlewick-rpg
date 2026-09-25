@@ -97,6 +97,13 @@ SHEETS = {
         (4, "wilhelmina-blagg.json"),   # chair of the Festival committee
         (5, "eudora-pargeter.json"),    # retained; refrigeration
         (6, "tibby-marchpane.json"),    # the Eleven Days
+        # Chapter Clerk Mordaunt, `../SITES.md` step 11, and the last cell
+        # of the sheet. Nobody wrote his look down, so he is drawn to
+        # `../COMPANIONS.md` L6's one line - nine pins, one knight, a
+        # committee, a review: grey, the oldest face, a trimmed beard,
+        # half-rim reading glasses, and the Order's black coat with the
+        # purple lining. The next person drawn opens `Gen_People4`.
+        (7, "mordaunt.json"),           # Coldbarrow; the great map
     ],
 }
 

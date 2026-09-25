@@ -100,7 +100,7 @@ the Former Premises one, Hollowell's tour - the floating castle of the
 ancients - and the seven with no map five: the Sky Anvil, the hedge mages'
 secret order, the Wrong Dragon, Mother Selvidge's reading and the bell under
 Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven, and Frostwick three,
-the town sign, Pargeter and Perce);
+the town sign, Pargeter and Perce, and Coldbarrow one, Mordaunt's nine files);
 `VAR_BLUSHES` is 20
 against **thirty-three** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -298,6 +298,10 @@ Append instead.
   `MAP_PARISH`** - that is Upper Clanging's Parish Rooms, Map 25. It snows on
   the street and nowhere else: `north.py`'s weather idiom, with a local
   `door()` that clears it |
+| Map 48 | The Chapter House of the Order of the Errant at Coldbarrow.
+  `coldbarrow.py`, `SITES.md` step 11. `MAP_COLDBARROW`. The great map is
+  a **picture**, `img/pictures/Coldbarrow_Map.png`, drawn by running the
+  module - not by the data build - with every pin placed by site name |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -595,6 +599,12 @@ makes eight passes over it cost less than the single pass did before.
   on the green, the ribbon post, the Staggs' shut door, and out onto
   `places.FROSTWICK_STEP`. The weather is asserted at every door: snow on the
   street, none indoors, none on the world map |
+| `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
+  world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
+  takes it down after**, Mordaunt and the nine pins (the trope, counted once),
+  Mordaunt again, Mordaunt with Sir Aldric in the party - the reaction shot,
+  asserted to offer nobody a promotion - the desk, the files, the committee's
+  table, and back out onto `places.COLDBARROW_STEP` |
 | `placeholder_doors` | that the world map's **remaining site doors do nothing**.
   It was 41 on 29 sites and is **29** now, Penultima's two, Restwell's two,
   the Hithermost cluster's four, Fairholme's three and Olde Evermore's one
@@ -604,7 +614,7 @@ makes eight passes over it cost less than the single pass did before.
   the day it stops being true for one of them. It walks onto Great Dunnage's
   door - the last site on `SITES.md`'s list, so the walk will not have to
   move again soon - and Village 1's, and checks the interpreter does not
-  start. **15** left after Frostwick |
+  start. **14** left after Coldbarrow |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -663,7 +673,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
 | `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
-| `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, - |
+| `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
 
 **`Gen_People1` is full**, and `Gen_People2` was opened by Hithermost; Fairholme
 took 2 and 3, and the twelve shareholders round its table share stock faces;

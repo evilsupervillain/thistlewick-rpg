@@ -32,6 +32,7 @@ import gladhollow  # noqa: E402
 import premises  # noqa: E402
 import frayne  # noqa: E402
 import frostwick  # noqa: E402
+import coldbarrow  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import south  # noqa: E402
 import village  # noqa: E402
@@ -91,6 +92,7 @@ MAP_NAMES = [
     (frostwick.MAP_WORKING_GROUP, "The Working Group",
      frostwick.MAP_FROSTWICK),
     (frostwick.MAP_COLD_ROOM, "The Cold Room", frostwick.MAP_FROSTWICK),
+    (coldbarrow.MAP_COLDBARROW, "The Chapter House", journey.MAP_WORLD),
 ]
 
 
@@ -306,6 +308,7 @@ def main():
     premises.build()
     frayne.build()
     frostwick.build()
+    coldbarrow.build()
     build_map_infos()
     build_tilesets()
     build_system()

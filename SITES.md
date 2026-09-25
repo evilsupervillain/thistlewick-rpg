@@ -107,7 +107,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Tobias Frayne~~ | 1 | 1 | 1 | **done** |
 | — | ~~Village 1~~ | 1 | 0 | 0 | **deferred to section 4** |
 | — | ~~Frostwick~~ | 1 | 4 | 6 | **done** |
-| 11 | Coldbarrow | 1 | 1 | 1 | `COMPANIONS.md` L6 |
+| — | ~~Coldbarrow~~ | 1 | 1 | 1 | **done** |
 | 12 | The Sable Hart | 1 | 1 | 5 | `COMPANIONS.md` L7 |
 | 13 | Little Gore and Sump | **2** | 2 | 2 | `COMPANIONS.md` L8 |
 | 14 | Ashcombe | 1 | 2 | 2 | `COMPANIONS.md` L3 |
@@ -777,6 +777,54 @@ review. Serves ALD-3, and ALD-2 if the chapel is here rather than at the
 Sisterhouse.
 
 * **Build:** 1 map, 1 face.
+
+**Done.** `build/coldbarrow.py`, Map 48, `build/scenarios/coldbarrow.json`.
+`placeholder_doors` is **14**. What is worth carrying forward:
+
+* **The sight gag is a picture, and that is the one new mechanism.** The
+  stock `World Map` on `Inside_B` is a small 2x1 poster, so no tile can be
+  "one enormous map". The wall carries four of them abreast as set dressing,
+  and reading any of its eight cells puts `img/pictures/Coldbarrow_Map.png`
+  up as picture 1 - this game's own world off `build/worldmap/generated.png`,
+  toned sepia, in a wooden frame, a white pin for every other knight and
+  **nine red for Aldric** - and erases it after the last window. Show and
+  Erase Picture are raw commands 231/235, since `rmmzdata` has no helper;
+  the scenario asserts both. **The picture is drawn by running the module**
+  (`python3 build/coldbarrow.py`), like `art.py`, not by the data build, and
+  every pin is placed **by site name** off `worldmap.json`, so no world
+  coordinate was copied anywhere. PIL is not installed; `tools/chargen/png.py`
+  and numpy did it.
+* **Six right on different dates, three the same week**: Frostwick, Fenmarch
+  Hall and the Lay-By - north coast, south coast, far west. Thistlewick is
+  one of the six, because it is where he is.
+* **Nothing of ALD-3 is spent.** Mordaunt says the committee is reviewing the
+  pins and the card on its table says Sir A. is to be asked to remain in one
+  place, "Not yet informed". Nobody asks him and nobody offers a promotion.
+  With Aldric in the party, the first page runs a reaction shot - "Where am
+  I?" / "Frostwick, sir. And Fenmarch." / "Busy week." - and the scenario
+  asserts no line mentions a promotion. **What ALD-3 inherits**: Mordaunt is
+  event 2 on Map 48 with a two-page self-switch pair; the committee's table is
+  events 11-12, the files 13-14, the desk 15.
+* **One trope, no blush**: the guild that has lost your file, turned round -
+  the Order has not lost it, it has nine of them. `VAR_TROPES` is about
+  eighty-five reachable.
+* **Mordaunt is `Gen_People3` 7, and that sheet is full.** Face `p12`, grey
+  hair (swatch 19) in `fronthair p16` / `rearhair p08`, a trimmed beard
+  (`p10`), half-rim reading glasses (`glasses p01`) and the black coat with the
+  purple lining (`clothing p09`). **Skin swatch 0 leaves a red smear round the
+  sprite's eyes** under grey hair; swatch 2, which everybody else uses, does
+  not. The next site to draw anybody adds `Gen_People4` to `art.py`.
+* **`Chair A (Wood)` is a 1x2 chair** - tall back over an open seat, facing
+  south only. Laid as one tile it is a back with nothing under it, and it
+  cannot sit on the north side of a table facing up; that side gets stools.
+  `propsheet.py` agreed with every other prop, but two lines had to follow
+  it: the desk holds a sheet of paper, not a tray, and the shelves are bound
+  volumes, not folders.
+* **Step 12's door is measured**: `Sable Hart` - no "The" - at (24,75), event
+  **58** now, layer 3 `World_B` 121, `House (Town)`, and (24,76) is `0x600`.
+  Shot: one green-roofed house on a square of grass, with two roads ending at
+  its door, on dry sandy waste rather than anything that reads as moor, with
+  mountains to the north-east and rock to the south.
 
 ### 12. The Sable Hart — (24,75), `House (Town)`
 

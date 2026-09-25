@@ -240,6 +240,10 @@ FACES = {
     "Mrs Blagg": ("Gen_People3", 4),
     "Pargeter": ("Gen_People3", 5),
     "Mrs Marchpane": ("Gen_People3", 6),
+    # Chapter Clerk Mordaunt, SITES.md step 11, drawn, and the last cell of
+    # `Gen_People3`: the Order's black coat, reading glasses, a trimmed grey
+    # beard. The next person drawn opens `Gen_People4`.
+    "Mordaunt": ("Gen_People3", 7),
 }
 
 

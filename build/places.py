@@ -234,6 +234,14 @@ MAP_FROSTWICK, MAP_ELEVEN_DAYS, MAP_WORKING_GROUP, MAP_COLD_ROOM = 44, 45, 46, 4
 # is named for the thing that meets in it.
 FROSTWICK_STEP = (61, 22)
 
+MAP_COLDBARROW = 48
+# The Chapter House of the Order of the Errant at Coldbarrow, `../SITES.md`
+# step 11. One south of the `Temple A (Snow)` stamp's one cell, on snow,
+# checked open four ways (0x600) against the finished `data/Map008.json`, with
+# nothing standing on it. `MAP_COLDBARROW`, not `MAP_CHAPTER` or `MAP_CHAPEL` -
+# the second of those is Thistlewick's chapel, Map 5.
+COLDBARROW_STEP = (50, 20)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the
