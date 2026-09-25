@@ -105,7 +105,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~The Former Premises~~ | 1 | 1 | 1 | **done** |
 | — | ~~The seven with no map~~ | **7** | **0** | 1 | **done** |
 | — | ~~Tobias Frayne~~ | 1 | 1 | 1 | **done** |
-| 9 | Village 1 | 1 | 0 | 0 | `WORLDMAP.md` 8 |
+| — | ~~Village 1~~ | 1 | 0 | 0 | **deferred to section 4** |
 | 10 | Frostwick | 1 | 4 | 6 | `WORLDMAP.md` 7.3 |
 | 11 | Coldbarrow | 1 | 1 | 1 | `COMPANIONS.md` L6 |
 | 12 | The Sable Hart | 1 | 1 | 5 | `COMPANIONS.md` L7 |
@@ -652,7 +652,7 @@ Merribell's MER-4.
   comes by." The new rung is leaning beside the old one, planed and sound,
   and still in its paper, which has gone yellow.
 
-### 9. Village 1 — (60,61), `Village B`
+### 9. Village 1 — (60,61), `Village B` - **deferred**
 
 **A decision, not a build.** `WORLDMAP.md` 8: worldgen placed it itself as an
 extra beyond the anchors, it has no backstory in any document, and two
@@ -664,6 +664,32 @@ on purpose rather than filled with the first idea that fits.
   named, it joins this list as a step of its own.
 * It is here at number nine so that the decision is taken while the list is
   still short, not left to the end.
+
+**Done - deferred, by Mike's decision.** Neither named nor removed: Village 1
+stays standing as an inert placeholder, and the decision moves to section 4,
+where it is taken with the whole map built round it. Nothing was built, the map
+is unchanged, and `placeholder_doors` is still **17**. What is worth carrying
+forward:
+
+* **Why not remove it now, although that is the cheapest line.** `WORLDMAP.md`
+  8 left the site standing on purpose, twice, and the reason was to keep a
+  spare settlement rather than fill it with the first thing that fits. Taking
+  it out settles that question for good, and the list still has nine sites to
+  build, any of which might turn up a use for it. So it waits until they are
+  built.
+* **Why not name it: nothing written supplies a name.** `WORLDMAP.md` 8's sweep
+  of `COMPANIONS.md` found nothing unplaced that wants a settlement at (60,61),
+  and Corvin's resettled Ashcombe is pinned beside its lake at (102,55). A
+  name made up in this session would be exactly the filling that section warns
+  against.
+* **What a later removal costs, measured now so it need not be measured again.**
+  Two cells, (60,61) and (61,61), which are events **66 and 67** on
+  `data/Map008.json` as of this step. It takes an `F.unstamp` line in
+  `build/worldmap/run_finish.py`, which already has several, followed by
+  `build/worldmap/decor.py`. `placeholder_doors` then goes **17 -> 15**, and its
+  walk onto (60,61) - one of its two proofs that a placeholder starts nothing -
+  has to be re-pointed at a placeholder that still exists. No other scenario
+  names either square.
 
 ### 10. Frostwick — (61,21)-(62,21), `Town B (Snow)`
 
@@ -819,4 +845,8 @@ Only then, and in this order:
    twenty-eight reachable - and every site from here makes it worse. **This is the one
    thing on this list that genuinely cannot be done incrementally**, because it
    is a judgement about a total that is not known until the total stops moving.
-6. Then, and only then, push `master` to **`live-rpg`**.
+6. **Decide Village 1** (step 9, deferred). Name it if a finished site has
+   turned up a use for a spare settlement at (60,61); otherwise remove it,
+   which step 9's last bullet has already costed. Either way, do it before the
+   push. An inert door on a published map is a promise that nothing keeps.
+7. Then, and only then, push `master` to **`live-rpg`**.

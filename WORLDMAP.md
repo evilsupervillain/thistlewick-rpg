@@ -1335,6 +1335,10 @@ puts game content in the map file and is what 7.6 exists to forbid.
   to somewhere else by their own bio. And it is not 7.5's graveyard either,
   whose premise was wrong - see that entry. So the site is surplus and is being
   kept surplus rather than filled with the first idea that fits.
+  **Deferred a third time, on purpose** - `SITES.md` step 9 put the question
+  to Mike, and he chose to keep it standing until every other site is built.
+  It is now `SITES.md` section 4 item 6, to be decided before the push to
+  `live-rpg`.
 * **Does the far south want more than four sites?** Sump, the Fair, the Wrong
   Dragon and the Cinder Fen are what hold the desert down. It is a large
   landmass for four things.
