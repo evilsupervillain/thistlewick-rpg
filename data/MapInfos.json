@@ -50,5 +50,7 @@ null,
 {"id":48,"expanded":true,"name":"The Chapter House","order":48,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":49,"expanded":true,"name":"The Sable Hart","order":49,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":50,"expanded":true,"name":"Little Gore","order":50,"parentId":8,"scrollX":0,"scrollY":0},
-{"id":51,"expanded":true,"name":"Sump","order":51,"parentId":8,"scrollX":0,"scrollY":0}
+{"id":51,"expanded":true,"name":"Sump","order":51,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":52,"expanded":true,"name":"Ashcombe","order":52,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":53,"expanded":true,"name":"Ashcombe, Indoors","order":53,"parentId":52,"scrollX":0,"scrollY":0}
 ]

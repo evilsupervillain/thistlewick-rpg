@@ -35,6 +35,7 @@ import frostwick  # noqa: E402
 import coldbarrow  # noqa: E402
 import sable_hart  # noqa: E402
 import hamlets  # noqa: E402
+import ashcombe  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import south  # noqa: E402
 import village  # noqa: E402
@@ -98,6 +99,8 @@ MAP_NAMES = [
     (sable_hart.MAP_SABLE_HART, "The Sable Hart", journey.MAP_WORLD),
     (hamlets.MAP_LITTLE_GORE, "Little Gore", journey.MAP_WORLD),
     (hamlets.MAP_SUMP, "Sump", journey.MAP_WORLD),
+    (ashcombe.MAP_ASHCOMBE, "Ashcombe", journey.MAP_WORLD),
+    (ashcombe.MAP_ASHCOMBE_IN, "Ashcombe, Indoors", ashcombe.MAP_ASHCOMBE),
 ]
 
 
@@ -316,6 +319,7 @@ def main():
     coldbarrow.build()
     sable_hart.build()
     hamlets.build()
+    ashcombe.build()
     build_map_infos()
     build_tilesets()
     build_system()

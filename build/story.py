@@ -257,6 +257,12 @@ FACES = {
     # Parish Clerk of Sump, who cannot allocate the wasps.
     "Mrs Vane": ("Gen_People4", 5),
     "Mr Thurle": ("Gen_People4", 6),
+    # Ashcombe, SITES.md step 14, drawn: Corvin's mother, from his portrait,
+    # and the Drainage Museum's curator, `Gen_People5` 0, the first of that
+    # sheet. **"Mrs Ash" is not "Mrs Ashbury"** (Restwell's, above); a
+    # prefix is not a collision, but a careless grep says it is.
+    "Mrs Ash": ("Gen_People4", 7),
+    "Mr Weir": ("Gen_People5", 0),
 }
 
 

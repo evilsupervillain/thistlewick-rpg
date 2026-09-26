@@ -110,7 +110,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Coldbarrow~~ | 1 | 1 | 1 | **done** |
 | — | ~~The Sable Hart~~ | 1 | 1 | 5 | **done** |
 | — | ~~Little Gore and Sump~~ | **2** | 2 | 2 | **done** |
-| 14 | Ashcombe | 1 | 2 | 2 | `COMPANIONS.md` L3 |
+| — | ~~Ashcombe~~ | 1 | 2 | 2 | **done** |
 | 15 | Weeping Bottom | 1 | 2 | 2 | `COMPANIONS.md` L4 |
 | 16 | Fenmarch Hall | 1 | 2 | 2 | `COMPANIONS.md` L5 |
 | 17 | The Collegium Arcanum | 1 | 3 | 3 | `COMPANIONS.md` L2 |
@@ -989,6 +989,66 @@ knits. Serves COR-1, COR-2.
   Drainage Museum curator, who is proud.
 * Ashcombe Lake's world-map event is step 7; only build the drawn-down street
   here if COR-2 turns out to need it.
+
+**Done.** `build/ashcombe.py`, Maps 52 and 53, `build/scenarios/ashcombe.json`.
+`placeholder_doors` is **9**. What is worth carrying forward:
+
+* **Two maps, three places.** Map 52 is the village; Map 53 is Mrs Ash's
+  kitchen *and* the Drainage Museum, two rooms side by side in the black -
+  Gladhollow's back-room idiom, with `_room` cutting its own doorway the way
+  `mapkit.interior` does - and `displayName` blanked, since the map is two
+  places. `MAP_ASHCOMBE`, `MAP_ASHCOMBE_IN`; `journey.py`'s alias is `ASH`.
+  The door was measured again and nothing on the map had moved since step 13.
+  The drowned street was not built: COR-2 does not need it yet.
+* **Corvin's "eight miles inland" and the lake's "a few steps from its shore"
+  disagreed**, and neither can be re-voiced. Mr Weir reconciles them, proudly:
+  eight miles is *by the road*, which goes all the way round the lake, and as
+  the crow flies you could skim a stone on to the old church roof. The lake's
+  bell is here too: a rope by the new church's door, and ringing it gets
+  somebody shouting COMING! and then "Oh. It isn't six."
+* **There is a reaction shot with Corvin, and it is a refusal.** COR-1 is
+  him going home, so his mother's door is the quest - and `optFollowers` is
+  on, so he cannot "wait outside" while his sprite walks into her kitchen
+  behind you. With him in the party her door is two appended pages (on
+  `actorValid`, then that and self switch A): he stops on the path, says
+  "...Not today", and nobody goes in. The plaque ("'Visit the Museum.'") and
+  Mr Weir (who does not know him; "...They are good drains.") are the other
+  two, and spend nothing. **What COR-1 inherits**: her door is event 3 on Map
+  52 with Corvin's pages at 1 and 2 - its own page goes after them; the Flood
+  Dinner's speaker is TO BE CONFIRMED on the notice board, event 9; Mrs Ash
+  is event 2 on Map 53, knitting something long for "somebody who feels the
+  cold and won't say so", and nothing is handed over; the bedroom that is now
+  a study was not built. The scenario asserts no line mentions a scarf, a
+  study or an invitation.
+* **What COR-2 inherits**: the Roll in the museum, taken on the hill by the
+  schoolmistress - COR-2's, who kept everybody's report card - with every
+  name ticked DRY but one, marked "Away. (Written to.)", and it does not say
+  whose. Nothing is said of the doorstep or the sword.
+* **Mrs Ash took the name too.** Corvin took Ash after the village went under
+  (`COMPANIONS.md`'s bio), so his mother being Mrs Ash needed a reason: she
+  took it as well, "to save the postman". His one-line letter - "Do not look
+  for me. C." - is on her dresser, ironed flat, with "The Slain Wyvern. Post
+  Wednesdays and Saturdays" pencilled on the back. And the postmistress
+  answered his letter addressed to THE RUINS OF ASHCOMBE, which is the bio's
+  "you cannot mourn a place that is answering its correspondence".
+* **Two faces: Mrs Ash is `Gen_People4` 7, and that sheet is full; Mr Hubert
+  Weir opens `Gen_People5`** at 0. She is drawn from Corvin's portrait -
+  his brown hair (swatch 3) swept across the same way (`fronthair p03`) over
+  a bun (`rearhair p15`), his red-brown eyes (swatch 2), the older face `p07`,
+  a gentle smile `p13`, and `clothing p13` recoloured lilac (main 5). He is
+  face `p11`, grey (19), `fronthair p15`, side-whiskers `beard p05`, round
+  spectacles `glasses p02`, a grin `p05`, and the navy coat with gold frogging,
+  `clothing p23`.
+* **`propsheet.py` corrected two lines**: `Map B (H)` is a parchment map, not
+  a plan "under glass", and `Posted Notice` is pinned paper, not a frame. The
+  museum's `Stone Tablet` is an inscribed slab, so exhibit one is the stone
+  that was set over the old village's only drain, carved DRAIN - "It was not
+  up to it." **`Clock` and `Dish Cabinet` are both 1x2** and read correctly
+  as a column on the wall face and floor row.
+* **One trope** - the plaque, the hero's destroyed home village turned
+  upbeat - **and no blush**: the place is warm, not red. `VAR_TROPES` is about
+  eighty-eight reachable.
+* **Step 15's door is measured and shot** - see `SITES-NEXT.md`.
 
 ### 15. Weeping Bottom — (58,99), `Temple B`
 

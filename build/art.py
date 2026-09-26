@@ -139,6 +139,20 @@ SHEETS = {
         # and the eyes of a man who has not slept since 1794.
         (5, "hester-vane.json"),        # Little Gore; married nine years
         (6, "parish-clerk-sump.json"),  # cannot allocate the wasps
+        # Ashcombe, `../SITES.md` step 14, and the last cell of the sheet.
+        # Mrs Ash is Corvin's mother, so she is drawn from his portrait
+        # (`Actor1` 4): his brown hair, swept across the same way and put up
+        # in a bun behind, his red-brown eyes - and a smile he has never
+        # once worn - in a lilac knitted dress.
+        (7, "mrs-ash.json"),            # fine; has a new kitchen; knits
+    ],
+    "Gen_People5": [
+        # Ashcombe's other face, and the first of a new sheet. The Drainage
+        # Museum's curator is `../COMPANIONS.md`'s one word - proud: grey
+        # side-whiskers, round spectacles, a broad grin and the navy coat
+        # with the gold frogging, which is the nearest thing in the box to
+        # a parish in its best.
+        (0, "hubert-weir.json"),        # the Drainage Museum; proud
     ],
 }
 

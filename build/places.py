@@ -259,6 +259,16 @@ MAP_LITTLE_GORE, MAP_SUMP = 50, 51
 LITTLE_GORE_STEP = (97, 102)
 SUMP_STEP = (78, 103)
 
+MAP_ASHCOMBE, MAP_ASHCOMBE_IN = 52, 53
+# Ashcombe, `../SITES.md` step 14: the village that is fine (52), and one map
+# of two rooms indoors (53) - Mrs Ash's kitchen and the Drainage Museum, drawn
+# side by side in the black the way Gladhollow's mayor's back room is. **Not
+# `MAP_KITCHEN` or `MAP_MUSEUM`** - the second map is both. One south of the
+# western of the `Village A` stamp's two cells, on grass, checked open four
+# ways (0x600) against the finished `data/Map008.json`, with nothing standing
+# on it.
+ASHCOMBE_STEP = (102, 56)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

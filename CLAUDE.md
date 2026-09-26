@@ -102,7 +102,8 @@ secret order, the Wrong Dragon, Mother Selvidge's reading and the bell under
 Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven, and Frostwick three,
 the town sign, Pargeter and Perce, and Coldbarrow one, Mordaunt's nine files,
 and the Sable Hart one, five doomed rivals being fair about seating, and
-Sump one, the cursed village and its ancient affliction);
+Sump one, the cursed village and its ancient affliction, and Ashcombe one,
+the plaque - the hero's home village, destroyed, and fine);
 `VAR_BLUSHES` is 20
 against **thirty-three** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -311,6 +312,11 @@ Append instead.
 | Maps 50-51 | Little Gore and Sump, two hamlets of one street each.
   `hamlets.py`, `SITES.md` step 13, a `SITES` dict like `hithermost.py`.
   `MAP_LITTLE_GORE`, `MAP_SUMP`; its `journey.py` alias is `HAM` |
+| Maps 52-53 | Ashcombe, the village that is fine, and one map of two rooms
+  indoors - Mrs Ash's kitchen and the Drainage Museum, side by side in the
+  black like Gladhollow's back room, with no display name. `ashcombe.py`,
+  `SITES.md` step 14. `MAP_ASHCOMBE`, `MAP_ASHCOMBE_IN`; its `journey.py`
+  alias is `ASH` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -624,6 +630,17 @@ makes eight passes over it cost less than the single pass did before.
   the Parish Clerk, the Parish Clerk with Merribell in the party - the reaction
   shot, asserted to say nothing of what the curse is - the minutes, Mrs Pardew,
   and out onto `places.SUMP_STEP` |
+| `ashcombe` | `SITES.md` step 14, walked: onto Ashcombe's door off the
+  world map, in at Mrs Ash's door - Mrs Ash twice, asserted to hand over no
+  scarf and mention no study or invitation, her basket, the letter on the
+  dresser - the Drainage Museum, Mr Weir twice (**eight miles is by the
+  road**, which is what reconciles Corvin's line with the lake's), and its
+  six exhibits, the plaque (the trope, counted once), the school, the church
+  and the bell the lake says they took with them, the Flood Dinner's notice
+  with its speaker TO BE CONFIRMED, Wilf, Mrs Dimmock, the post office; then
+  **Corvin at his mother's door, which does not open**, twice, the plaque and
+  Mr Weir with him in the party - reaction shots, not COR-1 - and back out
+  onto `places.ASHCOMBE_STEP` |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
@@ -639,7 +656,7 @@ makes eight passes over it cost less than the single pass did before.
   the day it stops being true for one of them. It walks onto Great Dunnage's
   door - the last site on `SITES.md`'s list, so the walk will not have to
   move again soon - and Village 1's, and checks the interpreter does not
-  start. **11** left after Little Gore and Sump |
+  start. **9** left after Ashcombe |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -699,7 +716,8 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People1` | Fizz | Norbert | Old Hollis | Dilys | Gideon | Dorothy | Mrs Ashbury, Walt |
 | `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
 | `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
-| `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | Hester Vane | Mr Thurle, - |
+| `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | Hester Vane | Mr Thurle, Mrs Ash |
+| `Gen_People5` | Hubert Weir | - | - | - | - | - | -, - |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding
