@@ -1002,8 +1002,15 @@ WALL_MOUNTED = frozenset(
 # roof and vanish underneath it. So a northern chimney takes layer 3, and the
 # roof tile it stands on moves down to layer 2 to keep drawing behind it -
 # which is what `Canvas.chimney` does.
+#
+# `Outside_C`'s `Chimney` is the one Outside exception: a 2x2 stone stack
+# whose top row is star and whose bottom row is not, so the bottom row has the
+# SF chimneys' problem and goes in through `Canvas.chimney` too. Fenmarch
+# Hall's roof has two.
+CHIMNEY_STACK = sf_block("Outside_C", "Chimney")          # 2x2, reading order
 ROOF_MOUNTED = frozenset([SF_CHIMNEY_A, SF_CHIMNEY_B, SF_CHIMNEY_C,
-                          SF_AIR_VENT_A, SF_AIR_VENT_B, SF_VENT])
+                          SF_AIR_VENT_A, SF_AIR_VENT_B, SF_VENT,
+                          *CHIMNEY_STACK])
 
 
 class BuildingOverlap(Exception):

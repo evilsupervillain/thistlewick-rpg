@@ -37,6 +37,7 @@ import sable_hart  # noqa: E402
 import hamlets  # noqa: E402
 import ashcombe  # noqa: E402
 import weeping_bottom  # noqa: E402
+import fenmarch  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import south  # noqa: E402
 import village  # noqa: E402
@@ -105,6 +106,8 @@ MAP_NAMES = [
     (weeping_bottom.MAP_WEEPING_BOTTOM, "Weeping Bottom", journey.MAP_WORLD),
     (weeping_bottom.MAP_WARD, "The Sisterhouse",
      weeping_bottom.MAP_WEEPING_BOTTOM),
+    (fenmarch.MAP_FENMARCH, "Fenmarch Hall", journey.MAP_WORLD),
+    (fenmarch.MAP_GALLERY, "The Long Gallery", fenmarch.MAP_FENMARCH),
 ]
 
 
@@ -325,6 +328,7 @@ def main():
     hamlets.build()
     ashcombe.build()
     weeping_bottom.build()
+    fenmarch.build()
     build_map_infos()
     build_tilesets()
     build_system()

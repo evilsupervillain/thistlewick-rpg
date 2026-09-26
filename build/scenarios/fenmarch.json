@@ -1,0 +1,937 @@
+{
+ "query": "?map=8&x=86&y=115&frames=90",
+ "comment": "SITES.md step 16, walked: onto Fenmarch Hall's door off the world map from the square south of it, in at the gate - the gateposts, RESPICE and FOUND IT - the moat, Tom from Little Gore in the flowerbeds, over the bridge and in at the front door; Mrs Puddifoot by the fire, the Fourth (found the gate first time; the uncle who never came back), the Marsh Bear's case, the First's portrait (the portraits whose eyes follow you, none of which has ever looked at anybody: a trope, counted once), the flowers under the Third, the Scaled Rook, Mr Ottershaw at his bench (he composed them; nobody has found a join), the unicorn of the Home Farm, the Fourth's portrait, the only one facing out; then Wren in the party at the first case - a reaction shot, not WRE-4 - out, down the drive and onto places.FENMARCH_STEP; then Sir Aldric in the party at the world-map door, which refuses twice and lets nobody in. Nothing of ALD-1, ALD-5 or WRE-4 is spent. Walked rather than started by hand, because the door is a placeholder replaced and only arriving proves the swap landed on the right squares; every event is reached with the action button from the square a player would stand on, checked by $gameMap._interpreter.eventId().",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }"
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8
+  },
+  {
+   "check": "$dataMap.events.filter(e => e && e.name === 'Fenmarch Hall').map(e => [e.x, e.y, e.pages[0].trigger, e.pages[0].priorityType, e.pages.length, (e.note||'').includes('-site')])",
+   "expect": [
+    [
+     86,
+     114,
+     1,
+     0,
+     3,
+     false
+    ],
+    [
+     87,
+     114,
+     1,
+     0,
+     3,
+     false
+    ]
+   ],
+   "label": "real doors on both of Large Mansion's lower cells: player-touch, below characters, three pages, and not placeholders any more"
+  },
+  {
+   "check": "$gameParty.members().some(a => [6, 9].includes(a.actorId()))",
+   "expect": false,
+   "label": "neither Aldric nor Wren in the party to begin with"
+  },
+  {
+   "comment": "One north onto the western door cell."
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    86,
+    114
+   ],
+   "label": "standing on Fenmarch Hall's door"
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": true,
+   "label": "THE POINT: this door does something now"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 56,
+   "label": "in Fenmarch Hall's garden"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    16,
+    25
+   ],
+   "label": "just outside the gate"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "shot": "fenmarch_arrive.png"
+  },
+  {
+   "comment": "West along the outside of the wall to the gatepost, and face it."
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    14,
+    25,
+    8
+   ],
+   "label": "below the left-hand gatepost, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "the gate"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"FOUND IT.\"))",
+   "expect": true,
+   "label": "the arms, RESPICE, and FOUND IT at the height of a boy of ten"
+  },
+  {
+   "comment": "In at the gate and up the drive, then west along the moat's bank."
+  },
+  {
+   "key": "ArrowRight",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 11,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    16,
+    14
+   ]
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    12,
+    14,
+    8
+   ],
+   "label": "on the bank, facing the moat"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "the moat"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"twenty yards\"))",
+   "expect": true,
+   "label": "wet for twenty yards in every direction"
+  },
+  {
+   "comment": "East along the bank and down through the flowerbeds to Tom."
+  },
+  {
+   "key": "ArrowRight",
+   "times": 16,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    28,
+    17,
+    2
+   ],
+   "label": "above Tom, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 7,
+   "label": "Tom"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Little Gore\"))",
+   "expect": true,
+   "label": "Tom walks over from Little Gore"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nine years\"))",
+   "expect": true,
+   "label": "nine years married, and married at Fenmarch"
+  },
+  {
+   "comment": "Back to the drive, over the bridge and into the front door."
+  },
+  {
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 12,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    16,
+    14
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 57,
+   "label": "in the long gallery"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    6,
+    9
+   ],
+   "label": "in the doorway"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "shot": "fenmarch_gallery.png"
+  },
+  {
+   "comment": "Mrs Puddifoot, by the fire."
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    5,
+    7,
+    4
+   ],
+   "label": "beside Mrs Puddifoot, facing her"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "Mrs Puddifoot"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"one in every bedroom\"))",
+   "expect": true,
+   "label": "eighty cases, and the rest upstairs"
+  },
+  {
+   "comment": "Round the table to the Fourth."
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    8,
+    6,
+    8
+   ],
+   "label": "below the Fourth, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "the Fourth"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"found the gate first time\"))",
+   "expect": true,
+   "label": "found the gate first time"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"never came back\"))",
+   "expect": true,
+   "label": "the best story they have got"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"squire\"))",
+   "expect": false,
+   "label": "nothing of ALD-5's squiring"
+  },
+  {
+   "comment": "East into the gallery: the first case."
+  },
+  {
+   "key": "ArrowRight",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    12,
+    6,
+    8
+   ],
+   "label": "in the aisle below the first case, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 15,
+   "label": "the Marsh Bear's case"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"crayfish\"))",
+   "expect": true,
+   "label": "the Marsh Bear, which had come for the crayfish"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Not unless I'm asked.\"))",
+   "expect": false,
+   "label": "no Wren, no reaction shot"
+  },
+  {
+   "comment": "Up through the gap to the first portrait."
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    13,
+    4,
+    8
+   ],
+   "label": "below the First's portrait, facing it"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "no trope yet"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "the First's portrait"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"followed\"))",
+   "expect": true,
+   "label": "portraits whose eyes have never followed anybody"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "the portraits: one trope"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 4
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "and read twice it is still one"
+  },
+  {
+   "comment": "East along the north walk to the flowers under the Third."
+  },
+  {
+   "key": "ArrowRight",
+   "times": 12,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    24,
+    4,
+    6
+   ],
+   "label": "beside the flowers under the Third's portrait, facing them"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 14,
+   "label": "the Third"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"every morning\"))",
+   "expect": true,
+   "label": "fresh flowers every morning for nine years"
+  },
+  {
+   "comment": "Down into the aisle and west to the rook."
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    20,
+    6,
+    8
+   ],
+   "label": "below the rook's case, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 19,
+   "label": "the Scaled Rook"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"looking for the gate\"))",
+   "expect": true,
+   "label": "shot by the First while looking for the gate"
+  },
+  {
+   "comment": "East down the aisle to Mr Ottershaw at his bench."
+  },
+  {
+   "key": "ArrowRight",
+   "times": 13,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    33,
+    7,
+    2
+   ],
+   "label": "above Mr Ottershaw, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 4,
+   "label": "Mr Ottershaw"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"COMPOSED\"))",
+   "expect": true,
+   "label": "he composed them"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"nobody's found a join\"))",
+   "expect": true,
+   "label": "and nobody has found a join"
+  },
+  {
+   "comment": "Back up and west to the unicorn."
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    30,
+    6,
+    2
+   ],
+   "label": "above the unicorn's case, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 40,
+   "label": "the unicorn of the Home Farm"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"kept the foxes down\"))",
+   "expect": true,
+   "label": "not a success as a unicorn"
+  },
+  {
+   "comment": "East to the last portrait, the only one facing out."
+  },
+  {
+   "key": "ArrowRight",
+   "times": 11,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    41,
+    4,
+    8
+   ],
+   "label": "below the Fourth's portrait, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 13,
+   "label": "the Fourth's portrait"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"confidently\"))",
+   "expect": true,
+   "label": "pointing, confidently, at the gate"
+  },
+  {
+   "comment": "Wren joins, and goes back to the first case."
+  },
+  {
+   "eval": "$gameParty.addActor(9); window._lines = []"
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 29,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    12,
+    6,
+    8
+   ],
+   "label": "in front of the first case again, with Wren"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 15,
+   "label": "the Marsh Bear's case, with Wren"
+  },
+  {
+   "advance": 16
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Not unless I'm asked.\"))",
+   "expect": true,
+   "label": "Wren: a reaction shot"
+  },
+  {
+   "check": "window._lines.some(l => /fee|authentic|engage|write it up|real one/i.test(l))",
+   "expect": false,
+   "label": "and nothing of WRE-4: no fee, no engagement, no write-up, no real one"
+  },
+  {
+   "comment": "Out the way we came, and down the drive to the road."
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 56,
+   "label": "back in the garden"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    16,
+    11
+   ],
+   "label": "on the step outside the front door"
+  },
+  {
+   "key": "ArrowDown",
+   "times": 15,
+   "gap": 30
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "back on the world map"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    86,
+    115
+   ],
+   "label": "on places.FENMARCH_STEP"
+  },
+  {
+   "comment": "Sir Aldric joins. The door refuses."
+  },
+  {
+   "eval": "$gameParty.addActor(6); window._lines = []"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    86,
+    114
+   ],
+   "label": "on the door again, with Aldric"
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": true,
+   "label": "the door does something"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "THE POINT: with Aldric, nobody goes in"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Shall we press on?\"))",
+   "expect": true,
+   "label": "he looks the other way"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"in the right direction\"))",
+   "expect": true,
+   "label": "and walks the next mile in the right direction"
+  },
+  {
+   "check": "window._lines.some(l => /letter|wedding|errand|nephew|Fourth|squire|mantelpiece|invitation/i.test(l))",
+   "expect": false,
+   "label": "and nothing of ALD-1 or ALD-5: no letter, no errand, no nephew"
+  },
+  {
+   "check": "$gameSelfSwitches.value([8, $dataMap.events.find(e => e && e.name === 'Fenmarch Hall' && e.x === 86).id, 'A'])",
+   "expect": true,
+   "label": "the refusal is remembered"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 6
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Damp. Shall we press on?\"))",
+   "expect": true,
+   "label": "the second time, the short version"
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "and still nobody goes in"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "no blush anywhere at Fenmarch"
+  }
+ ]
+}

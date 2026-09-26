@@ -162,6 +162,15 @@ SHEETS = {
         # younger, dark-haired and entirely sincere.
         (1, "prioress-stope.json"),     # runs it; has begun holding symposia
         (2, "sister-bewick.json"),      # losing patients, winning arguments
+        # Fenmarch Hall, `../SITES.md` step 16. The Fourth is Aldric's
+        # family, so he is drawn from Aldric's portrait (`Actor3` 6): the
+        # same blue-black hair, the same blue eyes, and the blue-and-gold
+        # coat over silver plate - the knight Aldric was meant to look like,
+        # at nineteen, open-mouthed with enthusiasm. Mr Ottershaw is the
+        # oldest face, wild white hair, a pointed moustache, a sly grin and
+        # green-tinted working lenses, in a craftsman's waistcoat.
+        (3, "pemberton-gore-iv.json"),  # nineteen, magnificent
+        (4, "mr-ottershaw.json"),       # ninety, unrepentant, an artist
     ],
 }
 

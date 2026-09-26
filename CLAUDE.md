@@ -104,7 +104,9 @@ the town sign, Pargeter and Perce, and Coldbarrow one, Mordaunt's nine files,
 and the Sable Hart one, five doomed rivals being fair about seating, and
 Sump one, the cursed village and its ancient affliction, and Ashcombe one,
 the plaque - the hero's home village, destroyed, and fine - and Weeping Bottom
-one, the founder's stone - the healing sanctuary, founded for the air);
+one, the founder's stone - the healing sanctuary, founded for the air - and
+Fenmarch Hall one, the portraits whose eyes follow you, none of which has ever
+looked at anybody);
 `VAR_BLUSHES` is 20
 against **thirty-three** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -324,6 +326,13 @@ Append instead.
   `MAP_WARD` - **not `MAP_SISTERHOUSE`**, which is both. Its `journey.py`
   alias is `WB`. It rains on Map 54 and nowhere else: `frostwick.py`'s
   weather idiom |
+| Maps 56-57 | Fenmarch Hall, the walled garden with the house in its moat,
+  and the long gallery, which is most of the house - the household at one
+  end, thirty-two glass cases and eight portraits going east.
+  `fenmarch.py`, `SITES.md` step 16. `MAP_FENMARCH`, `MAP_GALLERY` - **not
+  `MAP_HALL`**, which is Prophecy Hall. Its `journey.py` alias is `FEN`. The
+  cases and portraits are character sheets drawn by **running the module**,
+  not by the data build, like Coldbarrow's map |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -658,6 +667,16 @@ makes eight passes over it cost less than the single pass did before.
   then Merribell and Sir Aldric in the party - three reaction shots, asserted
   to say nothing of a queue, a contest, a Pamphlet, a vigil or a promotion -
   and back out onto `places.WEEPING_BOTTOM_STEP`, dry |
+| `fenmarch` | `SITES.md` step 16, walked: onto Fenmarch Hall's door off the
+  world map, in at the gate - RESPICE, and FOUND IT scratched at a ten-year-
+  old's height - the moat, Tom from Little Gore, over the bridge and in; Mrs
+  Puddifoot, the Fourth, the Marsh Bear's case, the First's portrait (the
+  trope, counted once), the flowers under the Third, the Scaled Rook, Mr
+  Ottershaw, the unicorn of the Home Farm and the Fourth's portrait, the only
+  one facing out; then **Wren at the first case**, a reaction shot asserted to
+  say nothing of a fee or an engagement; out onto `places.FENMARCH_STEP`; then
+  **Sir Aldric at the world-map door, which refuses**, twice, asserted to say
+  nothing of a letter, an errand or a nephew |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
@@ -673,7 +692,7 @@ makes eight passes over it cost less than the single pass did before.
   the day it stops being true for one of them. It walks onto Great Dunnage's
   door - the last site on `SITES.md`'s list, so the walk will not have to
   move again soon - and Village 1's, and checks the interpreter does not
-  start. **8** left after Weeping Bottom |
+  start. **6** left after Fenmarch Hall |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -734,7 +753,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
 | `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
 | `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | Hester Vane | Mr Thurle, Mrs Ash |
-| `Gen_People5` | Hubert Weir | Prioress Stope | Sister Bewick | - | - | - | -, - |
+| `Gen_People5` | Hubert Weir | Prioress Stope | Sister Bewick | Pemberton-Gore IV | Mr Ottershaw | - | -, - |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding

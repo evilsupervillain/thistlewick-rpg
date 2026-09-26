@@ -277,6 +277,15 @@ MAP_WEEPING_BOTTOM, MAP_WARD = 54, 55
 # finished `data/Map008.json`, with nothing standing on it.
 WEEPING_BOTTOM_STEP = (58, 100)
 
+MAP_FENMARCH, MAP_GALLERY = 56, 57
+# Fenmarch Hall, `../SITES.md` step 16: the walled garden with the house in
+# its moat (56), and the long gallery, which is most of the house and has the
+# household at one end of it (57). **Not `MAP_HALL`** - that is Prophecy
+# Hall, Map 3. One south of the western of the `Large Mansion` stamp's two
+# door cells, on grass, checked open four ways (0x600) against the finished
+# `data/Map008.json`, with nothing standing on it.
+FENMARCH_STEP = (86, 115)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

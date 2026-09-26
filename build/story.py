@@ -268,6 +268,12 @@ FACES = {
     # Sister Bewick of What Ought To Work in the same habit trimmed black.
     "Prioress": ("Gen_People5", 1),
     "Sister Bewick": ("Gen_People5", 2),
+    # Fenmarch Hall, SITES.md step 16, drawn, `Gen_People5` 3 and 4. The
+    # Fourth is Aldric Pemberton-Gore IV, and **"Aldric" is already Sir
+    # Aldric**, so the household's name for him is the speaker. **"Mr
+    # Ottershaw" is not "Ott"** (Upper Clanging's); a prefix grep says it is.
+    "The Fourth": ("Gen_People5", 3),
+    "Mr Ottershaw": ("Gen_People5", 4),
 }
 
 

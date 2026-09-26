@@ -112,7 +112,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Little Gore and Sump~~ | **2** | 2 | 2 | **done** |
 | — | ~~Ashcombe~~ | 1 | 2 | 2 | **done** |
 | — | ~~Weeping Bottom~~ | 1 | 2 | 2 | **done** |
-| 16 | Fenmarch Hall | 1 | 2 | 2 | `COMPANIONS.md` L5 |
+| — | ~~Fenmarch Hall~~ | 1 | 2 | 2 | **done** |
 | 17 | The Collegium Arcanum | 1 | 3 | 3 | `COMPANIONS.md` L2 |
 | 18 | Great Dunnage | 1 | 5 | 6 | `COMPANIONS.md` L1 |
 
@@ -1151,6 +1151,93 @@ ninety, unrepentant, an artist, will show you the joins.
 Serves ALD-1, ALD-5, WRE-4.
 
 * **Build:** the hall (1), the long gallery (1). Two faces.
+
+**Done.** `build/fenmarch.py`, Maps 56 and 57, `build/scenarios/fenmarch.json`.
+`placeholder_doors` is **6**. What is worth carrying forward:
+
+* **Sir Aldric at the door is a refusal, and it is on the world-map door
+  itself.** ALD-1 departs from this house and ALD-5 is his nephew standing in
+  it, so his walking in is the quest twice over, and `optFollowers` means he
+  cannot wait at the gate. Unlike Ashcombe there is no inner door to hang it
+  on - the stamp *is* the front of the house - so both world-map cells are
+  three pages each: the ordinary arrival, then on `actorValid` Aldric stopping
+  in the road, looking at the house for a long moment and then "very
+  carefully" the other way ("Fine old place. Damp, I should think. ...Shall we
+  press on?"), then that and self switch A for the short one. Nobody asks. He
+  walks the next mile a little ahead, "which is unusual, and in the right
+  direction, which is more so." It says nothing about whether he recognised
+  it, which is ALD-1's to decide, and the scenario asserts no line mentions a
+  letter, an errand, a nephew, the Fourth or a squire. **What ALD-1 and ALD-5
+  inherit**: the world-map doors carry Aldric's pages at 1 and 2, and a quest
+  page goes after them; the Fourth is event 2 on Map 57 with a two-page
+  self-switch pair, and he has already told the player that his uncle went
+  out errant nine years ago and never came back, "the best story we've got",
+  and that he means to go out himself one day "to tell him how proud we all
+  are". Squiring is not mentioned.
+* **Wren is a reaction shot, not a refusal.** WRE-4 is her being *engaged* to
+  authenticate the animals, and nobody has engaged her; walking past the cases
+  as a visitor is not the quest. At the first case she opens her notebook,
+  closes it, and says "Not unless I'm asked." The scenario asserts nothing of
+  a fee, an engagement, a write-up or a real one. **What WRE-4 inherits**: Mr
+  Ottershaw is event 4 on Map 57 with a two-page pair, and he has told the
+  player he *composed* them and that in seventy years nobody has found a join
+  - the joins are shown, as L5 says, and Bram cannot find one; they are
+  Wren's to find. The Marsh Bear's case, event 15, is her reaction shot's
+  home. The family's pride is on the brass plates and nobody has said it is
+  misplaced.
+* **No tile on any sheet is a glass case, and no stock portrait faces away**,
+  so both are character sheets drawn by running the module, like
+  Coldbarrow's map: `python3 build/fenmarch.py` writes `!Fenmarch_Cases1`,
+  `!Fenmarch_Cases2` (48x64 frames, so a case stands a third of a cell into
+  the row behind it) and `!Fenmarch_Portraits`. A case is a plinth and a
+  glass box with a shine on it, and **the animal inside is two stock enemy
+  battlers from `img/enemies` sewn together**, top half on bottom half or
+  front on back - a bear on a crab, a unicorn's front on a wolf, an octopus
+  on a bear - which is exactly what WRE-4 says they are, and nobody's line
+  says so. Sixteen animals; the south row is the north row turned on by
+  eight so the two never match across the runner. A portrait is `Inside_B`'s
+  `Portrait B` frame with a character sprite painted in **from behind** -
+  the First, the Second and the Third are Aldric's own sprite's back - and
+  the last, the Fourth's, is the only one facing out, "pointing, confidently,
+  at the gate". The drop shadows under the enemy art are half alpha, so
+  anything under 200 is cut before the sew.
+* **The house is small and the gallery is enormous, so Map 57 is both.**
+  One 44x5 room: the household at the west end round a fire (`!Flame` 3 on
+  the stock fireplace, step 12), and thirty-two cases and eight portraits
+  going east, with a walk under the portraits, an aisle with a red runner
+  between the two rows of cases, and a walk along the south wall. Map 56 is
+  the walled garden, the moat all the way round the house on its own island,
+  and one bridge (`Outside_A5`'s `Large Bridge (V, ...)` - left and right
+  cells are railed). `MAP_FENMARCH`, `MAP_GALLERY`; `journey.py`'s alias is
+  `FEN`.
+* **Three tile traps.** `A2 Fencepost C (Stone)` is an **overlay**: on layer
+  0 it draws a pale balustrade on black; on layer 1 over grass it is a low
+  garden wall. `Potted Plant A` is a **cactus** - it is `INC_PLANT2`, which
+  ten modules use, harmlessly at map scale, and which no line should ever
+  call a fern - and `Potted Plant B` is violets.
+  And **`Canvas.chimney` refused the stock chimney**: `Outside_C`'s `Chimney`
+  is a 2x2 stone stack whose bottom row is not a star tile, so it has the SF
+  chimneys' problem and is now in `mapkit.ROOF_MOUNTED` as `CHIMNEY_STACK`.
+  Two on Fenmarch's roof, which was otherwise a green slab.
+* **Tom is here**, in the flowerbeds, walking home to Little Gore at five
+  sharp: "Not when you've somebody at the other end of it." It agrees with
+  step 13 and adds nothing to ALD-1. **Coldbarrow's red pin** is not
+  mentioned, and nothing contradicts it. **Two names were taken**: Ashcombe
+  already has a Mrs Dimmock, so the housekeeper is Mrs Puddifoot, and
+  Mirabel's baby is Biscuit, so the dog in the gallery is Rollo.
+* **Two faces, `Gen_People5` 3 and 4.** The Fourth is drawn from Aldric's
+  portrait: face `p01`, `fronthair p09` in his blue-black (hair 21), his blue
+  eyes, an open eager mouth (`p05`) and `clothing p15`, the blue-and-gold
+  coat that is silver plate in the sprite. Mr Ottershaw is face `p12`, wild
+  white hair (`fronthair p11`, hair 6, no rear hair), a pointed moustache
+  (`beard p08`), a sly grin (`mouth p15`), green-tinted lenses (`glasses p06`)
+  and a craftsman's waistcoat (`clothing p10`). Speaker names: **"The
+  Fourth"**, because "Aldric" is Sir Aldric, and **"Mr Ottershaw"**, which a
+  prefix grep confuses with Ott. `Gen_People5` has **three cells left**.
+* **One trope** - the portraits whose eyes follow you, none of which has ever
+  looked at anybody - **and no blush**: the house is damp, not red.
+  `VAR_TROPES` is about ninety reachable.
+* **Step 17's door is measured** - see `SITES-NEXT.md`.
 
 ### 17. The Collegium Arcanum — (112,38), `School of Magic`
 
