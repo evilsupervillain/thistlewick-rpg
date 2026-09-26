@@ -171,6 +171,17 @@ SHEETS = {
         # green-tinted working lenses, in a craftsman's waistcoat.
         (3, "pemberton-gore-iv.json"),  # nineteen, magnificent
         (4, "mr-ottershaw.json"),       # ninety, unrepentant, an artist
+        # The Collegium Arcanum, `../SITES.md` step 17, and the last three
+        # cells of the sheet. The Head Porter holds the real power and is
+        # dressed for it: a dark suit, a full ginger beard and a mouth that
+        # has never once been surprised. Sub-Librarian Prewitt is correct in
+        # every particular - a black bob, dark spectacles, a navy jacket and
+        # a tie. Dean Fenwold is fine: silver hair swept back, a walrus
+        # moustache, the Collegium's white-and-purple robe, and the smile of
+        # a man with a talk to give.
+        (5, "head-porter-gedge.json"),  # the Porter's Lodge; the real power
+        (6, "sub-librarian-prewitt.json"),  # immovable, courteous, correct
+        (7, "dean-fenwold.json"),       # is fine; has a talk about it
     ],
 }
 

@@ -113,7 +113,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Ashcombe~~ | 1 | 2 | 2 | **done** |
 | — | ~~Weeping Bottom~~ | 1 | 2 | 2 | **done** |
 | — | ~~Fenmarch Hall~~ | 1 | 2 | 2 | **done** |
-| 17 | The Collegium Arcanum | 1 | 3 | 3 | `COMPANIONS.md` L2 |
+| — | ~~The Collegium Arcanum~~ | 1 | 3 | 3 | **done** |
 | 18 | Great Dunnage | 1 | 5 | 6 | `COMPANIONS.md` L1 |
 
 **Twenty-eight sites, eighteen steps, about thirty-three maps.**
@@ -1252,6 +1252,117 @@ did not back her up once. Serves ZEPH-1, ZEPH-2, ZEPH-3, WRE-1.
 
 * **Build:** the Great Court (1), the Library (1), the Hall (1). Three faces.
 * The pond is step 7's Duck's Pond and is already done by the time you get here.
+
+**Done.** `build/collegium.py`, Maps 58-60, `build/scenarios/collegium.json`.
+`placeholder_doors` is **4**. What is worth carrying forward:
+
+* **Zephyrine in the party is a refusal, on the world-map door.** ZEPH-1 opens
+  "She goes back to appeal", so her walking in is the quest, and
+  `optFollowers` means she cannot wait at the pond. There is no inner door
+  to hang it on either: the Head Porter stands in the gateway, and anybody
+  who had met him would know her - which is ZEPH-1's discovery, not this
+  step's. So it is Fenmarch's shape: three pages a cell, and on `actorValid`
+  she stops in the road and says "No." before anybody has said anything; she
+  was expelled, "They were very clear about it. Everybody in there is FINE,
+  and they can stay fine." Nobody argues. The scenario asserts no line of it
+  mentions fines, a library, study leave, good standing, a Registrar, the
+  duck or the Dean. **What ZEPH-1 inherits**: the world-map doors carry her
+  pages at 1 and 2, and a quest page goes after them; Prewitt is event 2 on
+  Map 59 with a two-page self-switch pair, and **the Register of Outstanding
+  Fines is event 3 on her desk** - locked, confidential, "the largest number
+  I have ever written down", mostly one account, "and I really couldn't say
+  whose". Nobody's name is on it. The Registrar's clerk was not drawn.
+* **Wren is a reaction shot, not a refusal.** WRE-1 is a publication that
+  needs eleven specimens, three reviewers and a subscription list, none of
+  which exists; walking past the shelf is not the quest. At the shelf of the
+  Collegium's monographs (event 5 on Map 59 - the Lesser Wyvern three times,
+  the last A Reply To My Critics) she finds a gap about an inch wide: "There's
+  room." The scenario asserts nothing of reviewers, specimens, a
+  subscription, publishing, a Fellow or the duck.
+* **ZEPH-2 and ZEPH-3 are set up and not spent.** The duck is not here - it
+  is on its pond, step 7 - but its chair is, at the end of High Table, event
+  5 on Map 60: a cushion, RESERVED, HONORARY FELLOW, a feather in the dent.
+  Nothing mentions a vote or a quorum. Dean Fenwold (event 2) is fine, has a
+  talk ("The Man Who Was Fine", forty-one engagements, Thursday week), and
+  says the one thing his NPC row is: "She said the room was wrong, you know.
+  At the time. I remember thinking she was very probably right." Then a
+  pause that has been in the talk forty-one times "and has never once been
+  there on purpose". He does not name her, ask for a demonstration or
+  mention buckets; ZEPH-3's payoff - the room being wrong again, for the
+  same reason - now has its set-up.
+* **The comedy is the Lodge and the referral.** Mr Gedge issues your pass by
+  recommending you, countersigning the recommendation and issuing it, in
+  one hand, in four seconds ("The Master needs a meeting. The Dean needs a
+  form. I need a pencil"), and Prewitt will not accept it, because he is not
+  a Fellow but "a great deal more than a Fellow". It is never a no; it is
+  "not from this desk", and she can refer you to the Committee for Readers,
+  which meets in the Library, so its members must hold a reader's ticket.
+  The IN and OUT board has the Master rusted at OUT - thought to be a
+  committee - and the Dean OUT, "In Hall. Out to callers." The Library
+  Appeal raised 1,412 crowns this year and spent 1,412 crowns on the Appeal,
+  with a bucket under it. **The Founder** stands in the middle of the lawn
+  the public is asked to keep off, so the only way to read his plinth is to
+  walk on the grass - and somebody in the gateway clears his throat.
+* **Three maps, and the court had to be cut down.** Map 58 is the Great
+  Court: the Hall and the Library along the north side, facing south into
+  it, with three `Round Tower A (Castle)`s between and either end; the
+  lawn; and the south range facing out on to the road, with the gate a gap
+  in it and the Lodge the last building before it. The first draft was a
+  33x26 court with a bare 17x7 lawn, and it looked like a field - "fill the
+  space or shrink the room". It is 33x23 now, with the Founder, four
+  flowering bushes and two trees. Map 59 is the Library, panelled, with
+  bookcases the length of the north wall and two runs of free-standing
+  stacks; Map 60 the Hall, High Table under the arms and the Deans, two long
+  tables, and a runner up the aisle. `MAP_COLLEGIUM`,
+  `MAP_COLLEGIUM_LIBRARY`, `MAP_COLLEGIUM_HALL`; `journey.py`'s alias is
+  `COL`.
+* **Five tile findings.** **`ROOF_GOLD` reads as straw thatch** from above;
+  the college is `ROOF_GREEN`, which reads as old copper. **`sf_grid` on
+  `Round Tower A (Castle)` returns six rows, not five** - the sheet has a 2x1
+  joining piece under the same name, and it drew a stub of wall under every
+  tower - so it is sliced `[:5]`. **`Portrait A` is a girl in a red dress**
+  and cannot be a Dean; `Portrait B` is a bearded old man in robes, which is
+  the First Dean. Dean Fenwold's own portrait is drawn, `draw_art()`, run as
+  a module like Fenmarch's: `Portrait B`'s frame with his walking sprite
+  painted in on the Collegium's purple (`!Collegium_Portrait`). **`Outside_C`
+  has statues and banners** - `Statue B` is a wizard in a pointed hat, and
+  `Tapestry B` a purple banner with a gold border - and the banner is now
+  `mapkit.BANNER_PURPLE` and in `WALL_MOUNTED`, down the Hall's front.
+  `IN_COUNTER` is `Sundries Shelf A`, the teddy-bear shelf's other half, so
+  Prewitt's desk is `Table D`; and `Closed Books C` is a pile of books with a
+  great dark tome on top, so the Register is "on a pile of lesser
+  registers".
+* **Three faces, `Gen_People5` 5-7, and that sheet is full.** Mr Gedge, the
+  Head Porter, is the third: `COMPANIONS.md` L2 names the Lodge as the real
+  power, and he is the person every visitor meets, where the Registrar's
+  clerk belongs to ZEPH-1. He is face `p11`, ginger (hair 16) in `fronthair
+  p15` / `rearhair p08`, a full beard (`p06`), a flat unimpressed mouth
+  (`p02`) and the suit with the tie (`clothing p24`) dyed grey (main 16).
+  Prewitt is female face `p06`, a black bob (`fronthair p15`, hair 23) with
+  a low tie at the back (`rearhair p03`), grey eyes, dark rectangular
+  spectacles (`glasses p01`) and the navy jacket with the red tie (`clothing
+  p24`). Dean Fenwold is face `p10`, silver (hair 6) swept back (`fronthair
+  p16`), a walrus moustache (`beard p04`), a pleased closed smile (`mouth
+  p10`) and the white-and-purple academic robe (`clothing p06`). Speaker
+  names **"Mr Gedge"**, **"Prewitt"** and **"Dean Fenwold"**. Dr Hapgood
+  (`People3` 4), the reader (`People1` 2) and the undergraduate (`People2`
+  2) have no faces. **Step 18 opens `Gen_People6`.**
+* **The scenario walked a player on to the south wall.** A route that met the
+  potted plant by the Library door stopped, and the next Down stepped on to
+  (8,13) - the row under the floor, which `K.interior` lays as A4 wall top
+  with flags `0xe00`, blocking nothing. It is the same on every
+  `K.interior` room checked (Maps 55 and 57 too): a one-cell ledge along the
+  south wall that a player can stand on, bounded by the `0xe0f` rows below,
+  so nobody leaves the room by it and `validate.py` has nothing to say. It
+  predates this step and was left alone; the route was moved off the plant.
+  Worth a look in section 4, not before.
+* **One trope** - the ancient school of magic, whose motto over the Lodge
+  window is REFERATUR, "Let it be referred" - **and no blush**: the place is
+  courteous, not red. `VAR_TROPES` is about ninety-one reachable.
+* **Step 18's door is measured and shot** - see `SITES-NEXT.md`. After a
+  rebuild the Great Dunnage placeholders are events **66 and 67** and Village
+  1's are **68 and 69**; step 9's "66 and 67" for Village 1 is a step-9
+  number and is stale.
 
 ### 18. Great Dunnage — (31,52), `Fortress City`
 

@@ -38,6 +38,7 @@ import hamlets  # noqa: E402
 import ashcombe  # noqa: E402
 import weeping_bottom  # noqa: E402
 import fenmarch  # noqa: E402
+import collegium  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import south  # noqa: E402
 import village  # noqa: E402
@@ -108,6 +109,9 @@ MAP_NAMES = [
      weeping_bottom.MAP_WEEPING_BOTTOM),
     (fenmarch.MAP_FENMARCH, "Fenmarch Hall", journey.MAP_WORLD),
     (fenmarch.MAP_GALLERY, "The Long Gallery", fenmarch.MAP_FENMARCH),
+    (collegium.MAP_COLLEGIUM, "The Great Court", journey.MAP_WORLD),
+    (collegium.MAP_COLLEGIUM_LIBRARY, "The Library", collegium.MAP_COLLEGIUM),
+    (collegium.MAP_COLLEGIUM_HALL, "The Hall", collegium.MAP_COLLEGIUM),
 ]
 
 
@@ -329,6 +333,7 @@ def main():
     ashcombe.build()
     weeping_bottom.build()
     fenmarch.build()
+    collegium.build()
     build_map_infos()
     build_tilesets()
     build_system()

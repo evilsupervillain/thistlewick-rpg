@@ -286,6 +286,15 @@ MAP_FENMARCH, MAP_GALLERY = 56, 57
 # `data/Map008.json`, with nothing standing on it.
 FENMARCH_STEP = (86, 115)
 
+MAP_COLLEGIUM, MAP_COLLEGIUM_LIBRARY, MAP_COLLEGIUM_HALL = 58, 59, 60
+# The Collegium Arcanum, `../SITES.md` step 17: the Great Court behind the
+# gate (58), the Library (59) and the Hall (60). **Not `MAP_HALL`** - that is
+# Prophecy Hall, Map 3 - and not `MAP_LIBRARY` or `MAP_COURT`, which say
+# nothing about whose. One south of the western of the `School of Magic`
+# stamp's two door cells, on the dirt road that ends at it, checked open four
+# ways (0x600) against the finished `data/Map008.json`, with nothing on it.
+COLLEGIUM_STEP = (112, 39)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

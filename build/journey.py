@@ -38,6 +38,7 @@ import hamlets as HAM
 import ashcombe as ASH
 import weeping_bottom as WB
 import fenmarch as FEN
+import collegium as COL
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
@@ -155,7 +156,8 @@ def world_map():
               TF.SITE: TF.world_doors, FW.SITE: FW.world_doors,
               CB.SITE: CB.world_doors, HART.SITE: HART.world_doors,
               **NOMAP.SITES, **HAM.SITES, ASH.SITE: ASH.world_doors,
-              WB.SITE: WB.world_doors, FEN.SITE: FEN.world_doors}
+              WB.SITE: WB.world_doors, FEN.SITE: FEN.world_doors,
+              COL.SITE: COL.world_doors}
     cells = {}
     for e in doors:
         if "-site" in (e.get("note") or ""):

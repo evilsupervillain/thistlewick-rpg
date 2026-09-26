@@ -106,7 +106,8 @@ Sump one, the cursed village and its ancient affliction, and Ashcombe one,
 the plaque - the hero's home village, destroyed, and fine - and Weeping Bottom
 one, the founder's stone - the healing sanctuary, founded for the air - and
 Fenmarch Hall one, the portraits whose eyes follow you, none of which has ever
-looked at anybody);
+looked at anybody, and the Collegium Arcanum one, the ancient school of magic
+whose motto is REFERATUR);
 `VAR_BLUSHES` is 20
 against **thirty-three** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -333,6 +334,12 @@ Append instead.
   `MAP_HALL`**, which is Prophecy Hall. Its `journey.py` alias is `FEN`. The
   cases and portraits are character sheets drawn by **running the module**,
   not by the data build, like Coldbarrow's map |
+| Maps 58-60 | The Collegium Arcanum: the Great Court behind the gate, with
+  the Porter's Lodge and the Founder on the lawn, the Library and the Hall.
+  `collegium.py`, `SITES.md` step 17. `MAP_COLLEGIUM`,
+  `MAP_COLLEGIUM_LIBRARY`, `MAP_COLLEGIUM_HALL` - **not `MAP_HALL`**, which is
+  Prophecy Hall. Its `journey.py` alias is `COL`. Dean Fenwold's portrait is
+  a character sheet drawn by running the module, like Fenmarch's |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -677,6 +684,17 @@ makes eight passes over it cost less than the single pass did before.
   say nothing of a fee or an engagement; out onto `places.FENMARCH_STEP`; then
   **Sir Aldric at the world-map door, which refuses**, twice, asserted to say
   nothing of a letter, an errand or a nephew |
+| `collegium` | `SITES.md` step 17, walked: onto the Collegium Arcanum's
+  door off the world map, the arms over the Lodge window (REFERATUR - the
+  trope, counted once), the IN and OUT board, Mr Gedge twice, keep off the
+  grass, **the Founder, read from the grass**, Dr Hapgood; the Hall - the
+  undergraduate, the Honorary Fellow's chair, the talk, Dean Fenwold twice,
+  his portrait and the First Dean's; Congregation's notices; the Library -
+  Prewitt twice, **the Register, asserted to name nobody**, the Appeal, the
+  monographs, the reader; then **Wren at the monographs**, a reaction shot
+  asserted to say nothing of reviewers or specimens; out onto
+  `places.COLLEGIUM_STEP`; then **Zephyrine at the world-map door, which
+  refuses**, twice, asserted to say nothing of fines, paperwork or the duck |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
@@ -692,7 +710,7 @@ makes eight passes over it cost less than the single pass did before.
   the day it stops being true for one of them. It walks onto Great Dunnage's
   door - the last site on `SITES.md`'s list, so the walk will not have to
   move again soon - and Village 1's, and checks the interpreter does not
-  start. **6** left after Fenmarch Hall |
+  start. **4** left after the Collegium Arcanum |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -753,7 +771,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
 | `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
 | `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | Hester Vane | Mr Thurle, Mrs Ash |
-| `Gen_People5` | Hubert Weir | Prioress Stope | Sister Bewick | Pemberton-Gore IV | Mr Ottershaw | - | -, - |
+| `Gen_People5` | Hubert Weir | Prioress Stope | Sister Bewick | Pemberton-Gore IV | Mr Ottershaw | Mr Gedge | Prewitt, Dean Fenwold |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding

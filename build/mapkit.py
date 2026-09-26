@@ -969,6 +969,10 @@ TILESET_FORBIDDEN = {
 # The only things that belong on the front of a house: what is nailed to the
 # wall, and the holes in it. `Canvas` uses this to tell a shop sign from a
 # barrel that has been drawn halfway up a wall by accident.
+# `Outside_C`'s `Tapestry B`, a purple banner with a gold border, 1x2, hung
+# from a rod: made to go down the face of a building's wall.
+BANNER_PURPLE = sf_block("Outside_C", "Tapestry B")
+
 WALL_MOUNTED = frozenset(
     [WINDOW, DOORWAY_DARK, SIGN_BLADE, SIGN_ORB, SIGN_ARMOR, SIGN_RING,
      SIGN_POTION, SIGN_INN, SIGN_MUG, SIGN_PLATE, SIGN_WAND, SIGN_COIN,
@@ -986,7 +990,9 @@ WALL_MOUNTED = frozenset(
        SF_SIGN_INN, SF_WARNING_PLATE]
     + list(SF_CANOPY)
     + list(SF_WINDOWS) + [t for pair in SF_WINDOWS_TALL for t in pair]
-    + list(SF_LADDER) + list(SF_FIRE_ESCAPE))
+    + list(SF_LADDER) + list(SF_FIRE_ESCAPE)
+    # The Collegium Arcanum hangs its colours down the front of the Hall.
+    + list(BANNER_PURPLE))
 
 
 # What belongs on a roof, and may therefore be drawn on layer 3 inside a

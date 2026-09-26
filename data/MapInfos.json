@@ -56,5 +56,8 @@ null,
 {"id":54,"expanded":true,"name":"Weeping Bottom","order":54,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":55,"expanded":true,"name":"The Sisterhouse","order":55,"parentId":54,"scrollX":0,"scrollY":0},
 {"id":56,"expanded":true,"name":"Fenmarch Hall","order":56,"parentId":8,"scrollX":0,"scrollY":0},
-{"id":57,"expanded":true,"name":"The Long Gallery","order":57,"parentId":56,"scrollX":0,"scrollY":0}
+{"id":57,"expanded":true,"name":"The Long Gallery","order":57,"parentId":56,"scrollX":0,"scrollY":0},
+{"id":58,"expanded":true,"name":"The Great Court","order":58,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":59,"expanded":true,"name":"The Library","order":59,"parentId":58,"scrollX":0,"scrollY":0},
+{"id":60,"expanded":true,"name":"The Hall","order":60,"parentId":58,"scrollX":0,"scrollY":0}
 ]

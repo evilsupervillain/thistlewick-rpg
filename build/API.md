@@ -355,6 +355,7 @@ SF_FORBIDDEN                 _forbidden(SF_FORBIDDEN_NAMES)
 SF_INSIDE_FORBIDDEN          _forbidden(SF_INSIDE_FORBIDDEN_NAMES)
 TILESET_ROOFS                ...
 TILESET_FORBIDDEN            ...
+BANNER_PURPLE                sf_block('Outside_C', 'Tapestry B')
 WALL_MOUNTED                 ...
 CHIMNEY_STACK                sf_block('Outside_C', 'Chimney')
 ROOF_MOUNTED                 ...
@@ -431,7 +432,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (126)
+### `FACES` — who already has a face (129)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -467,7 +468,8 @@ Clem                  Mrs Blagg             Pargeter              Mrs Marchpane
 Mordaunt              Crake                 Morrow                Rook
 Veyle                 Blackwood             Mrs Vane              Mr Thurle
 Mrs Ash               Mr Weir               Prioress              Sister Bewick
-The Fourth            Mr Ottershaw
+The Fourth            Mr Ottershaw          Mr Gedge              Prewitt
+Dean Fenwold
 ```
 
 
@@ -475,7 +477,7 @@ The Fourth            Mr Ottershaw
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-116 constants.
+120 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -591,6 +593,10 @@ WEEPING_BOTTOM_STEP          (58, 100)
 MAP_FENMARCH                 56
 MAP_GALLERY                  57
 FENMARCH_STEP                (86, 115)
+MAP_COLLEGIUM                58
+MAP_COLLEGIUM_LIBRARY        59
+MAP_COLLEGIUM_HALL           60
+COLLEGIUM_STEP               (112, 39)
 WORLD_SIGN_SOUTH             (58, 73)
 WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)

@@ -274,6 +274,12 @@ FACES = {
     # Ottershaw" is not "Ott"** (Upper Clanging's); a prefix grep says it is.
     "The Fourth": ("Gen_People5", 3),
     "Mr Ottershaw": ("Gen_People5", 4),
+    # The Collegium Arcanum, SITES.md step 17, drawn, `Gen_People5` 5-7, and
+    # that sheet is full. **"Mr Gedge" is not the "Clerk"** (`People2` 0, the
+    # roster's); the Head Porter is the one who holds the keys.
+    "Mr Gedge": ("Gen_People5", 5),
+    "Prewitt": ("Gen_People5", 6),
+    "Dean Fenwold": ("Gen_People5", 7),
 }
 
 
