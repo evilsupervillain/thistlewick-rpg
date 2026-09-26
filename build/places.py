@@ -269,6 +269,14 @@ MAP_ASHCOMBE, MAP_ASHCOMBE_IN = 52, 53
 # on it.
 ASHCOMBE_STEP = (102, 56)
 
+MAP_WEEPING_BOTTOM, MAP_WARD = 54, 55
+# Weeping Bottom, `../SITES.md` step 15: the valley bottom with the
+# Sisterhouse in it (54), and the ward, split down the middle (55). **Not
+# `MAP_SISTERHOUSE`** - the house is both maps. One south of the `Temple B`
+# stamp's one cell, on the track, checked open four ways (0x600) against the
+# finished `data/Map008.json`, with nothing standing on it.
+WEEPING_BOTTOM_STEP = (58, 100)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

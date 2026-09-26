@@ -111,7 +111,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~The Sable Hart~~ | 1 | 1 | 5 | **done** |
 | — | ~~Little Gore and Sump~~ | **2** | 2 | 2 | **done** |
 | — | ~~Ashcombe~~ | 1 | 2 | 2 | **done** |
-| 15 | Weeping Bottom | 1 | 2 | 2 | `COMPANIONS.md` L4 |
+| — | ~~Weeping Bottom~~ | 1 | 2 | 2 | **done** |
 | 16 | Fenmarch Hall | 1 | 2 | 2 | `COMPANIONS.md` L5 |
 | 17 | The Collegium Arcanum | 1 | 3 | 3 | `COMPANIONS.md` L2 |
 | 18 | Great Dunnage | 1 | 5 | 6 | `COMPANIONS.md` L1 |
@@ -1062,6 +1062,83 @@ MER-3, and ALD-2 if the chapel is here rather than at Coldbarrow.
 * **Build:** the Sisterhouse (1), the ward (1). Two faces.
 * Merribell is a party member, so her own pages are appended rather than
   written fresh - `NORTH.md` 1.7 pattern 2.
+
+**Done.** `build/weeping_bottom.py`, Maps 54 and 55,
+`build/scenarios/weeping_bottom.json`. `placeholder_doors` is **8**. What is
+worth carrying forward:
+
+* **The valley is the hollow between the rock and the sea**, and that decided
+  the medical grounds. The stamp - measured again, nothing had moved since
+  step 14 - is a white temple on a sandy shelf with grey rock to the west and
+  the sea against it to the east, which reads as dry. So L4's "damp valley
+  chosen on medical grounds that were wrong" is **the sea air**: the founder,
+  Mother Ursula Pym, chose it in 1702 on the advice of every physician she
+  asked, "None of whom had been", and the fog comes up off the water and
+  settles in the bottom. Map 54 is the bottom, outdoors, **in a drizzle** -
+  `frostwick.py`'s weather idiom with rain in place of snow, a local `door()`
+  and exit that clear it, and the scenario asserts it at every threshold.
+  Patients are out on the sand taking the air, twice a day, founder's orders.
+* **Two maps, and L4's three places.** Map 54 is the valley: the Sisterhouse,
+  the **chapel**, which is locked and set out for the eleventh symposium - so
+  ALD-2's vigil, which is at night, can still have it - the founder's stone
+  and a physic garden in which every plant is a fern. Map 55 is **the ward,
+  split down the middle by a line of red carpet**: Whatever Works in the west
+  half, in wood, with soup; What Ought To Work in the east half, re-floored in
+  tile, with a doctrine and the correct treatment in eleven stages. That is
+  the schism drawn rather than said. `MAP_WEEPING_BOTTOM`, `MAP_WARD`;
+  `journey.py`'s alias is `WB`.
+* **Sister Bewick loses patients to the other half of the ward.** L4's
+  "losing patients" taken literally: they walk across in the night, because
+  there is soup, and there are slipper prints in the dust going west. Nobody
+  dies and nobody is unhappy, and she wins every argument in the building.
+* **Merribell's being there is not the quest**, so there are reaction shots
+  and no refusal. MER-1 is a contest - a queue, forty patients - and
+  none of that exists yet. With her in the party the Prioress looks at her,
+  says "You look hydrated", and "We'll talk. Not today", and Merribell fills
+  Sister Bewick's empty water jug from her own flask without a word, and
+  Bewick writes down "Intervention. Unsupported." The scenario asserts no
+  line mentions a queue, a contest, forty patients, points or a Pamphlet.
+  **What MER-1 inherits**: the Prioress is event 2 on Map 55 with a two-page
+  self-switch pair, Sister Bewick 3, Sir Hamo 4, Sister Lamb 5, Mr Nuttall 6,
+  Mr Dace 7, the line and the minutes 8, the correct treatment 9, the empty bed
+  10, the medicine shelf 11, the doctrine 12. On Map 54, the chapel is event 5
+  and the founder's stone 6. MER-3's alternative venue was not needed: the
+  Healers' Table is at the Slain Wyvern.
+* **Coldbarrow's white pin is Sir Hamo Tench**, of the Order of the Errant,
+  in the field at Weeping Bottom for fourteen years with the cough he came to
+  cure in the sea air. His bed is exactly on the line, so both orders treat
+  him - soup at noon, the correct treatment at four - and the cough is exactly
+  the same. **Aldric's red pin** is his reaction shot: "They've got you here
+  too, you know. Red pin." / "Have they? Then for once I'm where it says."
+  Nothing of ALD-2 or ALD-3; the scenario asserts no vigil and no promotion.
+  He is `People2` 0 and has no face.
+* **Two faces, `Gen_People5` 1 and 2, both in Merribell's hood.** Her
+  portrait (`Actor1` 7) is female `accb p04`, the white hood with the blue
+  band, over `clothing p04`, the white habit with blue trim. **The white of
+  both cannot be recoloured** - no slot reaches it - so the two orders share
+  a habit and differ in the trim, which is the schism: the Prioress in the
+  Order's blue (face `p07`, grey hair, `mouth p04`), Sister Bewick with every
+  accessory and clothing slot dyed black (face `p02`, black hair, grey eyes,
+  `mouth p18`). Blue band against black band reads at sprite size. Four cells
+  left.
+* **`propsheet.py` agreed with every prop, and six lines still had to follow
+  the sprites.** Nobody's sprite shows a sling, an oilskin or a book under an
+  arm, and a patient standing beside a bed is not sitting on it, so those
+  lines were rewritten to what is drawn. The medicine shelf is jars, not
+  spoons.
+* **Two terrain traps.** A2 `Moss` - the obvious ground for a damp valley -
+  draws as a sunken pit with a black rim, and A1 `Swamp Grass A` is lily pads
+  on black; puddles are small rectangles of `WATER`, which autotile into
+  ponds. And the `Ledge B (Dirt)` rock is bare sandy dirt on top, which reads
+  as dunes until it has boulders on it.
+* **A route check found an NPC nobody could reach.** Sir Hamo stood at the
+  foot of his bed with a potted plant either side of him and the south wall
+  below: it built, validated and looked right. Walking the scenario's route
+  on paper found it, before the scenario did.
+* **One trope** - the founder's stone, the healing sanctuary in its place of
+  power - **and no blush**: the place is damp, not red. `VAR_TROPES` is about
+  eighty-nine reachable.
+* **Step 16's door is measured** - see `SITES-NEXT.md`.
 
 ### 16. Fenmarch Hall — (86,114), `Large Mansion`
 

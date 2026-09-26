@@ -263,6 +263,11 @@ FACES = {
     # prefix is not a collision, but a careless grep says it is.
     "Mrs Ash": ("Gen_People4", 7),
     "Mr Weir": ("Gen_People5", 0),
+    # Weeping Bottom, SITES.md step 15, drawn, `Gen_People5` 1 and 2, both in
+    # Merribell's hood and habit: the Prioress in the Order's blue trim, and
+    # Sister Bewick of What Ought To Work in the same habit trimmed black.
+    "Prioress": ("Gen_People5", 1),
+    "Sister Bewick": ("Gen_People5", 2),
 }
 
 

@@ -52,5 +52,7 @@ null,
 {"id":50,"expanded":true,"name":"Little Gore","order":50,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":51,"expanded":true,"name":"Sump","order":51,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":52,"expanded":true,"name":"Ashcombe","order":52,"parentId":8,"scrollX":0,"scrollY":0},
-{"id":53,"expanded":true,"name":"Ashcombe, Indoors","order":53,"parentId":52,"scrollX":0,"scrollY":0}
+{"id":53,"expanded":true,"name":"Ashcombe, Indoors","order":53,"parentId":52,"scrollX":0,"scrollY":0},
+{"id":54,"expanded":true,"name":"Weeping Bottom","order":54,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":55,"expanded":true,"name":"The Sisterhouse","order":55,"parentId":54,"scrollX":0,"scrollY":0}
 ]

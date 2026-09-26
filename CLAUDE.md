@@ -103,7 +103,8 @@ Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven, and Frost
 the town sign, Pargeter and Perce, and Coldbarrow one, Mordaunt's nine files,
 and the Sable Hart one, five doomed rivals being fair about seating, and
 Sump one, the cursed village and its ancient affliction, and Ashcombe one,
-the plaque - the hero's home village, destroyed, and fine);
+the plaque - the hero's home village, destroyed, and fine - and Weeping Bottom
+one, the founder's stone - the healing sanctuary, founded for the air);
 `VAR_BLUSHES` is 20
 against **thirty-three** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
@@ -317,6 +318,12 @@ Append instead.
   black like Gladhollow's back room, with no display name. `ashcombe.py`,
   `SITES.md` step 14. `MAP_ASHCOMBE`, `MAP_ASHCOMBE_IN`; its `journey.py`
   alias is `ASH` |
+| Maps 54-55 | Weeping Bottom, the valley bottom with the Sisterhouse in it,
+  in a drizzle, and the ward, split down the middle by a line between the two
+  orders. `weeping_bottom.py`, `SITES.md` step 15. `MAP_WEEPING_BOTTOM`,
+  `MAP_WARD` - **not `MAP_SISTERHOUSE`**, which is both. Its `journey.py`
+  alias is `WB`. It rains on Map 54 and nowhere else: `frostwick.py`'s
+  weather idiom |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -641,6 +648,16 @@ makes eight passes over it cost less than the single pass did before.
   **Corvin at his mother's door, which does not open**, twice, the plaque and
   Mr Weir with him in the party - reaction shots, not COR-1 - and back out
   onto `places.ASHCOMBE_STEP` |
+| `weeping_bottom` | `SITES.md` step 15, walked: onto Weeping Bottom's door off
+  the world map, down into the drizzle, the board, the founder's stone (the
+  trope, counted once), Sister Pim and Mr Crouch on the shore, in at the
+  Sisterhouse - where it stops raining - the whole ward from both halves of
+  the line: Sister Lamb, Mr Nuttall, the Prioress twice, the minutes, Mr Dace,
+  the correct treatment, an empty bed, Sister Bewick twice, the doctrine, Sir
+  Hamo and the medicine shelf; out, the locked chapel and the physic garden;
+  then Merribell and Sir Aldric in the party - three reaction shots, asserted
+  to say nothing of a queue, a contest, a Pamphlet, a vigil or a promotion -
+  and back out onto `places.WEEPING_BOTTOM_STEP`, dry |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
@@ -656,7 +673,7 @@ makes eight passes over it cost less than the single pass did before.
   the day it stops being true for one of them. It walks onto Great Dunnage's
   door - the last site on `SITES.md`'s list, so the walk will not have to
   move again soon - and Village 1's, and checks the interpreter does not
-  start. **9** left after Ashcombe |
+  start. **8** left after Weeping Bottom |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -717,7 +734,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People2` | Brother Quillon | Sir Dunstable | King Aldous | Rosamund | Mirabel | Toby | Hollowell, Meech |
 | `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
 | `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | Hester Vane | Mr Thurle, Mrs Ash |
-| `Gen_People5` | Hubert Weir | - | - | - | - | - | -, - |
+| `Gen_People5` | Hubert Weir | Prioress Stope | Sister Bewick | - | - | - | -, - |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding

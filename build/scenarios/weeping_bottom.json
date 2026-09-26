@@ -1,0 +1,1270 @@
+{
+ "query": "?map=8&x=58&y=100&frames=90",
+ "comment": "SITES.md step 15, walked: onto Weeping Bottom's door off the world map from the track south of it, down into the drizzle, the board (one door), the founder's stone (the healing sanctuary, founded for the sea air: a trope, counted once), Sister Pim and Mr Crouch taking the air, in at the Sisterhouse - where it stops raining - Sister Lamb and Mr Nuttall on the west half of the ward, the Prioress twice, the minutes on the line, Mr Dace and the correct treatment and an empty bed on the east half, Sister Bewick twice, the doctrine, Sir Hamo (Coldbarrow's white pin), the medicine shelf; out into the drizzle again, the locked chapel set out for the symposium, the physic garden; then Merribell and Sir Aldric in the party - the Prioress (We'll talk. Not today.), Sister Bewick (the jug), Sir Hamo (a red pin here too) - and back out onto places.WEEPING_BOTTOM_STEP, dry. Nothing of MER-1, ALD-2 or ALD-3 is spent. Walked rather than started by hand, because the door is a placeholder replaced and only arriving proves the swap landed on the right square; every event is reached with the action button from the square a player would stand on, checked by $gameMap._interpreter.eventId().",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }"
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8
+  },
+  {
+   "check": "$dataMap.events.filter(e => e && e.name === 'Weeping Bottom').map(e => [e.x, e.y, e.pages[0].trigger, e.pages[0].priorityType, (e.note||'').includes('-site')])",
+   "expect": [
+    [
+     58,
+     99,
+     1,
+     0,
+     false
+    ]
+   ],
+   "label": "a real door on Temple B's one cell: player-touch, below characters, and not a placeholder any more"
+  },
+  {
+   "check": "$gameParty.members().some(a => [2, 6].includes(a.actorId()))",
+   "expect": false,
+   "label": "neither Merribell nor Aldric in the party to begin with"
+  },
+  {
+   "comment": "One north onto the door.",
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    58,
+    99
+   ],
+   "label": "standing on Weeping Bottom's door"
+  },
+  {
+   "check": "$gameMap._interpreter.isRunning()",
+   "expect": true,
+   "label": "THE POINT: this door does something now"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 54,
+   "label": "in Weeping Bottom"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    15,
+    24
+   ],
+   "label": "at the foot of the track down"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "$gameScreen.weatherType()",
+   "expect": "rain",
+   "label": "it drizzles in the bottom"
+  },
+  {
+   "shot": "weeping_bottom_arrive.png"
+  },
+  {
+   "comment": "Up the track, and east to the board.",
+   "key": "ArrowUp",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    17,
+    20,
+    6
+   ],
+   "label": "beside the board, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 7,
+   "label": "the board"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There is one door.\"))",
+   "expect": true,
+   "label": "AND OF THE ORDER OF WHAT OUGHT TO WORK, and there is one door"
+  },
+  {
+   "comment": "Up to the founder's stone.",
+   "key": "ArrowUp",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    20,
+    16,
+    8
+   ],
+   "label": "below the founder's stone, facing it"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "no trope yet"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "the founder's stone"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"None of whom had been.\"))",
+   "expect": true,
+   "label": "founded for the air, on the advice of physicians who had not been"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "the healing sanctuary: one trope"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 4
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "and read twice it is still one"
+  },
+  {
+   "comment": "Round the stone and over to Sister Pim.",
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    25,
+    13,
+    6
+   ],
+   "label": "beside Sister Pim, facing her"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "Sister Pim"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's prescribed.\"))",
+   "expect": true,
+   "label": "the sea air, prescribed"
+  },
+  {
+   "comment": "Up the sand to Mr Crouch.",
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    27,
+    11,
+    6
+   ],
+   "label": "beside Mr Crouch, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 9,
+   "label": "Mr Crouch"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Lovely and bracing\"))",
+   "expect": true
+  },
+  {
+   "comment": "Back to the road, and along to the Sisterhouse door.",
+   "key": "ArrowDown",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 11,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    16,
+    12
+   ],
+   "label": "on the Sisterhouse step"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 150
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 55,
+   "label": "in the ward"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    7,
+    12
+   ],
+   "label": "just inside the door"
+  },
+  {
+   "check": "$gameScreen.weatherType()",
+   "expect": "none",
+   "label": "and it does not rain indoors"
+  },
+  {
+   "shot": "weeping_bottom_ward.png"
+  },
+  {
+   "comment": "Up the west half to Sister Lamb.",
+   "key": "ArrowUp",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    7,
+    7,
+    4
+   ],
+   "label": "beside Sister Lamb, facing her"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "Sister Lamb"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's always\"))",
+   "expect": true
+  },
+  {
+   "comment": "To Mr Nuttall.",
+   "key": "ArrowRight",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    9,
+    7,
+    8
+   ],
+   "label": "below Mr Nuttall, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "Mr Nuttall"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Crossed Wednesday.\"))",
+   "expect": true,
+   "label": "he crossed the line"
+  },
+  {
+   "comment": "To the Prioress.",
+   "key": "ArrowRight",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    12,
+    6,
+    8
+   ],
+   "label": "below the Prioress, facing her"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "Prioress Stope"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"holds eleven has stopped.\"))",
+   "expect": true,
+   "label": "the eleventh symposium, and she knows what it means"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nobody who has\"))",
+   "expect": true,
+   "label": "Sister Bewick is right about everything"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"hydrated\"))",
+   "expect": false,
+   "label": "without Merribell, no Merribell"
+  },
+  {
+   "check": "window._lines.some(l => /queue|forty patients|pamphlet|contest|on points/i.test(l))",
+   "expect": false,
+   "label": "and nothing of MER-1: no queue, no contest, no Pamphlet"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"owing to the symposium\"))",
+   "expect": true,
+   "label": "the second time, the short one"
+  },
+  {
+   "comment": "The table on the line.",
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    13,
+    5,
+    8
+   ],
+   "label": "below the table on the line, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "the line"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"next symposium.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Over the line to Mr Dace.",
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    15,
+    6,
+    6
+   ],
+   "label": "beside Mr Dace, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 7,
+   "label": "Mr Dace"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's a splinter.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Up to the correct treatment.",
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    15,
+    4,
+    8
+   ],
+   "label": "below the correct treatment, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 9,
+   "label": "the correct treatment"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The patient will now feel better.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Round Mr Dace to the empty bed.",
+   "key": "ArrowDown",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    18,
+    6,
+    8
+   ],
+   "label": "below the empty bed, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 10,
+   "label": "an empty bed"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"going west.\"))",
+   "expect": true,
+   "label": "Sister Bewick's lost patient, lost to the west half"
+  },
+  {
+   "comment": "To Sister Bewick.",
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    17,
+    7,
+    6
+   ],
+   "label": "beside Sister Bewick, facing her"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "Sister Bewick"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"To the other half of\"))",
+   "expect": true,
+   "label": "she has lost eleven patients - to the other half of the ward"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Unsupported\"))",
+   "expect": false,
+   "label": "without Merribell, no Merribell"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nobody has ever needed it yet.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Along to the doctrine.",
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    22,
+    5,
+    8
+   ],
+   "label": "below the bookshelves, facing them"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 12,
+   "label": "the doctrine"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Volume three is\"))",
+   "expect": true
+  },
+  {
+   "comment": "Down the aisle and round to Sir Hamo.",
+   "key": "ArrowDown",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 10,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    12,
+    11,
+    6
+   ],
+   "label": "beside Sir Hamo, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 4,
+   "label": "Sir Hamo Tench"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"IN THE FIELD.\"))",
+   "expect": true,
+   "label": "Coldbarrow's white pin: in the field, in bed, for fourteen years"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"where it says\"))",
+   "expect": false,
+   "label": "without Aldric, no Aldric"
+  },
+  {
+   "comment": "Across the west half to the medicine shelf.",
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 10,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    2,
+    5,
+    8
+   ],
+   "label": "below the medicine shelf, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 11,
+   "label": "the medicine shelf"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"SOUP (CONCENTRATED).\"))",
+   "expect": true
+  },
+  {
+   "comment": "Out.",
+   "key": "ArrowDown",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    7,
+    8
+   ]
+  },
+  {
+   "key": "ArrowDown",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 54,
+   "label": "back in the valley"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    16,
+    12
+   ],
+   "label": "on the Sisterhouse step"
+  },
+  {
+   "check": "$gameScreen.weatherType()",
+   "expect": "rain",
+   "label": "and it is drizzling again"
+  },
+  {
+   "comment": "Down the track and west to the chapel.",
+   "key": "ArrowDown",
+   "times": 6,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 10,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    6,
+    18,
+    8
+   ],
+   "label": "below the chapel door, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "the chapel"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"'Whether Anything Works'\"))",
+   "expect": true,
+   "label": "the eleventh symposium, set out in the chapel"
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 54,
+   "label": "and the chapel door does not open"
+  },
+  {
+   "comment": "The physic garden.",
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    4,
+    19,
+    2
+   ],
+   "label": "above the physic garden, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 12,
+   "label": "the physic garden"
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Every plant in the garden is a\"))",
+   "expect": true
+  },
+  {
+   "comment": "Merribell and Sir Aldric in the party: three reaction shots, none of them a quest. Their self switches are cleared by hand; that is the harness, not the game.",
+   "eval": "$gameParty.addActor(2); $gameParty.addActor(6); [2, 3, 4].forEach(i => $gameSelfSwitches.setValue([55, i, 'A'], false)); window._lines = []"
+  },
+  {
+   "comment": "Back to the Sisterhouse door.",
+   "key": "ArrowRight",
+   "times": 12,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 7,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    16,
+    12
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 150
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 55,
+   "label": "in the ward, with Merribell"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    12,
+    6,
+    8
+   ],
+   "label": "below the Prioress, with Merribell"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "Prioress Stope, with Merribell"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"hydrated\"))",
+   "expect": true,
+   "label": "the Prioress and Merribell: We'll talk. Not today."
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Not today.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => /queue|forty patients|pamphlet|contest|on points/i.test(l))",
+   "expect": false,
+   "label": "and still nothing of MER-1"
+  },
+  {
+   "comment": "Over to Sister Bewick.",
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    17,
+    7,
+    6
+   ],
+   "label": "beside Sister Bewick, with Merribell"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "Sister Bewick, with Merribell"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Intervention. Unsupported.\"))",
+   "expect": true,
+   "label": "Merribell fills the jug, and it is noted"
+  },
+  {
+   "check": "window._lines.some(l => /queue|forty patients|pamphlet|contest|on points/i.test(l))",
+   "expect": false,
+   "label": "and still nothing of MER-1"
+  },
+  {
+   "comment": "To Sir Hamo, with Aldric.",
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    12,
+    11,
+    6
+   ],
+   "label": "beside Sir Hamo, with Aldric"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 4,
+   "label": "Sir Hamo, with Aldric"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"where it says.\"))",
+   "expect": true,
+   "label": "a red pin at Weeping Bottom too - then for once he is where it says"
+  },
+  {
+   "check": "window._lines.some(l => /vigil|promot|confirm/i.test(l))",
+   "expect": false,
+   "label": "and nothing of ALD-2 or ALD-3: no vigil, no promotion"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "no blush anywhere: the place is damp, not red"
+  },
+  {
+   "comment": "Out, and up the track.",
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 54
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    16,
+    12
+   ]
+  },
+  {
+   "key": "ArrowDown",
+   "times": 13,
+   "gap": 30
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "back on the world map"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    58,
+    100
+   ],
+   "label": "on places.WEEPING_BOTTOM_STEP"
+  },
+  {
+   "check": "$gameScreen.weatherType()",
+   "expect": "none",
+   "label": "and it is not raining on the world map"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

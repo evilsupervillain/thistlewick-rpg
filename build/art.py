@@ -153,6 +153,15 @@ SHEETS = {
         # with the gold frogging, which is the nearest thing in the box to
         # a parish in its best.
         (0, "hubert-weir.json"),        # the Drainage Museum; proud
+        # Weeping Bottom, `../SITES.md` step 15: the Sisterhouse. Both are
+        # of Merribell's world, so both wear her hood (`accb p04`) and the
+        # white habit that goes with it (`clothing p04`). The white of either
+        # cannot be recoloured, which suits a schism: the Prioress is in the
+        # Order's blue trim, drawn, grey-haired and patient; Sister Bewick of
+        # What Ought To Work is the same habit with every trim dyed black,
+        # younger, dark-haired and entirely sincere.
+        (1, "prioress-stope.json"),     # runs it; has begun holding symposia
+        (2, "sister-bewick.json"),      # losing patients, winning arguments
     ],
 }
 
