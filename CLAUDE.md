@@ -63,6 +63,13 @@ is left of it - and **`SITES.md` is that queue**: the ordered list of the
 twenty-eight sites still to build, one step per session, with the working rules
 for the effort. Penultima (Maps 29-30) is the first and is done.
 
+`AUDIT.md` is the queue in front of `SITES.md` section 4 and of the companion
+quests: Mike's list of faces and dialogue that disagree with the game, worked
+through one item per session. Its section 0 is the rule that decides every
+fix - **only what is on the `live-rpg` branch is protected**; everything newer
+is free to change, and what is published may only be repaired where the game
+contradicts itself.
+
 `NORTH.md` is the design document for what comes next: Upper Clanging, the
 airship, and a pass over the whole game adding a kind of joke it currently has
 none of. Its section 1 is the specification for every line of dialogue in it,
