@@ -114,7 +114,7 @@ that is not - and **one module per session**, so a step is a session.
 | — | ~~Weeping Bottom~~ | 1 | 2 | 2 | **done** |
 | — | ~~Fenmarch Hall~~ | 1 | 2 | 2 | **done** |
 | — | ~~The Collegium Arcanum~~ | 1 | 3 | 3 | **done** |
-| 18 | Great Dunnage | 1 | 5 | 6 | `COMPANIONS.md` L1 |
+| — | ~~Great Dunnage~~ | 1 | 5 | 5 | **done** |
 
 **Twenty-eight sites, eighteen steps, about thirty-three maps.**
 
@@ -1386,6 +1386,112 @@ Serves HOB-1, HOB-4 (approach), NIX-1, NIX-2, ALD-4, PIP-3, COR-5, ROL-1 -
   preamble), the Bell's judges (one of them cannot hear; the birdcall man wins),
   the horse (fine, doing well, effectively a partner), and **Appraiser Fettle**,
   who is enthusiastic about the tang and has a form for curses.
+
+**Done.** `build/dunnage.py`, Maps 61-65, `build/scenarios/dunnage.json` and
+`build/scenarios/dunnage_company.json`. `placeholder_doors` is **2**, and
+every site on this list but Village 1 is a real door. What is worth carrying
+forward:
+
+* **Six companions, decided one at a time, and only one refusal - on an inner
+  door.** The world-map door has one page and lets everybody in, because a
+  refusal there would lock five other companions out of their own business.
+  - **Nix at the Bonded Warehouse is a refusal**, on the warehouse's own door
+    (event 7 on Map 61, three pages): NIX-1 *is* going in there after eleven
+    years of not. Nix stops short, "Not that one", and walks away from a door
+    for the first time in anybody's memory. Nothing says why. **What NIX-1
+    inherits**: the door's pages 1 and 2, a quest page after them; Mr Tibbs is
+    event 2 on Map 64 with a two-page pair, and has told the player that Bond
+    No. 1 is a coat, eleven years, rent by post with no name, and that he never
+    asked; the wardrobe it is in is event 3, locked, and the Bond Book (event
+    4) has one entry with no name, just "coat".
+  - **Nix at the Counting House's Door is a reaction shot** - hands in both
+    pockets, on purpose. NIX-2 is opening it. **What NIX-2 inherits**: Map 63
+    is the lobby, with the Door (event 3, `!$Gate2` pattern 2) across the
+    north wall; the Mayor is event 2, practising the preamble - forty minutes,
+    down to thirty-eight; the memorandum of 1802 (event 4) says the
+    Corporation is "assumed to have enough"; the Town Clerk (event 5) has Form
+    L, which needs a licensed person to fill in and countersign, and there are
+    none. **The room behind the Door is not built**, and no note says "we
+    spent it": it goes in the black north of the lobby, `ashcombe._room`'s
+    idiom. The crest over the gate carries the only key the town has, painted
+    on a board.
+  - **Hob at the Schedule is a reaction shot.** HOB-1 is a retrieval tour and
+    a submission, and walking into the Company's hall is neither. He reads
+    clause two - "the entrant's own property" - twice, says nothing, and looks
+    at a door's hinges on the way past. **The Company's hall was the one to
+    think hardest about**, and the answer is that HOB-1's premise can be
+    *printed* without being spent: the Schedule says what a piece is, and only
+    the quest finds out that Hob owns nothing he made. **What HOB-1
+    inherits**: the Prime Warden (event 2, Map 62) and Warden Crabbe (3), the
+    Schedule (4), the last prize - a hinge - on the Company's anvil (5), and
+    an Assize "in the spring, every three years".
+  - **Aldric and the horse is a reaction shot, and the best one here.** ALD-4
+    is the reunion, so it does not happen: with him in the party he pats a
+    good grey mare in passing - "Good girl." - she flicks an ear, and she goes
+    on looking at the road while he goes on looking at the cart. Duchess's
+    direction is fixed, so she never turns to anybody. **What ALD-4
+    inherits**: Duchess is event 15 on Map 61 (`Vehicle` 4, the harness
+    horse); Mr Plummer (14) has told the player she walked in off the west
+    road one winter with a good saddle on and nobody in it, that there was a
+    crest on the saddle, and that she has a stall with her name on it and a
+    say in the routes; the yard's sign reads PLUMMER & PARTNER, "(THE PARTNER
+    IS THE GREY.)". Nobody knows her real name.
+  - **Piper at the Contest's poster is a reaction shot**: "You can't defend
+    half of these", then, to nobody, "...Ballad (Not Sad)." **What PIP-3
+    inherits**: Mrs Harbottle chairs the panel (event 3 on Map 65), Mr Ambler
+    cannot hear and gives everything a nine (4), Miss Quayle gives everything
+    a two (5) - "The birdcalls were a two", which she has not quite managed to
+    believe - and Mr Tweddle (6) does a nightingale that *is* a nightingale.
+    Nobody says who wins.
+  - **Corvin and Appraiser Fettle is a reaction shot**: she sees the black
+    sword, asks for "just the handle", he says "No", and he reads her card
+    when nobody is looking. **Nothing here mentions a curse, and the form for
+    one is COR-5's**; Miss Fettle is event 7 on Map 62, the Company's
+    appraiser, and has said she always asks after the tang.
+  - **Roland: nothing.** ROL-1 is a summons and nothing has summoned him; the
+    Bell or the Smiths' Hall will do for the room. **HOB-4's approach** is the
+    west road, which was already there.
+* **The Counting House is "mostly door" read as its lobby**, which is the
+  part of a sealed building anybody can get into - and it puts the Mayor, the
+  preamble and the form in the room NIX-2 happens in.
+* **Cotter Cotterill is here, and he is the blush.** He is on the big
+  furnace at the Iron Company till the spring and walks the eleven miles
+  home every Saturday, and back for the Monday - "I'm always very glad to get
+  home", which is his mother's line about his father, said with great
+  simplicity as a fact about the weather. It also keeps Bessie's "In the
+  summer" arithmetic entirely his. With `SW_COTTERILL` he sends a message: tell
+  her Saturday. He shares `SF_Actor2` 7, unused until now, which is Rivet's
+  look four years older. So `VAR_BLUSHES` is **34** reachable against a tier
+  of 20 - 59%.
+* **One trope**: the watchman at the gate who has never heard of Bram - "Forty-
+  eight what?" - and writes him down as PROPHECY, SOME SORT. `VAR_TROPES` is
+  about ninety-two reachable. Upper Clanging is charming twice, on the Nine
+  Works board and from Mrs Poskitt ("Only the one works!"). The First Mayor is
+  a knight in allegorical armour; he sold nails.
+* **Five faces, `Gen_People6` 0-4**: the Mayor (scarlet robe `p14`, the plumed
+  hat `accb p02`, side-whiskers), Prime Warden Stannard (female `p07`, grey
+  buns, the black jacket `p15`), Mr Tibbs (`p12`, grey beard, half-rims,
+  the olive coat `p25`), Mrs Harbottle (`p07`, a ginger topknot, gold lace
+  `p20`) and Miss Fettle (`p01`, a brown bun, round spectacles, `p22`). The
+  horse is a sprite. Everybody else speaks without a portrait. **The Bell is
+  an inn**: a room is fifteen crowns and the scenario asserts it.
+* **Three layout findings, all in `../TILES-AND-ASSETS.md`**: `COBBLE` beside
+  `PAVING` draws a grass seam, so the town is one paving; Outside_A1 kind 12,
+  `Water E (Port)`, is a stone-edged basin, which the wharf is on; and **a
+  map smaller than the screen is drawn wrapped** - the first Counting House
+  was 16x12, and its own south wall turned up again along the top. It is
+  18x14 now. The works stand shoulder to shoulder because the first draft
+  left two alleys running off the top of the map.
+* **The walkable wall is the whole ring, not a ledge.** Step 17 found a
+  one-cell ledge along the south wall of a `K.interior` room. Measured this
+  time, with a scenario: **the side walls and the top of the north wall are
+  walkable too**, all the way round - `IN_WALL_TOP` is `0xe00` on the Inside
+  sheet, which blocks nothing - and the player can step off the floor on to
+  them from any edge. It is on every `K.interior` room, **including
+  Thistlewick's own inn, Map 4**, so it has been in the game since the start;
+  Maps 14 and 22 use a wall top that is partly passable instead. Not touched
+  here: it is a change to `mapkit` and to every interior, and it belongs with
+  section 4's suite.
 
 ---
 

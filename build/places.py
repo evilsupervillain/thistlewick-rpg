@@ -295,6 +295,19 @@ MAP_COLLEGIUM, MAP_COLLEGIUM_LIBRARY, MAP_COLLEGIUM_HALL = 58, 59, 60
 # ways (0x600) against the finished `data/Map008.json`, with nothing on it.
 COLLEGIUM_STEP = (112, 39)
 
+(MAP_DUNNAGE, MAP_SMITHS_HALL, MAP_COUNTING_HOUSE, MAP_BONDED,
+ MAP_BELL) = 61, 62, 63, 64, 65
+# Great Dunnage, `../SITES.md` step 18: the town inside its wall, with the
+# haulage yard in its north-west corner (61), the hall of the Worshipful
+# Company of Smiths (62), the lobby of the Sealed Counting House, which is
+# mostly door (63), the Bonded Warehouse on the canal (64) and the Bell (65).
+# **Not `MAP_WORKS` or `MAP_FORGE`** - those are Upper Clanging's, Maps 22
+# and 24 - **and not `MAP_INN`**, which is Thistlewick's, Map 4. One south of
+# the western of the `Fortress City` stamp's two door cells, on grass, checked
+# open four ways (0x600) against the finished `data/Map008.json`, with
+# nothing standing on it.
+DUNNAGE_STEP = (31, 53)
+
 # ------------------------------------------------------------ the signposts --
 # Four world-map signposts were hand-written coordinates inside `journey.py`,
 # `wilds.py` and `field.py` rather than constants, which is why they were the

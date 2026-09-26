@@ -183,6 +183,21 @@ SHEETS = {
         (6, "sub-librarian-prewitt.json"),  # immovable, courteous, correct
         (7, "dean-fenwold.json"),       # is fine; has a talk about it
     ],
+    "Gen_People6": [
+        # Great Dunnage, `../SITES.md` step 18: municipal self-regard, dressed
+        # for it. The Mayor in scarlet with a plumed hat, which is the most
+        # hat in the game. The Prime Warden of the Company of Smiths in black
+        # with gold at the collar, iron-grey and pinned up. Wharfinger Tibbs,
+        # grey, bearded, in half-rims and a wharf coat, patient for eleven
+        # years. Mrs Harbottle, who chairs the Bell's panel, ginger and in
+        # gold lace. Appraiser Fettle, round spectacles and an orange working dress,
+        # enthusiastic about the tang. The horse is a sprite, not a face.
+        (0, "mayor-gristwood.json"),    # reading the preamble
+        (1, "prime-warden-stannard.json"),  # has a schedule of what is a piece
+        (2, "wharfinger-tibbs.json"),   # has held a coat for eleven years
+        (3, "judge-harbottle.json"),    # chairs the Bell's panel
+        (4, "appraiser-fettle.json"),   # enthusiastic about the tang
+    ],
 }
 
 # battlerName -> settings file. `install.py enemy` writes a stand-in only when

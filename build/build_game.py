@@ -39,6 +39,7 @@ import ashcombe  # noqa: E402
 import weeping_bottom  # noqa: E402
 import fenmarch  # noqa: E402
 import collegium  # noqa: E402
+import dunnage  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import south  # noqa: E402
 import village  # noqa: E402
@@ -112,6 +113,11 @@ MAP_NAMES = [
     (collegium.MAP_COLLEGIUM, "The Great Court", journey.MAP_WORLD),
     (collegium.MAP_COLLEGIUM_LIBRARY, "The Library", collegium.MAP_COLLEGIUM),
     (collegium.MAP_COLLEGIUM_HALL, "The Hall", collegium.MAP_COLLEGIUM),
+    (dunnage.MAP_DUNNAGE, "Great Dunnage", journey.MAP_WORLD),
+    (dunnage.MAP_SMITHS_HALL, "The Smiths' Hall", dunnage.MAP_DUNNAGE),
+    (dunnage.MAP_COUNTING_HOUSE, "The Counting House", dunnage.MAP_DUNNAGE),
+    (dunnage.MAP_BONDED, "The Bonded Warehouse", dunnage.MAP_DUNNAGE),
+    (dunnage.MAP_BELL, "The Bell", dunnage.MAP_DUNNAGE),
 ]
 
 
@@ -334,6 +340,7 @@ def main():
     weeping_bottom.build()
     fenmarch.build()
     collegium.build()
+    dunnage.build()
     build_map_infos()
     build_tilesets()
     build_system()

@@ -280,6 +280,20 @@ FACES = {
     "Mr Gedge": ("Gen_People5", 5),
     "Prewitt": ("Gen_People5", 6),
     "Dean Fenwold": ("Gen_People5", 7),
+    # Great Dunnage, SITES.md step 18, drawn, `Gen_People6` 0-4 - the sheet
+    # this step opened. The horse is a sprite (`Vehicle` 4) and has no face;
+    # the Bell's other two judges and the Company's other Warden speak with no
+    # portrait. **"Mr Tibbs" is not "Tibb"** (Nether Sopping's, `People1` 0),
+    # which a prefix grep finds first, and nobody else in the game speaks as
+    # "The Mayor". Cotter Cotterill shares `SF_Actor2` 7, which
+    # nothing had used: brown hair and a white work jacket, which is his
+    # brother Rivet's look (`SF_Actor1` 0) four years on, and meant to be.
+    "The Mayor": ("Gen_People6", 0),
+    "Prime Warden": ("Gen_People6", 1),
+    "Mr Tibbs": ("Gen_People6", 2),
+    "Mrs Harbottle": ("Gen_People6", 3),
+    "Miss Fettle": ("Gen_People6", 4),
+    "Cotter": ("SF_Actor2", 7),
 }
 
 

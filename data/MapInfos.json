@@ -59,5 +59,10 @@ null,
 {"id":57,"expanded":true,"name":"The Long Gallery","order":57,"parentId":56,"scrollX":0,"scrollY":0},
 {"id":58,"expanded":true,"name":"The Great Court","order":58,"parentId":8,"scrollX":0,"scrollY":0},
 {"id":59,"expanded":true,"name":"The Library","order":59,"parentId":58,"scrollX":0,"scrollY":0},
-{"id":60,"expanded":true,"name":"The Hall","order":60,"parentId":58,"scrollX":0,"scrollY":0}
+{"id":60,"expanded":true,"name":"The Hall","order":60,"parentId":58,"scrollX":0,"scrollY":0},
+{"id":61,"expanded":true,"name":"Great Dunnage","order":61,"parentId":8,"scrollX":0,"scrollY":0},
+{"id":62,"expanded":true,"name":"The Smiths' Hall","order":62,"parentId":61,"scrollX":0,"scrollY":0},
+{"id":63,"expanded":true,"name":"The Counting House","order":63,"parentId":61,"scrollX":0,"scrollY":0},
+{"id":64,"expanded":true,"name":"The Bonded Warehouse","order":64,"parentId":61,"scrollX":0,"scrollY":0},
+{"id":65,"expanded":true,"name":"The Bell","order":65,"parentId":61,"scrollX":0,"scrollY":0}
 ]

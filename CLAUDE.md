@@ -107,14 +107,16 @@ the plaque - the hero's home village, destroyed, and fine - and Weeping Bottom
 one, the founder's stone - the healing sanctuary, founded for the air - and
 Fenmarch Hall one, the portraits whose eyes follow you, none of which has ever
 looked at anybody, and the Collegium Arcanum one, the ancient school of magic
-whose motto is REFERATUR);
+whose motto is REFERATUR, and Great Dunnage one, the watchman at the gate who
+has never heard of you);
 `VAR_BLUSHES` is 20
-against **thirty-three** reachable - twenty-five measured off the data in August
+against **thirty-four** reachable - twenty-five measured off the data in August
 2026, plus Dorothy Markup's in Penultima, which is the first from outside the
 north, Walt's tune and the register in Restwell, and the Book in Hithermost's
 chapel, and Rosamund's card, and Mirabel's secret, and Frostwick's two, Ida
-on the ribbon and Clem at the committee's table - **thirty-three**. The tier
-is meant to be four fifths of the true total and is now **61%**; `NORTH.md` 2.3 has the count,
+on the ribbon and Clem at the committee's table, and Cotter Cotterill in
+Great Dunnage, who is always very glad to get home - **thirty-four**. The tier
+is meant to be four fifths of the true total and is now **59%**; `NORTH.md` 2.3 has the count,
 why counting it by grep over-counts and is wrong, and why it is being left
 alone. `SITES.md` section 4 item 5 is where it finally gets re-cut, and it is
 the one thing on that list that cannot be done incrementally.
@@ -340,6 +342,14 @@ Append instead.
   `MAP_COLLEGIUM_LIBRARY`, `MAP_COLLEGIUM_HALL` - **not `MAP_HALL`**, which is
   Prophecy Hall. Its `journey.py` alias is `COL`. Dean Fenwold's portrait is
   a character sheet drawn by running the module, like Fenmarch's |
+| Maps 61-65 | Great Dunnage: the town inside its wall, with the haulage yard
+  in its north-west corner; the Smiths' Hall; the Counting House's lobby,
+  which is mostly door; the Bonded Warehouse; and the Bell. `dunnage.py`,
+  `SITES.md` step 18, the last. `MAP_DUNNAGE`, `MAP_SMITHS_HALL`,
+  `MAP_COUNTING_HOUSE`, `MAP_BONDED`, `MAP_BELL` - **not `MAP_WORKS`,
+  `MAP_FORGE` or `MAP_INN`**, which are Upper Clanging's and Thistlewick's.
+  Its `journey.py` alias is `DUN`. Nix's refusal is on the warehouse's own
+  door, not the town's |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -695,6 +705,24 @@ makes eight passes over it cost less than the single pass did before.
   asserted to say nothing of reviewers or specimens; out onto
   `places.COLLEGIUM_STEP`; then **Zephyrine at the world-map door, which
   refuses**, twice, asserted to say nothing of fines, paperwork or the duck |
+| `dunnage` | `SITES.md` step 18, walked: onto Great Dunnage's door off the
+  world map, the arms over the gate, **the watchman who has never heard of
+  Bram** (the trope, counted once), the First Mayor, the anthem, the nine
+  works and Mrs Poskitt; the Bell - the Contest's poster, **a night's room
+  for fifteen crowns**, the bell, three judges and Mr Tweddle; the Counting
+  House - the Mayor at the preamble twice, the Door, the memorandum, the Town
+  Clerk; the Smiths' Hall - the Prime Warden twice, Warden Crabbe, Miss
+  Fettle, the Schedule, the banners and the prize; **Cotter at the Iron
+  Company's gate** (the blush, counted once); the haulage yard and Duchess;
+  the Bonded Warehouse - Mr Tibbs twice, the Bond Book, Bond No. 1 and the
+  piano; and out onto `places.DUNNAGE_STEP`. Every reaction shot is asserted
+  absent with nobody in the party |
+| `dunnage_company` | the same town with Hob, Nix, Aldric, Piper and Corvin
+  in the party: **the gate lets everybody in**; Nix at the Counting House's
+  Door, Piper at the poster, Hob at the Schedule, Corvin at Miss Fettle's
+  bench and Aldric at Duchess are reaction shots, each asserted to say
+  nothing of its quest; and **the Bonded Warehouse's door refuses Nix**,
+  twice |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
@@ -702,15 +730,14 @@ makes eight passes over it cost less than the single pass did before.
   asserted to offer nobody a promotion - the desk, the files, the committee's
   table, and back out onto `places.COLDBARROW_STEP` |
 | `placeholder_doors` | that the world map's **remaining site doors do nothing**.
-  It was 41 on 29 sites and is **29** now, Penultima's two, Restwell's two,
-  the Hithermost cluster's four, Fairholme's three and Olde Evermore's one
-  having become real doors. Every page of every one of the rest has no commands, which is how an event says "this
-  exists and is not finished" - and it is asserted out of the live game rather
-  than off the data, because the day somebody wires the first real transfer is
-  the day it stops being true for one of them. It walks onto Great Dunnage's
-  door - the last site on `SITES.md`'s list, so the walk will not have to
-  move again soon - and Village 1's, and checks the interpreter does not
-  start. **4** left after the Collegium Arcanum |
+  It was 41 on 29 sites and is **2** now: every site but Village 1 has become
+  a real door. Every page of the two left has no commands, which is how an
+  event says "this exists and is not finished" - and it is asserted out of the
+  live game rather than off the data, because the day somebody wires the first
+  real transfer is the day it stops being true for one of them. It walks onto
+  both of Village 1's cells, (61,61) and (60,61), and checks the interpreter
+  does not start. `SITES.md` section 4 decides Village 1, and this walk moves
+  or goes with it |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -772,6 +799,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
 | `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | Hester Vane | Mr Thurle, Mrs Ash |
 | `Gen_People5` | Hubert Weir | Prioress Stope | Sister Bewick | Pemberton-Gore IV | Mr Ottershaw | Mr Gedge | Prewitt, Dean Fenwold |
+| `Gen_People6` | the Mayor | Prime Warden Stannard | Mr Tibbs | Mrs Harbottle | Miss Fettle | - | - |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding
