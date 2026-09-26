@@ -335,7 +335,7 @@ def shoppe_events():
         "The card beside it reads:",
         "",
         "  \\C[14]THE SWORD OF ULTIMATE ENDING\\C[0]",
-        "        9,999,999 gold"])
+        "        9,999,999 crowns"])
     sword += S.say("Gideon", [
         "Ah. The Sword of Ultimate Ending.",
         "Would sir like to hold it?"])
@@ -378,9 +378,10 @@ def shoppe_events():
         "Mind you, he has never sold it either."])
     first += [S.blush(), R.self_switch("A", True)]
     later = S.say("Dorothy", [
-        "A boot came in this morning. One gold.",
-        "It will go out at forty. That is the trade,",
-        "and I write down both of them."])
+        "A boot came in this morning.",
+        "One crown. It will go out at forty.",
+        "That is the trade, and I write down",
+        "both of them."])
     later += S.narrate([
         "You ask whether he has ever given a discount."])
     later += S.say("Dorothy", [

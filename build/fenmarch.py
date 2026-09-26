@@ -418,14 +418,14 @@ def ottershaw_pages():
 CASE_PLATES = {
     (5, 12): [
         "THE MARSH BEAR (Ursus fenmarchensis). Taken in the moat",
-        "by Sir Aldric the Second, 1838. It had come for the",
+        "by Sir Aldric the Second. It had come for the",
         "crayfish, and had been at them some time."],
     (7, 30): [
-        "A UNICORN, of the Home Farm. Bred at Fenmarch, 1819.",
+        "A UNICORN, of the Home Farm. Bred at Fenmarch.",
         "Not a success as a unicorn. It kept the foxes down."],
     (5, 16): [
-        "THE FENMARCH PHOENIX. Rose from the kitchen fire in 1852,",
-        "and was put out by Cook."],
+        "THE FENMARCH PHOENIX. Rose from the kitchen fire, and was",
+        "put out by Cook."],
     (7, 34): [
         "THE GREATER MOAT BEAR. Larger than the Marsh Bear, and",
         "wetter."],

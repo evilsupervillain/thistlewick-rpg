@@ -426,12 +426,12 @@ Great Dunnage; the Bonded Warehouse; Wharfinger Tibbs. *Gives:* the coat, which
 is armour, and which fits.
 
 **NIX-2. The Sealed Counting House.** *(cliche: the vault nobody can open)*
-Great Dunnage sealed its counting house in 1802 when the key was lost, and has
+Great Dunnage sealed its counting house in 1788 when the key was lost, and has
 run its entire municipal finance on faith and a memorandum ever since. The
 Corporation would like it opened, formally, by a licensed person, and Nix is
 not one, and the licence is a form. Nix opens it in nine seconds while the
 Mayor is still reading the preamble. Inside is a note in a clerk's hand reading
-*we spent it*, dated 1802, and one chair. *Needs:* Great Dunnage; the Mayor;
+*we spent it*, dated 1788, and one chair. *Needs:* Great Dunnage; the Mayor;
 the counting house interior (one small room, one enormous door). *Gives:* gold,
 which the Corporation insists you keep, because it is not theirs, because
 apparently nothing is.
@@ -549,7 +549,7 @@ entirely Aldric's face; the warmth is that the lad is right. *Needs:* one NPC,
 placeable anywhere. *Gives:* an appended page on Aldric everywhere afterwards
 in which somebody is following him.
 
-**ALD-6. The Wrong Dragon.** *(cliche: the dragon)* He was sent, twelve years
+**ALD-6. The Wrong Dragon.** *(cliche: the dragon)* He was sent, eight years
 ago, to slay a dragon. He arrived at a different one. The different one is
 delightful, elderly, has read a great deal, and is not remotely a dragon in the
 sense the commission meant. The correct dragon has since been slain by somebody

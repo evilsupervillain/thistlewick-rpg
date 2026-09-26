@@ -234,7 +234,7 @@ def _cinder_fen():
 
 
 # ========================================================== the Wrong Dragon ==
-# ALD-6. Twelve years ago a young knight was sent to slay a dragon and arrived
+# ALD-6. Eight years ago a young knight was sent to slay a dragon and arrived
 # at a different one. The different one is delightful, elderly and well read,
 # and is not remotely a dragon in the sense the commission meant. What it *is*
 # is a closed subject - `../NORTH.md` 1.3's fifth mechanism - so it speaks as
@@ -264,7 +264,7 @@ def _wrong_dragon():
         "People are generally relieved, and then a",
         "little disappointed, and then they stay for tea."], face=False)
     first += S.say("Somebody Large", [
-        "There was a young knight, oh, twelve years",
+        "There was a young knight, oh, eight years",
         "ago. Very correct. He had a commission with",
         "'dragon' on it and a great deal of armour, and we",
         "talked about Horace until it got dark."], face=False)

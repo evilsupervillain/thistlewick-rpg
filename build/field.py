@@ -410,7 +410,7 @@ MOUND = [K.SF_SCRAP, K.SF_SPOIL, K.SF_CRATE, K.SF_OIL_DRUM,
 WEST_PLOTS = [(1, 3), (5, 4), (10, 4)]
 EAST_PLOTS = [(19, 4), (24, 3), (28, 4)]
 
-# Attempt Eighty-Four broke her moorings in the eighteen-eighties and has been
+# Attempt Eighty-Four broke her moorings in the eighteen-sixties and has been
 # going north ever since, at a foot or so a year, straight through four rows of
 # her own kind. So the west plot of every row except the oldest is *gone*, and
 # what is there instead is a hundred and forty years of gouge in the ground.
@@ -788,8 +788,8 @@ def eighty_four(event_id):
         "It is eighty-four."])
     look += S.narrate([
         "She has been making herself good out of the",
-        "rows either side of her since eighteen eighty-",
-        "six. Nobody taught her that.",
+        "rows either side of her since eighteen sixty.",
+        "Nobody taught her that.",
         "Nobody could have."])
     look += S.narrate([
         "She gets a foot off the ground.",
@@ -856,7 +856,7 @@ def eighty_four(event_id):
     after = S.narrate([
         "The end of the furrow.",
         "There is a rectangle of ground here that had",
-        "not seen daylight since the eighteen-eighties",
+        "not seen daylight since the eighteen-sixties",
         "and is not sure what to do about it."])
     return R.event(event_id, "Attempt Eighty-Four", *EIGHTY_FOUR, pages=[
         R.page(cmds, img=img, trigger=0, priority=1, direction_fix=True),

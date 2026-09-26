@@ -1088,6 +1088,33 @@ carries `battlerName: "Actor3_2"`, and `validate.py` reports no problems.
 The only files that moved were `build/story.py`, `build/db.py`, and the two
 generated files that follow from them (`data/Enemies.json`, `data/Map008.json`).
 
+### 8.1b The Attempt Eighty-Four date repair - **DONE, 26 September 2026**
+
+The second sanctioned repair, from `AUDIT.md` item 6 (C3), agreed by Mike.
+The published game gave two different present years, both by arithmetic the
+game does in the open:
+
+* ITEM 1 was written into the stores book in **1802** and, in two lines, has
+  waited "a hundred and ninety-eight years" - so it is **2000**.
+* Attempt Eighty-Four came down in **1886** and her bay has been empty "for a
+  hundred and forty years" - so it is **2026**.
+
+Mike chose **2000**: the Committee finds round years convenient, so Bram, the
+forty-eighth, sets out in the year 2000 of the Third Age, and every recent
+Chosen One in a year ending in nought (`TIMELINE.md`). ITEM 1 is therefore
+right, and "Two hundred years I have been at this" becomes exact. The span
+stays - "a hundred and forty years" is in five lines - and the year she came
+down moves, which is three:
+
+    db.build_enemies (27)   "Came down in the Long Field in 1886"   -> 1860
+    field.eighty_four       "since eighteen eighty- / six."          -> "since eighteen sixty."
+    field.eighty_four       "since the eighteen-eighties"            -> "the eighteen-sixties"
+
+Nothing is re-voiced; each sentence is the same but for its year, and the
+first one's window re-breaks by a line. (An earlier pass the same day went
+the other way, to 2026, by changing ITEM 1's two "hundred and ninety-eight"s;
+it was undone, and those lines are byte for byte what was published.)
+
 ### 8.1a The state of the tree at handoff
 
 **Updated 2026-08-25, after step 5 of section 16.** Everything is uncommitted

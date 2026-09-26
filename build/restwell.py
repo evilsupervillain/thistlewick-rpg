@@ -394,7 +394,7 @@ def eight_hours_events():
         return cmds
 
     first = S.say("Mrs Ashbury", [
-        "Ten gold a night, love.",
+        "Ten crowns a night, love.",
         "Breakfast included."])
     first += S.narrate(["You ask when breakfast is."])
     first += S.say("Mrs Ashbury", [
@@ -408,11 +408,11 @@ def eight_hours_events():
     first += S.narrate(["It is already twenty past two."])
     first += S.say("Mrs Ashbury", ["Then you had better get up there."])
     first += [R.self_switch("A", True)]
-    first += beds(["Ten gold, love.",
+    first += beds(["Ten crowns, love.",
                    "Walt will play you up."])
 
     later = beds([
-        "Back again. Ten gold.",
+        "Back again. Ten crowns.",
         "Walt is by the stairs. He always is."])
 
     img = R.image("Gen_People1", 6, direction=2)

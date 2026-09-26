@@ -187,9 +187,10 @@ def hollowell_pages():
         "floor. Very sensible. The heroes",
         "have to be able to ARRIVE, you see."])
     t += S.say("Hollowell", [
-        "That was four hundred years ago.",
-        "I was retained. I've kept it ready",
-        "ever since, in case it's re-let."])
+        "That was four thousand eight hundred",
+        "years ago. I was retained. I've kept",
+        "it ready ever since, in case it's",
+        "re-let."])
     t += S.say("Hollowell", [
         "And the complaint was upheld! They",
         "put in a lift. Courtyard to the",
@@ -197,16 +198,16 @@ def hollowell_pages():
         "It always has."])
     t += S.narrate([
         "You ask whether anybody has visited, in four",
-        "hundred years."])
+        "thousand eight hundred years."])
     t += S.say("Hollowell", [
         "Not a soul! Everything's in perfect",
         "working order. Which brings me to",
         "the visitors' book."])
     t += S.say("Hollowell", [
-        "Four hundred years and nobody in it.",
-        "It's the one gap in the record. And",
-        "you're going up the tower, aren't",
-        "you? You've the look."])
+        "Four thousand eight hundred years,",
+        "and nobody in it. It's the one gap in",
+        "the record. And you're going up the",
+        "tower, aren't you? You've the look."])
     t += S.say("Hollowell", [
         "Would you ask the current incumbent",
         "to sign it? For the file?"])
@@ -254,7 +255,7 @@ def hall_events():
         "The visitors' book, open on the lectern. It is",
         "ruled into three columns - NAME, FROM, REMARKS -",
         "and there is nothing in any of them, on any page,",
-        "for four hundred years."])
+        "for four thousand eight hundred years."])
     book += S.narrate([
         "Beside it, face down, is a letter. It has been",
         "unfolded and folded again a great many times."])
@@ -287,8 +288,9 @@ def hall_events():
     # 5: the quarterly reports, on the middle shelf's base cell.
     reports = S.narrate([
         "Quarterly reports, bound, one for every quarter",
-        "since the lease lapsed: sixteen hundred of them.",
-        "These are the copies. The originals were filed."])
+        "since the lease lapsed: nineteen thousand two hundred",
+        "of them. These are the copies. The originals were",
+        "filed."])
     reports += S.narrate([
         "Tucked into each one is the reply. It is the same",
         "form letter every time:",

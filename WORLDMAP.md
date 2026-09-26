@@ -1027,7 +1027,7 @@ turns out to be a poor lair. The business needs the heroes to arrive.
 
 So the one place in the world you cannot walk to is the one place that was
 abandoned *for being impossible to get to*, and the airship is what makes the
-complaint moot four hundred years late. That is the whole joke and it lands the
+complaint moot four thousand eight hundred years late. That is the whole joke and it lands the
 moment the player sets down on it.
 
 **Somebody is still up there.** The caretaker has kept the place ready since
@@ -1073,7 +1073,7 @@ to.
 **The cast, and it is one man and a great deal of paperwork.** The synopsis
 above says "somebody is still up there", singular, and the singular is the
 joke: a castle with a staff of one, kept ready for a tenant who left four
-hundred years ago. Filling it with people would make it a place rather than a
+thousand eight hundred years ago. Filling it with people would make it a place rather than a
 **vacancy**, which is the thing the player is supposed to be standing in.
 
 * **Mr Prosper Hollowell, Caretaker (Retained).** He has kept the place ready
@@ -1092,9 +1092,10 @@ hundred years ago. Filling it with people would make it a place rather than a
   form letters, and one of them - recent, on the lectern, and the only thing
   in the room he is not pleased about - is a **change of address notification**
   for the Obligatory Tower, sent to him as a matter of course by a committee
-  that has not thought about this building in four hundred years.
+  that has not thought about this building in four thousand eight hundred
+  years.
 * **The visitors' book, open, with nobody in it.** Not a single name in four
-  hundred years, because nobody could get here, which is the complaint that
+  thousand eight hundred years, because nobody could get here, which is the complaint that
   closed the place. And it is the one gap in his record, so he has an **ask**:
   when the party reaches the current incumbent, would they have him sign it.
   That costs one item, one page on Grimspite, and it lands at the finale -

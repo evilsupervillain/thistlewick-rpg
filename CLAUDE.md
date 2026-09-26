@@ -22,8 +22,8 @@ selected by the Prophecy Committee while he was asleep and therefore unable to
 object.
 
 The joke the game is built around is that the Prophecy is a *contract*. Grimspite
-the Inevitable does not want to be the Dark Lord; he is four thousand years into
-a renewable engagement he cannot get out of. Beat him and the Prophecy itself
+the Inevitable does not want to be the Dark Lord; he is four thousand eight hundred
+years into a renewable engagement he cannot get out of. Beat him and the Prophecy itself
 unrolls to enforce clause twelve, and *that* is the real last boss.
 
 Bram can take up to three of nine companions. Each is a different answer to the
@@ -69,6 +69,13 @@ through one item per session. Its section 0 is the rule that decides every
 fix - **only what is on the `live-rpg` branch is protected**; everything newer
 is free to change, and what is published may only be repaired where the game
 contradicts itself.
+
+`TIMELINE.md` is the world's calendar and **the reference every dated or aged
+line is checked against** - write a new date into it in the same commit as the
+line. Two reckonings: the calendar is the elves' Third Age (the present is
+2000, Bram's year), and anything the Prophecy says is in *contract* years, because clause
+two defines "a hundred years" as whatever the Committee finds convenient. That
+is how the Tower is 4,800 years old and #45 is alive.
 
 `NORTH.md` is the design document for what comes next: Upper Clanging, the
 airship, and a pass over the whole game adding a kind of joke it currently has

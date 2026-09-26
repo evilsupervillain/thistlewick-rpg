@@ -1952,7 +1952,7 @@ def build_enemies():
                        trait(14, ST_POISON, 1), trait(14, ST_SLEEP, 1),
                        trait(14, 8, 1), trait(62, 3, 0),
                        trait(23, 6, 0.75), trait(23, 7, 1.15)],
-        note="Came down in the Long Field in 1886 and has been repairing "
+        note="Came down in the Long Field in 1860 and has been repairing "
              "herself out of her neighbours ever since. Still has pressure. "
              "Still, faintly, trying to go north."))
     save("Enemies.json", en)

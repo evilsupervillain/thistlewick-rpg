@@ -453,7 +453,7 @@ complaint about the climb, then a second, then a recommendation, and the
 engagement renegotiated onto a ground-floor site with a door at the bottom,
 which is the Obligatory Tower. The one place in the world you cannot walk to is
 the one that was abandoned for being impossible to get to, and the airship makes
-the complaint moot four hundred years late.
+the complaint moot four thousand eight hundred years late.
 
 **Mr Prosper Hollowell, Caretaker (Retained)**, is still up there and is
 *delighted*. The lift - commissioned after the complaint was upheld, installed
@@ -578,7 +578,7 @@ and is why building them now is safe.
   mechanism - because Mrs Emberthwaite is already a dragon in every sense and
   a second kindly one would be a repeat. It is "a dragon in the sense that the
   map says so", has a blanket over what you think are its knees, and
-  remembers a very correct young knight twelve years ago who talked about
+  remembers a very correct young knight eight years ago who talked about
   Horace until dark. ALD-6 can decide the rest.
 * **Nothing here spends a quest's payoff.** Mother Selvidge tells Bram what is
   true of him - a long walk, a lot of company, and somebody very surprised to
@@ -1408,7 +1408,7 @@ forward:
     pockets, on purpose. NIX-2 is opening it. **What NIX-2 inherits**: Map 63
     is the lobby, with the Door (event 3, `!$Gate2` pattern 2) across the
     north wall; the Mayor is event 2, practising the preamble - forty minutes,
-    down to thirty-eight; the memorandum of 1802 (event 4) says the
+    down to thirty-eight; the memorandum of 1788 (event 4) says the
     Corporation is "assumed to have enough"; the Town Clerk (event 5) has Form
     L, which needs a licensed person to fill in and countersign, and there are
     none. **The room behind the Door is not built**, and no note says "we

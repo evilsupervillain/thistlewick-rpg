@@ -828,7 +828,7 @@ def mayor_pages():
     first += S.narrate(["You ask what is being opened."])
     first += S.say("The Mayor", [
         "The Counting House!",
-        "Sealed in 1802, when the key was lost.",
+        "Sealed in 1788, when the key was lost.",
         "We've run the town on a memorandum."])
     first += S.say("The Mayor", [
         "It is to be opened",
@@ -857,7 +857,7 @@ def door_pages():
         "Counting House: bronze, a good deal taller than you, with a",
         "lock in the middle of it the size of a cartwheel."])
     cmds += S.narrate([
-        "It has not been opened since 1802. Everybody who comes in",
+        "It has not been opened since 1788. Everybody who comes in",
         "looks at it for a while, and then at the Mayor."])
     nix = S.narrate([
         "Nix looks at the Door for rather longer than anybody looks",
@@ -868,7 +868,7 @@ def door_pages():
 
 def memorandum_pages():
     return S.narrate([
-        "A memorandum in a frame, in a clerk's hand, dated 1802:"]) + \
+        "A memorandum in a frame, in a clerk's hand, dated 1788:"]) + \
         S.narrate([
             "THAT, the Counting House being sealed, the accounts of the",
             "Corporation be taken as read;",

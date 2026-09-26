@@ -465,6 +465,24 @@ def archive_events():
     faelan += S.say("Elder Faelan", [
         "So that she can't reach it.",
         "She reads the endings first."])
+    # TIMELINE.md section 1, "Who notices": the further from Thistlewick's
+    # committees, the more plainly the clock is seen, and the elves simply say
+    # it. The Forty-Seventh came through in 1990; the Age is not Thistlewick's.
+    faelan += S.narrate(["You mention that you are the Forty-Eighth."])
+    faelan += S.say("Elder Faelan", [
+        "Are you! The Forty-Seventh came",
+        "off the ledge ten years ago. A",
+        "lovely boy. Landed on his feet."])
+    faelan += S.say("Elder Faelan", [
+        "Your Committee will have told",
+        "you it was a hundred years. It",
+        "counts the way the Prophecy does.",
+        "We count the way the sun does."])
+    faelan += S.narrate(["You say that the Age began with the Prophecy."])
+    faelan += S.say("Elder Faelan", [
+        "The Age began with a great many",
+        "things. The Prophecy was the one",
+        "with a clerk present."])
     faelan += [R.self_switch("A", True)]
     faelan_again = S.say("Elder Faelan", [
         "The top shelf. It is always the",

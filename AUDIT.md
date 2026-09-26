@@ -108,6 +108,237 @@ regarding the Former Premises**.
   docstrings say what each module was told it must not contradict - start
   there before reading any dialogue.
 
+#### The timeline, as the game states it (built 26 September 2026)
+
+Measured off the built text, not the source: every Show Text, choice and
+database description in `data/` on `master`, and the same off `live-rpg`, so a
+line is **P** (published) only if the identical line is on `live-rpg`, and
+**F** (free) otherwise. `C1`-`C10` are the contradictions, listed after the
+table. Relative dates are "years before Bram sets out".
+
+| when | what | where it is said | P/F | |
+| --- | --- | --- | --- | --- |
+| before the engagement | "Two thousand years of Dark Lords" in the castle on the cloud, "so that no hero could ever reach it. And no hero ever did." | `premises.hollowell_pages`; `WORLDMAP.md` 7.4 | F | C2 |
+| ~4,800 years | the engagement begins; the Tower "Est. approx. 4,800 years ago - UNDER THE SAME MANAGEMENT"; "Four thousand eight hundred years, this job" | `journey.tower_events` (plaque), `journey.finale_event` (x2), `journey.item_one_scene`, `db.build_enemies` (Grimspite's note); `EXPANSION.md` 1 | P | C1 C4 |
+| "four thousand years" | the same span, rounded: the mat, the Cache's hooks, "leaned on that wall every day of four thousand years", "Four thousand years, and she is the only one", Ott's "Four thousand years in the weather" | `journey.tower_events` (x2), `journey.finale_event` (x2), `north.ott_the_two_hundred`; `CLAUDE.md`'s premise | P | C4 |
+| | "in four thousand years that wasn't binding" | `journey.visitors_book_pages` | F | C4 |
+| 4,112 years | Mirabel born; "I was there when they signed it" - the Prophecy, signed three times each, and a horse beside clause twelve | `evermore.mirabel_pages`, `evermore` Archive copy; `BIOS.md` | F | C5 |
+| "since the First Age" | Olde Evermore | `evermore` village sign | F | |
+| every 100 years, 47 times | "Every hundred years the Dark Lord rises ... It has worked forty-seven times"; the Obelisk's 47 RENEWED; "renewed me forty-seven times"; the Cache "RESTOCKED EVERY CENTURY" | `village.hall_events` (Wispel), `journey.tower_events`, `journey.finale_event`; `CLAUDE.md`, `README.md` | P | C1 |
+| ~600 years | the Collegium founded, by the Founder, in one afternoon | `collegium.arms_pages`, Founder | F | |
+| ~500 years | the First Dean's portrait "pending for five hundred years" | `collegium.portrait_pages` | F | |
+| 400 years | the Premises vacated for the Tower; the visitors' book empty since; 1,600 quarterly reports | `premises.hollowell_pages` (x3), `premises.hall_events` (x2), `journey.visitors_book_pages` (x2); `WORLDMAP.md` 7.4 (x2) | F | C2 |
+| 1702 | Weeping Bottom founded by Mother Ursula Pym, for the sea air | `weeping_bottom.stone_pages` | F | |
+| 1749, 1750 | the Sky Anvil falls, becomes Meech's great-great-grandad's gatepost; shrine built round it | `nomap._sky_anvil` | F | C9 |
+| 1794, 1795 | Sump: wasps, the Water Committee wound up; "Cursed 1794"; "six generations" without sleep | `hamlets.thurle_pages`, `hamlets.sump_events` | F | |
+| 1802 | the Hoyle Works' stores ledger begins; ITEM 1 | `field.stores_ledger`, `journey.item_one_scene` | P | C6 |
+| 1802 | Great Dunnage's Counting House sealed, "when the key was lost"; the memorandum | `dunnage.mayor_pages`, `door_pages`, `memorandum_pages`; `COMPANIONS.md` NIX-2 | F | C6 |
+| 1804 | an apprentice at the works since; Nib is the fortieth | `north.works_events` | P | |
+| ~200 years | "Two hundred years I have been at this. Four generations of us"; 199 attempts; the Pit's lost property | `north.works_events`, `field`, `wilds` | P | |
+| 1811, 1840 | Dame Honoria's portrait; Rollo the dog | `fenmarch.portrait_pages` | F | |
+| 1819, 1838, 1852 | the unicorn bred; the Marsh Bear "taken by Sir Aldric the Second"; the phoenix | `fenmarch` case table (module level) | F | C7 |
+| 1841 | the Clanging clock four minutes fast since - "and has been for sixty years" | `north.clanging_events` | P | C10 |
+| 1886 | Attempt Eighty-Four comes down; her bay empty "for a hundred and forty years" | `field.eighty_four` (x2), `db.build_enemies` (x2), `journey.finale_event` tally | P | C3 |
+| 198 years | ITEM 1 "has spent a hundred and ninety-eight years strapped down" since 1802 | `journey.item_one_scene` | P | C3 |
+| ~100 years | the wayshrine's last entry, "Feeling good about this one!", "dated a hundred years ago" - i.e. #47 | `journey.world_events` | P | C1 |
+| ~100 years | Attempt 112, "a hundred years dead" | `field` | P | |
+| 91 years | the shipping stopped; the light kept since for "the ones coming back" | `south` (Bother) | P | |
+| ~70 years | Mr Ottershaw, "ninety in March", has composed the animals for "seventy years. Three generations" | `fenmarch.ottershaw_pages` | F | C7 |
+| 60 years | #41 Halloran Vance's goose "a wyvern in my house for sixty years" | `south.the_wyvern` | P | C1 |
+| 41 years | Wick "went north. Same as they all do." | `south.outfit_events` | P | C1 |
+| 40 years | #44 Ambrose Fitch home and "ignored for forty years", since dead; Ysolde (78) forty years a medic | `wilds.forty_fourth`, `south.ysolde_event`, Weapons 31 | P | C1 |
+| 40 years | Perce breaks Frostwick's winter - "Everybody went north, that year"; the Eleven Days' book, two Chosen Ones "a century apart" and P. Stagg | `frostwick.frostwick_events`, `eleven_days_events` | F | C1 |
+| 30 years | #45 Halbert Quy, "in his seventies", has "thought about a cup of tea for thirty years" | `south.quy_event`, `journey.finale_event` | P | C1 |
+| 31 years | Gideon prices the Sword of Ultimate Ending | `penultima` | F | |
+| 14 / 11 years | Sir Hamo at Weeping Bottom; Dame Winifred at Little Gore | `weeping_bottom.hamo_pages`, `hamlets.cope_pages` | F | |
+| 12 years | a young knight with a dragon commission at the Wrong Dragon's - Aldric, ALD-6 | `nomap._wrong_dragon`; `COMPANIONS.md` ALD-6 | F | C8 |
+| 11 years | Corvin in his corner, since nineteen; the flood was while he was away | `south`, `ashcombe` | P/F | |
+| 9 years | Aldric "went out errant nine years ago and never came back"; the flowers under his portrait; Tom and Mrs Vane married at Fenmarch | `fenmarch.fourth_pages`, `portrait_pages`, `tom_pages`; `hamlets.vane_pages` | F | C8 |
+| 6 years | Aldric arrives in Thistlewick and cannot find the north gate; Perpetua wakes on the beach | `db.build_actors`, `village.aldric_event`, notice board; `coldbarrow` | P | |
+| recent | #46 alive on his log, his party writing monthly; #47 was the Old Man's boy | `journey.gloamwood_events`, `south`, `village.village_events` | P | C1 |
+| 4 years | Mr Pilbeam and the eagle | `fairholme` | F | |
+| now | Bram, #48. The calendar: 1802 + 198 = **2000**; 1886 + 140 = **2026** | | | C3 |
+
+Consistent, and worth knowing so nobody "fixes" them: Aldric's **nine** years
+out and **six** in Thistlewick (three on the road first); Ott's "Forty-six of
+them have gone up that road" against forty-seven (#46 stopped in the
+Gloamwood); Mrs Emberthwaite is seventy; the Fourth found the gate at ten.
+
+#### The contradictions, and the proposed fixes
+
+**C1 - the Prophecy's clock (P against P, the big one).** Thistlewick, the
+Tower and Grimspite run on a hundred-year cycle: 47 renewals, 4,800 years, the
+wayshrine's last entry a hundred years ago. The whole published south runs on
+a clock about ten times faster: #41 sixty years ago, #44 forty, #45 thirty and
+alive, #46 alive with his party, #47's father alive, Ysolde and Wick in living
+memory. Frostwick (F) sits on the fast clock too - "everybody went north, that
+year" was forty years ago, which is #44's year. Both halves are published and
+neither can be repaired without re-voicing dozens of lines. Proposed:
+
+* **(a) recommended - "a hundred years" is a defined term.** One new line, F:
+  Pargeter reads the whole Prophecy (she is the one person who ever has) and
+  finds that clause two defines "a hundred years" as *such period as the
+  Committee shall find convenient*. Every published line then stays true as
+  written - Wispel, the wayshrine, the Cache, and Grimspite's 4,800, which are
+  the contract's years - and Halbert's published "if it works every hundred
+  years, why is there always a next one?" becomes the question that got him
+  pensioned. Nothing is repaired. `frostwick.py`, Pargeter's `prophecy` pages;
+  optionally the same clause visible on the Archive copy at Olde Evermore.
+* (b) leave it: a comic world where nobody counts. Costs nothing; the audit
+  exists because Mike counted.
+* (c) repair either clock: dozens of published lines. Not proposed.
+
+**C2 - the Former Premises (F against P).** Hollowell has the venue moved
+**four hundred** years ago after **two thousand** years in which "no hero ever
+reached it". Published: the Tower is 4,800 years old, and Grimspite has been
+reached, renewed and has said "so you have come at last" forty-seven times -
+and, in the Premises' own page, he has "never been" to the old place. So the
+move must predate him. Proposed, F: the move was **4,800 years ago**, just
+before the present incumbent - the first hero ever to arrive was the one who
+got the job, which the Tower's "UNDER THE SAME MANAGEMENT" already allows.
+`premises.hollowell_pages` ("That was four hundred years ago" -> four thousand
+eight hundred; "Four hundred years and nobody in it"), `premises.hall_events`
+(the book's "four hundred years"; "sixteen hundred" reports -> nineteen
+thousand two hundred), `journey.visitors_book_pages` (two lines), and
+`WORLDMAP.md` 7.4 and the module docstring. Hollowell is then nearly five
+thousand years old and retained, which the game should not explain - Mirabel
+is four thousand and nobody explains her either.
+
+**C3 - the present year (P against P, minor).** ITEM 1's "a hundred and
+ninety-eight years" since 1802 makes it 2000; Attempt Eighty-Four's "a hundred
+and forty years" since 1886 makes it 2026, in four published lines to ITEM 1's
+one. Proposed, Repair of one line in `journey.item_one_scene`: "a hundred and
+ninety-eight years" -> "two hundred years and more", which "Two hundred years
+I have been at this" already rounds to. Or leave it.
+
+**C4 - four thousand and four thousand eight hundred (P, soft).** Grimspite
+says both in one scene. Read as a tired man rounding, it is not a
+contradiction. Proposed: leave the game; correct `CLAUDE.md`'s premise ("four
+thousand years into") to 4,800, which is a doc.
+
+**C5 - Mirabel at the signing (F, soft).** She is 4,112; the engagement is
+4,800 (or 6,800 with the castle). It only contradicts if there was one signing
+- and the published Prophecy is "the Forty-Eighth Prophecy of Thistlewick, in
+triplicate", so there have been forty-eight, and she signed three times at one
+of them. Proposed: leave it. If Mike reads the Prophecy as signed once, raise
+her to "five thousand one hundred and twelve" (F, one line and `BIOS.md`).
+
+**C6 - 1802 twice (F against P).** Great Dunnage sealed its Counting House in
+the year ITEM 1 went into the Hoyle Works' ledger, a valley apart. Nothing
+connects them. Proposed, F: move Dunnage to **1788** - no other date in the
+game - in `dunnage.mayor_pages`, `door_pages`, `memorandum_pages` and
+`COMPANIONS.md` NIX-2. Or keep it and let NIX-2 make it a connection.
+
+**C7 - Fenmarch's dates (F against F, and against P).** Mr Ottershaw has
+composed every animal in seventy years, but three cases are dated 1819, 1838
+and 1852 - and the Marsh Bear's "Sir Aldric the Second, 1838" would make the
+published Sir Aldric **the Third** the grandson of a man active a century and
+a half ago. Proposed, F: take the years off the three cases and keep them on
+the two portraits, which are older than Ottershaw's work and can be. The
+`fenmarch` case table.
+
+**C8 - Aldric and the Wrong Dragon (F against F).** The young knight "oh,
+twelve years ago" is Aldric, who left home nine years ago. Proposed, F: "oh,
+eight years ago" - after he left Fenmarch and before Thistlewick -
+`nomap._wrong_dragon` and `COMPANIONS.md` ALD-6.
+
+**C9 - Meech's great-great-grandad in 1749 (F, minor).** Four generations in
+about 250 years. Proposed: leave it.
+
+**C10 - the Clanging clock (P, minor).** Fast "since eighteen forty-one" and
+the town early "for sixty years". Readable as the town having trusted it for
+sixty. Proposed: leave it.
+
+**Done, 26 September 2026 - the timeline, and its fixes.** Mike's decisions,
+and what was changed for each:
+
+* **C1: the defined term.** Pargeter now reads clause two out after "Somebody's
+  worried": *'A hundred years' is a defined term. 'Such period as the Committee
+  shall find convenient.'* `frostwick.cold_room_events`, F. Not added to the
+  Archive copy.
+* **C2: the move was 4,800 years ago.** Hollowell, the visitors' book, the
+  quarterly reports (19,200) and Grimspite's visitors'-book pages 3 and 4 say
+  four thousand eight hundred years; `WORLDMAP.md` 7.4 and `SITES.md` step 6
+  follow. F.
+* **C3: repaired - the other way from the one proposed.** Mike asked why
+  the present was not a round year, and it should be: the Committee finds
+  round years convenient, so Bram sets out in **2000**, which is what ITEM 1's
+  published "hundred and ninety-eight years" since 1802 already said. So
+  ITEM 1 stands and Attempt Eighty-Four came down in **1860** instead of 1886
+  - three published lines, `NORTH.md` 8.1b. (The 224 repair made earlier the
+  same session was undone; ITEM 1's lines are byte for byte as published.)
+* **Who notices** (Mike's rule, `TIMELINE.md` 1): Thistlewick never notices,
+  the further from its committees the more people do, and the elves say it
+  outright. Checked: nobody in Maps 1-7 notices. Added, F: **Elder Faelan**
+  tells you the Forty-Seventh came off the ledge ten years ago, that the
+  Committee counts "the way the Prophecy does. We count the way the sun
+  does", and that the Age "began with a great many things. The Prophecy was
+  the one with a clerk present." `evermore.py`, event 4, page 0.
+* **C4:** `CLAUDE.md`'s premise says 4,800. The game is unchanged.
+* **C5, C9, C10:** left.
+* **C6:** Great Dunnage sealed its Counting House in **1788**. `dunnage.py`
+  x3, `COMPANIONS.md` NIX-2, `SITES.md` step 18. F.
+* **C7:** the three dated cases at Fenmarch have no dates; the two portraits
+  keep theirs. F.
+* **C8:** the Wrong Dragon's knight was "oh, eight years" ago; `COMPANIONS.md`
+  ALD-6 and `SITES.md` follow. F.
+* **Mike's question - what is the calendar?** - is answered in the new
+  **`TIMELINE.md`**, which is now the reference every dated line is checked
+  against. The calendar is the elves' **Third Age**, which Thistlewick claims
+  began with its Prophecy because it signed it in year 1 on purpose; the
+  present is **2000**, and recent Chosen Ones go in round years; the Prophecy's figures are contract years. Mike's idea,
+  and nothing in the game says it yet.
+
+Rebuilt and `validate.py` clean. The built text was diffed before and after:
+the only lines that moved are the ones above. No scenario asserted any of
+them except `finale_ending`'s label.
+
+#### The wider dialogue audit - started 26 September 2026
+
+**The tool is `build/audit_text.py`**: a regex over every line of text in the
+built `data/`, each marked P or F against `live-rpg`, with map, event, page
+and speaker. `--event 'Map042 ev2 '` prints one event's whole script. It is
+how the timeline above was built, and it is much cheaper than reading
+modules.
+
+**Checked, and consistent** - do not re-check:
+
+* **Distances.** Little Gore to Fenmarch is four miles in all four places
+  (Mrs Vane twice, Tom, the fingerpost). Ashcombe's "eight miles inland" is
+  Mr Weir's "by the road". Cotter's eleven miles, the charts' fourteen, the
+  west road signpost's 9 and 14, the Coast Road's 4 leagues to Sopping and
+  Halbert's forty miles are all measured from different places, and nothing
+  says otherwise. Thistlewick's "200 leagues" to the Tower is crossed out
+  on the sign itself.
+* **Marriages and families.** The Cotterills: Gudgeon's register of ages
+  agrees with every child who states one (Rivet 22, Ferrule 16, Spare 9), and
+  Bessie's "down the valley at the big foundry until the spring" is the Cotter
+  that Great Dunnage has, home on Saturdays. Tom and Mrs Vane, nine years.
+  Mrs Emberthwaite a widow in both places. Dorcas and Prudence sisters.
+* **Sir Dunstable**: a quarter past four at Hithermost and at Fairholme.
+* **Days of the week**: Thursdays are Rosamund's walk, the Order's committee
+  and Nabb's post, and none of them collide.
+
+**Found and fixed, Free:**
+
+* **D1 - Restwell charged in gold.** The game's money is crowns (`System.json`
+  says `cr`; Prudence says "20 crowns", Splint "two crowns"). Mrs Ashbury said
+  "Ten gold" three times; she says "Ten crowns" now. `restwell.py`.
+* **D2 - Penultima priced in gold.** The Sword's card said "9,999,999 gold"
+  and Dorothy "One gold"; both say crowns now. Dorothy's line was re-broken
+  to fit - the same words. `penultima.py`.
+
+* **The dead.** Ambrose Fitch is the only person who is dead and speaks,
+  and that is the Barrow's point. The Hoyle attempts agree with the calendar:
+  84 in 1886, 199 "eleven years dead" in both the log and on her crag.
+
+**Still to do**, next session: the living - anybody said to be somewhere, or
+doing something, by a second speaker who is contradicted by the first;
+characters described as something their sprite or face is not (overlaps item
+4 - do it with the contact sheet item 4 builds, not separately); and lines
+that promise something the game does not have - a place, a shop, a person
+somebody says is "up the road".
+
 ### 4. Portraits of the wrong gender
 
 Most often children: a character written as a boy with a girl's face, or the

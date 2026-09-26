@@ -714,6 +714,15 @@ def cold_room_events():
         "I'd never sign a thing like that.",
         "Somebody's underlined it, I see.",
         "Somebody's worried."])
+    # AUDIT.md item 6, C1, and TIMELINE.md: the one line in the game that
+    # says what "every hundred years" means, which is how the published
+    # south's Chosen Ones can be alive and the Tower 4,800 years old at once.
+    # It is read, not explained - nobody here counts the south's ages for you.
+    prophecy += S.narrate(["She turns back to clause two."])
+    prophecy += S.say("Pargeter", [
+        "'A hundred years' is a defined term.",
+        "'Such period as the Committee shall",
+        "find convenient.'"])
     first += R.if_then(R.condition_item(db.IT_PROPHECY), prophecy)
     first += [S.trope(), R.self_switch("A", True)]
 

@@ -1344,7 +1344,7 @@ def visitors_book_pages(c, sig, split, tally):
     book += S.say("Grimspite", ["What is that."])
     book += S.narrate([
         "You explain: the Former Premises. The caretaker.",
-        "Four hundred years, and nobody in the book."])
+        "Four thousand eight hundred years, and nobody in the book."])
     book += S.say("Grimspite", [
         "The old place. On the cloud.",
         "I've never been. I've read the file.",
@@ -1367,9 +1367,9 @@ def visitors_book_pages(c, sig, split, tally):
         "   about the lift."])
     framed = S.narrate([
         "Mr Prosper Hollowell, Caretaker (Retained), has",
-        "pasted the first signature in four hundred years",
-        "into the visitors' book, and has written it up in",
-        "his quarterly report. It runs to forty pages."])
+        "pasted the first signature in four thousand eight",
+        "hundred years into the visitors' book, and has written",
+        "it up in his quarterly report. It runs to forty pages."])
 
     def signed(bomb):
         return (c[:sig] + book + c[sig:split] + bomb + c[split:tally]
