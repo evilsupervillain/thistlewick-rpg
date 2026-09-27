@@ -569,6 +569,41 @@ export with a moustache before changing it, because the editor itself may do
 the same. If the editor does it too, pick a different `nose` or `beard`
 pattern per face instead of changing the stacking.
 
+**Done, 26 September 2026.** Measured first: the five candidates rendered
+with `beard: ""` show **exactly the same nose** as with it - Beard is
+stacked over Nose, but no moustache here reaches the tip, so it hides none
+of it; the stacking is not at fault
+and `chargen.LAYER_ORDER` is untouched. The cause is the part itself:
+every one of the 49 settings files but Dorothy's had `nose p01`, and male
+`p01` is a single pale highlight on the tip - no line, no shadow. Without
+a moustache it reads as the house style of the young stock faces; with a
+moustache sitting right under it, the eye takes the moustache for where
+the face ends. The stock faces with moustaches - Fisher/Ferryman
+(`People1` 4), Dree, the Merchant, Bother, Mr Budge, Dunnock - all have
+hand-drawn noses, so **nothing stock is recast**.
+
+* **Eighteen generated faces** with beards or moustaches get a nose that
+  shows, picked on each face from a trial of `p03`, `p07`, `p12`, `p19`
+  and `p23`, and varied so the cast does not share one: `p12` (a shaded
+  tip) for Weir, Gedge, Walt Ashbury, King Aldous, Hollowell, Crake,
+  Ottershaw and Tibbs; `p23` (a softer tip) for Gideon, Perce, Quillon,
+  Meech, Rook and the Mayor; `p19` (a long bridge) for the three severe old
+  men, Dean Fenwold, Sir Dunstable and Mordaunt; `p03` (a line) for Tobias,
+  the youngest. Redrawn with `art.py --replace 0 1 2 3 4 5 6 7`; the rest
+  came back `unchanged`. Only faces and bust pictures changed - the walking
+  sprites and battlers do not draw the nose differently.
+* **All Free.** Gideon is `Gen_People1` 4, which is in `live-rpg`'s image,
+  but no published map or troop shows cells 4-7 of it or their busts; cells
+  0-3 were checked pixel-identical to `live-rpg` after the redraw.
+* **Not changed: Norbert Pelling and Old Hollis** (`Gen_People1` 1 and 2),
+  both bearded, both on `nose p01`, both shown on published Map 28 (and
+  Norbert in `Troops`). A small nose contradicts nothing, so a redraw
+  would be "better if", not a Repair - **put to Mike**; if he wants them,
+  it is the same one-line change and a `NORTH.md` 8.1 entry.
+* Beardless generated faces keep `p01`; they read like the stock faces
+  beside them. No scenario asserts a redrawn face (only the gossip's, in
+  `audit_fixes`), and the build changed nothing in `data/`.
+
 ### 1. Speakers with no portrait
 
 **Draw a face for every human or elf who speaks without one**, and give Mike
