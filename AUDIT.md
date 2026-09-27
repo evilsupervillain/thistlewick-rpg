@@ -332,12 +332,92 @@ modules.
   and that is the Barrow's point. The Hoyle attempts agree with the calendar:
   84 in 1886, 199 "eleven years dead" in both the log and on her crag.
 
-**Still to do**, next session: the living - anybody said to be somewhere, or
-doing something, by a second speaker who is contradicted by the first;
-characters described as something their sprite or face is not (overlaps item
-4 - do it with the contact sheet item 4 builds, not separately); and lines
-that promise something the game does not have - a place, a shop, a person
-somebody says is "up the road".
+**The living, and the promises - 26 September 2026.** Done by reading the
+whole of the built text end to end (`audit_text.py '.'`, about 85,000 tokens
+once the padding is stripped), and by cross-referencing every speaker's name
+against every other event that mentions it. Nothing in it is a plain Free
+contradiction, so nothing was changed for this half; what it found is below,
+for Mike.
+
+**Checked, and consistent** - do not re-check:
+
+* **Where people are said to be.** Ysolde at the table by the bar; Tom in the
+  gardens at Fenmarch, home at five; Walt on the bottom stair; Cotter at the
+  Iron Company, home Saturdays; Sir Dunstable at a quarter past four, with
+  Hithermost's lamp, and his apologies at Fairholme "(in a mountain)"; Mr
+  Pilbeam at the council table; Rosamund up the hill on Thursdays, in her card,
+  the minutes and Mrs Emberthwaite's tablet; Mr Gedge lifting the Register on
+  Mondays; Corvin in the Wyvern, on his mother's dresser and in the Sable
+  Hart's apologies; Hob "south twenty year ago" in Bryd's mouth; Nib and
+  Tappet's four years; the Sable Hart's rota, table and five for four corners;
+  the Vanes' wedding, banns and three births; Frostwick's twelfth, forty
+  festivals and forty winters; Fairholme's eleven rescues and the
+  two-thousand-and-forty-eighth; the Dean's eleven years and Zephyrine's.
+* **Directions and prices.** Mr Gedge's "Hall's on the left, Library's on the
+  right" against Map 58; Mrs Barrow "across the way" from the Guild. Every
+  price a line quotes against what its event charges or its shop sells: the
+  six inns (20, 25, 30, 10, 11, 15), the hat at 30, the bench at 400, the oil
+  at 120, the Pit and the fair at 2.
+* **Soft, and read the kind way.** Wick went north forty-one years ago and
+  Mrs Barrow has been thirty-nine years in the trade: she opened the shop with
+  his name on it. Fizz's "forty-seven skipped it" against Old Hollis's
+  forty-one years: Fizz counts the way Thistlewick does. Ysolde's duke's son
+  "runs a shipping concern" ninety-one years after the last ship passed
+  Bother's point: not past that point. Pargeter's "nine years, renewed"
+  against forty winters: a nine-year term. Mirabel's ninth of March and
+  Penultima's twelfth of November: the game has no one date. Wat Pardle is
+  not by the Standing Stones because the plaque says he was asked to stop
+  coming.
+* **Hooks, not promises.** Lines that invite something the game does not yet
+  do are companion-quest set-ups and are meant to be open: the Cinder Fen's
+  fire person, Meech's gate, Tobias Frayne's jar, Miss Fettle's card, Bond No.
+  1, Form L, the Contest's categories, the Schedule, Duchess, the Wrong
+  Dragon's knight. The Ferryman's tide is a published joke that never turns.
+* **Sops** is never given a pronoun in anything the player reads - "the
+  Potboy" is only the event's name - so the face reads as either and is not an
+  item 4 finding. Nor are Clevis and Ferrule (`NORTH.md` 4.6), Tibb, Child,
+  Dunnock or Warden Crabbe.
+
+**Found, for Mike** - each needs a decision before anything changes:
+
+* **D3 - the Chandler's never opens (P).** Nether Sopping's shut shop gives its
+  hours as "when the light is on at the point. The light has been out since
+  spring." The player lights it, and the card still says so, for ever.
+  Additive fix, no Repair: a page on `SW_LAMP_LIT` (pattern 2). Either it
+  opens - a small chandlery, lamp oil and ship's biscuit and rope - or it stays
+  shut under a new card. Which?
+* **D4 - Bother's stipend (P against P).** "The Guild stopped my stipend when
+  the shipping stopped ... Ninety-one years ago", and the Adventurers' Guild
+  (Provisional) was founded forty years ago - the Charter, the Guild Card and
+  Pell all say so. Readable as another, older guild. Proposed: leave it. The
+  Repair would be one word in Bother's line.
+* **D5 - Aldric's father (F against P).** Published: "I wrote to my father. I
+  have not sent it." Free: the Fourth, his nephew - "Grandfather came over the
+  wall. Until he was eighty." - which is Aldric's father, and reads as either
+  retired from the wall or dead. If he is dead, the unsent letter becomes a
+  sad beat nobody chose (`NORTH.md` 1.5, test two). Proposed, Free: make him
+  plainly alive and still at it ("Grandfather still comes over the wall. He
+  is eighty-one ..."), one line in `fenmarch.py`. Or leave it open for ALD-5.
+* **D6 - the Door into the Mountain says "Not yet" (F).** "You have no lamp.
+  You do not go in. Not yet." There is no lamp to get: Sir Dunstable has it,
+  and nothing lets you in. Keep it as a hook (and write it into
+  `COMPANIONS.md` or `SITES.md` section 4, so it is owed), or drop "Not yet."
+  and let it be a door that says no, which is what `hithermost.py`'s docstring
+  calls it.
+* **D7 - the same name twice (not contradictions).** Nell is Old Hollis's wife
+  (P) and the smallest Vane (F); Kit is a Fairholme hero (F), Kit Blackwood (F)
+  and Ysolde's Kit (P); Budge is the Barrow's hound (P) and Mr and Mrs Budge
+  (F); Tolly (P) and the Tolleys in the Chapel's Book (F). Vance is Zephyrine
+  and Halloran, both published, and may as well be family. Rename the Free
+  doubles, or leave them - real villages repeat names.
+
+**Done, 26 September 2026 - the wider dialogue audit.** Every line of built
+text has been read: the facts two speakers share (D1, D2, fixed), the dead,
+distances, marriages, days, the living, and the promises. Two Free fixes were
+made (the currency); five findings (D3-D7) are Mike's to decide and are listed
+above, with a proposal each; everything else was consistent, and the lists
+above say what, so it is not checked again. Characters described unlike their
+face or sprite went to item 4, below.
 
 ### 4. Portraits of the wrong gender
 
@@ -354,6 +434,58 @@ reverse. Not only children.
 * A stock face that is wrong can be **recast** onto another stock face or a
   generated one; a generated face can be redrawn with `art.py --replace`.
   Recasting a *published* character's face is a Repair.
+
+#### Started, 26 September 2026
+
+**The tool is `build/facesheet.py OUT_DIR`**: every name in `story.FACES`,
+its face cropped beside the walking sprite of the event that speaks with it,
+and a he/she count off that event's narration (a hint, not a verdict - a scene
+with two people in it counts both), as `sheet-NN.png` montages of 24 and a
+`faces.tsv`. 135 faces, six sheets. Items 3 and 2 start from the same sheets.
+
+Two things it established that nobody needs to check again:
+
+* **Face and sprite always agree.** Every speaking event's page graphic is the
+  same sheet and index as its speaker's face - stock faces pair with their own
+  stock sprites, and `Gen_*` faces with the sprite drawn from the same
+  settings. So the only question is face against text.
+* **The faceless speakers' sprites were checked too** (they are what item 1
+  will draw faces to match): one wrong, below; the rest agree with their text.
+
+**Fixed, Free:**
+
+* **G1 - Restwell's guest** "shoulders his pack" and had the Neighbour's face,
+  the girl with the pigtails (`People1` 1). He shares the Merchant's now,
+  `People2` 4, face and sprite. `restwell.py`, `story.FACES`.
+* **G2 - Little Gore's Nell** - "She is, too" - walked about as the
+  spiky-haired boy, `People1` 0. She is the pigtailed girl, `People1` 1.
+  `hamlets.py`.
+
+**For Mike:**
+
+* **G3 - Thistlewick's gossip (P, Repair).** Map 1's `Gossip` - "They chose
+  you at the meeting ... She lets that sit" - has the `Villager` face and
+  sprite, `People1` 0, which is a boy. Published, and a contradiction on its
+  face, so a Repair in `NORTH.md` 8.1 is allowed: recast the event onto a
+  woman (`People1` 3, the red-haired Councillor, or `People1` 5, Mother, who
+  are both in Thistlewick already, or an unused cell). The Hithermost villager
+  shares `Villager` and is never given a pronoun, so it can stay.
+* **G4 - Wren (P).** Written as a woman; `Actor2` 7, face and battler, can read
+  as a young man - a slight ranger with short grey hair. A judgement by eye,
+  and a companion's recast touches the face, the sprite, the battler and
+  every scene she is in.
+* **G5 - Nix (P).** Written as she; `Actor3` 4 is masked and hooded, and the
+  brows read male to some eyes. Same judgement.
+
+**Not gender, for items 1 and 2:** Tom (F) walks about as the old man with
+the headband, `People4` 4, and is nine years married with three small
+children - decide his age before item 1 draws his face. Bess (F), "a small
+girl", walks as an adult, `People2` 3 (the white headscarf passes for a
+bride's veil). Dree (P), "an elderly gentleman", has a middle-aged face, and
+Mrs Harbottle (F, drawn), "formidable", a young one.
+
+**Still to do** on item 4: Mike's answers to G3-G5, and the recasts that
+follow.
 
 ### 3. Elves without pointed ears
 

@@ -283,7 +283,7 @@ def restwell_events():
         "eight bars of something."])
     guest += [S.trope()]
     evs.append(S.npc(10, "A Satisfied Guest", 12, 12, guest,
-                     "People1", 1, direction=2))
+                     "People2", 4, direction=2))
     return evs
 
 

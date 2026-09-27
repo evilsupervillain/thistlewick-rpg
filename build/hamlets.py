@@ -226,7 +226,9 @@ def gore_events():
                        R.image("Actor2", 1, direction=2), *cope_pages()))
 
     # 5-7: the three Vanes on the green, playing weddings. They share stock
-    # sprites and no faces; the narration says how small they are.
+    # sprites and no faces; the narration says how small they are. Nell is
+    # the pigtailed girl, People1:1: she was the spiky-haired boy, People1:0,
+    # under a line that says "She is, too", until AUDIT.md item 4.
     bess = S.narrate([
         "A small girl with a daisy chain on her head, standing",
         "very straight."])
@@ -246,7 +248,7 @@ def gore_events():
     for eid, name, xy, (sheet, idx), cmds, facing in [
             (5, "Bess", BESS, ("People2", 3), bess, 6),
             (6, "Alfie", ALFIE, ("People1", 2), alfie, 4),
-            (7, "Nell", NELL, ("People1", 0), nell, 8)]:
+            (7, "Nell", NELL, ("People1", 1), nell, 8)]:
         evs.append(S.npc(eid, name, *xy, cmds, sheet, idx, direction=facing))
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)

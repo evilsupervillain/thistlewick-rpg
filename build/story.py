@@ -162,10 +162,12 @@ FACES = {
     # either SF set that reads as a professional man rather than a crew
     # member, which is what a retired country doctor in a bar needs to be.
     "Dr Pike": ("SF_Actor3", 6),
-    # The guest on Restwell's street is an ordinary person and shares the
-    # Neighbour's face; `Traveller` is People3:0, which is the royalty sheet
-    # and is already carrying a joke of its own in Nether Sopping.
-    "Guest": ("People1", 1),
+    # The guest on Restwell's street is an ordinary man and shares the
+    # Merchant's face, a grin that has slept well; `Traveller` is People3:0,
+    # which is the royalty sheet and is already carrying a joke of its own in
+    # Nether Sopping. He was the Neighbour's face, People1:1, until AUDIT.md
+    # item 4 - the girl with the pigtails, under a line that says "his pack".
+    "Guest": ("People2", 4),
     # Hithermost, SITES.md step 2, and the first two cells of `Gen_People2`.
     # Quillon is BIOS.md's look to the letter - bald, the long white beard,
     # the ochre habit and the eyes shut. Sir Dunstable is the bio's joke, so
