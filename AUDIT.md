@@ -419,6 +419,24 @@ above, with a proposal each; everything else was consistent, and the lists
 above say what, so it is not checked again. Characters described unlike their
 face or sprite went to item 4, below.
 
+**Done, 26 September 2026 - Mike's decisions on D3-D7, and what was made:**
+
+* **D3 - the Chandler's opens.** A page appended to Map 13 event 16 on
+  `SW_LAMP_LIT` (`NORTH.md` 1.7 pattern 2; page 0 is byte for byte as
+  published): the card has been turned round, OPEN, "everything has been
+  dusted since spring. Twice." - and a shop of lamp oil, ship's biscuit,
+  antidote and smelling salts. No rope: there is no rope item, and the free
+  item ids are `SPARE.md`'s. `south.py`, F. The new `audit_fixes` scenario
+  walks up to it both ways.
+* **D4 - left.** Bother's Guild is another, older guild.
+* **D5 - left open for ALD-5.** Whether Aldric's father is alive is ALD-5's
+  to settle; nothing changed.
+* **D6 - kept as a hook.** "Not yet." stays, and is now owed: `COMPANIONS.md`
+  section 8 (new) writes down what the game has already fixed about the way
+  in - the lamp, from Sir Dunstable, at a quarter past four - and
+  `hithermost.py`'s docstring points there.
+* **D7 - left.** Real villages repeat names.
+
 ### 4. Portraits of the wrong gender
 
 Most often children: a character written as a boy with a girl's face, or the
@@ -484,8 +502,26 @@ girl", walks as an adult, `People2` 3 (the white headscarf passes for a
 bride's veil). Dree (P), "an elderly gentleman", has a middle-aged face, and
 Mrs Harbottle (F, drawn), "formidable", a young one.
 
-**Still to do** on item 4: Mike's answers to G3-G5, and the recasts that
-follow.
+**Done, 26 September 2026 - Mike's answers to G3-G5:**
+
+* **G3 - recast, a Repair, `NORTH.md` 8.1c.** Mike's rule: a new stock face
+  if one is free, else a generated one. The only unused stock woman in the
+  game is `Actor3` 5, a child in a red riding hood, so the gossip is drawn:
+  `Gen_People6` 5, a kerchief and a print dress
+  (`build/characters/thistlewick-gossip.json`). Her label still reads
+  "Villager:", so `story.say` takes `face=` naming another `FACES` key -
+  `"Gossip"` - and Hithermost's pronounless villager keeps `People1` 0. Not a
+  word changed. `audit_fixes` asserts her sprite and face off the live game.
+* **G4 - Wren: left.**
+* **G5 - Nix: Mike will supply a female version of the face.** `Actor3` 4
+  reads male; the walking sprite and battler stay. It is the first entry in
+  **the list of faces Mike supplies**, item 1 below. The game writes her as
+  she ("She does not hand it over", "like a woman with somewhere to be");
+  `COMPANIONS.md` alone heads her section "Who they are", which is a doc and
+  is left for Mike.
+
+Item 4 is finished, bar installing Nix's face when it comes (a Repair of a
+published face - write it up in `NORTH.md` 8.1 then).
 
 ### 3. Elves without pointed ears
 
@@ -495,6 +531,30 @@ as an elf. Check `CHARGEN.md` for how the generator does ears: `ears` is its
 own part in the settings, and every settings file here sets `ears: p01`.
 Mirabel is a kid-body drawing, so check what ear parts the kid body has.
 Stock faces with human ears on elves are recast or redrawn.
+
+**Done, 26 September 2026.** Who is an elf: `audit_text.py` for
+elf/elves/elven/ears finds only Olde Evermore - its sign, the raker, and the
+Archive's three - plus Tobias Frayne's book, whose "Two elves. Sang to me."
+is a memory, not somebody on a map. Nobody else is written as one. All Free.
+
+* **Elder Faelan** was `Actor3` 0, a round-eared human swordsman; **Elder
+  Lirien** `Nature` 6, a young spirit whose hair covers her ears, under "every
+  one of them visibly older than she looks". Both are drawn now, on
+  `Gen_People6` 6 and 7, old and with `ears: p02` showing: Faelan long and
+  silver with a gold bead in a green robe, Lirien lilac with a circlet in a
+  cream one, which keeps the note her stock face struck. `story.FACES` and
+  both sprites in `evermore.py` read the same entry now, so they cannot
+  drift. `Actor3` 0 and `Nature` 6 are free again.
+* **Mirabel** always had `ears: p02` - her sprite shows them - but her
+  fringe, `fronthair p17`, covered the point in the portrait. `p04` keeps the
+  bob and shows the ear; redrawn with `art.py --replace 4`. The lesson is in
+  `CHARGEN.md`: setting the part is not the same as seeing it.
+* **The raker** (`Elf`, faceless) walks as `People2` 1, whose hair covers the
+  ears at 48 pixels, so the sprite contradicts nothing. Whether it gets a face
+  is item 1's question, and the raker is on its list of the deliberately
+  faceless; if it does, draw it as an elf, face and sprite together.
+
+`evermore` scenario re-run after the recast.
 
 ### 2. Portraits that look as if they have no nose
 
@@ -561,8 +621,33 @@ Things to decide per name:
   anything else the search finds. For each: size (144x144 face, matching the
   `Gen_*` sheets), what it must show, and what it must *not* show - e.g. the
   Wrong Dragon's face must not settle what it is.
-* New faces continue on **`Gen_People6`**, cells 5-7, then `Gen_People7`.
-  Skin swatch 2; `lineup.py` for every one; `art.py` installs.
+* New faces continue on **`Gen_People7`** - `Gen_People6` is full (the
+  gossip, and the two Elders, took 5-7). Skin swatch 2; `lineup.py` for
+  every one; `art.py` installs.
+
+#### The faces Mike supplies - the list, started 26 September 2026
+
+Mike's instruction (with G5): keep a list of every face that cannot be made
+with the Character Generator, and **tell him when it is complete**; he will
+supply them. It is **not complete** until item 1's search has been extended
+to the speakers who reach `say()` through a variable or a helper. Each entry:
+where it goes, the size, what it must show and what it must not.
+
+| who | P/F | goes | must show | must not |
+| --- | --- | --- | --- | --- |
+| **Nix** (G5) | P | replaces the face of `Actor3` 4 only - the walking sprite and the `Actor3_5` battler stay, so match them: masked, hooded, the same colours | a woman; the mask and hood | anything the sprite does not have |
+| **Mrs Emberthwaite** | F | a new face, 144x144; her sprite is `$BigMonster2` 0 | a dragon, kindly, seventy, a widow who plays whist | menace |
+| **The Wrong Dragon** | F | a new face, 144x144; no map yet (ALD-6) | elderly, well read, delightful, a blanket over what you think are its knees | what it actually is - "a dragon in the sense that the map says so" |
+| **The Duck** | F | a new face, 144x144 | an honorary Fellow of the Collegium: four hit points, a medal | |
+| **Duchess** | F | a new face, 144x144, only if she speaks; a sprite already | a grey mare in harness, effectively a partner | |
+
+Installing a supplied face: a sheet of its own in `img/faces/` (8 cells of
+144x144, or one), `story.FACES` pointed at it, and - for a speaker with a
+sprite - the sprite left alone. Nix's is a Repair of a published face and
+gets a `NORTH.md` 8.1 entry; the rest are Free.
+
+**Put to Mike separately, not on this list** (deliberately faceless, see
+above): `The Prophecy`, `Somebody Large`, and the raker `Elf`.
 
 ### 5. The Collegium's roofs, and other visual contradictions
 

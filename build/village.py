@@ -325,12 +325,12 @@ def village_events():
     gossip = S.say("Villager", [
         "They chose you at the meeting,",
         "you know. Second vote.",
-        "First vote was the goat."])
+        "First vote was the goat."], face="Gossip")
     gossip += S.narrate(["She lets that sit."])
     gossip += S.say("Villager", [
         "Goat abstained.",
-        "Very dignified about it."])
-    add(S.npc(21, "Gossip", 24, 16, gossip, "People1", 0, direction=4))
+        "Very dignified about it."], face="Gossip")
+    add(S.npc(21, "Gossip", 24, 16, gossip, *S.FACES["Gossip"], direction=4))
 
     # -- 22: the market stall --------------------------------------------------
     stall = S.say("Merchant", ["Fresh! Mostly!"])

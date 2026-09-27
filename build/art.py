@@ -197,6 +197,18 @@ SHEETS = {
         (2, "wharfinger-tibbs.json"),   # has held a coat for eleven years
         (3, "judge-harbottle.json"),    # chairs the Bell's panel
         (4, "appraiser-fettle.json"),   # enthusiastic about the tang
+        # Thistlewick's gossip, Map 1 - `AUDIT.md` G3. Written as "she" and
+        # drawn as the Villager boy, People1:0, since the game shipped; the
+        # one unused stock woman is a child in a red riding hood. A kerchief
+        # and a print dress, and a face that has heard the second vote.
+        (5, "thistlewick-gossip.json"),  # the goat abstained
+        # Olde Evermore's two Elders - `AUDIT.md` item 3. They were stock,
+        # Actor3:0 and Nature:6, a round-eared swordsman and a spirit whose
+        # hair hides her ears, and the village is written as elves. Drawn
+        # with the pointed ears showing, and old: "visibly older than she
+        # looks". Faelan silver, long, a gold bead; Lirien lilac, a circlet.
+        (6, "elder-faelan.json"),       # sent for things on the top shelf
+        (7, "elder-lirien.json"),       # translates; the pudding is urgent
     ],
 }
 

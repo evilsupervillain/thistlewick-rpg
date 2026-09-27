@@ -384,6 +384,23 @@ def sopping_events():
     for i, ((name, lines), (x, y)) in enumerate(zip(shut, SHED_DOORS)):
         evs.append(S.sign(13 + i, name, x, y + 1, lines))
 
+    # The Chandler's keeps the hours on its card, so once the lamp is lit it
+    # opens. Appended (NORTH.md 1.7, pattern 2): the shut page above is what
+    # it always was, and AUDIT.md D3 is why - the card said so for ever.
+    open_ = S.narrate([
+        "The card in the window has been turned round. OPEN.",
+        "The light is on at the point, and the Chandler's is",
+        "keeping its hours."])
+    open_ += S.narrate([
+        "Inside, everything has been dusted since spring. Twice."])
+    open_ += R.shop([(0, db.IT_LAMP_OIL, 0, 0), (0, db.IT_BISCUIT, 0, 0),
+                     (0, db.IT_ANTIDOTE, 0, 0),
+                     (0, db.IT_SMELLING_SALTS, 0, 0)])
+    evs[-1]["pages"].append(R.page(
+        open_, img=R.image(""), trigger=0, priority=1, direction_fix=True,
+        through=True,
+        conditions={"switch1Valid": True, "switch1Id": db.SW_LAMP_LIT}))
+
     # -- 17: the other child. Event 9 says two children are playing, and for a
     # while there was only one of them on the map, which makes the narration
     # read like a bug rather than a scene.

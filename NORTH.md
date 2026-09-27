@@ -1115,6 +1115,28 @@ first one's window re-breaks by a line. (An earlier pass the same day went
 the other way, to 2026, by changing ITEM 1's two "hundred and ninety-eight"s;
 it was undone, and those lines are byte for byte what was published.)
 
+### 8.1c Thistlewick's gossip - **DONE, 26 September 2026**
+
+The third, from `AUDIT.md` item 4 (G3), agreed by Mike. Map 1's `Gossip`
+says "They chose you at the meeting" and the narration answers "She lets that
+sit" - and she was drawn, face and sprite, as `People1` 0, the spiky-haired
+boy she shared with the `Villager` label. The game contradicted itself inside
+one conversation, which is exactly Crooke's case.
+
+Mike's rule was a new stock face if one was free, and a generated one if not.
+The only unused stock woman in the game is `Actor3` 5, a child in a red
+riding hood - a fairy-tale character, not a woman who was at the meeting - so
+she is drawn: `Gen_People6` 5, `build/characters/thistlewick-gossip.json`, a
+kerchief and a print dress.
+
+    story.FACES              + "Gossip": ("Gen_People6", 5)
+    village.py (Map 1 ev21)  face and page graphic People1:0 -> Gen_People6:5
+    story.say                `face=` may name another FACES key, so two people
+                             can both be "Villager:" on screen
+
+Not one word is touched; the label still reads "Villager". Hithermost's
+villager (Free, never given a pronoun) keeps `People1` 0.
+
 ### 8.1a The state of the tree at handoff
 
 **Updated 2026-08-25, after step 5 of section 16.** Everything is uncommitted

@@ -1,0 +1,42 @@
+{
+  "query": "?map=1&x=23&y=16&frames=90",
+  "steps": [
+    {"comment": "AUDIT.md's fixes to published places, read off the live game. G3: Thistlewick's gossip is written as 'she' and was drawn as the Villager boy, People1:0; she is Gen_People6:5 now, face and sprite, and still says 'Villager:'."},
+    {"eval": "$gameSystem.disableEncounter()"},
+    {"eval": "$gamePlayer.setDirection(6)"},
+    {"frames": 10},
+    {"check": "[$gameMap.event(21).characterName(), $gameMap.event(21).characterIndex()]", "expect": ["Gen_People6", 5], "label": "the gossip walks about as herself"},
+    {"key": "Enter"},
+    {"frames": 60},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]", "expect": ["Gen_People6", 5], "label": "and talks with the same face"},
+    {"check": "$gameMessage.allText().startsWith('\\\\C[6]Villager:')", "expect": true, "label": "under the label she always had"},
+    {"advance": 20},
+
+    {"comment": "D3: the Chandler's in Nether Sopping keeps its hours - 'when the light is on at the point'. With the lamp out it is shut, as it always was; with it lit it opens as a shop."},
+    {"goto": [13, 31, 24]},
+    {"eval": "$gamePlayer.setDirection(8)"},
+    {"frames": 10},
+    {"key": "Enter"},
+    {"frames": 60},
+    {"check": "$gameMessage.allText().includes('The light has been out')", "expect": true, "label": "unlit, the Chandler's is shut"},
+    {"advance": 20},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map", "label": "and nothing opens"},
+
+    {"eval": "$gameSwitches.setValue(33, true)"},
+    {"frames": 10},
+    {"key": "Enter"},
+    {"frames": 60},
+    {"check": "$gameMessage.allText().includes('OPEN')", "expect": true, "label": "lit, the card has been turned round"},
+    {"key": "Enter"},
+    {"frames": 60},
+    {"key": "Enter"},
+    {"frames": 90},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Shop", "label": "and the Chandler's opens as a shop"},
+    {"key": "Enter", "gap": 20},
+    {"check": "SceneManager._scene._buyWindow.maxItems()", "expect": 4, "label": "four things on the shelf"},
+    {"check": "SceneManager._scene._buyWindow.item().name", "expect": "Lamp Oil", "label": "the first of them lamp oil"},
+    {"key": "Escape", "gap": 20},
+    {"key": "Escape", "gap": 30},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map", "label": "and back out onto the street"}
+  ]
+}

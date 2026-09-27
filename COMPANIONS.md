@@ -1133,3 +1133,25 @@ Three risks worth writing down now:
   It is the former **only if the game tells the player it happened** - so the
   ending's line about how many of them got something out of it is not a
   flourish, it is the feature that makes the other eight exist.
+
+---
+
+## 8. Hooks the sites opened that nothing closes yet
+
+Lines in the built game that say "not yet" to the player and mean it. They are
+not companion quests, and nothing above is built to close them; they are here
+so they are owed rather than forgotten. Each was a decision of Mike's.
+
+* **The Door into the Mountain** (Hithermost, Map 33 event 6, and its
+  world-map door; `hithermost.door_into_the_mountain`). "You have no lamp.
+  You do not go in. Not yet." - kept as a promise, `AUDIT.md` D6. What the
+  game has already fixed: the board says NO ADMITTANCE WITHOUT A LAMP and the
+  hook under it is empty; Sir Dunstable borrowed the lamp ("Back directly. -
+  D.") and comes down out of the mountain every day at a quarter past four,
+  with it; the villager says he "Has our lamp"; and the Book in the Chapel of
+  Continuance is signed by him all the way down the page. So the way in is
+  **the lamp, from Sir Dunstable, at a quarter past four** - which he will
+  lend with lovely manners and is back directly - and what is behind the door
+  is a dungeon nothing in the game has described yet, beyond "a stair going
+  down into a dark that does not stop". Do not settle whether Sir Dunstable
+  is alive: the Book and the Fairholme apologies both leave it open.

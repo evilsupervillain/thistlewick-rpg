@@ -737,6 +737,10 @@ makes eight passes over it cost less than the single pass did before.
   bench and Aldric at Duchess are reaction shots, each asserted to say
   nothing of its quest; and **the Bonded Warehouse's door refuses Nix**,
   twice |
+| `audit_fixes` | `AUDIT.md`'s fixes to published places, off the live game:
+  **Thistlewick's gossip walks and talks as `Gen_People6` 5** under her old
+  "Villager:" label (G3, `NORTH.md` 8.1c), and **the Chandler's in Nether
+  Sopping is shut with the lamp out and a shop with it lit** (D3) |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
@@ -813,7 +817,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People3` | Tobias Frayne | Perce Stagg | Ida Stagg | Clem Blagg | Mrs Blagg | Pargeter | Mrs Marchpane, Mordaunt |
 | `Gen_People4` | Hollin Crake | Lucan Morrow | Thaddeus Rook | Silas Veyle | Kit Blackwood | Hester Vane | Mr Thurle, Mrs Ash |
 | `Gen_People5` | Hubert Weir | Prioress Stope | Sister Bewick | Pemberton-Gore IV | Mr Ottershaw | Mr Gedge | Prewitt, Dean Fenwold |
-| `Gen_People6` | the Mayor | Prime Warden Stannard | Mr Tibbs | Mrs Harbottle | Miss Fettle | - | - |
+| `Gen_People6` | the Mayor | Prime Warden Stannard | Mr Tibbs | Mrs Harbottle | Miss Fettle | Thistlewick's gossip | Elder Faelan, Elder Lirien |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding
@@ -825,8 +829,9 @@ settings files without the hood.
 
 **`Gen_People1` is full**, and `Gen_People2` was opened by Hithermost; Fairholme
 took 2 and 3, and the twelve shareholders round its table share stock faces;
-Olde Evermore's Mirabel is 4, and its two Elders share `Actor3:0` and
-`Nature:6`. Restwell's third speaking part, Dr Pike,
+Olde Evermore's Mirabel is 4, and its two Elders were stock until
+`AUDIT.md` item 3 drew them as elves on `Gen_People6`, which is now full;
+the next face opens `Gen_People7`. Restwell's third speaking part, Dr Pike,
 **shares `SF_Actor3:6`** instead - `story.FACES` records every such share and
 the reasoning, and sharing is the cheaper answer whenever a character is a
 single scene in one room.

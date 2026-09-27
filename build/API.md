@@ -432,7 +432,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (135)
+### `FACES` — who already has a face (136)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -440,37 +440,37 @@ The key is what `say()` prints as the speaker's name. Adding somebody here is ho
 Bram                  Merribell             Hob                   Zephyrine
 Nix                   Aldric                Piper                 Corvin
 Wren                  Roland                Gatekeeper            Elder Wispel
-Clerk                 Mother                Villager              Neighbour
-Councillor            Councillor Fenn       Old Man               Farmer
-Fisher                Child                 Innkeeper             Merchant
-Apprentice            Shopkeeper            Regular               Dorcas
-Prudence              Hosea                 Ysolde                Hulda
-Nabb                  Tolly                 Merrow                Dree
-Perpetua              Pell                  Mrs Barrow            Bother
-Halbert Quy           Splint                Ferryman              Sops
-Tibb                  Traveller             Also A Traveller      Hermit
-Crooke                Ambrose               Grimspite             Ott
-Mrs Tunnicliffe       Mrs Cotterill         Mr Cotterill          Spare
-Sowerby               Nib                   Mr Kell               Bryd
-Winnie                Bessie                Rivet                 Gudgeon
-Tappet                Ferrule               Grommet               Clevis
-Shim                  Fizz                  Norbert               Hollis
-Dilys                 Gideon                Dorothy               Mrs Ashbury
-Walt                  Dr Pike               Guest                 Quillon
-Sir Dunstable         King Aldous           Rosamund              Tamsin
-Brannoc               Kit                   Osric                 Aurel
-Hild                  Morwen                Leof                  Valen
-Mr Budge              Mrs Budge             Mr Pilbeam            Mirabel
-Elder Faelan          Elder Lirien          Toby                  Hollowell
-Meech                 Mother Selvidge       Dunnock               Miss Privet
-Mrs Quickset          Tobias                Perce                 Ida
-Clem                  Mrs Blagg             Pargeter              Mrs Marchpane
-Mordaunt              Crake                 Morrow                Rook
-Veyle                 Blackwood             Mrs Vane              Mr Thurle
-Mrs Ash               Mr Weir               Prioress              Sister Bewick
-The Fourth            Mr Ottershaw          Mr Gedge              Prewitt
-Dean Fenwold          The Mayor             Prime Warden          Mr Tibbs
-Mrs Harbottle         Miss Fettle           Cotter
+Clerk                 Mother                Villager              Gossip
+Neighbour             Councillor            Councillor Fenn       Old Man
+Farmer                Fisher                Child                 Innkeeper
+Merchant              Apprentice            Shopkeeper            Regular
+Dorcas                Prudence              Hosea                 Ysolde
+Hulda                 Nabb                  Tolly                 Merrow
+Dree                  Perpetua              Pell                  Mrs Barrow
+Bother                Halbert Quy           Splint                Ferryman
+Sops                  Tibb                  Traveller             Also A Traveller
+Hermit                Crooke                Ambrose               Grimspite
+Ott                   Mrs Tunnicliffe       Mrs Cotterill         Mr Cotterill
+Spare                 Sowerby               Nib                   Mr Kell
+Bryd                  Winnie                Bessie                Rivet
+Gudgeon               Tappet                Ferrule               Grommet
+Clevis                Shim                  Fizz                  Norbert
+Hollis                Dilys                 Gideon                Dorothy
+Mrs Ashbury           Walt                  Dr Pike               Guest
+Quillon               Sir Dunstable         King Aldous           Rosamund
+Tamsin                Brannoc               Kit                   Osric
+Aurel                 Hild                  Morwen                Leof
+Valen                 Mr Budge              Mrs Budge             Mr Pilbeam
+Mirabel               Elder Faelan          Elder Lirien          Toby
+Hollowell             Meech                 Mother Selvidge       Dunnock
+Miss Privet           Mrs Quickset          Tobias                Perce
+Ida                   Clem                  Mrs Blagg             Pargeter
+Mrs Marchpane         Mordaunt              Crake                 Morrow
+Rook                  Veyle                 Blackwood             Mrs Vane
+Mr Thurle             Mrs Ash               Mr Weir               Prioress
+Sister Bewick         The Fourth            Mr Ottershaw          Mr Gedge
+Prewitt               Dean Fenwold          The Mayor             Prime Warden
+Mr Tibbs              Mrs Harbottle         Miss Fettle           Cotter
 ```
 
 

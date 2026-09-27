@@ -27,6 +27,12 @@ FACES = {
     "Clerk": ("People2", 0),
     "Mother": ("People1", 5),
     "Villager": ("People1", 0),
+    # Thistlewick's gossip is also "Villager" on screen and is not
+    # Hithermost's: `say(..., face="Gossip")`. She had People1:0 too, the
+    # spiky-haired boy, under "She lets that sit" - AUDIT.md G3, a repair in
+    # NORTH.md 8.1c. Drawn, because the one unused stock woman is a child in
+    # a red hood. Hithermost's villager is never given a pronoun and keeps it.
+    "Gossip": ("Gen_People6", 5),
     "Neighbour": ("People1", 1),
     "Councillor": ("People1", 3),
     "Councillor Fenn": ("People4", 2),
@@ -196,13 +202,14 @@ FACES = {
     "Mr Budge": ("People2", 6), "Mrs Budge": ("People4", 1),
     "Mr Pilbeam": ("People4", 0),
     # Olde Evermore, SITES.md step 4. Mirabel is drawn, BIOS.md's look to the
-    # letter. The two Elders are one scene in one room, so they share faces
-    # nobody else in the game wears: Faelan the long-haired man on `Actor3`,
-    # and Lirien `Nature`'s woman with the circlet, who is the only face in
-    # the box that already looks as if she lives in a hidden elven village.
+    # letter. The two Elders were stock, Actor3:0 and Nature:6 - a
+    # round-eared swordsman and a spirit whose hair covers her ears - in a
+    # village written as elves. AUDIT.md item 3 drew them on `Gen_People6`,
+    # old and with the pointed ears showing, and gave Mirabel a fringe that
+    # does not hide hers (p17 -> p04): she had `ears: p02` all along.
     "Mirabel": ("Gen_People2", 4),
-    "Elder Faelan": ("Actor3", 0),
-    "Elder Lirien": ("Nature", 6),
+    "Elder Faelan": ("Gen_People6", 6),
+    "Elder Lirien": ("Gen_People6", 7),
     # Gladhollow, SITES.md step 5. Toby is drawn, BIOS.md's look to the letter
     # - the saucepan, the plaster, the braces. His brother at the east gate and
     # his granny have no entries on purpose: each is one short scene, and they
@@ -333,10 +340,14 @@ def _check_width(line, face, speaker):
 
 
 def say(speaker, lines, *, face=True, indent=0, position=2):
-    """One person saying something, over as many windows as it takes."""
+    """One person saying something, over as many windows as it takes.
+
+    `face` may name a `FACES` key other than the speaker's own, for two
+    people who answer to the same label and are not the same person."""
     if speaker is None:
         return narrate(lines, indent=indent)
-    name, index = FACES.get(speaker, ("", 0)) if face else ("", 0)
+    key = face if isinstance(face, str) else speaker
+    name, index = FACES.get(key, ("", 0)) if face else ("", 0)
     out = []
     for page in _pages(list(lines)):
         # The speaker's name leads every window, not just the first: a long

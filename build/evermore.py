@@ -443,7 +443,7 @@ def archive_events():
     lirien_again = S.say("Elder Lirien", [
         "Half past seven.",
         "Not a minute after."])
-    limg = R.image("Nature", 6, direction=4)
+    limg = R.image(*S.FACES["Elder Lirien"], direction=4)
     evs.append(R.event(3, "Elder Lirien", *LIRIEN, [
         R.page(lirien, img=limg, trigger=0, priority=1),
         R.page(lirien_again, img=limg, trigger=0, priority=1,
@@ -487,7 +487,7 @@ def archive_events():
     faelan_again = S.say("Elder Faelan", [
         "The top shelf. It is always the",
         "top shelf."])
-    fimg = R.image("Actor3", 0, direction=8)
+    fimg = R.image(*S.FACES["Elder Faelan"], direction=8)
     evs.append(R.event(4, "Elder Faelan", LADDER_X, y1, [
         R.page(faelan, img=fimg, trigger=0, priority=1),
         R.page(faelan_again, img=fimg, trigger=0, priority=1,

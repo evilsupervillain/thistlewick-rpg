@@ -25,7 +25,9 @@ dict, rather than from a single `SITE` string as `penultima.py` and
 * **The Door into the Mountain stays a door.** It is the obvious future
   dungeon, so it is a refusal with a reason - no lamp, because Sir Dunstable
   has it - and nothing here assumes what is behind it. On the world map it
-  says the same thing and does not transfer anywhere.
+  says the same thing and does not transfer anywhere. Its "Not yet." is a
+  promise Mike chose to keep (`../AUDIT.md` D6), and `../COMPANIONS.md`
+  section 8 is where it is owed.
 * **The Register A moment is the Book** (`../NORTH.md` 1.3 mechanism four: a
   document does not know what it is saying). The page opens on a crowd of one
   - Sir Dunstable, all the way down - and the newly-married Tolleys are further
