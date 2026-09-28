@@ -274,17 +274,17 @@ def pim_pages():
         "three patients lined up along the shore."])
     first += S.say("Sister Pim", [
         "Deep breaths, everybody! In",
-        "through the nose. It's prescribed."], face=False)
+        "through the nose. It's prescribed."])
     first += S.narrate([
         "The patients breathe in the sea air, obediently. The fog",
         "breathes back."])
     first += S.say("Sister Pim", [
         "Twice a day. Founder's orders.",
         "Nobody's ever countermanded them. It",
-        "seemed rude, with her on the stone."], face=False)
+        "seemed rude, with her on the stone."])
     later = S.say("Sister Pim", [
         "And OUT. Lovely. And in",
-        "again. Nobody cough."], face=False)
+        "again. Nobody cough."])
     later += S.narrate(["Somebody coughs."])
     return _pair(first, later)
 
@@ -315,28 +315,28 @@ def valley_events():
 
     # 8: Sister Pim, taking the patients out for the air.
     evs.append(_person(8, "Sister Pim", PIM,
-                       R.image("People4", 1, direction=6), *pim_pages()))
+                       R.image(*S.FACES["Sister Pim"], direction=6), *pim_pages()))
 
     # 9-11: the patients, facing the sea.
     crouch = S.say("Mr Crouch", [
         "Lovely and bracing, the sea",
-        "air. Lovely and bracing."], face=False)
+        "air. Lovely and bracing."])
     crouch += S.narrate(["He coughs, bracingly."])
-    evs.append(S.npc(9, "Mr Crouch", *SHORE[0], crouch, "People3", 4,
+    evs.append(S.npc(9, "Mr Crouch", *SHORE[0], crouch, *S.FACES["Mr Crouch"],
                      direction=6))
     liddy = S.say("Mrs Liddy", [
         "I came for the damp on my",
         "chest. It's doing wonderfully. I've",
-        "never had so much of it."], face=False)
-    evs.append(S.npc(10, "Mrs Liddy", *SHORE[1], liddy, "People1", 7,
+        "never had so much of it."])
+    evs.append(S.npc(10, "Mrs Liddy", *SHORE[1], liddy, *S.FACES["Mrs Liddy"],
                      direction=6))
     oakes = S.say("Mr Oakes", [
         "I'm only visiting. My brother",
-        "came in with a cough."], face=False)
+        "came in with a cough."])
     oakes += S.say("Mr Oakes", [
         "That was in the spring. He's",
-        "gone home now. I've got it instead."], face=False)
-    evs.append(S.npc(11, "Mr Oakes", *SHORE[2], oakes, "People1", 6,
+        "gone home now. I've got it instead."])
+    evs.append(S.npc(11, "Mr Oakes", *SHORE[2], oakes, *S.FACES["Mr Oakes"],
                      direction=6))
 
     # 12: the physic garden.
@@ -557,21 +557,21 @@ def hamo_pages():
         "line."])
     first += S.say("Sir Hamo", [
         "Sir Hamo Tench, of the",
-        "Order of the Errant. In the field."], face=False)
+        "Order of the Errant. In the field."])
     first += S.narrate(["You look at the bed."])
     first += S.say("Sir Hamo", [
         "Fourteen years. Came in",
         "with a cough. The sea air, you see.",
-        "Came here specially."], face=False)
+        "Came here specially."])
     first += S.say("Sir Hamo", [
         "Bed's on the line, so",
         "both lots treat me. Soup at noon,",
         "correct treatment at four. Cough's",
-        "exactly the same. Very fair."], face=False)
+        "exactly the same. Very fair."])
     first += S.say("Sir Hamo", [
         "Write to Coldbarrow every",
         "quarter: IN THE FIELD. True, too.",
-        "They've a pin in me."], face=False)
+        "They've a pin in me."])
 
     # Sir Aldric in the party is a reaction shot, not ALD-2 or ALD-3.
     aldric = S.narrate([
@@ -580,7 +580,7 @@ def hamo_pages():
     aldric += S.say("Sir Hamo", [
         "Pemberton-Gore! They've",
         "got you here too, you know. On the",
-        "great map. Red pin."], face=False)
+        "great map. Red pin."])
     aldric += S.say("Aldric", [
         "Have they? Then for once",
         "I'm where it says."])
@@ -591,7 +591,7 @@ def hamo_pages():
 
     later = S.say("Sir Hamo", [
         "Still in the field. Cough's",
-        "holding up. Soup at noon."], face=False)
+        "holding up. Soup at noon."])
     return _pair(first, later)
 
 
@@ -601,16 +601,16 @@ def lamb_pages():
         "the size of a bath, for anybody who holds out a bowl."])
     first += S.say("Sister Lamb", [
         "Soup? It's leek. It's always",
-        "leek. It works."], face=False)
+        "leek. It works."])
     first += S.narrate(["You ask what it is for."])
     first += S.say("Sister Lamb", [
         "Everything, dear. Colds,",
         "falls, fevers. Mr Nuttall came in with",
-        "his arm. He's had the soup."], face=False)
+        "his arm. He's had the soup."])
     first += S.narrate([
         "You look at Mr Nuttall. He is eating his soup with his",
         "good arm, very happily."])
-    later = S.say("Sister Lamb", ["Leek. It works."], face=False)
+    later = S.say("Sister Lamb", ["Leek. It works."])
     return _pair(first, later)
 
 
@@ -623,19 +623,19 @@ def ward_events():
                        R.image("Gen_People5", 2, direction=4),
                        *bewick_pages()))
     evs.append(_person(4, "Sir Hamo Tench", HAMO,
-                       R.image("People2", 0, direction=8), *hamo_pages()))
+                       R.image(*S.FACES["Sir Hamo"], direction=8), *hamo_pages()))
     evs.append(_person(5, "Sister Lamb", LAMB,
-                       R.image("People4", 1, direction=4), *lamb_pages()))
+                       R.image(*S.FACES["Sister Lamb"], direction=4), *lamb_pages()))
 
     # 6: Mr Nuttall, who crossed.
     nuttall = S.say("Mr Nuttall", [
         "Came in Tuesday. Started",
-        "over that side. Crossed Wednesday."], face=False)
+        "over that side. Crossed Wednesday."])
     nuttall += S.say("Mr Nuttall", [
         "Much better this side.",
         "Nobody asks you anything this side",
-        "except whether you're warm."], face=False)
-    evs.append(S.npc(6, "Mr Nuttall", *NUTTALL, nuttall, "People1", 4,
+        "except whether you're warm."])
+    evs.append(S.npc(6, "Mr Nuttall", *NUTTALL, nuttall, *S.FACES["Mr Nuttall"],
                      direction=2))
 
     # 7: Mr Dace, on the correct treatment.
@@ -645,15 +645,15 @@ def ward_events():
     dace += S.say("Mr Dace", [
         "It's a splinter. Sister",
         "Bewick says a splinter is how the ague",
-        "starts. She's got it in writing."], face=False)
+        "starts. She's got it in writing."])
     dace += S.say("Mr Dace", [
         "I'm on the correct",
         "treatment. Day four. It's very",
-        "thorough."], face=False)
+        "thorough."])
     dace += S.narrate([
         "He looks, briefly and wistfully, across the line at the",
         "soup."])
-    evs.append(S.npc(7, "Mr Dace", *DACE, dace, "People4", 4, direction=2))
+    evs.append(S.npc(7, "Mr Dace", *DACE, dace, *S.FACES["Mr Dace"], direction=2))
 
     # 8: the line, the notice over it, and the minutes on the table.
     line = S.narrate([

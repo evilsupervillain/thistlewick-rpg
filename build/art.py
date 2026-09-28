@@ -210,6 +210,21 @@ SHEETS = {
         (6, "elder-faelan.json"),       # sent for things on the top shelf
         (7, "elder-lirien.json"),       # translates; the pudding is urgent
     ],
+    # `AUDIT.md` item 1: every human who spoke with no face gets one, face
+    # and walking sprite from the one file, and the event reads both from
+    # `story.FACES`. Weeping Bottom's eight first. The Sisters of Whatever
+    # Works share a uniform - white kerchief cap, blue dress, white collar -
+    # and are two women in it; Sir Hamo is a knight in a white surcoat.
+    "Gen_People7": [
+        (0, "sister-pim.json"),         # deep breaths, everybody
+        (1, "sister-lamb.json"),        # leek; it works
+        (2, "mrs-liddy.json"),          # never had so much of it
+        (3, "mr-crouch.json"),          # lovely and bracing
+        (4, "mr-oakes.json"),           # only visiting
+        (5, "sir-hamo.json"),           # in the field, fourteen years
+        (6, "mr-nuttall.json"),         # crossed Wednesday
+        (7, "mr-dace.json"),            # day four of the correct treatment
+    ],
 }
 
 # battlerName -> settings file. `install.py enemy` writes a stand-in only when

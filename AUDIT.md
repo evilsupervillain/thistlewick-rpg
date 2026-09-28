@@ -629,9 +629,102 @@ entry, found by `say("<literal>")` against `FACES` on 26 September 2026:
     Mrs Puddifoot, Tom                                          fenmarch
     The Prophecy                                                journey
 
-**The list is not complete**: speakers whose name reaches `say()` through a
-variable or a helper (`talker`, `npc`, `recruit`) are not in it. Extend the
-search to those before calling it done.
+**The search, extended - 28 September 2026, and now complete.** Rather
+than chase every helper through the source, it was re-run off the **built
+`data/`**: every Show Text whose `faceName` is empty and whose first line
+opens with the `\C[6]Name:\C[0]` label `say()` writes, however the name got
+there - `say`, `npc`, `talker`, `recruit`, a site's own helper or a loop over
+a table. It checked the other ways a name could reach the screen as well: no
+Show Text anywhere uses the engine's `speakerName`, and every other first line
+with a colon in it is a notice, a sign or narration ("CAUSE: UNDER REVIEW.",
+"STATION ONE: ITEMS"). It found the thirty-eight above and **one more**:
+
+    Dog                                                         village (P)
+
+and two signposts that print a direction as a label (`NORTH`, `EAST`), which
+are not speakers. **The Duck and Duchess never speak** - both are narrated
+("The duck inclines its head"; "She is considering the Tuesdays") - so
+neither needs a face unless a quest gives them lines. **`Somebody Large` is
+the Wrong Dragon**: the label under which it speaks, in its cave on Map 8.
+
+Every one of the thirty-eight is **Free**; Dog and The Prophecy are
+**Published**. Where each speaker walks, which is what a face has to agree
+with (`People*` are stock; the Commissioner, Somebody Large and The Prophecy
+have no sprite):
+
+| who | P/F | map, event | sprite | | who | P/F | map, event | sprite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Dog | P | 1, ev14 | `Nature` 0 | | Sister Pim | F | 54, ev8 | `People4` 1 |
+| Commissioner | F | 8, ev52 Cinder Fen | none | | Mr Crouch | F | 54, ev9 | `People3` 4 |
+| Somebody Large | F | 8, ev53 Wrong Dragon | none | | Mrs Liddy | F | 54, ev10 | `People1` 7 |
+| The Prophecy | P | 12, ev2 Grimspite | none | | Mr Oakes | F | 54, ev11 | `People1` 6 |
+| Mrs Emberthwaite | F | 37, ev5 and ev6 | `$BigMonster2` 0 | | Sir Hamo | F | 55, ev4 | `People2` 0 |
+| Elf | F | 38, ev7 the Raker | `People2` 1 | | Sister Lamb | F | 55, ev5 | `People4` 1 |
+| Ned | F | 40, ev9 | `People1` 0 | | Mr Nuttall | F | 55, ev6 | `People1` 4 |
+| Granny Wendle | F | 40, ev10 | `People1` 7 | | Mr Dace | F | 55, ev7 | `People4` 4 |
+| Mrs Garrow | F | 49, ev7 | `People4` 5 | | Tom | F | 56, ev7 | `People4` 4 |
+| Dame Winifred | F | 50, ev4 | `Actor2` 1 | | Mrs Puddifoot | F | 57, ev3 | `People4` 1 |
+| Bess | F | 50, ev5 | `People2` 3 | | Dr Hapgood | F | 58, ev11 | `People3` 4 |
+| Alfie | F | 50, ev6 | `People1` 2 | | Reader | F | 59, ev6 | `People1` 2 |
+| Nell | F | 50, ev7 | `People1` 1 | | Undergraduate | F | 60, ev7 | `People2` 2 |
+| Mr Gammage | F | 51, ev4 | `People4` 4 | | Watchman | F | 61, ev8 | `People4` 2 |
+| Mrs Pardew | F | 51, ev5 | `People4` 5 | | Mrs Poskitt | F | 61, ev13 | `People1` 5 |
+| Wilf | F | 52, ev10 | `People1` 2 | | Mr Plummer | F | 61, ev14 | `People1` 4 |
+| Mrs Dimmock | F | 52, ev11 | `People1` 5 | | Warden Crabbe | F | 62, ev3 | `Actor3` 2 |
+| | | | | | Town Clerk | F | 63, ev5 | `People4` 6 |
+| | | | | | Mrs Dewhirst | F | 65, ev2 | `People2` 3 |
+| | | | | | Mr Ambler | F | 65, ev4 | `People2` 0 |
+| | | | | | Miss Quayle | F | 65, ev5 | `People1` 1 |
+| | | | | | Mr Tweddle | F | 65, ev6 | `People4` 0 |
+
+So **thirty-four are to be drawn** - every speaker above except the four
+non-human ones (Dog, Somebody Large, Mrs Emberthwaite, The Prophecy) and the
+raker `Elf`, which is Mike's to decide. Five sheets: `Gen_People7` to
+`Gen_People11`, eight, eight, eight, eight and two.
+
+**How they are drawn.** Many of the stock sprites are shared (Sister Pim,
+Sister Lamb and Mrs Puddifoot are all `People4` 1; Tom and two others are
+`People4` 4, the old man in the headband) and several contradict the text
+(Tom, nine years married with small children; Bess, "a small girl", an
+adult). So each speaker is drawn whole - **face and walking sprite from one
+settings file** - and the event reads its sprite from the same `story.FACES`
+entry as its face, the way `evermore.py` does for the Elders. A face and a
+sprite that come from one entry cannot drift apart.
+
+**The batches**, one sheet each, grouped by site so each batch re-runs as
+few scenarios as possible:
+
+| sheet | who | scenarios |
+| --- | --- | --- |
+| `Gen_People7` | **done**: Weeping Bottom's eight | `weeping_bottom` |
+| `Gen_People8` | Great Dunnage: Watchman, Mrs Poskitt, Mr Plummer, Warden Crabbe, Town Clerk, Mrs Dewhirst, Mr Ambler, Miss Quayle | `dunnage`, `dunnage_company` |
+| `Gen_People9` | Mr Tweddle (Dunnage's ninth, the Bell); Little Gore's Dame Winifred, Bess, Alfie, Nell; Sump's Mr Gammage, Mrs Pardew; the Sable Hart's Mrs Garrow | `dunnage`, `hamlets`, `sable_hart` |
+| `Gen_People10` | the Collegium's Dr Hapgood, Reader, Undergraduate; Gladhollow's Granny Wendle, Ned; Ashcombe's Mrs Dimmock, Wilf; the Commissioner (face only, no sprite) | `collegium`, `ashcombe`; Gladhollow has none, the Cinder Fen none |
+| `Gen_People11` | Fenmarch's Mrs Puddifoot and Tom - and the raker, if Mike says so | `fenmarch`, `evermore` |
+
+Things to decide on the way, already found: **Tom** is nine years married
+with three small children and walks as an old man - draw him about thirty.
+**Bess** is "a small girl" and walks as an adult - the kid body. Read each
+speaker's lines with `audit_text.py --event` for everything else they are
+said to be, before picking parts.
+
+**Done, 28 September 2026 - batch 1, `Gen_People7`: Weeping Bottom.** Sister
+Pim, Sister Lamb, Mrs Liddy, Mr Crouch, Mr Oakes, Sir Hamo, Mr Nuttall and
+Mr Dace, all Free. The two Sisters of Whatever Works share a uniform - the
+white kerchief cap (`accb p07`) and dress `p13` in blue with its white
+collar, which reads as a nursing order where the drawn `p09` read as a party
+frock - and are a young woman and a grey one in it. Sir Hamo is the oldest
+male face with a long white beard, in `p05`'s white surcoat. Mr Dace was
+first drawn in a blue suit and grey hair and came out Mr Thurle's twin
+(`Gen_People4` 6), which only the facesheet showed; he is fair and
+spectacled in a ward shirt now. Adult men got noses from item 2's list
+(`p23`, `p03`, `p19`, `p12`) and a rear hair - **a male settings file with
+no `rearhair` is bald from behind**, in every view but the portrait.
+`weeping_bottom.py` had passed `face=False` to all twenty of their `say()`
+calls, and the lines were already broken to 47, so nothing had to be
+re-broken; the events read their sprites from `story.FACES`. Built,
+`validate.py` clean, the data diff is those eight events' faces and
+sprites and nothing else, and `weeping_bottom` passes.
 
 Things to decide per name:
 
@@ -664,25 +757,39 @@ Things to decide per name:
 
 Mike's instruction (with G5): keep a list of every face that cannot be made
 with the Character Generator, and **tell him when it is complete**; he will
-supply them. It is **not complete** until item 1's search has been extended
-to the speakers who reach `say()` through a variable or a helper. Each entry:
-where it goes, the size, what it must show and what it must not.
+supply them. Each entry: where it goes, the size, what it must show and what
+it must not.
+
+**Complete, 28 September 2026**, now that the search has been run off the
+built data (above), and Mike was told. The search added no non-human
+speaker to be drawn: its one new name is Thistlewick's Dog, which is
+published and goes on the faceless list below. The Duck and Duchess never
+speak, so their rows are there only in case a quest ever gives them lines.
+The Wrong Dragon is on both lists, because it speaks as `Somebody Large`, the
+label item 1 calls "deliberately unseen" - which of the two is Mike's call.
 
 | who | P/F | goes | must show | must not |
 | --- | --- | --- | --- | --- |
 | **Nix** (G5) | P | replaces the face of `Actor3` 4 only - the walking sprite and the `Actor3_5` battler stay, so match them: masked, hooded, the same colours | a woman; the mask and hood | anything the sprite does not have |
-| **Mrs Emberthwaite** | F | a new face, 144x144; her sprite is `$BigMonster2` 0 | a dragon, kindly, seventy, a widow who plays whist | menace |
-| **The Wrong Dragon** | F | a new face, 144x144; no map yet (ALD-6) | elderly, well read, delightful, a blanket over what you think are its knees | what it actually is - "a dragon in the sense that the map says so" |
-| **The Duck** | F | a new face, 144x144 | an honorary Fellow of the Collegium: four hit points, a medal | |
-| **Duchess** | F | a new face, 144x144, only if she speaks; a sprite already | a grey mare in harness, effectively a partner | |
+| **Mrs Emberthwaite** | F | a new face, 144x144, `FACES["Mrs Emberthwaite"]`; ten windows, Map 37 ev5 and ev6 (she speaks from Mr Emberthwaite's chair too). Her sprite is `$BigMonster2` 0 and stays | a dragon, kindly, seventy, a widow who plays whist | menace |
+| **The Wrong Dragon** | F | a new face, 144x144, `FACES["Somebody Large"]`; seven windows, Map 8 ev53, its cave by the water - no map of its own yet (ALD-6), no sprite | enormous, elderly, well read, delightful, in an armchair among books, a blanket over what you think are its knees | what it actually is - "a dragon in the sense that the map says so". **Or no face at all** - see the faceless list |
+| **The Duck** | F | not needed now: it never speaks. A face only if a quest gives it lines | an honorary Fellow of the Collegium: four hit points, a medal on a ribbon | |
+| **Duchess** | F | not needed now: she never speaks. A face only if a quest gives her lines; her sprite is `Vehicle` 4 | a grey mare in harness, effectively a partner | |
 
 Installing a supplied face: a sheet of its own in `img/faces/` (8 cells of
 144x144, or one), `story.FACES` pointed at it, and - for a speaker with a
 sprite - the sprite left alone. Nix's is a Repair of a published face and
 gets a `NORTH.md` 8.1 entry; the rest are Free.
 
-**Put to Mike separately, not on this list** (deliberately faceless, see
-above): `The Prophecy`, `Somebody Large`, and the raker `Elf`.
+**Put to Mike separately, not on this list** - deliberately faceless, and
+left faceless unless he says otherwise:
+
+| who | P/F | why faceless | if Mike wants one |
+| --- | --- | --- | --- |
+| `The Prophecy` | P | "a document, not a person" (`story.FACES`'s comment) - eight windows in the finale | his to supply; published, so a Repair it is not: it would be "better if" |
+| `Somebody Large` | F | unseen in the dark of the cave, which the narration is careful about | the Wrong Dragon row above |
+| `Elf`, the raker at Olde Evermore | F | a nameless extra with three windows; its sprite `People2` 1 hides the ears (item 3) | drawn here, as an elf, face and sprite together - one line in `art.py` |
+| `Dog`, Thistlewick | P | says "Woof."; `Nature` 0 | his to supply, and a published face, so it needs a `NORTH.md` 8.1 argument this would not win: a faceless dog contradicts nothing |
 
 ### 5. The Collegium's roofs, and other visual contradictions
 

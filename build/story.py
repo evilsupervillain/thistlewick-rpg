@@ -277,6 +277,22 @@ FACES = {
     # Sister Bewick of What Ought To Work in the same habit trimmed black.
     "Prioress": ("Gen_People5", 1),
     "Sister Bewick": ("Gen_People5", 2),
+    # AUDIT.md item 1, the faceless speakers, drawn - `Gen_People7`, and
+    # Weeping Bottom's other eight. They walked as stock sprites, three of
+    # them shared (Sister Pim and Sister Lamb were one `People4` 1, and Mr
+    # Dace was Tom's old man in the headband), so each is drawn whole and
+    # the event reads its sprite from this entry, like the Elders: the
+    # Sisters of Whatever Works in one uniform - the white kerchief cap and
+    # a blue dress with a white collar - Pim young and Lamb grey; Sir Hamo
+    # the oldest face, a long white beard, in a knight's white surcoat.
+    "Sister Pim": ("Gen_People7", 0),
+    "Sister Lamb": ("Gen_People7", 1),
+    "Mrs Liddy": ("Gen_People7", 2),
+    "Mr Crouch": ("Gen_People7", 3),
+    "Mr Oakes": ("Gen_People7", 4),
+    "Sir Hamo": ("Gen_People7", 5),
+    "Mr Nuttall": ("Gen_People7", 6),
+    "Mr Dace": ("Gen_People7", 7),
     # Fenmarch Hall, SITES.md step 16, drawn, `Gen_People5` 3 and 4. The
     # Fourth is Aldric Pemberton-Gore IV, and **"Aldric" is already Sir
     # Aldric**, so the household's name for him is the speaker. **"Mr
