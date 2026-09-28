@@ -293,6 +293,22 @@ FACES = {
     "Sir Hamo": ("Gen_People7", 5),
     "Mr Nuttall": ("Gen_People7", 6),
     "Mr Dace": ("Gen_People7", 7),
+    # Great Dunnage's other eight, `Gen_People8` - the "other two judges" and
+    # "other Warden" the note on the Mayor's block above left faceless, and
+    # the town round them. Drawn whole, like Weeping Bottom's: the Watchman
+    # in the Corporation's blue coat; Mr Plummer broad, moustached, in a
+    # brown coat with a fur collar; Warden Crabbe grey, goateed, in the
+    # Company's dark coat and gold; the Town Clerk spectacled and in black;
+    # Mr Ambler, who gives nines, grey-bearded in mustard; Miss Quayle, who
+    # gives twos, severe in navy. Mr Tweddle, the ninth, is `Gen_People9`'s.
+    "Watchman": ("Gen_People8", 0),
+    "Mrs Poskitt": ("Gen_People8", 1),
+    "Mr Plummer": ("Gen_People8", 2),
+    "Warden Crabbe": ("Gen_People8", 3),
+    "Town Clerk": ("Gen_People8", 4),
+    "Mrs Dewhirst": ("Gen_People8", 5),
+    "Mr Ambler": ("Gen_People8", 6),
+    "Miss Quayle": ("Gen_People8", 7),
     # Fenmarch Hall, SITES.md step 16, drawn, `Gen_People5` 3 and 4. The
     # Fourth is Aldric Pemberton-Gore IV, and **"Aldric" is already Sir
     # Aldric**, so the household's name for him is the speaker. **"Mr

@@ -677,10 +677,11 @@ have no sprite):
 | | | | | | Miss Quayle | F | 65, ev5 | `People1` 1 |
 | | | | | | Mr Tweddle | F | 65, ev6 | `People4` 0 |
 
-So **thirty-four are to be drawn** - every speaker above except the four
-non-human ones (Dog, Somebody Large, Mrs Emberthwaite, The Prophecy) and the
-raker `Elf`, which is Mike's to decide. Five sheets: `Gen_People7` to
-`Gen_People11`, eight, eight, eight, eight and two.
+So **thirty-five are to be drawn** - every speaker above except the four
+non-human ones (Dog, Somebody Large, Mrs Emberthwaite, The Prophecy). The
+raker `Elf` was put to Mike as deliberately faceless and he said draw it.
+Five sheets: `Gen_People7` to `Gen_People11`, eight, eight, eight, eight and
+three.
 
 **How they are drawn.** Many of the stock sprites are shared (Sister Pim,
 Sister Lamb and Mrs Puddifoot are all `People4` 1; Tom and two others are
@@ -697,10 +698,10 @@ few scenarios as possible:
 | sheet | who | scenarios |
 | --- | --- | --- |
 | `Gen_People7` | **done**: Weeping Bottom's eight | `weeping_bottom` |
-| `Gen_People8` | Great Dunnage: Watchman, Mrs Poskitt, Mr Plummer, Warden Crabbe, Town Clerk, Mrs Dewhirst, Mr Ambler, Miss Quayle | `dunnage`, `dunnage_company` |
+| `Gen_People8` | **done**: Great Dunnage: Watchman, Mrs Poskitt, Mr Plummer, Warden Crabbe, Town Clerk, Mrs Dewhirst, Mr Ambler, Miss Quayle | `dunnage`, `dunnage_company` |
 | `Gen_People9` | Mr Tweddle (Dunnage's ninth, the Bell); Little Gore's Dame Winifred, Bess, Alfie, Nell; Sump's Mr Gammage, Mrs Pardew; the Sable Hart's Mrs Garrow | `dunnage`, `hamlets`, `sable_hart` |
 | `Gen_People10` | the Collegium's Dr Hapgood, Reader, Undergraduate; Gladhollow's Granny Wendle, Ned; Ashcombe's Mrs Dimmock, Wilf; the Commissioner (face only, no sprite) | `collegium`, `ashcombe`; Gladhollow has none, the Cinder Fen none |
-| `Gen_People11` | Fenmarch's Mrs Puddifoot and Tom - and the raker, if Mike says so | `fenmarch`, `evermore` |
+| `Gen_People11` | Fenmarch's Mrs Puddifoot and Tom, and Olde Evermore's raker `Elf` - drawn as an elf, `ears: p02` showing, face and sprite (Mike, 28 September) | `fenmarch`, `evermore` |
 
 Things to decide on the way, already found: **Tom** is nine years married
 with three small children and walks as an old man - draw him about thirty.
@@ -725,6 +726,22 @@ calls, and the lines were already broken to 47, so nothing had to be
 re-broken; the events read their sprites from `story.FACES`. Built,
 `validate.py` clean, the data diff is those eight events' faces and
 sprites and nothing else, and `weeping_bottom` passes.
+
+**Done, 28 September 2026 - batch 2, `Gen_People8`: Great Dunnage.** The
+Watchman, Mrs Poskitt, Mr Plummer, Warden Crabbe, the Town Clerk, Mrs
+Dewhirst, Mr Ambler and Miss Quayle, all Free. Mr Plummer is "a broad man in
+a brown coat, with a moustache": the brown coat is `p26`'s fur-collared one
+in swatch 7, since `p12` will not go brown in any swatch. Mr Ambler was drawn
+twice more after his first draft came out Dean Fenwold's twin (white hair
+swept back, white moustache) and his second the Mayor's (red coat, brown
+beard); he is grey-bearded in a mustard scarf now. **Look for twins against
+the whole cast, not only the batch** - `facesheet.py` puts the new faces
+beside everybody drawn before them, and that is the only place it shows.
+`dunnage.py` had 33 `face=False` calls for these eight (and a 34th through
+a variable, `S.say("Mrs Dewhirst", lines, face=False)`); Mr Tweddle's two
+stay until his batch. Nothing needed re-breaking. Built, `validate.py` clean,
+the data diff is those eight events, and `dunnage` and `dunnage_company`
+pass.
 
 Things to decide per name:
 
@@ -760,6 +777,12 @@ with the Character Generator, and **tell him when it is complete**; he will
 supply them. Each entry: where it goes, the size, what it must show and what
 it must not.
 
+**Mike's answer, 28 September 2026: he supplies every image on this list
+at the end of the portrait audit, not piecemeal - so this is a running list,
+kept current by every session, of everything he will be asked for.** Add to
+it whenever something is found that the Character Generator cannot make, and
+leave its rows alone otherwise.
+
 **Complete, 28 September 2026**, now that the search has been run off the
 built data (above), and Mike was told. The search added no non-human
 speaker to be drawn: its one new name is Thistlewick's Dog, which is
@@ -772,7 +795,7 @@ label item 1 calls "deliberately unseen" - which of the two is Mike's call.
 | --- | --- | --- | --- | --- |
 | **Nix** (G5) | P | replaces the face of `Actor3` 4 only - the walking sprite and the `Actor3_5` battler stay, so match them: masked, hooded, the same colours | a woman; the mask and hood | anything the sprite does not have |
 | **Mrs Emberthwaite** | F | a new face, 144x144, `FACES["Mrs Emberthwaite"]`; ten windows, Map 37 ev5 and ev6 (she speaks from Mr Emberthwaite's chair too). Her sprite is `$BigMonster2` 0 and stays | a dragon, kindly, seventy, a widow who plays whist | menace |
-| **The Wrong Dragon** | F | a new face, 144x144, `FACES["Somebody Large"]`; seven windows, Map 8 ev53, its cave by the water - no map of its own yet (ALD-6), no sprite | enormous, elderly, well read, delightful, in an armchair among books, a blanket over what you think are its knees | what it actually is - "a dragon in the sense that the map says so". **Or no face at all** - see the faceless list |
+| **The Wrong Dragon** | F | a new face, 144x144, `FACES["Somebody Large"]`; seven windows, Map 8 ev53, its cave by the water - no map of its own yet (ALD-6), no sprite. **Mike will supply a silhouette of a dragon**, which is right: every line it has is spoken in the dark of the cave | a dragon-shaped silhouette - enormous, in an armchair among books, a blanket over what you think are its knees | detail - "a dragon in the sense that the map says so". **If ALD-6 or any later scene shows it in the light, a clearer image goes on this list then** |
 | **The Duck** | F | not needed now: it never speaks. A face only if a quest gives it lines | an honorary Fellow of the Collegium: four hit points, a medal on a ribbon | |
 | **Duchess** | F | not needed now: she never speaks. A face only if a quest gives her lines; her sprite is `Vehicle` 4 | a grey mare in harness, effectively a partner | |
 
@@ -787,8 +810,8 @@ left faceless unless he says otherwise:
 | who | P/F | why faceless | if Mike wants one |
 | --- | --- | --- | --- |
 | `The Prophecy` | P | "a document, not a person" (`story.FACES`'s comment) - eight windows in the finale | his to supply; published, so a Repair it is not: it would be "better if" |
-| `Somebody Large` | F | unseen in the dark of the cave, which the narration is careful about | the Wrong Dragon row above |
-| `Elf`, the raker at Olde Evermore | F | a nameless extra with three windows; its sprite `People2` 1 hides the ears (item 3) | drawn here, as an elf, face and sprite together - one line in `art.py` |
+| `Somebody Large` | F | unseen in the dark of the cave, which the narration is careful about | **answered**: a silhouette, supplied by Mike - the Wrong Dragon row above |
+| `Elf`, the raker at Olde Evermore | F | a nameless extra with three windows; its sprite `People2` 1 hides the ears (item 3) | **answered: draw it** - `Gen_People11`, as an elf, face and sprite together |
 | `Dog`, Thistlewick | P | says "Woof."; `Nature` 0 | his to supply, and a published face, so it needs a `NORTH.md` 8.1 argument this would not win: a faceless dog contradicts nothing |
 
 ### 5. The Collegium's roofs, and other visual contradictions

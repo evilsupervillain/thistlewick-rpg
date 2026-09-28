@@ -819,6 +819,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People5` | Hubert Weir | Prioress Stope | Sister Bewick | Pemberton-Gore IV | Mr Ottershaw | Mr Gedge | Prewitt, Dean Fenwold |
 | `Gen_People6` | the Mayor | Prime Warden Stannard | Mr Tibbs | Mrs Harbottle | Miss Fettle | Thistlewick's gossip | Elder Faelan, Elder Lirien |
 | `Gen_People7` | Sister Pim | Sister Lamb | Mrs Liddy | Mr Crouch | Mr Oakes | Sir Hamo | Mr Nuttall, Mr Dace |
+| `Gen_People8` | Watchman | Mrs Poskitt | Mr Plummer | Warden Crabbe | Town Clerk | Mrs Dewhirst | Mr Ambler, Miss Quayle |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding

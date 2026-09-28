@@ -225,6 +225,18 @@ SHEETS = {
         (6, "mr-nuttall.json"),         # crossed Wednesday
         (7, "mr-dace.json"),            # day four of the correct treatment
     ],
+    # Great Dunnage's eight: the gate, the yard, the Smiths' Hall, the
+    # Counting House and the Bell. Mr Tweddle is the next sheet's.
+    "Gen_People8": [
+        (0, "watchman-dunnage.json"),   # Forty-eight what?
+        (1, "mrs-poskitt.json"),        # like that, but nine times
+        (2, "mr-plummer.json"),         # anything, anywhere, by Tuesday
+        (3, "warden-crabbe.json"),      # reads the Schedule out
+        (4, "town-clerk-dunnage.json"), # Form L, sir
+        (5, "mrs-dewhirst.json"),       # you'll be judged at breakfast
+        (6, "mr-ambler.json"),          # Nine!
+        (7, "miss-quayle.json"),        # Two.
+    ],
 }
 
 # battlerName -> settings file. `install.py enemy` writes a stand-in only when

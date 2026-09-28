@@ -260,24 +260,24 @@ def watchman_pages():
         "and is doing his best."])
     first += S.say("Watchman", [
         "Halt. Name and",
-        "business."], face=False)
+        "business."])
     first += S.narrate([
         "You say that you are Bram, of Thistlewick, Chosen One",
         "number forty-eight."])
     first += S.say("Watchman", [
-        "Forty-eight what?"], face=False)
+        "Forty-eight what?"])
     first += S.narrate(["You explain about the Prophecy."])
     first += S.say("Watchman", [
         "Thistlewick.",
         "That's the Prophecy people, down south.",
-        "Charming."], face=False)
+        "Charming."])
     first += S.say("Watchman", [
-        "Business?"], face=False)
+        "Business?"])
     first += S.narrate(["You say that you are passing through."])
     first += S.say("Watchman", [
         "Everybody is, sir.",
         "Nobody's too busy for Great Dunnage.",
-        "They only think they are."], face=False)
+        "They only think they are."])
     first += S.narrate([
         "He takes out a ledger, writes BRAM (THISTLEWICK) - PROPHECY,",
         "SOME SORT in it, and lets you in."])
@@ -285,7 +285,7 @@ def watchman_pages():
     later = S.say("Watchman", [
         "Carry on, sir. Mind",
         "the carts. Mind the canal. Mind the",
-        "Mayor."], face=False)
+        "Mayor."])
     return _pair(first, later)
 
 
@@ -392,18 +392,18 @@ def poskitt_pages():
     first = S.say("Mrs Poskitt", [
         "Visitors! Not from",
         "up the valley? Oh, you'd love Upper",
-        "Clanging. We went up for the day."], face=False)
+        "Clanging. We went up for the day."])
     first += S.say("Mrs Poskitt", [
         "Only the one works!",
         "And they all know each other! We",
-        "thought it was ever so sweet."], face=False)
+        "thought it was ever so sweet."])
     first += S.narrate(["You ask what Great Dunnage is like."])
     first += S.say("Mrs Poskitt", [
         "Oh, like that. But",
-        "nine times."], face=False)
+        "nine times."])
     later = S.say("Mrs Poskitt", [
         "Nine times! Mind",
-        "you, they've a very nice sign."], face=False)
+        "you, they've a very nice sign."])
     return _pair(first, later)
 
 
@@ -413,30 +413,30 @@ def plummer_pages():
         "eye on the yard."])
     first += S.say("Mr Plummer", [
         "Plummer. Haulage.",
-        "Anything, anywhere, by Tuesday."], face=False)
+        "Anything, anywhere, by Tuesday."])
     first += S.narrate(["You ask who the partner is."])
     first += S.say("Mr Plummer", [
-        "Her. The grey."], face=False)
+        "Her. The grey."])
     first += S.say("Mr Plummer", [
         "Walked in off the",
         "west road one winter, on her own, with",
-        "a good saddle on and nobody in it."], face=False)
+        "a good saddle on and nobody in it."])
     first += S.say("Mr Plummer", [
         "Nobody came for her.",
         "So she stayed. Best worker in the yard.",
-        "Knows every road in the valley."], face=False)
+        "Knows every road in the valley."])
     first += S.say("Mr Plummer", [
         "She has a stall",
         "with her name on it and a say in the",
-        "routes. It seemed only fair."], face=False)
+        "routes. It seemed only fair."])
     first += S.narrate(["You ask what her name is."])
     first += S.say("Mr Plummer", [
         "Duchess. There was",
         "a crest on the saddle. It seemed to",
-        "suit her."], face=False)
+        "suit her."])
     later = S.say("Mr Plummer", [
         "Anything, anywhere,",
-        "by Tuesday. She plans the Tuesdays."], face=False)
+        "by Tuesday. She plans the Tuesdays."])
     return _pair(first, later)
 
 
@@ -530,7 +530,7 @@ def town_events():
     # 8: the watchman in the gate passage. 9: the arms over the gate, on the
     # range's front wall and read from the road below it.
     evs.append(_person(8, "Watchman", WATCHMAN,
-                       R.image("People4", 2, direction=6), *watchman_pages()))
+                       R.image(*S.FACES["Watchman"], direction=6), *watchman_pages()))
     evs.append(_thing(9, "The Arms", ARMS, *arms_pages()))
     # 10, 11: the anthem and the nine works, on the square.
     evs.append(_thing(10, "The Anthem", ANTHEM, anthem_pages()))
@@ -540,10 +540,10 @@ def town_events():
                        R.image("SF_Actor2", 7, direction=2), *cotter_pages()))
     # 13: Mrs Poskitt, on the square.
     evs.append(_person(13, "Mrs Poskitt", POSKITT,
-                       R.image("People1", 5, direction=2), *poskitt_pages()))
+                       R.image(*S.FACES["Mrs Poskitt"], direction=2), *poskitt_pages()))
     # 14-17: the haulage yard - Mr Plummer, Duchess, the cart and the sign.
     evs.append(_person(14, "Mr Plummer", PLUMMER,
-                       R.image("People1", 4, direction=4), *plummer_pages()))
+                       R.image(*S.FACES["Mr Plummer"], direction=4), *plummer_pages()))
     first, later = duchess_pages()
     evs.append(_person(15, "Duchess", DUCHESS,
                        R.image("Vehicle", 4, direction=2), first, later,
@@ -652,16 +652,16 @@ def crabbe_pages():
     first = S.say("Warden Crabbe", [
         "Crabbe. Junior",
         "Warden. I read the Schedule out, at",
-        "the Assize. It takes most of the day."], face=False)
+        "the Assize. It takes most of the day."])
     first += S.say("Warden Crabbe", [
         "People ask why we",
         "don't just pin it up. We do. I read",
         "it out as well. It's a very good",
-        "Schedule."], face=False)
+        "Schedule."])
     later = S.say("Warden Crabbe", [
         "Clause forty. A",
         "pair of tongs is one piece. A tong is",
-        "not a piece. Nobody has ever tried."], face=False)
+        "not a piece. Nobody has ever tried."])
     return _pair(first, later)
 
 
@@ -760,7 +760,7 @@ def smiths_events():
                        R.image("Gen_People6", 1, direction=2),
                        *stannard_pages()))
     evs.append(_person(3, "Warden Crabbe", CRABBE,
-                       R.image("Actor3", 2, direction=2), *crabbe_pages()))
+                       R.image(*S.FACES["Warden Crabbe"], direction=2), *crabbe_pages()))
     evs.append(_thing(4, "The Schedule", SCHEDULE, schedule_pages()))
     evs.append(_thing(5, "The Prize", PRIZE, prize_pages()))
     evs.append(_thing(6, "The Banners", (10, y1 - 1), banners_pages()))
@@ -880,20 +880,20 @@ def clerk_pages():
     first = S.say("Town Clerk", [
         "Form L, sir. An",
         "Application by a Licensed Person to",
-        "Open the Counting House."], face=False)
+        "Open the Counting House."])
     first += S.say("Town Clerk", [
         "To be completed by",
         "the licensed person, and countersigned",
-        "by a licensed person."], face=False)
+        "by a licensed person."])
     first += S.narrate(["You ask how many licensed persons there are."])
     first += S.say("Town Clerk", [
         "None, sir. A",
         "licence is issued on completion of",
-        "Form L."], face=False)
+        "Form L."])
     later = S.say("Town Clerk", [
         "Form L, sir. Any",
         "time. We live in hope, and a",
-        "memorandum."], face=False)
+        "memorandum."])
     return _pair(first, later)
 
 
@@ -909,7 +909,7 @@ def counting_events():
         trigger=0, priority=1, direction_fix=True)]))
     evs.append(_thing(4, "The Memorandum", MEMORANDUM, memorandum_pages()))
     evs.append(_person(5, "Town Clerk", CLERK,
-                       R.image("People4", 6, direction=2), *clerk_pages()))
+                       R.image(*S.FACES["Town Clerk"], direction=2), *clerk_pages()))
     return evs
 
 
@@ -1085,21 +1085,21 @@ def dewhirst_pages():
         stay += S.narrate([
             "In the morning everybody is whole, and warm, and rested.",
             "The panel has marked breakfast. Breakfast got a seven."])
-        cmds = S.say("Mrs Dewhirst", lines, face=False)
+        cmds = S.say("Mrs Dewhirst", lines)
         cmds += R.choice_block(
             ["Take a room (%dcr)" % PRICE, "Not just now"],
             [R.if_then(R.condition_script("$gameParty.gold() >= %d" % PRICE),
                        stay,
                        S.say("Mrs Dewhirst", [
                            "Fifteen crowns, love.",
-                           "The panel's very strict."], face=False))],
+                           "The panel's very strict."]))],
             cancel=None)
         return cmds
 
     first = S.say("Mrs Dewhirst", [
         "Welcome to the Bell!",
         "A room's fifteen crowns, and you'll be",
-        "judged at breakfast."], face=False)
+        "judged at breakfast."])
     first += S.narrate(["You ask what she means."])
     first += rooms([
         "The panel eat here.",
@@ -1139,26 +1139,26 @@ def harbottle_pages():
 
 
 def ambler_pages():
-    first = S.say("Mr Ambler", ["Nine!"], face=False)
+    first = S.say("Mr Ambler", ["Nine!"])
     first += S.narrate(["You have not done anything yet."])
-    first += S.say("Mr Ambler", ["What?"], face=False)
+    first += S.say("Mr Ambler", ["What?"])
     first += S.narrate(["You say that you have not done anything yet."])
-    first += S.say("Mr Ambler", ["Nine!"], face=False)
-    later = S.say("Mr Ambler", ["Beautiful. Nine."], face=False)
+    first += S.say("Mr Ambler", ["Nine!"])
+    later = S.say("Mr Ambler", ["Beautiful. Nine."])
     return _pair(first, later)
 
 
 def quayle_pages():
-    first = S.say("Miss Quayle", ["Two."], face=False)
+    first = S.say("Miss Quayle", ["Two."])
     first += S.narrate(["She does not look up."])
     first += S.say("Miss Quayle", [
         "It isn't personal.",
         "Everything is a two. The birdcalls",
-        "were a two."], face=False)
+        "were a two."])
     first += S.narrate([
         "She says it the way people say something they have not",
         "quite managed to believe."])
-    later = S.say("Miss Quayle", ["Still two."], face=False)
+    later = S.say("Miss Quayle", ["Still two."])
     return _pair(first, later)
 
 
@@ -1221,15 +1221,15 @@ def bell_events():
     evs = [_exit(1, door_x, y2 + 2, MAP_DUNNAGE, BELL_DOOR[0],
                  BELL_DOOR[1] + 1)]
     evs.append(_person(2, "Mrs Dewhirst", DEWHIRST,
-                       R.image("People2", 3, direction=2),
+                       R.image(*S.FACES["Mrs Dewhirst"], direction=2),
                        *dewhirst_pages()))
     evs.append(_person(3, "Mrs Harbottle", HARBOTTLE,
                        R.image("Gen_People6", 3, direction=6),
                        *harbottle_pages()))
     evs.append(_person(4, "Mr Ambler", AMBLER,
-                       R.image("People2", 0, direction=6), *ambler_pages()))
+                       R.image(*S.FACES["Mr Ambler"], direction=6), *ambler_pages()))
     evs.append(_person(5, "Miss Quayle", QUAYLE,
-                       R.image("People1", 1, direction=6), *quayle_pages()))
+                       R.image(*S.FACES["Miss Quayle"], direction=6), *quayle_pages()))
     evs.append(_person(6, "Mr Tweddle", TWEDDLE,
                        R.image("People4", 0, direction=2), *tweddle_pages()))
     evs.append(_thing(7, "The Contest", POSTER, poster_pages()))
