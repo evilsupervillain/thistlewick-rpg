@@ -237,10 +237,13 @@ TS_WORLD                     1
 TS_OUTSIDE                   2
 TS_INSIDE                    3
 TS_DUNGEON                   4
+TS_COLLEGIUM                 7
+TS_OVERWORLD                 8
 ROOF_GREEN                   (8, 0)
 ROOF_WHITE                   (13, 0)
 ROOF_GOLD                    (8, 3)
 ROOF_BROWN                   (13, 3)
+ROOF_PURPLE                  ROOF_GREEN
 TOWER_STONE                  (8, 6)
 TOWER_WHITE                  (10, 6)
 TS_CLANGING                  5
@@ -401,6 +404,7 @@ tile_names(sheet)                                    `{name: [tile id, ...]}` fo
 sf_tile(sheet, name, index=0)                        One tile, by the name the editor's palette gives it. Safer than counting
 sf_block(sheet, name)                                Every tile of a multi-tile prop, in reading order - so a three-tile
 sf_grid(sheet, name, w)                              A rectangular prop as a tuple of rows, ready for `Canvas.blit`.
+recolour_sheet(sheet, out, cells, hues, hue, sat, renames=()) Writes `img/tilesets/<out>.png`, a copy of `<sheet>.png` with some cells
 paint_regions(g, tileset_id, value=1, layer=5)       Region-tag every tile the player can actually stand on.
 new_map(width, height, tileset, name='', bgm='Town1', bgm_volume=70, encounters=(), encounter_step=30, battleback=None, scroll_type=0, parallax='', disable_dashing=False) A map record with everything the editor expects, and nothing surprising.
 interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR, floor_alt=None, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, void=IN_VOID, threshold=None, outside=None, tileset=TS_INSIDE) A room in black space, tiled the way the stock interiors are.

@@ -144,7 +144,7 @@ def penultima_events():
 
     # 2: the town sign, which is the premise, and the cliche it is made of.
     sign = S.narrate([
-        "A board, repainted often, in gold on green:",
+        "A board, repainted often, in gold:",
         "",
         "        \\C[14]PENULTIMA\\C[0]",
         "  The Last Town Before The End"])

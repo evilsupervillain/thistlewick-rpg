@@ -7,13 +7,14 @@ rewrites the game rather than piling up duplicates. This, and the modules it
 calls, is the only place the game's content is authored - `data/*.json` is
 output, not source.
 """
+import copy
 import os
 import sys
 
 GAME = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(GAME, "build"))
 
-import mapkit  # noqa: E402,F401  puts the workspace's tools/ on the path
+import mapkit  # noqa: E402  puts the workspace's tools/ on the path
 import rmmzdata as R  # noqa: E402
 
 R.use_project(GAME)
@@ -182,6 +183,19 @@ def build_tilesets():
     for tid, flags in TILESET_FLAGS.items():
         for tile_id, bits in flags.items():
             tilesets[tid]["flags"][tile_id] |= bits
+    # Two copies of stock tilesets with one sheet swapped for a recoloured
+    # one, rewritten whole each build after the flags above, so the flags
+    # follow: the Collegium's purple roofs (`mapkit.TS_COLLEGIUM`) and the
+    # world map with Fenmarch Hall's green ones (`mapkit.TS_OVERWORLD`).
+    for tid, base, name, slot, sheet in [
+            (mapkit.TS_COLLEGIUM, mapkit.TS_OUTSIDE, "Outside (Collegium)",
+             6, "Outside_C_Collegium"),
+            (mapkit.TS_OVERWORLD, mapkit.TS_WORLD, "Overworld (Thistlewick)",
+             5, "World_B_Fenmarch")]:
+        ts = copy.deepcopy(tilesets[base])
+        ts.update(id=tid, name=name)
+        ts["tilesetNames"][slot] = sheet
+        tilesets[tid:tid + 1] = [ts]
     R.save_list("Tilesets.json", tilesets)
 
 

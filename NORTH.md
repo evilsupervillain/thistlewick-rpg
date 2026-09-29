@@ -1137,6 +1137,24 @@ kerchief and a print dress.
 Not one word is touched; the label still reads "Villager". Hithermost's
 villager (Free, never given a pronoun) keeps `People1` 0.
 
+### 8.1d The Gilded Turnip's turnip - **DONE, 29 September 2026**
+
+The fourth, from `AUDIT.md` item 5. Map 4's `The Turnip` has said "A single
+turnip on a plinth, painted gold" since the first commit, and the event has
+never had a graphic: the cell it answers from holds `Inside_B`'s `Stool
+(Ruins)` and nothing else, so the player reads about a golden turnip while
+looking at an empty broken stool. The inn is named after it. The game
+contradicts itself in the one sentence, which is Crooke's case.
+
+No sheet has a turnip, so it is drawn: the Turnip item's own icon (257) cut
+off its frame and painted gold, standing on the stool, which is its plinth.
+
+    village.py (Map 4 ev6)   page graphic "" -> !Gilded_Turnip 0
+    village.draw_art()       draws img/characters/!Gilded_Turnip.png; run
+                             the module to redraw it, like fenmarch's
+
+Not one word is touched, and nothing else on the page moves.
+
 ### 8.1a The state of the tree at handoff
 
 **Updated 2026-08-25, after step 5 of section 16.** Everything is uncommitted

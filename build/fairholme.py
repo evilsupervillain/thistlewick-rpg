@@ -257,8 +257,8 @@ def council_events():
         "Only passing. Oh dear.",
         "That's how Mr Pilbeam started."])
     king += S.narrate([
-        "At the far end of the table, a small man in a brown",
-        "coat waves, weakly."])
+        "At the far end of the table, a small man in a red robe",
+        "and a crown waves, weakly."])
     king += S.say("King Aldous", [
         "Every time she's taken, I post",
         "the traditional reward.",

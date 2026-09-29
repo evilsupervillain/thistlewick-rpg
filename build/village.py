@@ -858,11 +858,13 @@ def inn_events():
     drunk += S.say("Regular", ["Lovely tower, apparently."])
     evs.append(S.npc(5, "Regular", 6, 10, drunk, "People4", 6, direction=8))
 
+    # The turnip is drawn: `draw_art()`. Until AUDIT.md item 5 the plinth
+    # was bare, and the text has always said otherwise (NORTH.md 8.1d).
     evs.append(S.prop(6, "The Turnip", 13, 9, [
         "A single turnip on a plinth, painted gold.",
         "A small plaque reads: THE GILDED TURNIP.",
         "It is not a metaphor. It is just a turnip",
-        "somebody painted."], "", 0, extra=[S.trope()]))
+        "somebody painted."], TURNIP_SHEET, 0, extra=[S.trope()]))
 
     evs.append(the_washstand(7, 16, 5))
     return evs
@@ -1507,3 +1509,52 @@ def build():
     R.save_map(MAP_CHAPEL, chapel_map())
     R.save_map(MAP_SMITHY, smithy_map())
     R.save_map(MAP_STORE, store_map())
+
+
+# The Gilded Turnip's turnip, on the stool that is its plinth: the Turnip
+# item's own icon, cut off its frame and painted gold.
+TURNIP_SHEET = "!Gilded_Turnip"
+TURNIP_ICON = 257
+
+
+def draw_art():
+    """Writes `TURNIP_SHEET`. Not part of the data build, like
+    `fenmarch.draw_art()`: run this module to redraw it."""
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..",
+                                    "tools", "chargen"))
+    import numpy as np
+    import png
+    game = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+    icons = png.read(os.path.join(game, "img", "system", "IconSet.png"))
+    i = TURNIP_ICON
+    ic = icons[i // 16 * 32:i // 16 * 32 + 32,
+               i % 16 * 32:i % 16 * 32 + 32].astype(float)
+    rgb = ic[..., :3] / 255
+    v = rgb.max(-1)
+    s = np.where(v > 0, (v - rgb.min(-1)) / np.maximum(v, 1e-6), 0)
+    # The turnip is the pale part; the frame behind it is saturated gold.
+    body = (s < 0.28) & (v > 0.35)
+    body[:3] = body[-3:] = body[:, :3] = body[:, -3:] = False
+    edge = np.zeros_like(body)
+    for dy in (-1, 0, 1):
+        for dx in (-1, 0, 1):
+            edge |= np.roll(np.roll(body, dy, 0), dx, 1)
+    edge &= ~body
+    t = np.zeros((32, 32, 4))
+    t[body, :3] = np.stack([0.35 + 0.65 * v, 0.25 + 0.55 * v,
+                            0.05 + 0.25 * v], -1)[body] * 255
+    t[body, 3] = 255
+    t[edge] = (90, 60, 10, 255)
+    cell = np.zeros((48, 48, 4))
+    cell[0:32, 8:40] = t                    # stood on the stool, which shows
+    out = np.zeros((384, 576, 4))
+    for r in range(4):
+        for c in range(3):
+            out[r * 48:(r + 1) * 48, c * 48:(c + 1) * 48] = cell
+    path = os.path.join(game, "img", "characters", TURNIP_SHEET + ".png")
+    png.write(path, np.clip(out, 0, 255).round().astype(np.uint8))
+    print("wrote", os.path.normpath(path))
+
+
+if __name__ == "__main__":
+    draw_art()

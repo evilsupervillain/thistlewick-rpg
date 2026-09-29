@@ -81,6 +81,10 @@ CW, CH = 33, 23
 # `sf_grid` finds both records of that name - the 2x5 tower and, after it,
 # the 2x1 piece that joins one to a wall - so only the first five rows.
 TOWER = K.sf_grid("Outside_C", "Round Tower A (Castle)", 2)[:5]
+# "All towers and purple spires", says the door: the sheet's green cone and
+# its ring of battlements on the tower's lower three rows, six tall. It is
+# purple on `TS_COLLEGIUM`, whose C sheet `draw_art()` recolours.
+SPIRE = K.sf_grid("Outside_C", "Round Tower A (Castle's Spire)", 2) + TOWER[2:]
 TOWER_XS = (1, 16, 30)
 FOUNDER_STATUE = K.sf_block("Outside_C", "Statue B")  # 1x2, a wizard
 HALL = (3, 1, 13, 7)            # x, y, w, h: front wall row is y + h - 1
@@ -110,7 +114,7 @@ ROAD_TREES = []
 
 def court_map():
     w, h = CW, CH
-    g = K.Canvas(w, h)
+    g = K.Canvas(w, h, tileset=K.TS_COLLEGIUM)
     g.fill(0, 0, w - 1, h - 1, 0, K.GRASS)
     x1, y1, x2, y2 = COURT
     g.fill(x1, y1, x2, y2, 0, K.PAVING)
@@ -119,14 +123,14 @@ def court_map():
     g.fill(GATE_X[0], y2 + 1, GATE_X[-1], ROAD_Y - 1, 0, K.PAVING)
     g.fill(0, ROAD_Y, w - 1, h - 1, 0, K.PATH)
 
-    for b in (HALL, LIBRARY):
-        g.building(*b, wall=K.WALL_STONE_WHITE, roof=K.ROOF_GREEN)
-    for b in (WEST_RANGE, LODGE, EAST_RANGE):
-        g.building(*b, wall=K.WALL_STONE_WHITE, roof=K.ROOF_GREEN)
+    # Cream-coloured stone and purple roofs, as the door says and the stamp
+    # on the world map shows.
+    for b in (HALL, LIBRARY, WEST_RANGE, LODGE, EAST_RANGE):
+        g.building(*b, wall=K.WALL_SANDBRICK, roof=K.ROOF_PURPLE)
     g.autotile(0)
 
     for x in TOWER_XS:
-        g.blit(x, 3, 3, TOWER)
+        g.blit(x, 2, 3, SPIRE)
 
     # The Hall's front: two tall stained-glass windows either side of the
     # door. The Library's: plain windows, all the way along.
@@ -156,7 +160,7 @@ def court_map():
     g.scatter([(4, 8), (6, 8), (12, 8), (14, 8), (19, 8), (21, 8),
                (25, 8), (29, 8)], 3, K.FLOWERS)
 
-    m = K.new_map(w, h, K.TS_OUTSIDE, name="The Great Court", bgm="Town2",
+    m = K.new_map(w, h, K.TS_COLLEGIUM, name="The Great Court", bgm="Town2",
                   bgm_volume=60)
     m["data"] = g.data
     m["events"] = [None] + court_events()
@@ -769,6 +773,27 @@ def draw_art():
     path = os.path.join(game, "img", "characters", PORTRAIT_SHEET + ".png")
     png.write(path, np.clip(out, 0, 255).round().astype(np.uint8))
     print("wrote", os.path.normpath(path))
+    draw_tileset()
+
+
+# The Collegium's C sheet: `Outside_C` with the green roof, its hip and valley
+# pieces, its roof detail, and the green `Castle's Spire` turned purple. Only
+# the green in those cells moves - the spire's stone ring stays stone.
+PURPLE_HUE = 272        # degrees: the lavender of the world-map stamp's roofs
+PURPLE_SAT = 0.55       # of the green's saturation - the full value is magenta
+PURPLE_CELLS = ([(c, r) for r in (0, 1) for c in range(8, 13)]
+                + [(c, 2) for c in range(8, 11)] + [(12, 6)]
+                + [(c, r) for r in (8, 9, 10) for c in (12, 13)])
+
+
+def draw_tileset():
+    """Writes `img/tilesets/Outside_C_Collegium.png`, and its `.txt` with the
+    recoloured records renamed, for `mapkit.TS_COLLEGIUM`. Not part of the
+    data build: run this module to redraw it."""
+    K.recolour_sheet("Outside_C", "Outside_C_Collegium", PURPLE_CELLS,
+                     (55, 185), PURPLE_HUE, PURPLE_SAT,
+                     [("Green Tile", "Purple Tile"), ("緑瓦", "紫瓦"),
+                      ("Castle's Spire", "Castle's Purple Spire")])
 
 
 # `Inside_B`'s `Portrait B`, the gilt frame, by its index on the sheet.

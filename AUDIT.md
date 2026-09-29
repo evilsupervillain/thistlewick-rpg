@@ -899,6 +899,64 @@ is `ROOF_GREEN`.
   it and against the world-map stamp it sits behind. `SITES.md`'s steps each
   recorded what their stamp looked like when shot.
 
+#### Done, 29 September 2026
+
+**The Collegium (Free).** No roof on any Outside sheet is purple
+(`TILES-AND-ASSETS.md` has the survey), so it is drawn: `collegium.draw_art()`
+now also writes `img/tilesets/Outside_C_Collegium.png`, `Outside_C` with the
+green roof, its hip and valley pieces, its roof detail and the green `Castle's
+Spire` turned the lavender of the world-map stamp, and tileset 7 (`mapkit.
+TS_COLLEGIUM`, "Outside (Collegium)") is tileset 2 with that one sheet
+swapped. Map 58 is drawn on it with `ROOF_PURPLE`. The door said two other
+things the court did not show, and both are fixed with it: the walls were
+white ashlar and are now `WALL_SANDBRICK`, "cream-coloured stone"; and the
+three towers were flat-topped, and are now the sheet's spire on the tower's
+lower three rows - "all towers and purple spires". The recolour is
+`mapkit.recolour_sheet`, which the Collegium and Fenmarch both call; it
+reproduced the first sheet byte for byte.
+
+**Then everything else whose text describes its look**, found with
+`audit_text.py` over colour and material words: twenty-six people's clothes
+against their sprites in one labelled montage, eleven world-map stamps, and
+thirteen described things by the tiles under their events.
+
+| where | the text | what was there | P/F | fix |
+| --- | --- | --- | --- | --- |
+| Fenmarch Hall's stamp, Map 8 (86,113) | "its roofs gone green" - and Map 56's are | `Large Mansion`, blue roofs; the only country house on either World sheet | F | `World_B_Fenmarch`, the stamp's four cells gone verdigris (`fenmarch.draw_stamp()`), and **Map 8 on tileset 8**, `TS_OVERWORLD`, tileset 1 with that sheet swapped. Map 8's diff is its `tilesetId`; `worldmap.json` stays on tileset 1, and `coords.py`, `decor.py` and `validate.py` all pass |
+| Fenmarch's gate, Map 56 | "Two stone gateposts, green with damp" | the stone fence simply stops either side of the gap | F | `Stone Pillar B (Moss)` over the last fencepost each side |
+| **The Gilded Turnip, Map 4 ev6** | "A single turnip on a plinth, painted gold" | an empty `Stool (Ruins)`: the event never had a graphic | **P** | **Repair, `NORTH.md` 8.1d**: the Turnip item's icon cut out and gilded, `!Gilded_Turnip`, stood on the stool. No word changed |
+| King Aldous, Map 35 | "a small man in a brown coat" | `art.py` drew him, on purpose, in the red robe, cape and gold circlet | F | the line: "a small man in a red robe / and a crown waves, weakly" |
+| The Founder's Stone, Map 54 | "green to the waist with moss" | `Monument A`, clean; no sheet has a mossy standing stone | F | the line: "beaded all over with the damp" |
+| Penultima's sign, Map 29 | "in gold on green" | `Sign A`, a bare brown board; no green board exists | F | "in gold" - the `\C[14]` lettering is |
+
+**Checked and fine**, so nobody repeats them: Prophecy Hall is `ROOF_GOLD`,
+"the gold one"; the Sable Hart's stamp is a lone green-roofed house on the
+waste; Coldbarrow's a white temple in the snow; the Sky Anvil's a stone shrine
+with a round stone on top; Frostwick's roofs are snow; Sump has its palm and
+its blue pool, on the stamp and on Map 51; Weeping Bottom's `Temple B` and its
+Sisterhouse are white and grey (step 15 measured the stamp the same way);
+Ashcombe's church is pale stone with a green roof and stained glass, and its
+roofs are new; Great Dunnage is walled; Fenmarch's house on Map 56 is grey
+moss-stone with a green roof and a moat; the cap is blue with white piping
+(`Hat A (Stand)`); the ribbon's case is gilt (`Case A`); the Smiths' banners
+are red and gold; the arms over Dunnage's gate are small and gold. Every
+described person matched their sprite - Wren's green cloak, Mrs Emberthwaite
+very red, Perce's red coat, Pargeter's pale blue and spectacles, Mordaunt,
+Blackwood's hood, Weir's frogging, Pim's and Puddifoot's white caps, the three
+Sisters' whites, the Fourth's blue and silver, Ottershaw and Tweddle in green,
+Fenwold's white and purple, the watchman's blue coat, Cotter's white jacket,
+Plummer, Duchess, the Prime Warden, the Mayor's scarlet and hat, Mrs
+Harbottle's gold - with one published exception that is not a contradiction:
+**Corvin** is "hood up" in the Slain Wyvern and `Actor1` 4 has no hood. A man
+can put his hood down, the face is stock art, and it is published - left.
+
+**Nothing item 5 found needs art from Mike**; the one thing no sheet had, the
+turnip, was drawn from the game's own icon. The faces list above is unchanged.
+
+Scenarios run for it: `collegium`, `fenmarch` and `airship_lands` (Map 8's
+tileset changed under its landing checks). The three re-worded lines keep their
+line counts and no scenario asserts them, and no scenario visits Map 4's turnip.
+
 ---
 
 ## 3. Not in this audit

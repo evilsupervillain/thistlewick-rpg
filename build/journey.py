@@ -171,7 +171,9 @@ def world_map():
             "no placeholder door named %r on the world map" % name
     doors = [e for e in doors if e["name"] not in claims]
 
-    m = K.new_map(m["width"], m["height"], K.TS_WORLD, name="", bgm="Field1",
+    # On `TS_OVERWORLD`, tileset 1 with Fenmarch Hall's stamp recoloured.
+    m = K.new_map(m["width"], m["height"], K.TS_OVERWORLD, name="",
+                  bgm="Field1",
                   encounter_step=ENCOUNTER_STEP, scroll_type=0,
                   battleback=("Grassland", "Grassland"),
                   encounters=[

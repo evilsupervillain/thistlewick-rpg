@@ -177,7 +177,9 @@ in each of the four states.
       journey.py     Maps 8-12: overworld, Gloamwood, the Obligatory Tower.
                      **Map 8 is a file, not a drawing** - `world_map()` loads
                      `build/worldmap/worldmap.json` and adds this game's
-                     header and events to it
+                     header and events to it. It is on tileset 8,
+                     `mapkit.TS_OVERWORLD` - tileset 1 with Fenmarch Hall's
+                     stamp recoloured; `worldmap.json` stays on tileset 1
       south.py       Maps 13-18: Nether Sopping, the Slain Wyvern, the Guild,
                      the outfitters, #45's cottage, the lighthouse
       wilds.py       Maps 19-20: the Bottomless Pit and the Barrow, and the
@@ -355,7 +357,9 @@ Append instead.
   `collegium.py`, `SITES.md` step 17. `MAP_COLLEGIUM`,
   `MAP_COLLEGIUM_LIBRARY`, `MAP_COLLEGIUM_HALL` - **not `MAP_HALL`**, which is
   Prophecy Hall. Its `journey.py` alias is `COL`. Dean Fenwold's portrait is
-  a character sheet drawn by running the module, like Fenmarch's |
+  a character sheet drawn by running the module, like Fenmarch's, and so is
+  the court's tileset: Map 58 is on tileset 7, `mapkit.TS_COLLEGIUM`, whose C
+  sheet has the purple roofs and spires the door describes |
 | Maps 61-65 | Great Dunnage: the town inside its wall, with the haulage yard
   in its north-west corner; the Smiths' Hall; the Counting House's lobby,
   which is mostly door; the Bonded Warehouse; and the Bell. `dunnage.py`,

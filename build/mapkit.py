@@ -18,6 +18,17 @@ import rmmzdata as R
 
 # ---------------------------------------------------------------- tilesets ---
 TS_WORLD, TS_OUTSIDE, TS_INSIDE, TS_DUNGEON = 1, 2, 3, 4
+# Tileset 2 with one sheet swapped: its C sheet is `Outside_C_Collegium`, a copy
+# of `Outside_C` whose green roof and green spire are purple, drawn by
+# `collegium.draw_art()`. Every id means what it means on tileset 2, so the
+# whole Outside vocabulary works on it; only `ROOF_PURPLE` and the spire look
+# different. `build_game.build_tilesets` writes the record.
+TS_COLLEGIUM = 7
+# And tileset 1 with its B sheet swapped for `World_B_Fenmarch`, whose `Large
+# Mansion` stamp has green roofs, drawn by `fenmarch.draw_art()`. It is the
+# world map's tileset; `worldmap.json` is still drawn on tileset 1, and every
+# id means the same on both.
+TS_OVERWORLD = 8
 
 
 def b_tile(col, row):
@@ -93,6 +104,7 @@ ROOF_GREEN = (8, 0)
 ROOF_WHITE = (13, 0)      # snow-covered
 ROOF_GOLD = (8, 3)
 ROOF_BROWN = (13, 3)      # plain wooden roof - the village default
+ROOF_PURPLE = ROOF_GREEN  # the same block, recoloured - on TS_COLLEGIUM only
 TOWER_STONE = (8, 6)      # a round stone tower, not a roof: 2 wide, 5 tall
 TOWER_WHITE = (10, 6)
 
@@ -660,6 +672,58 @@ def sf_grid(sheet, name, w):
     return tuple(flat[i:i + w] for i in range(0, len(flat), w))
 
 
+def recolour_sheet(sheet, out, cells, hues, hue, sat, renames=()):
+    """Writes `img/tilesets/<out>.png`, a copy of `<sheet>.png` with some cells
+    recoloured, and the `.txt` beside it with some names changed.
+
+    For a colour no sheet has: the Collegium's purple roofs, Fenmarch's green
+    ones. In each (column, row) of `cells`, every pixel whose hue is inside
+    `hues` (lo, hi degrees) and which has any colour in it is moved to `hue`,
+    with its saturation scaled by `sat` and its value kept - so the shading
+    survives and grey stone in the same cell is left alone. `renames` is
+    (old, new) pairs applied to those cells' names, so `contact.py` and
+    `tileaudit.py` read the copy truthfully. Not part of the data build: the
+    modules that need one run it from their `draw_art()`."""
+    sys.path.insert(0, os.path.join(WORKSPACE, "tools", "chargen"))
+    import numpy as np
+    import png
+    tiles = os.path.join(GAME, "img", "tilesets")
+    a = png.read(os.path.join(tiles, sheet + ".png")).astype(float)
+    lo, hi = hues
+    for c, r in cells:
+        cell = a[r * 48:(r + 1) * 48, c * 48:(c + 1) * 48]
+        rgb = cell[..., :3] / 255
+        v, mn = rgb.max(-1), rgb.min(-1)
+        d = v - mn
+        q = np.where(d > 0, d, 1)
+        red, grn, blu = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+        h = np.where(v == red, ((grn - blu) / q) % 6,
+                     np.where(v == grn, (blu - red) / q + 2,
+                              (red - grn) / q + 4)) * 60
+        s = np.where(v > 0, d / np.where(v > 0, v, 1), 0)
+        pick = (d > 0) & (h > lo) & (h < hi) & (s > 0.15) & (cell[..., 3] > 0)
+        s = s * sat
+        k = (np.array([5, 3, 1]) + hue / 60) % 6
+        k = k[None, None, :]
+        new = v[..., None] - (v * s)[..., None] * np.clip(
+            np.minimum(k, 4 - k), 0, 1)
+        cell[..., :3] = np.where(pick[..., None], new * 255, cell[..., :3])
+    path = os.path.join(tiles, out + ".png")
+    png.write(path, np.clip(a, 0, 255).round().astype(np.uint8))
+    print("wrote", os.path.normpath(path))
+    with open(os.path.join(tiles, sheet + ".txt"), encoding="utf-8",
+              newline="") as fh:
+        names = fh.read().split("\n")
+    for c, r in cells:
+        i = b_tile(c, r)
+        for old, new_name in renames:
+            names[i] = names[i].replace(old, new_name)
+    path = os.path.join(tiles, out + ".txt")
+    with open(path, "w", encoding="utf-8", newline="") as fh:
+        fh.write("\n".join(names))
+    print("wrote", os.path.normpath(path))
+
+
 # The works, the forge, and anything with pressure in it. `NORTH.md` 4.4 names
 # the ones to use; the screens and the server are on the forbidden list.
 SF_IN_MACHINE_C = sf_tile("SF_Inside_C", "Machine C")
@@ -958,6 +1022,7 @@ class ForbiddenTile(Exception):
 # three-storey clock face on top of a cottage. It was found by doing it.
 TILESET_ROOFS = {
     TS_OUTSIDE: (ROOF_GREEN, ROOF_WHITE, ROOF_GOLD, ROOF_BROWN),
+    TS_COLLEGIUM: (ROOF_PURPLE, ROOF_WHITE, ROOF_GOLD, ROOF_BROWN),
     TS_CLANGING: (SF_ROOF,),
 }
 TILESET_FORBIDDEN = {

@@ -222,7 +222,7 @@ def valley_map():
 
 def stone_pages():
     first = S.narrate([
-        "A stone, green to the waist with moss. The letters are cut",
+        "A stone, beaded all over with the damp. The letters are cut",
         "deep, which is as well:"])
     first += S.narrate([
         "THE SISTERHOUSE OF THE ORDER OF WHATEVER WORKS.",

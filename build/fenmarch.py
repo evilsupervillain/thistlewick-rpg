@@ -92,6 +92,7 @@ TOM = (28, 18)
 BEDS = [(26, 15, 30, 16), (26, 20, 30, 21)]
 
 MUSHROOMS = K.sf_tile("Outside_B", "Mushrooms A")
+GATEPOST_PILLAR = K.sf_block("Outside_C", "Stone Pillar B (Moss)")  # 1x2
 
 
 def garden_map():
@@ -127,6 +128,10 @@ def garden_map():
             g.set(x, y, 0, t)
     for x1, y1, x2, y2 in BEDS:
         g.fill(x1, y1, x2, y2, 0, GARDEN_BED)
+    # "Two stone gateposts, green with damp", says the gate: one at each end
+    # of the wall, over its last fencepost.
+    for x in (GATE_X[0] - 1, GATE_X[-1] + 1):
+        g.column(x, WALL_Y - 1, 3, GATEPOST_PILLAR)
 
     fy = HOUSE[1] + HOUSE[3] - 1
     for x in (11, 13, 19, 21):
@@ -738,6 +743,22 @@ def draw_art():
     write(CASES[0], sheet(cases[:8], 48, 64))
     write(CASES[1], sheet(cases[8:], 48, 64))
     write(PORTRAITS, sheet([portrait(*p) for p in PORTRAIT_LOOKS], 48, 48))
+    draw_stamp()
+
+
+# The house's stamp on the world map, `World_B`'s `Large Mansion` (2x2 at
+# columns 4-5, rows 12-13), has blue roofs; the door says "its roofs gone
+# green" and Map 56's are. `World_B_Fenmarch` is the sheet with that one stamp
+# gone the green of old copper, and `mapkit.TS_OVERWORLD` the tileset that
+# carries it. Nothing else on the world map uses the stamp.
+STAMP_CELLS = [(4, 12), (5, 12), (4, 13), (5, 13)]
+
+
+def draw_stamp():
+    """Writes `img/tilesets/World_B_Fenmarch.png` and its `.txt`. Not part of
+    the data build: run this module to redraw it."""
+    K.recolour_sheet("World_B", "World_B_Fenmarch", STAMP_CELLS, (170, 250),
+                     140, 0.5, [("Large Mansion", "Large Mansion (Green)")])
 
 
 # `Inside_B`'s `Portrait B`, the gilt frame, by its index on the sheet: the
