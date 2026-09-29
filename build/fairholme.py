@@ -523,11 +523,12 @@ def lair_events():
         "A dragon, very large and very red, with a pair of",
         "reading spectacles on a chain round her neck."])
     first += S.say("Mrs Emberthwaite", [
-        "Oh! A visitor. Come in, come in,",
-        "mind the gold, it gets everywhere."])
+        "Oh! A visitor. Come in,",
+        "come in, mind the gold, it gets everywhere."])
     first += S.say("Mrs Emberthwaite", [
-        "You're not a hero, are you, dear?",
-        "Only I'm retired. I've had a letter."])
+        "You're not a hero,",
+        "are you, dear? Only I'm retired.",
+        "I've had a letter."])
     first += S.narrate(["You say you are only passing."])
     first += S.say("Mrs Emberthwaite", [
         "Passing! Lovely.",
@@ -537,22 +538,23 @@ def lair_events():
         "by a margin that makes you check the deck.",
         "The deck is fine. It is you."])
     play += S.say("Mrs Emberthwaite", [
-        "Don't feel bad, dear. Rosamund",
-        "hasn't beaten me yet either."])
+        "Don't feel bad, dear.",
+        "Rosamund hasn't beaten me yet either."])
     teach = S.say("Mrs Emberthwaite", [
-        "Oh, that's all right. I'll teach you.",
-        "Rosamund didn't know either, the",
-        "first time."])
+        "Oh, that's all right.",
+        "I'll teach you. Rosamund didn't know either,",
+        "the first time."])
     first += R.choice_block(["Deal me in", "I don't play"], [play, teach],
                             cancel=1)
     first += S.say("Mrs Emberthwaite", [
-        "The first time they brought her up",
-        "here, she had a bag packed and a card",
-        "about her diet. I made up the spare",
-        "room. I'd not had company in years."])
+        "The first time they brought",
+        "her up here, she had a bag packed and a card",
+        "about her diet. I made up the spare room.",
+        "I'd not had company in years."])
     first += S.say("Mrs Emberthwaite", [
-        "Now she walks up on Thursdays,",
-        "on her own two feet, with a cake tin.",
+        "Now she walks up",
+        "on Thursdays, on her own two feet,",
+        "with a cake tin.",
         "The heroes are furious."])
     first += [S.trope(), R.self_switch("A", True)]
     again = S.say("Mrs Emberthwaite", [

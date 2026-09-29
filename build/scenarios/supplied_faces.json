@@ -1,0 +1,45 @@
+{
+  "query": "?map=7&x=11&y=7&frames=90",
+  "steps": [
+    {"comment": "AUDIT.md item 1's faces Mike supplied, read off the live message window rather than off the data, the way clanging_faces does: img/faces/Supplied.png, built by build/supplied.py - Nix 0, Mrs Emberthwaite 1, the Wrong Dragon 2. Each event opens on a narration window, so the check is on the second."},
+
+    {"eval": "$gameSystem.disableEncounter()"},
+
+    {"eval": "$gameMap.event(3).start()"},
+    {"frames": 200},
+    {"key": "Enter"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["Supplied", 0],
+     "label": "Nix, in the back room: Mike's portrait, masked and hooded"},
+    {"shot": "face_nix.png"},
+    {"advance": 60},
+    {"check": "[$dataActors[5].faceName, $dataActors[5].faceIndex, $dataActors[5].characterName, $dataActors[5].characterIndex]",
+     "expect": ["Supplied", 0, "Actor3", 4],
+     "label": "Nix's actor: the new face, and her walking sprite unchanged (NORTH.md 8.1e)"},
+
+    {"goto": [37, 10, 9]},
+    {"eval": "$gameMap.event(5).start()"},
+    {"frames": 200},
+    {"key": "Enter"},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["Supplied", 1],
+     "label": "Mrs Emberthwaite: Mike's portrait, spectacles on"},
+    {"shot": "face_emberthwaite.png"},
+    {"advance": 60},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map"},
+
+    {"goto": [8, 110, 115]},
+    {"eval": "$gameMap.event(53).start()"},
+    {"frames": 240},
+    {"choose": 0},
+    {"frames": 40},
+    {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
+     "expect": ["Supplied", 2],
+     "label": "Somebody Large, in the dark of the cave: Mike's silhouette"},
+    {"shot": "face_wrong_dragon.png"},
+    {"advance": 80},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map"}
+  ]
+}

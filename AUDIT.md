@@ -522,6 +522,8 @@ Mrs Harbottle (F, drawn), "formidable", a young one.
 
 Item 4 is finished, bar installing Nix's face when it comes (a Repair of a
 published face - write it up in `NORTH.md` 8.1 then).
+**Nix's face is installed, 29 September 2026** - Mike's portrait,
+`NORTH.md` 8.1e. Item 4 is finished.
 
 ### 3. Elves without pointed ears
 
@@ -870,6 +872,21 @@ Installing a supplied face: a sheet of its own in `img/faces/` (8 cells of
 144x144, or one), `story.FACES` pointed at it, and - for a speaker with a
 sprite - the sprite left alone. Nix's is a Repair of a published face and
 gets a `NORTH.md` 8.1 entry; the rest are Free.
+
+**Delivered and installed, 29 September 2026.** Mike sent three 144x144
+portraits: Nix, Mrs Emberthwaite and the Wrong Dragon's silhouette. They are
+kept as given in `build/supplied/`, and `build/supplied.py` composes them into
+one face sheet, `img/faces/Supplied.png`, cells 0-2, in that order. Append to
+its list and never move anybody. `story.FACES` points `Nix`, `Mrs
+Emberthwaite` and `Somebody Large` at it, and Nix's actor record takes it via
+a new `face=` on `db.actor()` - her sprite and battler are still `Actor3` 4.
+Nix is a Repair, `NORTH.md` 8.1e; the two dragons are Free. A face costs a
+line 13 characters, so both dragons' speeches were re-broken for 47 - no
+word changed - and the Wrong Dragon's knight is now two windows instead of
+one. `supplied_faces`, a new scenario, reads all three off the live message
+window and checks Nix's actor. `fairholme` and `nomap` walk the two dragons
+and were run for the line breaks. **The list is done.** The Duck and
+Duchess stay unasked unless a quest gives them lines.
 
 **Put to Mike separately, not on this list** - deliberately faceless, and
 left faceless unless he says otherwise:

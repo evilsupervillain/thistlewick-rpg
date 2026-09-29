@@ -15,9 +15,11 @@ import rmmzdata as R
 # Faces, by the person they belong to, so nobody has to remember that the
 # blacksmith is Actor2 index 4.
 FACES = {
-    # Party members share their face sheet with their walking sprite.
+    # Party members share their face sheet with their walking sprite - bar
+    # Nix, whose face Mike drew (`supplied.py`, NORTH.md 8.1e): `Actor3` 4
+    # read as a boy, and she is a woman. Her sprite is still `Actor3` 4.
     "Bram": ("Actor1", 0), "Merribell": ("Actor1", 7), "Hob": ("Actor2", 4),
-    "Zephyrine": ("Actor1", 5), "Nix": ("Actor3", 4), "Aldric": ("Actor3", 6),
+    "Zephyrine": ("Actor1", 5), "Nix": ("Supplied", 0), "Aldric": ("Actor3", 6),
     "Piper": ("Actor2", 3),
     "Corvin": ("Actor1", 4), "Wren": ("Actor2", 7), "Roland": ("Actor2", 2),
     # Villagers. The stock People sheets are typecast harder than you would
@@ -183,11 +185,11 @@ FACES = {
     "Sir Dunstable": ("Gen_People2", 1),
     # Fairholme, SITES.md step 3. Aldous is drawn - the circlet, the red robe
     # - and Rosamund is BIOS.md's look, the travelling cloak over the ball
-    # gown. Mrs Emberthwaite is a dragon, `$BigMonster2`, and has no entry
-    # here on purpose: no face sheet in the box has a dragon on it, so she
-    # speaks with her name and no portrait, which is also sixty characters a
-    # line instead of forty-seven.
+    # gown. Mrs Emberthwaite is a dragon, `$BigMonster2`, and no face sheet
+    # in the box has a dragon on it, so she spoke with no portrait until Mike
+    # drew her one (`supplied.py`): kindly, spectacled, seventy.
     "King Aldous": ("Gen_People2", 2),
+    "Mrs Emberthwaite": ("Supplied", 1),
     "Rosamund": ("Gen_People2", 3),
     # The shareholders round the council table all share stock faces: each is
     # one line in one room. The nine heroes take the Actor-sheet faces that no
@@ -228,9 +230,10 @@ FACES = {
     # the Lay-By are the pipe-smoker on the same sheet - self-taught, and it
     # shows - and the two `Actor3` women nobody has used: the white hat, and
     # the one with the staff at her shoulder. Whatever lives in the Wrong
-    # Dragon's cave speaks with a name and no portrait - Mike is to supply a
-    # silhouette (AUDIT.md item 1). The Drainage Commissioner was faceless too,
+    # Dragon's cave is a silhouette Mike drew (`supplied.py`): every line it
+    # has is spoken in the dark. The Drainage Commissioner was faceless too,
     # until item 1 drew her (`Gen_People10`, below).
+    "Somebody Large": ("Supplied", 2),
     "Meech": ("Gen_People2", 7),
     "Mother Selvidge": ("Evil", 2),
     "Dunnock": ("Evil", 0),

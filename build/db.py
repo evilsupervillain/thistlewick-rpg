@@ -636,12 +636,14 @@ def build_actors():
     Actor2 1-8 and Actor3 5-8."""
     ac = R.load("Actors.json")
 
-    def actor(aid, name, nickname, profile, sheet, index, level, equips):
+    def actor(aid, name, nickname, profile, sheet, index, level, equips,
+              face=None):
+        face_name, face_index = face or (sheet, index)
         return {"id": aid, "name": name, "nickname": nickname, "note": "",
                 "profile": profile, "classId": CLASSES[aid],
                 "initialLevel": level, "maxLevel": 99,
                 "characterName": sheet, "characterIndex": index,
-                "faceName": sheet, "faceIndex": index,
+                "faceName": face_name, "faceIndex": face_index,
                 "battlerName": "%s_%d" % (sheet, index + 1),
                 "equips": list(equips), "traits": []}
 
@@ -677,7 +679,8 @@ def build_actors():
         "Runs the back room of the general store. Does not steal things. "
         "Locates them, ahead of schedule, on behalf of a client who has not "
         "yet been identified.",
-        "Actor3", 4, 4, [WP_KNIFE, 0, 0, AR_LEATHER, 0]))
+        "Actor3", 4, 4, [WP_KNIFE, 0, 0, AR_LEATHER, 0],
+        face=("Supplied", 0)))          # Mike's; NORTH.md 8.1e
 
     upsert(ac, actor(
         ALDRIC, "Aldric", "Pemberton-Gore III",

@@ -436,7 +436,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (171)
+### `FACES` — who already has a face (173)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -461,29 +461,30 @@ Gudgeon               Tappet                Ferrule               Grommet
 Clevis                Shim                  Fizz                  Norbert
 Hollis                Dilys                 Gideon                Dorothy
 Mrs Ashbury           Walt                  Dr Pike               Guest
-Quillon               Sir Dunstable         King Aldous           Rosamund
-Tamsin                Brannoc               Kit                   Osric
-Aurel                 Hild                  Morwen                Leof
-Valen                 Mr Budge              Mrs Budge             Mr Pilbeam
-Mirabel               Elder Faelan          Elder Lirien          Toby
-Hollowell             Meech                 Mother Selvidge       Dunnock
-Miss Privet           Mrs Quickset          Tobias                Perce
-Ida                   Clem                  Mrs Blagg             Pargeter
-Mrs Marchpane         Mordaunt              Crake                 Morrow
-Rook                  Veyle                 Blackwood             Mrs Vane
-Mr Thurle             Mrs Ash               Mr Weir               Prioress
-Sister Bewick         Sister Pim            Sister Lamb           Mrs Liddy
-Mr Crouch             Mr Oakes              Sir Hamo              Mr Nuttall
-Mr Dace               Watchman              Mrs Poskitt           Mr Plummer
-Warden Crabbe         Town Clerk            Mrs Dewhirst          Mr Ambler
-Miss Quayle           Mr Tweddle            Dame Winifred         Bess
-Alfie                 Nell                  Mr Gammage            Mrs Pardew
-Mrs Garrow            Dr Hapgood            Reader                Undergraduate
-Ned                   Granny Wendle         Wilf                  Mrs Dimmock
-Commissioner          Mrs Puddifoot         Tom                   Elf
-The Fourth            Mr Ottershaw          Mr Gedge              Prewitt
-Dean Fenwold          The Mayor             Prime Warden          Mr Tibbs
-Mrs Harbottle         Miss Fettle           Cotter
+Quillon               Sir Dunstable         King Aldous           Mrs Emberthwaite
+Rosamund              Tamsin                Brannoc               Kit
+Osric                 Aurel                 Hild                  Morwen
+Leof                  Valen                 Mr Budge              Mrs Budge
+Mr Pilbeam            Mirabel               Elder Faelan          Elder Lirien
+Toby                  Hollowell             Somebody Large        Meech
+Mother Selvidge       Dunnock               Miss Privet           Mrs Quickset
+Tobias                Perce                 Ida                   Clem
+Mrs Blagg             Pargeter              Mrs Marchpane         Mordaunt
+Crake                 Morrow                Rook                  Veyle
+Blackwood             Mrs Vane              Mr Thurle             Mrs Ash
+Mr Weir               Prioress              Sister Bewick         Sister Pim
+Sister Lamb           Mrs Liddy             Mr Crouch             Mr Oakes
+Sir Hamo              Mr Nuttall            Mr Dace               Watchman
+Mrs Poskitt           Mr Plummer            Warden Crabbe         Town Clerk
+Mrs Dewhirst          Mr Ambler             Miss Quayle           Mr Tweddle
+Dame Winifred         Bess                  Alfie                 Nell
+Mr Gammage            Mrs Pardew            Mrs Garrow            Dr Hapgood
+Reader                Undergraduate         Ned                   Granny Wendle
+Wilf                  Mrs Dimmock           Commissioner          Mrs Puddifoot
+Tom                   Elf                   The Fourth            Mr Ottershaw
+Mr Gedge              Prewitt               Dean Fenwold          The Mayor
+Prime Warden          Mr Tibbs              Mrs Harbottle         Miss Fettle
+Cotter
 ```
 
 

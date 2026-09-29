@@ -1155,6 +1155,24 @@ off its frame and painted gold, standing on the stool, which is its plinth.
 
 Not one word is touched, and nothing else on the page moves.
 
+### 8.1e Nix's face - **DONE, 29 September 2026**
+
+The fifth, from `AUDIT.md` item 4 (G5) and item 1's list of faces Mike
+supplies. The game calls Nix "she", and her face was `Actor3` 4, which reads
+as a boy - the portrait contradicted every line about her. No stock face or
+generated one was masked and hooded to match her sprite, so Mike drew it.
+
+    build/supplied/nix_portrait.png   Mike's portrait, 144x144, as given
+    build/supplied.py                 composes img/faces/Supplied.png: cell 0
+    story.FACES                       "Nix": ("Actor3", 4) -> ("Supplied", 0)
+    db.py (Actor 5)                   faceName/faceIndex -> Supplied 0, by a
+                                      new `face=` on `actor()`; her walking
+                                      sprite and `Actor3_5` battler stay
+
+Her face changes in every window she speaks in - Maps 7, 11 and 28 of the
+published game, and Map 61 - and in the menu. Not one word is touched.
+`supplied_faces` reads it off the live message window.
+
 ### 8.1a The state of the tree at handoff
 
 **Updated 2026-08-25, after step 5 of section 16.** Everything is uncommitted

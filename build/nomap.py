@@ -252,38 +252,42 @@ def _wrong_dragon():
         "very large is breathing inside it, slowly, the way",
         "people breathe when they are reading."]), "Call in")
     first = S.say("Somebody Large", [
-        "Come in, come in. Mind the books. They're in",
-        "the order I read them, which is nobody else's."], face=False)
+        "Come in, come in.",
+        "Mind the books. They're in the order",
+        "I read them, which is nobody else's."])
     first += S.narrate([
         "It is dark inside, and warm, and full of books.",
         "Something enormous is in an armchair at the back,",
         "with a blanket over what you think are its knees."])
     first += S.say("Somebody Large", [
-        "Is it about the dragon? It's usually about",
-        "the dragon."], face=False)
+        "Is it about the dragon?",
+        "It's usually about the dragon."])
     first += S.narrate(["You ask whether it is the dragon."])
     first += S.say("Somebody Large", [
-        "I'm a dragon, dear, in the sense that the",
-        "map says so. I'm not a dragon in the sense anybody means."],
-        face=False)
+        "I'm a dragon, dear,",
+        "in the sense that the map says so.",
+        "I'm not a dragon in the sense anybody means."])
     first += S.say("Somebody Large", [
-        "People are generally relieved, and then a",
-        "little disappointed, and then they stay for tea."], face=False)
+        "People are generally relieved,",
+        "and then a little disappointed,",
+        "and then they stay for tea."])
     first += S.say("Somebody Large", [
-        "There was a young knight, oh, eight years",
-        "ago. Very correct. He had a commission with",
-        "'dragon' on it and a great deal of armour, and we",
-        "talked about Horace until it got dark."], face=False)
+        "There was a young knight,",
+        "oh, eight years ago. Very correct."])
     first += S.say("Somebody Large", [
-        "I do hope he found his dragon. He was so",
-        "looking forward to it."], face=False)
+        "He had a commission with",
+        "'dragon' on it and a great deal of armour,",
+        "and we talked about Horace until it got dark."])
+    first += S.say("Somebody Large", [
+        "I do hope he found his dragon.",
+        "He was so looking forward to it."])
     first += [S.trope()]
     again = S.narrate([
         "The Wrong Dragon's cave. Somebody inside turns a",
         "page."])
     again_stop = S.say("Somebody Large", [
-        "Come in, dear. I've just got to the good",
-        "bit. You can have it after me."], face=False)
+        "Come in, dear. I've just got",
+        "to the good bit. You can have it after me."])
     return _site(WRONG_DRAGON, stop, first, again, again_stop)
 
 

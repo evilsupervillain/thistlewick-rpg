@@ -227,6 +227,9 @@ in each of the four states.
                      first of the new world map's twenty-nine sites to have a
                      room behind its door, and the shape every other one
                      should copy - `WORLDMAP.md` 7.6
+      supplied.py    the faces Mike drew, from `build/supplied/`, into
+                     `img/faces/Supplied.png`. Not part of the data build;
+                     run it when a portrait is added. Append, never move
       art.py         generated character art: which settings file is in which
                      cell of which `Gen_*` sheet. Not part of the data build;
                      run it when a look changes. See "Generated characters"
@@ -745,6 +748,10 @@ makes eight passes over it cost less than the single pass did before.
   **Thistlewick's gossip walks and talks as `Gen_People6` 5** under her old
   "Villager:" label (G3, `NORTH.md` 8.1c), and **the Chandler's in Nether
   Sopping is shut with the lamp out and a shop with it lit** (D3) |
+| `supplied_faces` | the three faces Mike drew, `img/faces/Supplied.png`, read
+  off the live message window: Nix in the back room, Mrs Emberthwaite and
+  Somebody Large in the dark of the Wrong Dragon's cave - and Nix's actor,
+  with the new face over her unchanged sprite (`NORTH.md` 8.1e) |
 | `coldbarrow` | `SITES.md` step 11, walked: onto Coldbarrow's door off the
   world map, **the great map, which puts `Coldbarrow_Map` up as picture 1 and
   takes it down after**, Mordaunt and the nine pins (the trope, counted once),
