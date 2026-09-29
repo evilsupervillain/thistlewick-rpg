@@ -184,20 +184,20 @@ def tom_pages():
     first += S.say("Tom", [
         "Morning! Tom. I do the",
         "gardens. Walk over from Little Gore",
-        "every day. Four miles, both ways."], face=False)
+        "every day. Four miles, both ways."])
     first += S.narrate(["You say that is a long way."])
     first += S.say("Tom", [
         "Not when you've somebody",
         "at the other end of it. Nine years",
         "married this summer. Married here, as",
-        "it happens. It rained."], face=False)
+        "it happens. It rained."])
     first += S.say("Tom", [
         "It always rains at",
         "Fenmarch. The whole of Little Gore",
-        "walked over in it and didn't mind."], face=False)
+        "walked over in it and didn't mind."])
     later = S.say("Tom", [
         "Can't stop. Five o'clock,",
-        "I'm off home. Always am."], face=False)
+        "I'm off home. Always am."])
     return _pair(first, later)
 
 
@@ -223,7 +223,7 @@ def garden_events():
                        [R.page(moat_pages(), **PAGE)]))
 
     # 7: Tom, from Little Gore.
-    evs.append(_person(7, "Tom", TOM, R.image("People4", 4, direction=2),
+    evs.append(_person(7, "Tom", TOM, R.image(*S.FACES["Tom"], direction=2),
                        *tom_pages()))
     return evs
 
@@ -351,23 +351,23 @@ def puddifoot_pages():
     first += S.say("Mrs Puddifoot", [
         "Mrs Puddifoot. I keep",
         "house. What there is of it. It's",
-        "mostly gallery."], face=False)
+        "mostly gallery."])
     first += S.say("Mrs Puddifoot", [
         "Everything in this house",
         "is damp except the animals. Mr",
-        "Ottershaw won't have it."], face=False)
+        "Ottershaw won't have it."])
     first += S.say("Mrs Puddifoot", [
         "Eighty of them. I start",
         "dusting on a Friday and I'm done",
-        "by the Wednesday after."], face=False)
+        "by the Wednesday after."])
     first += S.narrate(["You count the cases. There are not eighty."])
     first += S.say("Mrs Puddifoot", [
         "The rest are upstairs.",
         "There's one in every bedroom. You",
-        "get used to it."], face=False)
+        "get used to it."])
     later = S.say("Mrs Puddifoot", [
         "Friday to Wednesday.",
-        "Then it's Friday again."], face=False)
+        "Then it's Friday again."])
     return _pair(first, later)
 
 
@@ -515,7 +515,7 @@ def gallery_events():
                        R.image("Gen_People5", 3, direction=2),
                        *fourth_pages()))
     evs.append(_person(3, "Mrs Puddifoot", PUDDIFOOT,
-                       R.image("People4", 1, direction=6), *puddifoot_pages()))
+                       R.image(*S.FACES["Mrs Puddifoot"], direction=6), *puddifoot_pages()))
     evs.append(_person(4, "Mr Ottershaw", OTTERSHAW,
                        R.image("Gen_People5", 4, direction=4),
                        *ottershaw_pages()))

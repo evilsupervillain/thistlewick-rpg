@@ -255,20 +255,20 @@ def hapgood_pages():
     first += S.say("Dr Hapgood", [
         "Hapgood - Junior Fellow,",
         "twenty-two years. Can't stop, I'm taking",
-        "this to the Bursar."], face=False)
+        "this to the Bursar."])
     first += S.say("Dr Hapgood", [
         "The Bursar refers it",
         "to Estates, Estates refers it to the",
         "Junior Fellow, and the Junior Fellow",
-        "takes it back to the Bursar."], face=False)
+        "takes it back to the Bursar."])
     first += S.narrate(["You ask what it is."])
     first += S.say("Dr Hapgood", [
         "A request for",
         "somebody to carry things. It's been",
-        "going round since March."], face=False)
+        "going round since March."])
     later = S.say("Dr Hapgood", [
         "Once more round! Nearly",
-        "there. Never there."], face=False)
+        "there. Never there."])
     return _pair(first, later)
 
 
@@ -324,7 +324,7 @@ def court_events():
 
     # 11: Dr Hapgood, going round the lawn.
     evs.append(_person(11, "Dr Hapgood", HAPGOOD,
-                       R.image("People3", 4, direction=2), *hapgood_pages()))
+                       R.image(*S.FACES["Dr Hapgood"], direction=2), *hapgood_pages()))
 
     # 12: the Founder, read from the grass round him - which is the joke.
     first, later = founder_pages()
@@ -509,16 +509,14 @@ def reader_pages():
         "front of him that is not the one he wants."])
     first += S.say("Reader", [
         "I asked for a book",
-        "at Michaelmas. It's been referred."],
-        face=False)
+        "at Michaelmas. It's been referred."])
     first += S.narrate(["You ask where to."])
     first += S.say("Reader", [
         "To the shelf it's",
-        "on. They say it's a very long way."],
-        face=False)
+        "on. They say it's a very long way."])
     later = S.say("Reader", [
         "Any day now. It's",
-        "been referred."], face=False)
+        "been referred."])
     return _pair(first, later)
 
 
@@ -539,7 +537,7 @@ def library_events():
                        [R.page(appeal_pages(), **PAGE)]))
     evs.append(R.event(5, "The Monographs", MONOGRAPHS, y1,
                        [R.page(monograph_pages(), **PAGE)]))
-    evs.append(_person(6, "Reader", READER, R.image("People1", 2, direction=8),
+    evs.append(_person(6, "Reader", READER, R.image(*S.FACES["Reader"], direction=8),
                        *reader_pages()))
     return evs
 
@@ -685,15 +683,14 @@ def poster_pages():
 def undergraduate_pages():
     first = S.say("Undergraduate", [
         "Dinner's at seven.",
-        "Grace is at six. It's a long grace."],
-        face=False)
+        "Grace is at six. It's a long grace."])
     first += S.say("Undergraduate", [
         "It's been referred",
         "to a committee for shortening. Since",
-        "before I came up."], face=False)
+        "before I came up."])
     later = S.say("Undergraduate", [
         "Six to seven. Every",
-        "night. Still referred."], face=False)
+        "night. Still referred."])
     return _pair(first, later)
 
 
@@ -724,7 +721,7 @@ def hall_events():
     evs.append(R.event(6, "The Talk", TALK_POSTER, y1 - 1,
                        [R.page(poster_pages(), **PAGE)]))
     evs.append(_person(7, "Undergraduate", UNDERGRADUATE,
-                       R.image("People2", 2, direction=2),
+                       R.image(*S.FACES["Undergraduate"], direction=2),
                        *undergraduate_pages()))
     return evs
 

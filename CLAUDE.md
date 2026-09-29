@@ -820,6 +820,9 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People6` | the Mayor | Prime Warden Stannard | Mr Tibbs | Mrs Harbottle | Miss Fettle | Thistlewick's gossip | Elder Faelan, Elder Lirien |
 | `Gen_People7` | Sister Pim | Sister Lamb | Mrs Liddy | Mr Crouch | Mr Oakes | Sir Hamo | Mr Nuttall, Mr Dace |
 | `Gen_People8` | Watchman | Mrs Poskitt | Mr Plummer | Warden Crabbe | Town Clerk | Mrs Dewhirst | Mr Ambler, Miss Quayle |
+| `Gen_People9` | Mr Tweddle | Dame Winifred | Bess | Alfie | Nell | Mr Gammage | Mrs Pardew, Mrs Garrow |
+| `Gen_People10` | Dr Hapgood | Reader | Undergraduate | Ned | Granny Wendle | Wilf | Mrs Dimmock, the Commissioner |
+| `Gen_People11` | Mrs Puddifoot | Tom | the raker (`Elf`) | *free* | *free* | *free* | *free* |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding
@@ -833,9 +836,9 @@ settings files without the hood.
 took 2 and 3, and the twelve shareholders round its table share stock faces;
 Olde Evermore's Mirabel is 4, and its two Elders were stock until
 `AUDIT.md` item 3 drew them as elves on `Gen_People6`, which is now full;
-`Gen_People7` onward is `AUDIT.md` item 1's - a face, and a sprite from
-the same file, for every human who spoke without one - opened by Weeping
-Bottom's eight. Restwell's third speaking part, Dr Pike,
+`Gen_People7` to `Gen_People11` are `AUDIT.md` item 1's - a face, and a
+sprite from the same file, for every human who spoke without one; the next
+face goes in `Gen_People11` 3. Restwell's third speaking part, Dr Pike,
 **shares `SF_Actor3:6`** instead - `story.FACES` records every such share and
 the reasoning, and sharing is the cheaper answer whenever a character is a
 single scene in one room.

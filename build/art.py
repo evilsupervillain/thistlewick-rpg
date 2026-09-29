@@ -237,6 +237,36 @@ SHEETS = {
         (6, "mr-ambler.json"),          # Nine!
         (7, "miss-quayle.json"),        # Two.
     ],
+    # Dunnage's ninth, Little Gore and Sump, and the Sable Hart's landlady.
+    # The three Vanes are drawn as the children the narration says they are.
+    "Gen_People9": [
+        (0, "mr-tweddle.json"),         # a thrush that's lost its keys
+        (1, "dame-winifred-cope.json"), # nothing to report; lovely
+        (2, "bess-vane.json"),          # I'm Mum. I mean the bride
+        (3, "alfie-vane.json"),         # I'm Dad; I look pleased
+        (4, "nell-vane.json"),          # I'm everybody else
+        (5, "mr-gammage.json"),         # trying to get off since Tuesday
+        (6, "mrs-pardew.json"),         # things used to be better
+        (7, "mrs-garrow.json"),         # sit anywhere in the middle
+    ],
+    # The Collegium, Gladhollow, Ashcombe and the Cinder Fen. The
+    # Commissioner's sprite is drawn and unused: the Fen has no event sprite.
+    "Gen_People10": [
+        (0, "dr-hapgood.json"),         # nearly there; never there
+        (1, "collegium-reader.json"),   # asked for a book at Michaelmas
+        (2, "collegium-undergraduate.json"),  # grace is at six
+        (3, "ned-gladhollow.json"),     # farewell from Gladhollow!
+        (4, "granny-wendle.json"),      # my knees
+        (5, "wilf-ashcombe.json"),      # there's no puddles
+        (6, "mrs-dimmock.json"),        # every letter answered
+        (7, "drainage-commissioner.json"),  # are you a fire person?
+    ],
+    # The last three of item 1. Cells 3-7 are free.
+    "Gen_People11": [
+        (0, "mrs-puddifoot.json"),      # Friday to Wednesday
+        (1, "tom-fenmarch.json"),       # four miles, both ways
+        (2, "evermore-raker.json"),     # mind the leaves
+    ],
 }
 
 # battlerName -> settings file. `install.py enemy` writes a stand-in only when

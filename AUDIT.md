@@ -699,9 +699,9 @@ few scenarios as possible:
 | --- | --- | --- |
 | `Gen_People7` | **done**: Weeping Bottom's eight | `weeping_bottom` |
 | `Gen_People8` | **done**: Great Dunnage: Watchman, Mrs Poskitt, Mr Plummer, Warden Crabbe, Town Clerk, Mrs Dewhirst, Mr Ambler, Miss Quayle | `dunnage`, `dunnage_company` |
-| `Gen_People9` | Mr Tweddle (Dunnage's ninth, the Bell); Little Gore's Dame Winifred, Bess, Alfie, Nell; Sump's Mr Gammage, Mrs Pardew; the Sable Hart's Mrs Garrow | `dunnage`, `hamlets`, `sable_hart` |
-| `Gen_People10` | the Collegium's Dr Hapgood, Reader, Undergraduate; Gladhollow's Granny Wendle, Ned; Ashcombe's Mrs Dimmock, Wilf; the Commissioner (face only, no sprite) | `collegium`, `ashcombe`; Gladhollow has none, the Cinder Fen none |
-| `Gen_People11` | Fenmarch's Mrs Puddifoot and Tom, and Olde Evermore's raker `Elf` - drawn as an elf, `ears: p02` showing, face and sprite (Mike, 28 September) | `fenmarch`, `evermore` |
+| `Gen_People9` | **done**: Mr Tweddle (Dunnage's ninth, the Bell); Little Gore's Dame Winifred, Bess, Alfie, Nell; Sump's Mr Gammage, Mrs Pardew; the Sable Hart's Mrs Garrow | `dunnage`, `hamlets`, `sable_hart` |
+| `Gen_People10` | **done**: the Collegium's Dr Hapgood, Reader, Undergraduate; Gladhollow's Granny Wendle, Ned; Ashcombe's Mrs Dimmock, Wilf; the Commissioner (face only, no sprite) | `collegium`, `ashcombe`; Gladhollow has none, the Cinder Fen none |
+| `Gen_People11` | **done**: Fenmarch's Mrs Puddifoot and Tom, and Olde Evermore's raker `Elf` - drawn as an elf, `ears: p02` showing, face and sprite (Mike, 28 September) | `fenmarch`, `evermore` |
 
 Things to decide on the way, already found: **Tom** is nine years married
 with three small children and walks as an old man - draw him about thirty.
@@ -742,6 +742,73 @@ a variable, `S.say("Mrs Dewhirst", lines, face=False)`); Mr Tweddle's two
 stay until his batch. Nothing needed re-breaking. Built, `validate.py` clean,
 the data diff is those eight events, and `dunnage` and `dunnage_company`
 pass.
+
+**Done, 28 September 2026 - batch 3, `Gen_People9`.** Mr Tweddle (Dunnage's
+ninth), Dame Winifred, Bess, Alfie and Nell at Little Gore, Mr Gammage and
+Mrs Pardew at Sump, and Mrs Garrow at the Sable Hart, all Free. **The three
+Vanes are children now**, on the kid body with their mother Hester's brown
+hair and blue eyes - Bess, "a small girl", had walked as an adult in a white
+headscarf, and Alfie and Nell as stock children shared with half the game;
+the kid body has no daisy chain, so Bess's is left to the narration. Dame
+Winifred wears the female `accb p05` helmet over `p05` armour. Mrs Garrow
+first came out Mrs Dewhirst's twin - two landladies who say "love", in the
+same bun - and is black ringlets now.
+
+**The first re-breaking.** These lines had been written for 60 characters,
+and eleven first lines were too wide with a face: Dame Winifred's five (her
+label leaves her 32), Mrs Pardew's three, Mrs Garrow's two, Mr Gammage's
+one. `build_game.py` stops at the first, so the whole list came from one
+build with `story._check_width` patched to report rather than raise (then
+`git checkout data/`). Each was re-broken by hand, at a sentence end where
+there was one ("It doesn't say. / That's the worst of it."), every window
+still four lines or fewer; the edit script asserted the text identical but
+for where the lines end, and the built text of every changed event, joined
+up, is identical to `HEAD`'s. **One scenario did assert a re-broken
+line**, and a grep for double-quoted strings missed it: `hamlets` checks
+`includes('pin in me at')`, single-quoted, and "pin" now ends a line. It
+checks `'in me at Coldbarrow'` now. **After re-breaking, grep the scenarios
+for `includes(` in both quote styles** and check every phrase against the
+new lines. Built, `validate.py` clean; `hamlets`, `sable_hart` and `dunnage`
+pass.
+
+**Done, 28 September 2026 - batches 4 and 5, `Gen_People10` and
+`Gen_People11`, and item 1 is finished bar the faces Mike supplies.** Dr
+Hapgood, the Reader and the Undergraduate at the Collegium; Ned and Granny
+Wendle at Gladhollow; Wilf and Mrs Dimmock at Ashcombe; the Drainage
+Commissioner on the Cinder Fen; Mrs Puddifoot and Tom at Fenmarch; and the
+raker `Elf` at Olde Evermore. All Free.
+
+* **Two speakers the text never gives a pronoun** - the Undergraduate and the
+  Commissioner ("a person with a clipboard") - are drawn as women, which
+  says nothing the text contradicts and evens a cast that was running to
+  men. The Undergraduate was a stock sprite that could be either.
+* **Gladhollow and the Cinder Fen had never passed `face=False`**: Ned,
+  Granny Wendle and the Commissioner were faceless only because `FACES` had
+  no entry, on a "one short scene" and a "the raker's precedent" in its
+  comments - both comments are corrected. The Commissioner is a face only;
+  the Fen's event has no sprite, so the sprite drawn for her is unused.
+* **Tom is about thirty**, keeping his sprite's headband as a green bandana;
+  **the raker is an elf**, with `ears: p02` showing in the portrait and the
+  sprite, as Mike asked. Ned has his brother Toby's hair and eyes.
+* Twins caught on the facesheet: Hapgood as Mr Dace (fair, spectacled -
+  he is dark auburn now), and Mrs Puddifoot as Sister Lamb (grey, the same
+  white cap - she is chestnut under it). Tom's first waistcoat and the
+  raker's first coat were armour or Mr Dace's in the sprite.
+* **Re-breaking.** Ten first lines were too wide: the Commissioner's eight
+  and Granny Wendle's two. Nine were re-broken inside their windows. The
+  Commissioner's "Ah. It wants burning" speech could not be: at about 176
+  characters it is more than four faced lines hold, so it is now **two
+  windows of the same words**, split after "Everybody agrees." - which
+  `say()` does to any speech over four lines anyway, name and all. It is the
+  one window count item 1 changed. The joined built text of every changed
+  event is identical to `HEAD`'s, and no scenario asserts a re-broken line.
+* Built, `validate.py` clean; `collegium`, `ashcombe`, `fenmarch` and
+  `evermore` pass.
+
+**Item 1 is done**, except the faces Mike supplies at the end of the audit
+(the running list below): thirty-five speakers drawn on five sheets, the
+Dog and The Prophecy left faceless, and Somebody Large waiting on his
+silhouette.
 
 Things to decide per name:
 

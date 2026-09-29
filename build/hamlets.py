@@ -191,24 +191,25 @@ def cope_pages():
         "A knight in a good plain helmet, standing outside her own",
         "front door as if it were a post."])
     first += S.say("Dame Winifred", [
-        "Dame Winifred Cope, of the Order of the",
-        "Errant. The Chapter's knight in the field",
-        "at Little Gore."], face=False)
+        "Dame Winifred Cope, of the",
+        "Order of the Errant. The Chapter's",
+        "knight in the field at Little Gore."])
     first += S.say("Dame Winifred", [
-        "Eleven years. There's a pin in me at",
-        "Coldbarrow. Just the one."], face=False)
+        "Eleven years. There's a pin",
+        "in me at Coldbarrow. Just the one."])
     first += S.narrate(["You ask what she does."])
     first += S.say("Dame Winifred", [
-        "I'm here. That's the whole of it.",
-        "Somebody has to be where the pin is, or",
-        "what's the map for?"], face=False)
+        "I'm here. That's the whole",
+        "of it. Somebody has to be where the",
+        "pin is, or what's the map for?"])
     first += S.say("Dame Winifred", [
-        "I write every quarter: NOTHING TO",
-        "REPORT. They write back: VERY GOOD. It's",
-        "the nicest correspondence I've ever had."], face=False)
+        "I write every quarter:",
+        "NOTHING TO REPORT. They write back:",
+        "VERY GOOD. It's the nicest",
+        "correspondence I've ever had."])
     later = S.say("Dame Winifred", [
-        "Still here. Still nothing to report.",
-        "Lovely."], face=False)
+        "Still here. Still nothing",
+        "to report. Lovely."])
     return _pair(first, later)
 
 
@@ -223,32 +224,31 @@ def gore_events():
     evs.append(_person(3, "Hester Vane", HESTER,
                        R.image("Gen_People4", 5, direction=2), *vane_pages()))
     evs.append(_person(4, "Dame Winifred Cope", COPE,
-                       R.image("Actor2", 1, direction=2), *cope_pages()))
+                       R.image(*S.FACES["Dame Winifred"], direction=2), *cope_pages()))
 
-    # 5-7: the three Vanes on the green, playing weddings. They share stock
-    # sprites and no faces; the narration says how small they are. Nell is
-    # the pigtailed girl, People1:1: she was the spiky-haired boy, People1:0,
-    # under a line that says "She is, too", until AUDIT.md item 4.
+    # 5-7: the three Vanes on the green, playing weddings; the narration says
+    # how small they are. Nell was the spiky-haired boy, People1:0, under a
+    # line that says "She is, too", until AUDIT.md item 4, and Bess an adult
+    # in a headscarf; item 1 drew all three, faces and sprites, as children.
     bess = S.narrate([
         "A small girl with a daisy chain on her head, standing",
         "very straight."])
     bess += S.say("Bess", ["I'm Mum. I mean I'm the bride.",
-                           "It's the same thing."], face=False)
+                           "It's the same thing."])
     alfie = S.narrate([
         "A smaller boy with his hair wetted flat, standing next to",
         "the bride and looking pleased."])
     alfie += S.say("Alfie", ["I'm Dad. I have to stand here and",
                              "look pleased. Dad says that's the",
-                             "whole job."],
-                   face=False)
-    nell = S.say("Nell", ["I'm everybody else."], face=False)
+                             "whole job."])
+    nell = S.say("Nell", ["I'm everybody else."])
     nell += S.narrate([
         "She is, too. She has been the whole of Little Gore, half",
         "of Fenmarch, the vicar, the rain and the cake."])
     for eid, name, xy, (sheet, idx), cmds, facing in [
-            (5, "Bess", BESS, ("People2", 3), bess, 6),
-            (6, "Alfie", ALFIE, ("People1", 2), alfie, 4),
-            (7, "Nell", NELL, ("People1", 1), nell, 8)]:
+            (5, "Bess", BESS, S.FACES["Bess"], bess, 6),
+            (6, "Alfie", ALFIE, S.FACES["Alfie"], alfie, 4),
+            (7, "Nell", NELL, S.FACES["Nell"], nell, 8)]:
         evs.append(S.npc(eid, name, *xy, cmds, sheet, idx, direction=facing))
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
@@ -410,13 +410,11 @@ def gammage_pages():
     first += [R.show_balloon(0, 5)]
     first += S.say("Mr Gammage", [
         "Don't. I've been trying to get off",
-        "since Tuesday."],
-        face=False)
+        "since Tuesday."])
     first += S.say("Mr Gammage", [
-        "My father never slept. Nor his. It's",
-        "the curse. You get used to it. You don't,",
-        "but you say you do."],
-        face=False)
+        "My father never slept. Nor his.",
+        "It's the curse. You get used to it.",
+        "You don't, but you say you do."])
     later = [R.show_balloon(0, 10)]
     later += S.narrate([
         "His eyes are shut. He is not asleep, and would like you",
@@ -426,15 +424,17 @@ def gammage_pages():
 
 def pardew_pages():
     first = S.say("Mrs Pardew", [
-        "Things used to be better. My gran said",
-        "so, and her gran said so. It's in the",
-        "minutes."], face=False)
+        "Things used to be better. My gran",
+        "said so, and her gran said so. It's",
+        "in the minutes."])
     first += S.narrate(["You ask what they used to be better at."])
     first += S.say("Mrs Pardew", [
-        "It doesn't say. That's the worst of it."], face=False)
+        "It doesn't say.",
+        "That's the worst of it."])
     later = S.say("Mrs Pardew", [
-        "Don't talk to me before noon. Or after.",
-        "It isn't you, love. It's the curse."], face=False)
+        "Don't talk to me before noon.",
+        "Or after.",
+        "It isn't you, love. It's the curse."])
     return _pair(first, later)
 
 
@@ -448,9 +448,9 @@ def sump_events():
                        R.image("Gen_People4", 6, direction=2),
                        *thurle_pages()))
     evs.append(_person(4, "Mr Gammage", GAMMAGE,
-                       R.image("People4", 4, direction=2), *gammage_pages()))
+                       R.image(*S.FACES["Mr Gammage"], direction=2), *gammage_pages()))
     evs.append(_person(5, "Mrs Pardew", PARDEW,
-                       R.image("People4", 5, direction=2), *pardew_pages()))
+                       R.image(*S.FACES["Mrs Pardew"], direction=2), *pardew_pages()))
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 

@@ -275,17 +275,17 @@ def dimmock_pages():
     first = S.say("Mrs Dimmock", [
         "Hello, dear! Anything",
         "to post? Everything that comes to",
-        "Ashcombe gets answered. It's policy."], face=False)
+        "Ashcombe gets answered. It's policy."])
     first += S.say("Mrs Dimmock", [
         "We had one, years back,",
-        "addressed to THE RUINS OF ASHCOMBE."], face=False)
+        "addressed to THE RUINS OF ASHCOMBE."])
     first += S.say("Mrs Dimmock", [
         "So the Ruins wrote back.",
         "Lovely long letter. Hoped he was",
-        "keeping warm."], face=False)
+        "keeping warm."])
     later = S.say("Mrs Dimmock", [
         "Nothing for you today,",
-        "dear. Every letter answered!"], face=False)
+        "dear. Every letter answered!"])
     return _pair(first, later)
 
 
@@ -353,15 +353,15 @@ def ashcombe_events():
     wilf += S.say("Wilf", [
         "There's no puddles. Mr Weir",
         "says there won't ever be a puddle",
-        "again. He says it like it's good."], face=False)
+        "again. He says it like it's good."])
     wilf += S.narrate([
         "You look. There are no puddles. There is not so much as a",
         "damp patch."])
-    evs.append(S.npc(10, "Wilf", *WILF, wilf, "People1", 2, direction=2))
+    evs.append(S.npc(10, "Wilf", *WILF, wilf, *S.FACES["Wilf"], direction=2))
 
     # 11: the postmistress, at her own door on the lane.
     evs.append(_person(11, "Mrs Dimmock", DIMMOCK,
-                       R.image("People1", 5, direction=2), *dimmock_pages()))
+                       R.image(*S.FACES["Mrs Dimmock"], direction=2), *dimmock_pages()))
     return evs
 
 

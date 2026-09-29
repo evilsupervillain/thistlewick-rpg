@@ -92,7 +92,7 @@
     {"frames": 60},
     {"check": "$gameMap._interpreter.eventId()", "expect": 4, "label": "Dame Winifred Cope"},
     {"advance": 20},
-    {"check": "window._lines.some(l => l.includes('pin in me at'))", "expect": true,
+    {"check": "window._lines.some(l => l.includes('in me at Coldbarrow'))", "expect": true,
      "label": "Coldbarrow's white pin at Little Gore, standing exactly where it says"},
 
     {"comment": "Down onto the green, above the notice board.",

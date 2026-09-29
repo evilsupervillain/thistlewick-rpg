@@ -206,30 +206,36 @@ def _cinder_fen():
         "A person with a clipboard is standing where the",
         "path gives up, in wellingtons, looking at it."])
     first += S.say("Commissioner", [
-        "Are you a fire person? You don't look like",
-        "a fire person."])
+        "Are you a fire person?",
+        "You don't look like a fire person."])
     first += S.narrate(["You say you are a turnip person."])
     first += S.say("Commissioner", [
-        "Ah. It wants burning, you see. The Fen.",
-        "Nine hundred acres. Everybody agrees. It's the",
-        "traditional remedy, and nobody in the parish has",
-        "been able to do it since Mr Tinder retired."])
+        "Ah. It wants burning, you see.",
+        "The Fen. Nine hundred acres.",
+        "Everybody agrees."])
     first += S.say("Commissioner", [
-        "It's all approved. Here's the form. In",
-        "triplicate: one for the parish, one for the county,",
-        "and one to come back to me afterwards, signed."])
+        "It's the traditional remedy,",
+        "and nobody in the parish has been able",
+        "to do it since Mr Tinder retired."])
+    first += S.say("Commissioner", [
+        "It's all approved.",
+        "Here's the form. In triplicate: one for the",
+        "parish, one for the county, and one to come",
+        "back to me afterwards, signed."])
     first += S.narrate(["You ask who by."])
     first += S.say("Commissioner", [
-        "The fire person. And countersigned by the Fen."])
+        "The fire person.",
+        "And countersigned by the Fen."])
     first += S.narrate(["You ask how a fen signs a form."])
     first += S.say("Commissioner", [
-        "There's a box for it. I've never had one back."])
+        "There's a box for it.",
+        "I've never had one back."])
     again = S.narrate([
         "The Cinder Fen, unburnt. The Drainage Commissioner",
         "is still waiting for a fire person."])
     again_stop = S.say("Commissioner", [
-        "Still wet. The form's still good. It",
-        "doesn't expire. I made sure of that."])
+        "Still wet. The form's still good.",
+        "It doesn't expire. I made sure of that."])
     return _site(CINDER_FEN, stop, first, again, again_stop)
 
 

@@ -1171,11 +1171,11 @@ def tweddle_pages():
         "judges' table, a pencil goes down."])
     first += S.say("Mr Tweddle", [
         "Tweddle. Birdcalls.",
-        "I've been practising since Easter."], face=False)
+        "I've been practising since Easter."])
     first += S.say("Mr Tweddle", [
         "I do a nightingale,",
         "a curlew, and a thrush that's lost its",
-        "keys. The thrush goes down very well."], face=False)
+        "keys. The thrush goes down very well."])
     later = S.narrate([
         "A blackbird, and then, for no reason, an owl. The room goes",
         "quiet for both of them."])
@@ -1231,7 +1231,7 @@ def bell_events():
     evs.append(_person(5, "Miss Quayle", QUAYLE,
                        R.image(*S.FACES["Miss Quayle"], direction=6), *quayle_pages()))
     evs.append(_person(6, "Mr Tweddle", TWEDDLE,
-                       R.image("People4", 0, direction=2), *tweddle_pages()))
+                       R.image(*S.FACES["Mr Tweddle"], direction=2), *tweddle_pages()))
     evs.append(_thing(7, "The Contest", POSTER, poster_pages()))
     evs.append(_thing(8, "The Bell", THE_BELL, bell_pages()))
     return evs

@@ -212,8 +212,8 @@ FACES = {
     "Elder Lirien": ("Gen_People6", 7),
     # Gladhollow, SITES.md step 5. Toby is drawn, BIOS.md's look to the letter
     # - the saucepan, the plaster, the braces. His brother at the east gate and
-    # his granny have no entries on purpose: each is one short scene, and they
-    # speak with their names and no portrait, the way Olde Evermore's raker does.
+    # his granny were left faceless as one short scene each, until AUDIT.md
+    # item 1 drew them (`Gen_People10`, below) with his hair and eyes.
     "Toby": ("Gen_People2", 5),
     # The Former Premises, SITES.md step 6. The only person in the building,
     # drawn to WORLDMAP.md 7.4's one rule for him - every single thing he says
@@ -227,9 +227,10 @@ FACES = {
     # is the only thing about her that is mystical. The three hedge mages at
     # the Lay-By are the pipe-smoker on the same sheet - self-taught, and it
     # shows - and the two `Actor3` women nobody has used: the white hat, and
-    # the one with the staff at her shoulder. The Drainage Commissioner and
-    # whatever lives in the Wrong Dragon's cave speak with a name and no
-    # portrait, on the raker's precedent; neither has a face in the box.
+    # the one with the staff at her shoulder. Whatever lives in the Wrong
+    # Dragon's cave speaks with a name and no portrait - Mike is to supply a
+    # silhouette (AUDIT.md item 1). The Drainage Commissioner was faceless too,
+    # until item 1 drew her (`Gen_People10`, below).
     "Meech": ("Gen_People2", 7),
     "Mother Selvidge": ("Evil", 2),
     "Dunnock": ("Evil", 0),
@@ -309,6 +310,49 @@ FACES = {
     "Mrs Dewhirst": ("Gen_People8", 5),
     "Mr Ambler": ("Gen_People8", 6),
     "Miss Quayle": ("Gen_People8", 7),
+    # `Gen_People9`: Mr Tweddle, Dunnage's ninth - small, grey, in green, and
+    # a nightingale that is a nightingale - then the rest of the hamlets and
+    # the Sable Hart. Dame Winifred in armour and "a good plain helmet". The
+    # three Vanes are children on the kid body, with their mother Hester's
+    # brown hair and blue eyes: Bess was an adult in a headscarf and Alfie
+    # and Nell shared stock children with half the game. Mr Gammage's eyes
+    # are shut; he is not asleep. Mrs Garrow is the Hart's landlady and not
+    # the Bell's, so she is black ringlets where Mrs Dewhirst is a red bun.
+    "Mr Tweddle": ("Gen_People9", 0),
+    "Dame Winifred": ("Gen_People9", 1),
+    "Bess": ("Gen_People9", 2),
+    "Alfie": ("Gen_People9", 3),
+    "Nell": ("Gen_People9", 4),
+    "Mr Gammage": ("Gen_People9", 5),
+    "Mrs Pardew": ("Gen_People9", 6),
+    "Mrs Garrow": ("Gen_People9", 7),
+    # `Gen_People10`: the Collegium's three - Dr Hapgood, twenty-two years a
+    # Junior Fellow, in the Collegium's robe; the Reader, young, in a white
+    # coat; the Undergraduate, whom the text never gives a pronoun, a young
+    # woman in the white-and-blue uniform - then Gladhollow's Ned, with his
+    # brother Toby's hair and eyes, and their Granny Wendle in a lace bonnet;
+    # Ashcombe's Wilf, small, ginger, with a paper boat nobody can sail, and
+    # Mrs Dimmock of the post office in blue; and the Drainage Commissioner
+    # out on the Cinder Fen, also never given a pronoun, in a yellow oilskin.
+    # She is a face only - the Fen's event has no sprite.
+    "Dr Hapgood": ("Gen_People10", 0),
+    "Reader": ("Gen_People10", 1),
+    "Undergraduate": ("Gen_People10", 2),
+    "Ned": ("Gen_People10", 3),
+    "Granny Wendle": ("Gen_People10", 4),
+    "Wilf": ("Gen_People10", 5),
+    "Mrs Dimmock": ("Gen_People10", 6),
+    "Commissioner": ("Gen_People10", 7),
+    # `Gen_People11`, the last of item 1: Fenmarch's Mrs Puddifoot, chestnut
+    # under the white cap, in a black housekeeper's dress (Sister Lamb has
+    # the same cap, grey, and they shared one stock sprite before); Tom, who walked about as the
+    # old man in the headband and is about thirty (nine years married, three
+    # small children), so he keeps the headband as a green bandana; and Olde
+    # Evermore's raker, "Elf", which Mike asked to have drawn - an elf with
+    # the ears showing, in a khaki coat the colour of the leaves.
+    "Mrs Puddifoot": ("Gen_People11", 0),
+    "Tom": ("Gen_People11", 1),
+    "Elf": ("Gen_People11", 2),
     # Fenmarch Hall, SITES.md step 16, drawn, `Gen_People5` 3 and 4. The
     # Fourth is Aldric Pemberton-Gore IV, and **"Aldric" is already Sir
     # Aldric**, so the household's name for him is the speaker. **"Mr

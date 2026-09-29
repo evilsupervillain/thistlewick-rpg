@@ -242,8 +242,8 @@ def evermore_events():
         "Nobody's ever come in by it. We did ask."])
     raker += [R.self_switch("A", True)]
     again = S.say("Elf", ["Mind the leaves. I've just done them."])
-    img = R.image("People2", 1, direction=4)
-    evs.append(S.npc(7, "The Raker", *RAKER_AT, raker, "People2", 1,
+    img = R.image(*S.FACES["Elf"], direction=4)
+    evs.append(S.npc(7, "The Raker", *RAKER_AT, raker, *S.FACES["Elf"],
                      direction=4, pages=[R.page(
                          again, img=img, trigger=0, priority=1,
                          conditions={"selfSwitchValid": True,

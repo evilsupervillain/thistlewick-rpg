@@ -291,19 +291,20 @@ def blackwood_pages():
 def garrow_pages():
     first = S.say("Mrs Garrow", [
         "They're no trouble, love. They tip",
-        "beautifully, and they put the chairs back."], face=False)
+        "beautifully, and they put the chairs back."])
     first += S.say("Mrs Garrow", [
-        "Four in the corners and the young one by",
-        "the fire, every night of the year, and the",
-        "middle of the room empty as a church."], face=False)
+        "Four in the corners and the young",
+        "one by the fire, every night of the",
+        "year, and the middle of the room empty",
+        "as a church."])
     first += S.narrate(["You ask whether anybody ever sits in the middle."])
     first += S.say("Mrs Garrow", [
-        "Once. A tinker, in the rain. They were",
-        "ever so nice to him. He left before his",
-        "pie came."], face=False)
+        "Once. A tinker, in the rain.",
+        "They were ever so nice to him.",
+        "He left before his pie came."])
     later = S.say("Mrs Garrow", [
         "Sit anywhere you like, love.",
-        "Anywhere in the middle."], face=False)
+        "Anywhere in the middle."])
     return _pair(first, later)
 
 
@@ -322,7 +323,7 @@ def hart_events():
         evs.append(_person(eid, name, xy, R.image("Gen_People4", cell,
                                                   direction=2), *pages()))
     evs.append(_person(7, "Mrs Garrow", GARROW,
-                       R.image("People4", 5, direction=2), *garrow_pages()))
+                       R.image(*S.FACES["Mrs Garrow"], direction=2), *garrow_pages()))
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 

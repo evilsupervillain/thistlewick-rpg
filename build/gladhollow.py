@@ -417,7 +417,7 @@ def gladhollow_events():
         body += R.choice_block(["Ask about the boy at the west gate",
                                 "Say goodbye"], [about, bye], cancel=1)
         return body
-    nimg = R.image("People1", 0, direction=4)
+    nimg = R.image(*S.FACES["Ned"], direction=4)
     evs.append(R.event(9, "Ned", *NED_AT, [
         R.page(ned_body(True) + [R.self_switch("A", True)], img=nimg,
                trigger=0, priority=1),
@@ -431,7 +431,8 @@ def gladhollow_events():
               "parameters": [db.IT_POTION, 1, 0, 1]}]
     give += S.say("Granny Wendle", [
         "Thank you, dear.", "That's Tuesday's knee sorted."])
-    keep = S.say("Granny Wendle", ["Another time, dear. I'm not going anywhere."])
+    keep = S.say("Granny Wendle", ["Another time, dear.",
+                                   "I'm not going anywhere."])
     returns = R.if_then(R.condition_item(db.IT_POTION), R.choice_block(
         ["Give her a Potion back", "Not just now"], [give, keep], cancel=1))
     granny = S.say("Granny Wendle", [
@@ -439,13 +440,14 @@ def gladhollow_events():
         "Every hero who comes through has the potions",
         "out of them."])
     granny += S.say("Granny Wendle", [
-        "I don't mind. They're very good potions.",
+        "I don't mind.",
+        "They're very good potions.",
         "I'd like them back, though."])
     granny += S.narrate(["You ask what they are for."])
     granny += S.say("Granny Wendle", ["My knees."])
     granny += [S.trope(), R.self_switch("A", True)] + returns
     again = S.say("Granny Wendle", ["Hello again, dear."]) + returns
-    gimg = R.image("People1", 7, direction=2)
+    gimg = R.image(*S.FACES["Granny Wendle"], direction=2)
     evs.append(R.event(10, "Granny Wendle", *GRANNY_AT, [
         R.page(granny, img=gimg, trigger=0, priority=1),
         R.page(again, img=gimg, trigger=0, priority=1,
