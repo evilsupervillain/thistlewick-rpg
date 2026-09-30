@@ -848,14 +848,57 @@ is worth carrying forward:
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
-its section 0 and the Done paragraphs, then build the **next step** - A9,
-NIX-4 The Longest Loan - reading only Nix's section of `COMPANIONS.md`.
-Nothing is pushed in this effort (0.1). Per step: `build_game.py`, a `git
-diff --stat data/` that touches only what the step meant to, `validate.py`,
-screenshots of anything drawn, and the step's own scenario - run it under
-`stdbuf -oL`, and in the background if it is long, or it prints nothing until
-it ends. No full suite until G1. **Any old room a step works in that looks
-wrong is fixed in that step** (0.1, "Fix the room you are standing in"): crop
-its props before judging them, and run the scenarios that walk it. Write the
-step's Done paragraph and move this prompt on by one.
+`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **finish the
+rest of Part A**: A9 NIX-4, A10 NIX-5, A11 WRE-3, A12 PIP-5, A13 HOB-2 and
+A14 ROL-3, in that order. This overrides 0.1's "one step per session" for
+Part A only (Mike, 30 Sep 2026); every other rule in 0.1 and 0.2 still holds.
+
+Read section 0, the Part A entries and the Done paragraphs (A1-A8) once at
+the start. Before each step, read only that companion's section of
+`COMPANIONS.md` (Nix, Wren, Piper, Hob, Roland), and only when you reach it.
+
+Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
+that touches only what the step meant to - and compare old pages byte for
+byte: every existing page identical, only appended pages and new events.
+`validate.py`, and `apidigest.py . --write` if a signature moved.
+Screenshots of anything drawn, looked at. The step's own scenario,
+`build/scenarios/q_<quest>.json`, run under `stdbuf -oL`, in the background
+if long. **Fix the room you are standing in** (0.1): crop its props before
+judging, screenshot before and after, and rerun every scenario that walks
+it. Then the step's Done paragraph (ids taken, tropes and blushes, running
+tally, candidate ending line, rooms fixed), **commit that step on its own,
+and move this prompt on by one**, so an early end is always resumable.
+Nothing is pushed. No full suite until G1.
+
+Things learned in A6-A8 that will bite again:
+
+* **One module per companion holds several quests**, and a private helper
+  named like an earlier quest's (`_waiting`) silently replaces it. Prefix
+  helpers per quest, and treat a data diff on a map the step never meant to
+  touch as a bug.
+* **New faces come from the generator**: `tools/chargen` settings into
+  `build/characters/`, a slot in `build/art.py`'s `SHEETS`, `python3
+  build/art.py`, and a `story.FACES` entry. `Gen_People11` 5-7 are free;
+  open `Gen_People12` after. `../CHARGEN.md` "Making a character" has the
+  loop. A10 needs one face, A11 three, A14 about six (stock faces are fine
+  for one-liners).
+* **A tile from a sheet the map's tileset lacks draws as the wrong tile.**
+  `mapkit.borrowed(sheet, name)` gives `Inside_C` on tilesets 2, 6 and 7
+  and `Inside_B` on 6.
+* **A quest state that has to end** is a switch turned off again (as
+  `SW_HOB3_GONE` is): page conditions have no NOT.
+* **A page appended below a ladder requires the ladder's terminal switch**
+  (0.2). Read each owner's pages first; NIX-4 is eleven owners.
+* **Waiting on a background run**: `pgrep -f` inside a shell loop matches
+  its own command line, and `pkill -f` kills the shell running it. Wait on
+  the task notification or a log line instead.
+* **Decisions the queue leaves to the step - make the call, say why in the
+  Done paragraph, and keep going:** A11 decides Wren's gear (the badge, or
+  record that she has none); A12 first checks whether Map 3 has room for the
+  archive, and uses the black of Map 3 if not; A13 argues in writing for a
+  churchyard corner on Map 1 or uses behind the chapel (Map 5), and gives
+  Hob his weapon (0.5).
+
+When A14 is done, leave this prompt at B1 HOB-1 The Assize of Hammers - one
+step per session again - and update the memory note for the companion
+quests.
