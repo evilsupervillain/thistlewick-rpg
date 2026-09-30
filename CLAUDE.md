@@ -99,41 +99,46 @@ is ever answered. He is never told the airship flew.
 reading `SW_ROLAND_GONE`, `SW_SOUTH`, `VAR_BOUNTIES` (two tiers, the lower
 nested in the higher's else), `SW_HISTORY_DONE`, `SW_LAMP_LIT`,
 `SW_BENCH_DONE`, `SW_TWO_HUNDRED_FLEW`, `SW_84_REBUILT`, `SW_ITEM_ONE_USED`,
-`SW_HOB_BRYD`, `VAR_TROPES` (40 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`,
+`SW_HOB_BRYD`, `VAR_TROPES` (60 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`,
 `SW_FF_GRADUATED` and `SW_MET_QUY`. Every one is additive: a new line here is a new block, and
 nothing that is already in the tally comes out or gets re-voiced.
 
-**Two counter thresholds are cut against totals that keep moving**, so anything
-that adds a `story.trope()` or a `story.blush()` site has to come back here.
-`VAR_TROPES` is 40 / 20 against about eighty reachable (Firstfield added
-eight; Hithermost adds four more - the sign, the villager, Sir Dunstable and
-Quillon - Fairholme three, the King, Rosamund and Mrs Emberthwaite, and Olde
-Evermore two, the ARRIVALS sign and Mirabel's biscuit, and Gladhollow four -
-Toby, Granny Wendle's barrels, the key under the pot and the bookcase, and
-the Former Premises one, Hollowell's tour - the floating castle of the
-ancients - and the seven with no map five: the Sky Anvil, the hedge mages'
-secret order, the Wrong Dragon, Mother Selvidge's reading and the bell under
-Ashcombe Lake, and Tobias Frayne's cottage one, Tobias and his eleven, and Frostwick three,
-the town sign, Pargeter and Perce, and Coldbarrow one, Mordaunt's nine files,
-and the Sable Hart one, five doomed rivals being fair about seating, and
-Sump one, the cursed village and its ancient affliction, and Ashcombe one,
-the plaque - the hero's home village, destroyed, and fine - and Weeping Bottom
-one, the founder's stone - the healing sanctuary, founded for the air - and
-Fenmarch Hall one, the portraits whose eyes follow you, none of which has ever
-looked at anybody, and the Collegium Arcanum one, the ancient school of magic
-whose motto is REFERATUR, and Great Dunnage one, the watchman at the gate who
-has never heard of you);
-`VAR_BLUSHES` is 20
-against **thirty-four** reachable - twenty-five measured off the data in August
-2026, plus Dorothy Markup's in Penultima, which is the first from outside the
-north, Walt's tune and the register in Restwell, and the Book in Hithermost's
-chapel, and Rosamund's card, and Mirabel's secret, and Frostwick's two, Ida
-on the ribbon and Clem at the committee's table, and Cotter Cotterill in
-Great Dunnage, who is always very glad to get home - **thirty-four**. The tier
-is meant to be four fifths of the true total and is now **59%**; `NORTH.md` 2.3 has the count,
-why counting it by grep over-counts and is wrong, and why it is being left
-alone. `SITES.md` section 4 item 5 is where it finally gets re-cut, and it is
-the one thing on that list that cannot be done incrementally.
+**Two counter thresholds are cut against totals, and were last re-cut in
+September 2026** (`SITES.md` section 4), once every site on that list was built
+and the totals had stopped moving. Anything that adds a `story.trope()` or a
+`story.blush()` site later has to come back here; the reasoning is in the
+comments above both branches in `journey.finale_event`.
+
+`VAR_TROPES` is **60 / 20** against about ninety-two reachable - 122 code-122
+writes to variable 2 across 107 events, less repeat pages and branches that
+cannot both run. **The two tiers are different kinds of number, so only one
+moved.** Twenty is the player who goes straight north, a fact about the
+critical path, and no site is on it. Forty was two thirds of about sixty, and
+at forty of ninety-two "very nearly all of them" went to a player who had not
+opened one new door; sixty is two thirds again. (What the world map's sites
+added: Firstfield eight; Hithermost four - the sign, the villager, Sir
+Dunstable and Quillon - Fairholme three, the King, Rosamund and Mrs
+Emberthwaite, Olde Evermore two, the ARRIVALS sign and Mirabel's biscuit,
+Gladhollow four - Toby, Granny Wendle's barrels, the key under the pot and the
+bookcase - the Former Premises one, Hollowell's tour, the seven with no map
+five - the Sky Anvil, the hedge mages' secret order, the Wrong Dragon, Mother
+Selvidge's reading and the bell under Ashcombe Lake - Tobias Frayne one, his
+eleven, Frostwick three, the town sign, Pargeter and Perce, Coldbarrow one,
+Mordaunt's nine files, the Sable Hart one, five doomed rivals being fair about
+seating, Sump one, the cursed village, Ashcombe one, the plaque, Weeping Bottom
+one, the founder's stone, Fenmarch Hall one, the portraits whose eyes follow
+you, the Collegium Arcanum one, REFERATUR, and Great Dunnage one, the watchman
+who has never heard of you.)
+
+`VAR_BLUSHES` is **27**, four fifths of **thirty-four** reachable, and the 34 is
+proven by scenarios, each of which walks a moment and then asks again:
+`blushes` 11, `clanging_cast` 8, `two_hundred` 5 and `hob_and_bryd`'s spar
+afternoon 1, which are the twenty-five of August 2026; then Dorothy Markup in
+Penultima, Walt's tune and the register in Restwell, the Book in Hithermost's
+chapel, Rosamund's card, Mirabel's secret, Frostwick's two - Ida on the ribbon
+and Clem at the committee's table - and Cotter Cotterill in Great Dunnage, who
+is always very glad to get home. `NORTH.md` 2.3 says why a grep of `data/`
+over-counts it.
 
 **ITEM 1 is a page, not a branch.** The crate is a whole scene rather than a
 question, so page 1 of the event is `c[:split] + item_one_scene() + c[split:]`

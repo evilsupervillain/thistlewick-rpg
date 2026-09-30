@@ -1224,8 +1224,21 @@ def finale_event(event_id, x, y):
     # The thresholds are set against the number of `story.trope()` sites in
     # the build, which the south roughly doubled. A completionist can reach
     # about sixty; a player who goes straight north will see twenty.
+    #
+    # **Re-cut in September 2026 (SITES.md section 4), and only the top tier
+    # moved.** The world map's sites took the reachable total to about
+    # ninety-two - 122 code-122 writes to variable 2 across 107 events, less
+    # the repeat pages and the branches that cannot both run - and the two
+    # tiers are two different kinds of number. Twenty is the straight-north
+    # player, a fact about the critical path, and not one site is on the
+    # critical path, so it stays. Forty was two thirds of about sixty, a
+    # fraction of the whole, and at forty of ninety-two the "very nearly all
+    # of them" line went to a player who never opened a single new door.
+    # **Sixty** puts it back at two thirds. Four fifths, the blush tier's
+    # rule, would be seventy-four, which is too fine a cut to take off a
+    # total that is only known as "about".
     c += R.if_then(
-        R.condition_variable(db.VAR_TROPES, 40, 1),
+        R.condition_variable(db.VAR_TROPES, 60, 1),
         S.narrate(["Very nearly all of them. He read the notice",
                    "board, he searched the barrels, he opened",
                    "things that were obviously not chests, and",
@@ -1269,8 +1282,17 @@ def finale_event(event_id, x, y):
     # since grown by Ott's three flying-chain beats, Bessie and Gudgeon. Keep
     # it at four fifths of whatever the total is, or the line congratulates a
     # player who missed nine of them.
+    #
+    # **Thirty-four, and the tier is twenty-seven** - re-cut in September 2026
+    # once every site on SITES.md's list was built and the total had stopped
+    # moving. Counted off the scenarios that walk each moment and then ask a
+    # second time, not off `data/`: `blushes` 11, `clanging_cast` 8,
+    # `two_hundred` 5, and `hob_and_bryd` the spar afternoon, which is the
+    # twenty-five above; then the sites' nine - Penultima 1, Restwell 2,
+    # Hithermost 1, Fairholme 1, Olde Evermore 1, Frostwick 2, Great Dunnage 1.
+    # Four fifths of thirty-four is 27.2.
     c += R.if_then(
-        R.condition_variable(db.VAR_BLUSHES, 20, 1),
+        R.condition_variable(db.VAR_BLUSHES, 27, 1),
         S.narrate([
             "Very nearly all of them, which means he was",
             "in the room for very nearly all of them,",

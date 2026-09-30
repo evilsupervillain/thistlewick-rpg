@@ -268,6 +268,14 @@ of 25 congratulates a player who missed nine. Anything appended to this counter
 later has to move it again; that instruction is in the comment above the branch
 in `journey.py`, where whoever adds the twenty-sixth will actually be standing.
 
+**Re-cut to 27 of thirty-four, September 2026** (`SITES.md` section 4), once
+every site behind the world map's doors was built and the total stopped
+moving. The thirty-four was checked against the scenarios rather than by grep:
+`blushes` 11, `clanging_cast` 8, `two_hundred` 5 and `hob_and_bryd`'s spar
+afternoon 1 are the twenty-five above, and nine site scenarios hold one or two
+each (Penultima, Restwell 2, Hithermost, Fairholme, Olde Evermore, Frostwick 2,
+Great Dunnage). Four fifths of it is 27.2.
+
 ---
 
 ## 3. Part one: the retrofit

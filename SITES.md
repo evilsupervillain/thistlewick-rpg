@@ -1518,3 +1518,57 @@ Only then, and in this order:
    which step 9's last bullet has already costed. Either way, do it before the
    push. An inert door on a published map is a promise that nothing keeps.
 7. Then, and only then, push `master` to **`live-rpg`**.
+
+**Done, 29 September 2026, up to the push.** Items 1-6 are done and item 7 is
+Mike's to confirm. What is worth carrying forward:
+
+* **The build is byte-stable and clean**: `build_game.py` rewrote nothing
+  before the threshold change, `validate.py` reports no problems over 65 maps,
+  and `coords.py` has only the usual air-only notes.
+* **`propsheet.py` over Maps 29-65 is 332 distinct tiles, and all of them were
+  looked at.** One was worth a second look: `IN_SHELF_JARS`, which is behind
+  the Eight Hours' bar (Map 32, (5,3)-(5,4)), resolves to `Sundries Shelf A` -
+  the teddy-bear shelf `IN_COUNTER` was corrected away from. Cropped at 4x it
+  is jars, sacks and two round brown faces; at 48 pixels it reads as jars and
+  sacks, which is what `restwell.py` says is there, and no line names it. Left.
+* **The suite: 58 of 58, in 486 minutes** - nearly three times the 170 before
+  the sites, and the first whole run on tileset 8. `dunnage` alone is 39
+  minutes. Budget eight hours, not four.
+* **`VAR_BLUSHES` is re-cut 20 -> 27**, four fifths of thirty-four, and the 34
+  is proven by scenarios rather than grep: `blushes` 11, `clanging_cast` 8,
+  `two_hundred` 5 and `hob_and_bryd`'s spar afternoon 1 (the August 25), then
+  the sites' 9. **`VAR_TROPES` is re-cut 40 / 20 -> 60 / 20**: twenty is the
+  straight-north player, a fact about the critical path that no site touches;
+  forty was two thirds of about sixty, and sixty is two thirds of about
+  ninety-two (122 code-122 writes over 107 events, less repeats). Four fifths
+  would be 74, too fine a cut for an "about". The data diff is exactly those
+  two numbers on Grimspite's four tally pages; `finale_ending` asserts neither
+  line and passes alone. Reasons in `journey.finale_event`'s comments,
+  `CLAUDE.md`'s "The ending" and `NORTH.md` 2.3.
+* **Village 1: deferred again, by Mike.** He expects to do something with it
+  later, after the companion quests, and it is neither named nor removed. Its
+  two doors, events 68 and 69 at (60,61)-(61,61), stay inert; item 6's warning
+  about publishing them was put to him at the push.
+* **The walkable wall ring: diagnosed, and going in after the push**, by
+  Mike's decision. The cause is not the tile but its *shape*: `interior()`
+  writes the ring as `A(98)`, which is the A4 wall-top autotile in shape 0,
+  and nothing ever re-shapes layer 0 - the room builders autotile layer 1 for
+  rugs and never layer 0, most likely because doing all of layer 0 would draw
+  a border round every square of a two-tone floor. Shape 0 is the middle of a
+  solid block of wall and is `0xe00`; the edge shapes carry the direction bit
+  for their edge, which is what seals a stock room. `autotile(0,
+  kinds={98})` on Map 4 takes the ring from **47 of 49 cells walkable to 0**
+  with the floor unchanged at 88. **Thirty maps** have unshaped wall tops -
+  2, 4, 6, 7, 15, 16, 17, 30, 32, 34-36, 39, 41-43, 45-49, 53, 55, 57, 59,
+  60, 62-65 - six of them published; 14 and 22 are built another way and are
+  not on the list. The plan: re-shape the A4 wall-top kinds on layer 0 once,
+  in `mapkit`, where a map is written; a `validate.py` check for a wall-top
+  tile left in shape 0 beside something that is not wall top; screenshots of
+  all thirty, since the rings gain an outline; step 18's scenario flipped to
+  assert the ring is *not* walkable; a `NORTH.md` 8.1 entry for the six
+  published maps; and the full suite again.
+* **The companion quests are not built** - none of `COMPANIONS.md`'s
+  forty-nine, nor the nine `SW_<NAME>_STORY` switches, `VAR_COMPANION_STORIES`
+  or Spare. The sites built their places and a reaction shot or a refusal
+  each; they are the next effort, and both counters will have to be re-cut
+  again at the end of it.
