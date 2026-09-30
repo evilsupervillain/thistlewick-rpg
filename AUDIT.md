@@ -898,6 +898,22 @@ left faceless unless he says otherwise:
 | `Elf`, the raker at Olde Evermore | F | a nameless extra with three windows; its sprite `People2` 1 hides the ears (item 3) | **answered: draw it** - `Gen_People11`, as an elf, face and sprite together |
 | `Dog`, Thistlewick | P | says "Woof."; `Nature` 0 | his to supply, and a published face, so it needs a `NORTH.md` 8.1 argument this would not win: a faceless dog contradicts nothing |
 
+#### Provisional, for the companion quests - added 30 September 2026
+
+`QUESTS.md` section 1 audited the faces the companion quests need before any
+were built. Every human is the generator's; what is not is below. **Rows
+become real only when a step gives the subject lines or a fight**, and that
+step moves the row into the table above. Spare's two are not provisional.
+
+| who | P/F | goes | must show | must not |
+| --- | --- | --- | --- | --- |
+| **Spare** (F1) | F | a side-view battler, `img/sv_actors/`, 576x384, 9x6 cells of 64x64 - `SPARE.md` 6. **Blocks F1**: `validate.py` fails a side-view actor without one | the lad on `SF_People1` 0: blue-black hair, brown eyes, blue jacket over a pale blue shirt | an adult |
+| **Mrs Cotterill** (F1) | F | an enemy image, `img/sv_enemies/` and `img/enemies/`, facing left - `SPARE.md` 6 | `SF_People1` 5: long dark green-black side braid, mustard cardigan, expecting in the spring, unmovable | anger |
+| **The Duck** (C3, C4) | F | the row above, if it speaks as a reviewer or a Fellow | | |
+| **Duchess** (B2) | F | the row above, if the reunion gives her a line | | |
+| **The Wrong Dragon, lit** (E8) | F | the row above says so already | | |
+| **Enemy art** (B3, C4, E7, E18) | F | hecklers, eleven type specimens, the vigil, Roland's thing - stock monster art first; a generated person gets `art.py`'s stand-in and a row here | | |
+
 ### 5. The Collegium's roofs, and other visual contradictions
 
 The world-map stamp and the text say **purple spires**; every roof on Map 58

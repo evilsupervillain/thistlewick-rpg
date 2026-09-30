@@ -2,6 +2,10 @@
 
 *A proposal, not a specification. Nothing below is built.*
 
+**`QUESTS.md` is the work list for this document** - the order, the rules,
+the ids, and what each quest inherits from the places `SITES.md` built. Where
+the two disagree, `QUESTS.md` 0.3 says which of this is stale.
+
 `EXPANSION.md` was the intent for the south and `NORTH.md` for the north. This
 is the intent for the **fourth quarter**: the nine people who can walk beside
 Bram, who they are, and the quests that exist only because one of them is

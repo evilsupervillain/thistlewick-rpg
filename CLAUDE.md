@@ -70,6 +70,13 @@ fix - **only what is on the `live-rpg` branch is protected**; everything newer
 is free to change, and what is published may only be repaired where the game
 contradicts itself.
 
+`QUESTS.md` is the queue for **the companion quests** - `COMPANIONS.md`'s
+forty-nine, one step per session, in the order and with the rules it gives.
+It decides where their code goes (one module per companion, `build/q_<name>.py`,
+hooked into place modules the way `field.ott_field_pages()` is) and holds
+this effort's id blocks, which are also below. Read it and **one** character's
+section of `COMPANIONS.md`, not the whole design.
+
 `TIMELINE.md` is the world's calendar and **the reference every dated or aged
 line is checked against** - write a new date into it in the same commit as the
 line. Two reckonings: the calendar is the elves' Third Age (the present is
@@ -379,12 +386,21 @@ Append instead.
   `MAP_FORGE` or `MAP_INN`**, which are Upper Clanging's and Thistlewick's.
   Its `journey.py` alias is `DUN`. Nix's refusal is on the warehouse's own
   door, not the town's |
+| Maps 66-79 | **companion quests** (`QUESTS.md` 0.6): new maps in no existing
+  place - ROL-2's dungeon, SPA-2's tubes, COR-2's drowned street. A new room in
+  a built place is drawn by that place's module, on its own map where it can be |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
   146-155): **Armors 30-32** A Stick, A Straighter Stick, Certificate of
   Completion; **Skills 160-161** Telegraph, Enormous Swing; **Enemy 40**
   Norbert; **Troop 40** Norbert (Tutorial) |
+| **Companion quests** | reserved by `QUESTS.md` 0.6, taken in queue order and
+  written down here as they are: **Items 40-79**, **Weapons 40-54**, **Armors
+  40-59**, **Enemies 41-69**, **Troops 41-59**, **Skills 170-189** (their
+  enemies'), **States 40-44**, **Common Events 3-10**. A skill a quest teaches
+  goes in the free end of that companion's own block. Spare keeps `SPARE.md`'s
+  Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34 and Skills 146-155 |
 
 Icon indices in `db.py` and in the `\I[n]` codes in dialogue were re-checked
 against `img/system/IconSet.png` cell by cell when the south was added; several
@@ -455,6 +471,17 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
   book. Set on Map 42 and read by a page on Grimspite on Map 12, which is why
   it is a global - a page condition cannot name another event's self switch.
   The first new switch of the world-map sites |
+| 89-92 | **Spare**, reserved (`QUESTS.md` 0.6): 89 `SW_SPARE_FORM`, 90 his recruit
+  switch (`SPARE.md`'s `SW_SPARE_JOINED`), 91 `SW_SPARE_REFUSED`, 92 his
+  `SW_KNOWN`. `SPARE.md` says 72-74, which are `SW_KNOWN`'s |
+| 93-100 | unallocated |
+| 101-109 | `SW_<NAME>_STORY`: Merribell, Hob, Zephyrine, Nix, Aldric, Piper,
+  Corvin, Wren, Roland have had a companion quest of their own finished - same
+  last digit as 11-19 and 72-80. Set only by `story.companion_story`, which also
+  counts variable 15. The ending reads one block per companion off these
+  (`COMPANIONS.md` 1.4), not one per quest. 110 is Spare's |
+| 111-250 | companion quests, taken in `QUESTS.md` order; each step's Done
+  paragraph names its own |
 
 | id | variable |
 | --- | --- |
@@ -494,6 +521,10 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
      is a list of fifteen and a page condition can name one self switch.
      Gladhollow's hint is this mod three. The first new global of the
      world-map sites |
+| 15 | **companions who got a story of their own** - how many of the
+     `SW_<NAME>_STORY` switches are on. Bumped only by `story.companion_story`,
+     the first time each one goes on; the ending's closing line reads it |
+| 16-30 | companion quests, reserved, taken in `QUESTS.md` order |
 
 ## Verifying
 
