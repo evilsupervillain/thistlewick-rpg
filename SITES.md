@@ -1520,10 +1520,12 @@ Only then, and in this order:
 7. Then, and only then, push `master` to **`live-rpg`**.
 
 **Done, 29 September 2026, up to the push.** Items 1-6 are done. **Item 7 is
-held by Mike**: asked with the suite green, he said not yet. `master` is 40
-commits ahead of `live-rpg` and a fast-forward; the push is `git push github
-master:live-rpg`, and this session's shell had no SSH agent, so it has to be
-run where his key is loaded. What is worth carrying forward:
+held by Mike**, and not for one step: **`live-rpg` is pushed only when all the
+in-progress work and its scenarios are complete and he has played through
+everything himself** - the wall-ring fix, the companion quests, the lot.
+`master` is 40 commits ahead of `live-rpg` and a fast-forward; the push is
+`git push github master:live-rpg`, and this session's shell had no SSH agent,
+so it has to be run where his key is loaded. What is worth carrying forward:
 
 * **The build is byte-stable and clean**: `build_game.py` rewrote nothing
   before the threshold change, `validate.py` reports no problems over 65 maps,
@@ -1552,8 +1554,8 @@ run where his key is loaded. What is worth carrying forward:
   later, after the companion quests, and it is neither named nor removed. Its
   two doors, events 68 and 69 at (60,61)-(61,61), stay inert; item 6's warning
   about publishing them was put to him at the push.
-* **The walkable wall ring: diagnosed, and going in after the push**, by
-  Mike's decision. The cause is not the tile but its *shape*: `interior()`
+* **The walkable wall ring: diagnosed, and the next thing to fix** - before
+  any push, which waits for everything (item 7 above). The cause is not the tile but its *shape*: `interior()`
   writes the ring as `A(98)`, which is the A4 wall-top autotile in shape 0,
   and nothing ever re-shapes layer 0 - the room builders autotile layer 1 for
   rugs and never layer 0, most likely because doing all of layer 0 would draw
