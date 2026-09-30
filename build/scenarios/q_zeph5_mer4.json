@@ -1,0 +1,438 @@
+{
+ "query": "?map=8&x=11&y=89&frames=90",
+ "comment": "QUESTS.md A7. ZEPH-5 The Lay-By: the site's own first scene comes first, with or without Zephyrine; once looked in, with her, page twenty-three - Kindle without the page - learned, one trope, SW_ZEPH5_DONE and her story once; again, a member; without her, the lay-by as it was. MER-4 The Man Who Cannot Stay Down: Tobias without Merribell as he was; with her, no twelfth time, eleven hundred crowns out of the jar, a trope and a blush; the cure is walking out of the door, which sets SW_MER4_DONE and her story once; back in without her, Tobias with the parish to tea, the rung mended, and the twelfth line still empty; out again, nothing counts twice.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._gold = $gameParty.gold(); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    8,
+    11,
+    89
+   ]
+  },
+  {
+   "comment": "ZEPH-5. Before anybody has looked in, Zephyrine or not, the Lay-By opens with its own first scene.",
+   "check": "$gameMap.events().find(e => e.event().name === 'The Lay-By').findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "eval": "$gameParty.addActor(4)"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.events().find(e => e.event().name === 'The Lay-By').findProperPageIndex()",
+   "expect": 0,
+   "label": "with Zephyrine too: the association's first scene comes first"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([8, $gameMap.events().find(e => e.event().name === 'The Lay-By').eventId(), 'A'], true)"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.events().find(e => e.event().name === 'The Lay-By').findProperPageIndex()",
+   "expect": 2,
+   "label": "looked in before, with Zephyrine: the quest"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.events().find(e => e.event().name === 'The Lay-By').findProperPageIndex()",
+   "expect": 1,
+   "label": "and without her, the lay-by as it was"
+  },
+  {
+   "eval": "$gameParty.addActor(4); window._mark()"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    11,
+    88
+   ],
+   "label": "standing on the Lay-By"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "choose": 0
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "shot": "q_zeph5_layby.png"
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Page twenty-three. Kindle.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That should not have worked.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Page was missing.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameActors.actor(4).isLearnedSkill(46), $gameSwitches.value(122), $gameSwitches.value(103), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    true,
+    true,
+    1
+   ],
+   "label": "the skill, the switch, her story, counted once"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
+   "expect": [
+    1,
+    0
+   ],
+   "label": "one trope, no blush"
+  },
+  {
+   "check": "$dataSkills[46].name",
+   "expect": "Page Twenty-Three"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "comment": "Step off and on again: a member now.",
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 240
+  },
+  {
+   "choose": 0
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"holding up?\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    0,
+    0
+   ],
+   "label": "nothing counts twice"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.events().find(e => e.event().name === 'The Lay-By').findProperPageIndex()",
+   "expect": 1,
+   "label": "without her, the lay-by is still what it was"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "MER-4. Inside Tobias's cottage, below him; he has introduced himself.",
+   "goto": [
+    43,
+    11,
+    8
+   ]
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([43, 2, 'A'], true); window._mark()"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "without Merribell, Tobias as he was"
+  },
+  {
+   "eval": "$gameParty.addActor(2)"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "with her, the refusal"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    11,
+    8,
+    8
+   ]
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2
+  },
+  {
+   "advance": 8
+  },
+  {
+   "shot": "q_mer4_tobias.png"
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That is the treatment.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"You're going that way.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 1100,
+   "label": "paid out of the jar"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
+   "expect": [
+    1,
+    1
+   ],
+   "label": "the vending machine trope and the coccyx"
+  },
+  {
+   "check": "[$gameSwitches.value(123), $gameSwitches.value(124), $gameSwitches.value(101)]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "told, not yet cured - the cure is leaving"
+  },
+  {
+   "check": "[$gameMap.event(5).findProperPageIndex(), $gameMap.event(4).findProperPageIndex(), $gameMap.event(3).findProperPageIndex()]",
+   "expect": [
+    1,
+    0,
+    0
+   ],
+   "label": "the jar is empty; the book and the ladder not yet"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I'll not watch.\"))",
+   "expect": true
+  },
+  {
+   "comment": "The cure: out through the door.",
+   "key": "ArrowLeft",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"nobody goes up the ladder\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Don't look back.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "out on the coast road"
+  },
+  {
+   "check": "[$gameSwitches.value(124), $gameSwitches.value(101), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    true,
+    1
+   ],
+   "label": "cured; her story, counted once"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0
+  },
+  {
+   "comment": "Back in, without her: the cottage afterwards, for everybody.",
+   "eval": "$gameParty.removeActor(2)"
+  },
+  {
+   "goto": [
+    43,
+    11,
+    8
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "check": "[$gameMap.event(2).findProperPageIndex(), $gameMap.event(4).findProperPageIndex(), $gameMap.event(3).findProperPageIndex(), $gameMap.event(5).findProperPageIndex()]",
+   "expect": [
+    4,
+    2,
+    1,
+    1
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nobody fell off anything.\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The twelfth line is still empty.\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"and it holds\"))",
+   "expect": true
+  },
+  {
+   "comment": "And out again: nothing counts twice.",
+   "key": "ArrowLeft",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 180
+  },
+  {
+   "check": "[$gameMap.mapId(), $gameVariables.value(15) - window._stories, $gameParty.gold() - window._gold]",
+   "expect": [
+    8,
+    0,
+    0
+   ]
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

@@ -720,15 +720,70 @@ carrying forward:
   `item_one`, `long_field`, `two_hundred` and `reachable_clanging`.
 * `TIMELINE.md`: nothing dated.
 
+**A7, ZEPH-5 The Lay-By and MER-4 The Man Who Cannot Stay Down - done.**
+`build/q_zephyrine.py` (new), hooked from `nomap.py` in one wrapper, and a
+MER-4 section at the bottom of `q_merribell.py`, hooked from `frayne.py` in
+five lines; one scenario for both, `build/scenarios/q_zeph5_mer4.json`. What
+is worth carrying forward:
+
+* **ZEPH-5 hangs off the Lay-By's world-map event** (Map 8, (11,88)), pages 3
+  and 4. Its two pages are a stop and a short version on self switch A, so
+  page 3 needs **A and Zephyrine** - she gets the association's first scene
+  first, as anybody does - and page 4 adds `SW_ZEPH5_DONE`. Both ask "Look
+  in / Press on" first, the world map's idiom.
+* **The skill is skill 46, `SK_PAGE_23`, "Page Twenty-Three"**: Kindle as
+  Dunnock worked it out with the page missing - you don't aim it, you mean
+  it at everything. Fire, `a.mat * 3 - b.mdf * 2`, three random enemies,
+  5 MP (Kindle is one enemy, `* 4`, 6 MP). Taught with a gorse bush, a
+  milestone and the litter bin, all at once, nobody near any of them.
+  `rmmzdata.learn_skill(actor, skill)` is new (Change Skill, code 318).
+* **MER-4 is Tobias's pages 3-5** (Map 43, event 2) and one page each on the
+  door, ladder, book and jar, all in their own page's dress. Page 3 (his A +
+  Merribell) is the refusal: nothing wrong with him, which is the trouble;
+  no twelfth time; the parish to tea, through the door, on purpose; and the
+  jar, which says FOR WHOEVER IS GOING THAT WAY, paid out: **1,100 crowns**,
+  a hundred for each of the eleven (`q_merribell.JAR_PAYOUT`).
+  `SW_MER4_TOLD`.
+* **The cure is leaving.** The exit tile's page 2 (on `SW_MER4_TOLD`) sets
+  `SW_MER4_DONE` and her story the first time the party walks out, then
+  transfers exactly as page 1 does. A Merribell dismissed in between cannot
+  happen - the roster desk is not in the cottage.
+* **Afterwards is for everybody**: Tobias has had the parish to tea, twice,
+  and nobody fell off anything; he mended the rung himself, badly, and it
+  holds; the jar is empty; and **the twelfth line is left empty**, the pen
+  capped and put in the drawer.
+* **Ids taken:** switches **122** `SW_ZEPH5_DONE`, **123** `SW_MER4_TOLD`,
+  **124** `SW_MER4_DONE`; skill **46**. Next free: switch 125, variable 17,
+  item 45, weapon 41, common event 4, Zephyrine's skills 47-49.
+* **Tropes: two** - ZEPH-5's is the eccentric master's secret technique (the
+  site already counted the secret order itself), MER-4's the healer as a
+  vending machine. **Blushes: one**, the coccyx, set twice by a paladin,
+  beautifully; Bram looks at the ceiling, which has a hatch in it. Running
+  tally for the effort: **tropes +5 fixed and 2-9 from PIP-2; blushes +6
+  fixed and 0-1 from PIP-2.**
+* `SW_STORY[ZEPH]` and `SW_STORY[MERRI]` - Merribell's was already on from
+  MER-2, so VAR_COMPANION_STORIES counts only Zephyrine's here in a game that
+  did MER-2 first. The scenario runs MER-4 on a fresh file, so it counts.
+* **Candidate ending lines** (G1): read `SW_ZEPH5_DONE` - "The association
+  of hedge mages has four members and no name. Item one is carried
+  forward."; read `SW_MER4_DONE` - "Tobias Frayne has not died since. He has
+  the parish to tea."
+* **The rooms (0.1):** Tobias's cottage was cropped and screenshotted and is
+  what it says - the ladder, the jar (`Pot B`), the book, the stove - so
+  nothing was changed. The Lay-By is a world-map cell with its igloo stamp
+  on it (`B1,1` on layer 3), deliberate by `WORLDMAP.md` 4; the party
+  stands on it and hides it in the scene's shot, which is not a fault.
+  `frayne` and `nomap`, which walk these events, were rerun and pass.
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
-its section 0 and the Done paragraphs, then build the **next step** - A7,
-ZEPH-5 The Lay-By and MER-4 The Man Who Cannot Stay Down - reading only
-Zephyrine's and Merribell's sections of `COMPANIONS.md`.
+its section 0 and the Done paragraphs, then build the **next step** - A8,
+HOB-3 The Anvil - reading only Hob's section of `COMPANIONS.md`.
 Nothing is pushed in this effort (0.1). Per step: `build_game.py`, a `git
 diff --stat data/` that touches only what the step meant to, `validate.py`,
 screenshots of anything drawn, and the step's own scenario - run it under

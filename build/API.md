@@ -77,6 +77,7 @@ gain_weapon(weapon_id, amount=1, indent=0)
 gain_armor(armor_id, amount=1, indent=0)
 gain_gold(amount, indent=0)
 lose_gold(amount, indent=0)                          Change Gold has a separate 'decrease' operation - a negative amount on
+learn_skill(actor_id, skill_id, learn=True, indent=0) Change Skill for one actor, by id. `learn=False` forgets it.
 self_switch(ch, on=True, indent=0)
 control_switch(switch_id, on=True, indent=0)
 battle(troop_id, can_escape=True, can_lose=False, indent=0)
@@ -641,7 +642,7 @@ WORLD_SIGN_COAST             (63, 80)
 
 The whole database of The Obligatory Quest.
 
-393 constants.
+397 constants.
 
 ```
 BRAM                         1
@@ -993,6 +994,10 @@ WP_REHAFTED                  40
 SW_HOB5_FORGED               120
 SW_HOB5_DONE                 121
 IT_TUBE_PLATE                44
+SW_ZEPH5_DONE                122
+SK_PAGE_23                   46
+SW_MER4_TOLD                 123
+SW_MER4_DONE                 124
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

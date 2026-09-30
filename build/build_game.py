@@ -333,7 +333,10 @@ def build_system():
             (db.SW_ROL4_SEEN, "ROL-4: Hob has seen the maker's mark"),
             (db.SW_ROL4_REFIT, "ROL-4: the sword rehafted for Hob"),
             (db.SW_HOB5_FORGED, "HOB-5: the tube plate is made"),
-            (db.SW_HOB5_DONE, "HOB-5: Ott says it will do")]:
+            (db.SW_HOB5_DONE, "HOB-5: Ott says it will do"),
+            (db.SW_ZEPH5_DONE, "ZEPH-5: page twenty-three"),
+            (db.SW_MER4_TOLD, "MER-4: no twelfth time; the jar paid"),
+            (db.SW_MER4_DONE, "MER-4: left, which is the cure")]:
         switches[sid] = name
 
     variables = [""] * 32

@@ -33,6 +33,7 @@ is not opened.
 import mapkit as K
 import rmmzdata as R
 
+import q_merribell
 import story as S
 from places import MAP_WORLD, MAP_FRAYNE, FRAYNE_STEP
 
@@ -103,6 +104,7 @@ def cottage_events():
     x1, y1, y2, door_x = ROOM[2], ROOM[3], ROOM[5], ROOM[6]
     evs = [S.exit_tile(1, "Cottage Door", door_x, y2 + 2,
                        MAP_WORLD, *FRAYNE_STEP)]
+    evs[0]["pages"] += q_merribell.cottage_door_pages(evs[0]["pages"][0])
 
     # 2: Tobias. The count is the joke and it is given as a list, the way a
     # man gives the number of times he has been to the seaside.
@@ -151,6 +153,7 @@ def cottage_events():
         R.page(later, img=img, trigger=0, priority=1,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
+    evs[-1]["pages"] += q_merribell.tobias_pages(evs[-1]["pages"][0])  # MER-4
 
     # 3: the ladder. The foot blocks, so nobody climbs the wall; it is read
     # from the square below it. The new rung is the whole of the prop.
@@ -164,6 +167,7 @@ def cottage_events():
     evs.append(R.event(3, "The Ladder", LADDER_X, y1, [R.page(
         ladder, img=R.image(""), trigger=0, priority=1,
         direction_fix=True)]))
+    evs[-1]["pages"] += q_merribell.ladder_pages(evs[-1]["pages"][0])
 
     # 4: the book. `../NORTH.md` 1.3 mechanism four. Seven of the eleven are
     # written out and the other four are summed; they agree with what he
@@ -207,7 +211,9 @@ def cottage_events():
         R.page(book_again, conditions={"selfSwitchValid": True,
                                        "selfSwitchCh": "A"}, **page),
     ]))
+    evs[-1]["pages"] += q_merribell.book_pages(evs[-1]["pages"][0])
     evs.append(R.event(5, "The Jar", *JAR_AT, [R.page(jar, **page)]))
+    evs[-1]["pages"] += q_merribell.jar_pages(evs[-1]["pages"][0])
 
     # 6: the shelf, which is where the eleven went afterwards.
     shelf = S.narrate([

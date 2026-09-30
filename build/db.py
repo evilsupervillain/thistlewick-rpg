@@ -277,6 +277,12 @@ WP_REHAFTED = 40                # Fairweather's Own, as an axe
 SW_HOB5_FORGED = 120            # the tube plate is made, and is being carried
 SW_HOB5_DONE = 121              # Ott has said it will do
 IT_TUBE_PLATE = 44
+# ZEPH-5, the lay-by (QUESTS.md A7, q_zephyrine.py)
+SW_ZEPH5_DONE = 122             # the association has shown her page 23
+SK_PAGE_23 = 46                 # Kindle, as worked out without the page
+# MER-4, the man who cannot stay down (QUESTS.md A7, q_merribell.py)
+SW_MER4_TOLD = 123              # she has refused him, and he has paid
+SW_MER4_DONE = 124              # and they have left, which is the cure
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -881,6 +887,15 @@ def build_skills():
         "a.mat * 4 - b.mdf * 2", scope=2, mp=20, animation=70, icon=66,
         hit_type=2, element=EL_FIRE, stype=STYPE_MAGIC,
         message="%1 conflagrates!"))
+    # ZEPH-5 (q_zephyrine.py). Taught at the Lay-By, off a page Dunnock
+    # never saw: weaker than Kindle, cheaper, and at three enemies at random.
+    upsert(sk, skill(
+        SK_PAGE_23, "Page Twenty-Three",
+        "Kindle, as worked out by a man whose book was missing the page. "
+        "You mean it at everything. It should not work.",
+        "a.mat * 3 - b.mdf * 2", scope=5, mp=5, animation=66, icon=66,
+        hit_type=2, element=EL_FIRE, stype=STYPE_MAGIC,
+        message="%1 means it at everything."))
     upsert(sk, skill(
         SK_METEOR, "Extremely Unstable Meteor",
         "Enormous damage to every enemy, give or take. Mostly give. Sometimes "

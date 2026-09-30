@@ -34,6 +34,8 @@ no `build()` and nothing in `MAP_NAMES`.
 """
 import rmmzdata as R
 
+import q_zephyrine
+
 import story as S
 
 # The names `worldmap.json`'s door events carry - measured, not guessed, and
@@ -189,7 +191,14 @@ def _lay_by():
     again_stop = S.say("Miss Privet", [
         "Item one, carried forward.",
         "Do sit down."])
-    return _site(LAY_BY, stop, first, again, again_stop)
+    site = _site(LAY_BY, stop, first, again, again_stop)
+
+    def build(base_id, cells):          # ZEPH-5's two pages, appended
+        evs = site(base_id, cells)
+        for ev in evs:
+            ev["pages"] += q_zephyrine.lay_by_pages()
+        return evs
+    return build
 
 
 # ============================================================ the Cinder Fen ==

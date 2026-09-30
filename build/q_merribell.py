@@ -31,6 +31,9 @@ now do it. Properly.
 * **Register A carries the middle, and not one line of it is improper.**
   Three blushes, each once, because the form is spent: the chest, the cough,
   and the witness writing down what they were told to.
+
+MER-4, The Man Who Cannot Stay Down (`QUESTS.md` A7) is at the bottom: pages
+for Tobias Frayne's cottage (Map 43), handed out to `frayne.py`.
 """
 import copy
 
@@ -345,3 +348,147 @@ def examination():
     lit = R.if_then(R.condition_switch(db.SW_LAMP_LIT), ready, no_lamp)
     weighed = R.if_then(R.condition_item(db.IT_SCALES), lit, no_scales)
     return R.if_then(R.condition_actor_in_party(db.MERRI), weighed, no_medic)
+
+
+# ======================================================================
+# MER-4, The Man Who Cannot Stay Down (`QUESTS.md` A7)
+# ----------------------------------------------------------------------
+# Tobias Frayne (Map 43, `frayne.py`) has been revived eleven times in thirty
+# years by people going that way anyway. Merribell will not raise him a
+# twelfth time, and cures him of adventurers the only way it can be done,
+# which is by leaving.
+#
+# * **The scene is Tobias's page 3**, on his own self switch A (the end of
+#   his two-page pair) and Merribell. It pays out of the jar - it says FOR
+#   WHOEVER IS GOING THAT WAY, and they are - and sets `SW_MER4_TOLD`.
+# * **The cure is the door.** The cottage's exit tile gains a page on
+#   `SW_MER4_TOLD` that finishes the quest the first time the party walks
+#   out of it, and then transfers exactly as page 1 does.
+# * **Afterwards is for everybody**: Tobias with the parish to tea, the rung
+#   mended badly, the jar empty and **the twelfth line left empty**.
+JAR_PAYOUT = 1100               # a hundred for every one of the eleven
+
+
+def _tobias_told():
+    c = S.say("Tobias", [
+        "Visitors! And a Sister, look.",
+        "I'll just pop up the ladder, shall I,",
+        "while the kettle's on?"])
+    c += S.say("Merribell", ["You will not."])
+    c += S.narrate([
+        "She has his wrist before he has reached the ladder,",
+        "and is counting."])
+    c += S.say("Merribell", ["Pulse, good. Colour, good.",
+                             "Collarbone, set four times."])
+    c += S.say("Merribell", ["Coccyx, set twice, by a paladin.",
+                             "Beautifully, I'll give him that."])
+    c += S.say("Tobias", ["He was ever so gentle about it."])
+    c += S.narrate([
+        "Bram looks at the ceiling. There is a hatch in it,",
+        "and a ladder up to it, and he looks away from that",
+        "too."])
+    c += [S.blush()]
+    c += S.say("Merribell", ["There is nothing wrong with you,",
+                             "Mr Frayne. That's the trouble."])
+    c += S.narrate([
+        "She looks at the book, and at the shelf of tonics",
+        "with other people's names on them, and at the",
+        "twelfth line, ruled and dated and empty."])
+    c += S.say("Merribell", ["I am not going to raise you a",
+                             "twelfth time. Nobody is.",
+                             "That is the treatment."])
+    c += S.say("Tobias", ["But who'll come by?"])
+    c += S.say("Merribell", ["The parish. Ask them to tea.",
+                             "Through the door. On purpose."])
+    c += S.say("Tobias", ["You can do that?"])
+    c += S.say("Merribell", ["People do it every day, and",
+                             "they don't fall off anything first."])
+    c += S.narrate(["He thinks about this for a long time."])
+    c += S.say("Tobias", ["Then you'll have the jar."])
+    c += S.say("Merribell", ["I will not."])
+    c += S.say("Tobias", ["It says for whoever is going",
+                          "that way. You're going that way.",
+                          "You said."])
+    c += S.narrate([
+        "He cuts the string with the bread knife and tips it",
+        "out on the table: a hundred crowns for every one of",
+        "the eleven, put by for thirty years for whoever",
+        "would not take it."])
+    c += [R.gain_gold(JAR_PAYOUT), R.play_me("Item")]
+    c += S.got(["Got \\C[3]%s crowns\\C[0]." % format(JAR_PAYOUT, ",")])
+    c += S.say("Merribell", ["...Thank you, Mr Frayne."])
+    c += S.say("Merribell", ["Now we leave. That's the",
+                             "other half of it."])
+    c += [S.trope(), R.control_switch(db.SW_MER4_TOLD, True)]
+    return c
+
+
+def _tobias_going():
+    c = S.say("Tobias", ["You're going, then."])
+    c += S.say("Tobias", ["Go on. I'll not watch.",
+                          "I'll put the kettle on."])
+    return c
+
+
+def _tobias_cured():
+    c = S.say("Tobias", ["Visitors! Come in - through the",
+                         "door, mind, like people."])
+    c += S.say("Tobias", ["I've had the parish to tea.",
+                          "Twice. Nobody fell off anything."])
+    c += S.say("Tobias", ["Mended the ladder, an' all.",
+                          "Not very well. It holds."])
+    return c
+
+
+def tobias_pages(page0):
+    """Pages 3-5 for Tobias (Map 43, event 2), in his own page's dress."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    return [
+        _like(page0, _tobias_told(),
+              dict(known, actorValid=True, actorId=db.MERRI)),
+        _like(page0, _tobias_going(),
+              dict(known, switch1Valid=True, switch1Id=db.SW_MER4_TOLD)),
+        _like(page0, _tobias_cured(),
+              {"switch1Valid": True, "switch1Id": db.SW_MER4_DONE}),
+    ]
+
+
+def cottage_door_pages(page0):
+    """Page 2 of the cottage's exit tile (Map 43, event 1): the first time
+    out after the talk is the cure. Then the same way out as page 1."""
+    leave = S.narrate([
+        "You leave. Behind you the door shuts, and the",
+        "kettle goes on, and nobody goes up the ladder."])
+    leave += R.if_then(R.condition_actor_in_party(db.MERRI), S.say(
+        "Merribell", ["Don't look back. It's part of it."]))
+    leave += [R.control_switch(db.SW_MER4_DONE, True)]
+    leave += S.companion_story(db.MERRI)
+    out = R.if_then(R.condition_switch(db.SW_MER4_DONE, False), leave)
+    return [_like(page0, out + page0["list"][:-1],
+                  {"switch1Valid": True, "switch1Id": db.SW_MER4_TOLD})]
+
+
+def jar_pages(page0):
+    """Page 2 of the jar (Map 43, event 5), once it has been paid out."""
+    return [_like(page0, S.narrate([
+        "The jar, empty, the string cut. The label still",
+        "says FOR WHOEVER IS GOING THAT WAY."]),
+        {"switch1Valid": True, "switch1Id": db.SW_MER4_TOLD})]
+
+
+def book_pages(page0):
+    """Page 3 of the book (Map 43, event 4). The twelfth line stays empty."""
+    return [_like(page0, S.narrate([
+        "WHEN, WHAT, WHO, REMARKS.",
+        "The twelfth line is still empty. The pen has been",
+        "capped, and put away in the drawer."]),
+        {"switch1Valid": True, "switch1Id": db.SW_MER4_DONE})]
+
+
+def ladder_pages(page0):
+    """Page 2 of the ladder (Map 43, event 3): he mended it himself."""
+    return [_like(page0, S.narrate([
+        "The ladder up to the hatch. The third rung is new,",
+        "fitted by somebody who has never fitted a rung",
+        "before, and it holds."]),
+        {"switch1Valid": True, "switch1Id": db.SW_MER4_DONE})]
