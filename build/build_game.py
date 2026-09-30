@@ -175,6 +175,40 @@ TILESET_FLAGS = {
 }
 
 
+# The tilesets whose A4 sheet is the walls of a room. On the outdoor ones A4
+# is roofs and town walls, placed with deliberate shapes, so they are left out.
+INTERIOR_TILESETS = {mapkit.TS_INSIDE, mapkit.TS_DUNGEON, mapkit.TS_CLANGING_IN}
+
+
+def shape_wall_tops():
+    """Gives every interior's wall tops their edge shapes. Runs after every
+    module, so it is the one place it happens.
+
+    `mapkit.interior()` writes the ring round a room as `A(98)` - the A4
+    wall-top autotile in shape 0, the middle of a solid block of wall - and
+    no room builder re-shapes layer 0, because autotiling all of it would
+    outline every square of a two-tone floor. Shape 0 is `0xe00` and blocks
+    nothing; it is the edge shapes that carry the direction bit for their
+    edge, so a ring left in shape 0 is a ring the player can walk round the
+    top of. Only the A4 wall-top kinds are re-shaped: the faces already are,
+    and the floor is not touched. Maps built another way are unchanged by
+    it, because their tops are already in the shapes this computes."""
+    for map_id, _, _ in MAP_NAMES:
+        m = R.load_map(map_id)
+        if m["tilesetId"] not in INTERIOR_TILESETS:
+            continue
+        w, h = m["width"], m["height"]
+        kinds = {R.autotile_kind(t) for t in m["data"][:w * h]
+                 if t >= R.TILE_ID_A4 and not R.is_wall_autotile(t)}
+        if not kinds:
+            continue
+        g = R.MapGrid(w, h, list(m["data"]))
+        g.autotile(0, kinds=kinds)
+        if g.data != m["data"]:
+            m["data"] = g.data
+            R.save_map(map_id, m)
+
+
 def build_tilesets():
     """`Tilesets.json` is the one data file this game inherits rather than
     authors, so the edits it needs are written here, by id, and OR-ed in - the
@@ -355,6 +389,7 @@ def main():
     fenmarch.build()
     collegium.build()
     dunnage.build()
+    shape_wall_tops()
     build_map_infos()
     build_tilesets()
     build_system()

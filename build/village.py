@@ -835,8 +835,15 @@ def inn_map():
     # cupboard and the contact sheet says otherwise - which is the whole
     # argument for cropping every prop a map lays down, and it is a room a
     # cell crop was never run over because nothing here is new tileset work.
-    g.set(16, 4, 2, K.IN_BARREL)        # "Pot B": a cream ewer with a rope
-    g.set(16, 5, 2, K.IN_BARREL2)       # "Basin", which is what it is called
+    #
+    # It stood at (16, 4)-(16, 5) until September 2026, which is not in the
+    # room: x=16 is the east wall's top, and the one square in front of it
+    # was the wall too. It could be used only because the whole ring was
+    # walkable; when `build_game.shape_wall_tops` sealed the ring it was left
+    # with nowhere to stand, so it moved in to the foot of the brown bed,
+    # against the same wall (NORTH.md 8.1f). Not a word of it changed.
+    g.set(15, 6, 2, K.IN_BARREL)        # "Pot B": a cream ewer with a rope
+    g.set(15, 7, 2, K.IN_BARREL2)       # "Basin", which is what it is called
     g.set(4, 10, 2, K.IN_BARREL)
     g.set(4, 11, 2, K.IN_BARREL2)
     return finish(MAP_INN, g, "The Gilded Turnip", bgm="Town3",
@@ -866,7 +873,7 @@ def inn_events():
         "It is not a metaphor. It is just a turnip",
         "somebody painted."], TURNIP_SHEET, 0, extra=[S.trope()]))
 
-    evs.append(the_washstand(7, 16, 5))
+    evs.append(the_washstand(7, 15, 7))
     return evs
 
 

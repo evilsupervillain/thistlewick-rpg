@@ -68,7 +68,7 @@ SHELVES_X = (3, 4, 5)           # the quarterly reports, against the north wall
 LIFT_AT = (16, 3)               # !$Gate2 is 3x2 cells, drawn up from here
 SCONCES = [(8, 3), (12, 3)]
 WINDOWS_X = (7, 13)
-SOFA = (3, 10)                  # 5x2, top-left
+SOFA = (3, 9)                   # 5x2, top-left; a row of floor in front
 PILLARS = [(8, 7), (12, 7), (8, 10), (12, 10)]     # base cells, down the aisle
 DESK = (15, 10)                 # this quarter's report, begun this morning
 
