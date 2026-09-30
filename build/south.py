@@ -19,6 +19,7 @@ import db
 import mapkit as K
 import rmmzdata as R
 import story as S
+import q_merribell
 import q_wren
 from places import (MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
@@ -335,8 +336,10 @@ def sopping_events():
         "outlive the both of us."])
     stall += R.shop([(0, db.IT_CHOWDER, 0, 0), (0, db.IT_BISCUIT, 0, 0),
                      (0, db.IT_PALE, 0, 0), (0, db.IT_POTION, 0, 0)])
-    evs.append(S.npc(10, "Fish Stall", 22, 22, stall, "People2", 4,
-                     direction=4))
+    fish = S.npc(10, "Fish Stall", 22, 22, stall, "People2", 4, direction=4)
+    # MER-2: the stamped scales, lent once she has asked (q_merribell.py).
+    fish["pages"] += q_merribell.stall_pages(fish["pages"][0])
+    evs.append(fish)
 
     # -- 11: a man having a day off -------------------------------------------
     boat = S.narrate([

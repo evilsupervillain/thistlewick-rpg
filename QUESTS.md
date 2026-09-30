@@ -567,14 +567,60 @@ carrying forward:
   middle of a line, where nothing has to rhyme with it."
 * `TIMELINE.md`: nothing dated.
 
+**A4, MER-2 Fit To Travel - done.** `build/q_merribell.py`, hooked from
+`north.py` and `south.py` in two lines each and from `db.build_common_events`
+(an import inside the function - `q_merribell` imports `db`);
+`build/scenarios/q_mer2.json`. What is worth carrying forward:
+
+* **Clause eleven is found on Upper Clanging's Parish Notices** (Map 21,
+  event 9): a works town prints fitness forms, and there is a pad of them.
+  Page 2, for Merribell, reads the notices first and then finds the pad; it
+  gives the blank form, **item 41**, and `SW_MER2_ASKED` **115**. One trope
+  (the prologue medical), there.
+* **The three fetches are the form, the scales and the lighthouse.** The fish
+  stall at Nether Sopping (Map 13, event 10) lends its stamped scales,
+  **item 42**, `SW_MER2_SCALES` **116**, on a page gated only on 115, so a
+  dismissed Merribell does not strand the errand; after that it is the shop
+  it always was. The light is `SW_LAMP_LIT` - the lighthouse quest already
+  ends with a lamp in your hands. Both events' first pages are byte for byte.
+* **The examination is common event 3**, `CE_FIT_TO_TRAVEL`, run by using the
+  blank form from the Key Items menu (occasion menu, scope none - scope none
+  goes straight to `useItem`, and the common event sends the scene back to the
+  map). It is therefore wherever the party is standing. It needs Merribell,
+  the scales, the light and a witness, and says which is missing, in order.
+  **This is the pattern for any quest that happens "wherever you are".**
+* **The witness is whoever is third**: the first member who is neither Bram
+  nor Merribell, written into **variable 16** `VAR_MER2_WITNESS` - so the
+  ending, or anything else, can say who. One branch per companion, eight,
+  each reacting to the same line of dictation ("Inguinal: clear. Both
+  sides."). Sir Aldric shields Bram at arm's length with his cloak, facing
+  the wrong way, and attests to all of it.
+* **Blushes: three, each once** - the chest, the cough, and the witness
+  writing it down - because the form is spent and nothing can run the common
+  event again. **Tropes: one.** Running tally for the effort: **tropes +3
+  fixed and 2-9 from PIP-2; blushes +4 fixed and 0-1 from PIP-2.**
+* **Done:** `SW_MER2_DONE` **117**; the form and scales spent; the
+  Certificate of Fitness, **item 43**, which does nothing. Next free: switch
+  118, variable 17, item 44, common event 4.
+* **The scenario plays one examination through** (Aldric) and runs the other
+  seven witnesses through the common event's own list with the messages made
+  non-blocking, the finale's trick - a full examination is about forty
+  windows and **outlasts a ten-minute timeout at headless speed**, so run
+  `q_mer2` in the background.
+* **Candidate ending line** (G1 chooses; read `SW_MER2_DONE`): the Prophecy
+  notes that this is the first properly documented attempt in four thousand
+  years - and, if G1 wants it, `\\N[\\V[16]]` names the witness.
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
-its section 0 and the Done paragraphs, then build the **next step** - A4,
-MER-2 Fit To Travel - reading only Merribell's section of `COMPANIONS.md`. Nothing is
+its section 0 and the Done paragraphs, then build the **next step** - A5,
+ROL-4 The Maker's Mark - reading only Roland's section of `COMPANIONS.md`
+(and Hob's "Who he is", since the scene is theirs together). Nothing is
 pushed in this effort (0.1). Per step: `build_game.py`, a `git diff --stat
 data/` that touches only what the step meant to, `validate.py`, screenshots
 of anything drawn, and the step's own scenario - run it under `stdbuf -oL`

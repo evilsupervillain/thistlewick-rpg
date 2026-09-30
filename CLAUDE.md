@@ -836,6 +836,13 @@ makes eight passes over it cost less than the single pass did before.
   parties so each of the eight suggestion branches runs exactly once - a trope
   each, Bram's parsnip and the payoff, Merribell's blush - `SW_PIP2_DONE`, and
   `SW_STORY[PIPER]` counted once |
+| `q_mer2` | `QUESTS.md` A4, MER-2 Fit To Travel: the Parish Notices unchanged
+  without Merribell and clause eleven with her; the blank form used from the
+  **real Key Items menu**, naming what is missing in order; the fish stall
+  lending its scales without her and a shop again after; the examination
+  played through with Sir Aldric as witness - three blushes, the certificate,
+  `SW_STORY[MERRI]` - and the other seven witnesses through the common event's
+  own list, fast. Long: run it in the background |
 
 | `firstfield` | Firstfield Meadow walked with the arrow keys: in off the rainbow,
   Fizz in front of you before a step and in front of the sign you try to read,

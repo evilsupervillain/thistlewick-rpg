@@ -32,6 +32,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
+import q_merribell
 import rmmzdata as R
 import story as S
 from places import (MAP_CLANGING, MAP_WORKS, MAP_VALVE, MAP_FORGE, MAP_PARISH,
@@ -409,14 +410,17 @@ def clanging_events():
         "great deal done."]))
 
     # -- 9: the parish notices, on the poster beside the Parish Rooms door
-    evs.append(S.sign(9, "Parish Notices", PARISH_DOOR[0] - 3,
-                      PARISH_DOOR[1], [
+    notices = S.sign(9, "Parish Notices", PARISH_DOOR[0] - 3,
+                     PARISH_DOOR[1], [
         "\\C[6]UPPER CLANGING PARISH NOTICES\\C[0]",
         "The hooter will sound at six, as usual.",
         "The hooter will sound at six on Sunday",
         "as well.",
         "The parish has been asked about this.",
-        "The parish has considered it."]))
+        "The parish has considered it."])
+    # MER-2: the pad of fitness forms, for Merribell (q_merribell.py).
+    notices["pages"] += q_merribell.notices_pages(notices["pages"][0])
+    evs.append(notices)
 
     # -- 10: Old Sowerby, on the bench. He is the town's memory and he is
     # entirely cheerful about what he remembers, which is the north in one

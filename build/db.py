@@ -126,6 +126,7 @@ ST_BROODING, ST_CATALOGUED, ST_SLOWED = 34, 35, 36
 
 # common events
 CE_STEAL_GOLD, CE_TURNIP_EATEN = 1, 2
+CE_FIT_TO_TRAVEL = 3             # MER-2's examination, run from the blank form
 
 # switches / variables (also written down in CLAUDE.md)
 SW_QUEST, SW_LEFT_VILLAGE, SW_GLOAMWOOD, SW_GRIMSPITE, SW_WON, SW_TOWER_OPEN = 1, 2, 3, 4, 5, 6
@@ -262,6 +263,12 @@ IT_BRASS_PLATE = 40
 SW_WRE5_NAMED = 113             # the thing in the turnips has a name
 # PIP-2, a rhyme for turnip (QUESTS.md A3, q_piper.py)
 SW_PIP2_DONE = 114              # the ballad has its last verse
+# MER-2, fit to travel (QUESTS.md A4, q_merribell.py). The lamp is SW_LAMP_LIT.
+SW_MER2_ASKED = 115             # clause eleven found; the blank form taken
+SW_MER2_SCALES = 116            # the fish stall has lent its scales
+SW_MER2_DONE = 117              # certified
+VAR_MER2_WITNESS = 16           # actor id of whoever witnessed it
+IT_FITNESS_FORM, IT_SCALES, IT_CERTIFICATE = 41, 42, 43
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1354,6 +1361,19 @@ def build_items():
                     "Four lines about a goose, at a crown a letter, with no "
                     "name on it. For the Slain Wyvern, if Dorcas will have it.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=188))
+    upsert(it, item(IT_FITNESS_FORM, "Certificate of Fitness (Blank)",
+                    "Clause eleven: scales, a good light, a clean surface and "
+                    "a witness. Use it when Merribell has all four.",
+                    itype=2, consumable=False, scope=0, occasion=2, icon=186,
+                    effects=[effect(44, CE_FIT_TO_TRAVEL)]))
+    upsert(it, item(IT_SCALES, "The Fishmonger's Scales",
+                    "Stamped, to twenty stone, and wrapped in sacking. They "
+                    "have never once lied. They smell of haddock.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=208))
+    upsert(it, item(IT_CERTIFICATE, "Certificate of Fitness",
+                    "Bram, certified fit to travel under clause eleven. Signed, "
+                    "witnessed, blotted. Does nothing. Enormously official.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=191))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",
@@ -2093,6 +2113,13 @@ def build_common_events():
     upsert(ce, {"id": CE_TURNIP_EATEN, "name": "Turnip eaten",
                 "switchId": 1, "trigger": 0,
                 "list": eaten + [{"code": 0, "indent": 0, "parameters": []}]})
+    # MER-2's examination. Its dialogue lives with the quest; imported here,
+    # not at the top, because q_merribell imports this module.
+    import q_merribell
+    upsert(ce, {"id": CE_FIT_TO_TRAVEL, "name": "Fit To Travel (MER-2)",
+                "switchId": 1, "trigger": 0,
+                "list": q_merribell.examination() +
+                [{"code": 0, "indent": 0, "parameters": []}]})
     save("CommonEvents.json", ce)
 
 

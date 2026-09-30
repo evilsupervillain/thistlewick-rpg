@@ -316,7 +316,10 @@ def build_system():
             (db.SW_WRE2_ASKED, "WRE-2: Dorcas will read a second plaque"),
             (db.SW_WRE2_UP, "WRE-2: the second plaque is up"),
             (db.SW_WRE5_NAMED, "WRE-5: Bramus is named"),
-            (db.SW_PIP2_DONE, "PIP-2: the ballad has its last verse")]:
+            (db.SW_PIP2_DONE, "PIP-2: the ballad has its last verse"),
+            (db.SW_MER2_ASKED, "MER-2: clause eleven, the blank form"),
+            (db.SW_MER2_SCALES, "MER-2: the fish stall's scales lent"),
+            (db.SW_MER2_DONE, "MER-2: Bram certified fit to travel")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -335,6 +338,7 @@ def build_system():
     variables[db.VAR_FF_SIGNS] = "Firstfield signs read"
     variables[db.VAR_TOBY] = "Toby's delivery"
     variables[db.VAR_COMPANION_STORIES] = "companions with a story of their own"
+    variables[db.VAR_MER2_WITNESS] = "MER-2: who witnessed it"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
