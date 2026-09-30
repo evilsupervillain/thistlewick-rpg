@@ -245,7 +245,10 @@ in each of the four states.
                      world-map coordinate in it was re-cut for the 120x120
                      map**, and its docstring says which ones are not `+ (35,35)`
       story.py       shared dialogue helpers and the endgame
-      build_game.py  runs all of the above, then System.json and MapInfos
+      build_game.py  runs all of the above, then gives every interior's wall
+                     tops their edge shapes (`shape_wall_tops` - one place,
+                     so no room builder has to), then System.json and
+                     MapInfos
       scenarios/     scripted playthroughs for `tools/scenario.js`
       balance.py     offline damage report: evaluates the real formulas
       sampler.py     throwaway tile sampler; writes Map099. `build_game.py`
@@ -753,6 +756,12 @@ makes eight passes over it cost less than the single pass did before.
   **Thistlewick's gossip walks and talks as `Gen_People6` 5** under her old
   "Villager:" label (G3, `NORTH.md` 8.1c), and **the Chandler's in Nether
   Sopping is shut with the lamp out and a shop with it lit** (D3) |
+| `wall_ring` | a room's walls are wall: at every wall of the Gilded Turnip and
+  the Bell, and either side of each doorway, a step along the wall and then a
+  push into it, asserted by position *and* facing so a dropped press cannot
+  pass for a wall; the Turnip's washstand, walked to and pressed; and out
+  through both doors. Fourteen of its checks fail on the data from before
+  `shape_wall_tops` (`NORTH.md` 8.1f) |
 | `supplied_faces` | the three faces Mike drew, `img/faces/Supplied.png`, read
   off the live message window: Nix in the back room, Mrs Emberthwaite and
   Somebody Large in the dark of the Wrong Dragon's cave - and Nix's actor,

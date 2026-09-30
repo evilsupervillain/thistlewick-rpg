@@ -1577,3 +1577,33 @@ so it has to be run where his key is loaded. What is worth carrying forward:
   or Spare. The sites built their places and a reaction shot or a refusal
   each; they are the next effort, and both counters will have to be re-cut
   again at the end of it.
+
+**The wall ring: done, 30 September 2026.** `build_game.shape_wall_tops`
+re-shapes the A4 wall tops on layer 0 of every map on an interior tileset
+after every module has run - one place, covering rooms `interior()` did not
+build. The data diff was layer 0 of exactly the thirty maps, and none of them
+has a wall-top cell reachable from an entrance any more; 14 and 22 were
+already shaped and are sealed. Worth carrying forward:
+
+* **Sealing the ring stranded two props, and `validate.py` found both.** Map
+  4's washstand stood *on* the east wall's top, so it moved to the foot of the
+  brown bed (`NORTH.md` 8.1f, the published one); Map 42's sofa faced the
+  south wall with nothing but wall in front of it, so it moved up a row.
+* **Maps 39 and 43 still have a ladder up the north wall on to the ring**, and
+  a tile flood says the ring is reachable up it; in play the foot of each is
+  a "same as characters" event (Elder Faelan, The Ladder), so it is not.
+* **`validate.py` checks for it now, and the check is for a wall, not a
+  cell.** BasicSample has hundreds of shape-0 tops at wall edges on purpose -
+  roofs, ramparts, a dais, cave plateaus, the Fire Cave's insets - and every
+  one of those walls has edge shapes somewhere in it. So it reports a
+  connected run of one top kind that is shape 0 throughout and meets floor or
+  void: nothing on BasicSample, exactly the thirty on the old data.
+* **All thirty were looked at before and after.** Wood and white tops gain
+  the stock outline; stone and sandstone barely change. Doorways notch cleanly
+  and nothing hung on a wall sits wrong.
+* **`wall_ring` is the scenario** - every wall of the Gilded Turnip and the
+  Bell, both sides of each doorway, the washstand, out through both doors.
+  Fourteen of its checks fail on the old data.
+* **The suite: 58 of 59 in 484 minutes, then 59.** `dunnage` was walking round
+  the Counting House's Town Clerk along the east wall's top - step 18's bug,
+  in the scenario that found it. It goes down the aisle now and passes alone.

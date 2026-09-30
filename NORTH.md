@@ -1181,6 +1181,32 @@ Her face changes in every window she speaks in - Maps 7, 11 and 28 of the
 published game, and Map 61 - and in the menu. Not one word is touched.
 `supplied_faces` reads it off the live message window.
 
+### 8.1f The walls you could walk on - **DONE, 29 September 2026**
+
+The sixth, from `SITES.md` section 4 and step 18. Every room `mapkit.
+interior()` built had its wall-top ring in autotile shape 0, which is the
+middle of a solid block of wall and blocks nothing, and nothing ever gave it
+its edge shapes - so the player could step off the floor on to the top of any
+wall and walk round the room on it. Six of those rooms are published: Bram's
+House, the Gilded Turnip, Grumnir's Smithy, Nix's Emporium, Wick & Barrow and
+Number Forty-Five's Cottage (Maps 2, 4, 6, 7, 16 and 17). A room drawn with
+walls that the game lets you walk through contradicts itself, which is
+Crooke's case, and the repair re-voices nobody: 1.7 allows it.
+
+    build_game.shape_wall_tops   re-shapes the A4 wall tops on layer 0 of
+                                 every interior after the build; the ring
+                                 gains the stock outline, and all six rooms
+                                 are sealed, doorways open
+    village.py (Map 4 ev7)       The Washstand, (16,5) -> (15,7), and its two
+                                 tiles (16,4)-(16,5) -> (15,6)-(15,7)
+
+The washstand is the one thing that moves. It had been set down on the east
+wall's top, not in the room, and could be used only from the wall; sealed,
+it would have had nowhere to stand in front of it. It is now at the foot of
+the brown bed, against the same wall - still "by the beds", as its first
+line says - and keeps its id, its pages and every word. `wall_ring` walks to
+it and presses the button; `blushes` still starts it by id.
+
 ### 8.1a The state of the tree at handoff
 
 **Updated 2026-08-25, after step 5 of section 16.** Everything is uncommitted
