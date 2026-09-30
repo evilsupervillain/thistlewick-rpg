@@ -1,0 +1,427 @@
+{
+ "query": "?map=24&x=6&y=8&frames=90",
+ "comment": "QUESTS.md A6, HOB-5 Two Smiths, One Forge. Bryd with the drink had but Ott not yet flown: nothing new, with or without Hob. Ott flown: with Hob, the job - walked up to and asked - the plate in one heat, half-sentences, Grommet inside it, 'they do this every time' and not removed; the plate got, no trope, no blush. Hob dismissed with the plate carried: Bryd waits, Grommet has a line, and the plate goes up the hill without him - Ott's approval, one blush, SW_HOB5_DONE, SW_STORY[HOB] and the counter once; asked again, nothing counts twice. Back down: without Hob the short version; with him the telling, in which neither of them says a word; then 'Aye.'",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._lines = []; }; window._mark()"
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    24,
+    6,
+    8
+   ]
+  },
+  {
+   "comment": "The spar forged together and the drink had: Bryd's ladder finished, Grommet met.",
+   "eval": "[51,52,58].forEach(s => $gameSwitches.setValue(s, true)); $gameSelfSwitches.setValue([24,2,'A'], true); $gameSelfSwitches.setValue([24,2,'B'], true); $gameSelfSwitches.setValue([24,4,'A'], true)"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "without Hob and before the refit, Bryd is on his last page, as he was"
+  },
+  {
+   "eval": "$gameParty.addActor(3)"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "with Hob, still nothing until Ott has flown"
+  },
+  {
+   "comment": "Ott's flying chain finished: the airship, and her last beat.",
+   "eval": "[53,70].forEach(s => $gameSwitches.setValue(s, true)); $gameSelfSwitches.setValue([22,2,'D'], true)"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 4,
+   "label": "with Hob, the job"
+  },
+  {
+   "eval": "$gameParty.removeActor(3)"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "without Hob, still the job is not offered"
+  },
+  {
+   "eval": "$gameParty.addActor(3); window._mark()"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "comment": "Walk up to him and ask.",
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    6,
+    8,
+    8
+   ]
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2
+  },
+  {
+   "advance": 6
+  },
+  {
+   "shot": "q_hob5_forge.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Miss Hoyle. For the refit.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"If you take the -\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I've got the -\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Can I come out.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"They do this every time.\"))",
+   "expect": true,
+   "label": "the child says it"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"nobody removes him\"))",
+   "expect": true,
+   "label": "and is not removed"
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[44]), $gameSwitches.value(120)]",
+   "expect": [
+    1,
+    true
+   ]
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
+   "expect": [
+    0,
+    0
+   ],
+   "label": "no trope and no blush at the forge"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"by being looked at\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Hob is looking at it anyway\"))",
+   "expect": true
+  },
+  {
+   "comment": "Hob dismissed with the plate in the bag: the errand waits.",
+   "eval": "$gameParty.removeActor(3); window._mark()"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 5
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"by being looked at\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Hob is looking\"))",
+   "expect": false
+  },
+  {
+   "comment": "Grommet, after the boiler.",
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He said it quick\"))",
+   "expect": true
+  },
+  {
+   "comment": "Up the hill, without Hob.",
+   "goto": [
+    22,
+    13,
+    10
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 27,
+   "label": "Ott's last page, on the plate"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    13,
+    10,
+    8
+   ]
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2
+  },
+  {
+   "advance": 8
+  },
+  {
+   "shot": "q_hob5_ott.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Ollerenshaw's.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Good lad.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That will do.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"They will know what I mean by it.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[44]), $gameSwitches.value(121), $gameSwitches.value(102), $gameVariables.value(15)]",
+   "expect": [
+    0,
+    true,
+    true,
+    1
+   ],
+   "label": "plate spent, done, Hob's story, counted once"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
+   "expect": [
+    0,
+    1
+   ],
+   "label": "one blush, no trope"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex() !== 27",
+   "expect": true,
+   "label": "and she is back to herself"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That will do.\"))",
+   "expect": false
+  },
+  {
+   "check": "[$gameVariables.value(7) - window._blushes, $gameVariables.value(15)]",
+   "expect": [
+    0,
+    1
+   ],
+   "label": "asked again, nothing counts twice"
+  },
+  {
+   "comment": "Back down the hill without him: the short version.",
+   "goto": [
+    24,
+    6,
+    8
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 6
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She would.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSelfSwitches.value([24,2,'D'])",
+   "expect": false
+  },
+  {
+   "comment": "And with him.",
+   "eval": "$gameParty.addActor(3); window._mark()"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Bryd looks at Hob.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"best afternoon\"))",
+   "expect": true
+  },
+  {
+   "shot": "q_hob5_told.png"
+  },
+  {
+   "check": "window._lines.some(l => l.startsWith('\\\\C[6]Hob') || l.startsWith('\\\\C[6]Bryd'))",
+   "expect": false,
+   "label": "nothing whatsoever said out loud"
+  },
+  {
+   "check": "$gameSelfSwitches.value([24,2,'D'])",
+   "expect": true
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"best afternoon\"))",
+   "expect": false
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Aye.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(15)]",
+   "expect": [
+    0,
+    1
+   ]
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

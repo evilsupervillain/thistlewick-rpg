@@ -273,6 +273,10 @@ IT_FITNESS_FORM, IT_SCALES, IT_CERTIFICATE = 41, 42, 43
 SW_ROL4_SEEN = 118              # Hob has seen the mark on Roland's sword
 SW_ROL4_REFIT = 119             # and put the blade on a haft of his own
 WP_REHAFTED = 40                # Fairweather's Own, as an axe
+# HOB-5, two smiths, one forge (QUESTS.md A6, q_hob.py)
+SW_HOB5_FORGED = 120            # the tube plate is made, and is being carried
+SW_HOB5_DONE = 121              # Ott has said it will do
+IT_TUBE_PLATE = 44
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1378,6 +1382,10 @@ def build_items():
                     "Bram, certified fit to travel under clause eleven. Signed, "
                     "witnessed, blotted. Does nothing. Enormously official.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=191))
+    upsert(it, item(IT_TUBE_PLATE, "A Boiler Tube Plate",
+                    "For the Two Hundred's refit: forty-one holes, one heat, "
+                    "four hands. Still warm. For Miss Hoyle, up the hill.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=196))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

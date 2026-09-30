@@ -414,6 +414,7 @@ A(kind)                                              An autotile in its default 
 tile_names(sheet)                                    `{name: [tile id, ...]}` for a B/C/D/E sheet, from the editor's own tile
 sf_tile(sheet, name, index=0)                        One tile, by the name the editor's palette gives it. Safer than counting
 sf_block(sheet, name)                                Every tile of a multi-tile prop, in reading order - so a three-tile
+clanging_in(sheet, name)                             Every tile of a stock Inside_B/Inside_C prop, by name, as it is
 sf_grid(sheet, name, w)                              A rectangular prop as a tuple of rows, ready for `Canvas.blit`.
 recolour_sheet(sheet, out, cells, hues, hue, sat, renames=()) Writes `img/tilesets/<out>.png`, a copy of `<sheet>.png` with some cells
 paint_regions(g, tileset_id, value=1, layer=5)       Region-tag every tile the player can actually stand on.
@@ -640,7 +641,7 @@ WORLD_SIGN_COAST             (63, 80)
 
 The whole database of The Obligatory Quest.
 
-390 constants.
+393 constants.
 
 ```
 BRAM                         1
@@ -989,6 +990,9 @@ IT_CERTIFICATE               43
 SW_ROL4_SEEN                 118
 SW_ROL4_REFIT                119
 WP_REHAFTED                  40
+SW_HOB5_FORGED               120
+SW_HOB5_DONE                 121
+IT_TUBE_PLATE                44
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

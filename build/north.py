@@ -32,6 +32,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
+import q_hob
 import q_merribell
 import rmmzdata as R
 import story as S
@@ -802,9 +803,12 @@ def works_map():
     # repetition, it is what the two trades have in common.
     g.blit(17, 13, 2, K.SF_IN_FIREPLACE)
     g.blit(7, 14, 2, K.SF_IN_PLUMBING)
+    # A valve lying loose on a floor reads as a dropped spanner, which is
+    # what both of these did until QUESTS.md A6: they go on the junctions.
+    g.set(8, 15, 3, K.SF_IN_VALVE)
+    g.set(19, 4, 3, K.SF_IN_VALVE)
     g.set(4, 13, 2, K.SF_IN_MACHINE_C)
     g.set(5, 13, 2, K.SF_IN_MACHINE_C)
-    g.set(3, 15, 2, K.SF_IN_VALVE)
     g.column(21, 5, 2, K.SF_IN_STACKED_CRATES)
     g.column(21, 9, 2, K.SF_IN_STACKED_CRATES)
     g.column(21, 15, 2, K.SF_IN_STACKED_CRATES)
@@ -812,7 +816,6 @@ def works_map():
     g.set(19, 9, 2, K.SF_IN_RUBBLE)
     g.set(6, 9, 2, K.SF_IN_MACHINE_C)
     g.column(4, 8, 2, K.SF_IN_STACKED_CRATES)
-    g.set(18, 8, 2, K.SF_IN_VALVE)
     g.set(3, 12, 2, K.SF_IN_RUBBLE)
     g.set(18, 16, 2, K.SF_IN_DRAIN)      # not (12, 15): that is straight in front of the door
     g.set(15, 15, 2, K.SF_IN_MACHINE_C)
@@ -1381,7 +1384,8 @@ def works_events():
             "Or, on reflection, anything.",
         ]) + [R.self_switch("D", True)],
     ], direction=2,
-        pages=ott_the_two_hundred() + field.ott_field_pages()))
+        pages=ott_the_two_hundred() + field.ott_field_pages()
+        + q_hob.ott_pages(_ott_face())))                 # HOB-5
 
     # -- 3: Nib, the fortieth apprentice
     evs.append(talker(
@@ -1697,6 +1701,12 @@ def valve_events():
 
 
 # ============================================================ Ollerenshaw's ==
+FORGE_HEARTH = K.clanging_in("Inside_B", "Fireplace B (Brick)")  # chimney, hearth
+FORGE_QUENCH = K.clanging_in("Inside_C", "Large Basin")     # water, in a tank
+FORGE_COAL = K.clanging_in("Inside_C", "Scrap Metal")       # it is a coal box
+FORGE_ANVIL = (6, 6)            # Bryd's; he stands under it at (6, 7)
+
+
 def forge_map():
     """Ollerenshaw's. It shares its music with Grumnir's Smithy, which is not
     an accident and is not to be pointed at."""
@@ -1710,21 +1720,32 @@ def forge_map():
              wall_top=K.SF_IN_WALL_FACTORY_B, wall_face=K.SF_IN_FACE_FACTORY_B)
     g.autotile(0)
 
-    g.blit(4, 3, 2, K.SF_IN_FIREPLACE)            # the hearth
+    # The hearth, and what a smith works at in front of it. Until QUESTS.md
+    # A6 this was SF Inside's `Fireplace` - a carved mantelpiece, the one
+    # Grumnir's Smithy had taken out for the same reason - with a brass
+    # console for an anvil and a heap of fallen masonry by the door. SF Inside
+    # has no anvil, so it borrows the stock sheets (`K.clanging_in`), and the
+    # two forges now have the same brick hearth, which is not an accident.
+    g.column(6, 2, 2, FORGE_HEARTH)               # on the face band
+    g.set(5, 4, 2, FORGE_QUENCH)
+    g.set(7, 4, 2, FORGE_COAL)
+    g.set(*FORGE_ANVIL, 2, K.clanging_in("Inside_C", "Blacksmith's Table A"))
+    g.set(FORGE_ANVIL[0] + 1, FORGE_ANVIL[1], 2,
+          K.clanging_in("Inside_C", "Hammers"))
     g.column(8, 3, 2, K.SF_IN_PIPE_V)
+    g.set(8, 3, 3, K.SF_IN_VALVE)                 # on the pipe, not the floor
     g.column(11, 3, 2, K.SF_IN_ODDMENTS)
     g.set(12, 3, 2, K.SF_IN_WARNING)
     g.set(13, 3, 2, K.SF_IN_BULLETIN)         # orders, on a spike
     g.column(15, 3, 2, K.SF_IN_DRAWERS)       # the tool press
 
-    g.set(7, 7, 2, K.SF_IN_MACHINE_C)             # the drop hammer
-    g.set(6, 5, 2, K.SF_IN_VALVE)
+    g.set(10, 6, 2, K.SF_IN_MACHINE_C)            # the drop hammer
     g.column(3, 6, 2, K.SF_IN_STEEL_SHELF)
     g.set(13, 7, 2, K.SF_IN_CHEST_METAL)
     g.column(14, 5, 2, K.SF_IN_STACKED_CRATES)
     g.set(14, 10, 2, K.SF_IN_METAL_RUBBLE)
     g.set(3, 10, 2, K.SF_IN_METAL_RUBBLE)
-    g.blit(4, 10, 2, K.SF_IN_RUBBLE_PILE)
+    g.set(4, 11, 2, FORGE_COAL)
     g.set(6, 11, 2, K.SF_IN_RUBBLE)       # not (9, 11): that is the doorway
     g.set(13, 11, 2, K.SF_IN_RUBBLE)
     g.set(5, 8, 2, K.SF_IN_DRAIN)
@@ -1800,7 +1821,7 @@ def forge_events():
     ])
 
     sheet, index = S.FACES["Bryd"]
-    img = R.image(sheet, index, direction=6)
+    img = R.image(sheet, index, direction=8)      # at his anvil, FORGE_ANVIL
     evs.append(R.event(2, "Bryd Ollerenshaw", 6, 7, [R.page(
         R.if_then(
             R.condition_actor_in_party(db.HOB),
@@ -1811,7 +1832,8 @@ def forge_events():
                       plain + [R.self_switch("A", True)],
                       plain_again)),
         img=img, trigger=0, priority=1)]
-        + bryd_and_the_spar(img, meeting, plain)))
+        + bryd_and_the_spar(img, meeting, plain)
+        + q_hob.bryd_pages(img)))   # HOB-5
 
     # -- 3: the spar
     evs.append(S.sign(3, "The Spar", 11, 9, [
@@ -1875,7 +1897,8 @@ def forge_events():
                       trigger=0, priority=1,
                       conditions={"actorValid": True, "actorId": db.HOB,
                                   "selfSwitchValid": True,
-                                  "selfSwitchCh": "A"})]))
+                                  "selfSwitchCh": "A"})]
+        + q_hob.grommet_pages(R.image(*S.FACES["Grommet"], direction=8))))
     return evs
 
 

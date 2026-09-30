@@ -230,6 +230,16 @@ def build_tilesets():
         ts.update(id=tid, name=name)
         ts["tilesetNames"][slot] = sheet
         tilesets[tid:tid + 1] = [ts]
+    # SF Inside has no D or E sheet, and no anvil, hearth or coal anywhere on
+    # the two it has - so Ollerenshaw's was a forge with a marble mantelpiece
+    # in it. The stock Inside_B and Inside_C go into those empty slots with
+    # tileset 3's flags for them, which changes nothing any existing map has
+    # drawn; `mapkit.clanging_in` names a tile on them.
+    sf_in, inside = tilesets[mapkit.TS_CLANGING_IN], tilesets[mapkit.TS_INSIDE]
+    for slot, sheet, src, dst in ((7, "Inside_B", R.TILE_ID_B, R.TILE_ID_D),
+                                  (8, "Inside_C", R.TILE_ID_C, R.TILE_ID_E)):
+        sf_in["tilesetNames"][slot] = sheet
+        sf_in["flags"][dst:dst + 256] = inside["flags"][src:src + 256]
     R.save_list("Tilesets.json", tilesets)
 
 
@@ -321,7 +331,9 @@ def build_system():
             (db.SW_MER2_SCALES, "MER-2: the fish stall's scales lent"),
             (db.SW_MER2_DONE, "MER-2: Bram certified fit to travel"),
             (db.SW_ROL4_SEEN, "ROL-4: Hob has seen the maker's mark"),
-            (db.SW_ROL4_REFIT, "ROL-4: the sword rehafted for Hob")]:
+            (db.SW_ROL4_REFIT, "ROL-4: the sword rehafted for Hob"),
+            (db.SW_HOB5_FORGED, "HOB-5: the tube plate is made"),
+            (db.SW_HOB5_DONE, "HOB-5: Ott says it will do")]:
         switches[sid] = name
 
     variables = [""] * 32

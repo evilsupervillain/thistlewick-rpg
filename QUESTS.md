@@ -667,14 +667,68 @@ carrying forward:
   and mapkit's "Inside furniture, by name".
 * `TIMELINE.md`: 1960, Beatrice Grumnir makes the sword and sells it south.
 
+**A6, HOB-5 Two Smiths, One Forge - done.** `build/q_hob.py`, hooked from
+`north.py` in three places; `build/scenarios/q_hob5.json`. What is worth
+carrying forward:
+
+* **The ask is Bryd's** - Map 24 event 2, pages 5-7, below his ladder. His
+  terminal is `SW_SPAR_DONE`, and `SW_HOB_BRYD` is only ever set beside it,
+  so a page on the drink is a page on the terminal. The job **also needs
+  `SW_OTT_MATERIALS`**: it is the Two Hundred's refit, so she has flown, and
+  a plate carried to a woman half-way through her flying chain would be
+  heard by the chain. Page 5 (Hob + both) is the forging; page 6
+  (`SW_HOB5_FORGED`) Bryd waiting for it to go up the hill; page 7
+  (`SW_HOB5_DONE`) the telling, with Hob once (Bryd's self switch D) and
+  "Aye." / "Aye." after, and "She would." without him.
+* **Only the forging needs Hob.** The plate is an item and the state is two
+  globals; the scenario dismisses him with the plate in the bag and carries
+  it up without him.
+* **Ott's approval is her 28th page**, Map 22 event 2, below everything, on
+  self switch D, `SW_OTT_MATERIALS` and the plate. It shadows her field pages
+  only while the plate is carried, and spends it. "That will do. They will
+  know what I mean by it" - Bryd's "we shall see", going the other way.
+* **Nobody finishes a sentence** ("If you take the -" / "I've got the -"),
+  and the telling has no line from either of them at all; the scenario
+  asserts no Hob or Bryd window in it. **Grommet** says "They do this every
+  time" to you, holding the candle, and is not removed; his own new page
+  (event 4, page 4, `SW_HOB5_FORGED` + his A) is "He said it quick, an' all",
+  against "He says it slowly".
+* **Ids taken:** switches **120** `SW_HOB5_FORGED`, **121** `SW_HOB5_DONE`;
+  item **44** `IT_TUBE_PLATE`. Next free: switch 122, variable 17, item 45,
+  weapon 41, common event 4.
+* **No trope** (the quest has no cliche, like ROL-4). **One blush**: Ott
+  tries each of the forty-one holes with her little finger - "Tight. All the
+  way round." Running tally for the effort: **tropes +3 fixed and 2-9 from
+  PIP-2; blushes +5 fixed and 0-1 from PIP-2.**
+* `SW_STORY[HOB]` goes on at Ott's approval - his first.
+* **Candidate ending line** (G1; read `SW_HOB5_DONE`): "The Two Hundred's
+  tube plate was made at Ollerenshaw's in one heat, by four hands. Neither
+  of them has mentioned it since. Ott Hoyle says it will do."
+* **The rooms were fixed (0.1).** Ollerenshaw's was a forge with SF Inside's
+  carved `Fireplace` for a hearth, a brass console for an anvil, a valve lying
+  on the floor and a 2x2 heap of fallen masonry by the door. SF Inside has no
+  anvil, hearth or coal, so **tileset 6 now carries the stock `Inside_B` and
+  `Inside_C` in its empty D and E slots**, with tileset 3's flags for them
+  (`build_game.build_tilesets`); `mapkit.clanging_in(sheet, name)` names a
+  tile there - **not** `sf_tile`, whose id would be tileset 3's. The forge
+  has Grumnir's brick hearth, a quench basin, a coal box (`Inside_C`'s
+  `Scrap Metal` is coal - `TILES-AND-ASSETS.md`), an anvil and hammers at
+  `north.FORGE_ANVIL` (6,6), and Bryd faces it; the drop hammer moved to
+  (10,6). The Works' two floor valves went onto its pipe junctions. No event
+  moved and no line changed. Every scenario that walks Maps 22 or 24 was
+  rerun and passes: `clanging_cast`, `clanging_faces`, `hob_and_bryd`,
+  `item_one`, `long_field`, `two_hundred` and `reachable_clanging`.
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
-its section 0 and the Done paragraphs, then build the **next step** - A6,
-HOB-5 Two Smiths, One Forge - reading only Hob's section of `COMPANIONS.md`.
+its section 0 and the Done paragraphs, then build the **next step** - A7,
+ZEPH-5 The Lay-By and MER-4 The Man Who Cannot Stay Down - reading only
+Zephyrine's and Merribell's sections of `COMPANIONS.md`.
 Nothing is pushed in this effort (0.1). Per step: `build_game.py`, a `git
 diff --stat data/` that touches only what the step meant to, `validate.py`,
 screenshots of anything drawn, and the step's own scenario - run it under
