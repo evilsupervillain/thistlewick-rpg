@@ -269,6 +269,10 @@ SW_MER2_SCALES = 116            # the fish stall has lent its scales
 SW_MER2_DONE = 117              # certified
 VAR_MER2_WITNESS = 16           # actor id of whoever witnessed it
 IT_FITNESS_FORM, IT_SCALES, IT_CERTIFICATE = 41, 42, 43
+# ROL-4, the maker's mark (QUESTS.md A5, q_roland.py)
+SW_ROL4_SEEN = 118              # Hob has seen the mark on Roland's sword
+SW_ROL4_REFIT = 119             # and put the blade on a haft of his own
+WP_REHAFTED = 40                # Fairweather's Own, as an axe
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1554,6 +1558,15 @@ def build_weapons():
                       WT_FLAIL, 3400, [0, 0, 68, 14, 0, 10, 4, 6], icon=117,
                       animation=21,
                       traits=[trait(22, 2, 0.12), trait(22, 0, 0.05)]))
+    # -- the companion quests' ----------------------------------------------
+    # ROL-4: the same blade on an ash haft. An axe, because Hob's class takes
+    # axes and nobody else's does - so it is his without a class being edited.
+    upsert(wp, weapon(WP_REHAFTED, "Fairweather's Own, Rehafted",
+                      "[Axe] A very good blade on an ash haft. Made in "
+                      "Thistlewick forty years ago, and again last week.",
+                      WT_AXE, 3000, [0, 0, 66, 12, 0, 8, 2, 10], icon=99,
+                      animation=25,
+                      traits=[atk_el(EL_LIGHT), trait(22, 2, 0.1)]))
     save("Weapons.json", wp)
 
 

@@ -319,7 +319,9 @@ def build_system():
             (db.SW_PIP2_DONE, "PIP-2: the ballad has its last verse"),
             (db.SW_MER2_ASKED, "MER-2: clause eleven, the blank form"),
             (db.SW_MER2_SCALES, "MER-2: the fish stall's scales lent"),
-            (db.SW_MER2_DONE, "MER-2: Bram certified fit to travel")]:
+            (db.SW_MER2_DONE, "MER-2: Bram certified fit to travel"),
+            (db.SW_ROL4_SEEN, "ROL-4: Hob has seen the maker's mark"),
+            (db.SW_ROL4_REFIT, "ROL-4: the sword rehafted for Hob")]:
         switches[sid] = name
 
     variables = [""] * 32

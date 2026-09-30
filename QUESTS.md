@@ -612,15 +612,51 @@ carrying forward:
   years - and, if G1 wants it, `\\N[\\V[16]]` names the witness.
 * `TIMELINE.md`: nothing dated.
 
+**A5, ROL-4 The Maker's Mark - done.** `build/q_roland.py`, hooked from
+`village.py` in two lines; `build/scenarios/q_rol4.json`. What is worth
+carrying forward:
+
+* **It is at the anvil in Hob's smithy** - Map 6, event 4, Beatrice, one page
+  and no switches; the forge the sword was made at. Page 1 is byte for byte.
+* **Before the door: Roland's page, Hob a branch in it.** Roland never
+  *equips* Fairweather's Own - he wears the practice sword and carries the
+  other, and `roland_departure` hands it over from his pack - so he takes it
+  out to show. Hob: "That's my aunt's." ... "She did good work." Beatrice,
+  for once, says nothing. **Nobody explains the hammer**, and the scenario
+  asserts that no line of the scene says "hammer" at all. Roland alone gets a
+  look at the forge and nothing more.
+* **The refit is Hob's page, after `SW_ROLAND_GONE` and the mark seen**: the
+  blade on an ash haft, **weapon 40** `WP_REHAFTED`, an **axe** - Hob's class
+  takes axes and nobody else's does, so it is his without a published class
+  being edited. It can be turned down. The sword is found carried **or
+  equipped** (Bram wields swords), by script with `includeEquip`, since
+  `rmmzdata` has no weapon condition - worth adding if a later step needs one
+  twice. Stats sit under Beatrice II and Number One (ATK 66, Light), so HOB-2's
+  weapon is still his best (0.5).
+* **Ids taken:** switches **118** `SW_ROL4_SEEN` and **119** `SW_ROL4_REFIT`;
+  weapon **40**. Weapons.json is padded 34-39 with blank records (34 is
+  Spare's). Next free: switch 120, weapon 41.
+* **`SW_STORY[ROLAND]`** goes on at the mark - it is filed as his quest -
+  and not Hob's; G1 may want Hob's block to read `SW_ROL4_SEEN` as well.
+* **No trope** (it is the one quest in the document with no cliché) **and no
+  blush.** Running tally unchanged: tropes +3 fixed and 2-9 from PIP-2;
+  blushes +4 fixed and 0-1 from PIP-2.
+* **Candidate ending line** (G1; read `SW_ROL4_REFIT`): Roland said the sword
+  had never been in a last room. "It went into one after all, on a
+  Thistlewick haft, in a Thistlewick hand."
+* **Not fixed, and worth an `AUDIT.md` look:** the "anvil" at (5,5) is drawn
+  as a round table with candles (`IN_TABLE_ROUND` under `INC_CANDLES`), and
+  the published prop has always said "resting on the anvil".
+* `TIMELINE.md`: 1960, Beatrice Grumnir makes the sword and sells it south.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
-its section 0 and the Done paragraphs, then build the **next step** - A5,
-ROL-4 The Maker's Mark - reading only Roland's section of `COMPANIONS.md`
-(and Hob's "Who he is", since the scene is theirs together). Nothing is
+its section 0 and the Done paragraphs, then build the **next step** - A6,
+HOB-5 Two Smiths, One Forge - reading only Hob's section of `COMPANIONS.md`. Nothing is
 pushed in this effort (0.1). Per step: `build_game.py`, a `git diff --stat
 data/` that touches only what the step meant to, `validate.py`, screenshots
 of anything drawn, and the step's own scenario - run it under `stdbuf -oL`

@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
 import q_piper
+import q_roland
 import q_wren
 import rmmzdata as R
 import story as S
@@ -1331,11 +1332,14 @@ def smithy_events():
     ])
     evs.append(S.npc(3, "Apprentice", 11, 8, shop, "People2", 7, direction=4))
 
-    evs.append(S.prop(4, "Beatrice", 5, 5, [
+    beatrice = S.prop(4, "Beatrice", 5, 5, [
         "A hammer, resting on the anvil.",
         "Somebody has scratched BEATRICE into the haft.",
         "You are almost certain it did not just move."],
-        "", 0, extra=[S.trope()]))
+        "", 0, extra=[S.trope()])
+    # ROL-4: the mark on Roland's sword, and the refit (q_roland.py).
+    beatrice["pages"] += q_roland.anvil_pages(beatrice["pages"][0])
+    evs.append(beatrice)
     return evs
 
 
