@@ -466,3 +466,52 @@ Dunstable at a quarter past four - is not a companion quest. It stays owed.
 
 *(one paragraph per step, as `SITES.md` 3 has them: what was built, where, the
 ids taken, the tropes and blushes added, and what the next step inherits)*
+
+**A1, WRE-2 The Second Plaque - done.** `build/q_wren.py`, hooked from
+`south.py` in three places; `build/scenarios/q_wre2.json`. What is worth
+carrying forward:
+
+* **The plumbing is in.** `db.SW_STORY` (101-109), `db.VAR_COMPANION_STORIES`
+  (15) and `story.companion_story(actor)`, which turns the switch on and
+  counts it the first time only. System.json's switch list is 251 long now.
+* **Ids taken:** switches **111** `SW_WRE2_ASKED` and **112** `SW_WRE2_UP`;
+  item **40** `IT_BRASS_PLATE`. Next free: switch 113, item 41.
+* **It hangs off the goose, not Dorcas** - Map 14 event 14's pages 3-5, all
+  on its self switch A and `actorValid` Wren; page 3 is the ask (or, once
+  asked, "By the letter"), page 4 the handover on the plate as an `itemValid`,
+  page 5 afterwards. Dorcas's Feud ladder is untouched, which is the pattern
+  for any NPC whose terminal switch is somebody else's quest.
+* **The plate is engraved at Wick & Barrow's** - a new event, **The Engraving
+  Card**, event 5 on Map 16, in the basket at (4,6) beside Mrs Barrow, and a
+  new thing to read for everybody. A crown a letter: `q_wren.PLATE_PRICE` is
+  counted off the four lines on the brass and asserted to be the 128 she says
+  aloud. The negotiation needs Wren; the wording is then left with Mrs Barrow
+  (the card's self switch A), and anybody can pay. So a Wren dismissed at any
+  point leaves the errand where it was, and only the handover needs her.
+* **The second plaque is event 21 on Map 14 at (19,4)**, the right of the
+  fireplace, mirroring the first (event 18, (17,4), the left). Neither is a
+  sprite - the fireplace is the picture, as it always was. It has no page
+  until `SW_WRE2_UP`, then one, for everybody.
+* **Readmission is a line**: the goose's first page asks her to leave "while
+  I decide", so Dorcas says "Decided."
+* **One trope** (the retcon), at the ask. **No blush.** Running tally for the
+  effort: tropes +1, blushes +0.
+* **Candidate ending line** (G1 chooses): none - WRE-2's reward is the room.
+  WRE-5's is Wren's likelier one.
+* **Wren's gear**: not from WRE-2. Still open - WRE-3's badge is the
+  candidate (0.5).
+* `TIMELINE.md`: the plate says 1940, #41's year, and the row names it.
+
+---
+
+## Restart prompt
+
+Continue Thistlewick's **companion quests** in
+`/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
+its section 0 and the Done paragraphs, then build the **next step** - A2,
+WRE-5 Bramus - reading only Wren's section of `COMPANIONS.md`. Nothing is
+pushed in this effort (0.1). Per step: `build_game.py`, a `git diff --stat
+data/` that touches only what the step meant to, `validate.py`, screenshots
+of anything drawn, and the step's own scenario - run it under `stdbuf -oL`
+or it prints nothing until it ends. No full suite until G1. Write the step's
+Done paragraph and move this prompt on by one.

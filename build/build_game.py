@@ -236,7 +236,8 @@ def build_tilesets():
 def build_system():
     system = R.load("System.json")
 
-    switches = [""] * 101
+    # 251: QUESTS.md 0.6 reserves up to 250 for the companion quests.
+    switches = [""] * 251
     for sid, name in [
             (db.SW_QUEST, "quest accepted"),
             (db.SW_LEFT_VILLAGE, "left the village"),
@@ -309,6 +310,12 @@ def build_system():
         switches[sid] = "recruited actor %d" % actor_id
     for actor_id, sid in db.SW_KNOWN.items():
         switches[sid] = "actor %d has been in the party before" % actor_id
+    for actor_id, sid in db.SW_STORY.items():
+        switches[sid] = "actor %d has had a story of their own" % actor_id
+    for sid, name in [
+            (db.SW_WRE2_ASKED, "WRE-2: Dorcas will read a second plaque"),
+            (db.SW_WRE2_UP, "WRE-2: the second plaque is up")]:
+        switches[sid] = name
 
     variables = [""] * 32
     variables[db.VAR_COMPANIONS] = "companions recruited"
@@ -325,6 +332,7 @@ def build_system():
     variables[db.VAR_FF_SHEEP] = "Firstfield sheep found"
     variables[db.VAR_FF_SIGNS] = "Firstfield signs read"
     variables[db.VAR_TOBY] = "Toby's delivery"
+    variables[db.VAR_COMPANION_STORIES] = "companions with a story of their own"
 
     system.update({
         "gameTitle": "The Obligatory Quest",

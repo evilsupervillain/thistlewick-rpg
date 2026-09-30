@@ -423,6 +423,7 @@ say(speaker, lines, *, face=True, indent=0, position=2) One person saying someth
 narrate(lines, indent=0)                             Screen text with nobody speaking - descriptions, and the narrator.
 trope(indent=0)                                      Bump the cliché counter. The ending reads the total back to the player,
 blush(indent=0)                                      Bump the count of things nobody quite said.
+companion_story(actor_id, indent=0)                  A companion quest is finished: turn on that companion's story switch,
 got(lines, indent=0)                                 The 'you found a thing' message, in the colour things are found in.
 door_page(target_map, tx, ty, direction=2, se='Open1') The commands behind a door sprite: open it, step through, transfer.
 door(event_id, name, x, y, target_map, tx, ty, direction=2, sheet='!Door1', index=0) An outward-facing door on a house wall. Player-touch, because a door
@@ -628,7 +629,7 @@ WORLD_SIGN_COAST             (63, 80)
 
 The whole database of The Obligatory Quest.
 
-372 constants.
+377 constants.
 
 ```
 BRAM                         1
@@ -959,6 +960,11 @@ VAR_FF_SHEEP                 12
 VAR_FF_SIGNS                 13
 VAR_TOBY                     14
 SW_VISITORS_BOOK             88
+SW_STORY                     ...
+VAR_COMPANION_STORIES        15
+SW_WRE2_ASKED                111
+SW_WRE2_UP                   112
+IT_BRASS_PLATE               40
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

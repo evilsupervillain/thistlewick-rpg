@@ -19,6 +19,7 @@ import db
 import mapkit as K
 import rmmzdata as R
 import story as S
+import q_wren
 from places import (MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
                     WORLD_SOPPING_STEP, WORLD_LIGHTHOUSE_STEP)
@@ -851,6 +852,8 @@ def wyvern_events():
         "IN THE MARSHES, AFTER A LONG STRUGGLE.'",
         "Somebody has polished it recently."],
         "", 0, extra=[S.trope()]))
+    # WRE-2: the other side of the fire. No page until it is put up.
+    evs.append(q_wren.second_plaque(21, 19, 4))
     return evs
 
 
@@ -1291,7 +1294,7 @@ def the_wyvern(event_id, x, y):
                img=R.image(""), trigger=0, priority=1, direction_fix=True,
                through=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
-    ])
+    ] + q_wren.goose_pages())
 
 
 # ------------------------------------------------------- the three recruits --
@@ -1963,6 +1966,8 @@ def outfit_events():
         "the wall under a hand-lettered card:",
         "'BENCH. 400. NOBODY HAS EVER BOUGHT THIS.'",
         "The card is not wrong and knows it."], "", 0))
+    # WRE-2: the engraver's card, in the basket beside her.
+    evs.append(q_wren.engraving_card(5, 4, 6))
     return evs
 
 

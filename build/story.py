@@ -479,6 +479,22 @@ def blush(indent=0):
     return R.control_variable_add(db.VAR_BLUSHES, 1, indent=indent)
 
 
+def companion_story(actor_id, indent=0):
+    """A companion quest is finished: turn on that companion's story switch,
+    and the first time it goes on, count them.
+
+    The ending reads one line per companion off `db.SW_STORY` and one closing
+    line off `db.VAR_COMPANION_STORIES` (COMPANIONS.md 1.4), so a companion
+    who finishes two quests is still one companion who got something out of
+    it. Call this at the end of every companion quest and set neither of the
+    two anywhere else."""
+    sw = db.SW_STORY[actor_id]
+    return R.if_then(R.condition_switch(sw, False),
+                     [R.control_switch(sw, True),
+                      R.control_variable_add(db.VAR_COMPANION_STORIES, 1)],
+                     indent=indent)
+
+
 def got(lines, indent=0):
     """The 'you found a thing' message, in the colour things are found in."""
     return narrate(lines, indent=indent)

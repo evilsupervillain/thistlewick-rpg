@@ -240,6 +240,24 @@ VAR_TOBY = 14                   # which of his fourteen Toby did last; see gladh
 # Grimspite at the top of the tower, Map 12, so it cannot be a self switch.
 SW_VISITORS_BOOK = 88           # Hollowell has asked for the incumbent's signature
 
+# ------------------------------------------------------- companion quests ----
+# COMPANIONS.md is the design and QUESTS.md the queue; its 0.6 reserves these
+# blocks, and each step takes the next free id in them. The quests' events
+# are in `build/q_<name>.py`, one module per companion.
+#
+# One story switch per companion, set by whichever of their quests is finished
+# first and never cleared - the ending reads one block per companion off
+# these, not one per quest (COMPANIONS.md 1.4). Same last digit as SW_RECRUIT
+# and SW_KNOWN. Set them with `story.companion_story` and nowhere else: it is
+# also what counts VAR_COMPANION_STORIES.
+SW_STORY = {MERRI: 101, HOB: 102, ZEPH: 103, NIX: 104, ALDRIC: 105,
+            PIPER: 106, CORVIN: 107, WREN: 108, ROLAND: 109}
+VAR_COMPANION_STORIES = 15      # how many of SW_STORY are on
+# WRE-2, the second plaque (QUESTS.md A1, q_wren.py)
+SW_WRE2_ASKED = 111             # Dorcas has agreed to brass, read by her first
+SW_WRE2_UP = 112                # and it is up, on the other side of the fire
+IT_BRASS_PLATE = 40
+
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
 EN_NORBERT = 40
@@ -1326,6 +1344,11 @@ def build_items():
     # in on it: one off, reissued a hundred and ninety-nine times, returned a
     # hundred and ninety-eight, described in the column headed DESCRIPTION as
     # "ITEM 1".
+    # -- the companion quests' ----------------------------------------------
+    upsert(it, item(IT_BRASS_PLATE, "A Brass Plate",
+                    "Four lines about a goose, at a crown a letter, with no "
+                    "name on it. For the Slain Wyvern, if Dorcas will have it.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=188))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

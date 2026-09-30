@@ -819,6 +819,15 @@ makes eight passes over it cost less than the single pass did before.
   asserted not to have moved, and the last check is that the retrofit came to
   eleven - the number 2.3 asked for |
 
+| `q_wre2` | `QUESTS.md` A1, WRE-2 The Second Plaque: the goose unchanged without
+  Wren and the second plaque absent; with her, the ask (a trope, once), the
+  engraving card at Wick & Barrow's without her and with her, too little money
+  and then enough **paid without her** - the wording is left with Mrs Barrow -
+  the plate carried past the goose without her and nothing happening, then the
+  handover: `SW_WRE2_UP`, `SW_STORY[WREN]` and `VAR_COMPANION_STORIES` once,
+  both plaques read, the goose again with and without her. The first companion
+  quest, and the pattern for the rest |
+
 | `firstfield` | Firstfield Meadow walked with the arrow keys: in off the rainbow,
   Fizz in front of you before a step and in front of the sign you try to read,
   Old Hollis's stick and giving it back, the chest, Dilys's "But thou must"

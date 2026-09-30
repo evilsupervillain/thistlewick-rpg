@@ -109,7 +109,7 @@ Thistlewick claims. The published text agrees:
 | ~900 | about #9: Thistlewick finds a returning hero awkward and writes clause nineteen, the Resettlement Clause | `EXPANSION.md` 1 |
 | 900-1930s | #10-#40, closer and closer together, always in a round year | |
 | ~1930 | #39, the cousin of a regular in the Gilded Turnip | `village` |
-| 1940 | **#41 Halloran Vance**; the goose has been a wyvern in the Slain Wyvern "for sixty years" | `south.the_wyvern` |
+| 1940 | **#41 Halloran Vance**; the goose has been a wyvern in the Slain Wyvern "for sixty years" - and the second plaque (WRE-2) says 1940, "in two days, with wire" | `south.the_wyvern`, `q_wren.PLATE` |
 | 1940s-50s | #42 and #43; the Forty-Second and his wife still drink in the Wyvern | `south` (Sops) |
 | 1959 | Wick goes north "forty-one years ago this spring" - a year ahead of the Chosen One; everybody goes north, and not all of them together | `south.outfit_events` |
 | 1960 | **#44 Ambrose Fitch**, home and "ignored for forty years"; Ysolde's forty years of field medicine; Perce Stagg, walking north with everybody else, breaks Frostwick's winter "forty years ago this spring"; the Guild founded, provisionally | `wilds.forty_fourth`, `south.ysolde_event`, `frostwick.frostwick_events`, `south` (the Charter) |
