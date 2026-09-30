@@ -40,6 +40,20 @@ the same reason it worked.
 * **When a session ends early**, write the state into the step's Done
   paragraph and leave a restart prompt at the bottom of this file, the way
   this one was left.
+* **Fix the room you are standing in.** When a step puts pages into an old
+  room and the room itself is wrong - a prop that is not what its constant
+  says, a thing on the floor that belongs on a table, furniture a row out -
+  fix that room in the same step (Mike, 30 Sep 2026). Hob's anvil was a pile
+  of scrolls on a broken table. "Additive only" protects the storyline, not
+  bugs: no line of dialogue changes, but tiles and an event's cell may.
+  Crop before judging (`python3 ../tools/propsheet.py . out.png <map>`, and
+  `build/TILENAMES.md`); draw with mapkit's "Inside furniture, by name" or
+  `K.sf_tile` by the sheet's own name; screenshot before and after; and run
+  every scenario that walks the room, because a moved prop can block a
+  scripted walk (find them by parsing the scenarios' `query` and `goto` map
+  ids). Say what was fixed in the step's Done paragraph. Thistlewick's and
+  Nether Sopping's ten interiors were swept on 30 Sep (commit 8d35f6b); the
+  north and the world-map sites have not been.
 
 ### 0.2 The rules for every quest (`COMPANIONS.md` 1, restated where it bites)
 
@@ -660,9 +674,12 @@ carrying forward:
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
 its section 0 and the Done paragraphs, then build the **next step** - A6,
-HOB-5 Two Smiths, One Forge - reading only Hob's section of `COMPANIONS.md`. Nothing is
-pushed in this effort (0.1). Per step: `build_game.py`, a `git diff --stat
-data/` that touches only what the step meant to, `validate.py`, screenshots
-of anything drawn, and the step's own scenario - run it under `stdbuf -oL`
-or it prints nothing until it ends. No full suite until G1. Write the step's
-Done paragraph and move this prompt on by one.
+HOB-5 Two Smiths, One Forge - reading only Hob's section of `COMPANIONS.md`.
+Nothing is pushed in this effort (0.1). Per step: `build_game.py`, a `git
+diff --stat data/` that touches only what the step meant to, `validate.py`,
+screenshots of anything drawn, and the step's own scenario - run it under
+`stdbuf -oL`, and in the background if it is long, or it prints nothing until
+it ends. No full suite until G1. **Any old room a step works in that looks
+wrong is fixed in that step** (0.1, "Fix the room you are standing in"): crop
+its props before judging them, and run the scenarios that walk it. Write the
+step's Done paragraph and move this prompt on by one.
