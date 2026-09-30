@@ -96,6 +96,7 @@ dresser is `Closet / Sundries Shelf A`.
 | `STOVEPIPE` | B 136 | Chimney |
 | `LILYPAD` | B 255 | Lotus Pads C |
 | `MUSHROOMS` | B 235 | Mushrooms B |
+| `BURROW` | B 169 | Hole |
 | `BRAMBLES` | B 49 | Wall Vines A |
 | `DEAD_BUSH` | B 251 | Susuki Grass |
 | `DEAD_TREE` | B 232 | Dead Tree |

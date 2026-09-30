@@ -314,7 +314,8 @@ def build_system():
         switches[sid] = "actor %d has had a story of their own" % actor_id
     for sid, name in [
             (db.SW_WRE2_ASKED, "WRE-2: Dorcas will read a second plaque"),
-            (db.SW_WRE2_UP, "WRE-2: the second plaque is up")]:
+            (db.SW_WRE2_UP, "WRE-2: the second plaque is up"),
+            (db.SW_WRE5_NAMED, "WRE-5: Bramus is named")]:
         switches[sid] = name
 
     variables = [""] * 32

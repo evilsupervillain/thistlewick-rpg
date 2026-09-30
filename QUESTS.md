@@ -502,14 +502,43 @@ carrying forward:
   candidate (0.5).
 * `TIMELINE.md`: the plate says 1940, #41's year, and the row names it.
 
+**A2, WRE-5 Bramus - done.** `q_wren.bramus`, hooked from `village.py` in one
+line; `build/scenarios/q_wre5.json`. What is worth carrying forward:
+
+* **It is Bram's own field, Map 1** - event 25, **Bramus's Burrow**, at
+  (15,27) in the fourth soil row. The creature is never drawn - the stock
+  character sheets have nothing small and brown, and it is of no consequence
+  - so the event is a tile: `mapkit.BURROW`, Outside_B 169, the sheet's own
+  `Hole`. It blocks its cell; the crop rows are walkable, so nothing is sealed.
+* **Without Wren there is no page at all** until it is named, so a game that
+  never recruits her has Map 1 exactly as it was (the scenario walks onto the
+  cell). Page 1 (Wren) is the naming; page 2 (`SW_WRE5_NAMED`) is the label
+  on its stick, for everybody; page 3 (named + Wren) is "Still here."
+* **Ids taken:** switch **113** `SW_WRE5_NAMED`. A global rather than a self
+  switch for the ending's sake: `SW_STORY[WREN]` is on after *either* of her
+  quests, and the Bramus line is not true of a party that only put up a
+  plaque, so **G1 reads 113 for this line, not 108**. Next free: switch 114,
+  item 41.
+* **Bram's reaction is narration**, as he always is: touched, then the
+  rationale ("statistically indefensible"), then touched anyway, because it
+  is accurate.
+* **One trope** (the honour that is an insult), at "In print". **One blush**:
+  "Breeds March to October, and is enthusiastic about it", written down under
+  Bram's name. Running tally for the effort: **tropes +2, blushes +1**.
+* **Candidate ending line** (G1 chooses; read `SW_WRE5_NAMED`):
+  "The Prophecy does not read journals. It has read one." /
+  "Bramus agricola: statistically indefensible."
+* Wren's gear: still open - WRE-3's badge.
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
-its section 0 and the Done paragraphs, then build the **next step** - A2,
-WRE-5 Bramus - reading only Wren's section of `COMPANIONS.md`. Nothing is
+its section 0 and the Done paragraphs, then build the **next step** - A3,
+PIP-2 A Rhyme For Turnip - reading only Piper's section of `COMPANIONS.md`. Nothing is
 pushed in this effort (0.1). Per step: `build_game.py`, a `git diff --stat
 data/` that touches only what the step meant to, `validate.py`, screenshots
 of anything drawn, and the step's own scenario - run it under `stdbuf -oL`

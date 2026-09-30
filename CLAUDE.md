@@ -827,6 +827,10 @@ makes eight passes over it cost less than the single pass did before.
   handover: `SW_WRE2_UP`, `SW_STORY[WREN]` and `VAR_COMPANION_STORIES` once,
   both plaques read, the goose again with and without her. The first companion
   quest, and the pattern for the rest |
+| `q_wre5` | `QUESTS.md` A2, WRE-5 Bramus: the burrow in the turnip field absent
+  without Wren - walked onto - and with her the naming (a trope and a blush,
+  once each), `SW_WRE5_NAMED`, `SW_STORY[WREN]` and `VAR_COMPANION_STORIES`;
+  then "Still here." with her and the label without her |
 
 | `firstfield` | Firstfield Meadow walked with the arrow keys: in off the rainbow,
   Fizz in front of you before a step and in front of the sign you try to read,

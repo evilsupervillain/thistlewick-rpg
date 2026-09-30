@@ -139,6 +139,7 @@ FENCE_PANEL = b_tile(10, 1)       # a short slatted fence panel
 STOVEPIPE = b_tile(8, 1)
 LILYPAD = b_tile(15, 15)
 MUSHROOMS = b_tile(11, 13)
+BURROW = b_tile(9, 5)             # a small dug hole in the earth
 BRAMBLES = b_tile(1, 6)
 DEAD_BUSH = b_tile(11, 15)
 DEAD_TREE = b_tile(8, 13)

@@ -28,8 +28,23 @@ plaque beside the first, which neither corrects it nor repeats it.
   itself - so a Wren dismissed halfway leaves the errand exactly where it
   was. Once the wording is left with Mrs Barrow the plate can be paid for
   without her; it is only put up with her standing there.
+
+WRE-5, Bramus (`QUESTS.md` A2)
+------------------------------
+She names a small brown thing in Bram's own turnip field after him, and then
+explains why. One scene, on one event in the field.
+
+* **Nobody without her sees the burrow.** Its first page needs Wren, so a
+  game that never recruits her has no page there at all and Map 1 is what
+  it was. Once it is named there is a labelled stick beside it, and that is
+  there for everybody.
+* **Named is a global switch, `SW_WRE5_NAMED`, not a self switch.** Nothing
+  else reads it yet; the ending will. `SW_STORY[WREN]` says only that one of
+  her quests was finished, and the Bramus line in the ending is not true of
+  a party that only put up a plaque.
 """
 import db
+import mapkit as K
 import rmmzdata as R
 import story as S
 
@@ -257,4 +272,105 @@ def engraving_card(event_id, x, y):
         R.page(ready, img=img, trigger=0, priority=1,
                conditions={"itemValid": True,
                            "itemId": db.IT_BRASS_PLATE}),
+    ])
+
+
+def bramus(event_id, x, y):
+    """The burrow in the turnip rows (Map 1). The creature is never drawn:
+    it is small and brown and of no consequence, and the hole is as much of
+    it as anybody but Wren has ever noticed.
+
+    Page 1 is the naming, with Wren and before it - the trope, the blush,
+    and her story. Page 2 is the label she leaves, for everybody. Page 3 is
+    the burrow afterwards with her there, which outranks it."""
+    look = S.narrate([
+        "A neat hole in the turnip row, with a rim of turned earth.",
+        "Wren is down on her knees beside it before you have",
+        "finished looking at it."])
+    look += S.say("Wren", ["Don't move. Don't breathe on it."])
+    look += S.narrate([
+        "Something small and brown comes out of the hole. It",
+        "looks at nothing in particular, and walks directly",
+        "into the path of a wheelbarrow."])
+    look += [R.play_se("Damage1", pitch=70), R.wait(30)]
+    look += S.narrate([
+        "The barrow goes over it. It comes out of the other",
+        "side of the barrow a little flatter, shakes itself,",
+        "and carries on."])
+    look += [R.play_se("Crow"), R.wait(20)]
+    look += S.narrate([
+        "A crow drops on it from a height, misses, hits the",
+        "barrel, and leaves with a great deal of dignity."])
+    look += S.say("Wren", [
+        "They're all over this field. Nobody",
+        "has ever described one. Nobody has",
+        "ever looked."])
+    look += S.say("Wren", [
+        "It's new. It's got no name.",
+        "I'm naming it after you."])
+    look += S.narrate([
+        "Nobody has ever named anything after you. The last",
+        "honour you were given, you were asleep for."])
+    look += S.narrate([
+        "You find you have had to sit down on a turnip."])
+    look += S.narrate(["She has her notebook open."])
+    look += [R.play_se("Book1"), R.wait(20)]
+    look += S.say("Wren", [
+        "Bramus agricola. Diet, turnip.",
+        "Predators, everything. Of no",
+        "consequence whatsoever."])
+    look += S.say("Wren", [
+        "Remarkable for one attribute. It",
+        "survives things it has no business",
+        "surviving. By luck. Repeatedly."])
+    look += S.say("Wren", [
+        "I shall be calling it statistically",
+        "indefensible. In print."])
+    look += [S.trope()]
+    look += S.narrate([
+        "She looks at you, and then at the hole, and then at",
+        "you, with the patience of somebody waiting for a",
+        "specimen to confirm a hypothesis."])
+    look += S.narrate([
+        "You think about the Gloamwood, and the tower, and",
+        "everything since the vote, and how much of it you",
+        "walked away from, and why."])
+    look += S.narrate([
+        "It is accurate. Nobody has ever described you",
+        "accurately before. It turns out to be exactly the",
+        "same feeling as being deeply touched."])
+    look += S.say("Wren", [
+        "Breeds March to October, and is",
+        "enthusiastic about it. With its",
+        "record, it can afford to be."])
+    look += [S.blush()]
+    look += S.narrate([
+        "She writes that down, under your name. You would",
+        "like to discuss which name, and cannot find a way",
+        "to begin."])
+    look += S.narrate([
+        "She pushes a stick into the earth beside the hole",
+        "and ties a label to it."])
+    look += [R.control_switch(db.SW_WRE5_NAMED, True)]
+    look += S.companion_story(db.WREN)
+
+    label = S.narrate([
+        "A neat hole in the turnip row. On a stick beside it is a",
+        "label, in a small careful hand:"])
+    label += S.narrate([
+        "\\C[6]BRAMUS AGRICOLA (HALLOWAY).",
+        "DO NOT PLOUGH. IT WILL NOT HELP.\\C[0]"])
+
+    again = S.say("Wren", ["Still here."])
+    again += S.narrate(["Of course it is."])
+
+    img = R.image(tile_id=K.BURROW)
+    named = {"switch1Valid": True, "switch1Id": db.SW_WRE5_NAMED}
+    return R.event(event_id, "Bramus's Burrow", x, y, [
+        R.page(look, img=img, trigger=0, priority=1, direction_fix=True,
+               conditions={"actorValid": True, "actorId": db.WREN}),
+        R.page(label, img=img, trigger=0, priority=1, direction_fix=True,
+               conditions=named),
+        R.page(again, img=img, trigger=0, priority=1, direction_fix=True,
+               conditions=dict(named, actorValid=True, actorId=db.WREN)),
     ])

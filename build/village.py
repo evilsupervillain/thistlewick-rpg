@@ -13,6 +13,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
+import q_wren
 import rmmzdata as R
 import story as S
 from places import (MAP_VILLAGE, MAP_HOME, MAP_HALL, MAP_INN, MAP_CHAPEL,
@@ -358,6 +359,9 @@ def village_events():
     add(R.event(24, "Fountain", 17, 16, [R.page(
         well, img=R.image("!Other2", 2, direction=2), trigger=0, priority=1,
         direction_fix=True, step_anime=True, walk_anime=False)]))
+
+    # -- 25: a hole in the turnip rows, for Wren (WRE-5) ------------------------
+    add(q_wren.bramus(25, 15, 27))
     return evs
 
 
