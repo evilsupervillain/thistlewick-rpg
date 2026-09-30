@@ -129,7 +129,7 @@ by the first step that needs it.
 | Zephyrine | a robe with a stat line | ZEPH-1 | C1 |
 | Nix | the coat (armour, and it fits) | NIX-1 | B5 |
 | Aldric | the shield | ALD-2 | E7 |
-| Piper | *nothing in her five gives gear* - decide in her first step (A3) | | |
+| Piper | the rosette for second place (accessory) - she frames the certificate and wears the rosette; decided in A3 | PIP-3 | B3 |
 | Corvin | the scarf, the wrong colour (accessory) | COR-1 | D1 |
 | Wren | *nothing in her five gives gear* - decide in her first step (A1) | | |
 | Roland | the better sword he leaves at the door | ROL-2 | E18 |
@@ -531,14 +531,50 @@ line; `build/scenarios/q_wre5.json`. What is worth carrying forward:
 * Wren's gear: still open - WRE-3's badge.
 * `TIMELINE.md`: nothing dated.
 
+**A3, PIP-2 A Rhyme For Turnip - done.** `build/q_piper.py`, hooked from
+`village.py` in two lines; `build/scenarios/q_pip2.json`. What is worth
+carrying forward:
+
+* **The venue is the gilded turnip itself** - Map 4, event 6, on its plinth
+  in the Gilded Turnip. It was one page with no switches, so pages 2 and 3
+  are appended with no ladder to wait on; page 1 is byte for byte (checked
+  against HEAD), and is all a party without Piper sees. `village.py` hands
+  the prop's own image to `q_piper.turnip_pages`, so the turnip looks the
+  same whoever is standing there.
+* **Page 2 needs Piper and `SW_LEFT_VILLAGE`** - not before the road, or the
+  quest is five minutes after she joins, in the same room - and opens with a
+  "Not now". Page 3 (Piper + `SW_PIP2_DONE`) is "Nine seconds." afterwards.
+* **One `if_then` per companion**, eight of them - everybody but Bram and
+  Piper, the five `COMPANIONS.md` names plus Merribell (the body, top to
+  bottom, at volume: **a blush**), Zephyrine ("sherbet", and who set fire to
+  the Dean) and Roland (the right answer at a quarter past two, ignored, and
+  gracious about it afterwards, which is worse). Bram always has a go:
+  "parsnip". The scenario takes every branch exactly once over two parties.
+* **The verse** is `q_piper.VERSE`, and the fix is the joke: the draft ends
+  its second line on "turnip"; she ends it on "grate" and moves the turnip
+  down a line, where nothing has to rhyme with it.
+* **Ids taken:** switch **114** `SW_PIP2_DONE`, for the ending, as 113 is.
+  Next free: switch 115, item 41.
+* **Tropes: one per suggestion made plus one for the payoff** - 2 to 9 in a
+  play, 4 for a party of three companions. **Blushes: +1** if Merribell is
+  there. Running tally for the effort: **tropes +2 fixed and 2-9 here,
+  blushes +1 fixed and 0-1 here** - G1 counts the reachable maximum as 9 and
+  1.
+* **Piper's gear is decided: PIP-3's rosette for second place** (0.5). PIP-2
+  gives none.
+* **Candidate ending line** (G1 chooses; read `SW_PIP2_DONE`): "The ballad's
+  last verse took an afternoon and nine seconds, and the turnip is in the
+  middle of a line, where nothing has to rhyme with it."
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
-its section 0 and the Done paragraphs, then build the **next step** - A3,
-PIP-2 A Rhyme For Turnip - reading only Piper's section of `COMPANIONS.md`. Nothing is
+its section 0 and the Done paragraphs, then build the **next step** - A4,
+MER-2 Fit To Travel - reading only Merribell's section of `COMPANIONS.md`. Nothing is
 pushed in this effort (0.1). Per step: `build_game.py`, a `git diff --stat
 data/` that touches only what the step meant to, `validate.py`, screenshots
 of anything drawn, and the step's own scenario - run it under `stdbuf -oL`

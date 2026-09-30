@@ -260,6 +260,8 @@ IT_BRASS_PLATE = 40
 # WRE-5, Bramus (QUESTS.md A2, q_wren.py). Its own switch as well as
 # SW_STORY[WREN], so the ending can tell which of her quests was done.
 SW_WRE5_NAMED = 113             # the thing in the turnips has a name
+# PIP-2, a rhyme for turnip (QUESTS.md A3, q_piper.py)
+SW_PIP2_DONE = 114              # the ballad has its last verse
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

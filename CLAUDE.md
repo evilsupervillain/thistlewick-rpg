@@ -831,6 +831,11 @@ makes eight passes over it cost less than the single pass did before.
   without Wren - walked onto - and with her the naming (a trope and a blush,
   once each), `SW_WRE5_NAMED`, `SW_STORY[WREN]` and `VAR_COMPANION_STORIES`;
   then "Still here." with her and the label without her |
+| `q_pip2` | `QUESTS.md` A3, PIP-2 A Rhyme For Turnip: the gilded turnip unchanged
+  without Piper and before the road, her afternoon put off once, then two
+  parties so each of the eight suggestion branches runs exactly once - a trope
+  each, Bram's parsnip and the payoff, Merribell's blush - `SW_PIP2_DONE`, and
+  `SW_STORY[PIPER]` counted once |
 
 | `firstfield` | Firstfield Meadow walked with the arrow keys: in off the rainbow,
   Fizz in front of you before a step and in front of the sign you try to read,

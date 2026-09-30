@@ -315,7 +315,8 @@ def build_system():
     for sid, name in [
             (db.SW_WRE2_ASKED, "WRE-2: Dorcas will read a second plaque"),
             (db.SW_WRE2_UP, "WRE-2: the second plaque is up"),
-            (db.SW_WRE5_NAMED, "WRE-5: Bramus is named")]:
+            (db.SW_WRE5_NAMED, "WRE-5: Bramus is named"),
+            (db.SW_PIP2_DONE, "PIP-2: the ballad has its last verse")]:
         switches[sid] = name
 
     variables = [""] * 32

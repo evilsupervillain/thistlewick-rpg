@@ -629,7 +629,7 @@ WORLD_SIGN_COAST             (63, 80)
 
 The whole database of The Obligatory Quest.
 
-378 constants.
+379 constants.
 
 ```
 BRAM                         1
@@ -966,6 +966,7 @@ SW_WRE2_ASKED                111
 SW_WRE2_UP                   112
 IT_BRASS_PLATE               40
 SW_WRE5_NAMED                113
+SW_PIP2_DONE                 114
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

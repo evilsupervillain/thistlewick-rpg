@@ -13,6 +13,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
+import q_piper
 import q_wren
 import rmmzdata as R
 import story as S
@@ -871,11 +872,14 @@ def inn_events():
 
     # The turnip is drawn: `draw_art()`. Until AUDIT.md item 5 the plinth
     # was bare, and the text has always said otherwise (NORTH.md 8.1d).
-    evs.append(S.prop(6, "The Turnip", 13, 9, [
+    turnip = S.prop(6, "The Turnip", 13, 9, [
         "A single turnip on a plinth, painted gold.",
         "A small plaque reads: THE GILDED TURNIP.",
         "It is not a metaphor. It is just a turnip",
-        "somebody painted."], TURNIP_SHEET, 0, extra=[S.trope()]))
+        "somebody painted."], TURNIP_SHEET, 0, extra=[S.trope()])
+    # PIP-2: Piper's afternoon at it, and afterwards (q_piper.py).
+    turnip["pages"] += q_piper.turnip_pages(turnip["pages"][0]["image"])
+    evs.append(turnip)
 
     evs.append(the_washstand(7, 15, 7))
     return evs
