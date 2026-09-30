@@ -467,11 +467,14 @@ def wyvern_map():
     for x, shelf in ((3, K.IN_SHELF_BOTTLES), (4, K.IN_SHELF_JARS),
                      (5, K.IN_SHELF_GOODS), (6, K.IN_SHELF_FRUIT)):
         g.column(x, 3, 2, shelf)
-    # The bar. Inside_B's round table carries the counter flag (0x80), which
-    # is what lets the action button reach the landlady standing behind it -
-    # so the bar is built out of tables and Dorcas stands in the gap.
+    # The bar. Inside_B's tables carry the counter flag (0x80), which is what
+    # lets the action button reach the landlady standing behind it - so the
+    # bar is built out of tables and Dorcas stands in the gap. (Every table on
+    # the sheet has the flag; these were `Table A (Ruins)` until September
+    # 2026, which is a table split in two - see mapkit's "Inside furniture,
+    # by name".)
     for x in range(3, 7):
-        g.set(x, 6, 2, K.IN_TABLE_ROUND)
+        g.set(x, 6, 2, K.IN_TABLE_WOOD)
     g.set(3, 6, 3, K.INC_BOTTLES)
     g.set(5, 6, 3, K.INC_GOBLET)
     g.set(6, 6, 3, K.INC_MEAL2)
@@ -483,41 +486,43 @@ def wyvern_map():
     # two tiles, because the upper one is wall and nobody can stand in front
     # of a wall.
     g.column(7, 3, 2, K.IN_NOTICE_BOARD)
-    g.set(7, 6, 2, K.IN_TABLE_ROUND)
+    g.set(7, 6, 2, K.IN_TABLE_WOOD)
     # INC_BOOK2, not INC_BOOK: the sheet's `.txt` calls them Closed Book A
     # and Open Book A, and this one is described as open on the bar with
     # forty entries down the page.
     g.set(7, 6, 3, K.INC_BOOK2)
 
-    g.blit(8, 3, 2, K.IN_PIANO)
+    # The whole piano (it was the lid alone), which puts the clock - a real
+    # one; `IN_CLOCK` is two tables - one along.
+    g.blit(8, 3, 2, K.IN_PIANO_WHOLE)
     g.column(12, 3, 2, K.IN_NOTICE_BOARD)
     g.column(14, 3, 2, K.IN_BOOKCASE)
     g.blit(17, 3, 2, K.IN_FIREPLACE)
     g.column(20, 3, 2, K.IN_BED_ORANGE)
     g.column(21, 3, 2, K.IN_BED_BROWN)
-    g.column(10, 3, 2, K.IN_CLOCK)
+    g.column(11, 3, 2, K.IN_LONGCASE_CLOCK)
     g.column(16, 3, 2, K.IN_CURTAIN_RED)
 
     for tx, ty in [(8, 8), (8, 11), (11, 8), (11, 12), (15, 7), (19, 8),
                    (6, 13), (16, 13), (18, 12), (5, 9)]:
-        g.set(tx, ty, 2, K.IN_TABLE_ROUND)
+        g.set(tx, ty, 2, K.IN_TABLE_WOOD)
     g.scatter([(9, 9), (12, 9), (17, 7), (20, 11), (7, 14), (15, 14)],
-              2, K.IN_TABLE_SMALL)
+              2, K.IN_STOOL)
     g.set(8, 8, 3, K.INC_GOBLET)
     g.set(11, 8, 3, K.INC_MEAL2)
     g.set(8, 11, 3, K.INC_BOTTLE)
     g.set(15, 7, 3, K.INC_MEAL)
     g.set(19, 8, 3, K.INC_BOTTLES)
-    g.set(6, 13, 3, K.INC_CANDLES)
+    g.set(6, 13, 3, K.INC_BOTTLES)
     g.set(16, 13, 3, K.INC_BOOK)
     g.set(11, 12, 3, K.INC_GOBLET)
-    g.set(18, 12, 3, K.INC_CANDLES)
+    g.set(18, 12, 3, K.INC_GOBLET)
     g.set(5, 9, 3, K.INC_MEAL)
     g.set(3, 8, 2, K.IN_BARREL)
     g.set(3, 11, 2, K.IN_BARREL2)
     g.scatter([(21, 15), (3, 15)], 2, K.IN_CRATE)
-    g.set(21, 6, 2, K.IN_POT)
-    g.set(13, 15, 2, K.IN_POT)
+    g.set(21, 6, 2, K.IN_BARREL_WOOD)
+    g.set(13, 15, 2, K.IN_BARREL_WOOD)
     return finish(MAP_WYVERN, g, "The Slain Wyvern", bgm="Town5",
                   battleback=("Wood1", "Room1"), events=wyvern_events())
 
@@ -1574,8 +1579,8 @@ def guild_map():
     g.column(6, 3, 2, K.IN_BOOKCASE)
     g.column(13, 3, 2, K.IN_SWORD_RACK)
     g.column(15, 3, 2, K.IN_CABINET)
-    g.set(8, 6, 2, K.IN_TABLE_SMALL)
-    g.set(10, 6, 2, K.IN_TABLE_SMALL)
+    g.set(8, 6, 2, K.IN_TABLE_WOOD)
+    g.set(10, 6, 2, K.IN_TABLE_WOOD)
     g.set(8, 6, 3, K.INC_SCROLL)
     g.set(10, 6, 3, K.INC_BOOK2)
     g.scatter([(3, 10), (15, 10)], 2, K.IN_CRATE)
@@ -1855,11 +1860,12 @@ def outfit_map():
         g.column(x, 3, 2, K.IN_SHELF_BOTTLES)
     g.scatter([(3, 9), (4, 9), (13, 9)], 2, K.IN_CRATE2)
     g.scatter([(3, 7), (12, 8)], 2, K.IN_BARREL2)
-    g.set(4, 6, 2, K.IN_TABLE_SMALL)
+    g.set(4, 6, 2, K.IN_TABLE_WOOD)
     g.set(4, 6, 3, K.INC_BASKET)
-    g.set(11, 6, 2, K.IN_TABLE_SMALL)
+    g.set(11, 6, 2, K.IN_TABLE_WOOD)
     g.set(11, 6, 3, K.INC_BOTTLES)
-    g.set(8, 4, 2, K.INC_ARMOR_STAND)
+    # A coat on a stand, which is what an outfitter shows. It was a doll.
+    g.set(8, 4, 2, K.INC_COAT_STAND)
     return finish(MAP_OUTFIT, g, "Wick & Barrow, Outfitters", bgm="Town7",
                   battleback=("Wood1", "Room1"), events=outfit_events())
 
@@ -1983,11 +1989,13 @@ def cottage_map():
     g.column(13, 3, 2, K.IN_SHELF_JARS)
     g.column(6, 3, 2, K.IN_CURTAIN_GREEN)
     g.blit(3, 8, 2, K.IN_SOFA)
-    g.set(8, 6, 2, K.IN_TABLE_ROUND)
+    g.set(8, 6, 2, K.IN_TABLE_WOOD)
     g.set(8, 6, 3, K.INC_PLANT2)
-    g.set(12, 6, 2, K.IN_TABLE_SMALL)
+    # Supper laid toward the bottom of the table, so the stool is under it.
+    g.set(12, 6, 2, K.IN_TABLE_WOOD)
     g.set(12, 6, 3, K.INC_MEAL)
-    g.scatter([(13, 9), (12, 9)], 2, K.IN_POT)
+    g.set(12, 7, 2, K.IN_STOOL)
+    g.scatter([(13, 9), (12, 9)], 2, K.IN_BARREL_WOOD)
     g.set(5, 5, 2, K.IN_CRATE)
     return finish(MAP_COTTAGE, g, "Number Forty-Five's Cottage", bgm="Theme2",
                   battleback=("Wood1", "Room1"), events=cottage_events())
@@ -2114,13 +2122,12 @@ def lighthouse_map():
     g.column(9, 3, 2, K.IN_CABINET)
     g.column(3, 16, 2, K.IN_BED_BROWN)
     g.column(9, 16, 2, K.IN_BOOKCASE)
-    g.set(4, 18, 2, K.IN_TABLE_ROUND)
+    g.set(4, 18, 2, K.IN_TABLE_WOOD)
     g.set(4, 18, 3, K.INC_MEAL)
-    g.set(8, 18, 2, K.IN_TABLE_SMALL)
+    g.set(8, 18, 2, K.IN_TABLE_WOOD)
     g.set(8, 18, 3, K.INC_BOOK)
     g.scatter([(3, 12), (9, 12)], 2, K.IN_BARREL)
     g.scatter([(3, 9), (9, 9)], 2, K.IN_CRATE)
-    g.scatter([(4, 8), (8, 8)], 2, K.INC_CANDLES)
     g.column(6, 4, 2, K.IN_STOVE)                 # the lamp itself, brass and
                                                   # the size of a cart
     return finish(MAP_LIGHTHOUSE, g, "The Lighthouse of Saint Bother",

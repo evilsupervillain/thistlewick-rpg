@@ -538,6 +538,35 @@ def sf_block(sheet, name):
     return tuple(base + t for t in sorted(tile_names(sheet)[name]))
 
 
+# -- Inside furniture, by name ------------------------------------------------
+# The honest half of the `IN_*` vocabulary. The constants above were named for
+# what a tile looked like at 48 pixels, and a crop of every prop Thistlewick's
+# and Nether Sopping's interiors laid down (`tools/propsheet.py`, September
+# 2026) found the names wrong where it mattered most: `IN_TABLE_ROUND` is
+# `Table A (Ruins)`, split in two; `IN_TABLE_SMALL` is `Stool (Ruins)`;
+# `IN_POT` is `Barrel (Ruins)`, stove in; `INC_CANDLES` is `Scrolls A`;
+# `INC_ARMOR_STAND` is a porcelain doll; `INC_BELL` is a globe; `IN_CLOCK` is
+# two tables; `IN_PIANO` is only the lid and `IN_ORGAN` has a piano's keyboard
+# on top of it; and `IN_PILLAR` stands on `Broken Stone Pillar A`. Those names
+# stay, because later rooms use some of them knowingly (a `Pot B` is a good
+# pot); a room that means a table uses these.
+def _rows(block, width):
+    return tuple(block[i:i + width] for i in range(0, len(block), width))
+
+
+IN_TABLE_WOOD = sf_tile("Inside_B", "Table D")          # plain, counter-flagged
+IN_STOOL_SQUARE = sf_tile("Inside_B", "Stool C")        # two make a bench
+IN_BARREL_WOOD = sf_tile("Inside_B", "Barrel")
+IN_STONE_PILLAR = sf_block("Inside_B", "Stone Pillar A")    # capital, shaft
+IN_LONGCASE_CLOCK = sf_block("Inside_B", "Clock")
+IN_PIANO_WHOLE = _rows(sf_block("Inside_B", "Piano"), 3)
+IN_PIPE_ORGAN = _rows(sf_block("Inside_B", "Pipe Organ"), 3)
+INC_SCROLLS = sf_tile("Inside_C", "Scrolls A")
+INC_ALTAR = _rows(sf_block("Inside_C", "Church Table"), 3)  # candles each end
+INC_ARMOUR_STEEL = sf_tile("Inside_C", "Armor B (Stand)")
+INC_COAT_STAND = sf_tile("Inside_C", "Women's Clothing C (Stand)")
+
+
 # -- SF_Outside_B: the front of a building ------------------------------------
 # The town has no trees: tileset 5's B sheet is SF_Outside_B, so none of the
 # Outside_B scenery above exists up here. What a northern street front is made

@@ -1,12 +1,12 @@
 {
-  "query": "?map=6&x=5&y=6&frames=90",
+  "query": "?map=6&x=10&y=6&frames=90",
   "comment": "QUESTS.md A5, ROL-4 The Maker's Mark. Beatrice on the anvil without Roland or Hob is what it was; Roland alone looks at the forge and nothing happens; Roland and Hob together - the mark, 'She did good work', Beatrice saying nothing, and nobody explaining the hammer - SW_ROL4_SEEN and SW_STORY[ROLAND] once; again, the short line. Then Roland gone at the tower door (his departure has its own scenario, guest_leaves: here it is its outcome - the switch, the party, and Fairweather's Own, **equipped on Bram**, which is the case the refit has to find): Hob offers the refit, is turned down, offers again, and does it - the sword off Bram's hands and gone, the axe got, Hob able to hold it and Bram not.",
   "steps": [
     {"eval": "$gameSystem.disableEncounter()"},
     {"eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._lines = []; }; window._mark()"},
-    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [6, 5, 6]},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [6, 10, 6]},
     {"key": "ArrowUp", "times": 1, "gap": 30},
-    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [5, 6, 8]},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [10, 6, 8]},
 
     {"comment": "Nobody: the hammer as it was.", "check": "$gameMap.event(4).findProperPageIndex()", "expect": 0},
     {"key": "Enter"}, {"frames": 60},

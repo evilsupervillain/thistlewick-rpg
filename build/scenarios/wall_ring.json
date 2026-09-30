@@ -22,12 +22,12 @@
     {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [15, 10, 6],
      "label": "Turnip: THE EAST WALL HOLDS"},
 
-    {"comment": "North wall. Its face was always solid; the top above it is what was walkable, and the ring is one piece.", "goto": [4, 9, 4]},
-    {"key": "ArrowLeft", "times": 1, "gap": 30},
-    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [8, 4, 4],
-     "label": "Turnip: a step along the north wall"},
+    {"comment": "North wall. Its face was always solid; the top above it is what was walkable, and the ring is one piece. The piano is whole now (3x2) and stands on (8-10, 4), so (11, 4), between it and the fireplace, is the one open cell on the north row: a step up to the wall, then a push into it.", "goto": [4, 11, 5]},
     {"key": "ArrowUp", "times": 1, "gap": 30},
-    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [8, 4, 8],
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [11, 4, 8],
+     "label": "Turnip: a step up to the north wall"},
+    {"key": "ArrowUp", "times": 1, "gap": 30},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [11, 4, 8],
      "label": "Turnip: THE NORTH WALL HOLDS"},
 
     {"comment": "The south wall either side of the doorway.", "goto": [4, 7, 11]},

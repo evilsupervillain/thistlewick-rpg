@@ -644,9 +644,13 @@ carrying forward:
 * **Candidate ending line** (G1; read `SW_ROL4_REFIT`): Roland said the sword
   had never been in a last room. "It went into one after all, on a
   Thistlewick haft, in a Thistlewick hand."
-* **Not fixed, and worth an `AUDIT.md` look:** the "anvil" at (5,5) is drawn
-  as a round table with candles (`IN_TABLE_ROUND` under `INC_CANDLES`), and
-  the published prop has always said "resting on the anvil".
+* **The smithy was redrawn after this step**, at Mike's word that wrong tiles
+  in the early maps are to be fixed on sight: the "anvil" was `Table A
+  (Ruins)` under `Scrolls A`. It is a real anvil now, at **(10,5)** beside
+  Hob, with the forge on the wall behind it, and Beatrice's event moved onto
+  it; `q_rol4` stands at (10,6). Nothing she says changed. The same sweep
+  fixed the other Thistlewick and Nether Sopping interiors - see the commit
+  and mapkit's "Inside furniture, by name".
 * `TIMELINE.md`: 1960, Beatrice Grumnir makes the sword and sells it south.
 
 ---

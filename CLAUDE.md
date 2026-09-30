@@ -183,7 +183,11 @@ in each of the four states.
                      something else. `python3 ../tools/tileaudit.py . --write`
       mapkit.py      tile vocabulary and drawing helpers; names are what
                      things look like, and were confirmed in screenshots -
-                     which is exactly why `TILENAMES.md` exists
+                     which is exactly why `TILENAMES.md` exists. Several
+                     `IN_*` names lie badly (`IN_TABLE_ROUND` is a broken
+                     table, `INC_ARMOR_STAND` a doll); a room that means a
+                     table, stool, barrel, clock, piano, organ or altar uses
+                     the "Inside furniture, by name" block instead
       db.py          the whole database
       village.py     Maps 1-7: Thistlewick and its interiors
       journey.py     Maps 8-12: overworld, Gloamwood, the Obligatory Tower.

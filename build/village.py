@@ -488,14 +488,15 @@ def home_map():
     g.column(6, 3, 2, K.IN_CABINET)
     g.column(13, 3, 2, K.IN_SHELF_JARS)             # the pantry
     g.blit(9, 3, 2, K.IN_FIREPLACE)
-    g.set(12, 4, 2, K.IN_POT)
+    g.set(12, 4, 2, K.IN_BARREL_WOOD)
     g.scatter([(4, 9), (5, 9)], 2, K.IN_SACK)
     g.set(12, 9, 2, K.IN_CRATE)
-    g.set(11, 6, 2, K.IN_TABLE_ROUND)
+    # Supper for one, laid toward the bottom of the table (`Dinner Set A
+    # (Bottom)`), so the stool is below it. There was a heap of scrolls in the
+    # middle of the floor at (7, 6); it has gone.
+    g.set(11, 6, 2, K.IN_TABLE_WOOD)
     g.set(11, 6, 3, K.INC_MEAL)
-    g.set(12, 6, 2, K.IN_TABLE_SMALL)
-    g.set(7, 6, 2, K.IN_TABLE_SMALL)
-    g.set(7, 6, 3, K.INC_CANDLES)
+    g.set(11, 7, 2, K.IN_STOOL)
     return finish(MAP_HOME, g, "Bram's House", bgm="Town2",
                   battleback=("Wood1", "Room1"), events=home_events())
 def home_events():
@@ -578,8 +579,8 @@ def hall_map():
     g.fill(8, 5, 12, 12, 0, K.IN_RED_CARPET)
     g.autotile(0)
     for x in (5, 15):
-        g.column(x, 3, 2, K.IN_PILLAR)
-        g.column(x, 8, 2, K.IN_PILLAR)
+        g.column(x, 3, 2, K.IN_STONE_PILLAR)
+        g.column(x, 8, 2, K.IN_STONE_PILLAR)
     g.column(10, 2, 2, K.IN_STAINED_GLASS)
     g.column(7, 3, 2, K.IN_BOOKCASE)
     g.column(13, 3, 2, K.IN_BOOKCASE2)
@@ -589,11 +590,15 @@ def hall_map():
     # of the joke and the reason it is a document and not a conversation.
     g.column(6, 3, 2, K.IN_NOTICE_BOARD)
     g.column(16, 3, 2, K.IN_CURTAIN_GREEN)
-    g.set(9, 6, 2, K.IN_TABLE_ROUND)
+    g.set(9, 6, 2, K.IN_TABLE_WOOD)
     g.set(9, 6, 3, K.INC_SCROLL)
-    g.set(11, 6, 2, K.IN_TABLE_ROUND)
+    g.set(11, 6, 2, K.IN_TABLE_WOOD)
     g.set(11, 6, 3, K.INC_BOOK)
-    g.scatter([(6, 12), (14, 12)], 2, K.INC_CANDLES)
+    # The Committee's paperwork, on tables by the door rather than in heaps
+    # on the floor.
+    for x in (6, 14):
+        g.set(x, 12, 2, K.IN_TABLE_WOOD)
+        g.set(x, 12, 3, K.INC_SCROLLS)
     g.scatter([(4, 13), (16, 13)], 2, K.INC_PLANT)
     return finish(MAP_HALL, g, "Prophecy Hall", bgm="Scene2",
                   battleback=("Stone1", "Castle1"), events=hall_events())
@@ -818,14 +823,21 @@ def inn_map():
     g.column(4, 3, 2, K.IN_SHELF_BOTTLES)
     g.column(5, 3, 2, K.IN_CABINET)
     g.column(6, 3, 2, K.IN_SHELF_FRUIT)
-    g.blit(8, 3, 2, K.IN_PIANO)
+    g.blit(8, 3, 2, K.IN_PIANO_WHOLE)
     g.column(7, 3, 2, K.IN_SHELF_JARS)
+    # The bar: the bottles stood on the floorboards until tables went under
+    # them.
+    g.scatter([(4, 5), (5, 5)], 2, K.IN_TABLE_WOOD)
     g.set(4, 5, 3, K.INC_BOTTLES)
     g.set(5, 5, 3, K.INC_GOBLET)
     for tx, ty in [(6, 9), (12, 9), (12, 6)]:
-        g.set(tx, ty, 2, K.IN_TABLE_ROUND)
-    g.set(5, 9, 2, K.IN_TABLE_SMALL)
-    g.set(13, 9, 2, K.IN_TABLE_SMALL)
+        g.set(tx, ty, 2, K.IN_TABLE_WOOD)
+    g.set(5, 9, 2, K.IN_STOOL)
+    # The meal at (12, 9) is laid on the left of its table, so its stool is
+    # on the left. (13, 9) is the gilded turnip's plinth, and a square stool
+    # is what the landlord would have stood it on.
+    g.set(11, 9, 2, K.IN_STOOL)
+    g.set(13, 9, 2, K.IN_STOOL_SQUARE)
     g.set(12, 9, 3, K.INC_MEAL2)
     g.set(12, 6, 3, K.INC_GOBLET)
     g.set(6, 9, 3, K.INC_BOTTLE)
@@ -1186,17 +1198,19 @@ def chapel_map():
              wall_top=K.IN_WALL_TOP_WHITE, wall_face=K.IN_WALL_FACE_WHITE)
     g.fill(8, 4, 10, 12, 0, K.IN_RED_CARPET)
     g.autotile(0)
-    g.blit(12, 3, 2, K.IN_ORGAN)
+    g.blit(12, 3, 2, K.IN_PIPE_ORGAN)
     g.column(9, 2, 2, K.IN_STAINED_GLASS)
     g.column(4, 3, 2, K.IN_BOOKCASE)
     g.column(14, 7, 2, K.IN_SHELF_JARS)
+    # Pews: square stools side by side, which read as benches. They were
+    # broken stools, and there were scrolls on top of the organ.
     for y in (7, 9, 11):
         for x in (5, 6, 12, 13):
-            g.set(x, y, 2, K.IN_TABLE_SMALL)
-    g.scatter([(5, 4), (13, 4)], 2, K.INC_CANDLES)
+            g.set(x, y, 2, K.IN_STOOL_SQUARE)
     g.scatter([(4, 12), (15, 12)], 2, K.INC_PLANT2)
-    g.set(9, 5, 2, K.IN_TABLE_ROUND)
-    g.set(9, 5, 3, K.INC_BELL)
+    # The altar under the window: the only candles on either sheet are on
+    # the Church Table. A globe on a broken table stood here before.
+    g.blit(8, 4, 2, K.INC_ALTAR)
     return finish(MAP_CHAPEL, g, "Chapel of Whatever Works", bgm="Scene4",
                   battleback=("Stone1", "Castle1"), events=chapel_events())
 def chapel_events():
@@ -1220,7 +1234,9 @@ def chapel_events():
         "3. There is no rule three. Rule three was",
         "   getting in the way."]))
 
-    evs.append(S.prop(5, "The Organ", 13, 5, [
+    # On the organ's own lowest cell: it was (13, 5), the floor in front,
+    # while a piano's keyboard sat on top of the organ and pushed it down.
+    evs.append(S.prop(5, "The Organ", 13, 4, [
         "A pipe organ. Sister Merribell plays it",
         "at people who look tired.",
         "You press one key. The note goes on for",
@@ -1297,20 +1313,48 @@ def merribell_event(event_id, x, y):
                      again=again)
 
 
+# The smithy, by the sheets' own names. It used to be drawn with the mapkit
+# constants whose names are what a tile looked like at 48 pixels, and a crop
+# of every prop it laid down (`tools/propsheet.py . out.png 6`) said: the
+# "anvil" was `Table A (Ruins)` under `Scrolls A`, the armour stands were two
+# porcelain dolls (`Doll B`), the cabinet a bread shelf, the barrels pots, and
+# the forge a carved marble mantelpiece. And the sword racks stood a row low,
+# so their shields were on the floor rather than the wall.
+# The sundries shelf went too: jars and bolts of cloth are a general store's,
+# and this shop's stock is blades and polearms.
+FORGE = K.sf_block("Inside_B", "Fireplace B (Brick)")      # chimney, hearth
+# `Blacksmith's Table A` and `B` are two anvils - each has its own horn - not
+# one across two cells; A is the bare one, for a hammer to rest on.
+ANVIL = K.sf_tile("Inside_C", "Blacksmith's Table A")
+TOOLS = K.sf_tile("Inside_C", "Hammers")                   # sledge and tongs
+QUENCH = K.sf_tile("Inside_B", "Tub A")
+SWORD_STAND = K.sf_block("Inside_C", "Repository of Swords")
+SPEAR_STAND = K.sf_block("Inside_C", "Repository of Spears")
+SMITHY_ANVIL = (10, 5)          # Beatrice's cell
+
+
 def smithy_map():
-    """Grumnir's Smithy: weapons, armour, and a man who talks to hammers."""
+    """Grumnir's Smithy: weapons, armour, and a man who talks to hammers.
+
+    The forge is on the back wall with the anvil in front of it, beside where
+    Hob stands; the shop's stock is the west half - swords and shields on the
+    wall and a pair of armour stands under them - and the east wall has a
+    stand of swords and the quench tub by the hearth."""
     g = room(MAP_SMITHY, floor=K.IN_COBBLE,
              wall_top=K.IN_WALL_TOP_STONE, wall_face=K.IN_WALL_FACE_STONE)
-    g.blit(10, 3, 2, K.IN_FIREPLACE)
-    g.column(4, 3, 2, K.IN_SWORD_RACK)
-    g.column(6, 3, 2, K.IN_SWORD_RACK)
-    g.column(13, 3, 2, K.IN_CABINET)
+    # Hung on the face band, both cells on the wall.
+    g.column(4, 2, 2, K.IN_SWORD_RACK)
+    g.column(6, 2, 2, K.IN_SWORD_RACK)
+    g.column(11, 2, 2, FORGE)
+    # Standing against the wall: top on the band, foot on the floor.
+    g.column(8, 3, 2, SPEAR_STAND)
+    g.column(13, 3, 2, SWORD_STAND)
+    g.set(12, 4, 2, QUENCH)
+    g.set(SMITHY_ANVIL[0], SMITHY_ANVIL[1], 2, ANVIL)
+    g.set(SMITHY_ANVIL[0] + 1, SMITHY_ANVIL[1], 2, TOOLS)
+    g.scatter([(4, 5), (6, 5)], 2, K.INC_ARMOUR_STEEL)
     g.scatter([(4, 9), (5, 9)], 2, K.IN_CRATE)
-    g.scatter([(12, 9), (13, 9)], 2, K.IN_BARREL)
-    g.scatter([(11, 6), (12, 6)], 2, K.INC_ARMOR_STAND)
-    g.column(8, 3, 2, K.IN_SHELF_BOTTLES)
-    g.set(5, 5, 2, K.IN_TABLE_ROUND)
-    g.set(5, 5, 3, K.INC_CANDLES)
+    g.scatter([(12, 9), (13, 9)], 2, K.IN_BARREL_WOOD)
     return finish(MAP_SMITHY, g, "Grumnir's Smithy", bgm="Town4",
                   battleback=("Stone1", "Room1"), events=smithy_events())
 def smithy_events():
@@ -1332,7 +1376,7 @@ def smithy_events():
     ])
     evs.append(S.npc(3, "Apprentice", 11, 8, shop, "People2", 7, direction=4))
 
-    beatrice = S.prop(4, "Beatrice", 5, 5, [
+    beatrice = S.prop(4, "Beatrice", *SMITHY_ANVIL, [
         "A hammer, resting on the anvil.",
         "Somebody has scratched BEATRICE into the haft.",
         "You are almost certain it did not just move."],
@@ -1420,12 +1464,13 @@ def store_map():
     g.column(8, 3, 2, K.IN_SHELF_JARS)
     g.scatter([(4, 9), (5, 9), (12, 9)], 2, K.IN_CRATE2)
     g.scatter([(13, 5), (13, 8)], 2, K.IN_BARREL2)
-    g.set(4, 6, 2, K.IN_TABLE_SMALL)
-    g.set(4, 6, 3, K.INC_BASKET)
-    g.set(12, 6, 2, K.IN_TABLE_SMALL)
-    g.set(12, 6, 3, K.INC_POTION_RED)
-    g.set(9, 5, 2, K.INC_POTION_BLUE)
-    g.set(6, 5, 2, K.INC_POTION_GREEN)
+    # Goods out on tables. The potions stood on the bare floorboards, and the
+    # other two tables were broken stools.
+    for (x, y), goods in [((4, 6), K.INC_BASKET), ((12, 6), K.INC_POTION_RED),
+                          ((9, 5), K.INC_POTION_BLUE),
+                          ((6, 5), K.INC_POTION_GREEN)]:
+        g.set(x, y, 2, K.IN_TABLE_WOOD)
+        g.set(x, y, 3, goods)
     return finish(MAP_STORE, g, "Nix's Emporium", bgm="Town2",
                   battleback=("Wood1", "Room1"), events=store_events())
 def store_events():
