@@ -709,7 +709,7 @@ carrying forward:
   on the floor and a 2x2 heap of fallen masonry by the door. SF Inside has no
   anvil, hearth or coal, so **tileset 6 now carries the stock `Inside_B` and
   `Inside_C` in its empty D and E slots**, with tileset 3's flags for them
-  (`build_game.build_tilesets`); `mapkit.clanging_in(sheet, name)` names a
+  (`build_game.build_tilesets`); `mapkit.borrowed(sheet, name)` (was `clanging_in`) names a
   tile there - **not** `sf_tile`, whose id would be tileset 3's. The forge
   has Grumnir's brick hearth, a quench basin, a coal box (`Inside_C`'s
   `Scrap Metal` is coal - `TILES-AND-ASSETS.md`), an anvil and hammers at
@@ -776,14 +776,81 @@ is worth carrying forward:
   `frayne` and `nomap`, which walk these events, were rerun and pass.
 * `TIMELINE.md`: nothing dated.
 
+**A8, HOB-3 The Anvil - done.** HOB-3's section at the bottom of
+`build/q_hob.py`, hooked from `village.py` in four places;
+`build/scenarios/q_hob3.json`. What is worth carrying forward:
+
+* **The smithy's anvil is an event now** - Map 6 event 5, **The Anvil**, on
+  `village.SMITHY_ANVIL` (10,5) with Beatrice's event on the same cell, as
+  she always was (invisible, blocking it). The tile came out of layer 2.
+  Page 1 is the anvil (a tile image, below characters); page 2 is **the
+  theft, an autorun**, on Hob in the party and `SW_LEFT_VILLAGE` - the
+  first time he walks into his own smithy after the road; page 3
+  (`SW_HOB3_GONE`) is nothing; page 4 (`SW_HOB3_DONE`) is the anvil back.
+  Nine seconds of incandescence, "mostly about the horn", then "They'll not
+  have got far." **One trope** (the stolen sacred object), there.
+* **`SW_HOB3_GONE` goes off again when the anvil comes back**, so one
+  switch means "it is outside" and every page that shows the theft reads it
+  alone. It is the pattern for a quest state that has to *end*, since a
+  page condition has no NOT.
+* **Beatrice's page 4** (`SW_HOB3_GONE`): on the floor where the anvil was,
+  saying nothing, pointedly. It shadows her ROL-4 pages while the anvil is
+  out, which is right - Roland lays the sword across the anvil - so **a
+  party with Roland and Hob that comes home after the road gets the theft
+  first, and ROL-4 after the rescue.** `q_rol4` does not set the road
+  switch and still passes.
+* **Outside, Map 1 events 26-28**, at `village.ANVIL_OUTSIDE` (9,33), three
+  squares south-east of the door: the anvil, face down on the grass, with
+  **Ivy Scrope** (8,33) and **Hodge Arkwright** (10,33) flat on either side
+  of it - a head at each end, which is what the text says. Each has one
+  page, on `SW_HOB3_GONE`, so before and after the grass is empty and the
+  cells block nothing. The anvil needs Hob; without him, "Is he coming? The
+  smith? Only we can't lift it."
+* **The two apprentices are generated**: `Gen_People11` **3** (Ivy, the
+  sorry one, in a striped top) and **4** (Hodge, in the syllabus bandana, as
+  Norbert is), settings in `build/characters/`, installed by `art.py`.
+  Their sprites are only ever the knocked-down strip,
+  `Gen_People11_Damage`, pattern 2. `Gen_People11` 5-7 are free. They have
+  no battlers in use, so nothing goes on `AUDIT.md`'s list.
+* **Crooke's line branches on her bounty** (`SW_BOUNTY_CROOKE`): she runs
+  the course either way, so a party that beat her gets "You. The footwork."
+  and one that did not gets her introduction. Either way: week four, module
+  seven, acquisition of a heavy object - fail, both of you; "It says so on
+  the side. Reading was week one." The scenario takes both branches.
+* **The apology is item 45**, `IT_APOLOGY`, on the back of a syllabus, in a
+  very good hand. Hob: "...Nice hand, that." Crooke: "Week one. It's all
+  week one."
+* **Outside's tileset (2, and the Collegium's copy, 7) now carries
+  `Inside_C` in its E slot**, as SF Inside does since A6 - the first anvil
+  drawn on the grass came out as a white square, because tile 404 on
+  Outside is something else. `mapkit.clanging_in` is renamed
+  **`mapkit.borrowed`**, since an `Inside_C` tile now has the same E id on
+  every tileset that borrows it. The borrow runs before the copies in
+  `build_tilesets`, so the build is byte-stable from the first run.
+* **Ids taken:** switches **125** `SW_HOB3_GONE`, **126** `SW_HOB3_DONE`;
+  item **45**. Next free: switch 127, variable 17, item 46, weapon 41,
+  common event 4, `Gen_People11` 5.
+* **One trope, no blush.** Running tally for the effort: **tropes +6 fixed
+  and 2-9 from PIP-2; blushes +6 fixed and 0-1 from PIP-2.**
+* `SW_STORY[HOB]` at the rescue (already on after HOB-5 in a game that did
+  that first).
+* **Candidate ending line** (G1; read `SW_HOB3_DONE`): "Two apprentices
+  failed module seven, acquisition of a heavy object, by eleven feet. The
+  apology is framed in the smithy, next to nothing Hob made."
+* **The rooms (0.1):** the smithy was swept on 30 Sep and still reads right;
+  the grass outside the door is open ground. `q_rol4`, the only other
+  scenario that enters Map 6, was rerun and passes; nothing else walks the
+  new cells, which have no page until the theft.
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`. `QUESTS.md` is the queue: read
-its section 0 and the Done paragraphs, then build the **next step** - A8,
-HOB-3 The Anvil - reading only Hob's section of `COMPANIONS.md`.
+its section 0 and the Done paragraphs, then build the **next step** - A9,
+NIX-4 The Longest Loan - reading only Nix's section of `COMPANIONS.md`.
 Nothing is pushed in this effort (0.1). Per step: `build_game.py`, a `git
 diff --stat data/` that touches only what the step meant to, `validate.py`,
 screenshots of anything drawn, and the step's own scenario - run it under

@@ -261,11 +261,16 @@ SHEETS = {
         (6, "mrs-dimmock.json"),        # every letter answered
         (7, "drainage-commissioner.json"),  # are you a fire person?
     ],
-    # The last three of item 1. Cells 3-7 are free.
+    # The last three of item 1, then the companion quests (`QUESTS.md` 1).
+    # Cells 5-7 are free.
     "Gen_People11": [
         (0, "mrs-puddifoot.json"),      # Friday to Wednesday
         (1, "tom-fenmarch.json"),       # four miles, both ways
         (2, "evermore-raker.json"),     # mind the leaves
+        # HOB-3, the anvil: two of Crooke's apprentices, week four. Hodge
+        # is in the syllabus bandana, as Norbert is; Ivy writes a good hand.
+        (3, "ivy-scrope.json"),         # very sorry
+        (4, "hodge-arkwright.json"),    # less so
     ],
 }
 

@@ -356,6 +356,11 @@ FACES = {
     "Mrs Puddifoot": ("Gen_People11", 0),
     "Tom": ("Gen_People11", 1),
     "Elf": ("Gen_People11", 2),
+    # HOB-3, two of Crooke's apprentices, week four (`q_hob.py`). Hodge is
+    # in the syllabus bandana, as Norbert is. Their sprites are only ever
+    # the knocked-down strip, `Gen_People11_Damage`, under the anvil.
+    "Ivy": ("Gen_People11", 3),
+    "Hodge": ("Gen_People11", 4),
     # Fenmarch Hall, SITES.md step 16, drawn, `Gen_People5` 3 and 4. The
     # Fourth is Aldric Pemberton-Gore IV, and **"Aldric" is already Sir
     # Aldric**, so the household's name for him is the speaker. **"Mr

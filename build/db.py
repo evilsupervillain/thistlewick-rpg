@@ -283,6 +283,10 @@ SK_PAGE_23 = 46                 # Kindle, as worked out without the page
 # MER-4, the man who cannot stay down (QUESTS.md A7, q_merribell.py)
 SW_MER4_TOLD = 123              # she has refused him, and he has paid
 SW_MER4_DONE = 124              # and they have left, which is the cure
+# HOB-3, the anvil (QUESTS.md A8, q_hob.py)
+SW_HOB3_GONE = 125              # the anvil is out on the grass; off again after
+SW_HOB3_DONE = 126              # and back, to the inch
+IT_APOLOGY = 45
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1401,6 +1405,10 @@ def build_items():
                     "For the Two Hundred's refit: forty-one holes, one heat, "
                     "four hands. Still warm. For Miss Hoyle, up the hill.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=196))
+    upsert(it, item(IT_APOLOGY, "A Written Apology",
+                    "From I. Scrope, week four, on the back of a syllabus. "
+                    "Very sorry, in a very good hand. Hob keeps it.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=193))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

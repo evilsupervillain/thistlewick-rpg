@@ -217,6 +217,23 @@ def build_tilesets():
     for tid, flags in TILESET_FLAGS.items():
         for tile_id, bits in flags.items():
             tilesets[tid]["flags"][tile_id] |= bits
+    # SF Inside has no D or E sheet, and no anvil, hearth or coal anywhere on
+    # the two it has - so Ollerenshaw's was a forge with a marble mantelpiece
+    # in it. The stock Inside_B and Inside_C go into those empty slots with
+    # tileset 3's flags for them, which changes nothing any existing map has
+    # drawn; `mapkit.borrowed` names a tile on them.
+    # Outside (tileset 2) takes `Inside_C` into its E slot the same way, for
+    # the smithy's anvil out on the grass (HOB-3), so an `Inside_C` tile has
+    # the same E id on both and `mapkit.borrowed` serves either. This runs
+    # before the copies below, so the Collegium's copy of 2 has it too, on
+    # the first build as on every other.
+    inside = tilesets[mapkit.TS_INSIDE]
+    for tid, slot, sheet, src, dst in (
+            (mapkit.TS_CLANGING_IN, 7, "Inside_B", R.TILE_ID_B, R.TILE_ID_D),
+            (mapkit.TS_CLANGING_IN, 8, "Inside_C", R.TILE_ID_C, R.TILE_ID_E),
+            (mapkit.TS_OUTSIDE, 8, "Inside_C", R.TILE_ID_C, R.TILE_ID_E)):
+        tilesets[tid]["tilesetNames"][slot] = sheet
+        tilesets[tid]["flags"][dst:dst + 256] = inside["flags"][src:src + 256]
     # Two copies of stock tilesets with one sheet swapped for a recoloured
     # one, rewritten whole each build after the flags above, so the flags
     # follow: the Collegium's purple roofs (`mapkit.TS_COLLEGIUM`) and the
@@ -230,16 +247,6 @@ def build_tilesets():
         ts.update(id=tid, name=name)
         ts["tilesetNames"][slot] = sheet
         tilesets[tid:tid + 1] = [ts]
-    # SF Inside has no D or E sheet, and no anvil, hearth or coal anywhere on
-    # the two it has - so Ollerenshaw's was a forge with a marble mantelpiece
-    # in it. The stock Inside_B and Inside_C go into those empty slots with
-    # tileset 3's flags for them, which changes nothing any existing map has
-    # drawn; `mapkit.clanging_in` names a tile on them.
-    sf_in, inside = tilesets[mapkit.TS_CLANGING_IN], tilesets[mapkit.TS_INSIDE]
-    for slot, sheet, src, dst in ((7, "Inside_B", R.TILE_ID_B, R.TILE_ID_D),
-                                  (8, "Inside_C", R.TILE_ID_C, R.TILE_ID_E)):
-        sf_in["tilesetNames"][slot] = sheet
-        sf_in["flags"][dst:dst + 256] = inside["flags"][src:src + 256]
     R.save_list("Tilesets.json", tilesets)
 
 
@@ -336,7 +343,9 @@ def build_system():
             (db.SW_HOB5_DONE, "HOB-5: Ott says it will do"),
             (db.SW_ZEPH5_DONE, "ZEPH-5: page twenty-three"),
             (db.SW_MER4_TOLD, "MER-4: no twelfth time; the jar paid"),
-            (db.SW_MER4_DONE, "MER-4: left, which is the cure")]:
+            (db.SW_MER4_DONE, "MER-4: left, which is the cure"),
+            (db.SW_HOB3_GONE, "HOB-3: the anvil is outside"),
+            (db.SW_HOB3_DONE, "HOB-3: the anvil is back")]:
         switches[sid] = name
 
     variables = [""] * 32

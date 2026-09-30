@@ -539,15 +539,18 @@ def sf_block(sheet, name):
 
 
 # SF Inside (tileset 6) carries the stock Inside_B and Inside_C in its D and E
-# slots - `build_game.build_tilesets` - so the same tile has a different id
-# there than on tileset 3, and `sf_tile("Inside_C", ...)` would be wrong.
-_CLANGING_IN_SLOTS = {"Inside_B": R.TILE_ID_D, "Inside_C": R.TILE_ID_E}
+# slots, and Outside (tileset 2, and the Collegium's copy of it) carries
+# Inside_C in E - `build_game.build_tilesets` - so the same tile has a
+# different id there than on tileset 3, and `sf_tile("Inside_C", ...)` would
+# be wrong.
+_BORROWED_SLOTS = {"Inside_B": R.TILE_ID_D, "Inside_C": R.TILE_ID_E}
 
 
-def clanging_in(sheet, name):
+def borrowed(sheet, name):
     """Every tile of a stock Inside_B/Inside_C prop, by name, as it is
-    numbered on SF Inside - one id for a 1x1 prop, a tuple for a column."""
-    base = _CLANGING_IN_SLOTS[sheet]
+    numbered where it is borrowed (above) - one id for a 1x1 prop, a tuple
+    for a column. Inside_B is on SF Inside only."""
+    base = _BORROWED_SLOTS[sheet]
     ids = tuple(base + t for t in sorted(tile_names(sheet)[name]))
     return ids[0] if len(ids) == 1 else ids
 

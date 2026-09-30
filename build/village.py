@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
 import q_piper
+import q_hob
 import q_roland
 import q_wren
 import rmmzdata as R
@@ -364,6 +365,11 @@ def village_events():
 
     # -- 25: a hole in the turnip rows, for Wren (WRE-5) ------------------------
     add(q_wren.bramus(25, 15, 27))
+
+    # -- 26-28: the smithy's anvil on the grass, and two under it (HOB-3) ------
+    for ev in q_hob.outside_events(26, ANVIL_OUTSIDE,
+                                   K.borrowed("Inside_C", "Blacksmith's Table A")):
+        add(ev)
     return evs
 
 
@@ -1331,6 +1337,7 @@ QUENCH = K.sf_tile("Inside_B", "Tub A")
 SWORD_STAND = K.sf_block("Inside_C", "Repository of Swords")
 SPEAR_STAND = K.sf_block("Inside_C", "Repository of Spears")
 SMITHY_ANVIL = (10, 5)          # Beatrice's cell
+ANVIL_OUTSIDE = (9, 33)         # HOB-3: eleven feet outside the smithy door
 
 
 def smithy_map():
@@ -1350,7 +1357,7 @@ def smithy_map():
     g.column(8, 3, 2, SPEAR_STAND)
     g.column(13, 3, 2, SWORD_STAND)
     g.set(12, 4, 2, QUENCH)
-    g.set(SMITHY_ANVIL[0], SMITHY_ANVIL[1], 2, ANVIL)
+    # The anvil itself is an event, `q_hob.anvil_event`, so HOB-3 can steal it.
     g.set(SMITHY_ANVIL[0] + 1, SMITHY_ANVIL[1], 2, TOOLS)
     g.scatter([(4, 5), (6, 5)], 2, K.INC_ARMOUR_STEEL)
     g.scatter([(4, 9), (5, 9)], 2, K.IN_CRATE)
@@ -1383,7 +1390,9 @@ def smithy_events():
         "", 0, extra=[S.trope()])
     # ROL-4: the mark on Roland's sword, and the refit (q_roland.py).
     beatrice["pages"] += q_roland.anvil_pages(beatrice["pages"][0])
+    beatrice["pages"] += q_hob.beatrice_pages(beatrice["pages"][0])  # HOB-3
     evs.append(beatrice)
+    evs.append(q_hob.anvil_event(5, *SMITHY_ANVIL, ANVIL))
     return evs
 
 

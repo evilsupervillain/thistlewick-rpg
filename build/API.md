@@ -415,7 +415,7 @@ A(kind)                                              An autotile in its default 
 tile_names(sheet)                                    `{name: [tile id, ...]}` for a B/C/D/E sheet, from the editor's own tile
 sf_tile(sheet, name, index=0)                        One tile, by the name the editor's palette gives it. Safer than counting
 sf_block(sheet, name)                                Every tile of a multi-tile prop, in reading order - so a three-tile
-clanging_in(sheet, name)                             Every tile of a stock Inside_B/Inside_C prop, by name, as it is
+borrowed(sheet, name)                                Every tile of a stock Inside_B/Inside_C prop, by name, as it is
 sf_grid(sheet, name, w)                              A rectangular prop as a tuple of rows, ready for `Canvas.blit`.
 recolour_sheet(sheet, out, cells, hues, hue, sat, renames=()) Writes `img/tilesets/<out>.png`, a copy of `<sheet>.png` with some cells
 paint_regions(g, tileset_id, value=1, layer=5)       Region-tag every tile the player can actually stand on.
@@ -450,7 +450,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (173)
+### `FACES` — who already has a face (175)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -495,10 +495,10 @@ Dame Winifred         Bess                  Alfie                 Nell
 Mr Gammage            Mrs Pardew            Mrs Garrow            Dr Hapgood
 Reader                Undergraduate         Ned                   Granny Wendle
 Wilf                  Mrs Dimmock           Commissioner          Mrs Puddifoot
-Tom                   Elf                   The Fourth            Mr Ottershaw
-Mr Gedge              Prewitt               Dean Fenwold          The Mayor
-Prime Warden          Mr Tibbs              Mrs Harbottle         Miss Fettle
-Cotter
+Tom                   Elf                   Ivy                   Hodge
+The Fourth            Mr Ottershaw          Mr Gedge              Prewitt
+Dean Fenwold          The Mayor             Prime Warden          Mr Tibbs
+Mrs Harbottle         Miss Fettle           Cotter
 ```
 
 
@@ -642,7 +642,7 @@ WORLD_SIGN_COAST             (63, 80)
 
 The whole database of The Obligatory Quest.
 
-397 constants.
+400 constants.
 
 ```
 BRAM                         1
@@ -998,6 +998,9 @@ SW_ZEPH5_DONE                122
 SK_PAGE_23                   46
 SW_MER4_TOLD                 123
 SW_MER4_DONE                 124
+SW_HOB3_GONE                 125
+SW_HOB3_DONE                 126
+IT_APOLOGY                   45
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

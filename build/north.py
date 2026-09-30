@@ -1701,9 +1701,9 @@ def valve_events():
 
 
 # ============================================================ Ollerenshaw's ==
-FORGE_HEARTH = K.clanging_in("Inside_B", "Fireplace B (Brick)")  # chimney, hearth
-FORGE_QUENCH = K.clanging_in("Inside_C", "Large Basin")     # water, in a tank
-FORGE_COAL = K.clanging_in("Inside_C", "Scrap Metal")       # it is a coal box
+FORGE_HEARTH = K.borrowed("Inside_B", "Fireplace B (Brick)")  # chimney, hearth
+FORGE_QUENCH = K.borrowed("Inside_C", "Large Basin")     # water, in a tank
+FORGE_COAL = K.borrowed("Inside_C", "Scrap Metal")       # it is a coal box
 FORGE_ANVIL = (6, 6)            # Bryd's; he stands under it at (6, 7)
 
 
@@ -1724,14 +1724,14 @@ def forge_map():
     # A6 this was SF Inside's `Fireplace` - a carved mantelpiece, the one
     # Grumnir's Smithy had taken out for the same reason - with a brass
     # console for an anvil and a heap of fallen masonry by the door. SF Inside
-    # has no anvil, so it borrows the stock sheets (`K.clanging_in`), and the
+    # has no anvil, so it borrows the stock sheets (`K.borrowed`), and the
     # two forges now have the same brick hearth, which is not an accident.
     g.column(6, 2, 2, FORGE_HEARTH)               # on the face band
     g.set(5, 4, 2, FORGE_QUENCH)
     g.set(7, 4, 2, FORGE_COAL)
-    g.set(*FORGE_ANVIL, 2, K.clanging_in("Inside_C", "Blacksmith's Table A"))
+    g.set(*FORGE_ANVIL, 2, K.borrowed("Inside_C", "Blacksmith's Table A"))
     g.set(FORGE_ANVIL[0] + 1, FORGE_ANVIL[1], 2,
-          K.clanging_in("Inside_C", "Hammers"))
+          K.borrowed("Inside_C", "Hammers"))
     g.column(8, 3, 2, K.SF_IN_PIPE_V)
     g.set(8, 3, 3, K.SF_IN_VALVE)                 # on the pipe, not the floor
     g.column(11, 3, 2, K.SF_IN_ODDMENTS)
