@@ -1519,8 +1519,11 @@ Only then, and in this order:
    push. An inert door on a published map is a promise that nothing keeps.
 7. Then, and only then, push `master` to **`live-rpg`**.
 
-**Done, 29 September 2026, up to the push.** Items 1-6 are done and item 7 is
-Mike's to confirm. What is worth carrying forward:
+**Done, 29 September 2026, up to the push.** Items 1-6 are done. **Item 7 is
+held by Mike**: asked with the suite green, he said not yet. `master` is 40
+commits ahead of `live-rpg` and a fast-forward; the push is `git push github
+master:live-rpg`, and this session's shell had no SSH agent, so it has to be
+run where his key is loaded. What is worth carrying forward:
 
 * **The build is byte-stable and clean**: `build_game.py` rewrote nothing
   before the threshold change, `validate.py` reports no problems over 65 maps,
