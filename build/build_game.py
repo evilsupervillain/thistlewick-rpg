@@ -379,7 +379,10 @@ def build_system():
             (db.SW_ZEPH1_PAID, "ZEPH-1: the purse turned out"),
             (db.SW_ZEPH1_EXPELLED, "ZEPH-1: expelled, at her own request"),
             (db.SW_ZEPH1_DONE, "ZEPH-1: decided, either way"),
-            (db.SW_ZEPH3_DONE, "ZEPH-3: the demonstration; everyone fine")]:
+            (db.SW_ZEPH3_DONE, "ZEPH-3: the demonstration; everyone fine"),
+            (db.SW_ZEPH2_ON, "ZEPH-2: inquorate; fetch the duck"),
+            (db.SW_ZEPH2_WALKING, "ZEPH-2: the duck is walking (ends)"),
+            (db.SW_ZEPH2_DONE, "ZEPH-2: quorate; the proxy")]:
         switches[sid] = name
 
     variables = [""] * 32

@@ -363,6 +363,11 @@ AR_COLLEGIUM_ROBE = 43          # Zephyrine's gear (QUESTS.md 0.5): hers alone
 AT_ROBE = 10                    # an armour type of its own, as AT_BADGE is
 # ZEPH-3, Dean Fenwold is fine (QUESTS.md C2, q_zephyrine.py)
 SW_ZEPH3_DONE = 160             # the demonstration; the room was wrong
+# ZEPH-2, the duck (QUESTS.md C3, q_zephyrine.py)
+SW_ZEPH2_ON = 161               # inquorate: the twelfth Fellow is a duck
+SW_ZEPH2_WALKING = 162          # the duck is out of its pond; ends
+SW_ZEPH2_DONE = 163             # quorate; carried; the proxy is hers
+IT_DUCK, IT_PROXY = 54, 55
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1533,10 +1538,18 @@ def build_items():
                     "Apologies: the sorcerer. Readiness: not. Lineage: "
                     "present. Asset: available. Thanked. Eleven minutes.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=193))
+    upsert(it, item(IT_DUCK, "The Honorary Fellow",
+                    "A duck, with the Collegium's silver medal on a ribbon. "
+                    "Four hit points. Walks into everything.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=298))
+    upsert(it, item(IT_PROXY, "The Duck's Proxy",
+                    "Congregation's minutes, an extract: PROXY - Z. VANCE. "
+                    "PERMANENTLY. One vote, and it has a feather on it.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=195))
     upsert(it, item(IT_FINES_NOTICE, "Notice of Fines (Eleventh)",
                     "The Collegium Library, to Miss Z. Vance, on study leave. "
                     "Folded very small, and kept in her hat.",
-                    itype=2, consumable=False, scope=0, occasion=3, icon=195))
+                    itype=2, consumable=False, scope=0, occasion=3, icon=192))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

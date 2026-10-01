@@ -726,3 +726,227 @@ def undergraduate_page(last):
     return _plus(last, ["He has kept the bucket."],
                  {"selfSwitchValid": True, "selfSwitchCh": "A",
                   "switch1Valid": True, "switch1Id": db.SW_ZEPH3_DONE})
+
+
+# =============================================================== ZEPH-2 ==
+# The Duck (`QUESTS.md` C3).
+#
+# The duck survived the incident, and the Collegium, unable to think what else
+# to do with a bird that had been present at a formal enquiry, made it an
+# honorary Fellow. It holds a chair and a vote, and it lives on a pond four
+# miles off. Congregation is quorate at twelve: eleven Fellows who come, and
+# one who is a duck - **which is why everything here has been referred for
+# eleven years.** Every meeting since the incident has been inquorate.
+#
+# * **It needs ZEPH-3**: Hapgood's paper is out under his own name, so
+#   Congregation has something it actually wants to decide - his Senior
+#   Fellowship - and the notice by the Library door says INQUORATE.
+#   Zephyrine reads it and knows exactly who is missing (`SW_ZEPH2_ON`).
+# * **Decided: the duck is a key item, not a follower event.** An event cannot
+#   leave its map, so a duck that walked behind the party would be left at
+#   the pond's edge by the first transfer and lost for good to an airship.
+#   The item survives both, and the escort is in the telling: four hit points,
+#   and it walks into everything, as Ysolde's duke's son did. It is wordless,
+#   so it needs no face.
+# * **The vote is at its chair** in the Hall (Map 60, event 5), below that
+#   event's one-self-switch ladder, with Zephyrine: Congregation, quorate for
+#   the first time in eleven years, gets through eleven years of business by
+#   half past six, and the duck names its proxy. The proxy is item 55, hers
+#   permanently, and it is in the ending.
+# * **Afterwards**, for everybody: the pond, the notice, the Appeal, the chair
+#   and Hapgood, who has stopped going round.
+
+def notice_pages(page0):
+    """Congregation's notice (Map 58, event 10), which has no ladder: the
+    inquorate meeting after ZEPH-3; Zephyrine reading it; and carried."""
+    z3 = {"switch1Valid": True, "switch1Id": db.SW_ZEPH3_DONE}
+    inquorate = [
+        "EXTRAORDINARY. That Dr Hapgood be elected to a Senior",
+        "Fellowship. INQUORATE (eleven present; twelve required).",
+        "Referred."]
+    read = S.narrate(inquorate)
+    read += R.if_then(
+        R.condition_switch(db.SW_ZEPH2_ON),
+        S.say("Zephyrine", ["The duck. Four miles. The pond."]),
+        S.say("Zephyrine", ["Inquorate. Twelve required.",
+                            "There are eleven Fellows who come",
+                            "to things."])
+        + S.say("Zephyrine", ["And one who is a duck."])
+        + S.narrate([
+            "She looks at the notice for some time, and then at the",
+            "Lodge, and then at the road."])
+        + S.say("Zephyrine", ["That's why. That's why everything",
+                              "here has been referred for eleven",
+                              "years. Every meeting since the",
+                              "incident has been one short."])
+        + S.say("Zephyrine", ["We are going to fetch a duck."])
+        + [S.trope(), R.control_switch(db.SW_ZEPH2_ON, True)])
+    return [
+        _plus(page0, inquorate, z3),
+        _dressed(page0, read, dict(z3, actorValid=True, actorId=db.ZEPH)),
+        _plus(page0, [
+            "EXTRAORDINARY. Dr Hapgood elected to a Senior Fellowship.",
+            "CARRIED. The Honorary Fellow voting. And the Library",
+            "roof, at last: CARRIED, with thanks."],
+            {"switch1Valid": True, "switch1Id": db.SW_ZEPH2_DONE}),
+    ]
+
+
+def pond_pages():
+    """Pages 3-5 of the Duck's Pond (Map 8), after its stop and its short
+    version: the duck collected, with Zephyrine and the notice read; the pond
+    without it; and the Fellow home again, for good."""
+    seen = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    touch = dict(img=R.image(""), trigger=1, priority=0, through=True)
+    fetch = S.narrate([
+        "The duck sees Zephyrine, and stops paddling. Zephyrine",
+        "sees the duck. Both of them were at the enquiry."])
+    fetch += S.say("Zephyrine", ["Congregation. You're needed.",
+                                 "You are, apparently, the quorum."])
+    fetch += S.narrate([
+        "The duck considers this. Then it comes out of the pond,",
+        "walks into a reed, and stands in front of her, ready."])
+    fetch += S.say("Zephyrine", ["Four hit points. Walks into",
+                                 "everything. Ysolde did nine weeks",
+                                 "of this."])
+    fetch += S.say("Zephyrine", ["It's four miles. Nobody is to let it",
+                                 "near a fight."])
+    fetch += [R.gain_item(db.IT_DUCK), R.play_se("Chicken", 70, 80)]
+    fetch += S.got(["\\C[3]The Honorary Fellow\\C[0] is walking with",
+                    "you."])
+    fetch += [R.control_switch(db.SW_ZEPH2_WALKING, True)]
+    stop = S.narrate([
+        "A small pond, four miles from the Collegium, with",
+        "a duck on it, and the duck is looking at Zephyrine."])
+    return [
+        R.page(stop + R.choice_block(
+            ["Stop a while", "Press on"],
+            [fetch, S.narrate(["You press on."])]),
+            conditions=dict(seen, switch1Valid=True,
+                            switch1Id=db.SW_ZEPH2_ON,
+                            actorValid=True, actorId=db.ZEPH), **touch),
+        R.page(S.narrate([
+            "The duck's pond, without the duck. On a stick at the",
+            "edge, in pencil: GONE TO CONGREGATION."]),
+            conditions=dict(seen, switch1Valid=True,
+                            switch1Id=db.SW_ZEPH2_WALKING), **touch),
+        R.page(S.narrate([
+            "The duck's pond. The Fellow is in residence. It has",
+            "given its proxy, and does not intend to be walked",
+            "again."]),
+            conditions=dict(seen, switch1Valid=True,
+                            switch1Id=db.SW_ZEPH2_DONE), **touch),
+    ]
+
+
+def duck_door_page(go_in):
+    """Page 6 of the Collegium's world-map doors: Zephyrine, and the duck."""
+    c = S.narrate([
+        "The Collegium's gate. The Honorary Fellow walks into a",
+        "milestone, the gatepost and Mr Gedge, in that order, with",
+        "great dignity, and Mr Gedge touches his hat to it."])
+    c += R.choice_block(
+        ["Go in at the gate", "Press on"],
+        [list(go_in),
+         S.narrate(["You press on. The duck walks into you."])])
+    return R.page(c, img=R.image(""), trigger=1, priority=0, through=True,
+                  conditions={"actorValid": True, "actorId": db.ZEPH,
+                              "switch1Valid": True,
+                              "switch1Id": db.SW_ZEPH2_WALKING})
+
+
+def _z2_vote():
+    c = S.narrate([
+        "You set the duck on its cushion. It fits the dent",
+        "exactly, and it puts the feather back where it was."])
+    c += [R.play_se("Bell1", 80), R.wait(30)]
+    c += S.narrate([
+        "The bell rings for Congregation. Eleven Fellows come into",
+        "Hall, the Dean in the chair and Mr Pennock with the",
+        "minutes, and stop, and look at the end of High Table."])
+    c += S.say("Dean Fenwold", ["Twelve. We're twelve!",
+                                "We are QUORATE."])
+    c += S.narrate([
+        "Item one. That Dr Hapgood be elected to a Senior",
+        "Fellowship. Five for; five against; the chair abstains,",
+        "as the chair does."])
+    c += S.narrate([
+        "Everybody looks at the Honorary Fellow. It stands up on",
+        "its cushion, walks into the Dean's water jug, and says,",
+        "once, quite clearly: quack."])
+    c += [R.play_se("Chicken", 80, 70), R.wait(20)]
+    c += S.say("Dean Fenwold", ["Carried!"])
+    c += S.narrate([
+        "Somewhere outside, a thin man with a great many papers",
+        "stops going round the lawn, for the first time in",
+        "twenty-two years, and stands quite still."])
+    c += S.narrate([
+        "Item two, the Library roof: carried. Items three to four",
+        "hundred and six, eleven years of them: carried, carried,",
+        "carried. They are through by half past six."])
+    c += S.say("Dean Fenwold", ["Fellows may vote by",
+                                "proxy. The Honorary Fellow has never",
+                                "named one. Does it wish to?"])
+    c += S.narrate([
+        "The duck gets down, walks into the leg of High Table, and",
+        "then into Zephyrine, and stays there."])
+    c += _z1_paid_or_expelled(
+        S.narrate(["Mr Pennock writes it in the minutes:",
+                   "PROXY - Z. VANCE. PERMANENTLY."]),
+        S.narrate(["Mr Pennock writes it in the minutes: PROXY -",
+                   "Z. VANCE. Nobody ever said a proxy had to be a",
+                   "member. Nobody thought to. PERMANENTLY."]))
+    c += S.say("Zephyrine", ["It's the only vote I've ever had in",
+                             "this place."])
+    c += S.narrate([
+        "Mr Gedge takes the Honorary Fellow home to its pond in",
+        "the Lodge's handcart, which it walks into first."])
+    # Change Items' decrease is its own operation (parameter 1), as Change
+    # Gold's is - a negative amount on increase is not the same thing.
+    give_back = R.gain_item(db.IT_DUCK)
+    give_back["parameters"] = [db.IT_DUCK, 1, 0, 1]
+    c += [give_back, R.gain_item(db.IT_PROXY),
+          R.play_me("Item")]
+    c += S.got(["You have \\C[3]The Duck's Proxy\\C[0]."])
+    c += [R.control_switch(db.SW_ZEPH2_WALKING, False),
+          R.control_switch(db.SW_ZEPH2_DONE, True)]
+    c += S.companion_story(db.ZEPH)
+    return c
+
+
+def chair_pages(last):
+    """The Honorary Fellow's chair (Map 60, event 5), below its one-self-
+    switch ladder: the duck that will not sit without Zephyrine; the vote,
+    with her; and afterwards, for everybody."""
+    seen = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    walking = dict(seen, switch1Valid=True,
+                   switch1Id=db.SW_ZEPH2_WALKING)
+    return [
+        _dressed(last, S.narrate([
+            "The duck will not sit. It looks at the door, as if it",
+            "were waiting for somebody who was at the enquiry."]),
+            walking),
+        _dressed(last, _z2_vote(),
+                 dict(walking, actorValid=True, actorId=db.ZEPH)),
+        _plus(last, ["And a second card, in Mr Pennock's hand:",
+                     "PROXY - Z. VANCE."],
+              dict(seen, switch1Valid=True, switch1Id=db.SW_ZEPH2_DONE)),
+    ]
+
+
+def appeal_page(page0):
+    """The Library Appeal (Map 59, event 4), once the roof is carried."""
+    return _plus(page0, [
+        "Pinned over it: THE ROOF - CARRIED, BY CONGREGATION.",
+        "The bucket is staying until it is mended."],
+        {"switch1Valid": True, "switch1Id": db.SW_ZEPH2_DONE})
+
+
+def hapgood_senior_page(last):
+    """Dr Hapgood (Map 58, event 11) once he is a Senior Fellow."""
+    return _plus(last, [
+        "Senior Fellow Hapgood has stopped going round. He stands",
+        "in the middle of the path with his papers, and people go",
+        "round him."],
+        {"selfSwitchValid": True, "selfSwitchCh": "A",
+         "switch1Valid": True, "switch1Id": db.SW_ZEPH2_DONE})

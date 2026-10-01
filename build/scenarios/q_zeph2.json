@@ -1,0 +1,362 @@
+{
+ "query": "?map=58&x=16&y=20&frames=90",
+ "comment": "QUESTS.md C3, ZEPH-2 The Duck. After ZEPH-3, Congregation is inquorate - twelve required, eleven Fellows who come, and one who is a duck, which is why everything has been referred for eleven years. With Zephyrine: the pond, the duck as a key item (it survives a transfer and an airship), the gate, and the vote at its chair - Hapgood a Senior Fellow, the roof, eleven years of business - and the duck's proxy, hers permanently. Afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "eval": "$gameParty.addActor(4); [13, 155, 156, 157, 159, 160].forEach(s => $gameSwitches.setValue(s, true)); $gameSelfSwitches.setValue([58, 11, 'A'], true); $gameSelfSwitches.setValue([60, 5, 'A'], true); $gameSelfSwitches.setValue([8, 56, 'A'], true)",
+   "comment": "Zephyrine, after ZEPH-1 (paid) and ZEPH-3; the chair and the pond already seen."
+  },
+  {
+   "comment": "Congregation's notice: inquorate, and Zephyrine knows who is missing."
+  },
+  {
+   "goto": [
+    58,
+    27,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction(), $gameMap.event(10).findProperPageIndex()]",
+   "expect": [
+    27,
+    10,
+    8,
+    2
+   ],
+   "label": "below the notice, with her"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 1,
+   "label": "without her: inquorate"
+  },
+  {
+   "eval": "$gameSwitches.setValue(160, false)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 0,
+   "label": "before ZEPH-3, as it was"
+  },
+  {
+   "eval": "$gameSwitches.setValue(160, true); $gameParty.addActor(4); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"And one who is a duck.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"We are going to fetch a duck.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(161), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    1
+   ],
+   "label": "the escort mission, one trope"
+  },
+  {
+   "comment": "The pond: the duck comes out for Zephyrine."
+  },
+  {
+   "goto": [
+    8,
+    115,
+    41
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(56).findProperPageIndex()",
+   "expect": 2,
+   "label": "the pond, with her and the notice read"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"sees the duck. Both of them were at the enquiry.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(162), $gameParty.numItems($dataItems[54])]",
+   "expect": [
+    true,
+    1
+   ],
+   "label": "the Honorary Fellow is walking with you"
+  },
+  {
+   "check": "$gameMap.event(56).findProperPageIndex()",
+   "expect": 3,
+   "label": "the pond without the duck"
+  },
+  {
+   "comment": "Four miles, and the gate."
+  },
+  {
+   "goto": [
+    8,
+    112,
+    39
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(64).findProperPageIndex()",
+   "expect": 5,
+   "label": "the door, with her and the duck"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"milestone, the gatepost and Mr Gedge, in that order, with\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 58,
+   "label": "through the gate"
+  },
+  {
+   "comment": "The chair: Congregation, quorate."
+  },
+  {
+   "goto": [
+    60,
+    16,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction(), $gameMap.event(5).findProperPageIndex()]",
+   "expect": [
+    16,
+    7,
+    8,
+    3
+   ],
+   "label": "below the chair, with her and the duck"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 2,
+   "label": "without her, it will not sit"
+  },
+  {
+   "eval": "$gameParty.addActor(4); window._mark(); window._gold = $gameParty.gold()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 60
+  },
+  {
+   "shot": "q_zeph2_vote.png"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"We are QUORATE.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"once, quite clearly: quack.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"PROXY - Z. VANCE. PERMANENTLY.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nobody ever said a proxy had to be a\"))",
+   "expect": false,
+   "label": "the paid end: no aside about members"
+  },
+  {
+   "check": "[$gameSwitches.value(162), $gameSwitches.value(163), $gameParty.numItems($dataItems[54]), $gameParty.numItems($dataItems[55]), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(103), $gameParty.gold() - window._gold]",
+   "expect": [
+    false,
+    true,
+    0,
+    1,
+    0,
+    0,
+    true,
+    0
+   ],
+   "label": "carried; the duck goes home; the proxy is hers; no second trope, no blush; her story"
+  },
+  {
+   "comment": "Afterwards, for everybody."
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 4,
+   "label": "the chair: PROXY - Z. VANCE."
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"PROXY - Z. VANCE.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    58,
+    27,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(10).findProperPageIndex(), $gameMap.event(11).findProperPageIndex()]",
+   "expect": [
+    3,
+    3
+   ],
+   "label": "the notice: carried; Senior Fellow Hapgood"
+  },
+  {
+   "goto": [
+    59,
+    3,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Appeal: the roof carried"
+  },
+  {
+   "goto": [
+    8,
+    115,
+    41
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(56).findProperPageIndex()",
+   "expect": 4,
+   "label": "the pond: the Fellow is home, for good"
+  }
+ ]
+}

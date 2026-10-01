@@ -1615,14 +1615,81 @@ portrait, the undergraduate, Dr Hapgood); `build/scenarios/q_zeph3.json`.
   fire is redrawn for one shot and looked at.
 * `TIMELINE.md`: C1's 1989 row gains Hapgood's paper.
 
+**C3, ZEPH-2 The Duck - done.** ZEPH-2's section at the bottom of
+`q_zephyrine.py`, hooked from `nomap.py` (the pond, in a wrapper like the
+Lay-By's) and `collegium.py` (the world-map doors, Congregation's notice, Dr
+Hapgood, the Appeal and the chair); `build/scenarios/q_zeph2.json`.
+
+* **Decided: Congregation is quorate at twelve** - eleven Fellows who come to
+  things, and one who is a duck - **so every meeting since the incident has
+  been inquorate, and that is why everything at the Collegium has been
+  referred for eleven years.** The place's whole joke turns out to have a
+  cause, and the cause is on a pond.
+* **Decided: it needs ZEPH-3.** Hapgood's paper is out under his own name, so
+  Congregation at last has something it wants to decide - his Senior
+  Fellowship - and its notice (Map 58 event 10, which has no ladder) says so,
+  for everybody, with INQUORATE (eleven present; twelve required). With
+  Zephyrine she reads it, counts, and knows: "And one who is a duck." /
+  "We are going to fetch a duck." `SW_ZEPH2_ON`. **One trope** (the escort
+  mission).
+* **Decided: the duck is a key item, not a follower event** - item **54**,
+  "The Honorary Fellow" (a feather icon). An event cannot leave its map, so
+  a duck walking behind the party would be left at the pond by the first
+  transfer and lost to the airship for good; the item survives both, and
+  the escort is in the telling. It is wordless - a quack in narration, the
+  `Chicken` sound - so **it needs no face** and nothing goes on `AUDIT.md`.
+* **The pond** (Map 8 event 56) keeps its two pages; page 3 (its A,
+  Zephyrine, `SW_ZEPH2_ON`) is the two of them, both at the enquiry; it
+  walks into a reed and stands ready. "Four hit points. Walks into
+  everything. Ysolde did nine weeks of this." - the duke's son of her tale in
+  the Slain Wyvern. `SW_ZEPH2_WALKING` (ends). Page 4 is the pond without
+  it, GONE TO CONGREGATION; page 5 the Fellow home, proxy given, "and does
+  not intend to be walked again".
+* **The world-map doors' page 6** (Zephyrine and the duck): it walks into a
+  milestone, the gatepost and Mr Gedge, in that order, and Mr Gedge touches
+  his hat to it.
+* **The vote is at its chair** (Map 60 event 5, below its one-self-switch
+  ladder): without Zephyrine it will not sit; with her, it fits the dent and
+  puts the feather back. Eleven Fellows, the Dean in the chair, Pennock with
+  the minutes: "We are QUORATE." Hapgood, five-five, the chair abstaining;
+  the duck walks into the Dean's water jug and says, once, quack. Carried -
+  and outside a thin man stops going round the lawn for the first time in
+  twenty-two years. The roof, carried; items three to four hundred and six,
+  carried; through by half past six. The duck names its proxy by walking
+  into Zephyrine: PROXY - Z. VANCE. PERMANENTLY. (On the expelled end:
+  "Nobody ever said a proxy had to be a member. Nobody thought to.") "It's
+  the only vote I've ever had in this place." Mr Gedge takes it home in the
+  Lodge's handcart. **Item 55**, "The Duck's Proxy", replaces the duck.
+* **Afterwards for everybody**: the notice, CARRIED, the Honorary Fellow
+  voting, and the roof; the chair's second card, PROXY - Z. VANCE.; the
+  Appeal, THE ROOF - CARRIED, the bucket staying until it is mended; and
+  **Senior Fellow Hapgood**, who has stopped going round and stands in the
+  middle of the path while people go round him (his page 4, above ZEPH-3's
+  offprint page).
+* **Fixed on the way:** the Notice of Fines (item 53, C1) had the key icon,
+  195; it is the envelope, 192, now. The proxy is 193, the minutes' scroll.
+* **Ids taken:** switches **161** `SW_ZEPH2_ON`, **162** `SW_ZEPH2_WALKING`
+  (ends), **163** `SW_ZEPH2_DONE`; items **54** `IT_DUCK`, **55**
+  `IT_PROXY`. No faces.
+* One trope, no blush. Running tally: **tropes +23 fixed and 2-9 from
+  PIP-2; blushes +11 fixed and 0-1 from PIP-2.**
+* **Candidate ending line** (G1; read `SW_ZEPH2_DONE`) - the one joke the
+  proxy is worth: "The Collegium Arcanum has been quorate since the duck came
+  back. Its vote is held by proxy, permanently, by Zephyrine Vance. She has
+  not yet used it. She is saving it."
+* **The rooms (0.1):** the Hall, the court and the Library were cropped in
+  C1; nothing changed. The pond is a world-map cell.
+* **Scenario** `q_zeph2`: passes (25 checks), on ZEPH-1's paid end.
+* `TIMELINE.md`: nothing dated ("eleven years" is C1's 1989).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **finish
-Part C**, the Collegium: **C1 ZEPH-1 and C2 ZEPH-3 are done and committed**;
-do C3 ZEPH-2 and C4 WRE-1, in that order. This overrides 0.1's "one step per session" for Part C only
+Part C**, the Collegium: **C1-C3 (all of Zephyrine's) are done and
+committed**; do C4 WRE-1. This overrides 0.1's "one step per session" for Part C only
 (Mike, 1 Oct 2026), and also the Part C entry's "two sessions, one after the
 other" for C3 and C4 - they are still two steps and two commits, built in
 that order. Every other rule in 0.1 and 0.2 holds.
@@ -1652,8 +1719,8 @@ resumable. Nothing is pushed. No full suite until G1. After C4, run
 the scenarios' `query` and `goto` map ids) once more, alone, with no
 timeout, since every step will have added pages there.
 
-Where things stand: tropes +22 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 161, variable 24, item 54, weapon 42,
+Where things stand: tropes +23 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 164, variable 24, item 56, weapon 42,
 armour 44, armour type 11, common event 4, state 41, enemy 44, troop 42,
 skill 175, `Gen_People13` 3. ZEPH-1 ended one of two ways - `SW_ZEPH1_PAID`
 or `SW_ZEPH1_EXPELLED`, both with `SW_ZEPH1_DONE` - and C2 and C3 must
@@ -1663,12 +1730,6 @@ for anything ZEPH-2 or ZEPH-3 teaches); Wren's are 110-119.
 What each step will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
 
-* **C3 ZEPH-2 The Duck.** The duck is an escortable event: a follower-like
-  event from the Duck's Pond (`nomap.py`, (115,40)) to the Collegium, or a
-  key item that stands for it - decide which survives a world-map walk and
-  an airship. The medal is already at the pond. **The Duck's face** is
-  Mike's (`QUESTS.md` 1, `AUDIT.md` item 1): make it wordless if it speaks
-  nowhere, or put it on the list if it must.
 * **C4 WRE-1 The Monograph.** The biggest step in the part: eleven type
   specimens as enemies from 44 and troops from 42 (stock monster art; a
   generated person gets `art.py`'s stand-in and an `AUDIT.md` row), their

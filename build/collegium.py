@@ -327,13 +327,17 @@ def court_events():
     # 9: keep off the grass, 10: Congregation's notices.
     evs.append(R.event(9, "The Lawn", *LAWN_SIGN,
                        [R.page(lawn_pages(), **PAGE)]))
-    evs.append(R.event(10, "Congregation", *CONGREGATION,
-                       [R.page(congregation_pages(), **PAGE)]))
+    notice = R.event(10, "Congregation", *CONGREGATION,
+                     [R.page(congregation_pages(), **PAGE)])
+    notice["pages"] += q_zephyrine.notice_pages(notice["pages"][0])  # ZEPH-2
+    evs.append(notice)
 
     # 11: Dr Hapgood, going round the lawn.
     hapgood = _person(11, "Dr Hapgood", HAPGOOD,
                       R.image(*S.FACES["Dr Hapgood"], direction=2), *hapgood_pages())
-    hapgood["pages"].append(q_zephyrine.hapgood_page(hapgood["pages"][-1]))  # ZEPH-3
+    last = hapgood["pages"][-1]
+    hapgood["pages"].append(q_zephyrine.hapgood_page(last))  # ZEPH-3
+    hapgood["pages"].append(q_zephyrine.hapgood_senior_page(last))  # ZEPH-2
     evs.append(hapgood)
 
     # 12: the Founder, read from the grass round him - which is the joke.
@@ -547,8 +551,9 @@ def library_events():
         R.page(first, **PAGE), R.page(later, conditions=LATER, **PAGE)])
     register["pages"].append(q_zephyrine.register_page(register["pages"][-1]))  # ZEPH-1
     evs.append(register)
-    evs.append(R.event(4, "The Appeal", *APPEAL,
-                       [R.page(appeal_pages(), **PAGE)]))
+    appeal = R.event(4, "The Appeal", *APPEAL, [R.page(appeal_pages(), **PAGE)])
+    appeal["pages"].append(q_zephyrine.appeal_page(appeal["pages"][0]))  # ZEPH-2
+    evs.append(appeal)
     evs.append(R.event(5, "The Monographs", MONOGRAPHS, y1,
                        [R.page(monograph_pages(), **PAGE)]))
     evs.append(_person(6, "Reader", READER, R.image(*S.FACES["Reader"], direction=8),
@@ -734,10 +739,11 @@ def hall_events():
     portrait["pages"].append(q_zephyrine.portrait_page(portrait["pages"][0]))  # ZEPH-3
     evs.append(portrait)
     first, later = duck_chair_pages()
-    evs.append(R.event(5, "The Honorary Fellow's Chair", DUCK_CHAIR,
-                       HIGH_TABLE_Y, [R.page(first, **PAGE),
-                                      R.page(later, conditions=LATER,
-                                             **PAGE)]))
+    chair = R.event(5, "The Honorary Fellow's Chair", DUCK_CHAIR,
+                    HIGH_TABLE_Y, [R.page(first, **PAGE),
+                                   R.page(later, conditions=LATER, **PAGE)])
+    chair["pages"] += q_zephyrine.chair_pages(chair["pages"][-1])  # ZEPH-2
+    evs.append(chair)
     evs.append(R.event(6, "The Talk", TALK_POSTER, y1 - 1,
                        [R.page(poster_pages(), **PAGE)]))
     lad = _person(7, "Undergraduate", UNDERGRADUATE,
@@ -867,7 +873,9 @@ def world_doors(base_id, cells):
             R.page(again, conditions=dict(zeph, selfSwitchValid=True,
                                           selfSwitchCh="A"), **touch),
         ] + q_zephyrine.door_pages(                                # ZEPH-1
-            [R.transfer(MAP_COLLEGIUM, *ARRIVE, 8, 0)])))
+            [R.transfer(MAP_COLLEGIUM, *ARRIVE, 8, 0)]) + [
+            q_zephyrine.duck_door_page(                             # ZEPH-2
+                [R.transfer(MAP_COLLEGIUM, *ARRIVE, 8, 0)])]))
     return evs
 
 

@@ -417,7 +417,14 @@ def _ducks_pond():
                    "deal on."])])
     again = S.narrate([
         "The duck's pond. The Fellow is in residence."])
-    return _site(DUCKS_POND, stop, first, again)
+    site = _site(DUCKS_POND, stop, first, again)
+
+    def build(base_id, cells):          # ZEPH-2's three pages, appended
+        evs = site(base_id, cells)
+        for ev in evs:
+            ev["pages"] += q_zephyrine.pond_pages()
+        return evs
+    return build
 
 
 # One claim per name the world map carries - `journey.world_map` merges this
