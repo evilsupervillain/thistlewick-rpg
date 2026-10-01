@@ -46,6 +46,7 @@ import rmmzdata as R
 import db
 import story as S
 import q_aldric
+import q_piper
 import q_hob
 from places import (MAP_WORLD, MAP_DUNNAGE, MAP_SMITHS_HALL,
                     MAP_COUNTING_HOUSE, MAP_BONDED, MAP_BELL, DUNNAGE_STEP)
@@ -1239,17 +1240,26 @@ def bell_events():
     evs.append(_person(2, "Mrs Dewhirst", DEWHIRST,
                        R.image(*S.FACES["Mrs Dewhirst"], direction=2),
                        *dewhirst_pages()))
-    evs.append(_person(3, "Mrs Harbottle", HARBOTTLE,
-                       R.image("Gen_People6", 3, direction=6),
-                       *harbottle_pages()))
+    harbottle = _person(3, "Mrs Harbottle", HARBOTTLE,
+                        R.image("Gen_People6", 3, direction=6),
+                        *harbottle_pages())
+    harbottle["pages"] += q_piper.harbottle_pages(harbottle["pages"][-1])  # PIP-3
+    evs.append(harbottle)
     evs.append(_person(4, "Mr Ambler", AMBLER,
                        R.image(*S.FACES["Mr Ambler"], direction=6), *ambler_pages()))
-    evs.append(_person(5, "Miss Quayle", QUAYLE,
-                       R.image(*S.FACES["Miss Quayle"], direction=6), *quayle_pages()))
-    evs.append(_person(6, "Mr Tweddle", TWEDDLE,
-                       R.image(*S.FACES["Mr Tweddle"], direction=2), *tweddle_pages()))
-    evs.append(_thing(7, "The Contest", POSTER, poster_pages()))
+    quayle = _person(5, "Miss Quayle", QUAYLE,
+                     R.image(*S.FACES["Miss Quayle"], direction=6), *quayle_pages())
+    quayle["pages"].append(q_piper.quayle_page(quayle["pages"][-1]))  # PIP-3
+    evs.append(quayle)
+    tweddle = _person(6, "Mr Tweddle", TWEDDLE,
+                      R.image(*S.FACES["Mr Tweddle"], direction=2), *tweddle_pages())
+    tweddle["pages"].append(q_piper.tweddle_page(tweddle["pages"][-1]))  # PIP-3
+    evs.append(tweddle)
+    poster = _thing(7, "The Contest", POSTER, poster_pages())
+    poster["pages"].append(q_piper.poster_page(poster["pages"][0]))   # PIP-3
+    evs.append(poster)
     evs.append(_thing(8, "The Bell", THE_BELL, bell_pages()))
+    evs += q_piper.rival_events()                                     # PIP-3
     return evs
 
 

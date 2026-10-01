@@ -364,7 +364,9 @@ def build_system():
             (db.SW_HOB1_ON, "HOB-1: the retrieval tour is on"),
             (db.SW_HOB1_PICKS, "HOB-1: Nix asked for the picks"),
             (db.SW_HOB1_DONE, "HOB-1: Beatrice disqualified"),
-            (db.SW_ALD4_DONE, "ALD-4: Duchess found, and stays")]:
+            (db.SW_ALD4_DONE, "ALD-4: Duchess found, and stays"),
+            (db.SW_PIP3_ON, "PIP-3: the contest is on (ends)"),
+            (db.SW_PIP3_DONE, "PIP-3: second place")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -402,7 +404,7 @@ def build_system():
         "optAutosave": False, "optDrawTitle": True,
         "switches": switches, "variables": variables,
         # WRE-3's badge is Wren's alone: a type of its own (QUESTS.md 0.5).
-        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge"],
+        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette"],
         # The blank project ships all three vehicles parked on map 1 at
         # coordinates from a tutorial map that is not in this game - the
         # airship at (154, 70), which is a hundred tiles off the east edge of

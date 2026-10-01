@@ -278,7 +278,7 @@ SHEETS = {
         (6, "hester-lumb.json"),        # it's always tonight
         (7, "cyril-dunmore.json"),      # second pencil
     ],
-    # The companion quests, continued. Cell 7 is free.
+    # The companion quests, continued.
     "Gen_People12": [
         (0, "edith-pellow.json"),       # WRE-3: I counted nine
         # ROL-3, the Fairweather alumni: six of the eleven parties.
@@ -288,6 +288,10 @@ SHEETS = {
         (4, "pim-corrow.json"),         # the heir, found
         (5, "odile-marchbank.json"),    # the Ninth Lancers
         (6, "old-jory.json"),           # the last survey
+        (7, "septimus-dray.json"),      # PIP-3: Instrumental (Other Wind)
+    ],
+    "Gen_People13": [
+        (0, "lettice-moon.json"),       # PIP-3: Ballad (Sad)
     ],
 }
 
@@ -295,6 +299,8 @@ SHEETS = {
 # no image is there, so real art dropped in under the same name is kept.
 ENEMIES = {
     "Norbert_Pelling": "norbert-pelling.json",
+    "Septimus_Dray": "septimus-dray.json",          # PIP-3
+    "Lettice_Moon": "lettice-moon.json",            # PIP-3
 }
 
 

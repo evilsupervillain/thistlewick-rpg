@@ -1,0 +1,402 @@
+{
+ "query": "?map=65&x=10&y=9&frames=90",
+ "comment": "QUESTS.md B3, PIP-3 The Contest at the Sign of the Bell. Mrs Harbottle's set piece first; with Piper, the entry - Ballad (Not Sad), one trope - and the two rival acts come in. Without Piper the contest waits. The contest: three acts scored, then Piper's set, which is a fight (troop 41) whose damage type is heckling; the thrush gets a three from Miss Quayle and wins by one point. Second place, the rosette only Piper can wear, her story. Afterwards for everybody; the rivals gone home.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Piper, and the panel's own set piece first.",
+   "eval": "$gameParty.addActor(7)"
+  },
+  {
+   "goto": [
+    65,
+    11,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 0,
+   "label": "no rival acts yet"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"since Easter.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    11,
+    7,
+    6
+   ],
+   "label": "before the judges' table, facing Mrs Harbottle"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Miss Quayle gives everything a two.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "with Piper, the entry"
+  },
+  {
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1,
+   "label": "without her, the panel's own page"
+  },
+  {
+   "eval": "$gameParty.addActor(7); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Ballad (Not Sad).\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(146), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    1
+   ],
+   "label": "entered; the tournament, again: one trope"
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 1,
+   "label": "Mr Dray is in"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 1,
+   "label": "and Miss Moon"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There were two\"))",
+   "expect": true
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(10).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nobody survives.\"))",
+   "expect": true
+  },
+  {
+   "shot": "q_pip3_entrants.png"
+  },
+  {
+   "comment": "Piper dismissed: the contest waits for her.",
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "$gameParty.addActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "the contest"
+  },
+  {
+   "comment": "The fight wins itself four seconds in, once the troop has been read.",
+   "eval": "window._autowin = 0; const su = Scene_Battle.prototype.update; Scene_Battle.prototype.update = function () { su.call(this); if (window._autowin !== undefined && ++window._autowin === 240) { window._troop = [$gameTroop._troopId, $gameTroop.members().map(e => e.enemyId()), $gameParty.battleMembers().length]; $gameTroop.members().forEach(e => e.addState(1)); } }"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 200
+  },
+  {
+   "check": "window._troop",
+   "expect": [
+    41,
+    [
+     43,
+     41,
+     42
+    ],
+    2
+   ],
+   "label": "Piper's set was troop 41: Dray, Moon and the back table"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Instrumental (Other\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...Three.\"))",
+   "expect": true
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"the back table runs out\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Second place, by one\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"extraordinary.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(146), $gameSwitches.value(147), $gameParty.numItems($dataArmors[41]), $gameSwitches.value(106), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    false,
+    true,
+    1,
+    true,
+    0
+   ],
+   "label": "second place: the rosette, her story, no second trope"
+  },
+  {
+   "check": "[$gameActors.actor(7).canEquip($dataArmors[41]), $gameActors.actor(1).canEquip($dataArmors[41]), $gameActors.actor(9).canEquip($dataArmors[41])]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "the rosette is Piper's alone"
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 3,
+   "label": "the rivals have gone home"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 3
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 4,
+   "label": "afterwards"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"A very creditable 18.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Afterwards, for everybody.",
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 4
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He has a rosette on, in red silk\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She gave the thrush a three.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"RESULTS, pinned under it\"))",
+   "expect": true
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "A look at the fight itself, for the record.",
+   "eval": "window._autowin = undefined; BattleManager.setup(41, false, true); SceneManager.push(Scene_Battle)"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "shot": "q_pip3_battle.png"
+  },
+  {
+   "eval": "$gameTroop.members().forEach(e => e.addState(1))"
+  },
+  {
+   "frames": 120
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

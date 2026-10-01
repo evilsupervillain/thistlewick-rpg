@@ -326,6 +326,15 @@ VAR_HOB1_ASKED = 22             # owners asked, of eleven
 IT_WARDENS_NOTES = 50
 # ALD-4, the horse (QUESTS.md B2, q_aldric.py)
 SW_ALD4_DONE = 145              # Duchess and her knight; she stays
+# PIP-3, the contest at the Sign of the Bell (QUESTS.md B3, q_piper.py)
+SW_PIP3_ON = 146                # entered; the rival acts are in the Bell; ends
+SW_PIP3_DONE = 147              # second place, framed
+AR_ROSETTE = 41                 # Piper's gear (QUESTS.md 0.5): only she wears it
+AT_ROSETTE = 8                  # an armour type of its own, as AT_BADGE is
+EN_DRAY, EN_MOON, EN_BACK_TABLE = 41, 42, 43
+TR_CONTEST = 41
+SK_HECKLE, SK_TALK_THROUGH, SK_SERPENT, SK_SAD_VERSE, SK_ENCORE = (
+    170, 171, 172, 173, 174)
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -799,6 +808,8 @@ def build_actors():
     # On the actor rather than the Cataloguer class, so no published class
     # changes and the rule reads as what it is.
     ac[WREN]["traits"] = [trait(52, AT_BADGE, 1)]
+    # PIP-3: the rosette for second place is hers alone, the same way.
+    ac[PIPER]["traits"] = [trait(52, AT_ROSETTE, 1)]
 
     upsert(ac, actor(
         ROLAND, "Roland", "Guest Star",
@@ -2350,3 +2361,89 @@ def build():
     build_troops()
     build_common_events()
     build_firstfield()
+    build_contest()
+
+
+# ================================================= the companion quests ======
+def build_contest():
+    """PIP-3, the Contest at the Sign of the Bell (QUESTS.md B3): a fight in
+    which the damage type is heckling. Two rival acts and the back table, and
+    Piper's buffs and debuffs are the whole of her kit - which they already
+    were. Their hit points are the room's patience with them, sized to the
+    party that turned up, as Norbert's are; and it is started with "can lose"
+    on, because losing the room is a thing that happens to a bard."""
+    sk = R.load("Skills.json")
+    upsert(sk, skill(SK_HECKLE, "Heckle", "", "a.atk * 2 - b.mdf",
+                     hit_type=2, animation=0,
+                     message="%1 shouts GET OFF at %2!"))
+    upsert(sk, skill(SK_TALK_THROUGH, "Talks Through It", "", "0",
+                     dmg_type=0, hit_type=2, animation=0,
+                     effects=[effect(32, 4, 3)],
+                     message="%1 talks loudly through the quiet bit."))
+    upsert(sk, skill(SK_SERPENT, "Serpent Solo", "", "a.mat * 2 - b.mdf",
+                     scope=2, hit_type=2, animation=0,
+                     message="%1 plays the serpent, which is a sort of "
+                             "bassoon that has given up."))
+    upsert(sk, skill(SK_SAD_VERSE, "A Very Sad Verse", "", "a.mat * 2",
+                     scope=2, dmg_type=2, hit_type=2, animation=0,
+                     message="%1 sings a verse in which everybody dies, "
+                             "including the narrator."))
+    upsert(sk, skill(SK_ENCORE, "Encore", "", "a.mat * 3", scope=11,
+                     dmg_type=3, hit_type=0, animation=0,
+                     message="%1 does an encore nobody asked for."))
+    save("Skills.json", sk)
+
+    ar = R.load("Armors.json")
+    upsert(ar, armor(AR_ROSETTE, "Rosette, Second Place",
+                     "[Accessory] Blue silk, Great Dunnage, the Contest at the "
+                     "Sign of the Bell. The certificate is framed.",
+                     ET_ACCESSORY, AT_ROSETTE, 0, [0, 20, 0, 0, 8, 4, 0, 6],
+                     icon=149, traits=[trait(22, 8, 0.05)]))
+    save("Armors.json", ar)
+
+    en = R.load("Enemies.json")
+    upsert(en, enemy(
+        EN_DRAY, "Mr Dray (Other Wind)", "Septimus_Dray", 0,
+        [300, 60, 20, 14, 26, 16, 10, 10], 40, 0,
+        [action(SK_SERPENT, 5), action(SK_ENCORE, 3, condition=2, p1=0,
+                                       p2=0.5)],
+        note="Instrumental (Other Wind). The serpent. Second place, twice."))
+    upsert(en, enemy(
+        EN_MOON, "Miss Moon (Ballad, Sad)", "Lettice_Moon", 0,
+        [280, 80, 16, 12, 28, 18, 12, 10], 40, 0,
+        [action(SK_SAD_VERSE, 5), action(SK_ENCORE, 3, condition=2, p1=0,
+                                         p2=0.5)],
+        note="Ballad (Sad). Every ballad she has written ends with the same "
+             "number of survivors."))
+    upsert(en, enemy(
+        EN_BACK_TABLE, "The Back Table", "Sailor", 0,
+        [240, 0, 24, 12, 8, 10, 14, 10], 30, 0,
+        [action(SK_HECKLE, 5), action(SK_TALK_THROUGH, 4)],
+        note="Regulars at the Bell. They have heard all of it before, and "
+             "say so."))
+    save("Enemies.json", en)
+
+    tr = R.load("Troops.json")
+    harbottle = lambda lines: R.text(lines, face_name="Gen_People6",
+                                     face_index=3)
+    # Sized to the party, as Norbert is: about three turns of it each.
+    size_them = R.script([
+        "for (const e of $gameTroop.members()) {",
+        "  const want = 40 * $gameParty.highestLevel() *",
+        "    $gameParty.battleMembers().length;",
+        "  e.addParam(0, Math.max(0, want - e.mhp));",
+        "  e.setHp(e.mhp);",
+        "}",
+    ])
+    turn0 = size_them + harbottle([
+        "\\C[6]Mrs Harbottle:\\C[0] Ballad (Not Sad).",
+        "Miss Piper Quill. Of Thistlewick.",
+        "The room will give her its attention."])
+    pages = [{"conditions": dict(BLANK_TROOP_CONDITIONS, turnValid=True,
+                                 turnA=0, turnB=0),
+              "list": turn0 + [{"code": 0, "indent": 0, "parameters": []}],
+              "span": 0}]
+    upsert(tr, troop(TR_CONTEST, "The Contest at the Sign of the Bell",
+                     [(EN_BACK_TABLE, 130, 350), (EN_DRAY, 270, 330),
+                      (EN_MOON, 410, 300)], pages=pages))
+    save("Troops.json", tr)

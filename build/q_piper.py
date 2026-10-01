@@ -486,3 +486,261 @@ def archive_events(base_id, box_at, door_at, back, box_tile):
             img=R.image(""), trigger=1, priority=0, through=True)]),
     ]
 
+
+
+# ======================================================================
+# PIP-3, The Contest at the Sign of the Bell (`QUESTS.md` B3)
+# ----------------------------------------------------------------------
+# A bardic competition at Great Dunnage with categories nobody can defend,
+# judged by a panel that includes a man who cannot hear and a woman who gives
+# everything a two. The damage type is heckling. She loses to a man who does
+# birdcalls, and the birdcalls are, in fairness, extraordinary.
+#
+# * **The entry is Mrs Harbottle's** (Map 65 event 3), below her one-self-
+#   switch ladder, with Piper. Ballad (Not Sad) - the category she wrote
+#   something about in the back of her book at the poster. It turns
+#   `SW_PIP3_ON` on, which brings two rival acts into the Bell (events 9 and
+#   10, empty until then and empty again after).
+# * **The contest is Mrs Harbottle's next page**, with Piper and the switch:
+#   three acts are scored, then Piper's set is a fight - troop 41, the two
+#   rival acts and the back table, whose hit points are the room's patience
+#   (`db.build_contest`). It can be lost; she finishes anyway. Either way the
+#   scores are the scores: eighteen against Mr Tweddle's nineteen, by one
+#   point, Miss Quayle's - the thrush got a three.
+# * **Her gear is the rosette** (`QUESTS.md` 0.5): armour 41, an accessory of
+#   armour type 8, which no class can wear and Piper's actor can. She frames
+#   the certificate and wears the rosette.
+# * **Afterwards is for everybody**: Mrs Harbottle, Mr Tweddle and Miss
+#   Quayle each get their own last page and a line, and the poster its
+#   results.
+PIP3_RIVALS = [(9, "Mr Dray", (19, 6)), (10, "Miss Moon", (19, 8))]
+ROSETTE_ICON = 149
+
+
+def _pip3_battle(won, lost):
+    """Battle Processing with If Win and If Lose bodies, and no escape."""
+    out = [R.battle(db.TR_CONTEST, can_escape=False, can_lose=True)]
+    for code, body in [(601, won), (603, lost)]:
+        out += [{"code": code, "indent": 0, "parameters": []}]
+        out += R.shift(body, 1)
+        out += [{"code": 0, "indent": 1, "parameters": []}]
+    out += [{"code": 604, "indent": 0, "parameters": []}]
+    return out
+
+
+def _pip3_entry():
+    c = S.narrate([
+        "Piper puts her book down on the judges' table, open,",
+        "and stands up very straight."])
+    c += S.say("Piper", ["Piper Quill, of Thistlewick,",
+                         "wishes to enter."])
+    c += S.say("Mrs Harbottle", ["Category?"])
+    c += S.say("Piper", ["Ballad (Not Sad)."])
+    c += S.say("Mrs Harbottle", ["Nobody has ever",
+                                 "entered Ballad (Not Sad)."])
+    c += S.say("Piper", ["Piper Quill is aware of that."])
+    c += S.say("Mrs Harbottle", ["Then the Contest is",
+                                 "tonight. It is always tonight. We",
+                                 "have simply not had the entries."])
+    c += [R.play_se("Open1"), R.wait(20)]
+    c += S.narrate([
+        "As if they had been waiting outside, which they had,",
+        "two more entrants come in out of the street: a man",
+        "with a serpent, and a woman in black with a sheaf of",
+        "verses and her handkerchief already out."])
+    c += S.say("Mrs Harbottle", ["Come to the panel",
+                                 "when you are ready, Miss Quill."])
+    c += [S.trope(), R.control_switch(db.SW_PIP3_ON, True)]
+    return c
+
+
+def _pip3_waiting():
+    return S.say("Mrs Harbottle", ["Miss Quill. When you",
+                                   "are ready. The panel is always ready."])
+
+
+def _pip3_scores(ambler, quayle, harbottle):
+    c = S.say("Mr Ambler", ["%s!" % ambler])
+    c += S.say("Miss Quayle", ["%s." % quayle])
+    c += S.say("Mrs Harbottle", ["%s." % harbottle])
+    return c
+
+
+def _pip3_contest():
+    c = [R.play_se("Bell1", 70), R.wait(30)]
+    c += S.narrate([
+        "The room fills, the way a room does when word has got",
+        "round that there are entries. Mrs Harbottle rings the",
+        "little bell on the judges' table."])
+    c += S.say("Mrs Harbottle", ["Instrumental (Other",
+                                 "Wind). Mr Septimus Dray."])
+    c += S.narrate([
+        "Mr Dray plays the serpent, which is a sort of bassoon",
+        "that has given up, for eleven minutes. It is very like",
+        "listening to a drain that has had bad news."])
+    c += _pip3_scores("Nine", "Two", "Six")
+    c += S.say("Mrs Harbottle", ["Ballad (Sad). Miss",
+                                 "Lettice Moon."])
+    c += S.narrate([
+        "Fourteen verses. Everybody in it dies, including the",
+        "narrator, who comes back for the chorus. Several of",
+        "the back table are visibly moved, and say so, loudly."])
+    c += _pip3_scores("Nine", "Two", "Five")
+    c += S.say("Mrs Harbottle", ["Birdsong (Open).",
+                                 "Mr Tweddle."])
+    c += [R.wait(40)]
+    c += S.narrate([
+        "A nightingale. A curlew. And then the thrush that has",
+        "lost its keys, which goes looking for them all round",
+        "the room, under the tables and up the chimney, and",
+        "finds them, and the room very nearly stands up."])
+    c += S.say("Mr Ambler", ["Nine!"])
+    c += [R.wait(40)]
+    c += S.narrate([
+        "Miss Quayle's pencil hovers over her card for a long",
+        "time."])
+    c += S.say("Miss Quayle", ["...Three."])
+    c += S.narrate([
+        "The room gasps. Miss Quayle looks at her pencil as if",
+        "it had done it by itself."])
+    c += S.say("Mrs Harbottle", ["Seven. Nineteen."])
+    c += S.say("Mrs Harbottle", ["Ballad (Not Sad).",
+                                 "Miss Piper Quill."])
+    c += S.say("Piper", ["Piper Quill takes the stage. Piper",
+                         "Quill is not nervous. Piper Quill has",
+                         "done this on tables."])
+    c += S.narrate([
+        "The back table has views. So, from the floor, do the",
+        "other two acts."])
+    won = S.narrate([
+        "Somewhere in the fourth verse the back table runs out",
+        "of things to shout, and Mr Dray and Miss Moon sit down,",
+        "to a smattering, and the rest of it is heard."])
+    lost = S.narrate([
+        "The room runs out of patience somewhere in verse three.",
+        "Piper finishes anyway, in the third person, over the",
+        "top of all of it, and the last verse is so loud that",
+        "it is, technically, heard."])
+    lost += [R.recover_all(0)]
+    c += _pip3_battle(won, lost)
+    c += S.narrate([
+        "It is a ballad about a farm boy who walked north, and",
+        "nobody dies in it, and it is all true. Nobody in Great",
+        "Dunnage has ever heard one like it."])
+    c += _pip3_scores("Nine", "Two", "Seven")
+    c += S.narrate([
+        "Eighteen. Mr Tweddle: nineteen. Second place, by one",
+        "point, and the point is Miss Quayle's."])
+    c += S.say("Piper", ["Piper Quill will say this once. The",
+                         "birdcalls were, in fairness,",
+                         "extraordinary."])
+    c += S.say("Mr Tweddle", ["Thank you. The thrush has been",
+                              "practising since Easter."])
+    c += S.narrate([
+        "Mrs Harbottle presents a certificate, SECOND PLACE,",
+        "BALLAD (NOT SAD), and a rosette in blue silk. It is the",
+        "first prize anybody in Piper's family has won for",
+        "writing down what actually happened."])
+    c += S.narrate([
+        "She has the certificate framed before breakfast. Mrs",
+        "Dewhirst lends her the nail. She wears the rosette."])
+    c += [R.gain_armor(db.AR_ROSETTE, 1), R.play_me("Fanfare1"),
+          R.control_switch(db.SW_PIP3_ON, False),
+          R.control_switch(db.SW_PIP3_DONE, True)]
+    c += S.got(["Got \\I[%d]\\C[3]Rosette, Second Place\\C[0]." %
+                ROSETTE_ICON])
+    c += S.companion_story(db.PIPER)
+    return c
+
+
+def _pip3_go():
+    return S.narrate(["The panel is ready. The room is filling up."]) + \
+        R.choice_block(["Begin", "Not yet"],
+                       [_pip3_contest(), _pip3_waiting()])
+
+
+def _after(last, conds, lines):
+    """A person's own last page with one narrated line put on the end."""
+    page = copy.deepcopy(last)
+    page["list"] = page["list"][:-1] + S.narrate(lines) + page["list"][-1:]
+    page["conditions"] = R.page([], conditions=conds)["conditions"]
+    return page
+
+
+def harbottle_pages(last):
+    """Three pages for Mrs Harbottle (Map 65, event 3), whose ladder is one
+    self switch: the entry, the contest, and afterwards."""
+    a_piper = {"selfSwitchValid": True, "selfSwitchCh": "A",
+               "actorValid": True, "actorId": db.PIPER}
+
+    def pg(cmds, conds):
+        new = R.page(cmds, conditions=conds)
+        return dict(copy.deepcopy(last), list=new["list"],
+                    conditions=new["conditions"])
+
+    return [
+        pg(_pip3_entry(), a_piper),
+        pg(_pip3_go(), dict(a_piper, switch1Valid=True,
+                            switch1Id=db.SW_PIP3_ON)),
+        _after(last, {"selfSwitchValid": True, "selfSwitchCh": "A",
+                      "switch1Valid": True, "switch1Id": db.SW_PIP3_DONE},
+               ["Pinned on the wall behind her: SECOND, MISS P.",
+                "QUILL, BALLAD (NOT SAD), 18. A very creditable 18."]),
+    ]
+
+
+_DONE_A = {"selfSwitchValid": True, "selfSwitchCh": "A",
+           "switch1Valid": True, "switch1Id": db.SW_PIP3_DONE}
+
+
+def tweddle_page(last):
+    return _after(last, _DONE_A, [
+        "He has a rosette on, in red silk, and keeps forgetting,",
+        "and being startled by it."])
+
+
+def quayle_page(last):
+    return _after(last, _DONE_A, [
+        "She gave the thrush a three. She has not got over it."])
+
+
+def poster_page(page0):
+    return _after(page0, {"switch1Valid": True,
+                          "switch1Id": db.SW_PIP3_DONE}, [
+        "RESULTS, pinned under it: 1st, Mr Tweddle, Birdsong",
+        "(Open), 19. 2nd, Miss Quill, Ballad (Not Sad), 18."])
+
+
+_RIVAL_LINES = {
+    "Mr Dray": (["Dray. Instrumental (Other Wind).",
+                 "Second place, twice. There were two",
+                 "entries, both times."],
+                ["It's a serpent. It's meant to sound",
+                 "like that. Mostly."]),
+    "Miss Moon": (["Moon. Ballad (Sad). Fourteen verses.",
+                   "Nobody survives."],
+                  ["I've changed the ending. Somebody",
+                   "survives verse three. Briefly."]),
+}
+
+
+def rival_events():
+    """The two other entrants (Map 65, events 9 and 10): there only while the
+    Contest is on. Empty before, and empty again after - they go home."""
+    evs = []
+    for eid, name, (x, y) in PIP3_RIVALS:
+        img = R.image(*S.FACES[name], direction=4)
+        first, again = _RIVAL_LINES[name]
+        on = {"switch1Valid": True, "switch1Id": db.SW_PIP3_ON}
+        evs.append(R.event(eid, name, x, y, [
+            R.page([], img=R.image(""), priority=0, through=True),
+            R.page(S.say(name, first) + [R.self_switch("A", True)], img=img,
+                   conditions=on),
+            R.page(S.say(name, again), img=img,
+                   conditions=dict(on, selfSwitchValid=True,
+                                   selfSwitchCh="A")),
+            R.page([], img=R.image(""), priority=0, through=True,
+                   conditions={"switch1Valid": True,
+                               "switch1Id": db.SW_PIP3_DONE}),
+        ]))
+    return evs

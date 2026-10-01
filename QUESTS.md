@@ -1235,14 +1235,67 @@ each in `south.py`, `hithermost.py`, `frostwick.py`, `fairholme.py`,
 * **Scenario** `q_ald4`: passes.
 * `TIMELINE.md`: 1994, the horse walks into Plummer's yard that winter.
 
+**B3, PIP-3 The Contest at the Sign of the Bell - done.** PIP-3's section at
+the bottom of `q_piper.py`, hooked from `dunnage.py`'s Bell (five places);
+the fight in `db.build_contest`; `build/scenarios/q_pip3.json`.
+
+* **The entry is Mrs Harbottle's** (Map 65 event 3, page 3, below her
+  one-self-switch ladder, with Piper): Ballad (Not Sad), the category she
+  wrote something about in the back of her book at the poster. "Nobody has
+  ever entered Ballad (Not Sad)." / "Piper Quill is aware of that." The
+  Contest is always tonight; they have simply not had the entries. **One
+  trope** (the tournament, again). `SW_PIP3_ON` (ends) brings **Mr Septimus
+  Dray** (Instrumental, Other Wind - the serpent; second place twice, of two
+  entries) and **Miss Lettice Moon** (Ballad, Sad - fourteen verses, nobody
+  survives) into the Bell, events 9 and 10, empty before and after.
+* **The contest is her page 4** (Piper and the switch, "Begin / Not yet"):
+  Dray 17, Moon 16, and Mr Tweddle's thrush that has lost its keys gets
+  **Miss Quayle's first three** - nineteen. Then Piper's set, which is the
+  fight: **troop 41**, Mr Dray (enemy 41), Miss Moon (42) and **the Back
+  Table** (43, the stock `Sailor`), whose hit points are the room's patience,
+  sized to the party as Norbert's are. The damage type is heckling - skills
+  **170-174**: Heckle, Talks Through It (a MAT debuff), Serpent Solo (all),
+  A Very Sad Verse (MP, all) and Encore (self-heal under half). Piper's own
+  kit is already buffs and debuffs. It can be lost; she finishes anyway, "so
+  loud that it is, technically, heard". Either way: 9, 2, 7 - eighteen.
+  **Second place, by one point, and the point is Miss Quayle's.** "The
+  birdcalls were, in fairness, extraordinary."
+* **Piper's gear is the rosette** (0.5): armour **41** "Rosette, Second
+  Place", an accessory of a new armour type **8, "Rosette"**, which Piper's
+  actor has a trait for - Wren's badge pattern. MMP +20, MAT +8, MDF +4, LUK
+  +6, MP regen 5%. She has the certificate framed before breakfast; Mrs
+  Dewhirst lends her the nail.
+* **Afterwards for everybody**: Mrs Harbottle's own last page plus SECOND,
+  MISS P. QUILL, 18; Mr Tweddle in a red rosette he keeps being startled by;
+  Miss Quayle, who gave the thrush a three and has not got over it; the
+  poster's results.
+* **Ids taken:** switches **146** `SW_PIP3_ON` (ends), **147**
+  `SW_PIP3_DONE`; armour **41**, armour type **8**; enemies **41-43**; troop
+  **41**; skills **170-174**; faces `Gen_People12` **7** (Dray) and
+  `Gen_People13` **0** (Moon, the first cell of a new sheet), with
+  `art.py`'s stand-in battlers `Septimus_Dray` and `Lettice_Moon` - both on
+  `AUDIT.md` item 1's list for real art.
+* One trope, no blush. Running tally: **tropes +15 fixed and 2-9 from PIP-2;
+  blushes +10 fixed and 0-1 from PIP-2.**
+* **Candidate ending line** (G1; read `SW_PIP3_DONE`): "Piper Quill came
+  second at the Contest at the Sign of the Bell, by one point, to a thrush.
+  The certificate is framed. It is the first prize a Quill has won for
+  writing down what actually happened."
+* **The rooms (0.1):** the Bell was cropped with Great Dunnage in B1 and
+  reads right. Nothing changed.
+* **Scenario** `q_pip3`: passes. It wins the fight by fiat (a death state on
+  each act once the battle is up) - the lost branch is the same scores.
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do the
-rest of Part B**, Great Dunnage: B3 PIP-3, B4 COR-5, B5 NIX-1, B6 NIX-2
-and B7 ROL-1, in that order (B1 HOB-1 and B2 ALD-4 are done and committed). This overrides 0.1's "one step per
+rest of Part B**, Great Dunnage: B4 COR-5, B5 NIX-1, B6 NIX-2 and B7
+ROL-1, in that order (B1 HOB-1, B2 ALD-4 and B3 PIP-3 are done and
+committed). This overrides 0.1's "one step per
 session" for Part B only (Mike, 1 Oct 2026); every other rule in 0.1 and 0.2
 still holds.
 
@@ -1269,10 +1322,16 @@ written while the last one's scenario ran. Move this prompt on by one after
 each commit, so an early end is always resumable. Nothing is pushed. No
 full suite until G1.
 
-Where things stand: tropes +14 fixed and 2-9 from PIP-2; blushes +10 fixed
-and 0-1 from PIP-2. Next free: switch 146, variable 23, item 51, weapon 42,
-armour 41, armour type 8, common event 4, state 40, enemy 41, troop 41,
-`Gen_People12` 7 then `Gen_People13`.
+Where things stand: tropes +15 fixed and 2-9 from PIP-2; blushes +10 fixed
+and 0-1 from PIP-2. Next free: switch 148, variable 23, item 51, weapon 42,
+armour 42, armour type 9, common event 4, state 40, enemy 44, troop 42,
+skill 175, `Gen_People13` 1.
+
+**Owed before G1, from B1-B3:** `dunnage` and `dunnage_company` once more,
+alone, with no timeout, after B7 - every Part B step adds pages to Great
+Dunnage. `dunnage_company` passed after B1; `dunnage` ran an hour beside
+another browser and reached the warehouse piano with no failures before
+the timeout killed it.
 
 What each step will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
@@ -1282,12 +1341,10 @@ paragraph, and keep going:
   generalise from. Avoid an owner another quest has already given an
   "afterwards" page: two of them on one event shadow each other.
 * **B2 ALD-4** - done; `q_aldric.py` exists now for ALD-1/2/3/5/6.
-* **B3 PIP-3** is a boss fight whose damage type is heckling: enemies from
-  41, a troop from 41, two rival acts with generated faces and stock enemy
-  art (`art.py`'s stand-in, and the real art onto `AUDIT.md` item 1). She
-  loses to Mr Tweddle. **Piper's gear is the rosette for second place**
-  (0.5): an accessory only she can wear - a new armour type plus one trait
-  on her *actor*, as Wren's badge (A11).
+* **B3 PIP-3** - done. A fight a scenario must get through: hook
+  `Scene_Battle.prototype.update` to read the troop and kill it a few
+  seconds in (`q_pip3.json`), since `advance` presses into printing text
+  and cannot be counted to the battle.
 * **B4 COR-5**: the curse is a state from 40 with a real trait, optional,
   and must be removable.
 * **B5 NIX-1**: **Nix's gear is the coat** (armour, and it fits) - body

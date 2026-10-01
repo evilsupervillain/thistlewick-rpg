@@ -407,6 +407,9 @@ FACES = {
     "Prime Warden": ("Gen_People6", 1),
     "Mr Tibbs": ("Gen_People6", 2),
     "Mrs Harbottle": ("Gen_People6", 3),
+    # PIP-3's two rival acts (QUESTS.md B3), generated.
+    "Mr Dray": ("Gen_People12", 7),
+    "Miss Moon": ("Gen_People13", 0),
     "Miss Fettle": ("Gen_People6", 4),
     "Cotter": ("SF_Actor2", 7),
 }

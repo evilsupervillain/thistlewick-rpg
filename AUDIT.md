@@ -866,7 +866,9 @@ label item 1 calls "deliberately unseen" - which of the two is Mike's call.
 | **Mrs Emberthwaite** | F | a new face, 144x144, `FACES["Mrs Emberthwaite"]`; ten windows, Map 37 ev5 and ev6 (she speaks from Mr Emberthwaite's chair too). Her sprite is `$BigMonster2` 0 and stays | a dragon, kindly, seventy, a widow who plays whist | menace |
 | **The Wrong Dragon** | F | a new face, 144x144, `FACES["Somebody Large"]`; seven windows, Map 8 ev53, its cave by the water - no map of its own yet (ALD-6), no sprite. **Mike will supply a silhouette of a dragon**, which is right: every line it has is spoken in the dark of the cave | a dragon-shaped silhouette - enormous, in an armchair among books, a blanket over what you think are its knees | detail - "a dragon in the sense that the map says so". **If ALD-6 or any later scene shows it in the light, a clearer image goes on this list then** |
 | **The Duck** | F | not needed now: it never speaks. A face only if a quest gives it lines | an honorary Fellow of the Collegium: four hit points, a medal on a ribbon | |
-| **Duchess** | F | not needed now: she never speaks. A face only if a quest gives her lines; her sprite is `Vehicle` 4 | a grey mare in harness, effectively a partner | |
+| **Duchess** | F | not needed now: she never speaks - ALD-4 (`QUESTS.md` B2) made the reunion wordless. A face only if a quest gives her lines; her sprite is `Vehicle` 4 | a grey mare in harness, effectively a partner | |
+| **Mr Dray** (B3) | F | real enemy art for `img/sv_enemies/Septimus_Dray.png`, one still image facing right, replacing `art.py`'s stand-in (it is never overwritten once real art is there). Enemy 41, troop 41, Map 65 | his generated face and sprite, `Gen_People12` 7: grey hair and beard, brown coat - and a serpent, the S-shaped bass horn | a modern instrument |
+| **Miss Moon** (B3) | F | real enemy art for `img/sv_enemies/Lettice_Moon.png`, the same way. Enemy 42 | `Gen_People13` 0: long black hair, black dress, a sheaf of verses, a handkerchief | cheerfulness |
 
 Installing a supplied face: a sheet of its own in `img/faces/` (8 cells of
 144x144, or one), `story.FACES` pointed at it, and - for a speaker with a
@@ -910,9 +912,8 @@ step moves the row into the table above. Spare's two are not provisional.
 | **Spare** (F1) | F | a side-view battler, `img/sv_actors/`, 576x384, 9x6 cells of 64x64 - `SPARE.md` 6. **Blocks F1**: `validate.py` fails a side-view actor without one | the lad on `SF_People1` 0: blue-black hair, brown eyes, blue jacket over a pale blue shirt | an adult |
 | **Mrs Cotterill** (F1) | F | an enemy image, `img/sv_enemies/` and `img/enemies/`, facing left - `SPARE.md` 6 | `SF_People1` 5: long dark green-black side braid, mustard cardigan, expecting in the spring, unmovable | anger |
 | **The Duck** (C3, C4) | F | the row above, if it speaks as a reviewer or a Fellow | | |
-| **Duchess** (B2) | F | the row above, if the reunion gives her a line | | |
 | **The Wrong Dragon, lit** (E8) | F | the row above says so already | | |
-| **Enemy art** (B3, C4, E7, E18) | F | hecklers, eleven type specimens, the vigil, Roland's thing - stock monster art first; a generated person gets `art.py`'s stand-in and a row here | | |
+| **Enemy art** (C4, E7, E18) | F | eleven type specimens, the vigil, Roland's thing - stock monster art first; a generated person gets `art.py`'s stand-in and a row in the table above, as B3's two rival acts have (its hecklers are the stock `Sailor`) | | |
 
 ### 5. The Collegium's roofs, and other visual contradictions
 
