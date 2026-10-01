@@ -1476,14 +1476,101 @@ and with no timeout - **both pass**. (After B1 `dunnage_company` had passed
 and `dunnage` had been killed by an hour's timeout beside another browser,
 with no failures as far as it got.) Nothing is owed.
 
+**C1, ZEPH-1 The Fines - done.** ZEPH-1's section at the bottom of
+`q_zephyrine.py`, hooked from `village.py` (the letter) and `collegium.py`
+(the world-map doors, Mr Gedge, the IN and OUT board, Prewitt, the Register
+and the clerk); `build/scenarios/q_zeph1.json`.
+
+* **Decided: the occasion is a letter.** Her refusal at the world-map door is
+  one nobody can argue with, and she "drinks at the Gilded Turnip in the
+  manner of a person waiting for a letter" - so one comes. A new event on her
+  old table at the Turnip (Map 4 event 11, (12,6), an `Envelope` drawn over
+  her glass, read from where she used to sit), nothing at all without her:
+  NOTICE OF OUTSTANDING FINES (ELEVENTH), Miss Z. Vance, on study leave. The
+  first ten went to her pigeonhole, her last address; the new Registrar's
+  clerk looked her up. "STUDY leave. I was EXPELLED." She folds it into her
+  hat - **item 53** - and `SW_ZEPH1_ON`. **One trope** (the return to the
+  wizard school).
+* **The world-map doors** (Map 8 events 64-65) keep pages 1-3; page 4
+  (Zephyrine and `SW_ZEPH1_ON`) is "I want it on the record that I am FINE"
+  and in at the gate; page 5 (Zephyrine and done) goes in either way, with
+  a line for each end.
+* **The scene is Mr Pennock's**, the Registrar's clerk, a new event at the
+  east end of Prewitt's desk (Map 59 event 7, `collegium.PENNOCK` (6,7)):
+  empty until the notice is read, then waiting with her file if she is not
+  in the party, so a dismissed Zephyrine's errand waits. With her: there is
+  no appeal because there was no expulsion - a draft, initialled by the Dean,
+  referred to the Registrar, who referred it to the Committee for
+  Expulsions, which has never had to meet. Eleven years of unpaid study
+  leave, in good standing. "Not an error, Miss Vance. A referral." Mr Gedge
+  is sent for to lift the Register although it is not a Monday, and the
+  large account is hers: three books, spring 1989, a penny a day with the
+  day's interest - **4,117,206 crowns and ninepence**, the largest number in
+  the game. One of the books is holding her door shut.
+* **The real choice, three ways**, after the reveal (once, `SW_ZEPH1_TOLD`):
+  **turn out the purse** - statute nine, a member who turns out her purse on
+  the Library desk in good faith on the day is deemed to have paid, never
+  invoked because nobody has had the nerve - which takes **every crown the
+  party has** (`VAR_ZEPH1_PAID` keeps the figure; it is the gold sink
+  `COMPANIONS.md` wanted, and it is the whole purse, whatever is in it), and
+  gives her name back, the robe and a slide on the IN and OUT board; or **file
+  the expulsion** herself - "Properly. In writing. It's the only thing
+  anybody here ever did about it, and it wasn't even done" - which costs
+  nothing, because members of the public are not fined, and she smiles; or
+  **not today**, which keeps the file on the desk. Either end sets
+  `SW_ZEPH1_DONE`, one trope and her story. C2 and C3 must work for both.
+* **Zephyrine's gear** (0.5): armour **43** "Collegium Robe (Vance)", body
+  armour of a new armour type **10, "Robe"**, which her actor has a trait for
+  - the badge pattern. MMP +60, DEF +20, MAT +30, MDF +40, AGI +4, and MP cost
+  x0.9: the right equipment, at last. Only on the paid end.
+* **Mr Gedge** (Map 58 event 6, page 3: his A, Zephyrine, the notice): "Your
+  pigeonhole's full. Eleven years of it." / "You KNEW." / "The Lodge knows
+  everything, miss. The Lodge is never asked." Afterwards with her: her
+  slide is up, he painted it himself; or "Member of the public, is it, Miss
+  Vance? Keep to the path. Lovely to see you."
+* **Afterwards for everybody**: Pennock (the tidiest file in the building, or
+  the only thing he has ever actually filed); Prewitt's own last page plus
+  PAID IN GOOD FAITH, or CLOSED, which she looks at "as you might look at a
+  view"; the Register's, a little lighter; and, paid only, the IN and OUT
+  board's new slide, Z. VANCE: OUT, "Study leave. Good standing." in the
+  Porter's pencil. Prewitt with Zephyrine before it is decided refers her to
+  Pennock, who has kept the file on top since March.
+* **Ids taken:** switches **155** `SW_ZEPH1_ON`, **156** `SW_ZEPH1_TOLD`,
+  **157** `SW_ZEPH1_PAID`, **158** `SW_ZEPH1_EXPELLED`, **159**
+  `SW_ZEPH1_DONE`; variable **23** `VAR_ZEPH1_PAID`; item **53**
+  `IT_FINES_NOTICE`; armour **43** `AR_COLLEGIUM_ROBE`, armour type **10**
+  `AT_ROBE`; Map 4 event 11, Map 59 event 7; face `Gen_People13` **2** (Mr
+  Pennock, generated: young, neat, chestnut, the Collegium's purple and
+  white).
+* Two tropes, no blush. Running tally: **tropes +21 fixed and 2-9 from
+  PIP-2; blushes +11 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ZEPH]` (on already after ZEPH-5 in a game that did it).
+* **Candidate ending lines** (G1; read `SW_ZEPH1_PAID` / `SW_ZEPH1_EXPELLED`):
+  paid - "Zephyrine Vance is a member of the Collegium Arcanum in good
+  standing. Her library fines were paid in good faith, out of a purse, on
+  the Library desk."; expelled - "Zephyrine Vance was expelled from the
+  Collegium Arcanum eleven years after the event, at her own request. She
+  filed it herself."
+* **The rooms (0.1):** the Collegium had never been swept. Maps 58-60 were
+  cropped with `propsheet.py` (59 tiles) and screenshotted: the purple roofs
+  and spires, `Statue B` the Founder, `Tapestry B` the banner, the
+  stained glass, the Library's bookcases, `Table D` with the hourglass and
+  `Closed Books C` (the Register), `Basin` the Appeal's bucket, High Table's
+  `Table E` and the two portraits. Everything is what its event says.
+  Nothing needed fixing. The Turnip was swept on 30 Sep.
+* **Scenario** `q_zeph1`: passes (38 checks). It walks both ends - the
+  purse with 1,234 crowns, then the switches put back and the draft filed -
+  and asserts the robe is Zephyrine's alone.
+* `TIMELINE.md`: 1989, the incident, the three books and the draft.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do all of
-Part C**, the Collegium: C1 ZEPH-1, C2 ZEPH-3, C3 ZEPH-2 and C4 WRE-1, in
-that order. This overrides 0.1's "one step per session" for Part C only
+`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **finish
+Part C**, the Collegium: **C1 ZEPH-1 is done and committed**; do C2 ZEPH-3,
+C3 ZEPH-2 and C4 WRE-1, in that order. This overrides 0.1's "one step per session" for Part C only
 (Mike, 1 Oct 2026), and also the Part C entry's "two sessions, one after the
 other" for C3 and C4 - they are still two steps and two commits, built in
 that order. Every other rule in 0.1 and 0.2 holds.
@@ -1513,24 +1600,17 @@ resumable. Nothing is pushed. No full suite until G1. After C4, run
 the scenarios' `query` and `goto` map ids) once more, alone, with no
 timeout, since every step will have added pages there.
 
-Where things stand: tropes +19 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 155, variable 23, item 53, weapon 42,
-armour 43, armour type 10, common event 4, state 41, enemy 44, troop 42,
-skill 175, `Gen_People13` 2. Zephyrine's skills 47-49 are free (47 onward
+Where things stand: tropes +21 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 160, variable 24, item 54, weapon 42,
+armour 44, armour type 11, common event 4, state 41, enemy 44, troop 42,
+skill 175, `Gen_People13` 3. ZEPH-1 ended one of two ways - `SW_ZEPH1_PAID`
+or `SW_ZEPH1_EXPELLED`, both with `SW_ZEPH1_DONE` - and C2 and C3 must
+work after either. Zephyrine's skills 47-49 are free (47 onward
 for anything ZEPH-2 or ZEPH-3 teaches); Wren's are 110-119.
 
 What each step will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
 
-* **C1 ZEPH-1 The Fines.** The Registrar's clerk needs a face
-  (`QUESTS.md` 1): generate one, `Gen_People13` 2. **Zephyrine's gear is a
-  robe with a stat line** (0.5): body armour only she can wear - a new
-  armour type 10 plus one trait on her actor, the pattern of Wren's badge,
-  Piper's rosette and Nix's coat. **The real choice to refuse and stay
-  expelled** has to be one the game respects: both branches need their own
-  afterwards pages, and neither may leave her without a candidate ending
-  line. Check what the world-map doors' refusal pages need before adding the
-  quest page after them.
 * **C2 ZEPH-3 Dean Fenwold Is Fine.** "The biggest fire in the game, no
   consequences": a set piece in the Hall (Map 60), so keep every published
   page of the Dean's and the portrait's, and make the fire visible (a

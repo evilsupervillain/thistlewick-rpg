@@ -1,0 +1,564 @@
+{
+ "query": "?map=4&x=9&y=10&frames=90",
+ "comment": "QUESTS.md C1, ZEPH-1 The Fines. The Library's eleventh notice at her old table in the Turnip (nothing there without her); the world-map door's page 4, in at the gate; Mr Gedge knew; Mr Pennock, the Registrar's clerk: there was never an expulsion, only a draft referred to a committee, so eleven years of study leave and the largest number in the game. 'Not today' keeps it; the purse (statute nine: every crown, deemed paid) gives her name back, the robe and the board's slide; the draft, filed at her own request, expels her for nothing. Afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "eval": "$gameParty.addActor(4); $gameSwitches.setValue(13, true)",
+   "comment": "Zephyrine, recruited, so her own event at the Turnip is the empty one."
+  },
+  {
+   "goto": [
+    4,
+    12,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    12,
+    7,
+    8
+   ],
+   "label": "where she used to sit, facing the table"
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 1,
+   "label": "the letter, with her"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 0,
+   "label": "without her, nothing"
+  },
+  {
+   "eval": "$gameParty.addActor(4); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 40
+  },
+  {
+   "shot": "q_zeph1_letter.png"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"NOTICE OF OUTSTANDING FINES (ELEVENTH).\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"STUDY leave. I was EXPELLED.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(155), $gameParty.numItems($dataItems[53]), $gameVariables.value(2) - window._tropes, $gameMap.event(11).findProperPageIndex()]",
+   "expect": [
+    true,
+    1,
+    1,
+    2
+   ],
+   "label": "the notice read, in her hat; the return to the wizard school, one trope"
+  },
+  {
+   "comment": "The world-map door: page 4, and in at the gate."
+  },
+  {
+   "goto": [
+    8,
+    112,
+    39
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(64).findProperPageIndex()",
+   "expect": 3,
+   "label": "with her and the notice"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(64).findProperPageIndex()",
+   "expect": 0,
+   "label": "without her, the door as it was"
+  },
+  {
+   "eval": "$gameParty.addActor(4); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"FINE.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 58,
+   "label": "through the gate"
+  },
+  {
+   "comment": "Mr Gedge, below his ladder: the Lodge knew."
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([58, 6, 'A'], true)"
+  },
+  {
+   "goto": [
+    58,
+    15,
+    19
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction(), $gameMap.event(6).findProperPageIndex()]",
+   "expect": [
+    15,
+    19,
+    8,
+    2
+   ],
+   "label": "below Mr Gedge, his ZEPH-1 page"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"everything, miss. The Lodge is never\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 0,
+   "label": "the board, as it was"
+  },
+  {
+   "comment": "The Library: Mr Pennock, the reveal, and 'Not today'."
+  },
+  {
+   "goto": [
+    59,
+    6,
+    8
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction(), $gameMap.event(7).findProperPageIndex()]",
+   "expect": [
+    6,
+    8,
+    8,
+    2
+   ],
+   "label": "below Mr Pennock, the scene"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([59, 2, 'A'], true); $gameSelfSwitches.setValue([59, 3, 'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(2).findProperPageIndex(), $gameMap.event(3).findProperPageIndex()]",
+   "expect": [
+    2,
+    1
+   ],
+   "label": "Prewitt refers her; the Register as it was"
+  },
+  {
+   "eval": "window._mark(); window._pick = 2"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 90
+  },
+  {
+   "shot": "q_zeph1_reveal.png"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"thing. You can't. There isn't one.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"4,117,206 crowns and ninepence. It is the largest number\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Everything here does.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(156), $gameSwitches.value(159), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    false,
+    0
+   ],
+   "label": "told; not decided; no trope yet"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 1,
+   "label": "without her, he waits with the file"
+  },
+  {
+   "comment": "The purse: every crown, statute nine, the robe."
+  },
+  {
+   "eval": "$gameParty.addActor(4); $gameParty.gainGold(1234 - $gameParty.gold()); window._mark(); window._pick = 0"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 80
+  },
+  {
+   "shot": "q_zeph1_paid.png"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Miss Vance. The file's\"))",
+   "expect": true,
+   "label": "the short version, once told"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"thing. You can't. There isn't one.\"))",
+   "expect": false
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"written down, and writes beneath it: PAID IN GOOD FAITH.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.gold(), $gameVariables.value(23), $gameSwitches.value(157), $gameSwitches.value(158), $gameSwitches.value(159), $gameParty.numItems($dataArmors[43])]",
+   "expect": [
+    0,
+    1234,
+    true,
+    false,
+    true,
+    1
+   ],
+   "label": "the purse turned out; in good standing; the robe"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(103)]",
+   "expect": [
+    1,
+    0,
+    true
+   ],
+   "label": "one trope for the decision, no blush; her story"
+  },
+  {
+   "check": "[$gameActors.actor(4).canEquip($dataArmors[43]), $gameActors.actor(1).canEquip($dataArmors[43])]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "hers alone"
+  },
+  {
+   "check": "[$gameMap.event(7).findProperPageIndex(), $gameMap.event(2).findProperPageIndex(), $gameMap.event(3).findProperPageIndex()]",
+   "expect": [
+    3,
+    3,
+    2
+   ],
+   "label": "afterwards: Pennock, Prewitt, the Register"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "comment": "The other end: put the decision back, and file the draft instead."
+  },
+  {
+   "eval": "$gameSwitches.setValue(157, false); $gameSwitches.setValue(159, false); $gameParty.gainGold(500); window._mark(); window._pick = 1"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "goto": [
+    59,
+    6,
+    8
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Properly. In writing.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"are not fined, Miss Vance. The account\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.gold(), $gameSwitches.value(157), $gameSwitches.value(158), $gameSwitches.value(159), $gameParty.numItems($dataArmors[43])]",
+   "expect": [
+    500,
+    false,
+    true,
+    true,
+    1
+   ],
+   "label": "expelled at her own request, for nothing; no second robe"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"filed. It was very satisfying.\"))",
+   "expect": true
+  },
+  {
+   "comment": "The board shows her slide only if the purse was turned out; Gedge and the door know which."
+  },
+  {
+   "goto": [
+    58,
+    15,
+    19
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 0,
+   "label": "expelled: no slide"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"is it, Miss Vance? Keep to the path.\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameSwitches.setValue(157, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1,
+   "label": "paid: her slide"
+  },
+  {
+   "goto": [
+    58,
+    11,
+    21
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"At the bottom, newly painted, Z. VANCE: OUT. And under\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    8,
+    112,
+    39
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(64).findProperPageIndex()",
+   "expect": 4,
+   "label": "the door, afterwards, with her"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(64).findProperPageIndex()",
+   "expect": 0,
+   "label": "and without her, as it was"
+  }
+ ]
+}

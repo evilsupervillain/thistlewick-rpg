@@ -40,6 +40,7 @@ import mapkit as K
 import rmmzdata as R
 
 import db
+import q_zephyrine
 import story as S
 from places import (MAP_WORLD, MAP_COLLEGIUM, MAP_COLLEGIUM_LIBRARY,
                     MAP_COLLEGIUM_HALL, COLLEGIUM_STEP)
@@ -309,16 +310,19 @@ def court_events():
                       LIBRARY_DOOR_X, LIBRARY_ROOM[3] + 1, direction=8))
 
     # 6: Mr Gedge, in the gateway.
-    evs.append(_person(6, "Mr Gedge", GEDGE,
-                       R.image("Gen_People5", 5, direction=2), *gedge_pages()))
+    gedge = _person(6, "Mr Gedge", GEDGE,
+                    R.image("Gen_People5", 5, direction=2), *gedge_pages())
+    gedge["pages"].append(q_zephyrine.gedge_page(gedge["pages"][-1]))  # ZEPH-1
+    evs.append(gedge)
 
     # 7: the arms over the Lodge window, 8: the IN and OUT board. Both are on
     # the Lodge's lower wall row and read from the road below it.
     first, later = arms_pages()
     evs.append(R.event(7, "The Arms", *ARMS, [
         R.page(first, **PAGE), R.page(later, conditions=LATER, **PAGE)]))
-    evs.append(R.event(8, "In and Out", *BOARD,
-                       [R.page(board_pages(), **PAGE)]))
+    board = R.event(8, "In and Out", *BOARD, [R.page(board_pages(), **PAGE)])
+    board["pages"].append(q_zephyrine.board_page(board["pages"][0]))  # ZEPH-1
+    evs.append(board)
 
     # 9: keep off the grass, 10: Congregation's notices.
     evs.append(R.event(9, "The Lawn", *LAWN_SIGN,
@@ -363,6 +367,7 @@ POT_PLANT = K.sf_tile("Inside_C", "Potted Plant B")  # violets; A is a cactus
 DESK = [(3, 7), (4, 7), (5, 7)]
 PREWITT = (4, 6)
 REGISTER = (5, 7)               # the ledger on the desk, read from below
+PENNOCK = (6, 7)                # ZEPH-1: the Registrar's clerk, desk's end
 APPEAL = (3, 3)                 # a notice on the wall face, read from below
 APPEAL_BUCKET = (2, 4)
 MONOGRAPHS = 8                  # a Bookshelf A against the north wall
@@ -531,18 +536,24 @@ def library_events():
          R.transfer(MAP_COLLEGIUM, LIBRARY_DOOR[0], LIBRARY_DOOR[1] + 1, 2,
                     0)],
         img=R.image(""), trigger=1, priority=0, through=True)])]
-    evs.append(_person(2, "Prewitt", PREWITT,
-                       R.image("Gen_People5", 6, direction=2),
-                       *prewitt_pages()))
+    prewitt = _person(2, "Prewitt", PREWITT,
+                      R.image("Gen_People5", 6, direction=2), *prewitt_pages())
+    prewitt["pages"] += q_zephyrine.prewitt_pages(prewitt["pages"][-1])  # ZEPH-1
+    evs.append(prewitt)
     first, later = register_pages()
-    evs.append(R.event(3, "The Register", *REGISTER, [
-        R.page(first, **PAGE), R.page(later, conditions=LATER, **PAGE)]))
+    register = R.event(3, "The Register", *REGISTER, [
+        R.page(first, **PAGE), R.page(later, conditions=LATER, **PAGE)])
+    register["pages"].append(q_zephyrine.register_page(register["pages"][-1]))  # ZEPH-1
+    evs.append(register)
     evs.append(R.event(4, "The Appeal", *APPEAL,
                        [R.page(appeal_pages(), **PAGE)]))
     evs.append(R.event(5, "The Monographs", MONOGRAPHS, y1,
                        [R.page(monograph_pages(), **PAGE)]))
     evs.append(_person(6, "Reader", READER, R.image(*S.FACES["Reader"], direction=8),
                        *reader_pages()))
+    # 7: ZEPH-1's Registrar's clerk, at the east end of the desk, from the
+    # Library's eleventh notice on.
+    evs.append(q_zephyrine.pennock_event(7, *PENNOCK))
     return evs
 
 
@@ -847,7 +858,8 @@ def world_doors(base_id, cells):
             R.page(stop, conditions=zeph, **touch),
             R.page(again, conditions=dict(zeph, selfSwitchValid=True,
                                           selfSwitchCh="A"), **touch),
-        ]))
+        ] + q_zephyrine.door_pages(                                # ZEPH-1
+            [R.transfer(MAP_COLLEGIUM, *ARRIVE, 8, 0)])))
     return evs
 
 

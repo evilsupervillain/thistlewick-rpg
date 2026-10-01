@@ -418,6 +418,8 @@ FACES = {
     "Fellow Grice": ("People2", 0),
     "Fellow Amory": ("People2", 4),
     "Fellow Blunt": ("People1", 3),
+    # ZEPH-1's Registrar's clerk (QUESTS.md C1), generated.
+    "Mr Pennock": ("Gen_People13", 2),
     "Miss Fettle": ("Gen_People6", 4),
     "Cotter": ("SF_Actor2", 7),
 }

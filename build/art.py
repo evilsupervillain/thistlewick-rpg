@@ -293,6 +293,7 @@ SHEETS = {
     "Gen_People13": [
         (0, "lettice-moon.json"),       # PIP-3: Ballad (Sad)
         (1, "convenor-swale.json"),     # ROL-1: the Convenor
+        (2, "registrars-clerk-pennock.json"),  # ZEPH-1: he looked her up
     ],
 }
 

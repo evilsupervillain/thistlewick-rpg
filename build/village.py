@@ -18,6 +18,7 @@ import q_piper
 import q_hob
 import q_roland
 import q_wren
+import q_zephyrine
 import rmmzdata as R
 import story as S
 from places import (MAP_VILLAGE, MAP_HOME, MAP_HALL, MAP_INN, MAP_CHAPEL,
@@ -992,6 +993,8 @@ def inn_events():
     evs.append(the_washstand(7, 15, 7))
     # WRE-3: the Gloamwood Society, at its own table (q_wren.py).
     evs += q_wren.society_events(8)
+    # ZEPH-1: the Library's eleventh notice, at her old table (q_zephyrine.py).
+    evs.append(q_zephyrine.letter_event(11, 12, 6))
     return evs
 
 

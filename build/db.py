@@ -351,6 +351,16 @@ SW_NIX2_DONE = 152              # the chair, the note, and the change
 SW_ROL1_ON = 153                # the review meeting is sitting in the Bell; ends
 SW_ROL1_DONE = 154              # and has sat: the minutes
 IT_MINUTES = 52
+# ZEPH-1, the fines (QUESTS.md C1, q_zephyrine.py)
+SW_ZEPH1_ON = 155               # the eleventh notice has been read
+SW_ZEPH1_TOLD = 156             # there was no expulsion; purse, or draft
+SW_ZEPH1_PAID = 157             # the purse turned out: in good standing
+SW_ZEPH1_EXPELLED = 158         # the draft filed, at her own request
+SW_ZEPH1_DONE = 159             # either of those two
+VAR_ZEPH1_PAID = 23             # crowns turned out on the Library desk
+IT_FINES_NOTICE = 53
+AR_COLLEGIUM_ROBE = 43          # Zephyrine's gear (QUESTS.md 0.5): hers alone
+AT_ROBE = 10                    # an armour type of its own, as AT_BADGE is
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -828,6 +838,8 @@ def build_actors():
     ac[PIPER]["traits"] = [trait(52, AT_ROSETTE, 1)]
     # NIX-1: gran's coat, which fits now, and fits nobody else.
     ac[NIX]["traits"] = [trait(52, AT_COAT, 1)]
+    # ZEPH-1: the Collegium's robe, with her name sewn in.
+    ac[ZEPH]["traits"] = [trait(52, AT_ROBE, 1)]
 
     upsert(ac, actor(
         ROLAND, "Roland", "Guest Star",
@@ -1519,6 +1531,10 @@ def build_items():
                     "Apologies: the sorcerer. Readiness: not. Lineage: "
                     "present. Asset: available. Thanked. Eleven minutes.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=193))
+    upsert(it, item(IT_FINES_NOTICE, "Notice of Fines (Eleventh)",
+                    "The Collegium Library, to Miss Z. Vance, on study leave. "
+                    "Folded very small, and kept in her hat.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=195))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",
@@ -2440,6 +2456,14 @@ def build_contest():
                      "years in bond. It fits.",
                      ET_BODY, AT_COAT, 0, [0, 0, 0, 30, 0, 18, 10, 8],
                      icon=152, traits=[trait(22, 2, 0.05)]))
+    # ZEPH-1: Zephyrine's gear, if the purse is turned out. Body armour of a
+    # type only her actor has. The white-and-purple; eleven years in the
+    # Registrar's cupboard. MP cost rate 0.9: the right equipment, at last.
+    upsert(ar, armor(AR_COLLEGIUM_ROBE, "Collegium Robe (Vance)",
+                     "[Robe] White and purple, eleven years in the "
+                     "Registrar's cupboard. Her name is sewn in the collar.",
+                     ET_BODY, AT_ROBE, 0, [0, 60, 0, 20, 30, 40, 4, 0],
+                     icon=154, traits=[trait(23, 4, 0.9)]))
     save("Armors.json", ar)
 
     en = R.load("Enemies.json")
