@@ -1481,45 +1481,78 @@ with no failures as far as it got.) Nothing is owed.
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick`: step **C1, ZEPH-1 The
-Fines** - one step per session again (0.1), Part B having been the one
-exception. Every rule in 0.1 and 0.2 holds.
+`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do all of
+Part C**, the Collegium: C1 ZEPH-1, C2 ZEPH-3, C3 ZEPH-2 and C4 WRE-1, in
+that order. This overrides 0.1's "one step per session" for Part C only
+(Mike, 1 Oct 2026), and also the Part C entry's "two sessions, one after the
+other" for C3 and C4 - they are still two steps and two commits, built in
+that order. Every other rule in 0.1 and 0.2 holds.
 
 Read section 0, the Part C entries, and the Done paragraphs from B1 on, once
-at the start; then Zephyrine's section of `COMPANIONS.md` and nothing else of
-it. C1 is in `collegium.py`'s Maps 58-60 and the world-map doors that carry
-her refusal; read what it needs by dumping the maps' events and their text,
-not by opening the module.
+at the start. Before each step read only that companion's section of
+`COMPANIONS.md` (Zephyrine for C1-C3, Wren for C4), and only when you reach
+it. Everything is in `collegium.py`'s Maps 58-60, the world-map doors that
+carry Zephyrine's refusal, and `nomap.py`'s Duck's Pond; read what a step
+needs by dumping the maps' events and their text, not by opening a module.
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
 byte: every existing page identical, only appended pages and new events.
 `validate.py`, and `apidigest.py . --write` / `tileaudit.py . --write` if a
 signature or constant moved. Screenshots of anything drawn, looked at. The
-step's own scenario, `build/scenarios/q_zeph1.json`, run under `stdbuf -oL`
-in the background. **Fix the room you are standing in** (0.1): the
-Collegium has never been swept, so crop its rooms with `propsheet.py` before
-judging, screenshot before and after, and rerun every scenario that walks it
-(`collegium` at least). Then the Done paragraph (ids taken, tropes and
-blushes, running tally, candidate ending line, rooms fixed), commit, and
-move this prompt on to C2.
+step's own scenario, `build/scenarios/q_<quest>.json`, with
+`run_in_background`, one browser at a time. **Fix the room you are standing
+in** (0.1): the Collegium has never been swept, so crop Maps 58-60 with
+`propsheet.py` once at the start, before judging, and screenshot before and
+after anything changed. Then the step's Done paragraph (ids taken, tropes
+and blushes, running tally, candidate ending line, rooms fixed), and
+**commit that step on its own before writing a line of the next**. Move
+this prompt on by one after each commit, so an early end is always
+resumable. Nothing is pushed. No full suite until G1. After C4, run
+`collegium` (and anything else that walks Maps 58-60 - find them by parsing
+the scenarios' `query` and `goto` map ids) once more, alone, with no
+timeout, since every step will have added pages there.
 
 Where things stand: tropes +19 fixed and 2-9 from PIP-2; blushes +11 fixed
 and 0-1 from PIP-2. Next free: switch 155, variable 23, item 53, weapon 42,
 armour 43, armour type 10, common event 4, state 41, enemy 44, troop 42,
-skill 175, `Gen_People13` 2. Zephyrine's skills 47-49 are free.
+skill 175, `Gen_People13` 2. Zephyrine's skills 47-49 are free (47 onward
+for anything ZEPH-2 or ZEPH-3 teaches); Wren's are 110-119.
 
-What C1 will need deciding, so make the call, say why in the Done
+What each step will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
 
-* **The Registrar's clerk** needs a face (`QUESTS.md` 1): generate one,
-  `Gen_People13` 2.
-* **Zephyrine's gear is a robe with a stat line** (0.5): body armour only
-  she can wear - a new armour type 10 plus one trait on her actor, the
-  pattern of Wren's badge, Piper's rosette and Nix's coat.
-* **The real choice to refuse and stay expelled** has to be a choice the
-  game respects afterwards: both branches need their own afterwards pages,
-  and neither may be a dead end for the ending's block.
+* **C1 ZEPH-1 The Fines.** The Registrar's clerk needs a face
+  (`QUESTS.md` 1): generate one, `Gen_People13` 2. **Zephyrine's gear is a
+  robe with a stat line** (0.5): body armour only she can wear - a new
+  armour type 10 plus one trait on her actor, the pattern of Wren's badge,
+  Piper's rosette and Nix's coat. **The real choice to refuse and stay
+  expelled** has to be one the game respects: both branches need their own
+  afterwards pages, and neither may leave her without a candidate ending
+  line. Check what the world-map doors' refusal pages need before adding the
+  quest page after them.
+* **C2 ZEPH-3 Dean Fenwold Is Fine.** "The biggest fire in the game, no
+  consequences": a set piece in the Hall (Map 60), so keep every published
+  page of the Dean's and the portrait's, and make the fire visible (a
+  screen flash or tint and an animation) without changing a tile. PIP-2's
+  Zephyrine branch already says she set fire to the Dean - read it, and
+  agree with it.
+* **C3 ZEPH-2 The Duck.** The duck is an escortable event: a follower-like
+  event from the Duck's Pond (`nomap.py`, (115,40)) to the Collegium, or a
+  key item that stands for it - decide which survives a world-map walk and
+  an airship. The medal is already at the pond. **The Duck's face** is
+  Mike's (`QUESTS.md` 1, `AUDIT.md` item 1): make it wordless if it speaks
+  nowhere, or put it on the list if it must.
+* **C4 WRE-1 The Monograph.** The biggest step in the part: eleven type
+  specimens as enemies from 44 and troops from 42 (stock monster art; a
+  generated person gets `art.py`'s stand-in and an `AUDIT.md` row), their
+  fights, Rowbotham's two students as reviewers (two faces) with the duck
+  as the third, the subscription list as a shop, and **Wren's party ability
+  upgrade** - read how her ability is implemented before changing it, and
+  change it additively. The monographs are event 5 on Map 59, with the
+  inch-wide gap. If it will not fit in what is left of the session, end
+  partly done and say so in its Done paragraph - that is a legitimate state
+  (0.1).
 
 Things learned in A6-B7 that will bite again:
 
