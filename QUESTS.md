@@ -1324,14 +1324,65 @@ the fight in `db.build_contest`; `build/scenarios/q_pip3.json`.
 * **Scenario** `q_cor5`: passes.
 * `TIMELINE.md`: nothing dated.
 
+**B5, NIX-1 The Client Identifies Themselves - done.** NIX-1's section at
+the bottom of `q_nix.py`, hooked from `village.py` (the ledger) and
+`dunnage.py` (the warehouse door, Mr Tibbs, the wardrobe and the Bond Book);
+`build/scenarios/q_nix1.json`.
+
+* **Decided: NIX-4's parcel is the letter's occasion**, so NIX-1 needs
+  `SW_NIX4_DONE`, as HOB-4 needs HOB-2. Hulda Bole's tale (published, in the
+  Slain Wyvern) has her last job end "he's moved"; it was also her **first**,
+  JOB 1, accepted 1989, "to be delivered when the client is 26, to the
+  address given" - and Nix had long since moved out to the Emporium. Hulda
+  assumed a "he", and nothing corrects her. In NIX-4 she handed the parcel to
+  its own addressee and said "You're the legs now".
+* **The letter is the ledger's page 6** (Map 7 event 4, `SW_NIX4_DONE` and
+  Nix): "That's my hand." NOT TO BE OPENED UNTIL I AM TWENTY-SIX. "Dear Nix.
+  This is the client... You will have been avoiding it. Stop it. Yours, the
+  party of the second part (N., aged fifteen)." "Ahead of schedule. Of me."
+  **One trope** (the mysterious patron); item **51**, the Bond No. 1 ticket.
+  Page 7 is the ledger afterwards, for everybody.
+* **The warehouse door** (Map 61 event 7) keeps its two refusals; page 4
+  (its A, Nix, the ticket) is "...Fine." and the door's own page; page 5
+  (`SW_NIX1_DONE`) is the door's own page with Nix, no comment.
+* **Mr Tibbs** (Map 64 event 2, page 4, below his ladder, with Nix and the
+  ticket): "Ah. The party of the second part." The reason was embarrassment:
+  a fifteen-year-old's speech from a crate - "I shall return for it when I am
+  somebody", which he wrote in the margin - and eleven years of rent by post,
+  never late, no name, sooner than come in and face him. "I did remember
+  it." The coat was **Nix's gran's**, down to the ankles at fifteen, not to
+  be worn till it fit and not to be sold. It fits. Nix writes the first
+  entry's provenance at last. Rent paid to date; always was.
+* **Nix's gear** (0.5): armour **42** "Gran's Coat", body armour of a new
+  armour type **9, "Coat"**, which Nix's actor has a trait for - the badge
+  pattern again. DEF +30, MDF +18, AGI +10, LUK +8, crit evasion +5%.
+* **Afterwards**: Tibbs's own last page plus the rent that has stopped coming
+  ("he misses it, a little, every quarter day"); the wardrobe, unlocked and
+  empty, BOND No. 1. COLLECTED; the Bond Book's first entry, named now, the
+  party of the second part.
+* **Ids taken:** switches **149** `SW_NIX1_LETTER`, **150** `SW_NIX1_DONE`;
+  item **51** `IT_BOND_TICKET`; armour **42** `AR_GRANS_COAT`, armour type
+  **9** `AT_COAT`. No faces (the client is Nix).
+* One trope, no blush. Running tally: **tropes +17 fixed and 2-9 from PIP-2;
+  blushes +11 fixed and 0-1 from PIP-2.**
+* `SW_STORY[NIX]` (already on after NIX-4 or NIX-5 in a game that did those).
+* **Candidate ending line** (G1; read `SW_NIX1_DONE`): "The client has been
+  identified. The first line of Nix's ledger has a provenance now, and the
+  coat fits."
+* **The rooms (0.1):** the warehouse was cropped with Great Dunnage in B1:
+  crates, barrels, a closet for the wardrobe. Nothing changed.
+* **Scenario** `q_nix1`: passes. It sets `SW_NIX4_DONE` rather than doing
+  NIX-4, which `q_nix4` covers.
+* `TIMELINE.md`: 1989, the coat into bond, the speech, and Hulda's job 1.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do the
-rest of Part B**, Great Dunnage: B5 NIX-1, B6 NIX-2 and B7 ROL-1, in
-that order (B1-B4 are done and committed). This overrides 0.1's "one step per
+rest of Part B**, Great Dunnage: B6 NIX-2 and B7 ROL-1, in that order
+(B1-B5 are done and committed). This overrides 0.1's "one step per
 session" for Part B only (Mike, 1 Oct 2026); every other rule in 0.1 and 0.2
 still holds.
 
@@ -1358,9 +1409,9 @@ written while the last one's scenario ran. Move this prompt on by one after
 each commit, so an early end is always resumable. Nothing is pushed. No
 full suite until G1.
 
-Where things stand: tropes +16 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 149, variable 23, item 51, weapon 42,
-armour 42, armour type 9, common event 4, state 41, enemy 44, troop 42,
+Where things stand: tropes +17 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 151, variable 23, item 52, weapon 42,
+armour 43, armour type 10, common event 4, state 41, enemy 44, troop 42,
 skill 175, `Gen_People13` 1.
 
 **Owed before G1, from B1-B3:** `dunnage` and `dunnage_company` once more,
@@ -1382,11 +1433,9 @@ paragraph, and keep going:
   seconds in (`q_pip3.json`), since `advance` presses into printing text
   and cannot be counted to the battle.
 * **B4 COR-5** - done; `q_corvin.py` exists now.
-* **B5 NIX-1**: **Nix's gear is the coat** (armour, and it fits) - body
-  armour only she can wear, by the same actor-trait pattern. The client is
-  Nix at fifteen; decide whether NIX-4's parcel (`IT_PARCEL`, on the
-  Emporium's shelf, "for a client not yet identified") is the letter's
-  occasion, and say so.
+* **B5 NIX-1** - done. NIX-1 needs NIX-4 (the parcel is the letter), and
+  the warehouse door lets Nix in now; NIX-2's Counting House is a different
+  door and Nix has no history with it.
 * **B6 NIX-2**: the room behind the Door is not built; draw it in the black
   north of Map 63 in `dunnage.py` (`village.archive_room` and
   `ashcombe._room` are the idiom). One chair, and a note: *we spent it*.

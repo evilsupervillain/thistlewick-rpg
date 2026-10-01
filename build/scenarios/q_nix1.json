@@ -1,0 +1,367 @@
+{
+ "query": "?map=7&x=8&y=8&frames=90",
+ "comment": "QUESTS.md B5, NIX-1 The Client Identifies Themselves. It needs NIX-4: the parcel Hulda gave Nix is the letter, from Nix at fifteen, with the ticket for Bond No. 1 - the mysterious patron, one trope. The warehouse door refuses Nix, then with the ticket lets Nix in; Mr Tibbs and the party of the second part; gran's coat, which fits and only Nix can wear. Afterwards: the wardrobe, the Bond Book, Mr Tibbs, the door and the ledger.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Nix, and the north, and NIX-4 not done: no letter.",
+   "eval": "$gameParty.addActor(5); $gameSwitches.setValue(47, true)"
+  },
+  {
+   "goto": [
+    7,
+    8,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 1,
+   "label": "NIX-4's ask, not the letter"
+  },
+  {
+   "comment": "NIX-4 done: the parcel is on the shelf.",
+   "eval": "$gameSwitches.setValue(128, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 5,
+   "label": "the parcel, with Nix"
+  },
+  {
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 4,
+   "label": "without Nix, NIX-4's closed book"
+  },
+  {
+   "eval": "$gameParty.addActor(5); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "shot": "q_nix1_letter.png"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"NOT TO BE OPENED UNTIL I AM TWENTY-SIX.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"(N., aged fifteen)\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"years later, in capitals: MOVED.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[51]), $gameSwitches.value(149), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    1,
+    true,
+    1
+   ],
+   "label": "the ticket, and the mysterious patron: one trope"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 6,
+   "label": "the ledger with the letter in it"
+  },
+  {
+   "comment": "The warehouse door: the refusal first, then the ticket.",
+   "goto": [
+    61,
+    29,
+    16
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Not that one.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 61,
+   "label": "Nix walks away"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...Fine.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 64,
+   "label": "and goes in"
+  },
+  {
+   "goto": [
+    64,
+    4,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0,
+   "label": "Mr Tibbs's set piece first"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "then, with Nix and the ticket, the collection"
+  },
+  {
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "without Nix, his own page"
+  },
+  {
+   "eval": "$gameParty.addActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"second part.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nix puts it on. It fits.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[51]), $gameParty.numItems($dataArmors[42]), $gameSwitches.value(150), $gameSwitches.value(104), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    0,
+    1,
+    true,
+    true,
+    1
+   ],
+   "label": "the ticket spent, the coat, Nix's story"
+  },
+  {
+   "check": "[$gameActors.actor(5).canEquip($dataArmors[42]), $gameActors.actor(1).canEquip($dataArmors[42]), $gameActors.actor(7).canEquip($dataArmors[42])]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "and it fits nobody else"
+  },
+  {
+   "eval": "$gameActors.actor(5).changeEquip(3, $dataArmors[42])"
+  },
+  {
+   "check": "$gameActors.actor(5).armors().some(a => a.id === 42)",
+   "expect": true,
+   "label": "Nix wears it"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"COLLECTED.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"the party of the second part.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Afterwards, for everybody.",
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The rent has stopped coming\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameParty.addActor(5)"
+  },
+  {
+   "comment": "The door is a door now.",
+   "goto": [
+    61,
+    29,
+    16
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 4
+  },
+  {
+   "goto": [
+    7,
+    8,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 6
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"COLLECTED, on behalf of\"))",
+   "expect": true
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

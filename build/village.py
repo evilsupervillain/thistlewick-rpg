@@ -1603,6 +1603,7 @@ def store_events():
         "", 0, extra=[S.trope()])
     # NIX-4: the eleven longest loans, and the book closed (q_nix.py).
     ledger["pages"] += q_nix.ledger_pages(ledger["pages"][0])
+    ledger["pages"] += q_nix.nix1_ledger_pages(ledger["pages"][0])  # NIX-1
     evs.append(ledger)
     return evs
 

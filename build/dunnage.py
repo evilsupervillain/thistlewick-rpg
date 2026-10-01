@@ -47,6 +47,7 @@ import db
 import story as S
 import q_aldric
 import q_corvin
+import q_nix
 import q_piper
 import q_hob
 from places import (MAP_WORLD, MAP_DUNNAGE, MAP_SMITHS_HALL,
@@ -529,7 +530,7 @@ def town_events():
                       COUNTING_ROOM[3] + 1, direction=8))
     evs.append(S.door(6, "The Bell", *BELL_DOOR, MAP_BELL, BELL_ROOM[4],
                       BELL_ROOM[3] + 1, direction=8))
-    evs.append(warehouse_door())
+    evs.append(q_nix.warehouse_door_pages(warehouse_door()))       # NIX-1
 
     # 8: the watchman in the gate passage. 9: the arms over the gate, on the
     # range's front wall and read from the road below it.
@@ -1033,11 +1034,16 @@ def bonded_events():
     x1, y1, x2, y2, door_x = BONDED_ROOM
     evs = [_exit(1, door_x, y2 + 2, MAP_DUNNAGE, WAREHOUSE_DOOR[0],
                  WAREHOUSE_DOOR[1] + 1)]
-    evs.append(_person(2, "Mr Tibbs", TIBBS,
-                       R.image("Gen_People6", 2, direction=2),
-                       *tibbs_pages()))
-    evs.append(_thing(3, "Bond No. 1", (WARDROBE, y1), wardrobe_pages()))
-    evs.append(_thing(4, "The Bond Book", TIBBS_DESK[0], bond_book_pages()))
+    tibbs = _person(2, "Mr Tibbs", TIBBS,
+                    R.image("Gen_People6", 2, direction=2), *tibbs_pages())
+    tibbs["pages"] += q_nix.tibbs_pages(tibbs["pages"][-1])         # NIX-1
+    evs.append(tibbs)
+    wardrobe = _thing(3, "Bond No. 1", (WARDROBE, y1), wardrobe_pages())
+    wardrobe["pages"].append(q_nix.wardrobe_page(wardrobe["pages"][0]))
+    evs.append(wardrobe)
+    book = _thing(4, "The Bond Book", TIBBS_DESK[0], bond_book_pages())
+    book["pages"].append(q_nix.bond_book_page(book["pages"][0]))
+    evs.append(book)
     evs.append(_thing(5, "The Piano", PIANO, piano_pages()))
     return evs
 

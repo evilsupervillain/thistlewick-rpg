@@ -621,3 +621,203 @@ def north_out(ev):
     ev["pages"].append(dict(copy.deepcopy(open_page), list=new["list"],
                             conditions=new["conditions"]))
     return ev
+
+
+# ======================================================================
+# NIX-1, The Client Identifies Themselves (`QUESTS.md` B5)
+# ----------------------------------------------------------------------
+# A letter, correctly addressed, in Nix's own hand: written at fifteen, to be
+# opened at twenty-six, and Nix has been beaten to the joke by a teenager. The
+# client wants one item - the ledger's one entry with no provenance - and it
+# is a coat, in bond at Great Dunnage, where Nix has not set foot for eleven
+# years, for a reason that turns out to be embarrassment rather than crime.
+#
+# * **NIX-4's parcel is the letter.** Hulda Bole's last job, the one where
+#   "he's moved" (her tale in the Slain Wyvern, `south.py`), was also her
+#   first: Nix gave it her in 1989, to be delivered at twenty-six to the
+#   address given, which Nix had long since left for the Emporium. Hulda
+#   assumed a "he"; nobody corrects her. So NIX-1 needs `SW_NIX4_DONE`, the
+#   way HOB-4 needs HOB-2: the parcel is opened at the ledger (Map 7 event 4)
+#   with Nix, on a page above NIX-4's closed book.
+# * **The warehouse door** (Map 61 event 7) refuses Nix twice already; with
+#   the ticket it is "...Fine." and the door's own page. Once the coat is out
+#   it is just a door.
+# * **Mr Tibbs** (Map 64 event 2), below his ladder, with Nix and the ticket:
+#   the party of the second part, a speech made from a crate, and eleven years
+#   of rent by post sooner than come in and face him. The coat comes out of
+#   the wardrobe and it fits. **Nix's gear** (`QUESTS.md` 0.5): body armour
+#   of an armour type only Nix's actor can wear, as Wren's badge is.
+COAT_ICON = 152
+TICKET_ICON = 195
+
+
+def _nix1_letter():
+    c = S.narrate([
+        "Nix takes Hulda Bole's parcel down off the shelf, and",
+        "turns it over, and goes very still."])
+    c += S.say("Nix", ["That's my hand."])
+    c += S.narrate([
+        "Brown paper, and string, and on the back, small, in a",
+        "hand that has not had eleven years of practice yet:",
+        "NOT TO BE OPENED UNTIL I AM TWENTY-SIX."])
+    c += S.say("Nix", ["...I'm twenty-six."])
+    c += S.narrate([
+        "Tucked under the string, a docket in Hulda Bole's hand:",
+        "JOB 1. ACCEPTED 1989. TO BE DELIVERED WHEN THE CLIENT",
+        "IS 26, TO THE ADDRESS GIVEN. And under that, eleven",
+        "years later, in capitals: MOVED."])
+    c += S.say("Nix", ["Her first job and her last.",
+                       "I gave it her. I'd forgotten."])
+    c += S.narrate(["Inside there is a letter, and a luggage ticket."])
+    c += S.narrate([
+        "  Dear Nix. This is the client. You have been wondering.",
+        "  I want one thing. It is the first entry in the book,",
+        "  the one with no provenance. It is in bond at Great",
+        "  Dunnage. The ticket is enclosed. You will have been"])
+    c += S.narrate([
+        "  avoiding it. Stop it.",
+        "  Yours, the party of the second part",
+        "  (N., aged fifteen)"])
+    c += [R.wait(40)]
+    c += S.say("Nix", ["Ahead of schedule. Of me."])
+    c += S.narrate([
+        "Nix reads it again, and then puts the ledger under one",
+        "arm and the ticket in an inside pocket, and does not",
+        "say anything else for some time."])
+    c += [S.trope(), R.gain_item(db.IT_BOND_TICKET, 1), R.play_me("Item"),
+          R.control_switch(db.SW_NIX1_LETTER, True)]
+    c += S.got(["Got \\I[%d]\\C[3]Bond No. 1 (Ticket)\\C[0]." % TICKET_ICON])
+    return c
+
+
+def _nix1_ledger():
+    """The ledger after the letter, for everybody."""
+    done = S.narrate([
+        "A ledger, ruled off, and a new page begun. Its first",
+        "line has a provenance now, in the same hand: one coat,",
+        "COLLECTED, on behalf of the party of the second part."])
+    waiting = S.narrate([
+        "A ledger, ruled off, and a new page begun. Folded into",
+        "the back of it, a letter in a fifteen-year-old's hand."])
+    return R.if_then(R.condition_switch(db.SW_NIX1_DONE), done, waiting)
+
+
+def nix1_ledger_pages(page0):
+    """Two pages for the Emporium's ledger, after NIX-4's four: the parcel
+    opened, with Nix; and the ledger afterwards, for everybody."""
+    def pg(cmds, conds):
+        new = R.page(cmds, conditions=conds)
+        return dict(copy.deepcopy(page0), list=new["list"],
+                    conditions=new["conditions"])
+    return [
+        pg(_nix1_letter(), {"switch1Valid": True,
+                            "switch1Id": db.SW_NIX4_DONE,
+                            "actorValid": True, "actorId": db.NIX}),
+        pg(_nix1_ledger(), {"switch1Valid": True,
+                            "switch1Id": db.SW_NIX1_LETTER}),
+    ]
+
+
+def warehouse_door_pages(ev):
+    """The Bonded Warehouse's door (Map 61, event 7), after its own three:
+    with the ticket, Nix goes in; once the coat is out, it is a door."""
+    pages = ev["pages"]
+    own = pages[0]["list"]
+    fine = S.say("Nix", ["...Fine."]) + own
+    pages.append(dict(copy.deepcopy(pages[2]), list=fine, conditions=R.page(
+        [], conditions={"selfSwitchValid": True, "selfSwitchCh": "A",
+                        "itemValid": True, "itemId": db.IT_BOND_TICKET,
+                        "actorValid": True, "actorId": db.NIX})["conditions"]))
+    pages.append(dict(copy.deepcopy(pages[2]), list=copy.deepcopy(own),
+                      conditions=R.page([], conditions={
+                          "selfSwitchValid": True, "selfSwitchCh": "A",
+                          "switch1Valid": True, "switch1Id": db.SW_NIX1_DONE,
+                          "actorValid": True, "actorId": db.NIX})["conditions"]))
+    return ev
+
+
+def _nix1_collect():
+    c = S.narrate([
+        "Mr Tibbs looks up from the Bond Book, and over his",
+        "spectacles at Nix, for a long moment."])
+    c += S.say("Mr Tibbs", ["Ah. The party of the",
+                            "second part."])
+    c += S.narrate(["Nix puts the ticket on the desk, face down."])
+    c += S.say("Mr Tibbs", ["Eleven years. You stood",
+                            "on that crate, there, and made a",
+                            "speech."])
+    c += S.say("Nix", ["I was fifteen."])
+    c += S.say("Mr Tibbs", ["'I shall return for it",
+                            "when I am somebody.' I wrote it in",
+                            "the margin. It was a good speech."])
+    c += S.say("Mr Tibbs", ["And then the rent came by",
+                            "post every quarter for eleven years,",
+                            "never late, no name."])
+    c += S.say("Nix", ["Couldn't come in. Not after the",
+                       "speech. You'd have remembered it."])
+    c += S.say("Mr Tibbs", ["I did remember it."])
+    c += S.narrate([
+        "He takes a key off his chain, unlocks the wardrobe,",
+        "and lifts out a long coat, dark, well made and much",
+        "mended, the best coat a village ever had."])
+    c += S.say("Mr Tibbs", ["Whose was it?"])
+    c += S.say("Nix", ["My gran's. Left me it. It went down",
+                       "to my ankles. I wasn't going to wear it",
+                       "till it fit, and I wasn't going to sell",
+                       "it, so."])
+    c += S.narrate(["Nix puts it on. It fits."])
+    c += [R.wait(30)]
+    c += S.narrate([
+        "Nix opens the ledger at the very first page and, under",
+        "the one line in eleven years with no provenance,",
+        "writes one, slowly, and blots it."])
+    c += S.say("Mr Tibbs", ["No duty owing. Rent paid",
+                            "to date. Always was."])
+    c += [R.gain_item(db.IT_BOND_TICKET, -1),
+          R.gain_armor(db.AR_GRANS_COAT, 1), R.play_me("Fanfare1"),
+          R.control_switch(db.SW_NIX1_DONE, True)]
+    c += S.got(["Got \\I[%d]\\C[3]Gran's Coat\\C[0]." % COAT_ICON])
+    c += S.companion_story(db.NIX)
+    return c
+
+
+def tibbs_pages(last):
+    """Two pages for Mr Tibbs (Map 64, event 2), whose ladder is one self
+    switch: the collection, with Nix and the ticket; and afterwards, for
+    everybody, which is his own last page and a line."""
+    collect = R.page(_nix1_collect(), conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "itemValid": True, "itemId": db.IT_BOND_TICKET,
+        "actorValid": True, "actorId": db.NIX})
+    after = copy.deepcopy(last)
+    after["list"] = after["list"][:-1] + S.narrate([
+        "The rent has stopped coming by post. He says he misses",
+        "it, a little, every quarter day."]) + after["list"][-1:]
+    after["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_NIX1_DONE})["conditions"]
+    return [after, dict(copy.deepcopy(last), list=collect["list"],
+                        conditions=collect["conditions"])]
+
+
+def _done_page(page0, lines):
+    page = copy.deepcopy(page0)
+    page["list"] = S.narrate(lines) + page["list"][-1:]
+    page["conditions"] = R.page([], conditions={
+        "switch1Valid": True, "switch1Id": db.SW_NIX1_DONE})["conditions"]
+    return page
+
+
+def wardrobe_page(page0):
+    """Bond No. 1 (Map 64, event 3) with the coat collected."""
+    return _done_page(page0, [
+        "A tall wardrobe, unlocked, and empty. The ticket on the",
+        "handle has been crossed through: BOND No. 1. COLLECTED."])
+
+
+def bond_book_page(page0):
+    """The Bond Book (Map 64, event 4) with the coat collected."""
+    return _done_page(page0, [
+        "The Bond Book. Every entry has a name, a date, a",
+        "description and a duty. The first has a name now, in",
+        "Mr Tibbs's hand: the party of the second part."])

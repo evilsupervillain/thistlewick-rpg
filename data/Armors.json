@@ -40,5 +40,6 @@ null,
 {"id":38,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
 {"id":39,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
 {"id":40,"name":"Gloamwood Society Badge","note":"","description":"[Accessory] Honorary member. Enamel: a Thing with nine\nheads, all of them busy. The only one ever given away.","iconIndex":146,"etypeId":5,"atypeId":7,"price":0,"params":[0,0,0,0,0,0,4,12],"traits":[{"code":22,"dataId":0,"value":0.05}]},
-{"id":41,"name":"Rosette, Second Place","note":"","description":"[Accessory] Blue silk, Great Dunnage, the Contest at the\nSign of the Bell. The certificate is framed.","iconIndex":149,"etypeId":5,"atypeId":8,"price":0,"params":[0,20,0,0,8,4,0,6],"traits":[{"code":22,"dataId":8,"value":0.05}]}
+{"id":41,"name":"Rosette, Second Place","note":"","description":"[Accessory] Blue silk, Great Dunnage, the Contest at the\nSign of the Bell. The certificate is framed.","iconIndex":149,"etypeId":5,"atypeId":8,"price":0,"params":[0,20,0,0,8,4,0,6],"traits":[{"code":22,"dataId":8,"value":0.05}]},
+{"id":42,"name":"Gran's Coat","note":"","description":"[Coat] Long, dark, well made and much mended. Eleven years\nin bond. It fits.","iconIndex":152,"etypeId":4,"atypeId":9,"price":0,"params":[0,0,0,30,0,18,10,8],"traits":[{"code":22,"dataId":2,"value":0.05}]}
 ]

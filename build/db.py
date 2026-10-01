@@ -338,6 +338,12 @@ SK_HECKLE, SK_TALK_THROUGH, SK_SERPENT, SK_SAD_VERSE, SK_ENCORE = (
 # COR-5, the appraisal (QUESTS.md B4, q_corvin.py)
 SW_COR5_DONE = 148              # no curse on it; the form is on offer
 ST_CURSED = 40                  # Cursed (Elective): optional, and comes off
+# NIX-1, the client identifies themselves (QUESTS.md B5, q_nix.py)
+SW_NIX1_LETTER = 149            # the parcel opened: the client is Nix at fifteen
+SW_NIX1_DONE = 150              # the coat out of bond, and it fits
+IT_BOND_TICKET = 51
+AR_GRANS_COAT = 42              # Nix's gear (QUESTS.md 0.5): only Nix wears it
+AT_COAT = 9                     # an armour type of its own, as AT_BADGE is
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -813,6 +819,8 @@ def build_actors():
     ac[WREN]["traits"] = [trait(52, AT_BADGE, 1)]
     # PIP-3: the rosette for second place is hers alone, the same way.
     ac[PIPER]["traits"] = [trait(52, AT_ROSETTE, 1)]
+    # NIX-1: gran's coat, which fits now, and fits nobody else.
+    ac[NIX]["traits"] = [trait(52, AT_COAT, 1)]
 
     upsert(ac, actor(
         ROLAND, "Roland", "Guest Star",
@@ -1496,6 +1504,10 @@ def build_items():
                     "BEATRICE. A hammer. DISQUALIFIED (clause one). With the "
                     "Company's mark. Remarks: right about everything.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=191))
+    upsert(it, item(IT_BOND_TICKET, "Bond No. 1 (Ticket)",
+                    "A luggage ticket for the Bonded Warehouse, Great Dunnage. "
+                    "Enclosed by the client, aged fifteen.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=195))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",
@@ -2411,6 +2423,12 @@ def build_contest():
                      "Sign of the Bell. The certificate is framed.",
                      ET_ACCESSORY, AT_ROSETTE, 0, [0, 20, 0, 0, 8, 4, 0, 6],
                      icon=149, traits=[trait(22, 8, 0.05)]))
+    # NIX-1: Nix's gear. Body armour, and only Nix's actor has the type.
+    upsert(ar, armor(AR_GRANS_COAT, "Gran's Coat",
+                     "[Coat] Long, dark, well made and much mended. Eleven "
+                     "years in bond. It fits.",
+                     ET_BODY, AT_COAT, 0, [0, 0, 0, 30, 0, 18, 10, 8],
+                     icon=152, traits=[trait(22, 2, 0.05)]))
     save("Armors.json", ar)
 
     en = R.load("Enemies.json")
