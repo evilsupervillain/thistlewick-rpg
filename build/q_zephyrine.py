@@ -515,3 +515,214 @@ def board_page(page0):
         "it, in the Porter's pencil, \"Study leave. Good standing.\""])
     return _dressed(page0, body, {"switch1Valid": True,
                                   "switch1Id": db.SW_ZEPH1_PAID})
+
+
+# =============================================================== ZEPH-3 ==
+# Dean Fenwold Is Fine (`QUESTS.md` C2).
+#
+# The Dean has built a second career on being the man who was fine, and his
+# talk wants a demonstration. She refuses; then she agrees, on terms; and it
+# goes wrong in precisely the way it went wrong in 1989, for precisely the
+# same reason, which is that the room is wrong and she said so. Everyone is
+# fine. **He is not a villain and must never become one**: a nice, vain,
+# slightly silly man who did not back her up once, and knows it. The terms are
+# his apology - a bad one, and sincere.
+#
+# * **Why she did it, which the game has never said**: a footnote. Dr
+#   Hapgood's paper, On the Kindling of Damp Materials, went out under the
+#   Master's name - and the Master is a committee (the IN and OUT board). She
+#   said so at dinner, at High Table, and the Dean told her to let it go.
+#   Hapgood is a Junior Fellow of twenty-two years, which is the rest of it.
+# * **It is the Dean's page**, Map 60 event 2, below his one-self-switch
+#   ladder, with Zephyrine, after ZEPH-1 either way (she cannot get in before
+#   it, and he knows how it ended). A rehearsal, now, before anybody thinks
+#   better of it.
+# * **The fire is drawn, not tiled**: animations on the Dean, the
+#   undergraduate and the party, a tint that goes orange and then red, a
+#   flash and a shake, and every tile of the Hall as it was. No consequences:
+#   no damage, no cost, no switch but the done one.
+# * **Afterwards**, for everybody: the Dean (the talk has a new ending), his
+#   portrait (a second card), Dr Hapgood (an offprint with his own name on
+#   it) and the undergraduate (he has kept the bucket).
+
+UNDERGRADUATE_EVENT = 7         # Map 60; holds the bucket
+
+
+def _z3_fire():
+    """The biggest fire in the game, in a room she said was wrong."""
+    dean, lad = 0, UNDERGRADUATE_EVENT
+    c = [R.play_se("Fire1"), R.show_animation(dean, 66, True)]
+    c += S.narrate([
+        "For about a second it is small, and controlled, and very",
+        "beautiful."])
+    c += [R.play_se("Wind1", 80), R.wait(20)]
+    c += S.narrate([
+        "Then the Hall draws, the way all the old rooms draw - a",
+        "chimney at one end and a door at the other - and the fire",
+        "goes where the air goes."])
+    c += [R.tint_screen([68, 17, -34, 0], 30, False),
+          R.play_se("Fire2", 100, 80), R.show_animation(-1, 68, False),
+          R.wait(15), R.show_animation(lad, 69, False),
+          R.flash_screen([255, 170, 68, 170], 30, False),
+          R.shake_screen(6, 6, 60, False), R.wait(10),
+          R.play_se("Fire3", 100, 70), R.show_animation(dean, 70, True),
+          R.tint_screen([119, 0, -68, 34], 40, False),
+          R.play_se("Explosion1", 90, 80),
+          R.flash_screen([255, 102, 34, 221], 45, False),
+          R.shake_screen(9, 7, 90, False),
+          R.show_animation(dean, 69, False), R.wait(10),
+          R.show_animation(-1, 70, True), R.wait(40)]
+    c += S.narrate([
+        "Down the Hall, up High Table, past eleven Deans in their",
+        "frames, and into the twelfth, who is standing exactly",
+        "where she told him not to."])
+    c += S.narrate([
+        "It is the biggest fire anybody in the valley has ever",
+        "seen indoors. The portraits watch it go by."])
+    c += [R.play_se("Fire1", 70, 60), R.wait(30),
+          R.tint_screen([0, 0, 0, 68], 90, True),
+          R.tint_screen([0, 0, 0, 0], 60, True)]
+    return c
+
+
+def _z3_scene():
+    c = S.narrate([
+        "Dean Fenwold sees Zephyrine, and for a moment he is not",
+        "fine at all."])
+    c += S.say("Dean Fenwold", ["Vance. Miss Vance.",
+                                "You look well. I'm fine."])
+    c += S.say("Zephyrine", ["I know. You do a talk."])
+    c += _z1_paid_or_expelled(
+        S.say("Dean Fenwold", ["Pennock says you paid.",
+                               "With a purse, in the Library. Prewitt",
+                               "had to sit down."]),
+        S.say("Dean Fenwold", ["Pennock says you filed",
+                               "it. Yourself. I initialled that, you",
+                               "know. I never - well."]))
+    c += S.say("Dean Fenwold", ["It's a great deal to",
+                                "ask. The talk wants a demonstration.",
+                                "Small. Controlled. In Hall. With",
+                                "buckets."])
+    c += S.say("Zephyrine", ["No."])
+    c += S.say("Dean Fenwold", ["No. Quite right.",
+                                "Of course."])
+    c += S.narrate([
+        "He smooths an eyebrow. It is, she would be the first to",
+        "admit, a magnificent eyebrow."])
+    c += S.say("Zephyrine", ["...On terms."])
+    c += S.say("Zephyrine", ["One. The room is wrong. It was wrong",
+                             "then and it is wrong now, and you will",
+                             "say so, out loud, in the talk."])
+    c += S.say("Dean Fenwold", ["Done."])
+    c += S.say("Zephyrine", ["Two. Hapgood's paper."])
+    c += S.narrate([
+        "There is a silence of a kind that has been in this Hall",
+        "for eleven years."])
+    c += S.say("Zephyrine", ["On the Kindling of Damp Materials.",
+                             "Hapgood wrote it. It went out under",
+                             "the Master's name, and the Master is a",
+                             "committee."])
+    c += S.say("Zephyrine", ["I said so at dinner. At that table.",
+                             "And you told me to let it go."])
+    c += S.say("Dean Fenwold", ["I did. I did say",
+                                "that."])
+    c += S.say("Dean Fenwold", ["It'll go out again.",
+                                "Under his name. With a note. I'll",
+                                "write the note."])
+    c += S.say("Dean Fenwold", ["I should have backed",
+                                "you, Vance. At the time. I remember",
+                                "thinking you were very probably",
+                                "right."])
+    c += S.say("Zephyrine", ["I was right."])
+    c += S.say("Dean Fenwold", ["You were right."])
+    c += S.narrate([
+        "It is not much of an apology. It is the best he has, he",
+        "means every word of it, and he is going to put it in the",
+        "talk."])
+    c += S.say("Zephyrine", ["Fine. Rehearsal. Now, before either",
+                             "of us thinks better of it. Buckets."])
+    c += [R.show_balloon(UNDERGRADUATE_EVENT, 1, True)]
+    c += S.narrate([
+        "The undergraduate is sent for buckets, and comes back with",
+        "one, from the Library, still catching something."])
+    c += S.narrate([
+        "Zephyrine stands in the aisle and looks at the ceiling,",
+        "and at the chimney, and at the door, and at where the Dean",
+        "is standing."])
+    c += S.say("Zephyrine", ["The room is wrong.",
+                             "Stand by the door."])
+    c += S.say("Dean Fenwold", ["Noted!"])
+    c += S.narrate([
+        "He does not move. He did not move in 1989 either."])
+    c += S.say("Zephyrine", ["Small. Controlled. Kindle."])
+    c += _z3_fire()
+    c += S.narrate([
+        "When the smoke clears, nothing is damaged: four hundred",
+        "years of oak have seen worse, and so has the Dean. His",
+        "eyebrows have gone. The moustache is a different shape."])
+    c += S.say("Dean Fenwold", ["I'm fine!"])
+    c += S.say("Dean Fenwold", ["She said the room",
+                                "was wrong. You all heard her say it."])
+    c += S.say("Undergraduate", ["We heard her, sir."])
+    c += S.say("Zephyrine", ["The same reason. EXACTLY the same",
+                             "reason. I SAID."])
+    c += S.narrate([
+        "She has cast something indoors for the first time in",
+        "eleven years, and for a moment she looks about nineteen."])
+    c += [S.trope(), R.control_switch(db.SW_ZEPH3_DONE, True)]
+    c += S.companion_story(db.ZEPH)
+    return c
+
+
+def fenwold_pages(last):
+    """Dean Fenwold (Map 60, event 2), below his one-self-switch ladder: the
+    set piece with Zephyrine after ZEPH-1; afterwards for everybody; and
+    afterwards with her."""
+    seen = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    zeph = {"actorValid": True, "actorId": db.ZEPH}
+    done = {"switch1Valid": True, "switch1Id": db.SW_ZEPH3_DONE}
+    after = last["list"][:-1] + S.narrate([
+        "The talk has a new ending. She said the room was wrong,",
+        "and it was, and he says so. Twice. The eyebrows are",
+        "coming back."])
+    with_her = S.say("Dean Fenwold", ["Vance! Fine. Both",
+                                      "times. The talk has never been",
+                                      "better."])
+    with_her += S.say("Zephyrine", ["Stand by the door."])
+    with_her += S.say("Dean Fenwold", ["Noted!"])
+    return [
+        _dressed(last, _z3_scene(), dict(
+            seen, **zeph, switch1Valid=True, switch1Id=db.SW_ZEPH1_DONE)),
+        _dressed(last, after, dict(seen, **done)),
+        _dressed(last, with_her, dict(seen, **zeph, **done)),
+    ]
+
+
+def _plus(page, lines, conditions):
+    """`page` as it was, with narration after it, on new conditions."""
+    return _dressed(page, page["list"][:-1] + S.narrate(lines), conditions)
+
+
+def portrait_page(page0):
+    """Dean Fenwold's portrait (Map 60, event 4) afterwards."""
+    return _plus(page0, [
+        "A second card, newer, is tucked into the frame: \"And again,",
+        "2000. The painter has been asked back.\""],
+        {"switch1Valid": True, "switch1Id": db.SW_ZEPH3_DONE})
+
+
+def hapgood_page(last):
+    """Dr Hapgood (Map 58, event 11) afterwards, below his ladder."""
+    return _plus(last, [
+        "On top of his papers is an offprint, with his own name on",
+        "it, and a note from the Dean. He still goes round, but he",
+        "goes round slightly taller."],
+        {"selfSwitchValid": True, "selfSwitchCh": "A",
+         "switch1Valid": True, "switch1Id": db.SW_ZEPH3_DONE})
+
+
+def undergraduate_page(last):
+    """The undergraduate (Map 60, event 7) afterwards, below his ladder."""
+    return _plus(last, ["He has kept the bucket."],
+                 {"selfSwitchValid": True, "selfSwitchCh": "A",
+                  "switch1Valid": True, "switch1Id": db.SW_ZEPH3_DONE})

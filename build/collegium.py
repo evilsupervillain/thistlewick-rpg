@@ -331,8 +331,10 @@ def court_events():
                        [R.page(congregation_pages(), **PAGE)]))
 
     # 11: Dr Hapgood, going round the lawn.
-    evs.append(_person(11, "Dr Hapgood", HAPGOOD,
-                       R.image(*S.FACES["Dr Hapgood"], direction=2), *hapgood_pages()))
+    hapgood = _person(11, "Dr Hapgood", HAPGOOD,
+                      R.image(*S.FACES["Dr Hapgood"], direction=2), *hapgood_pages())
+    hapgood["pages"].append(q_zephyrine.hapgood_page(hapgood["pages"][-1]))  # ZEPH-3
+    evs.append(hapgood)
 
     # 12: the Founder, read from the grass round him - which is the joke.
     first, later = founder_pages()
@@ -715,19 +717,22 @@ def hall_events():
         [R.play_se("Move1"),
          R.transfer(MAP_COLLEGIUM, HALL_DOOR[0], HALL_DOOR[1] + 1, 2, 0)],
         img=R.image(""), trigger=1, priority=0, through=True)])]
-    evs.append(_person(2, "Dean Fenwold", FENWOLD,
-                       R.image("Gen_People5", 7, direction=2),
-                       *fenwold_pages()))
+    dean = _person(2, "Dean Fenwold", FENWOLD,
+                   R.image("Gen_People5", 7, direction=2), *fenwold_pages())
+    dean["pages"] += q_zephyrine.fenwold_pages(dean["pages"][-1])  # ZEPH-3
+    evs.append(dean)
     # 3, 4: the portraits, on the lower row of the wall face, read from the
     # floor below them - like the Talk's poster, 6.
     evs.append(R.event(3, "The First Dean", FIRST_DEAN, y1 - 1,
                        [R.page(portrait_pages(FIRST_DEAN), **PAGE)]))
     # Dean Fenwold's is drawn, so it is an event on the wall face itself,
     # read from the floor below it like Fenmarch's.
-    evs.append(R.event(4, "Dean Fenwold's Portrait", FENWOLD_PORTRAIT, y1 - 1,
+    portrait = R.event(4, "Dean Fenwold's Portrait", FENWOLD_PORTRAIT, y1 - 1,
                        [R.page(portrait_pages(FENWOLD_PORTRAIT),
                                img=R.image(PORTRAIT_SHEET, 0, direction=2),
-                               trigger=0, priority=1, direction_fix=True)]))
+                               trigger=0, priority=1, direction_fix=True)])
+    portrait["pages"].append(q_zephyrine.portrait_page(portrait["pages"][0]))  # ZEPH-3
+    evs.append(portrait)
     first, later = duck_chair_pages()
     evs.append(R.event(5, "The Honorary Fellow's Chair", DUCK_CHAIR,
                        HIGH_TABLE_Y, [R.page(first, **PAGE),
@@ -735,9 +740,12 @@ def hall_events():
                                              **PAGE)]))
     evs.append(R.event(6, "The Talk", TALK_POSTER, y1 - 1,
                        [R.page(poster_pages(), **PAGE)]))
-    evs.append(_person(7, "Undergraduate", UNDERGRADUATE,
-                       R.image(*S.FACES["Undergraduate"], direction=2),
-                       *undergraduate_pages()))
+    lad = _person(7, "Undergraduate", UNDERGRADUATE,
+                  R.image(*S.FACES["Undergraduate"], direction=2),
+                  *undergraduate_pages())
+    lad["pages"].append(q_zephyrine.undergraduate_page(lad["pages"][-1]))  # ZEPH-3
+    assert lad["id"] == q_zephyrine.UNDERGRADUATE_EVENT
+    evs.append(lad)
     return evs
 
 

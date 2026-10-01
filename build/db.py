@@ -361,6 +361,8 @@ VAR_ZEPH1_PAID = 23             # crowns turned out on the Library desk
 IT_FINES_NOTICE = 53
 AR_COLLEGIUM_ROBE = 43          # Zephyrine's gear (QUESTS.md 0.5): hers alone
 AT_ROBE = 10                    # an armour type of its own, as AT_BADGE is
+# ZEPH-3, Dean Fenwold is fine (QUESTS.md C2, q_zephyrine.py)
+SW_ZEPH3_DONE = 160             # the demonstration; the room was wrong
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

@@ -1563,14 +1563,66 @@ and the clerk); `build/scenarios/q_zeph1.json`.
   and asserts the robe is Zephyrine's alone.
 * `TIMELINE.md`: 1989, the incident, the three books and the draft.
 
+**C2, ZEPH-3 Dean Fenwold Is Fine - done.** ZEPH-3's section of
+`q_zephyrine.py`, hooked from `collegium.py` in four places (the Dean, his
+portrait, the undergraduate, Dr Hapgood); `build/scenarios/q_zeph3.json`.
+
+* **Decided: the why is Hapgood's footnote.** `COMPANIONS.md` says she did it
+  over a junior fellow's paper attributed to somebody senior; the court
+  already had the junior fellow - Dr Hapgood, Junior Fellow, twenty-two
+  years, going round - and the IN and OUT board already had the senior: the
+  Master, "thought to be a committee". So: On the Kindling of Damp Materials,
+  by Hapgood, went out under the Master's name, "and the Master is a
+  committee"; she said so at High Table and the Dean told her to let it go.
+  Nobody senior is a villain, because nobody senior is a person.
+* **It is the Dean's page 3** (Map 60 event 2: his A, Zephyrine,
+  `SW_ZEPH1_DONE`), which also knows how ZEPH-1 ended - "Pennock says you
+  paid... Prewitt had to sit down" or "you filed it. Yourself. I initialled
+  that, you know." The talk wants a demonstration, small, controlled, with
+  buckets. "No." Then "...On terms": one, the room is wrong and he will say
+  so in the talk; two, Hapgood's paper, under his name - "I'll write the
+  note" - and "I should have backed you, Vance. At the time." / "I was
+  right." / "You were right." It is the best apology he has, and it is going
+  in the talk. **He is not a villain**: the scene never makes him one.
+* **The fire**, a rehearsal now "before either of us thinks better of it":
+  the undergraduate brings one bucket, the Library's, still catching
+  something; "The room is wrong. Stand by the door." / "Noted!" - he does not
+  move, as he did not in 1989; Kindle; and the Hall draws, chimney to door,
+  down the Hall, past eleven Deans and into the twelfth. Drawn, not tiled:
+  animations 66, 68, 69 and 70 on the Dean, the undergraduate and the party,
+  a tint to orange and then red, two flashes, two shakes, five sounds, and
+  the tint back to normal. **No consequences**, asserted: no gold, no items,
+  no hit points, no tile. Eyebrows gone; "I'm fine!"; "We heard her, sir.";
+  "EXACTLY the same reason. I SAID." She has cast something indoors for the
+  first time in eleven years. **One trope** (the mentor who was secretly the
+  villain - denied). PIP-2's "I set fire to a Dean. The Collegium only
+  minuted it." agrees.
+* **Afterwards**: the Dean's own last page plus the talk's new ending (she
+  said the room was wrong, and it was; twice; the eyebrows are coming back);
+  with her, "Fine. Both times." / "Stand by the door." / "Noted!"; his
+  portrait's second card, "And again, 2000. The painter has been asked
+  back."; Dr Hapgood with an offprint in his own name, going round "slightly
+  taller"; the undergraduate, who has kept the bucket.
+* **Ids taken:** switch **160** `SW_ZEPH3_DONE`. No faces, no items.
+* One trope, no blush. Running tally: **tropes +22 fixed and 2-9 from
+  PIP-2; blushes +11 fixed and 0-1 from PIP-2.**
+* **Candidate ending line** (G1; read `SW_ZEPH3_DONE`): "Dean Fenwold is
+  fine. His talk now ends with the room being wrong, and Dr Hapgood's paper
+  has Dr Hapgood's name on it."
+* **The rooms (0.1):** the Hall was cropped in C1; nothing changed - the fire
+  touches no tile.
+* **Scenario** `q_zeph3`: passes (17 checks), on ZEPH-1's expelled end; the
+  fire is redrawn for one shot and looked at.
+* `TIMELINE.md`: C1's 1989 row gains Hapgood's paper.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **finish
-Part C**, the Collegium: **C1 ZEPH-1 is done and committed**; do C2 ZEPH-3,
-C3 ZEPH-2 and C4 WRE-1, in that order. This overrides 0.1's "one step per session" for Part C only
+Part C**, the Collegium: **C1 ZEPH-1 and C2 ZEPH-3 are done and committed**;
+do C3 ZEPH-2 and C4 WRE-1, in that order. This overrides 0.1's "one step per session" for Part C only
 (Mike, 1 Oct 2026), and also the Part C entry's "two sessions, one after the
 other" for C3 and C4 - they are still two steps and two commits, built in
 that order. Every other rule in 0.1 and 0.2 holds.
@@ -1600,8 +1652,8 @@ resumable. Nothing is pushed. No full suite until G1. After C4, run
 the scenarios' `query` and `goto` map ids) once more, alone, with no
 timeout, since every step will have added pages there.
 
-Where things stand: tropes +21 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 160, variable 24, item 54, weapon 42,
+Where things stand: tropes +22 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 161, variable 24, item 54, weapon 42,
 armour 44, armour type 11, common event 4, state 41, enemy 44, troop 42,
 skill 175, `Gen_People13` 3. ZEPH-1 ended one of two ways - `SW_ZEPH1_PAID`
 or `SW_ZEPH1_EXPELLED`, both with `SW_ZEPH1_DONE` - and C2 and C3 must
@@ -1611,12 +1663,6 @@ for anything ZEPH-2 or ZEPH-3 teaches); Wren's are 110-119.
 What each step will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
 
-* **C2 ZEPH-3 Dean Fenwold Is Fine.** "The biggest fire in the game, no
-  consequences": a set piece in the Hall (Map 60), so keep every published
-  page of the Dean's and the portrait's, and make the fire visible (a
-  screen flash or tint and an animation) without changing a tile. PIP-2's
-  Zephyrine branch already says she set fire to the Dean - read it, and
-  agree with it.
 * **C3 ZEPH-2 The Duck.** The duck is an escortable event: a follower-like
   event from the Duck's Pond (`nomap.py`, (115,40)) to the Collegium, or a
   key item that stands for it - decide which survives a world-map walk and

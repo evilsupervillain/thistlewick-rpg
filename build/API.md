@@ -651,7 +651,7 @@ COUNTING_BEFORE_DOOR         (8, 5)
 
 The whole database of The Obligatory Quest.
 
-467 constants.
+468 constants.
 
 ```
 BRAM                         1
@@ -1077,6 +1077,7 @@ VAR_ZEPH1_PAID               23
 IT_FINES_NOTICE              53
 AR_COLLEGIUM_ROBE            43
 AT_ROBE                      10
+SW_ZEPH3_DONE                160
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

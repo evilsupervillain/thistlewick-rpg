@@ -1,0 +1,255 @@
+{
+ "query": "?map=60&x=11&y=12&frames=90",
+ "comment": "QUESTS.md C2, ZEPH-3 Dean Fenwold Is Fine. With Zephyrine after ZEPH-1 (here its expelled end): the demonstration refused, then agreed on terms - the room is wrong, and Hapgood's paper under his own name, which is the Dean's apology - and the fire, which goes wrong for the same reason it did in 1989. No consequences. Afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "eval": "$gameParty.addActor(4); $gameSwitches.setValue(13, true); $gameSwitches.setValue(155, true); $gameSwitches.setValue(158, true); $gameSwitches.setValue(159, true); [2, 7].forEach(e => $gameSelfSwitches.setValue([60, e, 'A'], true)); $gameSelfSwitches.setValue([58, 11, 'A'], true)",
+   "comment": "Zephyrine, after ZEPH-1's expelled end; the Dean and the undergraduate already met."
+  },
+  {
+   "goto": [
+    60,
+    6,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction(), $gameMap.event(2).findProperPageIndex()]",
+   "expect": [
+    6,
+    6,
+    8,
+    2
+   ],
+   "label": "below the Dean, the set piece"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "without her, his own page"
+  },
+  {
+   "eval": "$gameSwitches.setValue(159, false); $gameParty.addActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "with her, but before ZEPH-1 is decided: his own page"
+  },
+  {
+   "eval": "$gameSwitches.setValue(159, true); window._mark(); window._gold = $gameParty.gold(); window._hp = $gameParty.members().map(a => a.hp); window._items = JSON.stringify($gameParty._items)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 120
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"it. Yourself. I initialled that, you\"))",
+   "expect": true,
+   "label": "the expelled end, remembered"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Two. Hapgood's paper.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"You were right.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He does not move. He did not move in 1989 either.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"reason. I SAID.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(160), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(103)]",
+   "expect": [
+    true,
+    1,
+    0,
+    true
+   ],
+   "label": "the mentor who was not the villain, one trope; no blush; her story"
+  },
+  {
+   "check": "[$gameParty.gold() - window._gold, JSON.stringify($gameParty.members().map(a => a.hp)) === JSON.stringify(window._hp), JSON.stringify($gameParty._items) === window._items, $gameScreen.tone().join()]",
+   "expect": [
+    0,
+    true,
+    true,
+    "0,0,0,0"
+   ],
+   "label": "no consequences: no gold, no hurt, no items; the tint is back"
+  },
+  {
+   "comment": "The fire, drawn again for the shot: the scene's last tint and animations."
+  },
+  {
+   "eval": "$gameScreen.startTint([119, 0, -68, 34], 1); $gameTemp.requestAnimation([$gameMap.event(2)], 70); $gameTemp.requestAnimation([$gamePlayer], 69); $gameScreen.startFlash([255, 102, 34, 221], 45)"
+  },
+  {
+   "frames": 25
+  },
+  {
+   "shot": "q_zeph3_fire.png"
+  },
+  {
+   "eval": "$gameScreen.startTint([0, 0, 0, 0], 1)"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "comment": "Afterwards: with her, without her, the portrait, the undergraduate, Dr Hapgood."
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 4,
+   "label": "with her"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"times. The talk has never been\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameParty.removeActor(4); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(2).findProperPageIndex(), $gameMap.event(4).findProperPageIndex(), $gameMap.event(7).findProperPageIndex()]",
+   "expect": [
+    3,
+    1,
+    2
+   ],
+   "label": "for everybody: the Dean, the portrait, the undergraduate"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"and it was, and he says so. Twice. The eyebrows are\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    60,
+    5,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    5,
+    4
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"2000. The painter has been asked back.\\\"\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    58,
+    5,
+    13
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 2,
+   "label": "Dr Hapgood, afterwards"
+  }
+ ]
+}
