@@ -314,7 +314,8 @@ def village_events():
         "Aye, well. The west field's got weevils",
         "and the Dark Lord's got a tower. Only one of",
         "those is going to spoil my supper."])
-    add(S.npc(16, "Farmer", 13, 19, farmer, "People2", 6))
+    add(q_hob.owned("farmer", S.npc(16, "Farmer", 13, 19, farmer,  # HOB-1
+                                  "People2", 6)))
 
     # -- 17: the scarecrow -----------------------------------------------------
     add(S.sign(17, "Scarecrow", 18, 24, [
@@ -364,7 +365,8 @@ def village_events():
     gossip += S.say("Villager", [
         "Goat abstained.",
         "Very dignified about it."], face="Gossip")
-    add(S.npc(21, "Gossip", 24, 16, gossip, *S.FACES["Gossip"], direction=4))
+    add(q_hob.owned("gossip", S.npc(21, "Gossip", 24, 16, gossip,  # HOB-1
+                                  *S.FACES["Gossip"], direction=4)))
 
     # -- 22: the market stall --------------------------------------------------
     stall = S.say("Merchant", ["Fresh! Mostly!"])

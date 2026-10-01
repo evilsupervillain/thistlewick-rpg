@@ -19,6 +19,7 @@ import db
 import mapkit as K
 import rmmzdata as R
 import story as S
+import q_hob
 import q_merribell
 import q_nix
 import q_roland
@@ -357,8 +358,9 @@ def sopping_events():
         "There's a lad in the Wyvern who'll go with",
         "anyone. Ask him. Let me sleep."])
     again = S.say("Regular", ["Still off. Ask in the Wyvern."])
-    evs.append(talker(11, "Man Having A Day Off", 13, 23, "Regular", boat,
-                      again, direction=8))
+    evs.append(q_hob.owned("regular", talker(                     # HOB-1
+        11, "Man Having A Day Off", 13, 23, "Regular", boat, again,
+        direction=8)))
 
     # -- 12: the harbour notice ------------------------------------------------
     evs.append(S.sign(12, "Harbour Notice", 24, 25, [

@@ -45,6 +45,7 @@ import mapkit as K
 import rmmzdata as R
 
 import story as S
+import q_hob
 from places import MAP_WORLD, MAP_HITHERMOST, MAP_CONTINUANCE, HITHERMOST_STEP
 
 # The names `worldmap.json`'s door events carry. Three names, three claims.
@@ -258,12 +259,13 @@ def hithermost_events():
     again = S.say("Villager", [
         "If you're going up, sign the Book.",
         "Everybody does. Some of them twice."])
-    evs.append(S.npc(7, "A Villager", 12, 21, local, "People1", 0,
-                     direction=2, pages=[R.page(
-                         again, img=R.image("People1", 0, direction=2),
-                         trigger=0, priority=1,
-                         conditions={"selfSwitchValid": True,
-                                     "selfSwitchCh": "A"})]))
+    evs.append(q_hob.owned("hithermost", S.npc(                    # HOB-1
+        7, "A Villager", 12, 21, local, "People1", 0,
+        direction=2, pages=[R.page(
+            again, img=R.image("People1", 0, direction=2),
+            trigger=0, priority=1,
+            conditions={"selfSwitchValid": True,
+                        "selfSwitchCh": "A"})])))
     return evs
 
 

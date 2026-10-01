@@ -49,6 +49,7 @@ import mapkit as K
 import rmmzdata as R
 
 import story as S
+import q_hob
 from places import (MAP_WORLD, MAP_FAIRHOLME, MAP_ROSAMUND, MAP_LAIR,
                     FAIRHOLME_STEP, LAIR_STEP)
 
@@ -274,11 +275,11 @@ def council_events():
         "half. Everybody does.",
         "We've a form."])
     img = R.image("Gen_People2", 2, direction=2)
-    evs.append(R.event(2, "King Aldous", 11, NORTH_Y, [
+    evs.append(q_hob.owned("aldous", R.event(2, "King Aldous", 11, NORTH_Y, [  # HOB-1
         R.page(king, img=img, trigger=0, priority=1),
         R.page(again, img=img, trigger=0, priority=1,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
-    ]))
+    ])))
 
     # 3: the minutes, on the table in front of him, read from the south side.
     minutes = S.narrate([

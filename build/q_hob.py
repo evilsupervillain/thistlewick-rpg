@@ -11,8 +11,9 @@ a job up from the works that neither of them can do alone, done in one heat,
 without either of them finishing a sentence in the same room - and Ott's
 approval carried back down the hill, and nothing whatsoever said out loud.
 
-HOB-3, The Anvil (`QUESTS.md` A8) is at the bottom: the smithy's anvil as
-an event, Beatrice while it is gone, and the three events outside the door.
+HOB-3, The Anvil (`QUESTS.md` A8) is below it: the smithy's anvil as an
+event, Beatrice while it is gone, and the three events outside the door. Then
+HOB-2 (A13), the grave, and HOB-1 (B1), the Assize of Hammers, at the bottom.
 
 * **The ask is Bryd's**, on Map 24 - three pages appended below his ladder.
   His terminal switch is `SW_SPAR_DONE`, and `SW_HOB_BRYD` is only ever set
@@ -31,6 +32,8 @@ an event, Beatrice while it is gone, and the three events outside the door.
   candle, and he is not removed.
 * **Nothing is said out loud**, and that includes by the narrator.
 """
+import copy
+
 import db
 import rmmzdata as R
 import story as S
@@ -592,3 +595,429 @@ def gate_event(event_id, x, y):
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_HOB2_DONE}, **kw),
     ])
+
+
+# ======================================================================
+# HOB-1, The Assize of Hammers (`QUESTS.md` B1)
+# ----------------------------------------------------------------------
+# The Worshipful Company of Smiths judges work every three years at Great
+# Dunnage, and Hob has never entered: a piece has to be the entrant's own
+# work *and* the entrant's own property (the Schedule, clauses one and two),
+# and he does not own anything he has made. So it is a retrieval tour - eleven
+# things in eleven hands, every owner glad to see him and none of them giving
+# it back - and in the end he submits Beatrice, which is not his work, and is
+# disqualified, and is entirely satisfied.
+#
+# * **The ask is the Prime Warden's**, Map 62 event 2, below her ladder (one
+#   self switch, A), with Hob. The tally is a page above it on `SW_HOB1_ON`,
+#   the submission a page above that on `VAR_HOB1_ASKED` 11, and afterwards
+#   is her own last page on `SW_HOB1_DONE`, for everybody.
+# * **Ten owners, each two appended pages**, `q_nix.returned`'s pattern: the
+#   ask on the owner's own last-page conditions plus Hob plus `SW_HOB1_ON`, so
+#   a ladder's set piece runs first; afterwards on self switch B, their own
+#   last page with one narrated line added. `owned()` asserts nothing of
+#   theirs uses B and their last page needs no more than A.
+# * **The eleventh is Nix's lockpicks**, and Nix is in the party, not on a
+#   map. They are asked at the Company's table: the ask and the tally pages
+#   both carry the exchange behind "Nix is here and has not been asked", so a
+#   party with both of them settles it in front of the Prime Warden, and one
+#   without Nix is told who is missing when the other ten are done.
+# * **A dismissed Hob leaves the tour where it is.** It is two switches and a
+#   variable, all global.
+ELEVEN = 11
+NOTES_ICON = 191
+
+
+def _hob1_nix():
+    """The lockpicks, asked of Nix wherever Hob reports to the Prime Warden
+    with Nix in the party; once."""
+    c = S.say("Hob", ["And them picks. I made you them picks."])
+    c += S.say("Nix", ["You did. Best set I've had."])
+    c += S.say("Hob", ["Could I have them back? For the spring."])
+    c += S.say("Nix", ["No."])
+    c += S.narrate(["Hob waits. Nix gets out the ledger."])
+    c += S.say("Nix", ["ACQUIRED: one set of picks, from",
+                       "H. Grumnir, Thistlewick. Column: GIVEN."])
+    c += S.say("Nix", ["Nothing comes out of GIVEN. Not even",
+                       "for you. That's what it's for."])
+    c += S.say("Hob", ["...That's a better reason than mine."])
+    c += [R.control_switch(db.SW_HOB1_PICKS, True),
+          R.control_variable_add(db.VAR_HOB1_ASKED, 1)]
+    return R.if_then(R.condition_actor_in_party(db.NIX),
+                     R.if_then(R.condition_switch(db.SW_HOB1_PICKS, False),
+                               c))
+
+
+def _hob1_ask():
+    c = S.narrate([
+        "Hob stands in front of the Company's table with his",
+        "cap in both hands, which you have never seen."])
+    c += S.say("Hob", ["Grumnir. Thistlewick. I'm a smith."])
+    c += S.say("Prime Warden", [
+        "Then you may submit.",
+        "One piece. Your own work, from the ore",
+        "up, and your own property."])
+    c += S.say("Hob", ["Aye. That's where it comes unstuck."])
+    c += S.narrate(["You ask why."])
+    c += S.say("Hob", ["I don't own anything I've made. Never",
+                       "have. Somebody wants a thing, I say",
+                       "take it."])
+    c += S.say("Prime Warden", ["And the invoicing?"])
+    c += S.say("Hob", ["There's a shelf."])
+    c += S.narrate([
+        "The Prime Warden looks at him the way a toll-keeper",
+        "looks at a bridge with nobody on it."])
+    c += S.say("Prime Warden", ["Then you have never",
+                                "entered."])
+    c += S.say("Hob", ["Never once. I could get one back,",
+                       "though. Just the one. For this, they'd",
+                       "not mind."])
+    c += S.narrate(["He counts on his fingers, and then on yours."])
+    c += S.say("Hob", ["A share in the west field at home.",
+                       "The goat's bell. A sword at Nether",
+                       "Sopping. A trivet up at Hithermost."])
+    c += S.say("Hob", ["The crown on the ribbon post at",
+                       "Frostwick. Some hinges at Fairholme.",
+                       "The post box at Ashcombe."])
+    c += S.say("Hob", ["A helmet at Little Gore. Cotter's",
+                       "heel-irons. Them tongs."])
+    c += S.narrate([
+        "Across the hall, Warden Crabbe goes very still, and",
+        "puts a hand over his belt."])
+    c += S.say("Hob", ["Eleven. One of them'll give it back.",
+                       "Stands to reason."])
+    c += S.narrate(["Nobody ever gives anything back."])
+    c += [S.trope(), R.control_switch(db.SW_HOB1_ON, True)]
+    return c + _hob1_nix()
+
+
+def _hob1_tally():
+    c = S.say("Prime Warden", ["Your piece, Mr",
+                               "Grumnir?"])
+    c += S.say("Hob", ["\\V[%d] of eleven asked. Not one of" %
+                       db.VAR_HOB1_ASKED,
+                       "them'll part with it. All very nice",
+                       "about it."])
+    c += _hob1_nix()
+    c += R.if_then(R.condition_variable(db.VAR_HOB1_ASKED, ELEVEN - 1),
+                   R.if_then(R.condition_switch(db.SW_HOB1_PICKS, False),
+                             S.say("Hob", ["Just the picks to ask.",
+                                           "Nix has them."])))
+    return c
+
+
+def _hob1_submit():
+    c = S.say("Hob", ["Eleven asked. Eleven said no.",
+                      "Every one of them had a better",
+                      "reason than I had."])
+    c += S.narrate([
+        "He stands a while. Then he takes Beatrice off his",
+        "belt and lays her on the Company's table, very",
+        "gently, the way you would put down a sleeping cat."])
+    c += S.say("Prime Warden", ["This is your piece?"])
+    c += S.say("Hob", ["She's not mine to call a piece. I'd",
+                       "like her looked at, proper. Once."])
+    c += S.say("Prime Warden", [
+        "Clause thirty-nine.",
+        "A piece is examined on receipt against",
+        "clauses one and two, so that nobody",
+        "waits three years to be told."])
+    c += S.narrate([
+        "Warden Crabbe reads clause one out, and then clause",
+        "two, which takes him rather less than the day. Miss",
+        "Fettle comes from her bench without being asked, and",
+        "turns Beatrice over in her hands for a long time."])
+    c += S.say("Miss Fettle", ["Who made this?"])
+    c += S.say("Hob", ["Not me. I'd never have got the",
+                       "balance."])
+    c += S.say("Prime Warden", [
+        "Clause two: the",
+        "entrant's property. Satisfied.",
+        "Clause one: the entrant's own work."])
+    c += S.say("Prime Warden", ["Not satisfied.",
+                                "Disqualified."])
+    c += [R.wait(30)]
+    c += S.narrate([
+        "Hob beams. You have never seen him so pleased about",
+        "anything, and you have seen him given a pie."])
+    c += S.say("Hob", ["Aye. She would be."])
+    c += S.narrate([
+        "The Prime Warden writes the notes on a card, and",
+        "Warden Crabbe strikes the Company's mark on it, as is",
+        "done for every piece examined. She hands it to Hob,",
+        "and Beatrice back with it."])
+    c += S.narrate([
+        "  BEATRICE. A hammer. From H. Grumnir, Thistlewick.",
+        "  Clause one: not satisfied. Two to forty-one:",
+        "  satisfied. DISQUALIFIED. Remarks: in the",
+        "  Wardens' opinion, right about everything."])
+    c += S.say("Hob", ["...She'll be unbearable."])
+    c += S.say("Hob", ["Every three years, is it? I'll not",
+                       "bother. I've had what I came for."])
+    c += [R.gain_item(db.IT_WARDENS_NOTES, 1), R.play_me("Fanfare1"),
+          R.control_switch(db.SW_HOB1_DONE, True)]
+    c += S.got(["Got \\I[%d]\\C[3]The Wardens' Notes\\C[0]." % NOTES_ICON])
+    c += S.companion_story(db.HOB)
+    return c
+
+
+def warden_pages(page0):
+    """Four pages for the Prime Warden (Map 62, event 2), whose ladder is one
+    self switch: the ask, the tally, the submission, and afterwards - which is
+    her own last page and a line, for everybody."""
+    a_hob = {"selfSwitchValid": True, "selfSwitchCh": "A",
+             "actorValid": True, "actorId": db.HOB}
+
+    def pg(cmds, conds):
+        new = R.page(cmds, conditions=conds)
+        return dict(copy.deepcopy(page0), list=new["list"],
+                    conditions=new["conditions"])
+
+    return [
+        pg(_hob1_ask(), a_hob),
+        pg(_hob1_tally(), dict(a_hob, switch1Valid=True,
+                               switch1Id=db.SW_HOB1_ON)),
+        pg(_hob1_submit(), dict(a_hob, variableValid=True,
+                                variableId=db.VAR_HOB1_ASKED,
+                                variableValue=ELEVEN)),
+    ]
+
+
+def warden_after(last):
+    """The Prime Warden once Beatrice has been examined: her own last page,
+    and the card, for everybody. Appended after `warden_pages`."""
+    page = copy.deepcopy(last)
+    page["list"] = page["list"][:-1] + S.narrate([
+        "Behind her, beside the prize hinge, a second card is",
+        "pinned up, with the Company's mark on it."]) + page["list"][-1:]
+    page["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_HOB1_DONE})["conditions"]
+    return page
+
+
+def prize_after(page0):
+    """The Prize (Map 62, event 5) once Beatrice has been examined: the hinge
+    as it always was, and her card beside it."""
+    page = copy.deepcopy(page0)
+    page["list"] = page["list"][:-1] + S.narrate([
+        "Pinned beside it, a second card, with the same mark:",
+        "BEATRICE. A hammer. DISQUALIFIED (clause one).",
+        "Remarks: in the Wardens' opinion, right about",
+        "everything."]) + page["list"][-1:]
+    page["conditions"] = R.page([], conditions={
+        "switch1Valid": True, "switch1Id": db.SW_HOB1_DONE})["conditions"]
+    return page
+
+
+# -- the ten ----------------------------------------------------------------
+# Each is (scene, afterwards): the scene is Hob asking, and the owner saying
+# no, nicely, with a reason; afterwards is one narrated line put on the end
+# of the owner's own last page.
+
+def _farmer():
+    c = S.narrate([
+        "Hob leans on the gate and looks at the west field,",
+        "where a ploughshare is lying at the end of a furrow."])
+    c += S.say("Hob", ["That's my share. Could I have it back?",
+                       "Just till the spring."])
+    c += S.say("Farmer", ["Spring? Spring's when I plough."])
+    c += S.say("Farmer", ["And the weevils have had a good look",
+                          "at that share, and they don't like it.",
+                          "First year in ten."])
+    c += S.say("Hob", ["...Fair."])
+    return c, ["There is a ploughshare at the end of the west",
+               "field. The weevils are keeping their distance."]
+
+
+def _gossip():
+    c = S.say("Hob", ["The goat's bell. I made that. Could",
+                      "I have it back a while?"])
+    c += S.say("Villager", ["Off the goat?"], face="Gossip")
+    c += S.say("Villager", ["He'll not wear another. We tried him",
+                            "in a brass one."], face="Gossip")
+    c += S.say("Villager", ["He abstained from it."], face="Gossip")
+    c += S.narrate([
+        "Somewhere behind the cottages a good iron bell goes",
+        "once, as if it has heard."])
+    c += S.say("Hob", ["...He's got taste."])
+    return c, ["Somewhere behind the cottages, a good iron bell.",
+               "The goat is wearing it with dignity."]
+
+
+def _regular():
+    c = S.narrate([
+        "Hob looks at the very good sword across the man's",
+        "knees for a long time."])
+    c += S.say("Hob", ["That's one of mine."])
+    c += S.say("Regular", ["...Is it? Never once let me down."])
+    c += S.say("Hob", ["It wouldn't. Could I borrow it back?",
+                       "For the spring."])
+    c += S.say("Regular", ["It's having a day off."])
+    c += S.narrate([
+        "He shuts his eyes again. So, in a manner of speaking,",
+        "does the sword."])
+    return c, ["The sword is across his knees. Neither of them",
+               "is working today."]
+
+
+def _hithermost():
+    c = S.narrate([
+        "The Hithermost teapot comes out, in its cosy, and is",
+        "stood on an iron trivet worked like a sprig of holly."])
+    c += S.say("Hob", ["That trivet's mine. Could I have it",
+                       "back, for a bit?"])
+    c += S.say("Villager", ["And stand the pot where? On the",
+                            "cloth?"])
+    c += S.say("Villager", ["They come down off that mountain",
+                            "cold to the bone, every one of them,",
+                            "and the first thing they get is a",
+                            "pot of tea off that trivet."])
+    c += S.say("Hob", ["...Aye. Keep it."])
+    return c, ["The teapot is in its cosy, on its holly trivet.",
+               "They do teas."]
+
+
+def _perce():
+    c = S.narrate([
+        "The ribbon post has an iron crown on top of it,",
+        "worked like frost on a window."])
+    c += S.say("Hob", ["I did that crown. Could I have it",
+                       "for the spring?"])
+    c += S.say("Perce", ["The spring? The Festival's",
+                         "on the twelfth."])
+    c += S.say("Perce", ["Everybody ties a ribbon to that",
+                         "crown. You can't tie a ribbon to a",
+                         "bare post, you know. It slides down."])
+    c += S.say("Hob", ["...It does, aye."])
+    return c, ["The ribbon post has its iron crown. Ribbons",
+               "do not slide off it."]
+
+
+def _aldous():
+    c = S.say("Hob", ["The hinges on the tower door.",
+                      "Them's mine. Could I have them back?"])
+    c += S.say("King Aldous", ["Your hinges? Oh dear.",
+                               "They're the only part that's held."])
+    c += S.say("King Aldous", ["We're on the fourteenth door.",
+                               "Every rescuer kicks it in, and the",
+                               "door goes, and the hinges are fine."])
+    c += S.say("King Aldous", ["Take the hinges and there's only",
+                               "so much door."])
+    c += S.say("Hob", ["...Fourteen doors."])
+    return c, ["There is a drawing of a door on the table. It is",
+               "marked FIFTEENTH. The hinges are not drawn."]
+
+
+def _dimmock():
+    c = S.narrate([
+        "The Ashcombe post box is iron, painted red, with a",
+        "slot in it like a polite smile."])
+    c += S.say("Hob", ["That box is mine. Could I have it",
+                       "back a while?"])
+    c += S.say("Mrs Dimmock", ["And where would the",
+                               "letters go, dear?"])
+    c += S.say("Mrs Dimmock", ["That box has had a",
+                               "letter from the Ruins of Ashcombe",
+                               "in it. You can't take a box back",
+                               "after that."])
+    c += S.say("Hob", ["...No. You can't."])
+    return c, ["The red box is by the door, with a letter in it.",
+               "It will be answered."]
+
+
+def _winifred():
+    c = S.narrate([
+        "Dame Winifred wears her good plain helmet pushed back,",
+        "and there is a small G stamped inside the brim."])
+    c += S.say("Hob", ["That helmet's one of mine. Could I",
+                       "borrow it back? For the spring."])
+    c += S.say("Dame Winifred", ["I'm in it."])
+    c += S.narrate([
+        "That turns out to be the whole of her reason, and it",
+        "is a very good one."])
+    c += S.say("Dame Winifred", ["Not a dent in it. Nothing",
+                                 "to report. That's your helmet."])
+    return c, ["She is in her helmet. There is still nothing to",
+               "report."]
+
+
+def _cotter():
+    c = S.narrate([
+        "Cotter's boots are shod with iron at heel and toe,",
+        "worn bright."])
+    c += S.say("Hob", ["Them's my heel-irons. Could I have",
+                       "them back, till the spring?"])
+    c += S.say("Cotter", ["Till the spring?",
+                          "I'm home in the spring. For good."])
+    c += S.say("Cotter", ["Eleven miles up every Saturday,",
+                          "and eleven back. I'd not get home",
+                          "without them."])
+    c += S.say("Hob", ["...Aye. Get home."])
+    return c, ["His boots are shod with iron, worn bright.",
+               "Saturday. Six o'clock."]
+
+
+def _crabbe():
+    c = S.narrate([
+        "Warden Crabbe has a pair of tongs at his belt, and is",
+        "standing in front of them as hard as he can."])
+    c += S.say("Hob", ["Them tongs are mine."])
+    c += S.say("Warden Crabbe", ["These are the",
+                                 "Company's tongs. Every piece at the",
+                                 "Assize goes onto the table in them."])
+    c += S.say("Warden Crabbe", ["A pair of tongs is",
+                                 "a piece. Clause forty. But not your",
+                                 "property. Clause two."])
+    c += S.say("Warden Crabbe", ["You would be",
+                                 "disqualified by your own tongs."])
+    c += S.say("Hob", ["...It's a very good Schedule."])
+    return c, ["He has the tongs at his belt, and is standing",
+               "in front of them."]
+
+
+OWNERS = {
+    "farmer": _farmer, "gossip": _gossip, "regular": _regular,
+    "hithermost": _hithermost, "perce": _perce, "aldous": _aldous,
+    "dimmock": _dimmock, "winifred": _winifred, "cotter": _cotter,
+    "crabbe": _crabbe,
+}
+assert len(OWNERS) == ELEVEN - 1        # and Nix's picks
+
+
+def _hob1_asked(scene):
+    return scene + [
+        R.control_variable_add(db.VAR_HOB1_ASKED, 1),
+        R.self_switch("B", True),
+    ] + R.if_then(
+        R.condition_variable(db.VAR_HOB1_ASKED, ELEVEN, 1),
+        S.narrate(["That is the eleventh. Hob would like to go back",
+                   "to Great Dunnage, and he has a look about him."]))
+
+
+def owned(key, ev):
+    """Append HOB-1's two pages to an owner's event and hand it back, so a
+    place module's hook is one line round the event it already builds."""
+    pages = ev["pages"]
+    last = pages[-1]
+    conds = last["conditions"]
+    assert not (conds["switch1Valid"] or conds["switch2Valid"] or
+                conds["variableValid"] or conds["itemValid"] or
+                conds["actorValid"]), (key, conds)
+    assert conds["selfSwitchCh"] == "A" or not conds["selfSwitchValid"], key
+    for p in pages:
+        for c in p["list"]:
+            assert not (c["code"] == 123 and c["parameters"][0] == "B"), key
+    scene, after = OWNERS[key]()
+    ask = R.page(_hob1_asked(scene), conditions=dict(
+        {k: v for k, v in conds.items() if k.startswith("selfSwitch")},
+        switch1Valid=True, switch1Id=db.SW_HOB1_ON,
+        actorValid=True, actorId=db.HOB))
+    again = copy.deepcopy(last)
+    again["list"] = again["list"][:-1] + S.narrate(after) + again["list"][-1:]
+    again["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "B"})["conditions"]
+    pages.append(dict(copy.deepcopy(last), list=ask["list"],
+                      conditions=ask["conditions"]))
+    pages.append(again)
+    return ev

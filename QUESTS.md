@@ -1136,14 +1136,75 @@ Maps 3 or 4 - `village`, `reachable_village`, `guild`, `q_pip2`, `feud`,
 `wall_ring`, `blushes`. The rock and shelf swaps kept their flags, so no
 walk anywhere else changed.
 
+**B1, HOB-1 The Assize of Hammers - done.** HOB-1's section at the bottom of
+`q_hob.py`, hooked from `dunnage.py` (four), `village.py` (two) and one line
+each in `south.py`, `hithermost.py`, `frostwick.py`, `fairholme.py`,
+`ashcombe.py` and `hamlets.py`; `build/scenarios/q_hob1.json`.
+
+* **The ask is the Prime Warden's** (Map 62 event 2, pages 3-5, below her
+  one-self-switch ladder, with Hob): clauses one and two, "There's a shelf",
+  and the eleven counted on his fingers and then on yours. **One trope**
+  (the tournament arc). Page 4 is the tally on `SW_HOB1_ON`, page 5 the
+  submission on `VAR_HOB1_ASKED` 11, and page 6 is her own last page plus
+  "a second card is pinned up" on `SW_HOB1_DONE`, for everybody.
+* **The ten** take `q_nix.returned`'s pattern as `q_hob.owned(key, ev)`: the
+  ask on the owner's own last-page conditions plus Hob plus `SW_HOB1_ON`, and
+  afterwards on their self switch B - their own last page plus one line. It
+  asserts the same two things. Nobody gives anything back, and each has a
+  reason: **the Farmer** (the share - the weevils don't like it), **the
+  Gossip** (the goat's bell - he abstained from a brass one), **the Man
+  Having A Day Off** in Nether Sopping (the sword on his knees - it is having
+  a day off), **Hithermost's villager** (the holly trivet under the
+  teapot - they do teas), **Perce Stagg** (the crown on the ribbon post - a
+  ribbon slides down a bare post), **King Aldous** (Rosamund's tower hinges -
+  fourteen doors, and the hinges are fine), **Mrs Dimmock** (the post box,
+  which has had a letter from the Ruins of Ashcombe in it), **Dame
+  Winifred** ("I'm in it"), **Cotter** (his heel-irons - he'd not get home)
+  and **Warden Crabbe** (the Company's tongs: a piece by clause forty, not
+  Hob's property by clause two - "You would be disqualified by your own
+  tongs"). The NIX-4 owners were avoided, since two quests' "afterwards"
+  pages on one event would shadow each other.
+* **Nix's lockpicks are asked at the Company's table**, since Nix is in the
+  party and on no map: the ask and the tally pages both carry the exchange
+  behind "Nix is here and `SW_HOB1_PICKS` is off". Nix's reason is the
+  ledger: ACQUIRED from H. Grumnir, column GIVEN, and nothing comes out of
+  GIVEN. With the other ten done and no Nix, the tally says "Just the picks
+  to ask. Nix has them."
+* **The submission**: Beatrice laid on the table "the way you would put down
+  a sleeping cat"; clause thirty-nine, examined on receipt "so that nobody
+  waits three years to be told"; Miss Fettle asks who made it ("Not me. I'd
+  never have got the balance"); clause two satisfied, clause one not,
+  **disqualified**, and Hob beams. The Company's mark is struck on the
+  Wardens' notes, which are **item 50**: "Remarks: in the Wardens' opinion,
+  right about everything." Nobody says what she is; the scenario asserts no
+  line says "aunt", "hammer is" or "she made". **The Prize** (event 5) gets a
+  second page on `SW_HOB1_DONE` with her card pinned beside the hinge.
+* **Ids taken:** switches **142** `SW_HOB1_ON`, **143** `SW_HOB1_PICKS`,
+  **144** `SW_HOB1_DONE`; variable **22** `VAR_HOB1_ASKED`; item **50**
+  `IT_WARDENS_NOTES`. No faces.
+* One trope, no blush. Running tally: **tropes +13 fixed and 2-9 from PIP-2;
+  blushes +10 fixed and 0-1 from PIP-2.**
+* **Candidate ending line** (G1; read `SW_HOB1_DONE`): "The Worshipful
+  Company of Smiths disqualified a hammer called Beatrice under clause one.
+  The Wardens' notes say she is right about everything."
+* **The rooms (0.1):** Great Dunnage had never been swept. All five of its
+  maps were cropped with `propsheet.py` (79 tiles) and screenshotted: the
+  Smiths' Hall's two `Blacksmith's Table`s are the two anvils, the Bell's
+  shelves are bottles and wine, the warehouse is crates and barrels, and the
+  town's signs are what their shops are. Nothing needed fixing. The owners'
+  own places (Hithermost, Fairholme, Frostwick, Little Gore, Ashcombe) were
+  cropped too (110 tiles) and read right.
+* **Scenario** `q_hob1`: passes (81 checks, about fifteen minutes).
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do all of
-Part B**, Great Dunnage: B1 HOB-1, B2 ALD-4, B3 PIP-3, B4 COR-5, B5 NIX-1,
-B6 NIX-2 and B7 ROL-1, in that order. This overrides 0.1's "one step per
+`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do the
+rest of Part B**, Great Dunnage: B2 ALD-4, B3 PIP-3, B4 COR-5, B5 NIX-1,
+B6 NIX-2 and B7 ROL-1, in that order (B1 HOB-1 is done and committed). This overrides 0.1's "one step per
 session" for Part B only (Mike, 1 Oct 2026); every other rule in 0.1 and 0.2
 still holds.
 
@@ -1170,22 +1231,18 @@ written while the last one's scenario ran. Move this prompt on by one after
 each commit, so an early end is always resumable. Nothing is pushed. No
 full suite until G1.
 
-Where things stand: tropes +12 fixed and 2-9 from PIP-2; blushes +10 fixed
-and 0-1 from PIP-2. Next free: switch 142, variable 22, item 50, weapon 42,
+Where things stand: tropes +13 fixed and 2-9 from PIP-2; blushes +10 fixed
+and 0-1 from PIP-2. Next free: switch 145, variable 23, item 51, weapon 42,
 armour 41, armour type 8, common event 4, state 40, enemy 41, troop 41,
 `Gen_People12` 7 then `Gen_People13`.
 
 What each step will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
 
-* **B1 HOB-1** is eleven owners "across the whole island", like NIX-4:
-  use `q_nix.returned`'s pattern (a page on the owner's terminal self switch
-  A plus the quest state, and afterwards their own last page plus one line;
-  assert the last page needs only A and nobody uses B). Pass over anybody
-  whose last page *does* something. Nix's lockpicks are one of the eleven,
-  and Nix is a party member, not an NPC - decide how that one is asked.
-  Beatrice is submitted and disqualified: she is carried by Hob, so it
-  needs Hob.
+* **B1 HOB-1** - done. Its `q_hob.owned(key, ev)` is `q_nix.returned`
+  again, so a third quest that needs "eleven people" has two copies to
+  generalise from. Avoid an owner another quest has already given an
+  "afterwards" page: two of them on one event shadow each other.
 * **B2 ALD-4** is a scene with no reward; Duchess may speak only if Mike
   supplies a face (`QUESTS.md` 1) - make it wordless otherwise.
 * **B3 PIP-3** is a boss fight whose damage type is heckling: enemies from

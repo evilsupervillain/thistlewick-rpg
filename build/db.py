@@ -318,6 +318,12 @@ WP_SOMETHING_TO_SAY = 41        # Hob's gear (QUESTS.md 0.5)
 SW_ROL3_DINNER = 140            # the eleven are in the Slain Wyvern; ends
 SW_ROL3_DONE = 141              # and have drunk to him
 VAR_ROL3_HEARD = 21             # how many of the eleven have been spoken to
+# HOB-1, the Assize of Hammers (QUESTS.md B1, q_hob.py)
+SW_HOB1_ON = 142                # the retrieval tour is on
+SW_HOB1_PICKS = 143             # Nix has been asked for the lockpicks
+SW_HOB1_DONE = 144              # Beatrice examined, and disqualified
+VAR_HOB1_ASKED = 22             # owners asked, of eleven
+IT_WARDENS_NOTES = 50
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1461,6 +1467,10 @@ def build_items():
                     "Off Councillor Fenn's hook, while he was explaining "
                     "clause twelve. It goes back on the way out.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=195))
+    upsert(it, item(IT_WARDENS_NOTES, "The Wardens' Notes",
+                    "BEATRICE. A hammer. DISQUALIFIED (clause one). With the "
+                    "Company's mark. Remarks: right about everything.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=191))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

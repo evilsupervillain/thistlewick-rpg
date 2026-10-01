@@ -37,6 +37,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_hob
 from places import (MAP_WORLD, MAP_FROSTWICK, MAP_ELEVEN_DAYS,
                     MAP_WORKING_GROUP, MAP_COLD_ROOM, FROSTWICK_STEP)
 
@@ -267,11 +268,11 @@ def frostwick_events():
         "The twelfth. Ribbon at noon.",
         "I'll do the face. You'll see."])
     img = R.image("Gen_People3", 1, direction=2)
-    evs.append(R.event(9, "Perce Stagg", *PERCE, [
+    evs.append(q_hob.owned("perce", R.event(9, "Perce Stagg", *PERCE, [  # HOB-1
         R.page(first, img=img, trigger=0, priority=1),
         R.page(later, img=img, trigger=0, priority=1,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
-    ]))
+    ])))
 
     # 10: Ida, and 7.3's line for her - mechanism one, the innocent
     # superlative, offered as praise. It is literally about deeds, and it is

@@ -45,6 +45,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_hob
 from places import (MAP_WORLD, MAP_DUNNAGE, MAP_SMITHS_HALL,
                     MAP_COUNTING_HOUSE, MAP_BONDED, MAP_BELL, DUNNAGE_STEP)
 
@@ -536,8 +537,9 @@ def town_events():
     evs.append(_thing(10, "The Anthem", ANTHEM, anthem_pages()))
     evs.append(_thing(11, "The Nine Works", NINE_WORKS, nine_works_pages()))
     # 12: Cotter, at the Iron Company's gate.
-    evs.append(_person(12, "Cotter", COTTER,
-                       R.image("SF_Actor2", 7, direction=2), *cotter_pages()))
+    evs.append(q_hob.owned("cotter", _person(                      # HOB-1
+        12, "Cotter", COTTER,
+        R.image("SF_Actor2", 7, direction=2), *cotter_pages())))
     # 13: Mrs Poskitt, on the square.
     evs.append(_person(13, "Mrs Poskitt", POSKITT,
                        R.image(*S.FACES["Mrs Poskitt"], direction=2), *poskitt_pages()))
@@ -756,13 +758,20 @@ def smiths_events():
     x1, y1, x2, y2, door_x = SMITHS_ROOM
     evs = [_exit(1, door_x, y2 + 2, MAP_DUNNAGE, SMITHS_DOOR[0],
                  SMITHS_DOOR[1] + 1)]
-    evs.append(_person(2, "Prime Warden", STANNARD,
-                       R.image("Gen_People6", 1, direction=2),
-                       *stannard_pages()))
-    evs.append(_person(3, "Warden Crabbe", CRABBE,
-                       R.image(*S.FACES["Warden Crabbe"], direction=2), *crabbe_pages()))
+    warden = _person(2, "Prime Warden", STANNARD,
+                     R.image("Gen_People6", 1, direction=2),
+                     *stannard_pages())
+    last = warden["pages"][-1]                                    # HOB-1
+    warden["pages"] += q_hob.warden_pages(last)
+    warden["pages"].append(q_hob.warden_after(last))
+    evs.append(warden)
+    evs.append(q_hob.owned("crabbe", _person(                      # HOB-1
+        3, "Warden Crabbe", CRABBE,
+        R.image(*S.FACES["Warden Crabbe"], direction=2), *crabbe_pages())))
     evs.append(_thing(4, "The Schedule", SCHEDULE, schedule_pages()))
-    evs.append(_thing(5, "The Prize", PRIZE, prize_pages()))
+    prize = _thing(5, "The Prize", PRIZE, prize_pages())
+    prize["pages"].append(q_hob.prize_after(prize["pages"][0]))   # HOB-1
+    evs.append(prize)
     evs.append(_thing(6, "The Banners", (10, y1 - 1), banners_pages()))
     evs.append(_person(7, "Miss Fettle", FETTLE,
                        R.image("Gen_People6", 4, direction=2),

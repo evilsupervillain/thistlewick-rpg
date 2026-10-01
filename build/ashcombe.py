@@ -43,6 +43,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_hob
 from places import MAP_WORLD, MAP_ASHCOMBE, MAP_ASHCOMBE_IN, ASHCOMBE_STEP
 
 # The name `worldmap.json`'s door events carry for this site.
@@ -360,8 +361,9 @@ def ashcombe_events():
     evs.append(S.npc(10, "Wilf", *WILF, wilf, *S.FACES["Wilf"], direction=2))
 
     # 11: the postmistress, at her own door on the lane.
-    evs.append(_person(11, "Mrs Dimmock", DIMMOCK,
-                       R.image(*S.FACES["Mrs Dimmock"], direction=2), *dimmock_pages()))
+    evs.append(q_hob.owned("dimmock", _person(                     # HOB-1
+        11, "Mrs Dimmock", DIMMOCK,
+        R.image(*S.FACES["Mrs Dimmock"], direction=2), *dimmock_pages())))
     return evs
 
 

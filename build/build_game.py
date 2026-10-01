@@ -360,7 +360,10 @@ def build_system():
             (db.SW_HOB2_CARRYING, "HOB-2: an attempt is being carried (ends)"),
             (db.SW_HOB2_DONE, "HOB-2: the gate is hung"),
             (db.SW_ROL3_DINNER, "ROL-3: the alumni dinner is on (ends)"),
-            (db.SW_ROL3_DONE, "ROL-3: the toast")]:
+            (db.SW_ROL3_DONE, "ROL-3: the toast"),
+            (db.SW_HOB1_ON, "HOB-1: the retrieval tour is on"),
+            (db.SW_HOB1_PICKS, "HOB-1: Nix asked for the picks"),
+            (db.SW_HOB1_DONE, "HOB-1: Beatrice disqualified")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -385,6 +388,7 @@ def build_system():
     variables[db.VAR_PIP5_DECOY] = "PIP-5: who asked Fenn about clause twelve"
     variables[db.VAR_HOB2_TRY] = "HOB-2: attempts, of four"
     variables[db.VAR_ROL3_HEARD] = "ROL-3: alumni spoken to, of eleven"
+    variables[db.VAR_HOB1_ASKED] = "HOB-1: owners asked, of eleven"
 
     system.update({
         "gameTitle": "The Obligatory Quest",

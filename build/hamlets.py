@@ -49,6 +49,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_hob
 from places import (MAP_WORLD, MAP_LITTLE_GORE, MAP_SUMP,
                     LITTLE_GORE_STEP, SUMP_STEP)
 
@@ -223,8 +224,9 @@ def gore_events():
 
     evs.append(_person(3, "Hester Vane", HESTER,
                        R.image("Gen_People4", 5, direction=2), *vane_pages()))
-    evs.append(_person(4, "Dame Winifred Cope", COPE,
-                       R.image(*S.FACES["Dame Winifred"], direction=2), *cope_pages()))
+    evs.append(q_hob.owned("winifred", _person(                    # HOB-1
+        4, "Dame Winifred Cope", COPE,
+        R.image(*S.FACES["Dame Winifred"], direction=2), *cope_pages())))
 
     # 5-7: the three Vanes on the green, playing weddings; the narration says
     # how small they are. Nell was the spiky-haired boy, People1:0, under a

@@ -1,0 +1,873 @@
+{
+ "query": "?map=62&x=10&y=9&frames=90",
+ "comment": "QUESTS.md B1, HOB-1 The Assize of Hammers. The Prime Warden's set piece first; without Hob, her own page; with him, the ask: the tournament arc, one trope. Ten owners over eight places, each refusing with a reason - a ladder's set piece first, and afterwards their own last page plus one line. The tally with ten asked and no Nix says who is missing; with Nix, the picks are refused at the table, in the ledger's GIVEN column. Then Beatrice: examined on receipt, disqualified under clause one, and the Wardens' notes. Afterwards for everybody, on the Prime Warden and on the prize.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Hob, and the Prime Warden's own set piece first.",
+   "eval": "$gameParty.addActor(3)"
+  },
+  {
+   "goto": [
+    62,
+    10,
+    8
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    10,
+    7,
+    8
+   ],
+   "label": "below the Prime Warden, facing her"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It is every three years.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "with Hob, the ask"
+  },
+  {
+   "eval": "$gameParty.removeActor(3)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "without him, her own last page"
+  },
+  {
+   "eval": "$gameParty.addActor(3); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 12
+  },
+  {
+   "shot": "q_hob1_ask.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There's a shelf.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Them tongs.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(142), $gameSwitches.value(143), $gameVariables.value(22), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    false,
+    0,
+    1
+   ],
+   "label": "the tour is on, Nix not here, one trope"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "the tally"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"of eleven asked.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Just the picks to ask.\"))",
+   "expect": false
+  },
+  {
+   "comment": "Warden Crabbe, across the hall",
+   "goto": [
+    62,
+    13,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "a ladder's set piece runs first"
+  },
+  {
+   "eval": "$gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "then the ask"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"disqualified by your own tongs.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 1
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He has the tongs at his belt, and is standing\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Warden Crabbe:\"))",
+   "expect": true
+  },
+  {
+   "comment": "Cotter, at the Iron Company's gate",
+   "goto": [
+    61,
+    5,
+    8
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 0,
+   "label": "a ladder's set piece runs first"
+  },
+  {
+   "eval": "$gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 2,
+   "label": "then the ask"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"without them.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 2
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "comment": "the Farmer (Thistlewick)",
+   "goto": [
+    1,
+    13,
+    20
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gameParty.removeActor(3)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(16).findProperPageIndex()",
+   "expect": 0,
+   "label": "the tour on, but no Hob: their own page"
+  },
+  {
+   "eval": "$gameParty.addActor(3)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(16).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(16).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"First year in ten.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 3
+  },
+  {
+   "check": "$gameMap.event(16).findProperPageIndex()",
+   "expect": 2,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "comment": "the Gossip",
+   "goto": [
+    1,
+    23,
+    16
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(21).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(21).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He abstained from it.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 4
+  },
+  {
+   "check": "$gameMap.event(21).findProperPageIndex()",
+   "expect": 2,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "comment": "the Man Having A Day Off (Nether Sopping)",
+   "goto": [
+    13,
+    13,
+    24
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 0,
+   "label": "a ladder's set piece runs first"
+  },
+  {
+   "eval": "$gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 2,
+   "label": "then the ask"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's having a day off.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 5
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "comment": "the Hithermost villager",
+   "goto": [
+    33,
+    12,
+    22
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 0,
+   "label": "a ladder's set piece runs first"
+  },
+  {
+   "eval": "$gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 2,
+   "label": "then the ask"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"pot of tea off that trivet.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 6
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "comment": "Perce Stagg (Frostwick)",
+   "goto": [
+    44,
+    16,
+    18
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 0,
+   "label": "a ladder's set piece runs first"
+  },
+  {
+   "eval": "$gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 2,
+   "label": "then the ask"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It slides down.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 7
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "comment": "King Aldous (Fairholme)",
+   "goto": [
+    35,
+    11,
+    8
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0,
+   "label": "a ladder's set piece runs first"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "then the ask"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"so much door.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 8
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "comment": "Mrs Dimmock (Ashcombe)",
+   "goto": [
+    52,
+    18,
+    24
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 0,
+   "label": "a ladder's set piece runs first"
+  },
+  {
+   "eval": "$gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 2,
+   "label": "then the ask"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"after that.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 9
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "comment": "Dame Winifred (Little Gore)",
+   "goto": [
+    50,
+    16,
+    11
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 0,
+   "label": "a ladder's set piece runs first"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 2,
+   "label": "then the ask"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I'm in it.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(22)",
+   "expect": 10
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: their own last page, and a line"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That is the eleventh.\"))",
+   "expect": false,
+   "label": "ten is not eleven"
+  },
+  {
+   "comment": "Ten asked, and no Nix: the tally says who is missing.",
+   "goto": [
+    62,
+    10,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"of eleven asked.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Just the picks to ask.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "no submission at ten"
+  },
+  {
+   "comment": "Nix, at the table.",
+   "eval": "$gameParty.addActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Column: GIVEN.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(143), $gameVariables.value(22)]",
+   "expect": [
+    true,
+    11
+   ]
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 4,
+   "label": "eleven: the submission"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 24
+  },
+  {
+   "shot": "q_hob1_notes.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Disqualified.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"right about\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She'll be unbearable.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => /aunt|hammer is|she made/i.test(l))",
+   "expect": false,
+   "label": "nobody says it"
+  },
+  {
+   "check": "[$gameSwitches.value(144), $gameParty.numItems($dataItems[50]), $gameSwitches.value(102), $gameVariables.value(15) - window._stories, $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    1,
+    true,
+    1,
+    0
+   ],
+   "label": "done: the notes, his story counted once, no second trope"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 5,
+   "label": "afterwards"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"a second card is\"))",
+   "expect": true
+  },
+  {
+   "comment": "Afterwards is for everybody.",
+   "eval": "$gameParty.removeActor(3); $gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 5
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"DISQUALIFIED (clause one).\"))",
+   "expect": true
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}
