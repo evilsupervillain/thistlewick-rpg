@@ -43,6 +43,8 @@ explains why. One scene, on one event in the field.
   her quests was finished, and the Bramus line in the ending is not true of
   a party that only put up a plaque.
 """
+import copy
+
 import db
 import mapkit as K
 import rmmzdata as R
@@ -607,3 +609,359 @@ def walk_events(base_id):
                    direction_fix=True, conditions=walk)]))
         eid += 1
     return evs
+
+
+# ================================================================ WRE-1 ==
+# The Monograph (`QUESTS.md` C4).
+#
+# Publication at the Collegium requires a type specimen for every entry, three
+# Fellows to review it, and a list of subscribers. Rowbotham named three
+# hundred species after himself, his subscribers and his dogs, and never had a
+# type specimen for one of them; she will measure all eleven of hers, in eleven
+# fights she objects to, and the specimens are what make the work unanswerable.
+#
+# * **The start is the monographs' shelf**, Map 59 event 5, whose one page
+#   already has her reaction shot to the inch-wide gap. Page 2 is hers: the
+#   gap, and tucked into it the Library's card of rules. `SW_WRE1_ON`.
+# * **The specimens are on the world map**, one each by eleven places, as
+#   tracks (`!Other1` 5) that are there only while the monograph is on. With
+#   Wren they are a fight (troops 42-52, no escape: a type specimen will not
+#   wait) and the specimen is **measured, not killed**; without her they are
+#   tracks. Collected is the specimen's own self switch and the count is
+#   global, `VAR_WRE1_SPECIMENS`, so a dismissed Wren's count waits.
+#   Appended after every other event on Map 8, so no existing id moves.
+# * **The reviewers** are two of Rowbotham's three students, who reviewed her
+#   first paper at twenty-three: Professor Mott, who has been a beetle for
+#   forty years, and Dr Furze, who was at the Slain Wyvern the night they
+#   asked Wren to leave. They sit at the Library's reading table from the
+#   start. The third is the Honorary Fellow, on its pond (`SW_WRE1_DUCK_DUE`,
+#   which ends).
+# * **The subscription list** is a shop with names in it, on Prewitt's desk:
+#   eight subscriptions, six needed, and the party pays for them, because that
+#   is how a list works when you are the one holding it.
+# * **The upgrade** is a class change with her experience kept, to
+#   `db.CL_WREN_PUBLISHED`: her own class with two more party abilities - no
+#   surprise attacks, and more first strikes. Her double drops are untouched.
+
+# (world cell, the place it is by, what she says about it)
+WRE1_SPECIMENS = [
+    ((52, 74), ["An egg. It has legs. It is not",
+                "a breakfast, whatever he says."]),
+    ((40, 81), ["A lizard with a frill. He said it",
+                "was magnificent. It is a lizard."]),
+    ((44, 118), ["It lives in hearths. It is warm,",
+                 "and it is not a comfort to anyone."]),
+    ((57, 79), ["A gnome that lives in turnips.",
+                "He named it after his wife. She knew."]),
+    ((105, 76), ["A cat. He named it after his dog.",
+                 "I have never forgiven him that."]),
+    ((21, 75), ["A hare with stripes. Not a tiger.",
+                "It has never once been a tiger."]),
+    ((30, 111), ["A fox that walks upright. A",
+                 "subscriber paid to have it named."]),
+    ((58, 21), ["It grazes, and it has a great many",
+                "eyes. It is not, in any sense, an ox."]),
+    ((73, 26), ["A sylph that lives in draughts.",
+                "Named for a lady who had a cold."]),
+    ((56, 98), ["A wader. He called it his",
+                "self-portrait. It does look like him."]),
+    ((103, 56), ["A kappa, in a lake. He called it",
+                 "Captain. Captain was a spaniel."]),
+]
+TRACKS = ("!Other1", 5)
+
+
+def specimen_events(base_id):
+    """WRE-1's eleven specimens, as world-map events from `base_id` on:
+    nothing until the monograph is on, then tracks, and nothing again once
+    the specimen is measured."""
+    assert len(WRE1_SPECIMENS) == len(db.SPECIMENS) == 11
+    evs = []
+    for i, ((x, y), remark) in enumerate(WRE1_SPECIMENS):
+        name, his = db.SPECIMENS[i][0], db.SPECIMENS[i][7]
+        troop = db.TR_SPECIMENS[i]
+        measured = [R.battle(troop, can_escape=False, can_lose=False)]
+        measured += S.narrate([
+            "It is not dead. It has been measured, which it minds a",
+            "great deal more. Wren writes for some time, and then",
+            "she lets it go."])
+        measured += [R.control_variable_add(db.VAR_WRE1_SPECIMENS),
+                     R.play_se("Book1"), R.self_switch("A", True)]
+        measured += S.got(["Type specimens measured: \\V[%d] of eleven."
+                           % db.VAR_WRE1_SPECIMENS])
+        wren = S.say("Wren", ["Rowbotham's name for it:"])
+        wren += S.narrate([his + "."])
+        wren += S.say("Wren", remark)
+        wren += S.say("Wren", ["%s. I need it intact." % name])
+        wren += R.choice_block(
+            ["Measure it", "Leave it"],
+            [measured, S.say("Wren", ["It'll be back. They always are."])])
+        c = S.narrate(["Tracks, in the soft ground, going somewhere in",
+                       "a hurry."])
+        c += R.if_then(R.condition_actor_in_party(db.WREN), wren,
+                       S.narrate(["Wren would know what made them."]))
+        nothing = dict(img=R.image(""), trigger=1, priority=0, through=True)
+        evs.append(R.event(base_id + i, "Type Specimen: " + name, x, y, [
+            R.page([], **nothing),
+            R.page(c, img=R.image(*TRACKS, direction=2), trigger=1,
+                   priority=0, through=True, direction_fix=True,
+                   conditions={"switch1Valid": True,
+                               "switch1Id": db.SW_WRE1_ON}),
+            R.page([], conditions={"selfSwitchValid": True,
+                                   "selfSwitchCh": "A"}, **nothing),
+        ]))
+    return evs
+
+
+def _wre1_complete():
+    subs = " + ".join("($gameParty.hasItem($dataItems[%d]) ? 1 : 0)" % i
+                      for i in db.IT_SUBSCRIPTIONS)
+    return R.condition_script(
+        "$gameVariables.value(%d) >= 11 && $gameSwitches.value(%d) && "
+        "$gameSwitches.value(%d) && $gameSwitches.value(%d) && (%s) >= %d"
+        % (db.VAR_WRE1_SPECIMENS, db.SW_WRE1_MOTT, db.SW_WRE1_FURZE,
+           db.SW_WRE1_DUCK, subs, db.SUBSCRIBERS_NEEDED))
+
+
+def _wre1_rules():
+    c = S.narrate([
+        "Tucked into the inch-wide gap, as if it had been waiting,",
+        "is one of the Library's cards."])
+    c += S.narrate([
+        "A MONOGRAPH OF THE COLLEGIUM REQUIRES: (I) A TYPE",
+        "SPECIMEN FOR EVERY ENTRY; (II) THREE FELLOWS TO REVIEW",
+        "IT; (III) A LIST OF SUBSCRIBERS."])
+    c += S.say("Wren", ["Eleven entries. Eleven type specimens."])
+    c += S.say("Wren", ["Rowbotham named three hundred species",
+                        "and never had a type specimen for one",
+                        "of them. He named them after his dogs."])
+    c += S.say("Wren", ["I am going to find all eleven, and",
+                        "measure them, and fight every one of",
+                        "them, and I am going to hate it."])
+    c += [S.trope(), R.control_switch(db.SW_WRE1_ON, True)]
+    return c
+
+
+def _wre1_publish():
+    c = S.narrate([
+        "Prewitt binds it herself, which she has not done for",
+        "anybody in eleven years, and brings it to the shelf."])
+    c += S.narrate([
+        "THE FAUNA OF THE VALLEY, BY WHAT THEY ARE.",
+        "W. HALLOWAY. Eleven type specimens, three reviewers,",
+        "and a list of subscribers, bound in at the back."])
+    c += [R.play_se("Book2"), R.wait(30)]
+    c += S.narrate(["It goes into the gap. It is exactly an inch wide."])
+    c += S.say("Wren", ["There was room."])
+    c += S.narrate([
+        "She says nothing else. She stands with one finger on its",
+        "spine for some time, the way you would keep your place",
+        "in a book."])
+    # Change Class, experience kept (code 321): her own class, plus the
+    # monograph. See db.CL_WREN_PUBLISHED.
+    c += [{"code": 321, "indent": 0,
+           "parameters": [db.WREN, db.CL_WREN_PUBLISHED, True]},
+          R.gain_item(db.IT_MONOGRAPH), R.play_me("Fanfare1")]
+    c += S.got(["Wren is a \\C[3]Cataloguer (Published)\\C[0]. Nothing the",
+                "monograph describes takes the party by surprise,",
+                "and the party tends to see it first."])
+    c += [R.control_switch(db.SW_WRE1_DONE, True)]
+    c += S.companion_story(db.WREN)
+    return c
+
+
+def shelf_pages(page0):
+    """The monographs (Map 59, event 5), which have one page: Wren's page,
+    which starts the monograph, counts it and publishes it; afterwards, for
+    everybody; and afterwards, with her."""
+    status = S.narrate([
+        "The inch-wide gap. Type specimens measured: \\V[%d]"
+        % db.VAR_WRE1_SPECIMENS, "of eleven."])
+    status += S.say("Wren", ["Not yet. Specimens, three reviewers,",
+                             "six subscribers. Then there's room."])
+    # The shelf's own narration, before its Wren branch: on the first visit
+    # she gets her reaction shot and the card; after that, only the count.
+    first_branch = next(i for i, cmd in enumerate(page0["list"])
+                        if cmd["code"] == 111)
+    narration = page0["list"][:first_branch]
+    hers = R.if_then(
+        R.condition_switch(db.SW_WRE1_ON),
+        narration + R.if_then(_wre1_complete(), _wre1_publish(), status),
+        page0["list"][:-1] + _wre1_rules())
+    shelf = [
+        "And in what was an inch-wide gap: THE FAUNA OF THE VALLEY,",
+        "BY WHAT THEY ARE. W. HALLOWAY. It fits exactly."]
+    # Afterwards the reaction shot to the gap would be wrong: keep the
+    # shelf's own narration, drop the Wren branch, and say what is there.
+    after = copy.deepcopy(narration) + S.narrate(shelf) + [page0["list"][-1]]
+    with_her = after[:-1] + S.narrate([
+        "Wren does not look at it. Then she does."]) + [after[-1]]
+    done = {"switch1Valid": True, "switch1Id": db.SW_WRE1_DONE}
+    return [
+        _dressed(page0, hers, {"actorValid": True, "actorId": db.WREN}),
+        _dressed(page0, after, done),
+        _dressed(page0, with_her, dict(done, actorValid=True,
+                                       actorId=db.WREN)),
+    ]
+
+
+def _dressed(page0, commands, conditions):
+    """A new page in `page0`'s dress with its own list and conditions;
+    `commands` already ends with the terminator or is given one."""
+    if not commands or commands[-1]["code"] != 0:
+        commands = commands + [{"code": 0, "indent": 0, "parameters": []}]
+    page = R.page([], conditions=conditions)
+    return dict(copy.deepcopy(page0), list=commands,
+                conditions=page["conditions"])
+
+
+def _review(key, other):
+    """The review scene for one student, with Wren: after the specimens,
+    once; and the duck named when it is the second review in."""
+    me = {"mott": db.SW_WRE1_MOTT, "furze": db.SW_WRE1_FURZE}[key]
+    them = {"mott": db.SW_WRE1_MOTT, "furze": db.SW_WRE1_FURZE}[other]
+    who = {"mott": "Professor Mott", "furze": "Dr Furze"}[key]
+    if key == "mott":
+        scene = S.say(who, ["Miss Halloway. I",
+                            "reviewed your first, at twenty-three.",
+                            "I said it lacked respect."])
+        scene += S.say("Wren", ["It did."])
+        scene += S.narrate([
+            "He reads, for a long time, and stops at the eleventh",
+            "type specimen, and takes his spectacles off."])
+        scene += S.say(who, ["He never measured",
+                             "anything. He named it after whoever",
+                             "was at dinner. He named a beetle",
+                             "after me."])
+        scene += S.say(who, ["I have been a beetle",
+                             "for forty years. I should like, before",
+                             "I die, to be a person. Accepted."])
+    else:
+        scene = S.say(who, ["I reviewed your first",
+                            "as well. 'Too many footnotes.'"])
+        scene += S.say("Wren", ["There were exactly enough footnotes."])
+        scene += S.narrate([
+            "Dr Furze turns the pages without hurrying, and stops at",
+            "page four hundred, the Lesser Wyvern, and reads one word",
+            "of it several times."])
+        scene += S.say(who, ["You've written",
+                             "'goose'."])
+        scene += S.say("Wren", ["It is a goose."])
+        scene += S.say(who, ["I know. I was in the",
+                             "Slain Wyvern the night they asked you",
+                             "to leave. I have always known."])
+        scene += S.say(who, ["Accepted. With no",
+                             "corrections, which I have never",
+                             "written before."])
+    scene += [R.control_switch(me, True), R.play_se("Book1")]
+    scene += R.if_then(R.condition_switch(them), S.say(who, [
+        "That's two. The rules",
+        "say three Fellows. The third is the",
+        "Honorary Fellow. It lives on a pond."]) + [
+        R.control_switch(db.SW_WRE1_DUCK_DUE, True)])
+    early = S.say(who, ["Specimens first, Miss",
+                        "Halloway. All eleven. He never kept",
+                        "that rule. You will have to."])
+    done = S.say(who, {"mott": ["Accepted. I said so.",
+                                "I am a person now."],
+                       "furze": ["Accepted. It is still",
+                                 "a goose."]}[key])
+    return R.if_then(
+        R.condition_switch(me), done,
+        R.if_then(R.condition_variable(db.VAR_WRE1_SPECIMENS, 11, 1),
+                  scene, early))
+
+
+WRE1_REVIEWERS = [   # (key, speaker, the other one, facing)
+    ("mott", "Professor Mott", "furze", 4),
+    ("furze", "Dr Furze", "mott", 6),
+]
+
+
+def reviewer_events(base_id, cells):
+    """Professor Mott and Dr Furze at the Library's reading table (Map 59),
+    `cells` theirs in that order: there from the start of the monograph,
+    waiting for the specimens without her, reviewing with her, and pleased
+    with themselves afterwards."""
+    evs = []
+    for i, ((key, who, other, facing), (x, y)) in enumerate(
+            zip(WRE1_REVIEWERS, cells)):
+        img = R.image(*S.FACES[who], direction=facing)
+        on = {"switch1Valid": True, "switch1Id": db.SW_WRE1_ON}
+        waiting = S.say(who, {
+            "mott": ["Mott. Rowbotham's",
+                     "student. Reviewing Miss Halloway.",
+                     "Again. When she is ready."],
+            "furze": ["Furze. I am waiting",
+                      "for eleven type specimens. He never",
+                      "had one. Nobody has ever had one."]}[key])
+        after = S.say(who, {
+            "mott": ["A person. Not a",
+                     "beetle. You would be surprised what",
+                     "a difference it makes."],
+            "furze": ["It is a goose. I",
+                      "have it in writing now, and so does",
+                      "the Library."]}[key])
+        evs.append(R.event(base_id + i, who, x, y, [
+            R.page([], img=R.image(""), priority=0, through=True),
+            R.page(waiting, img=img, conditions=on),
+            R.page(_review(key, other), img=img,
+                   conditions=dict(on, actorValid=True, actorId=db.WREN)),
+            R.page(after, img=img, conditions={
+                "switch1Valid": True, "switch1Id": db.SW_WRE1_DONE}),
+        ]))
+    return evs
+
+
+def subscription_event(event_id, x, y):
+    """The subscription list (Map 59), on Prewitt's desk: a shop with names
+    in it while the monograph is on; bound in at the back afterwards."""
+    c = S.narrate([
+        "Wren's subscription list, on the Library desk, with the",
+        "Library's pen. SUBSCRIBERS, it says, and a long space."])
+    c += S.narrate([
+        "A subscription is a bound copy, paid for. Nobody in the",
+        "valley has ever been asked to subscribe, so you will be",
+        "doing the paying."])
+    c += R.shop([(0, iid, 0, 0) for iid in db.IT_SUBSCRIPTIONS],
+                purchase_only=True)
+    nothing = dict(img=R.image(""), trigger=0, priority=0, through=True)
+    return R.event(event_id, "The Subscription List", x, y, [
+        R.page([], **nothing),
+        R.page(c, img=R.image(""), trigger=0, priority=1, direction_fix=True,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_WRE1_ON}),
+        R.page(S.narrate(["The subscription list is closed, and bound in at",
+                          "the back of the monograph."]),
+               img=R.image(""), trigger=0, priority=1, direction_fix=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_WRE1_DONE}),
+    ])
+
+
+def pond_page():
+    """The Duck's Pond (Map 8), after its own pages and ZEPH-2's: with Wren,
+    once two reviews are in, the third. The duck reviews by walking on to the
+    manuscript and sitting on it."""
+    review = R.if_then(
+        R.condition_switch(db.SW_ZEPH2_WALKING),
+        S.narrate(["The duck's pond, without the duck: GONE TO",
+                   "CONGREGATION."])
+        + S.say("Wren", ["We'll come back when it's home."]),
+        S.narrate([
+            "Wren lays the manuscript on the bank. The duck walks",
+            "into it, then on to it, reads - apparently - page four",
+            "hundred, and sits down on it."])
+        + S.say("Wren", ["That is acceptance."])
+        + S.narrate(["It is. It is the warmest review she has ever had."])
+        + [R.play_se("Chicken", 70, 90),
+           R.control_switch(db.SW_WRE1_DUCK, True),
+           R.control_switch(db.SW_WRE1_DUCK_DUE, False)])
+    stop = S.narrate(["A small pond, four miles from the Collegium, with",
+                      "a reviewer on it."])
+    return R.page(stop + R.choice_block(
+        ["Stop a while", "Press on"],
+        [review, S.narrate(["You press on."])]),
+        img=R.image(""), trigger=1, priority=0, through=True,
+        conditions={"selfSwitchValid": True, "selfSwitchCh": "A",
+                    "switch1Valid": True, "switch1Id": db.SW_WRE1_DUCK_DUE,
+                    "actorValid": True, "actorId": db.WREN})

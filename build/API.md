@@ -450,7 +450,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (197)
+### `FACES` — who already has a face (199)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -503,8 +503,8 @@ Ned                   Saul                  Major Royce           The Fourth
 Mr Ottershaw          Mr Gedge              Prewitt               Dean Fenwold
 The Mayor             Prime Warden          Mr Tibbs              Mrs Harbottle
 Mr Dray               Miss Moon             The Convenor          Fellow Grice
-Fellow Amory          Fellow Blunt          Mr Pennock            Miss Fettle
-Cotter
+Fellow Amory          Fellow Blunt          Mr Pennock            Professor Mott
+Dr Furze              Miss Fettle           Cotter
 ```
 
 
@@ -651,7 +651,7 @@ COUNTING_BEFORE_DOOR         (8, 5)
 
 The whole database of The Obligatory Quest.
 
-473 constants.
+493 constants.
 
 ```
 BRAM                         1
@@ -1083,6 +1083,22 @@ SW_ZEPH2_WALKING             162
 SW_ZEPH2_DONE                163
 IT_DUCK                      54
 IT_PROXY                     55
+SW_WRE1_ON                   164
+SW_WRE1_MOTT                 165
+SW_WRE1_FURZE                166
+SW_WRE1_DUCK_DUE             167
+SW_WRE1_DUCK                 168
+SW_WRE1_DONE                 169
+VAR_WRE1_SPECIMENS           24
+IT_SUBSCRIPTIONS             list(range(56, 64))
+IT_MONOGRAPH                 64
+CL_WREN_PUBLISHED            11
+EN_SPECIMENS                 list(range(44, 55))
+TR_SPECIMENS                 list(range(42, 53))
+SK_STARTLE                   175
+SK_BOLT                      176
+SK_BITE_NOTES                177
+SK_NOT_THERE                 178
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32
@@ -1127,4 +1143,8 @@ WT_SPEAR                     12
 BLANKS                       ...
 NO_DROP                      drop()
 BLANK_TROOP_CONDITIONS       ...
+SPECIMENS                    ...
+SUBSCRIBERS                  ...
+SUBSCRIPTION_PRICE           150
+SUBSCRIBERS_NEEDED           6
 ```

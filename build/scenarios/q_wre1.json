@@ -1,0 +1,705 @@
+{
+ "query": "?map=59&x=6&y=13&frames=90",
+ "comment": "QUESTS.md C4, WRE-1 The Monograph. With Wren at the inch-wide gap: the Library's rules - eleven type specimens, three Fellows, a list of subscribers. The specimens are tracks on the world map, fights she objects to, measured not killed (two fought here, nine by script); the reviewers are Rowbotham's students Mott and Furze and the Honorary Fellow on its pond; the list is a shop with names in it. Publication: Change Class to Cataloguer (Published), experience kept, which adds cancel-surprise and raise-preemptive to her double drops.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._troops = []; window._autowin = true; const ss = Scene_Battle.prototype.start; Scene_Battle.prototype.start = function () { ss.call(this); this._bf = 0; window._troops.push($gameTroop._troopId); }; const su = Scene_Battle.prototype.update; Scene_Battle.prototype.update = function () { su.call(this); if (window._autowin && ++this._bf === 200) { $gameTroop.members().forEach(e => e.addState(1)); } }"
+  },
+  {
+   "eval": "$gameParty.addActor(9); $gameSwitches.setValue(18, true); $gameParty.gainGold(2000)",
+   "comment": "Wren, recruited."
+  },
+  {
+   "comment": "The shelf: the inch-wide gap, and the Library's rules."
+  },
+  {
+   "goto": [
+    59,
+    8,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction(), $gameMap.event(5).findProperPageIndex()]",
+   "expect": [
+    8,
+    5,
+    8,
+    1
+   ],
+   "label": "below the monographs, her page"
+  },
+  {
+   "eval": "$gameParty.removeActor(9)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(5).findProperPageIndex(), $gameMap.event(8).findProperPageIndex(), $gameMap.event(10).findProperPageIndex()]",
+   "expect": [
+    0,
+    0,
+    0
+   ],
+   "label": "without her, the shelf as it was; nobody at the table; no list"
+  },
+  {
+   "eval": "$gameParty.addActor(9); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There's room.\"))",
+   "expect": true,
+   "label": "her own reaction shot, kept"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"SPECIMEN FOR EVERY ENTRY; (II) THREE FELLOWS TO REVIEW\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"and never had a type specimen for one\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(164), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    1
+   ],
+   "label": "the collect-them-all, one trope"
+  },
+  {
+   "comment": "Professor Mott, before the specimens."
+  },
+  {
+   "goto": [
+    59,
+    6,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction(), $gameMap.event(8).findProperPageIndex()]",
+   "expect": [
+    6,
+    10,
+    4,
+    2
+   ],
+   "label": "beside Mott, his review page"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Halloway. All eleven. He never kept\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSwitches.value(165)",
+   "expect": false
+  },
+  {
+   "comment": "The subscription list is a shop."
+  },
+  {
+   "goto": [
+    59,
+    3,
+    8
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.direction(), $gameMap.event(10).findProperPageIndex()]",
+   "expect": [
+    8,
+    1
+   ],
+   "label": "below the list"
+  },
+  {
+   "eval": "window._gold = $gameParty.gold()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 240
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Shop",
+   "label": "the list opens as a shop"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 30
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 30
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[56]), window._gold - $gameParty.gold()]",
+   "expect": [
+    1,
+    150
+   ],
+   "label": "Dorcas Thrupp subscribed, for 150"
+  },
+  {
+   "key": "Escape",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 30
+  },
+  {
+   "key": "Escape",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "eval": "[57, 58, 59, 60, 61].forEach(i => $gameParty.gainItem($dataItems[i], 1))",
+   "comment": "Five more names, by script: six of eight."
+  },
+  {
+   "comment": "A specimen, walked on to: Firstfield's hedge egg."
+  },
+  {
+   "goto": [
+    8,
+    52,
+    75
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(70).findProperPageIndex()",
+   "expect": 1,
+   "label": "tracks, while the monograph is on"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 80
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Breakfast.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Common Hedge Egg. I need it intact.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"great deal more. Wren writes for some time, and then\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(24), $gameSelfSwitches.value([8, 70, 'A']), $gameMap.event(70).findProperPageIndex(), window._troops[0]]",
+   "expect": [
+    1,
+    true,
+    2,
+    42
+   ],
+   "label": "measured: one of eleven, troop 42; the tracks gone"
+  },
+  {
+   "comment": "A second, started where it stands: the kappa in Ashcombe Lake."
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(80).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 80
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Captain (his other dog).\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(24), window._troops[1]]",
+   "expect": [
+    2,
+    52
+   ],
+   "label": "two of eleven, troop 52"
+  },
+  {
+   "eval": "for (let e = 71; e <= 79; e++) $gameSelfSwitches.setValue([8, e, 'A'], true); $gameVariables.setValue(24, 11)",
+   "comment": "The other nine, by script; every troop is checked by validate.py."
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[71, 75, 79].map(e => $gameMap.event(e).findProperPageIndex())",
+   "expect": [
+    2,
+    2,
+    2
+   ]
+  },
+  {
+   "comment": "A look at one of them: the many-eyed grazer."
+  },
+  {
+   "eval": "window._autowin = false; BattleManager.setup(49, false, false); SceneManager.push(Scene_Battle)"
+  },
+  {
+   "frames": 150
+  },
+  {
+   "shot": "q_wre1_battle.png"
+  },
+  {
+   "eval": "$gameTroop.members().forEach(e => e.addState(1)); window._autowin = true"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "The reviews: Mott, then Furze, who names the duck."
+  },
+  {
+   "goto": [
+    59,
+    6,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I die, to be a person. Accepted.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(165), $gameSwitches.value(167)]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "Mott; the duck not yet"
+  },
+  {
+   "goto": [
+    59,
+    2,
+    11
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.direction(), $gameMap.event(9).findProperPageIndex()]",
+   "expect": [
+    8,
+    2
+   ],
+   "label": "below Dr Furze"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"'goose'.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Slain Wyvern the night they asked you\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Honorary Fellow. It lives on a pond.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(166), $gameSwitches.value(167)]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "Furze; the duck's review due"
+  },
+  {
+   "goto": [
+    59,
+    8,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"six subscribers. Then there's room.\"))",
+   "expect": true,
+   "label": "not yet: the duck"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There's room.\"))",
+   "expect": false,
+   "label": "a second visit is the count, not the reaction shot again"
+  },
+  {
+   "check": "$gameMap.isEventRunning()",
+   "expect": false
+  },
+  {
+   "comment": "The third reviewer."
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([8, 56, 'A'], true)"
+  },
+  {
+   "goto": [
+    8,
+    115,
+    41
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(56).findProperPageIndex()",
+   "expect": 5,
+   "label": "the pond, with Wren and the review due"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That is acceptance.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(168), $gameSwitches.value(167), $gameMap.event(56).findProperPageIndex()]",
+   "expect": [
+    true,
+    false,
+    1
+   ],
+   "label": "the duck's review; the pond as it was"
+  },
+  {
+   "comment": "Publication."
+  },
+  {
+   "goto": [
+    59,
+    8,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "eval": "window._mark(); window._level = $gameActors.actor(9).level; window._exp = $gameActors.actor(9).currentExp()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 40
+  },
+  {
+   "shot": "q_wre1_published.png"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It goes into the gap. It is exactly an inch wide.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There was room.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(169), $gameActors.actor(9).currentClass().id, $gameActors.actor(9).level === window._level, $gameActors.actor(9).currentExp() === window._exp, $gameParty.numItems($dataItems[64])]",
+   "expect": [
+    true,
+    11,
+    true,
+    true,
+    1
+   ],
+   "label": "published; Cataloguer (Published), with her experience kept; the monograph"
+  },
+  {
+   "check": "[$gameParty.hasCancelSurprise(), $gameParty.hasRaisePreemptive(), $gameParty.hasDropItemDouble()]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "the party ability upgrade, and her double drops kept"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(108)]",
+   "expect": [
+    0,
+    0,
+    true
+   ],
+   "label": "no second trope, no blush; her story"
+  },
+  {
+   "comment": "Afterwards."
+  },
+  {
+   "check": "[$gameMap.event(5).findProperPageIndex(), $gameMap.event(8).findProperPageIndex(), $gameMap.event(9).findProperPageIndex(), $gameMap.event(10).findProperPageIndex()]",
+   "expect": [
+    3,
+    3,
+    3,
+    2
+   ],
+   "label": "with her: the shelf; the reviewers; the list closed"
+  },
+  {
+   "eval": "$gameParty.removeActor(9); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameParty.hasCancelSurprise(), $gameMap.event(5).findProperPageIndex()]",
+   "expect": [
+    false,
+    2
+   ],
+   "label": "without her, no upgrade; the shelf for everybody"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"BY WHAT THEY ARE. W. HALLOWAY. It fits exactly.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There's room.\"))",
+   "expect": false,
+   "label": "the reaction shot is not repeated"
+  }
+ ]
+}

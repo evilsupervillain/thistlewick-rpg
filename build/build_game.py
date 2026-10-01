@@ -382,7 +382,13 @@ def build_system():
             (db.SW_ZEPH3_DONE, "ZEPH-3: the demonstration; everyone fine"),
             (db.SW_ZEPH2_ON, "ZEPH-2: inquorate; fetch the duck"),
             (db.SW_ZEPH2_WALKING, "ZEPH-2: the duck is walking (ends)"),
-            (db.SW_ZEPH2_DONE, "ZEPH-2: quorate; the proxy")]:
+            (db.SW_ZEPH2_DONE, "ZEPH-2: quorate; the proxy"),
+            (db.SW_WRE1_ON, "WRE-1: the monograph is on"),
+            (db.SW_WRE1_MOTT, "WRE-1: reviewed by Mott"),
+            (db.SW_WRE1_FURZE, "WRE-1: reviewed by Furze"),
+            (db.SW_WRE1_DUCK_DUE, "WRE-1: the duck's review is due (ends)"),
+            (db.SW_WRE1_DUCK, "WRE-1: reviewed by the duck"),
+            (db.SW_WRE1_DONE, "WRE-1: published")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -409,6 +415,7 @@ def build_system():
     variables[db.VAR_ROL3_HEARD] = "ROL-3: alumni spoken to, of eleven"
     variables[db.VAR_HOB1_ASKED] = "HOB-1: owners asked, of eleven"
     variables[db.VAR_ZEPH1_PAID] = "ZEPH-1: crowns turned out in the Library"
+    variables[db.VAR_WRE1_SPECIMENS] = "WRE-1: type specimens, of eleven"
 
     system.update({
         "gameTitle": "The Obligatory Quest",

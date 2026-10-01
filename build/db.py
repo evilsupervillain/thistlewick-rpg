@@ -368,6 +368,20 @@ SW_ZEPH2_ON = 161               # inquorate: the twelfth Fellow is a duck
 SW_ZEPH2_WALKING = 162          # the duck is out of its pond; ends
 SW_ZEPH2_DONE = 163             # quorate; carried; the proxy is hers
 IT_DUCK, IT_PROXY = 54, 55
+# WRE-1, the monograph (QUESTS.md C4, q_wren.py)
+SW_WRE1_ON = 164                # the Library's rules for a monograph, read
+SW_WRE1_MOTT = 165              # reviewed: Professor Mott
+SW_WRE1_FURZE = 166             # reviewed: Dr Furze
+SW_WRE1_DUCK_DUE = 167          # two reviews in; the duck's is due; ends
+SW_WRE1_DUCK = 168              # reviewed: the Honorary Fellow
+SW_WRE1_DONE = 169              # published, in the inch-wide gap
+VAR_WRE1_SPECIMENS = 24         # type specimens measured, of eleven
+IT_SUBSCRIPTIONS = list(range(56, 64))   # eight names on the list
+IT_MONOGRAPH = 64
+CL_WREN_PUBLISHED = 11          # her class, plus the upgrade (see below)
+EN_SPECIMENS = list(range(44, 55))       # the eleven type specimens
+TR_SPECIMENS = list(range(42, 53))       # one troop each
+SK_STARTLE, SK_BOLT, SK_BITE_NOTES, SK_NOT_THERE = 175, 176, 177, 178
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -755,6 +769,17 @@ def build_classes():
          trait(52, AT_HEAVY, 1), trait(52, AT_LIGHT, 1),
          trait(52, AT_GENERAL, 1), trait(52, AT_LARGE_SHIELD, 1)]))
 
+    # WRE-1: the upgrade, which she earns by publishing. Her class exactly,
+    # double drops and all, and two more party abilities: nothing the
+    # monograph describes takes the party by surprise (cancel surprise), and
+    # the party tends to see it first (raise preemptive). A class of its own,
+    # reached by Change Class with her experience kept, so the Cataloguer
+    # record and everybody's published data stay as they were.
+    published = dict(next(c for c in cl if c and c["id"] == CLASSES[WREN]))
+    published.update(id=CL_WREN_PUBLISHED, name="Cataloguer (Published)",
+                     traits=list(published["traits"]) + [
+                         trait(64, 2, 1), trait(64, 3, 1)])
+    upsert(cl, published)
     R.save_list("Classes.json", cl)
 
 
@@ -2428,6 +2453,7 @@ def build():
     build_common_events()
     build_firstfield()
     build_contest()
+    build_monograph()
 
 
 # ================================================= the companion quests ======
@@ -2527,3 +2553,92 @@ def build_contest():
                      [(EN_BACK_TABLE, 130, 350), (EN_DRAY, 270, 330),
                       (EN_MOON, 410, 300)], pages=pages))
     save("Troops.json", tr)
+
+
+# WRE-1's eleven type specimens: (Wren's name, battler, hue, mhp, atk, def,
+# agi, Rowbotham's name for it, the second skill). Named after what they are;
+# the note keeps what he called them.
+SPECIMENS = [
+    ("Common Hedge Egg", "Oddegg", 0, 1500, 46, 44, 18,
+     "Rowbotham's Breakfast", SK_NOT_THERE),
+    ("Frilled Wall Lizard", "Frilledlizard", 0, 1700, 54, 34, 34,
+     "Rowbotham's Magnificent", SK_STARTLE),
+    ("Hearth Salamander", "Salamander", 0, 1900, 58, 36, 28,
+     "Rowbotham's Comfort", SK_BITE_NOTES),
+    ("Turnip Gnome", "Gnome", 0, 1500, 50, 40, 22,
+     "Mrs Rowbotham", SK_NOT_THERE),
+    ("Barn Cait", "Caitsith", 0, 1600, 56, 30, 44,
+     "Biscuit (his dog)", SK_BOLT),
+    ("Striped Warren Hare", "Tigerbunny", 0, 1600, 54, 30, 46,
+     "Rowbotham's Tiger", SK_BOLT),
+    ("Upright Fox", "Foxman", 0, 1800, 60, 34, 38,
+     "Pelham-Rudd's Fox (a subscriber)", SK_STARTLE),
+    ("Many-Eyed Grazer", "Hakutaku", 0, 2400, 52, 46, 20,
+     "Rowbotham's Ox", SK_NOT_THERE),
+    ("Draught Sylph", "Sylph", 0, 1600, 48, 30, 48,
+     "Lady Amberley (a subscriber)", SK_BOLT),
+    ("Tall Marsh Wader", "Birdman", 0, 2000, 60, 36, 36,
+     "Rowbotham's Self-Portrait", SK_BITE_NOTES),
+    ("Pond Kappa", "SF_Kappa", 0, 2200, 58, 42, 26,
+     "Captain (his other dog)", SK_BITE_NOTES),
+]
+
+# WRE-1's subscription list, which is a shop with names in it: one copy, bound,
+# for each of these, paid for by the party because that is how a subscription
+# list works when you are the one holding it.
+SUBSCRIBERS = [
+    "Dorcas Thrupp", "the Gloamwood Society", "Mr Ottershaw", "Bram",
+    "Dr Hapgood", "Mr Gedge, the Lodge", "Prewitt, the Library",
+    "Edith Pellow",
+]
+SUBSCRIPTION_PRICE = 150
+SUBSCRIBERS_NEEDED = 6
+
+
+def build_monograph():
+    """WRE-1, the monograph (QUESTS.md C4): eleven type specimens to measure,
+    each one a fight she objects to and conducts anyway, and the list."""
+    sk = R.load("Skills.json")
+    upsert(sk, skill(SK_STARTLE, "Startle", "", "0", dmg_type=0, hit_type=2,
+                     animation=0, effects=[effect(32, 2, 0, 3)],
+                     message="%1 does something sudden at %2."))
+    upsert(sk, skill(SK_BOLT, "Bolts For Cover", "", "0", scope=11,
+                     dmg_type=0, hit_type=0, animation=0,
+                     effects=[effect(31, 6, 0, 3)],
+                     message="%1 bolts for cover, and is somewhere else."))
+    upsert(sk, skill(SK_BITE_NOTES, "Bites The Note-Taker", "",
+                     "a.atk * 5 - b.def * 2", animation=0,
+                     message="%1 bites %2, who was writing."))
+    upsert(sk, skill(SK_NOT_THERE, "Is Not Where You Measured It", "",
+                     "a.atk * 2 - b.def", scope=2, animation=0,
+                     message="%1 is not where anybody measured it."))
+    save("Skills.json", sk)
+
+    en = R.load("Enemies.json")
+    tr = R.load("Troops.json")
+    base = [trait(22, 0, 0.95), trait(22, 1, 0.08)]
+    for eid, tid, (name, battler, hue, mhp, atk, df, agi, his, extra) in zip(
+            EN_SPECIMENS, TR_SPECIMENS, SPECIMENS):
+        upsert(en, enemy(
+            eid, name, battler, hue,
+            [mhp, 40, atk, df, 30, 30, agi, 14], 340, 0,
+            [action(SK_ATTACK, 5), action(extra, 4)], traits=base,
+            note="A type specimen (WRE-1). Measured, not killed. "
+                 "Rowbotham's name for it: %s." % his))
+        upsert(tr, troop(tid, "Type Specimen: " + name, [(eid, 400, 330)]))
+    save("Enemies.json", en)
+    save("Troops.json", tr)
+
+    it = R.load("Items.json")
+    for iid, who in zip(IT_SUBSCRIPTIONS, SUBSCRIBERS):
+        upsert(it, item(iid, "Subscription: " + who,
+                        "One copy of Wren's monograph, bound, for %s. "
+                        "Paid for; put down on the list." % who,
+                        price=SUBSCRIPTION_PRICE, itype=2, consumable=False,
+                        scope=0, occasion=3, icon=192))
+    upsert(it, item(IT_MONOGRAPH, "The Monograph",
+                    "The Fauna of the Valley, by What They Are. W. Halloway. "
+                    "Eleven type specimens. One of them is a goose.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=189))
+    save("Items.json", it)
+

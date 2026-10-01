@@ -204,6 +204,9 @@ def world_map():
     for i, door in enumerate(doors):
         door["id"] = len(ours) + 1 + i
     m["events"] = [None] + ours + doors
+    # WRE-1's eleven type specimens, after everything else, so that no
+    # existing event's id moves (q_wren.py).
+    m["events"] += q_wren.specimen_events(len(m["events"]))
     return m
 
 

@@ -40,6 +40,7 @@ import mapkit as K
 import rmmzdata as R
 
 import db
+import q_wren
 import q_zephyrine
 import story as S
 from places import (MAP_WORLD, MAP_COLLEGIUM, MAP_COLLEGIUM_LIBRARY,
@@ -374,6 +375,8 @@ DESK = [(3, 7), (4, 7), (5, 7)]
 PREWITT = (4, 6)
 REGISTER = (5, 7)               # the ledger on the desk, read from below
 PENNOCK = (6, 7)                # ZEPH-1: the Registrar's clerk, desk's end
+REVIEWERS = [(5, 10), (2, 10)]  # WRE-1: Mott and Furze, either end of the table
+SUBSCRIPTION_LIST = (3, 7)      # WRE-1: on the desk, by the hourglass
 APPEAL = (3, 3)                 # a notice on the wall face, read from below
 APPEAL_BUCKET = (2, 4)
 MONOGRAPHS = 8                  # a Bookshelf A against the north wall
@@ -554,13 +557,19 @@ def library_events():
     appeal = R.event(4, "The Appeal", *APPEAL, [R.page(appeal_pages(), **PAGE)])
     appeal["pages"].append(q_zephyrine.appeal_page(appeal["pages"][0]))  # ZEPH-2
     evs.append(appeal)
-    evs.append(R.event(5, "The Monographs", MONOGRAPHS, y1,
-                       [R.page(monograph_pages(), **PAGE)]))
+    shelf = R.event(5, "The Monographs", MONOGRAPHS, y1,
+                    [R.page(monograph_pages(), **PAGE)])
+    shelf["pages"] += q_wren.shelf_pages(shelf["pages"][0])  # WRE-1
+    evs.append(shelf)
     evs.append(_person(6, "Reader", READER, R.image(*S.FACES["Reader"], direction=8),
                        *reader_pages()))
     # 7: ZEPH-1's Registrar's clerk, at the east end of the desk, from the
     # Library's eleventh notice on.
     evs.append(q_zephyrine.pennock_event(7, *PENNOCK))
+    # 8, 9: WRE-1's reviewers at the reading table; 10: the subscription
+    # list, on Prewitt's desk by the hourglass.
+    evs += q_wren.reviewer_events(8, REVIEWERS)
+    evs.append(q_wren.subscription_event(10, *SUBSCRIPTION_LIST))
     return evs
 
 

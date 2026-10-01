@@ -34,6 +34,7 @@ no `build()` and nothing in `MAP_NAMES`.
 """
 import rmmzdata as R
 
+import q_wren
 import q_zephyrine
 
 import story as S
@@ -423,6 +424,7 @@ def _ducks_pond():
         evs = site(base_id, cells)
         for ev in evs:
             ev["pages"] += q_zephyrine.pond_pages()
+            ev["pages"].append(q_wren.pond_page())          # WRE-1
         return evs
     return build
 

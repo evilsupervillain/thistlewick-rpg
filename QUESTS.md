@@ -1682,106 +1682,218 @@ Hapgood, the Appeal and the chair); `build/scenarios/q_zeph2.json`.
 * **Scenario** `q_zeph2`: passes (25 checks), on ZEPH-1's paid end.
 * `TIMELINE.md`: nothing dated ("eleven years" is C1's 1989).
 
+**C4, WRE-1 The Monograph - done.** WRE-1's section at the bottom of
+`q_wren.py`, hooked from `collegium.py` (the shelf, the reviewers, the list),
+`nomap.py` (the pond) and `journey.py` (the eleven specimens); the records in
+`db.build_monograph`; `build/scenarios/q_wre1.json`.
+
+* **The start is the shelf** (Map 59 event 5, which has one page with her
+  reaction shot in it). Page 2 is hers - that reaction, kept, and then one
+  of the Library's cards tucked into the inch-wide gap: A MONOGRAPH OF THE
+  COLLEGIUM REQUIRES (I) A TYPE SPECIMEN FOR EVERY ENTRY; (II) THREE FELLOWS
+  TO REVIEW IT; (III) A LIST OF SUBSCRIBERS. "Rowbotham named three hundred
+  species and never had a type specimen for one of them. He named them after
+  his dogs." `SW_WRE1_ON`. **One trope** (the collect-them-all). The same
+  page counts what is left (`\V[24]` of eleven, three reviewers, six
+  subscribers) and publishes when it is all there.
+* **Decided: the specimens are on the world map**, one by each of eleven
+  places, as tracks (`!Other1` 5, the footprints) that are there only while
+  the monograph is on - Map 8 events **70-80**, appended after every other
+  event so no existing id moves. With Wren: Rowbotham's name for it, what it
+  actually is, "Measure it / Leave it", and a fight with no escape (a type
+  specimen will not wait); the specimen is **measured, not killed** - "which
+  it minds a great deal more" - and let go. Without her: "Wren would know
+  what made them." Collected is the event's self switch; the count is global,
+  `VAR_WRE1_SPECIMENS`, so a dismissed Wren's count waits. The eleven, Wren's
+  name / Rowbotham's / where: Common Hedge Egg / Rowbotham's Breakfast /
+  Firstfield; Frilled Wall Lizard / Rowbotham's Magnificent / Restwell;
+  Hearth Salamander / Rowbotham's Comfort / the Cinder Fen; Turnip Gnome /
+  Mrs Rowbotham ("She knew.") / Thistlewick; Barn Cait / Biscuit, his dog /
+  Fairholme; Striped Warren Hare / Rowbotham's Tiger / the Sable Hart;
+  Upright Fox / Pelham-Rudd's Fox, a subscriber / Gladhollow; Many-Eyed
+  Grazer / Rowbotham's Ox / Frostwick; Draught Sylph / Lady Amberley, a
+  subscriber "who had a cold" / the Sky Anvil; Tall Marsh Wader /
+  Rowbotham's Self-Portrait ("It does look like him.") / Weeping Bottom; Pond
+  Kappa / Captain, his other dog, a spaniel / Ashcombe Lake. Each cell is
+  three or four steps off its place, open ground, reached on foot from
+  Thistlewick (checked by a flood over Map 8's passability).
+* **The fights**: enemies **44-54**, troops **42-52**, one specimen each,
+  stock art (`Oddegg`, `Frilledlizard`, `Salamander`, `Gnome`, `Caitsith`,
+  `Tigerbunny`, `Foxman`, `Hakutaku`, `Sylph`, `Birdman`, `SF_Kappa` - none
+  used by any other enemy), 1,500-2,400 hit points, 340 experience, **no
+  gold** - she will not sell them. Skills **175-178**: Startle (an attack
+  debuff), Bolts For Cover (agility, self), Bites The Note-Taker, and Is Not
+  Where You Measured It (all). No generated people fight, so nothing goes on
+  `AUDIT.md`.
+* **The reviewers are two of Rowbotham's three students**, who reviewed her
+  first paper at twenty-three, at the Library's reading table from the start
+  (Map 59 events **8-9**, empty until then): **Professor Mott** (face
+  `Gen_People13` **3**: white hair and beard, round spectacles, the gown) -
+  "I said it lacked respect." / "It did." - who has been a beetle for forty
+  years and "should like, before I die, to be a person"; and **Dr Furze**
+  (`Gen_People13` **4**: a silver bun, spectacles, the jacket and tie) - "Too
+  many footnotes." / "There were exactly enough footnotes." - who stops at
+  page four hundred, the Lesser Wyvern: "You've written 'goose'." She was in
+  the Slain Wyvern the night they asked Wren to leave, "and I have always
+  known". Accepted, with no corrections, which she has never written before.
+  Both want the eleven specimens first. Whichever is second names the third
+  reviewer, **the Honorary Fellow** (`SW_WRE1_DUCK_DUE`, ends): at its pond
+  (Map 8 event 56, page 6) it walks on to the manuscript, reads page four
+  hundred, and sits down on it. "That is acceptance." It is wordless, as in
+  C3. If ZEPH-2 has the duck out walking, the pond says GONE TO CONGREGATION
+  and Wren comes back later.
+* **The subscription list is a shop with names in it** (Map 59 event **10**,
+  on Prewitt's desk by the hourglass): eight subscriptions, items **56-63** -
+  Dorcas Thrupp, the Gloamwood Society, Mr Ottershaw, Bram, Dr Hapgood, Mr
+  Gedge, Prewitt, Edith Pellow - at **150** each, purchase only, and **six**
+  are needed (`db.SUBSCRIBERS_NEEDED`). The party pays, "because nobody in the
+  valley has ever been asked to subscribe".
+* **Publication**: Prewitt binds it herself; THE FAUNA OF THE VALLEY, BY WHAT
+  THEY ARE. W. HALLOWAY goes into the gap, and it is exactly an inch wide.
+  "There was room." Item **64**, The Monograph.
+* **Wren's party ability upgrade, additively.** Her ability was one trait on
+  the Cataloguer class, party ability 5, double drops ("she is collecting
+  specimens"). Publication is **Change Class, experience kept, to class
+  11, "Cataloguer (Published)"**: her class record copied whole, plus party
+  abilities 2 (cancel surprise - nothing the monograph describes takes the
+  party by surprise) and 3 (raise preemptive - the party tends to see it
+  first). The Cataloguer record and every other actor are untouched; the
+  scenario asserts her level and experience are kept and double drops still
+  hold.
+* **Afterwards for everybody**: the shelf, with the monograph where the gap
+  was (and without the reaction shot); with her, "Wren does not look at it.
+  Then she does."; Mott ("A person. Not a beetle."), Furze ("It is a goose. I
+  have it in writing now"), and the list, closed and bound in at the back.
+* **Ids taken:** switches **164** `SW_WRE1_ON`, **165** `SW_WRE1_MOTT`,
+  **166** `SW_WRE1_FURZE`, **167** `SW_WRE1_DUCK_DUE` (ends), **168**
+  `SW_WRE1_DUCK`, **169** `SW_WRE1_DONE`; variable **24**
+  `VAR_WRE1_SPECIMENS`; items **56-63** `IT_SUBSCRIPTIONS`, **64**
+  `IT_MONOGRAPH`; class **11** `CL_WREN_PUBLISHED`; enemies **44-54**; troops
+  **42-52**; skills **175-178**; Map 8 events 70-80, Map 59 events 8-10;
+  faces `Gen_People13` **3-4**.
+* One trope, no blush. **Running tally at the end of Part C: tropes +24
+  fixed and 2-9 from PIP-2; blushes +11 fixed and 0-1 from PIP-2.**
+* `SW_STORY[WREN]` (on already after WRE-2, -3 or -5 in a game that did one).
+* **Candidate ending line** (G1; read `SW_WRE1_DONE`): "The Fauna of the
+  Valley, by What They Are, by W. Halloway, is on the shelf of the Collegium
+  Arcanum, in a gap exactly an inch wide. It has eleven type specimens and
+  three reviewers, one of them a duck. Page four hundred says goose."
+* **The rooms (0.1):** the Library was cropped in C1; nothing changed - the
+  reviewers stand on open floor at either end of the reading table, and the
+  list is on the desk.
+* **Scenario** `q_wre1`: passes (44 checks): two specimens fought (one
+  walked on to, one started where it stands), nine set by script; the list
+  opened as a shop and one subscription bought through it; Mott, Furze and
+  the duck; publication; and the upgrade asserted present with her and gone
+  without her. The first run failed at the pond, and it was the page, not
+  the scenario: with Wren, every visit to the shelf replayed her whole
+  reaction shot before the count, so `advance` ran out of presses and the
+  next `goto` never arrived. A second visit is now the shelf's narration and
+  the count only, asserted.
+* `TIMELINE.md`: nothing dated (Rowbotham's "forty years" and Wren's first
+  paper are not new dates).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **finish
-Part C**, the Collegium: **C1-C3 (all of Zephyrine's) are done and
-committed**; do C4 WRE-1. This overrides 0.1's "one step per session" for Part C only
-(Mike, 1 Oct 2026), and also the Part C entry's "two sessions, one after the
-other" for C3 and C4 - they are still two steps and two commits, built in
-that order. Every other rule in 0.1 and 0.2 holds.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step D1, COR-1
+Ashcombe (New)** - the first of Part D, Ashcombe (Maps 52-53,
+`ashcombe.py`). Part C, the Collegium, is done (C1-C4, 1 Oct 2026). One
+step per session again (0.1): Part C's override was for Part C only.
 
-Read section 0, the Part C entries, and the Done paragraphs from B1 on, once
-at the start. Before each step read only that companion's section of
-`COMPANIONS.md` (Zephyrine for C1-C3, Wren for C4), and only when you reach
-it. Everything is in `collegium.py`'s Maps 58-60, the world-map doors that
-carry Zephyrine's refusal, and `nomap.py`'s Duck's Pond; read what a step
-needs by dumping the maps' events and their text, not by opening a module.
+Read section 0, the Part D entries and the Done paragraphs from B1 on,
+once, at the start; then **Corvin's** section of `COMPANIONS.md`, and no
+other companion's. Read what the step needs by dumping Maps 52-53's events
+and their text, not by opening a module. Ashcombe has **never been swept**:
+crop Maps 52-53 with `propsheet.py` before judging, and screenshot before
+and after anything changed (0.1).
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
 byte: every existing page identical, only appended pages and new events.
 `validate.py`, and `apidigest.py . --write` / `tileaudit.py . --write` if a
 signature or constant moved. Screenshots of anything drawn, looked at. The
-step's own scenario, `build/scenarios/q_<quest>.json`, with
-`run_in_background`, one browser at a time. **Fix the room you are standing
-in** (0.1): the Collegium has never been swept, so crop Maps 58-60 with
-`propsheet.py` once at the start, before judging, and screenshot before and
-after anything changed. Then the step's Done paragraph (ids taken, tropes
-and blushes, running tally, candidate ending line, rooms fixed), and
-**commit that step on its own before writing a line of the next**. Move
-this prompt on by one after each commit, so an early end is always
-resumable. Nothing is pushed. No full suite until G1. After C4, run
-`collegium` (and anything else that walks Maps 58-60 - find them by parsing
-the scenarios' `query` and `goto` map ids) once more, alone, with no
-timeout, since every step will have added pages there.
+step's own scenario, `build/scenarios/q_cor1.json`, run in the background,
+one browser at a time. Then the Done paragraph (ids taken, tropes and
+blushes, running tally, candidate ending line, rooms fixed), a commit, and
+this prompt moved on to D2. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +23 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 164, variable 24, item 56, weapon 42,
-armour 44, armour type 11, common event 4, state 41, enemy 44, troop 42,
-skill 175, `Gen_People13` 3. ZEPH-1 ended one of two ways - `SW_ZEPH1_PAID`
-or `SW_ZEPH1_EXPELLED`, both with `SW_ZEPH1_DONE` - and C2 and C3 must
-work after either. Zephyrine's skills 47-49 are free (47 onward
-for anything ZEPH-2 or ZEPH-3 teaches); Wren's are 110-119.
+Where things stand: tropes +24 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 170, variable 25, item 65, weapon 42,
+armour 44, armour type 11, class 12, common event 4, state 41, enemy 55,
+troop 53, skill 179, `Gen_People13` 5. Corvin's gear is **the scarf, the
+wrong colour** (0.5): an accessory of a new armour type 11 plus one trait on
+his actor, the badge pattern (types 7-10 are Wren's, Piper's, Nix's and
+Zephyrine's). He already has the elective curse, state 40, from COR-5, and
+the name on the tang belongs to COR-2, not here.
 
-What each step will need deciding, so make the call, say why in the Done
+What D1 will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
 
-* **C4 WRE-1 The Monograph.** The biggest step in the part: eleven type
-  specimens as enemies from 44 and troops from 42 (stock monster art; a
-  generated person gets `art.py`'s stand-in and an `AUDIT.md` row), their
-  fights, Rowbotham's two students as reviewers (two faces) with the duck
-  as the third, the subscription list as a shop, and **Wren's party ability
-  upgrade** - read how her ability is implemented before changing it, and
-  change it additively. The monographs are event 5 on Map 59, with the
-  inch-wide gap. If it will not fit in what is left of the session, end
-  partly done and say so in its Done paragraph - that is a legitimate state
-  (0.1).
+* **The door.** Event 3 on Map 52 carries Corvin's refusal at pages 1-2;
+  COR-1's page goes after them, the way ZEPH-1's went after Zephyrine's on
+  the Collegium's world-map doors (`q_zephyrine.door_pages`) - check what
+  the refusal pages need first, and decide what sends him back (ZEPH-1 used
+  a letter at her old table; something of his own is better than a copy).
+* **The study** - "the bedroom that is a study" - was **not built**. A new
+  room in a built place is drawn by that place's module on its own map where
+  it can be (0.4); NIX-2 widened Map 63 into its black east for the vault,
+  which is the precedent if Map 53 has room.
+* **The Flood Dinner's speaker, TO BE CONFIRMED** (event 9), and Mrs Ash
+  knitting something long (event 2, Map 53): read both ladders before
+  appending, and remember the terminal-switch rule.
+* **New face?** Only if somebody new speaks; generate (`Gen_People13` 5).
 
-Things learned in A6-B7 that will bite again:
+Things learned in A6-C4 that will bite again:
 
 * **One quest module per companion holds several quests**; prefix private
-  helpers per quest (`_hob1_`, `_nix1_`), and treat a data diff on a map
-  the step never meant to touch as a bug. There are eight now: `q_aldric`
-  and `q_corvin` were new in Part B.
+  helpers per quest (`_hob1_`, `_z1_`), and treat a data diff on a map the
+  step never meant to touch as a bug. `q_corvin.py` exists (COR-5).
 * **"Afterwards" is the person's own last page plus one line**, on a page
   above the quest's, conditioned on their ladder's terminal and the done
-  switch. `q_nix.returned` and `q_hob.owned` do it for a crowd and assert
-  their preconditions; avoid an owner another quest already gave an
-  afterwards page, since two of them on one event shadow each other.
+  switch. `q_zephyrine._afterwards` / `_plus` and `q_nix.returned` do it;
+  avoid an owner another quest already gave an afterwards page, since two
+  of them on one event shadow each other - and if you must, make the later
+  page carry both lines (Hapgood's two in C2-C3).
+* **A quest with two endings** (ZEPH-1: paid or expelled) sets a switch per
+  end and one done switch, and every later page that cares branches with
+  one `if_then` on the end switch. Test both ends in one scenario by putting
+  the switches back between them.
 * **A page with a companion that replaces somebody's own page must carry
-  that page's list** (Mrs Dewhirst's inn, ROL-1): put the scene in front of
-  it behind a once-only condition, so the person still does their job.
+  that page's list** - and on a second visit, only the part that is still
+  true (WRE-1's shelf replayed Wren's whole reaction shot on every visit
+  until it was cut back to the count; a scenario's `advance` ran out of
+  presses on it and the next `goto` never arrived).
+* **New events on a busy map go after everything else** so no existing id
+  moves: `journey.world_map` appends WRE-1's eleven specimens after the
+  placeholder doors.
 * **A long speaker name eats the first line.** Check every line of a new
   section at once with `story._check_width` patched to collect rather than
-  raise, instead of one build per error. And `narrate` pages in fours: a
-  five-line narration leaves one line alone in a window, so keep them to
-  four.
-* **Mapkit constants lie**; crop before using one somewhere new, and look
-  at a stock sprite before giving it to a "fellow of no importance" -
-  `People3` 0 and 1 are a crown and a pair of wings.
-* **Gear only one companion can use**: a weapon type only their class has,
-  or a new armour type plus one trait on the actor (armour types 7-9 are
-  Wren's, Piper's and Nix's; `build_game` appends their names).
+  raise, instead of one build per error; `narrate` pages in fours.
+* **Mapkit constants lie**; crop before using one somewhere new.
+* **Gear only one companion can use**: a new armour type plus one trait on
+  the actor (`db.build_actors`), and the type's name appended in
+  `build_game` (`["Badge", "Rosette", "Coat", "Robe"]`). A **party ability**
+  lives on a class; WRE-1 upgraded Wren's additively with a copied class (11)
+  and Change Class (code 321) keeping experience.
+* **Change Items' decrease is its own operation** (parameter 1), as Change
+  Gold's is; `rmmzdata.gain_item` only increases, so set `parameters` to
+  `[id, 1, 0, n]` (see `q_zephyrine._z2_vote`).
 * **New faces**: `tools/chargen` settings in `build/characters/` (colour
-  indices are in `CHARGEN.md`'s swatch list - read it before guessing), a
-  slot in `art.py`'s `SHEETS` (and `ENEMIES` for a stand-in battler),
-  `python3 build/art.py` in the background (it takes minutes), and a
-  `story.FACES` entry; look at a `lineup.py` sheet first. Real art for a
-  stand-in battler goes on `AUDIT.md` item 1's list.
-* **A fight in a scenario**: hook `Scene_Battle.prototype.update` to read
-  the troop and kill it a few seconds in (`q_pip3.json`); `advance` presses
-  into printing text and cannot be counted to the battle. Look at the
-  battle once with `BattleManager.setup` and a shot - the first layout put
-  an enemy on top of the party.
-* **Scenarios:** a `talk()` that calls `window._mark()` clears the captured
-  lines; a line split over two window lines cannot be matched whole; `\V[n]`
-  is captured unexpanded. A set piece can outrun `advance: 20` - give the
-  first talk to anybody forty. `goto` skips the doors that clear weather.
-* **Waiting on a background run:** use `run_in_background` and wait for its
-  notification. Two scenarios at once each run at half speed or worse:
-  `dunnage` beside another browser took over an hour. A killed run leaves
-  its Chromium: kill the browser whose parent is 1, not one a live run owns.
+  indices are in `CHARGEN.md`'s swatch list), a slot in `art.py`'s `SHEETS`,
+  `python3 build/art.py` in the background, and a `story.FACES` entry; look
+  at a `lineup.py` sheet first - `catalogue.py --base` to pick a part.
+* **A fight in a scenario**: hook `Scene_Battle.prototype.start/update` to
+  kill the troop 200 frames in (`q_wre1.json`); look at the battle once with
+  `BattleManager.setup` and a shot. **A choice in a scenario**: hook
+  `Game_Message.prototype.setChoices` so the default is `window._pick`, and
+  `advance` then takes the branch you want (`q_zeph1.json`).
+* **A shop in a scenario**: Enter through the text with long frame waits,
+  assert `Scene_Shop`, buy with three Enters, out with two Escapes, and
+  assert `Scene_Map` (`q_wre1.json`).
+* **Waiting on a background run:** never wait with `pgrep -f` on a pattern
+  that is in your own command line - it matches itself and the wait never
+  ends. Wait on the log's last line instead, or on a pid. A killed run leaves
+  its Chromium: kill the browser whose parent is 1.

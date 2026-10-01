@@ -420,6 +420,9 @@ FACES = {
     "Fellow Blunt": ("People1", 3),
     # ZEPH-1's Registrar's clerk (QUESTS.md C1), generated.
     "Mr Pennock": ("Gen_People13", 2),
+    # WRE-1's reviewers (QUESTS.md C4), Rowbotham's students, generated.
+    "Professor Mott": ("Gen_People13", 3),
+    "Dr Furze": ("Gen_People13", 4),
     "Miss Fettle": ("Gen_People6", 4),
     "Cotter": ("SF_Actor2", 7),
 }
