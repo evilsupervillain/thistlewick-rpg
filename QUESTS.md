@@ -1884,7 +1884,10 @@ Things learned in A6-C4 that will bite again:
   that page's list** - and on a second visit, only the part that is still
   true (WRE-1's shelf replayed Wren's whole reaction shot on every visit
   until it was cut back to the count; a scenario's `advance` ran out of
-  presses on it and the next `goto` never arrived).
+  presses on it and the next `goto` never arrived). And **a published
+  reaction shot stays the first visit, word for word**: start the quest on a
+  second look, or the site's own scenario (here `collegium`) breaks, and
+  rightly.
 * **New events on a busy map go after everything else** so no existing id
   moves: `journey.world_map` appends WRE-1's eleven specimens after the
   placeholder doors.
