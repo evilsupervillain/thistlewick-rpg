@@ -51,7 +51,8 @@ import q_nix
 import q_piper
 import q_hob
 from places import (MAP_WORLD, MAP_DUNNAGE, MAP_SMITHS_HALL,
-                    MAP_COUNTING_HOUSE, MAP_BONDED, MAP_BELL, DUNNAGE_STEP)
+                    MAP_COUNTING_HOUSE, MAP_BONDED, MAP_BELL, DUNNAGE_STEP,
+                    VAULT, VAULT_CHAIR, COUNTING_BEFORE_DOOR)
 
 # The name `worldmap.json`'s door events carry for this site.
 SITE = "Great Dunnage"
@@ -800,7 +801,7 @@ def smiths_events():
 COUNTING_ROOM = (3, 5, 14, 9, 8)
 # At least a screen in each direction: a map smaller than the screen is drawn
 # wrapped, and its own south wall turns up again along the top.
-CW, CH = 18, 14
+CW, CH = 30, 14                 # 18 until NIX-2's room went in the black east
 THE_DOOR = (8, 4)               # `!$Gate2`, 3x2, drawn up over the wall face
 MAYOR = (7, 6)
 MEMORANDUM = (4, 4)
@@ -823,11 +824,35 @@ def counting_map():
         g.set(x, y, 2, TABLE_D)
     g.set(*CLERK_DESK, 2, TABLE_D)
     g.set(*CLERK_DESK, 3, OPEN_BOOK)
+    vault_room(g)                                               # NIX-2
     m = K.new_map(CW, CH, K.TS_INSIDE, name="The Counting House",
                   bgm="Town3", bgm_volume=40, battleback=("Wood1", "Room1"))
     m["data"] = g.data
     m["events"] = [None] + counting_events()
     return m
+
+
+CHAIR_WOOD = K.sf_block("Inside_B", "Chair A (Wood)")   # 1x2: back, seat
+
+
+def vault_room(g):
+    """NIX-2's room behind the Door, in the lobby's black east: what there is
+    of the Counting House past its door. Gold walls like the lobby's, bare
+    floor, one chair against the north wall, and nothing else whatever.
+    `village.archive_room`'s idiom - `mapkit.interior`'s walls on a second
+    room of the same canvas, the doorway cut into the south wall, and the way
+    out an event on it, back to the lobby in front of the Door."""
+    x1, y1, x2, y2, door_x = VAULT
+    top, face = K.IN_WALL_TOP_GOLD, K.IN_WALL_FACE_GOLD
+    g.fill(x1, y1, x2, y2, 0, K.IN_DIAMOND_TILE)
+    g.fill(x1 - 1, y1 - 3, x2 + 1, y1 - 3, 0, top)
+    g.fill(x1, y1 - 2, x2, y1 - 1, 0, face)
+    for y in range(y1 - 2, y2 + 2):
+        g.set(x1 - 1, y, 0, top)
+        g.set(x2 + 1, y, 0, top)
+    g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, top)
+    g.set(door_x, y2 + 1, 0, K.IN_DIAMOND_TILE)
+    g.column(*VAULT_CHAIR, 3, CHAIR_WOOD)
 
 
 def mayor_pages():
@@ -922,15 +947,23 @@ def counting_events():
     x1, y1, x2, y2, door_x = COUNTING_ROOM
     evs = [_exit(1, door_x, y2 + 2, MAP_DUNNAGE, COUNTING_DOOR[0],
                  COUNTING_DOOR[1] + 1)]
-    evs.append(_person(2, "The Mayor", MAYOR,
-                       R.image("Gen_People6", 0, direction=8),
-                       *mayor_pages()))
-    evs.append(R.event(3, "The Door", *THE_DOOR, [R.page(
+    mayor = _person(2, "The Mayor", MAYOR,
+                    R.image("Gen_People6", 0, direction=8), *mayor_pages())
+    mayor["pages"] += q_nix.mayor_pages(mayor["pages"][-1])         # NIX-2
+    evs.append(mayor)
+    door = R.event(3, "The Door", *THE_DOOR, [R.page(
         door_pages(), img=R.image(*DOOR_IMG, direction=2, pattern=2),
-        trigger=0, priority=1, direction_fix=True)]))
+        trigger=0, priority=1, direction_fix=True)])
+    door["pages"].append(q_nix.door_page(                            # NIX-2
+        door["pages"][0], (MAP_COUNTING_HOUSE, VAULT[4], VAULT[3])))
+    evs.append(door)
     evs.append(_thing(4, "The Memorandum", MEMORANDUM, memorandum_pages()))
-    evs.append(_person(5, "Town Clerk", CLERK,
-                       R.image(*S.FACES["Town Clerk"], direction=2), *clerk_pages()))
+    clerk = _person(5, "Town Clerk", CLERK,
+                    R.image(*S.FACES["Town Clerk"], direction=2), *clerk_pages())
+    clerk["pages"].append(q_nix.clerk_page(clerk["pages"][-1]))     # NIX-2
+    evs.append(clerk)
+    evs += q_nix.vault_events(6, VAULT, VAULT_CHAIR,                 # NIX-2
+                              (MAP_COUNTING_HOUSE, *COUNTING_BEFORE_DOOR))
     return evs
 
 

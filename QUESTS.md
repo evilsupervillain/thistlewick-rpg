@@ -1375,14 +1375,59 @@ the bottom of `q_nix.py`, hooked from `village.py` (the ledger) and
   NIX-4, which `q_nix4` covers.
 * `TIMELINE.md`: 1989, the coat into bond, the speech, and Hulda's job 1.
 
+**B6, NIX-2 The Sealed Counting House - done.** NIX-2's section at the bottom
+of `q_nix.py`, hooked from `dunnage.py`'s Counting House (four places); the
+room drawn by `dunnage.vault_room`; `build/scenarios/q_nix2.json`.
+
+* **The room behind the Door is in the black east, not the north** - the
+  lobby fills Map 63 to two rows from the top, so the map was widened from
+  18 to 30 columns, `village.archive_room`'s way, and the lobby is tile for
+  tile what it was (checked). `places.VAULT` (23,5)-(25,7), gold walls like
+  the lobby's, the doorway cut in the south wall, and **one chair**, `Chair A
+  (Wood)`, a tall plain one, against the north wall. It was drawn 5x4 first
+  and looked like an unfurnished room rather than a joke about one; 3x3 is
+  the size of the punchline.
+* **The opening is the Mayor's** (Map 63 event 2, page 3, below his ladder,
+  with Nix): "Are you, by any chance, a licensed person?" / "I locate
+  things. Doors are things." Form L is not completed, so he starts the
+  preamble while it is, and Nix opens the Door with two fingers - the `Key`
+  sound twice - in nine seconds. "- mindful of its ancient and -". "That was
+  not the Opening." The Counting House is **opened informally**; the Opening
+  proper will follow on completion of Form L, which never happens. **One
+  trope** (the vault nobody can open). `SW_NIX2_OPEN`: the Door (event 3,
+  page 2) is open, drawn open, and the way in, **for everybody**; the
+  Mayor's page 4 is empty because he has gone in "at something close to a
+  run" (events 7, inside, while the switch is on).
+* **The chair** (event 8): WE SPENT IT. J. Pocklington, Clerk to the
+  Corporation. 1788. "Two hundred and twelve years we've been assumed to
+  have enough. On the strength of a chair." It is a very good chair. The
+  change counts to **1,788 crowns**, which nobody can explain, and the Mayor
+  insists: it isn't the Corporation's, the memorandum says they have
+  enough. With Nix: "Provenance?" / "None whatever." / "...I'll write it
+  down." Only the opening needs Nix; the chair does not.
+* **Afterwards for everybody**: the Mayor's own last page plus the preamble,
+  read to the chair, in full, twice; the Town Clerk's plus "Form L is still
+  blank. In law, the Counting House has never been opened."
+* **Ids taken:** switches **151** `SW_NIX2_OPEN`, **152** `SW_NIX2_DONE`;
+  Map 63 events 6-8; `places.VAULT`, `VAULT_CHAIR`, `COUNTING_BEFORE_DOOR`.
+* One trope, no blush. Running tally: **tropes +18 fixed and 2-9 from PIP-2;
+  blushes +11 fixed and 0-1 from PIP-2.**
+* **Candidate ending line** (G1; read `SW_NIX2_DONE`): "The Counting House at
+  Great Dunnage has been opened, informally. It held a chair. Form L remains
+  blank."
+* **The rooms (0.1):** the lobby was cropped with Great Dunnage in B1 and is
+  unchanged; the vault is new, screenshotted at both sizes.
+* **Scenario** `q_nix2`: passes.
+* `TIMELINE.md`: 1788, the clerk's note.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do the
-rest of Part B**, Great Dunnage: B6 NIX-2 and B7 ROL-1, in that order
-(B1-B5 are done and committed). This overrides 0.1's "one step per
+rest of Part B**, Great Dunnage: B7 ROL-1 (B1-B6 are done and
+committed). This overrides 0.1's "one step per
 session" for Part B only (Mike, 1 Oct 2026); every other rule in 0.1 and 0.2
 still holds.
 
@@ -1409,8 +1454,8 @@ written while the last one's scenario ran. Move this prompt on by one after
 each commit, so an early end is always resumable. Nothing is pushed. No
 full suite until G1.
 
-Where things stand: tropes +17 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 151, variable 23, item 52, weapon 42,
+Where things stand: tropes +18 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 153, variable 23, item 52, weapon 42,
 armour 43, armour type 10, common event 4, state 41, enemy 44, troop 42,
 skill 175, `Gen_People13` 1.
 
@@ -1436,9 +1481,7 @@ paragraph, and keep going:
 * **B5 NIX-1** - done. NIX-1 needs NIX-4 (the parcel is the letter), and
   the warehouse door lets Nix in now; NIX-2's Counting House is a different
   door and Nix has no history with it.
-* **B6 NIX-2**: the room behind the Door is not built; draw it in the black
-  north of Map 63 in `dunnage.py` (`village.archive_room` and
-  `ashcombe._room` are the idiom). One chair, and a note: *we spent it*.
+* **B6 NIX-2** - done. Map 63 is 30 wide now; its east is the vault.
 * **B7 ROL-1**: the Convenor and three fellows (four faces; the fellows may
   share stock faces), at the Bell or the Smiths' Hall. Before the tower
   door, so it needs Roland. Nobody points out that it is Grimspite's

@@ -821,3 +821,177 @@ def bond_book_page(page0):
         "The Bond Book. Every entry has a name, a date, a",
         "description and a duty. The first has a name now, in",
         "Mr Tibbs's hand: the party of the second part."])
+
+
+# ======================================================================
+# NIX-2, The Sealed Counting House (`QUESTS.md` B6)
+# ----------------------------------------------------------------------
+# Great Dunnage sealed its Counting House in 1788 when the key was lost, and
+# has run on faith and a memorandum since. It is to be opened formally, by a
+# licensed person, with the preamble read in full, and the licence is a form
+# nobody has filled in. Nix opens it in nine seconds while the Mayor is still
+# reading the preamble. Inside: one chair, and a note in a clerk's hand -
+# *we spent it* - and the change, which the Corporation insists you keep,
+# because it is not theirs, because apparently nothing is.
+#
+# * **The opening is the Mayor's** (Map 63 event 2), below his ladder, with
+#   Nix. `SW_NIX2_OPEN` turns the Door (event 3) open and walkable for
+#   everybody, and puts the Mayor inside, where he goes at once.
+# * **The room** is `dunnage.vault_room`, in the lobby's black east
+#   (`places.VAULT`): events 6 (the way out), 7 (the Mayor, while he is in
+#   there) and 8 (the chair). Only the opening needs Nix; the chair does not.
+# * **Form L is never completed.** In law the Counting House is still sealed,
+#   and the Town Clerk says so afterwards.
+CHANGE = 1788                   # the change, when counted; nobody can explain
+
+
+def _nix2_opening():
+    c = S.narrate([
+        "The Mayor looks up from the preamble, and at Nix, and at",
+        "Nix's hands, which are out of Nix's pockets."])
+    c += S.say("The Mayor", ["Are you, by any",
+                             "chance, a licensed person?"])
+    c += S.say("Nix", ["I locate things. Doors are things."])
+    c += S.say("Town Clerk", ["Form L, sir. Not",
+                              "completed."])
+    c += S.say("The Mayor", ["Then we shall have",
+                             "the preamble while it is. It's ready.",
+                             "Thirty-seven and a half minutes."])
+    c += S.say("The Mayor", ["AND WHEREAS the",
+                             "Corporation of Great Dunnage, being in",
+                             "Council assembled, and mindful -"])
+    c += S.narrate([
+        "Nix walks up to the Door, puts an ear to the lock the",
+        "size of a cartwheel, and does something small with two",
+        "fingers."])
+    c += [R.play_se("Key", 80), R.wait(60), R.play_se("Key", 80, 80),
+          R.wait(60)]
+    c += S.narrate(["Nine seconds."])
+    c += [R.play_se("Open3", 90, 70), R.control_switch(db.SW_NIX2_OPEN,
+                                                       True), R.wait(40)]
+    c += S.say("The Mayor", ["- mindful of its",
+                             "ancient and -"])
+    c += S.narrate([
+        "The Door of the Counting House stands open for the first",
+        "time since 1788. The Mayor looks at it, and then at the",
+        "preamble, of which there are thirty-seven minutes left."])
+    c += S.say("The Mayor", ["...That was not the",
+                             "Opening."])
+    c += S.say("Town Clerk", ["No, sir. Form L."])
+    c += S.say("The Mayor", ["The Counting House is",
+                             "opened informally. The Opening proper",
+                             "will follow on completion of Form L."])
+    c += S.narrate(["And he goes in, at something close to a run."])
+    c += [S.trope()]
+    return c
+
+
+def _nix2_chair():
+    c = S.narrate([
+        "The room behind the Door is not large. There is one",
+        "chair in it, and on the chair a note, and under the",
+        "note, very neatly stacked, a little money."])
+    c += S.narrate([
+        "  WE SPENT IT.",
+        "  J. Pocklington, Clerk to the Corporation. 1788."])
+    c += S.say("The Mayor", ["...Ah."])
+    c += S.say("The Mayor", ["Two hundred and twelve",
+                             "years we've been assumed to have",
+                             "enough. On the strength of a chair."])
+    c += S.narrate([
+        "It is, to be fair, a very good chair. He sits down on",
+        "it, carefully, as the first Mayor to do so."])
+    c += S.narrate([
+        "The change comes, when it is counted, to one thousand",
+        "seven hundred and eighty-eight crowns, which nobody",
+        "can explain."])
+    c += S.say("The Mayor", ["Keep it. It isn't",
+                             "the Corporation's. The memorandum",
+                             "says we have enough."])
+    c += R.if_then(R.condition_actor_in_party(db.NIX),
+                   S.say("Nix", ["Provenance?"]) +
+                   S.say("The Mayor", ["None whatever."]) +
+                   S.say("Nix", ["...I'll write it down."]))
+    c += S.say("The Mayor", ["I shall read the",
+                             "preamble anyway. In full. To the",
+                             "chair."])
+    c += [R.gain_gold(CHANGE), R.play_me("Fanfare1"),
+          R.control_switch(db.SW_NIX2_DONE, True)]
+    c += S.got(["Got \\C[3]%d crowns\\C[0], which are nobody's." % CHANGE])
+    c += S.companion_story(db.NIX)
+    return c
+
+
+def mayor_pages(last):
+    """Three pages for the Mayor (Map 63, event 2), whose ladder is one self
+    switch: the opening, with Nix; gone inside while the Door is open and the
+    chair not yet found; and afterwards, his own last page and a line."""
+    opening = R.page(_nix2_opening(), conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "actorValid": True, "actorId": db.NIX})
+    inside = R.page([], img=R.image(""), priority=0, through=True,
+                    conditions={"switch1Valid": True,
+                                "switch1Id": db.SW_NIX2_OPEN})
+    after = copy.deepcopy(last)
+    after["list"] = after["list"][:-1] + S.narrate([
+        "He has read the preamble to the chair, in full, twice.",
+        "He is down to thirty-six minutes."]) + after["list"][-1:]
+    after["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_NIX2_DONE})["conditions"]
+    return [dict(copy.deepcopy(last), list=opening["list"],
+                 conditions=opening["conditions"]), inside, after]
+
+
+def door_page(page0, inside_at):
+    """The Door (Map 63, event 3) once it has been opened: open, and the
+    way in, for everybody. `inside_at` is (map, x, y)."""
+    page = copy.deepcopy(page0)
+    page["image"] = dict(page["image"], direction=8)
+    new = R.page([R.play_se("Move1"),
+                  R.transfer(*inside_at, 8, 0)], conditions={
+        "switch1Valid": True, "switch1Id": db.SW_NIX2_OPEN})
+    page["list"], page["conditions"] = new["list"], new["conditions"]
+    return page
+
+
+def clerk_page(last):
+    """The Town Clerk (Map 63, event 5) afterwards: Form L is still blank."""
+    page = copy.deepcopy(last)
+    page["list"] = page["list"][:-1] + S.narrate([
+        "Form L is still blank. In law, the Counting House has",
+        "never been opened."]) + page["list"][-1:]
+    page["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_NIX2_DONE})["conditions"]
+    return page
+
+
+def vault_events(base_id, vault, chair, back_to):
+    """The room behind the Door: the way out on its doorway, the Mayor while
+    he is in there, and the chair. `back_to` is (map, x, y) in the lobby."""
+    x1, y1, x2, y2, door_x = vault
+    cx, cy = chair
+    out = R.event(base_id, "The Way Out", door_x, y2 + 1, [R.page(
+        [R.play_se("Move1"), R.transfer(*back_to, 2, 0)],
+        img=R.image(""), trigger=1, priority=0, through=True)])
+    mayor_img = R.image("Gen_People6", 0, direction=6)
+    mayor = R.event(base_id + 1, "The Mayor (Inside)", cx - 1, cy + 2, [
+        R.page([], img=R.image(""), priority=0, through=True),
+        R.page(S.say("The Mayor", ["Do look. I'm",
+                                   "composing a shorter preamble."]),
+               img=mayor_img, conditions={"switch1Valid": True,
+                                          "switch1Id": db.SW_NIX2_OPEN}),
+        R.page([], img=R.image(""), priority=0, through=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_NIX2_DONE}),
+    ])
+    chair_ev = R.event(base_id + 2, "The Chair", cx, cy + 1, [
+        R.page(_nix2_chair(), img=R.image(""), direction_fix=True),
+        R.page(S.narrate([
+            "One very good chair. On it, a note, in a clerk's hand:",
+            "WE SPENT IT. 1788."]), img=R.image(""), direction_fix=True,
+            conditions={"switch1Valid": True,
+                        "switch1Id": db.SW_NIX2_DONE}),
+    ])
+    return [out, mayor, chair_ev]

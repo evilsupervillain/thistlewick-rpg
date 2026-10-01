@@ -318,3 +318,12 @@ WORLD_SIGN_SOUTH = (58, 73)     # was (23,38): north for the Tower, south for ho
 WORLD_SIGN_NORTH = (64, 46)     # was (29,11): visitors 47, survivors scratched off
 WORLD_SIGN_COAST = (63, 80)     # was (28,45): the two ends of the coast road
 # and the west road's own is `WORLD_JUNCTION`, which always was a constant.
+
+# NIX-2's room behind the Door (`../QUESTS.md` B6): drawn by `dunnage.py` in
+# the black east of Map 63, which was widened for it from 18 to 30 columns -
+# the lobby is tile for tile what it was - and furnished by `q_nix.py`. The
+# Door is at (8, 4) and the lobby's square in front of it is (8, 5).
+#           x1 y1  x2  y2 door_x
+VAULT = (23, 5, 25, 7, 24)
+VAULT_CHAIR = (24, 5)           # Chair A (Wood), 1x2: back, then the seat
+COUNTING_BEFORE_DOOR = (8, 5)

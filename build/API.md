@@ -510,7 +510,7 @@ Mr Dray               Miss Moon             Miss Fettle           Cotter
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-126 constants.
+129 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -639,6 +639,9 @@ DUNNAGE_STEP                 (31, 53)
 WORLD_SIGN_SOUTH             (58, 73)
 WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)
+VAULT                        (23, 5, 25, 7, 24)
+VAULT_CHAIR                  (24, 5)
+COUNTING_BEFORE_DOOR         (8, 5)
 ```
 
 
@@ -646,7 +649,7 @@ WORLD_SIGN_COAST             (63, 80)
 
 The whole database of The Obligatory Quest.
 
-453 constants.
+455 constants.
 
 ```
 BRAM                         1
@@ -1058,6 +1061,8 @@ SW_NIX1_DONE                 150
 IT_BOND_TICKET               51
 AR_GRANS_COAT                42
 AT_COAT                      9
+SW_NIX2_OPEN                 151
+SW_NIX2_DONE                 152
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

@@ -344,6 +344,9 @@ SW_NIX1_DONE = 150              # the coat out of bond, and it fits
 IT_BOND_TICKET = 51
 AR_GRANS_COAT = 42              # Nix's gear (QUESTS.md 0.5): only Nix wears it
 AT_COAT = 9                     # an armour type of its own, as AT_BADGE is
+# NIX-2, the sealed counting house (QUESTS.md B6, q_nix.py)
+SW_NIX2_OPEN = 151              # the Door is open, informally; Form L is not
+SW_NIX2_DONE = 152              # the chair, the note, and the change
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

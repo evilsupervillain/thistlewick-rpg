@@ -133,7 +133,7 @@ when it does, in a round year.
 | 1702 | Weeping Bottom founded by Mother Ursula Pym, for the sea air | `weeping_bottom.stone_pages` | F |
 | 1749 | the Sky Anvil falls into Meech's top field; his great-great-grandad makes it a gatepost | `nomap._sky_anvil` | F |
 | 1750 | the pilgrims build the shrine round it | `nomap._sky_anvil` | F |
-| 1788 | Great Dunnage seals its Counting House, "when the key was lost" | `dunnage` (Mayor, Door, Memorandum) | F |
+| 1788 | Great Dunnage seals its Counting House, "when the key was lost"; behind the Door, J. Pocklington, Clerk to the Corporation, leaves one chair and a note, WE SPENT IT, dated 1788 (NIX-2: "two hundred and twelve years") | `dunnage` (Mayor, Door, Memorandum), `q_nix` | F |
 | 1794 | Sump: wasps in the well; the Water Committee wound up. "Cursed 1794" | `hamlets` | F |
 | 1795 | Sump: "a general sense that things used to be better" | `hamlets` | F |
 | 1802 | the Hoyle Works' stores book begins; ITEM 1 | `field.stores_ledger` | P |

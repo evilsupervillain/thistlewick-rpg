@@ -1,0 +1,315 @@
+{
+ "query": "?map=63&x=8&y=9&frames=90",
+ "comment": "QUESTS.md B6, NIX-2 The Sealed Counting House. The Mayor's and the Clerk's set pieces first; with Nix, the preamble begins and Nix opens the Door in nine seconds - the vault nobody can open, one trope. Form L is never completed. The Door is open for everybody; inside, one chair, WE SPENT IT, and the change, 1,788 crowns, which the Corporation insists you keep. Out again, and afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Nix, and the lobby's own set pieces first.",
+   "eval": "$gameParty.addActor(5)"
+  },
+  {
+   "goto": [
+    63,
+    7,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "the Door, shut"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "eval": "$gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "with Nix, the opening"
+  },
+  {
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "without Nix, his own page"
+  },
+  {
+   "eval": "$gameParty.addActor(5); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    7,
+    7,
+    8
+   ],
+   "label": "behind the Mayor, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 16
+  },
+  {
+   "shot": "q_nix2_open.png"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I locate things. Doors are things.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nine seconds.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"opened informally. The Opening proper\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(151), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    1
+   ],
+   "label": "open, informally: one trope"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Door open"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "and the Mayor inside"
+  },
+  {
+   "comment": "In without Nix: the Door is open for everybody.",
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "goto": [
+    63,
+    8,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    8,
+    5
+   ],
+   "label": "in front of the Door"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    63,
+    24,
+    7
+   ],
+   "label": "through it"
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Mayor is in here"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "eval": "$gameParty.addActor(5); window._mark(); window._gold = $gameParty.gold()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 6
+  },
+  {
+   "shot": "q_nix2_chair.png"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"  WE SPENT IT.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Provenance?\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.gold() - window._gold, $gameSwitches.value(152), $gameSwitches.value(104), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    1788,
+    true,
+    true,
+    1
+   ],
+   "label": "the change, which is nobody's; Nix's story"
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 2,
+   "label": "the Mayor has gone back out"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    63,
+    8,
+    5
+   ],
+   "label": "out, in front of the Door"
+  },
+  {
+   "comment": "Afterwards, for everybody.",
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 4
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He has read the preamble to the chair\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Form L is still blank.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}
