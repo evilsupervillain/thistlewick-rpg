@@ -1470,6 +1470,12 @@ room drawn by `dunnage.vault_room`; `build/scenarios/q_nix2.json`.
 * `TIMELINE.md`: nothing dated (a hundred and forty-one meetings are a count,
   not a span).
 
+**Rerun for Part B** (0.1): every step appended pages to Great Dunnage, so
+once B7 was committed `dunnage` and `dunnage_company` were run again, alone
+and with no timeout - **both pass**. (After B1 `dunnage_company` had passed
+and `dunnage` had been killed by an hour's timeout beside another browser,
+with no failures as far as it got.) Nothing is owed.
+
 ---
 
 ## Restart prompt
@@ -1502,9 +1508,6 @@ Where things stand: tropes +19 fixed and 2-9 from PIP-2; blushes +11 fixed
 and 0-1 from PIP-2. Next free: switch 155, variable 23, item 53, weapon 42,
 armour 43, armour type 10, common event 4, state 41, enemy 44, troop 42,
 skill 175, `Gen_People13` 2. Zephyrine's skills 47-49 are free.
-
-**Owed before G1:** see the note at the end of B7's Done paragraph on the
-`dunnage` and `dunnage_company` reruns.
 
 What C1 will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
