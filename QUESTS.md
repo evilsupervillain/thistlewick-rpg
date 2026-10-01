@@ -1141,57 +1141,105 @@ walk anywhere else changed.
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **B1, HOB-1 The Assize of
-Hammers** - one step per session again (0.1); Part A is done.
+`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do all of
+Part B**, Great Dunnage: B1 HOB-1, B2 ALD-4, B3 PIP-3, B4 COR-5, B5 NIX-1,
+B6 NIX-2 and B7 ROL-1, in that order. This overrides 0.1's "one step per
+session" for Part B only (Mike, 1 Oct 2026); every other rule in 0.1 and 0.2
+still holds.
 
-Read section 0, the B1 entry (Part B's opening note too) and the Done
-paragraphs from A6 on once at the start, then Hob's section of
-`COMPANIONS.md` only. B1 is Great Dunnage's (`dunnage.py`, Maps 61-65): the
-Prime Warden, Warden Crabbe, the Schedule and the last prize are events 2-5
-on Map 62.
+Read section 0, the Part B entries, and the Done paragraphs from A6 on, once
+at the start. Before each step, read only that companion's section of
+`COMPANIONS.md` (Hob, Aldric, Piper, Corvin, Nix, Roland), and only when you
+reach it. Everything is in `dunnage.py`'s Maps 61-65; read what a step needs
+by dumping the map's events and their text, not by opening the module.
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
 byte: every existing page identical, only appended pages and new events.
-`validate.py`, and `apidigest.py . --write` if a signature moved.
-Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_hob1.json`, run under `stdbuf -oL`, in the background if
-long. **Fix the room you are standing in** (0.1): crop its props before
-judging, screenshot before and after, and rerun every scenario that walks
-it. Then the Done paragraph (ids taken, tropes and blushes, running tally,
-candidate ending line, rooms fixed), **commit the step on its own**, and
-move this prompt on by one. Nothing is pushed. No full suite until G1.
+`validate.py`, and `apidigest.py . --write` / `tileaudit.py . --write` if a
+signature or constant moved. Screenshots of anything drawn, looked at. The
+step's own scenario, `build/scenarios/q_<quest>.json`, run under `stdbuf
+-oL` in the background. **Fix the room you are standing in** (0.1): Great
+Dunnage has never been swept, so crop each room's props with `propsheet.py`
+before judging, screenshot before and after, and rerun every scenario that
+walks it (`dunnage`, `dunnage_company` at least). Then the step's Done
+paragraph (ids taken, tropes and blushes, running tally, candidate ending
+line, rooms fixed), and **commit that step on its own before writing a line
+of the next** - A9-A14 ended up in one commit because the next step was
+written while the last one's scenario ran. Move this prompt on by one after
+each commit, so an early end is always resumable. Nothing is pushed. No
+full suite until G1.
+
+Where things stand: tropes +12 fixed and 2-9 from PIP-2; blushes +10 fixed
+and 0-1 from PIP-2. Next free: switch 142, variable 22, item 50, weapon 42,
+armour 41, armour type 8, common event 4, state 40, enemy 41, troop 41,
+`Gen_People12` 7 then `Gen_People13`.
+
+What each step will need deciding, so make the call, say why in the Done
+paragraph, and keep going:
+
+* **B1 HOB-1** is eleven owners "across the whole island", like NIX-4:
+  use `q_nix.returned`'s pattern (a page on the owner's terminal self switch
+  A plus the quest state, and afterwards their own last page plus one line;
+  assert the last page needs only A and nobody uses B). Pass over anybody
+  whose last page *does* something. Nix's lockpicks are one of the eleven,
+  and Nix is a party member, not an NPC - decide how that one is asked.
+  Beatrice is submitted and disqualified: she is carried by Hob, so it
+  needs Hob.
+* **B2 ALD-4** is a scene with no reward; Duchess may speak only if Mike
+  supplies a face (`QUESTS.md` 1) - make it wordless otherwise.
+* **B3 PIP-3** is a boss fight whose damage type is heckling: enemies from
+  41, a troop from 41, two rival acts with generated faces and stock enemy
+  art (`art.py`'s stand-in, and the real art onto `AUDIT.md` item 1). She
+  loses to Mr Tweddle. **Piper's gear is the rosette for second place**
+  (0.5): an accessory only she can wear - a new armour type plus one trait
+  on her *actor*, as Wren's badge (A11).
+* **B4 COR-5**: the curse is a state from 40 with a real trait, optional,
+  and must be removable.
+* **B5 NIX-1**: **Nix's gear is the coat** (armour, and it fits) - body
+  armour only she can wear, by the same actor-trait pattern. The client is
+  Nix at fifteen; decide whether NIX-4's parcel (`IT_PARCEL`, on the
+  Emporium's shelf, "for a client not yet identified") is the letter's
+  occasion, and say so.
+* **B6 NIX-2**: the room behind the Door is not built; draw it in the black
+  north of Map 63 in `dunnage.py` (`village.archive_room` and
+  `ashcombe._room` are the idiom). One chair, and a note: *we spent it*.
+* **B7 ROL-1**: the Convenor and three fellows (four faces; the fellows may
+  share stock faces), at the Bell or the Smiths' Hall. Before the tower
+  door, so it needs Roland. Nobody points out that it is Grimspite's
+  arrangement seen from the other end.
 
 Things learned in A6-A14 that will bite again:
 
-* **HOB-1 is eleven owners, like NIX-4**, and `q_nix.returned(key, ev)` is
-  the pattern: a page on the item plus the owner's terminal self switch,
-  and an afterwards page that is their own last page plus one line, with
-  asserts that the last page needs only A and that nobody already uses B.
-  Pass over anybody whose last page *does* something (a shop, a room, a
-  form) - a page on top would shadow it. Read each owner's text first with
-  a dump of the map's events, not the module.
-* **Commit each step before writing the next.** A9-A12 were written while
-  the earlier scenarios ran and ended up in one commit because the hunks
-  interleave. Build the next step only after the commit.
-* **A scenario must not set a switch that starts an autorun on the map it
-  is standing on** and then `goto`: the autorun's message blocks the
-  transfer and the run hangs silently. Leave the map, set it, walk back in.
 * **One quest module per companion holds several quests**; prefix private
-  helpers per quest (`_nix5_`, `_hob2_`, `_pip5_`).
-* **A long speaker name eats the first line** (`Dame Florence:`); check
-  every line of a new module with `story._check_width` patched to collect
-  rather than raise, instead of one build per error.
-* **Mapkit constants lie.** `ROCK` was a campfire ring and `IN_SHELF_FRUIT`
-  is teddy bears; `IN_CABINET` is two different objects with a walkable
-  lower cell. Crop before using one somewhere new, and check flags before
-  swapping one tile for another (`Tilesets.json` flags, not the name).
-* **Gear only one companion can wear**: a weapon type only their class has
-  (Hob: axes; Bram and Merribell share flails), or for an accessory a new
-  armour type plus one trait on the *actor* (Wren's badge, A11).
-* **Faces**: `Gen_People12` 7 is free, then open `Gen_People13`. Stock faces
-  are fine for one-liners, but not one worn by somebody in the same room.
-* **Waiting on a background run**: chain runs in one background command
-  and wait on a marker line in its output, never with `pgrep -f` in a loop.
-  A killed run leaves its Chromium: kill the browser whose parent is 1, not
-  the one a live run owns.
+  helpers per quest (`_hob1_`, `_nix1_`), and treat a data diff on a map
+  the step never meant to touch as a bug.
+* **A long speaker name eats the first line.** Check every line of a new
+  section at once with `story._check_width` patched to collect rather than
+  raise, instead of one build per error.
+* **Mapkit constants lie.** `ROCK` was a campfire ring, `IN_SHELF_FRUIT` is
+  teddy bears, `IN_CABINET` is two objects with a walkable lower cell. Crop
+  before using one somewhere new, and compare `Tilesets.json` flags before
+  swapping one tile for another.
+* **Gear only one companion can use**: a weapon type only their class has
+  (Hob: axes, which Bram and Merribell's flails are not), or a new armour
+  type plus one trait on the actor.
+* **New faces** come from `tools/chargen` settings in `build/characters/`, a
+  slot in `art.py`'s `SHEETS`, `python3 build/art.py`, and a `story.FACES`
+  entry; look at a `lineup.py` sheet before installing (a missing rear hair
+  makes a bald back of the head). Stock faces are fine for one-liners, but
+  not one worn by somebody in the same room.
+* **Scenarios:** a `talk()` that calls `window._mark()` clears the captured
+  lines, so check a line straight after the talk that says it. A line split
+  over two window lines cannot be matched whole. Do not set a switch that
+  starts an autorun on the map you are standing on and then `goto`: the run
+  hangs behind the message - leave, set it, walk back in. `goto` skips the
+  doors that clear weather.
+* **Waiting on a background run:** chain runs in one background command and
+  wait on a marker line in its output, never `pgrep -f` in a loop. A killed
+  run leaves its Chromium: kill the browser whose parent is 1, not the one a
+  live run owns.
+
+When B7 is done, leave this prompt at C1 ZEPH-1 - one step per session
+again unless Mike says otherwise - and update the memory note for the
+companion quests.
