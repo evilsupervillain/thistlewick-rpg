@@ -46,6 +46,7 @@ import rmmzdata as R
 import db
 import story as S
 import q_aldric
+import q_corvin
 import q_piper
 import q_hob
 from places import (MAP_WORLD, MAP_DUNNAGE, MAP_SMITHS_HALL,
@@ -781,9 +782,11 @@ def smiths_events():
     prize["pages"].append(q_hob.prize_after(prize["pages"][0]))   # HOB-1
     evs.append(prize)
     evs.append(_thing(6, "The Banners", (10, y1 - 1), banners_pages()))
-    evs.append(_person(7, "Miss Fettle", FETTLE,
-                       R.image("Gen_People6", 4, direction=2),
-                       *fettle_pages()))
+    fettle = _person(7, "Miss Fettle", FETTLE,
+                     R.image("Gen_People6", 4, direction=2),
+                     *fettle_pages())
+    fettle["pages"] += q_corvin.fettle_pages(fettle["pages"][-1])  # COR-5
+    evs.append(fettle)
     return evs
 
 

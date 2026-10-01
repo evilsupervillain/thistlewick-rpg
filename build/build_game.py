@@ -366,7 +366,8 @@ def build_system():
             (db.SW_HOB1_DONE, "HOB-1: Beatrice disqualified"),
             (db.SW_ALD4_DONE, "ALD-4: Duchess found, and stays"),
             (db.SW_PIP3_ON, "PIP-3: the contest is on (ends)"),
-            (db.SW_PIP3_DONE, "PIP-3: second place")]:
+            (db.SW_PIP3_DONE, "PIP-3: second place"),
+            (db.SW_COR5_DONE, "COR-5: appraised; no curse")]:
         switches[sid] = name
 
     variables = [""] * 32

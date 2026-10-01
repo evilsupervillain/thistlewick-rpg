@@ -335,6 +335,9 @@ EN_DRAY, EN_MOON, EN_BACK_TABLE = 41, 42, 43
 TR_CONTEST = 41
 SK_HECKLE, SK_TALK_THROUGH, SK_SERPENT, SK_SAD_VERSE, SK_ENCORE = (
     170, 171, 172, 173, 174)
+# COR-5, the appraisal (QUESTS.md B4, q_corvin.py)
+SW_COR5_DONE = 148              # no curse on it; the form is on offer
+ST_CURSED = 40                  # Cursed (Elective): optional, and comes off
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1297,6 +1300,15 @@ def build_states():
         traits=[trait(21, 6, 0.5), trait(22, 0, -0.1)],
         max_turns=4, min_turns=4,
         message1="%1 is pinned down!", message4="%1 works itself free."))
+    # COR-5: the curse Corvin pays to have put on (QUESTS.md B4). Bad for
+    # him on purpose: half luck, drawn fire, a slow bleed. It lasts out of
+    # battle and until something clears it - Miss Fettle, or a proper bed.
+    upsert(st, state(
+        ST_CURSED, "Cursed (Elective)", 17,
+        traits=[trait(21, 7, 0.5), trait(23, 0, 1.5), trait(22, 7, -0.03)],
+        auto_removal=0, max_turns=1, min_turns=1, remove_at_battle_end=False,
+        message1="%1 is cursed, electively.",
+        message4="%1's curse wears off.", priority=40))
     save("States.json", st)
 
 

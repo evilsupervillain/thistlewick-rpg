@@ -1,0 +1,245 @@
+{
+ "query": "?map=62&x=15&y=10&frames=90",
+ "comment": "QUESTS.md B4, COR-5 The Appraisal. Miss Fettle's set piece first (she eyes the sword; 'No.'); with Corvin, the appraisal: no curse, the tang (a blush), the name nobody can say, and Form C-1 - the cursed blade, one trope. The elective curse is state 40, a real trait, bad for him: on for thirty crowns, off for nothing, and a proper bed clears it. Without the money, no curse. Afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Corvin, and the appraiser's own set piece first.",
+   "eval": "$gameParty.addActor(8); $gameParty.gainGold(200)"
+  },
+  {
+   "goto": [
+    62,
+    15,
+    9
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    15,
+    9,
+    8
+   ],
+   "label": "below Miss Fettle, facing her"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Another time.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 3,
+   "label": "with Corvin, the appraisal"
+  },
+  {
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 1,
+   "label": "without him, her own page"
+  },
+  {
+   "eval": "$gameParty.addActor(8); window._mark(); window._gold = $gameParty.gold(); window._luk = $gameActors.actor(8).luk"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 14
+  },
+  {
+   "shot": "q_cor5_tang.png"
+  },
+  {
+   "advance": 50
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There's no\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I'd not like to try it aloud.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There's a form.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"economy one\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(148), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(107), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    1,
+    1,
+    true,
+    1
+   ],
+   "label": "the cursed blade, one trope; the tang, one blush; his story"
+  },
+  {
+   "check": "[$gameActors.actor(8).isStateAffected(40), window._gold - $gameParty.gold()]",
+   "expect": [
+    true,
+    30
+   ],
+   "label": "cursed, for thirty crowns"
+  },
+  {
+   "check": "$gameActors.actor(8).luk * 2 <= window._luk + 1",
+   "expect": true,
+   "label": "and it is a real trait: half his luck"
+  },
+  {
+   "check": "Math.round($gameActors.actor(8).tgr * 100)",
+   "expect": 135,
+   "label": "and drawn fire: his 0.9, times one and a half"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Want it off? No charge.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameActors.actor(8).isStateAffected(40)",
+   "expect": false,
+   "label": "off for nothing"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Back for another?\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameActors.actor(8).isStateAffected(40)",
+   "expect": true,
+   "label": "and on again"
+  },
+  {
+   "comment": "A proper bed: an inn's Recover All.",
+   "eval": "$gameParty.members().forEach(a => a.recoverAll())"
+  },
+  {
+   "check": "$gameActors.actor(8).isStateAffected(40)",
+   "expect": false,
+   "label": "the economy curse wears off"
+  },
+  {
+   "eval": "$gameParty.loseGold($gameParty.gold())"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Thirty crowns, I'm\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameActors.actor(8).isStateAffected(40)",
+   "expect": false,
+   "label": "no money, no curse"
+  },
+  {
+   "comment": "Afterwards, for everybody.",
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"drawing of a tang, very lovingly done.\"))",
+   "expect": true
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

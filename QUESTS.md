@@ -1287,15 +1287,51 @@ the fight in `db.build_contest`; `build/scenarios/q_pip3.json`.
   each act once the battle is up) - the lost branch is the same scores.
 * `TIMELINE.md`: nothing dated.
 
+**B4, COR-5 The Appraisal - done.** `build/q_corvin.py` (new), hooked from
+`dunnage.py` in one place; the state in `db.build_states`;
+`build/scenarios/q_cor5.json`.
+
+* **It is Miss Fettle's** (Map 62 event 7, page 4, below her one-self-switch
+  ladder, with Corvin). Both her own pages eye the black sword and are told
+  "No."; this is the page where he lays it on her bench "the way a man lays
+  down a confession" and says yes. She has the handle off in a trice - "Oh,
+  the TANG" - and Corvin looks at the ceiling (**one blush**). **No curse**:
+  a very good sword in very poor condition, he has been sitting in corners
+  with it, and there is a name on the tang in letters nobody has used for a
+  while, which she would not like to try aloud (COR-2 keeps the real name,
+  off the doorstep). He asks what a curse would cost. They are mostly
+  paperwork; there is a form, FORM C-1: APPLICATION FOR A CURSE (ELECTIVE).
+  **One trope** (the cursed blade). `SW_COR5_DONE` and his story are set at
+  the appraisal, whatever he chooses.
+* **The curse is state 40, "Cursed (Elective)"** - LUK x0.5, target rate
+  x1.5 (his 0.9 becomes 1.35), HP regen -3%: real, and bad for him, and he stands up straighter for
+  it. **Optional**: thirty crowns, "Have it cursed / Not today", offered again
+  every visit. **Removable**: she takes it off for nothing ("which Corvin
+  finds a little disappointing"), and it is "the economy one: it lasts till
+  you next sleep in a proper bed" - an inn's Recover All clears states, which
+  is the engine's rule stated as hers. Out of battle it stays: no auto
+  removal, not removed at battle end.
+* **Afterwards for everybody**: her own last page plus a stamped C-1 and "a
+  drawing of a tang, very lovingly done" pinned over the bench.
+* **Ids taken:** switch **148** `SW_COR5_DONE`; state **40** `ST_CURSED`.
+* One trope, one blush. Running tally: **tropes +16 fixed and 2-9 from
+  PIP-2; blushes +11 fixed and 0-1 from PIP-2.**
+* `SW_STORY[CORVIN]` - his first.
+* **Candidate ending line** (G1; read `SW_COR5_DONE`): "There is no curse on
+  Corvin Ash's sword. He has the form, if he wants one. It is not
+  expensive."
+* **The rooms (0.1):** the Smiths' Hall was cropped in B1; nothing changed.
+* **Scenario** `q_cor5`: passes.
+* `TIMELINE.md`: nothing dated.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do the
-rest of Part B**, Great Dunnage: B4 COR-5, B5 NIX-1, B6 NIX-2 and B7
-ROL-1, in that order (B1 HOB-1, B2 ALD-4 and B3 PIP-3 are done and
-committed). This overrides 0.1's "one step per
+rest of Part B**, Great Dunnage: B5 NIX-1, B6 NIX-2 and B7 ROL-1, in
+that order (B1-B4 are done and committed). This overrides 0.1's "one step per
 session" for Part B only (Mike, 1 Oct 2026); every other rule in 0.1 and 0.2
 still holds.
 
@@ -1322,9 +1358,9 @@ written while the last one's scenario ran. Move this prompt on by one after
 each commit, so an early end is always resumable. Nothing is pushed. No
 full suite until G1.
 
-Where things stand: tropes +15 fixed and 2-9 from PIP-2; blushes +10 fixed
-and 0-1 from PIP-2. Next free: switch 148, variable 23, item 51, weapon 42,
-armour 42, armour type 9, common event 4, state 40, enemy 44, troop 42,
+Where things stand: tropes +16 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 149, variable 23, item 51, weapon 42,
+armour 42, armour type 9, common event 4, state 41, enemy 44, troop 42,
 skill 175, `Gen_People13` 1.
 
 **Owed before G1, from B1-B3:** `dunnage` and `dunnage_company` once more,
@@ -1345,8 +1381,7 @@ paragraph, and keep going:
   `Scene_Battle.prototype.update` to read the troop and kill it a few
   seconds in (`q_pip3.json`), since `advance` presses into printing text
   and cannot be counted to the battle.
-* **B4 COR-5**: the curse is a state from 40 with a real trait, optional,
-  and must be removable.
+* **B4 COR-5** - done; `q_corvin.py` exists now.
 * **B5 NIX-1**: **Nix's gear is the coat** (armour, and it fits) - body
   armour only she can wear, by the same actor-trait pattern. The client is
   Nix at fifteen; decide whether NIX-4's parcel (`IT_PARCEL`, on the
