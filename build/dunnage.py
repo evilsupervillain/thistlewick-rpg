@@ -45,6 +45,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_aldric
 import q_hob
 from places import (MAP_WORLD, MAP_DUNNAGE, MAP_SMITHS_HALL,
                     MAP_COUNTING_HOUSE, MAP_BONDED, MAP_BELL, DUNNAGE_STEP)
@@ -544,17 +545,23 @@ def town_events():
     evs.append(_person(13, "Mrs Poskitt", POSKITT,
                        R.image(*S.FACES["Mrs Poskitt"], direction=2), *poskitt_pages()))
     # 14-17: the haulage yard - Mr Plummer, Duchess, the cart and the sign.
-    evs.append(_person(14, "Mr Plummer", PLUMMER,
-                       R.image(*S.FACES["Mr Plummer"], direction=4), *plummer_pages()))
+    plummer = _person(14, "Mr Plummer", PLUMMER,
+                      R.image(*S.FACES["Mr Plummer"], direction=4), *plummer_pages())
+    plummer["pages"] += q_aldric.plummer_pages(plummer["pages"][-1])  # ALD-4
+    evs.append(plummer)
     first, later = duchess_pages()
-    evs.append(_person(15, "Duchess", DUCHESS,
-                       R.image("Vehicle", 4, direction=2), first, later,
-                       direction_fix=True))
+    duchess = _person(15, "Duchess", DUCHESS,
+                      R.image("Vehicle", 4, direction=2), first, later,
+                      direction_fix=True)
+    duchess["pages"].append(q_aldric.duchess_page(duchess["pages"][-1]))  # ALD-4
+    assert duchess["id"] == q_aldric.DUCHESS_EVENT
+    evs.append(duchess)
     evs.append(R.event(16, "The Cart", *CART, [R.page(
         cart_pages(), img=R.image("Vehicle", 6, direction=2), trigger=0,
         priority=1, direction_fix=True)]))
-    evs.append(_thing(17, "Plummer & Partner", PARTNER_SIGN,
-                      partner_sign_pages()))
+    sign = _thing(17, "Plummer & Partner", PARTNER_SIGN, partner_sign_pages())
+    sign["pages"].append(q_aldric.sign_page(sign["pages"][0]))    # ALD-4
+    evs.append(sign)
     # 18: the First Mayor, in the middle of the square.
     evs.append(_thing(18, "The First Mayor", FIRST_MAYOR,
                       *first_mayor_pages()))

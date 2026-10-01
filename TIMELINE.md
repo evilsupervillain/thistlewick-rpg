@@ -161,7 +161,7 @@ when it does, in a round year.
 | 1989 | Attempt 199 lost in sight of the Tower, "eleven years dead" on her crag; the last entry in the attempt log | `field`, `north` | P |
 | 1991 | Sir Aldric Pemberton-Gore the Third goes out errant, "nine years ago"; the flowers under his portrait start. Tom marries Mrs Vane at Fenmarch, in the rain | `fenmarch.fourth_pages`, `portrait_pages`, `tom_pages`; `hamlets.vane_pages` | F |
 | 1992 | Aldric, with a commission that says "dragon", talks about Horace with the Wrong Dragon until dark ("eight years ago") | `nomap._wrong_dragon` | F |
-| 1994 | Aldric reaches Thistlewick and cannot find the north gate; Perpetua Small wakes on the beach | `db.build_actors`, `village` | P |
+| 1994 | Aldric reaches Thistlewick and cannot find the north gate; Perpetua Small wakes on the beach. That winter his horse walks into Plummer's yard at Great Dunnage on her own, saddled ("six years", ALD-4) | `db.build_actors`, `village`; `dunnage.plummer_pages`, `q_aldric` | P |
 | 1996 | Mr Pilbeam rescues Rosamund from the eagle | `fairholme` | F |
 
 ## 5. Ages stated

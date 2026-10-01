@@ -1197,14 +1197,52 @@ each in `south.py`, `hithermost.py`, `frostwick.py`, `fairholme.py`,
 * **Scenario** `q_hob1`: passes (81 checks, about fifteen minutes).
 * `TIMELINE.md`: nothing dated.
 
+**B2, ALD-4 The Horse - done.** `build/q_aldric.py` (new), hooked from
+`dunnage.py` in three places; `build/scenarios/q_ald4.json`.
+
+* **The reunion is Mr Plummer's** (Map 61 event 14, page 3, below his
+  one-self-switch ladder, with Aldric): he has already told the party about
+  the grey and the crest on her saddle, and with Aldric standing there he
+  looks at the tabard - a knight facing the wrong way - and brings the
+  saddle out. "...That's my saddle." Nobody has asked Sir Aldric about his
+  horse in six years, including Sir Aldric. Duchess lifts her head from the
+  road (the `Horse` sound and a balloon on her event), puts her nose into
+  his tabard, and he says "Hello, old girl" and that he could not find the
+  gate. He only ever called her Horse; Duchess suits her. Plummer offers her
+  back and stops, being tactful; **"She is doing so well,"** and he means it.
+  He may visit, any day but a Tuesday. **One trope** (the loyal steed).
+* **Duchess is wordless** - Mike has not drawn her a face (`QUESTS.md` 1), so
+  the decision was made for the scene: a sound, two balloons and the
+  narrator. **No reward at all**: the scenario asserts no item, no gold and
+  no change to the party.
+* **Her own pages** had Aldric pat a good horse in passing without knowing
+  her, which would be wrong afterwards. The reunion sets her self switch A
+  (her ladder's terminal) by script, and her new page (`SW_ALD4_DONE`, A,
+  Aldric) is the two of them: he tells her about his week. **Afterwards for
+  everybody**: Plummer's own last page plus "welcome any day but a Tuesday",
+  and the yard sign's third line, in a third hand: (HER KNIGHT CALLS. NOT
+  TUESDAYS.)
+* **Ids taken:** switch **145** `SW_ALD4_DONE`. No faces, no items.
+* One trope, no blush. Running tally: **tropes +14 fixed and 2-9 from PIP-2;
+  blushes +10 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ALDRIC]` - his first.
+* **Candidate ending line** (G1; read `SW_ALD4_DONE`): "Duchess, a grey mare,
+  is a partner in Plummer & Partner, haulage, of Great Dunnage. Her knight
+  calls on her. Not on Tuesdays."
+* **The rooms (0.1):** the yard was cropped with the rest of Great Dunnage in
+  B1. `Vehicle` 4 is the harness horse `TILES-AND-ASSETS.md` names, and reads
+  as a grey at map scale. Nothing changed.
+* **Scenario** `q_ald4`: passes.
+* `TIMELINE.md`: 1994, the horse walks into Plummer's yard that winter.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do the
-rest of Part B**, Great Dunnage: B2 ALD-4, B3 PIP-3, B4 COR-5, B5 NIX-1,
-B6 NIX-2 and B7 ROL-1, in that order (B1 HOB-1 is done and committed). This overrides 0.1's "one step per
+rest of Part B**, Great Dunnage: B3 PIP-3, B4 COR-5, B5 NIX-1, B6 NIX-2
+and B7 ROL-1, in that order (B1 HOB-1 and B2 ALD-4 are done and committed). This overrides 0.1's "one step per
 session" for Part B only (Mike, 1 Oct 2026); every other rule in 0.1 and 0.2
 still holds.
 
@@ -1231,8 +1269,8 @@ written while the last one's scenario ran. Move this prompt on by one after
 each commit, so an early end is always resumable. Nothing is pushed. No
 full suite until G1.
 
-Where things stand: tropes +13 fixed and 2-9 from PIP-2; blushes +10 fixed
-and 0-1 from PIP-2. Next free: switch 145, variable 23, item 51, weapon 42,
+Where things stand: tropes +14 fixed and 2-9 from PIP-2; blushes +10 fixed
+and 0-1 from PIP-2. Next free: switch 146, variable 23, item 51, weapon 42,
 armour 41, armour type 8, common event 4, state 40, enemy 41, troop 41,
 `Gen_People12` 7 then `Gen_People13`.
 
@@ -1243,8 +1281,7 @@ paragraph, and keep going:
   again, so a third quest that needs "eleven people" has two copies to
   generalise from. Avoid an owner another quest has already given an
   "afterwards" page: two of them on one event shadow each other.
-* **B2 ALD-4** is a scene with no reward; Duchess may speak only if Mike
-  supplies a face (`QUESTS.md` 1) - make it wordless otherwise.
+* **B2 ALD-4** - done; `q_aldric.py` exists now for ALD-1/2/3/5/6.
 * **B3 PIP-3** is a boss fight whose damage type is heckling: enemies from
   41, a troop from 41, two rival acts with generated faces and stock enemy
   art (`art.py`'s stand-in, and the real art onto `AUDIT.md` item 1). She

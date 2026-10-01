@@ -1,0 +1,232 @@
+{
+ "query": "?map=61&x=5&y=16&frames=90",
+ "comment": "QUESTS.md B2, ALD-4 The Horse. Mr Plummer's set piece first; with Aldric, the reunion: the crest, the saddle, Duchess lifts her head, 'She is doing so well.' One trope, his story, no reward at all. Afterwards Duchess knows him; Plummer and the sign have a line for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Aldric, and the yard as it always was.",
+   "eval": "$gameParty.addActor(6)"
+  },
+  {
+   "goto": [
+    61,
+    5,
+    14
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 0,
+   "label": "Plummer's set piece first"
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    5,
+    14,
+    6
+   ],
+   "label": "beside Mr Plummer, facing him"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"a crest on the saddle.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 2,
+   "label": "then, with Aldric, the reunion"
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 1,
+   "label": "without him, Plummer's own page"
+  },
+  {
+   "eval": "$gameParty.addActor(6)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(15).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Good girl.\"))",
+   "expect": true,
+   "label": "before: he pats a good horse in passing"
+  },
+  {
+   "eval": "window._items = $gameParty.allItems().length; window._gold = $gameParty.gold(); window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 7
+  },
+  {
+   "shot": "q_ald4_reunion.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That's my saddle.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Hello, old girl.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She is doing so well.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Any day but a Tuesday,\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(145), $gameSelfSwitches.value([61, 15, 'A']), $gameVariables.value(2) - window._tropes, $gameSwitches.value(105), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    true,
+    1,
+    true,
+    1
+   ],
+   "label": "the loyal steed, one trope; his story"
+  },
+  {
+   "check": "[$gameParty.allItems().length - window._items, $gameParty.gold() - window._gold, $gameParty.members().length]",
+   "expect": [
+    0,
+    0,
+    2
+   ],
+   "label": "and no reward of any kind; she stays"
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards"
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 2,
+   "label": "Duchess knows him"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(15).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He tells her about his week.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Afterwards, for everybody.",
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 3
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(14).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"welcome any day but a Tuesday.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(17).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(17).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"(HER KNIGHT CALLS. NOT TUESDAYS.)\"))",
+   "expect": true
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

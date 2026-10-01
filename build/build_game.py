@@ -363,7 +363,8 @@ def build_system():
             (db.SW_ROL3_DONE, "ROL-3: the toast"),
             (db.SW_HOB1_ON, "HOB-1: the retrieval tour is on"),
             (db.SW_HOB1_PICKS, "HOB-1: Nix asked for the picks"),
-            (db.SW_HOB1_DONE, "HOB-1: Beatrice disqualified")]:
+            (db.SW_HOB1_DONE, "HOB-1: Beatrice disqualified"),
+            (db.SW_ALD4_DONE, "ALD-4: Duchess found, and stays")]:
         switches[sid] = name
 
     variables = [""] * 32

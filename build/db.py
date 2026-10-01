@@ -324,6 +324,8 @@ SW_HOB1_PICKS = 143             # Nix has been asked for the lockpicks
 SW_HOB1_DONE = 144              # Beatrice examined, and disqualified
 VAR_HOB1_ASKED = 22             # owners asked, of eleven
 IT_WARDENS_NOTES = 50
+# ALD-4, the horse (QUESTS.md B2, q_aldric.py)
+SW_ALD4_DONE = 145              # Duchess and her knight; she stays
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
