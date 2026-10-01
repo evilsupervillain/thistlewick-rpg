@@ -371,7 +371,9 @@ def build_system():
             (db.SW_NIX1_LETTER, "NIX-1: the client's letter opened"),
             (db.SW_NIX1_DONE, "NIX-1: the coat collected"),
             (db.SW_NIX2_OPEN, "NIX-2: the Door open, informally"),
-            (db.SW_NIX2_DONE, "NIX-2: we spent it")]:
+            (db.SW_NIX2_DONE, "NIX-2: we spent it"),
+            (db.SW_ROL1_ON, "ROL-1: the review meeting is on (ends)"),
+            (db.SW_ROL1_DONE, "ROL-1: the minutes")]:
         switches[sid] = name
 
     variables = [""] * 32

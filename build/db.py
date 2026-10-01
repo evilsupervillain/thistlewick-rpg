@@ -347,6 +347,10 @@ AT_COAT = 9                     # an armour type of its own, as AT_BADGE is
 # NIX-2, the sealed counting house (QUESTS.md B6, q_nix.py)
 SW_NIX2_OPEN = 151              # the Door is open, informally; Form L is not
 SW_NIX2_DONE = 152              # the chair, the note, and the change
+# ROL-1, the appointment (QUESTS.md B7, q_roland.py)
+SW_ROL1_ON = 153                # the review meeting is sitting in the Bell; ends
+SW_ROL1_DONE = 154              # and has sat: the minutes
+IT_MINUTES = 52
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1511,6 +1515,10 @@ def build_items():
                     "A luggage ticket for the Bonded Warehouse, Great Dunnage. "
                     "Enclosed by the client, aged fifteen.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=195))
+    upsert(it, item(IT_MINUTES, "The Minutes (141st)",
+                    "Apologies: the sorcerer. Readiness: not. Lineage: "
+                    "present. Asset: available. Thanked. Eleven minutes.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=193))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

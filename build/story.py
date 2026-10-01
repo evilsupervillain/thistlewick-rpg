@@ -410,6 +410,14 @@ FACES = {
     # PIP-3's two rival acts (QUESTS.md B3), generated.
     "Mr Dray": ("Gen_People12", 7),
     "Miss Moon": ("Gen_People13", 0),
+    # ROL-1's review meeting (QUESTS.md B7): the Convenor is generated; the
+    # three fellows "of no importance" share plain stock faces nobody in the
+    # Bell wears. (People3 0 and 1 were tried first: a crown and a pair of
+    # wings, which are of some importance.)
+    "The Convenor": ("Gen_People13", 1),
+    "Fellow Grice": ("People2", 0),
+    "Fellow Amory": ("People2", 4),
+    "Fellow Blunt": ("People1", 3),
     "Miss Fettle": ("Gen_People6", 4),
     "Cotter": ("SF_Actor2", 7),
 }

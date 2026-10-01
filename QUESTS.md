@@ -1420,104 +1420,145 @@ room drawn by `dunnage.vault_room`; `build/scenarios/q_nix2.json`.
 * **Scenario** `q_nix2`: passes.
 * `TIMELINE.md`: 1788, the clerk's note.
 
+**B7, ROL-1 The Appointment - done.** ROL-1's section at the bottom of
+`q_roland.py`, hooked from `dunnage.py`'s Bell (two places);
+`build/scenarios/q_rol1.json`.
+
+* **At the Bell, not the Smiths' Hall** - the snug is the Bell's west table
+  at (4,8) and its two stools, which was already furniture, so nothing was
+  drawn. The Hall is the Company's, and the joke wants a booked table in a
+  pub rather than a chamber.
+* **The summons is Mrs Dewhirst's** (Map 65 event 2, page 3, below her
+  one-self-switch ladder, with Roland): "The snug's booked in your name,
+  love. The usual." Roland goes slightly pink, which you would not have
+  thought possible, and permits it: "Don't say anything." The page is her own
+  last page with the summons in front of it, once (it skips while
+  `SW_ROL1_ON` or `SW_ROL1_DONE` is on), so with Roland the inn is still the
+  inn.
+* **The meeting** - `SW_ROL1_ON` (ends) seats **the Convenor** and **Fellows
+  Grice, Amory and Blunt** at the table (events 11-14, empty before and
+  after; without Roland they wait for the asset). With Roland, the
+  Convenor's page is the hundred and forty-first meeting: apologies (the
+  sorcerer), the minutes of the hundred and fortieth, readiness - the stone
+  not ready, the sword in the stone, the sorcerer sends his apologies, the
+  lineage "Present." (underlined twice) - the continued availability of the
+  asset ("Available." / "Noted, with thanks."), any other business (a
+  minute's silence), and "thank you, Mr Fairweather, for your continued
+  patience. Until the next door." Eleven minutes. "A hundred and
+  forty-one." **One trope** (the summons that takes the ally away). Nobody
+  says what it resembles; the scenario asserts no line names Grimspite or
+  "the other end".
+* **The minutes are item 52**, "The Minutes (141st)": "Apologies: the
+  sorcerer. Readiness: not. Lineage: present. Asset: available. Thanked.
+  Eleven minutes." Roland hands them over: he has a drawer of them. He is
+  still in the party, and still leaves at the door.
+* **Ids taken:** switches **153** `SW_ROL1_ON` (ends), **154**
+  `SW_ROL1_DONE`; item **52** `IT_MINUTES`; face `Gen_People13` **1** (the
+  Convenor, generated); the three fellows share stock faces nobody in the
+  Bell wears - `People2` 0 and 4 and `People1` 3. `People3` 0 and 1 were
+  tried first and were a crown and a pair of wings, which are of some
+  importance.
+* One trope, no blush. **Running tally at the end of Part B: tropes +19
+  fixed and 2-9 from PIP-2; blushes +11 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ROLAND]` (on already after ROL-3 or ROL-4 in a game that did
+  those).
+* **Candidate ending line** (G1; read `SW_ROL1_DONE`): "Somewhere there are
+  minutes of a hundred and forty-one meetings, at which Roland Fairweather
+  was present and available, and was thanked for his patience."
+* **The rooms (0.1):** the Bell was cropped in B1; nothing changed.
+* **Scenario** `q_rol1`: passes.
+* `TIMELINE.md`: nothing dated (a hundred and forty-one meetings are a count,
+  not a span).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **do the
-rest of Part B**, Great Dunnage: B7 ROL-1 (B1-B6 are done and
-committed). This overrides 0.1's "one step per
-session" for Part B only (Mike, 1 Oct 2026); every other rule in 0.1 and 0.2
-still holds.
+`/home/mike/Projects/rpgmaker-mz/thistlewick`: step **C1, ZEPH-1 The
+Fines** - one step per session again (0.1), Part B having been the one
+exception. Every rule in 0.1 and 0.2 holds.
 
-Read section 0, the Part B entries, and the Done paragraphs from A6 on, once
-at the start. Before each step, read only that companion's section of
-`COMPANIONS.md` (Hob, Aldric, Piper, Corvin, Nix, Roland), and only when you
-reach it. Everything is in `dunnage.py`'s Maps 61-65; read what a step needs
-by dumping the map's events and their text, not by opening the module.
+Read section 0, the Part C entries, and the Done paragraphs from B1 on, once
+at the start; then Zephyrine's section of `COMPANIONS.md` and nothing else of
+it. C1 is in `collegium.py`'s Maps 58-60 and the world-map doors that carry
+her refusal; read what it needs by dumping the maps' events and their text,
+not by opening the module.
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
 byte: every existing page identical, only appended pages and new events.
 `validate.py`, and `apidigest.py . --write` / `tileaudit.py . --write` if a
 signature or constant moved. Screenshots of anything drawn, looked at. The
-step's own scenario, `build/scenarios/q_<quest>.json`, run under `stdbuf
--oL` in the background. **Fix the room you are standing in** (0.1): Great
-Dunnage has never been swept, so crop each room's props with `propsheet.py`
-before judging, screenshot before and after, and rerun every scenario that
-walks it (`dunnage`, `dunnage_company` at least). Then the step's Done
-paragraph (ids taken, tropes and blushes, running tally, candidate ending
-line, rooms fixed), and **commit that step on its own before writing a line
-of the next** - A9-A14 ended up in one commit because the next step was
-written while the last one's scenario ran. Move this prompt on by one after
-each commit, so an early end is always resumable. Nothing is pushed. No
-full suite until G1.
+step's own scenario, `build/scenarios/q_zeph1.json`, run under `stdbuf -oL`
+in the background. **Fix the room you are standing in** (0.1): the
+Collegium has never been swept, so crop its rooms with `propsheet.py` before
+judging, screenshot before and after, and rerun every scenario that walks it
+(`collegium` at least). Then the Done paragraph (ids taken, tropes and
+blushes, running tally, candidate ending line, rooms fixed), commit, and
+move this prompt on to C2.
 
-Where things stand: tropes +18 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 153, variable 23, item 52, weapon 42,
+Where things stand: tropes +19 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 155, variable 23, item 53, weapon 42,
 armour 43, armour type 10, common event 4, state 41, enemy 44, troop 42,
-skill 175, `Gen_People13` 1.
+skill 175, `Gen_People13` 2. Zephyrine's skills 47-49 are free.
 
-**Owed before G1, from B1-B3:** `dunnage` and `dunnage_company` once more,
-alone, with no timeout, after B7 - every Part B step adds pages to Great
-Dunnage. `dunnage_company` passed after B1; `dunnage` ran an hour beside
-another browser and reached the warehouse piano with no failures before
-the timeout killed it.
+**Owed before G1:** see the note at the end of B7's Done paragraph on the
+`dunnage` and `dunnage_company` reruns.
 
-What each step will need deciding, so make the call, say why in the Done
+What C1 will need deciding, so make the call, say why in the Done
 paragraph, and keep going:
 
-* **B1 HOB-1** - done. Its `q_hob.owned(key, ev)` is `q_nix.returned`
-  again, so a third quest that needs "eleven people" has two copies to
-  generalise from. Avoid an owner another quest has already given an
-  "afterwards" page: two of them on one event shadow each other.
-* **B2 ALD-4** - done; `q_aldric.py` exists now for ALD-1/2/3/5/6.
-* **B3 PIP-3** - done. A fight a scenario must get through: hook
-  `Scene_Battle.prototype.update` to read the troop and kill it a few
-  seconds in (`q_pip3.json`), since `advance` presses into printing text
-  and cannot be counted to the battle.
-* **B4 COR-5** - done; `q_corvin.py` exists now.
-* **B5 NIX-1** - done. NIX-1 needs NIX-4 (the parcel is the letter), and
-  the warehouse door lets Nix in now; NIX-2's Counting House is a different
-  door and Nix has no history with it.
-* **B6 NIX-2** - done. Map 63 is 30 wide now; its east is the vault.
-* **B7 ROL-1**: the Convenor and three fellows (four faces; the fellows may
-  share stock faces), at the Bell or the Smiths' Hall. Before the tower
-  door, so it needs Roland. Nobody points out that it is Grimspite's
-  arrangement seen from the other end.
+* **The Registrar's clerk** needs a face (`QUESTS.md` 1): generate one,
+  `Gen_People13` 2.
+* **Zephyrine's gear is a robe with a stat line** (0.5): body armour only
+  she can wear - a new armour type 10 plus one trait on her actor, the
+  pattern of Wren's badge, Piper's rosette and Nix's coat.
+* **The real choice to refuse and stay expelled** has to be a choice the
+  game respects afterwards: both branches need their own afterwards pages,
+  and neither may be a dead end for the ending's block.
 
-Things learned in A6-A14 that will bite again:
+Things learned in A6-B7 that will bite again:
 
 * **One quest module per companion holds several quests**; prefix private
   helpers per quest (`_hob1_`, `_nix1_`), and treat a data diff on a map
-  the step never meant to touch as a bug.
+  the step never meant to touch as a bug. There are eight now: `q_aldric`
+  and `q_corvin` were new in Part B.
+* **"Afterwards" is the person's own last page plus one line**, on a page
+  above the quest's, conditioned on their ladder's terminal and the done
+  switch. `q_nix.returned` and `q_hob.owned` do it for a crowd and assert
+  their preconditions; avoid an owner another quest already gave an
+  afterwards page, since two of them on one event shadow each other.
+* **A page with a companion that replaces somebody's own page must carry
+  that page's list** (Mrs Dewhirst's inn, ROL-1): put the scene in front of
+  it behind a once-only condition, so the person still does their job.
 * **A long speaker name eats the first line.** Check every line of a new
   section at once with `story._check_width` patched to collect rather than
-  raise, instead of one build per error.
-* **Mapkit constants lie.** `ROCK` was a campfire ring, `IN_SHELF_FRUIT` is
-  teddy bears, `IN_CABINET` is two objects with a walkable lower cell. Crop
-  before using one somewhere new, and compare `Tilesets.json` flags before
-  swapping one tile for another.
-* **Gear only one companion can use**: a weapon type only their class has
-  (Hob: axes, which Bram and Merribell's flails are not), or a new armour
-  type plus one trait on the actor.
-* **New faces** come from `tools/chargen` settings in `build/characters/`, a
-  slot in `art.py`'s `SHEETS`, `python3 build/art.py`, and a `story.FACES`
-  entry; look at a `lineup.py` sheet before installing (a missing rear hair
-  makes a bald back of the head). Stock faces are fine for one-liners, but
-  not one worn by somebody in the same room.
+  raise, instead of one build per error. And `narrate` pages in fours: a
+  five-line narration leaves one line alone in a window, so keep them to
+  four.
+* **Mapkit constants lie**; crop before using one somewhere new, and look
+  at a stock sprite before giving it to a "fellow of no importance" -
+  `People3` 0 and 1 are a crown and a pair of wings.
+* **Gear only one companion can use**: a weapon type only their class has,
+  or a new armour type plus one trait on the actor (armour types 7-9 are
+  Wren's, Piper's and Nix's; `build_game` appends their names).
+* **New faces**: `tools/chargen` settings in `build/characters/` (colour
+  indices are in `CHARGEN.md`'s swatch list - read it before guessing), a
+  slot in `art.py`'s `SHEETS` (and `ENEMIES` for a stand-in battler),
+  `python3 build/art.py` in the background (it takes minutes), and a
+  `story.FACES` entry; look at a `lineup.py` sheet first. Real art for a
+  stand-in battler goes on `AUDIT.md` item 1's list.
+* **A fight in a scenario**: hook `Scene_Battle.prototype.update` to read
+  the troop and kill it a few seconds in (`q_pip3.json`); `advance` presses
+  into printing text and cannot be counted to the battle. Look at the
+  battle once with `BattleManager.setup` and a shot - the first layout put
+  an enemy on top of the party.
 * **Scenarios:** a `talk()` that calls `window._mark()` clears the captured
-  lines, so check a line straight after the talk that says it. A line split
-  over two window lines cannot be matched whole. Do not set a switch that
-  starts an autorun on the map you are standing on and then `goto`: the run
-  hangs behind the message - leave, set it, walk back in. `goto` skips the
-  doors that clear weather.
-* **Waiting on a background run:** chain runs in one background command and
-  wait on a marker line in its output, never `pgrep -f` in a loop. A killed
-  run leaves its Chromium: kill the browser whose parent is 1, not the one a
-  live run owns.
-
-When B7 is done, leave this prompt at C1 ZEPH-1 - one step per session
-again unless Mike says otherwise - and update the memory note for the
-companion quests.
+  lines; a line split over two window lines cannot be matched whole; `\V[n]`
+  is captured unexpanded. A set piece can outrun `advance: 20` - give the
+  first talk to anybody forty. `goto` skips the doors that clear weather.
+* **Waiting on a background run:** use `run_in_background` and wait for its
+  notification. Two scenarios at once each run at half speed or worse:
+  `dunnage` beside another browser took over an hour. A killed run leaves
+  its Chromium: kill the browser whose parent is 1, not one a live run owns.

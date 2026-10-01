@@ -377,3 +377,145 @@ def alumni_events(base_id):
                                     actorValid=True, actorId=db.ROLAND)))
         evs.append(R.event(base_id + n, name, x, y, pages))
     return evs
+
+
+# ======================================================================
+# ROL-1, The Appointment (`QUESTS.md` B7)
+# ----------------------------------------------------------------------
+# Follow him. He is embarrassed, and permits it. The appointment is a review
+# meeting, in a room, with an agenda, at which four people confirm that his
+# prophecy is still not ready, note his continued availability, and thank him
+# for his patience. It takes eleven minutes. He has attended a hundred and
+# forty of them. Nobody remarks on what it resembles, and nor does this file.
+#
+# * **The summons is Mrs Dewhirst's** (Map 65 event 2), below her ladder, with
+#   Roland: the snug is booked in his name, the usual. The page is her own
+#   last page with the summons in front of it, so the inn is still the inn.
+#   It turns `SW_ROL1_ON` (ends) on, which seats the Convenor and three
+#   fellows at the Bell's west table (events 11-14), empty before and after.
+# * **The meeting is the Convenor's**, with Roland. The minutes are a key
+#   item, and Roland hands them over: he has a drawer of them.
+# * **Before the tower door**, necessarily: everything needs Roland, and he
+#   leaves at the door. Nothing here keeps him.
+MINUTES_ICON = 193
+# Where they sit, round the table at (4, 8) and its two stools.
+ROL1_SEATS = [(11, "The Convenor", (4, 7), 2), (12, "Fellow Grice", (5, 7), 2),
+              (13, "Fellow Amory", (3, 8), 6), (14, "Fellow Blunt", (6, 8), 4)]
+
+
+def _rol1_summons():
+    c = S.say("Mrs Dewhirst", ["Mr Fairweather! The",
+                               "snug's booked in your name, love. The",
+                               "usual. They're just sitting down."])
+    c += S.narrate([
+        "Roland goes, very slightly, pink, which you would not",
+        "have thought was possible."])
+    c += S.say("Roland", ["Ah. Yes. Thank you, Mrs Dewhirst."])
+    c += S.say("Roland", ["It's nothing. A standing appointment.",
+                          "Eleven minutes. You needn't -"])
+    c += S.narrate(["You say that you will come."])
+    c += S.say("Roland", ["...Yes. All right. I suppose you'd",
+                          "better. Don't say anything."])
+    c += [R.control_switch(db.SW_ROL1_ON, True)]
+    return c
+
+
+def dewhirst_page(last):
+    """Mrs Dewhirst (Map 65, event 2) with Roland: the summons, once, in
+    front of her own last page."""
+    first = R.if_then(R.condition_switch(db.SW_ROL1_ON), [],
+                      R.if_then(R.condition_switch(db.SW_ROL1_DONE), [],
+                                _rol1_summons()))
+    page = copy.deepcopy(last)
+    page["list"] = first + page["list"]
+    page["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "actorValid": True, "actorId": db.ROLAND})["conditions"]
+    return page
+
+
+def _rol1_meeting():
+    c = S.narrate([
+        "The snug is the corner table, with a card on it that",
+        "says RESERVED. Four people sit round it, with papers,",
+        "and stand up when Roland arrives, and sit down again."])
+    c += S.say("The Convenor", ["Mr Fairweather. Good.",
+                                "We're quorate. The hundred and",
+                                "forty-first meeting."])
+    c += S.say("The Convenor", ["Item one. Apologies."])
+    c += S.say("Fellow Grice", ["The sorcerer sends his",
+                                "apologies."])
+    c += S.say("The Convenor", ["Noted. Item two. The",
+                                "minutes of the hundred and fortieth."])
+    c += S.say("Fellow Amory", ["Agreed."])
+    c += S.say("The Convenor", ["Item three. Readiness.",
+                                "The stone?"])
+    c += S.say("Fellow Blunt", ["Not ready."])
+    c += S.say("The Convenor", ["The sword?"])
+    c += S.say("Fellow Blunt", ["In the stone."])
+    c += S.say("The Convenor", ["The sorcerer?"])
+    c += S.say("Fellow Grice", ["Sends his apologies."])
+    c += S.say("The Convenor", ["The lineage?"])
+    c += S.say("Roland", ["Present."])
+    c += S.narrate([
+        "Fellow Amory writes PRESENT in the minutes, and underlines",
+        "it, and then, after some thought, underlines it again."])
+    c += S.say("The Convenor", ["Item four. The",
+                                "continued availability of the asset."])
+    c += S.say("Roland", ["Available."])
+    c += S.say("The Convenor", ["Noted, with thanks.",
+                                "Item five. Any other business?"])
+    c += [R.wait(60)]
+    c += S.say("The Convenor", ["Then thank you, Mr",
+                                "Fairweather, for your continued",
+                                "patience. Until the next door."])
+    c += S.narrate([
+        "They gather their papers, and shake his hand, all four,",
+        "and go out into the street together. It has taken",
+        "eleven minutes. Roland sits on at the table a while."])
+    c += S.say("Roland", ["A hundred and forty-one."])
+    c += S.narrate([
+        "He folds the minutes once, neatly, and holds them out",
+        "to you."])
+    c += S.say("Roland", ["You may as well have these. I've a",
+                          "drawer of them."])
+    c += [S.trope(), R.gain_item(db.IT_MINUTES, 1), R.play_me("Item"),
+          R.control_switch(db.SW_ROL1_ON, False),
+          R.control_switch(db.SW_ROL1_DONE, True)]
+    c += S.got(["Got \\I[%d]\\C[3]The Minutes (141st)\\C[0]." % MINUTES_ICON])
+    c += S.companion_story(db.ROLAND)
+    return c
+
+
+_ROL1_WAIT = {
+    "The Convenor": ["Mr Fairweather is expected.",
+                     "We can't start without the asset."],
+    "Fellow Grice": ["The sorcerer is not coming.",
+                     "He never comes. It's minuted."],
+    "Fellow Amory": ["I take the minutes. I have taken",
+                     "all of them."],
+    "Fellow Blunt": ["The stone is not ready. I check",
+                     "the stone."],
+}
+
+
+def meeting_events():
+    """The Convenor and three fellows (Map 65, events 11-14): at the Bell's
+    west table while the meeting is on, and nowhere before or after. The
+    Convenor holds the meeting, with Roland; without him, everybody waits."""
+    on = {"switch1Valid": True, "switch1Id": db.SW_ROL1_ON}
+    gone = {"switch1Valid": True, "switch1Id": db.SW_ROL1_DONE}
+    evs = []
+    for eid, name, (x, y), d in ROL1_SEATS:
+        img = R.image(*S.FACES[name], direction=d)
+        pages = [R.page([], img=R.image(""), priority=0, through=True),
+                 R.page(S.say(name, _ROL1_WAIT[name]), img=img,
+                        direction_fix=True, conditions=on)]
+        if name == "The Convenor":
+            pages.append(R.page(_rol1_meeting(), img=img, direction_fix=True,
+                                conditions=dict(on, actorValid=True,
+                                                actorId=db.ROLAND)))
+        pages.append(R.page([], img=R.image(""), priority=0, through=True,
+                            conditions=gone))
+        evs.append(R.event(eid, name, x, y, pages))
+    return evs

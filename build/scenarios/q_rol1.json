@@ -1,0 +1,276 @@
+{
+ "query": "?map=65&x=10&y=9&frames=90",
+ "comment": "QUESTS.md B7, ROL-1 The Appointment. Mrs Dewhirst's set piece first; with Roland, the snug is booked in his name, the usual, once, and the inn is still the inn. The Convenor and three fellows sit at the west table; without Roland they wait. The hundred and forty-first review meeting: apologies, readiness (not), lineage (present), the asset (available), thanked; eleven minutes - the summons that takes the ally away, one trope. The minutes are a key item. Afterwards the table is empty.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Roland, and the landlady's own set piece first.",
+   "eval": "$gameParty.addActor(10)"
+  },
+  {
+   "goto": [
+    65,
+    7,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "check": "$gameMap.event(13).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"you'll be\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "with Roland, the summons"
+  },
+  {
+   "eval": "$gameParty.removeActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "without him, her own page"
+  },
+  {
+   "eval": "$gameParty.addActor(10); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"snug's booked in your name, love. The\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Fifteen crowns, love.\"))",
+   "expect": true,
+   "label": "and then the inn, as always"
+  },
+  {
+   "check": "$gameSwitches.value(153)",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 2,
+   "label": "the Convenor, with Roland: the meeting"
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "check": "$gameMap.event(13).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"snug's booked in your name, love. The\"))",
+   "expect": false,
+   "label": "the summons is once"
+  },
+  {
+   "comment": "Without Roland, they wait.",
+   "eval": "$gameParty.removeActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"We can't start without the asset.\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameParty.addActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "goto": [
+    65,
+    4,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    4,
+    6,
+    2
+   ],
+   "label": "behind the Convenor, facing her"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 14
+  },
+  {
+   "shot": "q_rol1_meeting.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"apologies.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"In the stone.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Present.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"A hundred and forty-one.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[52]), $gameSwitches.value(153), $gameSwitches.value(154), $gameVariables.value(2) - window._tropes, $gameSwitches.value(109), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    1,
+    false,
+    true,
+    1,
+    true,
+    1
+   ],
+   "label": "the minutes; one trope; his story"
+  },
+  {
+   "check": "window._lines.some(l => /Grimspite|other end/.test(l))",
+   "expect": false,
+   "label": "nobody says what it resembles"
+  },
+  {
+   "check": "$gameParty.members().some(a => a.actorId() === 10)",
+   "expect": true,
+   "label": "and he is still with you"
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 3,
+   "label": "the table is empty again"
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "check": "$gameMap.event(13).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

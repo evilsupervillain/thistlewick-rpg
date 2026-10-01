@@ -49,6 +49,7 @@ import q_aldric
 import q_corvin
 import q_nix
 import q_piper
+import q_roland
 import q_hob
 from places import (MAP_WORLD, MAP_DUNNAGE, MAP_SMITHS_HALL,
                     MAP_COUNTING_HOUSE, MAP_BONDED, MAP_BELL, DUNNAGE_STEP,
@@ -1279,9 +1280,11 @@ def bell_events():
     x1, y1, x2, y2, door_x = BELL_ROOM
     evs = [_exit(1, door_x, y2 + 2, MAP_DUNNAGE, BELL_DOOR[0],
                  BELL_DOOR[1] + 1)]
-    evs.append(_person(2, "Mrs Dewhirst", DEWHIRST,
+    dewhirst = _person(2, "Mrs Dewhirst", DEWHIRST,
                        R.image(*S.FACES["Mrs Dewhirst"], direction=2),
-                       *dewhirst_pages()))
+                       *dewhirst_pages())
+    dewhirst["pages"].append(q_roland.dewhirst_page(dewhirst["pages"][-1]))  # ROL-1
+    evs.append(dewhirst)
     harbottle = _person(3, "Mrs Harbottle", HARBOTTLE,
                         R.image("Gen_People6", 3, direction=6),
                         *harbottle_pages())
@@ -1302,6 +1305,7 @@ def bell_events():
     evs.append(poster)
     evs.append(_thing(8, "The Bell", THE_BELL, bell_pages()))
     evs += q_piper.rival_events()                                     # PIP-3
+    evs += q_roland.meeting_events()                                  # ROL-1
     return evs
 
 
