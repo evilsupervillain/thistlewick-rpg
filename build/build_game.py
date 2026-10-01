@@ -345,7 +345,22 @@ def build_system():
             (db.SW_MER4_TOLD, "MER-4: no twelfth time; the jar paid"),
             (db.SW_MER4_DONE, "MER-4: left, which is the cure"),
             (db.SW_HOB3_GONE, "HOB-3: the anvil is outside"),
-            (db.SW_HOB3_DONE, "HOB-3: the anvil is back")]:
+            (db.SW_HOB3_DONE, "HOB-3: the anvil is back"),
+            (db.SW_NIX4_BEGUN, "NIX-4: the eleven are out"),
+            (db.SW_NIX4_DONE, "NIX-4: the ledger is ruled off"),
+            (db.SW_NIX5_ON, "NIX-5: the escort is on (ends)"),
+            (db.SW_NIX5_DONE, "NIX-5: through without a fight"),
+            (db.SW_WRE3_WALK, "WRE-3: the society's walk is on (ends)"),
+            (db.SW_WRE3_DONE, "WRE-3: the Thing proved not to exist"),
+            (db.SW_PIP5_ASKED, "PIP-5: there is a box"),
+            (db.SW_PIP5_SIGNED, "PIP-5: Form S-7 countersigned"),
+            (db.SW_PIP5_KEY, "PIP-5: the key, while Fenn was listened to"),
+            (db.SW_PIP5_DONE, "PIP-5: the box opened and shut"),
+            (db.SW_HOB2_ON, "HOB-2: Beatrice is quiet (ends)"),
+            (db.SW_HOB2_CARRYING, "HOB-2: an attempt is being carried (ends)"),
+            (db.SW_HOB2_DONE, "HOB-2: the gate is hung"),
+            (db.SW_ROL3_DINNER, "ROL-3: the alumni dinner is on (ends)"),
+            (db.SW_ROL3_DONE, "ROL-3: the toast")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -365,6 +380,11 @@ def build_system():
     variables[db.VAR_TOBY] = "Toby's delivery"
     variables[db.VAR_COMPANION_STORIES] = "companions with a story of their own"
     variables[db.VAR_MER2_WITNESS] = "MER-2: who witnessed it"
+    variables[db.VAR_NIX4_RETURNED] = "NIX-4: returned, of eleven"
+    variables[db.VAR_NIX5_BATTLES] = "NIX-5: battles when the escort set out"
+    variables[db.VAR_PIP5_DECOY] = "PIP-5: who asked Fenn about clause twelve"
+    variables[db.VAR_HOB2_TRY] = "HOB-2: attempts, of four"
+    variables[db.VAR_ROL3_HEARD] = "ROL-3: alumni spoken to, of eleven"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
@@ -376,6 +396,8 @@ def build_system():
         "optFollowers": True, "optSideView": True, "optDisplayTp": True,
         "optAutosave": False, "optDrawTitle": True,
         "switches": switches, "variables": variables,
+        # WRE-3's badge is Wren's alone: a type of its own (QUESTS.md 0.5).
+        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge"],
         # The blank project ships all three vehicles parked on map 1 at
         # coordinates from a tutorial map that is not in this game - the
         # airship at (154, 70), which is a hundred tiles off the east edge of

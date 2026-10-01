@@ -374,3 +374,236 @@ def bramus(event_id, x, y):
         R.page(again, img=img, trigger=0, priority=1, direction_fix=True,
                conditions=dict(named, actorValid=True, actorId=db.WREN)),
     ])
+
+
+# ======================================================================
+# WRE-3, The Thing In The Gloamwood (`QUESTS.md` A11)
+# ----------------------------------------------------------------------
+# There is a society: nine members, a newsletter, an annual walk and forty
+# years of sightings. Wren proves the Thing does not exist and never did, and
+# the society is delighted - they have been trying to prove it since 1960 -
+# except for the one member who saw it, who is looked after by everybody
+# else and is fine by the end of the walk.
+#
+# * **The game had already planted the answer.** The nest on the first path
+#   says there are nine of them because the crest works; the shed skin says
+#   everything killed that week was courting; and the Thing the party fought
+#   was "difficult to say how much of it there is". It was never one thing.
+#   It was nine crested grass snakes, knotted, in season, seen at dusk.
+# * **The society meets in the Gilded Turnip** (Map 4), three of them at a
+#   table of their own, for everybody. Wren's page is on the chair, after the
+#   Thing is dealt with. While the walk is on the three are out of the inn and
+#   all nine are in the deep wood's clearing (Map 10), where the Thing stood.
+# * **The proof needs Wren.** The walk is a global switch, so a Wren
+#   dismissed before she gets there leaves the society waiting in the clearing
+#   until she comes back.
+# * **Her gear is the badge** (`QUESTS.md` 0.5): an armour type nobody else
+#   can wear, allowed on her actor alone.
+WRE3_SPEAKERS = [            # (key, event name, speaker, the inn cell, facing)
+    ("lumb", "Mrs Lumb (the Gloamwood Society)", "Mrs Lumb", (11, 11), 6),
+    ("dunmore", "Mr Dunmore (the Gloamwood Society)", "Mr Dunmore",
+     (13, 11), 4),
+    ("pellow", "Miss Pellow (the Gloamwood Society)", "Miss Pellow",
+     (12, 10), 2),
+]
+WRE3_TABLE = (12, 11)
+# The walk, round the clearing on Map 10. The Thing stood at (15, 10) and the
+# path comes up the middle, so that column is left clear.
+WRE3_WALK = {"lumb": ((15, 9), 2), "dunmore": ((16, 9), 2),
+             "pellow": ((13, 10), 6)}
+WRE3_EXTRAS = [              # six more members, who have no lines
+    ((12, 10), 6, "People2", 3), ((18, 10), 4, "People3", 2),
+    ((17, 10), 4, "People1", 7), ((14, 8), 2, "People4", 0),
+    ((16, 8), 2, "People2", 6), ((17, 9), 4, "People3", 4),
+]
+BADGE_ICON = 146
+
+
+def _wre3_img(speaker, direction):
+    sheet, index = S.FACES[speaker]
+    return R.image(sheet, index, direction=direction)
+
+
+def _wre3_ask():
+    c = S.say("Mrs Lumb", ["You'll be Miss Halloway. The one",
+                           "who said the goose was a goose."])
+    c += S.say("Wren", ["It is a goose. I'd like to see",
+                        "your sightings."])
+    c += S.narrate([
+        "Mr Dunmore produces forty years of The Sighting,",
+        "bound by the year, from under the table. Wren reads",
+        "all of it. It takes the rest of the afternoon."])
+    c += S.say("Wren", ["I can prove it doesn't exist.",
+                        "That it never did."])
+    c += S.narrate([
+        "You brace yourself. The Gloamwood Society, as one,",
+        "leans forward."])
+    c += S.say("Mrs Lumb", ["Can you? Oh - can you really?"])
+    c += S.say("Mr Dunmore", ["We've been trying to since 1960!"])
+    c += S.say("Mrs Lumb", ["The walk's tonight. It's always",
+                            "tonight, when there's news. The deep",
+                            "clearing, where it's seen most. Bring",
+                            "whatever you've got."])
+    c += S.narrate(["Only Miss Pellow, at the end of the table, does",
+                    "not lean forward."])
+    c += [S.trope(), R.control_switch(db.SW_WRE3_WALK, True)]
+    return c
+
+
+def _wre3_inn(key):
+    """The three at their table in the Gilded Turnip, for everybody: before,
+    while they are out, and after."""
+    if key == "lumb":
+        before = S.say("Mrs Lumb", ["The Gloamwood Society. Thursdays.",
+                                    "Nine members, forty years, and a",
+                                    "walk once a year."])
+        before += S.say("Mrs Lumb", ["Any sightings? We take anything.",
+                                     "A shape. A smell. A feeling."])
+        before += R.if_then(R.condition_switch(db.SW_GLOAMWOOD), S.narrate([
+            "You have been in the clearing. Thistlewick will",
+            "never believe you, and you are not going to tell",
+            "them anyway."]))
+        after = S.say("Mrs Lumb", ["Forty years, and proved. Next year's",
+                                   "walk is going to be marvellous.",
+                                   "There's nothing there."])
+    elif key == "dunmore":
+        before = S.say("Mr Dunmore", ["Dunmore. Secretary. I edit The",
+                                      "Sighting. Forty years and nothing,",
+                                      "so far, that would stand up."])
+        after = S.say("Mr Dunmore", ["Issue one hundred and sixty. Proof,",
+                                     "in writing, by a professional. Our",
+                                     "best ever. We've printed extra."])
+    else:
+        before = S.say("Miss Pellow", ["I saw it, you know. Once. In",
+                                       "seventy-one. Nobody's seen it",
+                                       "since. I don't mind. I saw it."])
+        after = S.say("Miss Pellow", ["Nine. I counted nine.",
+                                      "I was the only one who got it right."])
+    return before, after
+
+
+def _wre3_proof():
+    c = S.narrate([
+        "Nine lanterns in the clearing where the Thing stood,",
+        "and nine members of the Gloamwood Society round them,",
+        "in good boots, with flasks."])
+    c += S.say("Mrs Lumb", ["Here's where it's seen most.",
+                            "Miss Halloway. In your own time."])
+    c += S.say("Wren", ["Every sighting in forty years has",
+                        "between one and nine heads. Mostly",
+                        "in late spring. Always at dusk."])
+    c += S.say("Wren", ["There's a nest in the fork of a tree",
+                        "on the first path, with a crest feather",
+                        "in it, and a shed skin on a branch",
+                        "near here. Both are one animal."])
+    c += S.say("Wren", ["The crested grass snake. Common.",
+                        "In spring they gather to court. Nine",
+                        "is usual. They knot together."])
+    c += S.say("Wren", ["From the path, at dusk, it looks like",
+                        "one large thing with a great many heads."])
+    c += S.say("Wren", ["It isn't a Thing.",
+                        "It's nine of them. Courting."])
+    c += [R.wait(30)]
+    c += S.say("Mrs Lumb", ["...All at once?"])
+    c += S.say("Wren", ["It's the only way they know how."])
+    c += [S.blush()]
+    c += S.narrate(["Then the Gloamwood Society, as one, cheers."])
+    c += [R.play_se("Applause1", volume=70)]
+    c += S.say("Mr Dunmore", ["Forty years! Proved! I'll want it",
+                              "in writing, Miss Halloway. Best",
+                              "issue we've ever had."])
+    c += S.narrate([
+        "Everybody is delighted, except Miss Pellow, who is",
+        "standing a little apart with her lantern, looking",
+        "at the place where it was."])
+    c += [R.wait(30)]
+    c += S.narrate([
+        "Nobody says anything to her. Mrs Lumb takes her",
+        "lantern, and Mr Dunmore her arm, and on the walk",
+        "home the whole society contrives, without anybody",
+        "arranging it, to be on either side of her."])
+    c += S.say("Miss Pellow", ["I saw it, you know.",
+                               "In seventy-one. I wrote it up."])
+    c += S.say("Wren", ["I read it. Issue forty-four. 'A great",
+                        "many heads, and all of them busy.'"])
+    c += S.say("Wren", ["Of forty years of sightings, yours",
+                        "is the only accurate one. You counted",
+                        "nine. You were right."])
+    c += S.say("Miss Pellow", ["...I did count nine."])
+    c += S.narrate([
+        "By the edge of the wood Miss Pellow is telling",
+        "everybody about the nine, and has been for some",
+        "time, and nobody minds in the least."])
+    c += S.say("Mrs Lumb", ["Honorary membership, Miss Halloway.",
+                            "And the badge. We've never given",
+                            "one away before."])
+    c += [R.gain_armor(db.AR_SOCIETY_BADGE, 1), R.play_me("Item")]
+    c += S.got(["Got \\I[%d]\\C[3]Gloamwood Society Badge\\C[0]." %
+                BADGE_ICON])
+    c += S.say("Wren", ["...It goes on the cloak, I suppose."])
+    c += [R.control_switch(db.SW_WRE3_WALK, False),
+          R.control_switch(db.SW_WRE3_DONE, True)]
+    c += S.companion_story(db.WREN)
+    return c
+
+
+def society_events(base_id):
+    """The Gloamwood Society's three, at their table in the Gilded Turnip
+    (Map 4). Out of the inn while the walk is on."""
+    walk = {"switch1Valid": True, "switch1Id": db.SW_WRE3_WALK}
+    done = {"switch1Valid": True, "switch1Id": db.SW_WRE3_DONE}
+    evs = []
+    for n, (key, name, speaker, (x, y), d) in enumerate(WRE3_SPEAKERS):
+        img = _wre3_img(speaker, d)
+        before, after = _wre3_inn(key)
+        pages = [R.page(before, img=img, direction_fix=True)]
+        if key == "lumb":
+            pages.append(R.page(_wre3_ask(), img=img, direction_fix=True,
+                                conditions={"switch1Valid": True,
+                                            "switch1Id": db.SW_GLOAMWOOD,
+                                            "actorValid": True,
+                                            "actorId": db.WREN}))
+        pages.append(R.page([], img=R.image(""), priority=0, through=True,
+                            conditions=walk))
+        pages.append(R.page(after, img=img, direction_fix=True,
+                            conditions=done))
+        evs.append(R.event(base_id + n, name, x, y, pages))
+    return evs
+
+
+def walk_events(base_id):
+    """All nine on the walk, round the clearing in the deep wood (Map 10),
+    only while it is on. Mrs Lumb has the proof, with Wren."""
+    walk = {"switch1Valid": True, "switch1Id": db.SW_WRE3_WALK}
+    nothing = R.page([], img=R.image(""), priority=0, through=True)
+    evs = []
+    eid = base_id
+    for key, name, speaker, _, _ in WRE3_SPEAKERS:
+        (x, y), d = WRE3_WALK[key]
+        img = _wre3_img(speaker, d)
+        if key == "lumb":
+            wait = S.say("Mrs Lumb", ["We'll wait for Miss Halloway.",
+                                      "We've waited forty years."])
+        elif key == "dunmore":
+            wait = S.say("Mr Dunmore", ["Notebook. Pencil. Second pencil."])
+        else:
+            wait = S.say("Miss Pellow", ["It was just there. Where you're",
+                                         "standing. In seventy-one."])
+        pages = [nothing, R.page(wait, img=img, direction_fix=True,
+                                 conditions=walk)]
+        if key == "lumb":
+            pages.append(R.page(_wre3_proof(), img=img, direction_fix=True,
+                                conditions=dict(walk, actorValid=True,
+                                                actorId=db.WREN)))
+        evs.append(R.event(eid, name + " (on the walk)", x, y, pages))
+        eid += 1
+    for (x, y), d, sheet, index in WRE3_EXTRAS:
+        evs.append(R.event(eid, "A Member of the Gloamwood Society", x, y, [
+            nothing,
+            R.page(S.narrate(["A member of the Gloamwood Society, with",
+                              "a lantern and a flask, keeping watch on",
+                              "a clearing with nothing in it."]),
+                   img=R.image(sheet, index, direction=d),
+                   direction_fix=True, conditions=walk)]))
+        eid += 1
+    return evs

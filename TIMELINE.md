@@ -145,13 +145,19 @@ when it does, in a round year.
 | 1860 | Attempt Eighty-Four comes down in the Long Field (1886 until `NORTH.md` 8.1b) | `field.eighty_four`, `db.build_enemies` | P, repaired |
 | ~1900 | Attempt 112, "a hundred years dead", on her rock | `field` | P |
 | 1909 | the shipping stops; Bother's light is for the ones coming home | `south` (Bother) | P |
+| 1919 | Beatrice Grumnir born (the headstone) | `village.churchyard` | P |
 | 1930 | Mr Ottershaw (born 1910, "ninety in March") begins the animals: "seventy years. Three generations." Every case in the gallery is his, which is why none of them has a date on it | `fenmarch.ottershaw_pages` | F |
 | 1940 | the Clanging clock's town has been early "for sixty years" | `north.clanging_events` | P |
+| 1960 | the Gloamwood Society founded to prove the Thing in the Woods is not there; nine members, a walk a year, The Sighting four times a year (issue 160 in 2000) | `q_wren` (WRE-3) | F |
 | 1969 | Gideon Markup prices the Sword of Ultimate Ending | `penultima` | F |
 | 1970 | Tobias Frayne's first revival of eleven, "in thirty years" | `frayne` | F |
+| 1971 | Edith Pellow sees the Thing, and counts nine heads; The Sighting, issue forty-four | `q_wren` (WRE-3) | F |
 | 1974 | Walt Ashbury, twenty-six years at the Eight Hours | `restwell` | F |
+| 1977 | Roland Fairweather, eleven, page to Dame Florence Ickworth: the Wyrm of Ickworth, the first of his eleven parties ("since I was eleven", and thirty-four now) | `q_roland` (ROL-3) | P |
 | 1986 | Sir Hamo Tench comes to Weeping Bottom for the sea air | `weeping_bottom.hamo_pages` | F |
 | 1989 | Corvin, nineteen, sits down in the corner of the Slain Wyvern; Ashcombe floods "in his absence". Dame Winifred at Little Gore. Wat Pardle puts up the Standing Stones, if theory six is right, which it is. Bond No. 1 in the Bonded Warehouse. Dr Pike takes a room | `south`, `ashcombe`, `hamlets`, `journey`, `dunnage`, `restwell` | P/F |
+| 1989 | Beatrice Grumnir dies; the parish's plain headstone in the new churchyard, "1919 - 1989"; she has told Hob to make her a marker, and the village stops mentioning it ("eleven years") | `q_hob` (HOB-2), `village.churchyard` | P |
+| 1989 | Nix, fifteen, starts the ledger; the first page's eleven things are never sold, and go home in NIX-4 ("eleven years" for every one of them: Bram's mother's pie dish, the Old Man's chair, Hulda Bole's good boots). Hulda takes her first fetching job the same year, and Tolly buys a sheet of stamps | `q_nix`, `south` | P |
 | 1989 | Attempt 199 lost in sight of the Tower, "eleven years dead" on her crag; the last entry in the attempt log | `field`, `north` | P |
 | 1991 | Sir Aldric Pemberton-Gore the Third goes out errant, "nine years ago"; the flowers under his portrait start. Tom marries Mrs Vane at Fenmarch, in the rain | `fenmarch.fourth_pages`, `portrait_pages`, `tom_pages`; `hamlets.vane_pages` | F |
 | 1992 | Aldric, with a commission that says "dragon", talks about Horace with the Wrong Dragon until dark ("eight years ago") | `nomap._wrong_dragon` | F |

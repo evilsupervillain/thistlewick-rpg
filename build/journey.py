@@ -18,6 +18,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
 import rmmzdata as R
+import q_nix
+import q_wren
 import story as S
 import wilds as W
 import field as F
@@ -228,8 +230,8 @@ def world_events():
          [R.transfer(MAP_GLOAMWOOD, *GW_IN, 8, 0)],
          S.narrate(["You think about it.",
                     "It does not improve."])])
-    evs.append(R.event(2, "Gloamwood Mouth", *WOOD_MOUTH, [R.page(
-        wood, img=R.image(""), trigger=1, priority=0, through=True)]))
+    evs.append(q_nix.mouth(R.event(2, "Gloamwood Mouth", *WOOD_MOUTH, [R.page(
+        wood, img=R.image(""), trigger=1, priority=0, through=True)])))  # NIX-5
 
     # 3: the far side of the wood, once it has been crossed
     back = S.narrate(["The north end of the Gloamwood.",
@@ -437,8 +439,9 @@ def gloamwood_events():
         ["Yes", "No"],
         [[R.play_se("Move1")] + tint(CLEAR, 1) +
          [R.transfer(MAP_WORLD, WOOD_MOUTH[0], WOOD_MOUTH[1] + 1, 2, 0)], []])
-    evs.append(R.event(1, "Way Out (south)", GW_IN[0], GW_IN[1] + 1, [R.page(
-        out, img=R.image(""), trigger=1, priority=0, through=True)]))
+    evs.append(q_nix.way_out(R.event(1, "Way Out (south)", GW_IN[0],  # NIX-5
+                                     GW_IN[1] + 1, [R.page(
+        out, img=R.image(""), trigger=1, priority=0, through=True)])))
 
     evs.append(R.event(2, "Deeper In (north)", GW_OUT[0], GW_OUT[1] - 1, [
         R.page([R.play_se("Move1"), R.transfer(MAP_GLOAM_DEEP, *DW_IN, 8, 0)],
@@ -539,6 +542,7 @@ def gloamwood_events():
     evs.append(S.sign(7, "Bones", 10, 9, [
         "A helmet, a boot, and a note in a jar:",
         "'IF FOUND, I WAS RIGHT ABOUT THE MIMIC'."]))
+    evs.append(q_nix.reed_event(9))     # NIX-5: a fight ends the escort
     return evs
 
 
@@ -592,12 +596,13 @@ def deep_events():
     out = S.narrate(["Out of the trees, and north."])
     out += [R.play_se("Move1")] + tint(CLEAR, 1)
     out += [R.transfer(MAP_WORLD, WOOD_NORTH[0], WOOD_NORTH[1] + 1, 2, 0)]
-    evs.append(R.event(2, "North Out Of The Wood", DW_OUT[0], DW_OUT[1] - 1, [
+    evs.append(q_nix.north_out(R.event(                             # NIX-5
+        2, "North Out Of The Wood", DW_OUT[0], DW_OUT[1] - 1, [
         R.page(S.narrate(["Something enormous is in the way."]),
                img=R.image(""), trigger=1, priority=0, through=True),
         R.page(out, img=R.image(""), trigger=1, priority=0, through=True,
                conditions={"switch1Valid": True, "switch1Id": db.SW_GLOAMWOOD}),
-    ]))
+    ])))
 
     # NORTH.md 3.4, two of three.
     evs.append(S.specimen(6, "A Shed Skin", 19, 13, [
@@ -655,6 +660,8 @@ def deep_events():
                         "inside a hollow log.",
                         "Somebody hid these. Somebody did not come back",
                         "for them."]))
+    evs.append(q_nix.reed_event(7))     # NIX-5: a fight ends the escort
+    evs += q_wren.walk_events(8)        # WRE-3: the society's walk
     return evs
 
 

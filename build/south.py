@@ -20,6 +20,8 @@ import mapkit as K
 import rmmzdata as R
 import story as S
 import q_merribell
+import q_nix
+import q_roland
 import q_wren
 from places import (MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
@@ -305,8 +307,8 @@ def sopping_events():
         "Come back tomorrow."])
     again = S.say("Ferryman", ["Tide's still wrong.",
                                "It's been wrong since I bought the boat."])
-    evs.append(talker(8, "Ferryman", 20, 30, "Ferryman", ferry, again,
-                      direction=4))
+    evs.append(q_nix.returned("ferryman", talker(                  # NIX-4
+        8, "Ferryman", 20, 30, "Ferryman", ferry, again, direction=4)))
 
     # -- 9: two children, playing the only game there is ----------------------
     kids = S.narrate([
@@ -465,7 +467,8 @@ def wyvern_map():
     g.autotile(0)                                 # where the good chairs are
 
     for x, shelf in ((3, K.IN_SHELF_BOTTLES), (4, K.IN_SHELF_JARS),
-                     (5, K.IN_SHELF_GOODS), (6, K.IN_SHELF_FRUIT)):
+                     (5, K.IN_SHELF_GOODS), (6, K.IN_SHELF_JARS)):
+        # (6 was IN_SHELF_FRUIT - teddy bears and a pink rabbit, at a bar.)
         g.column(x, 3, 2, shelf)
     # The bar. Inside_B's tables carry the counter flag (0x80), which is what
     # lets the action button reach the landlady standing behind it - so the
@@ -562,8 +565,9 @@ def wyvern_events():
     hulda_again = S.say("Hulda", [
         "If anyone asks you to fetch twelve of",
         "anything, ask what the thirteenth is for."])
-    evs.append(tale(5, "Hulda Bole (the Fetcher)", 4, 9, "Hulda",
-                    hulda, hulda_again, direction=6))
+    evs.append(q_nix.returned("hulda", tale(                       # NIX-4
+        5, "Hulda Bole (the Fetcher)", 4, 9, "Hulda", hulda, hulda_again,
+        direction=6)))
 
     nabb = S.narrate([
         "Two people at the same table, not eating."])
@@ -603,8 +607,9 @@ def wyvern_events():
     tolly_again = S.say("Tolly", [
         "Two stamps. It's a long way, and",
         "he's worth two stamps."])
-    evs.append(talker(7, "Tolly (of the Forty-Sixth)", 6, 11, "Tolly", tolly,
-                      tolly_again, direction=6))
+    evs.append(q_nix.returned("tolly", talker(                     # NIX-4
+        7, "Tolly (of the Forty-Sixth)", 6, 11, "Tolly", tolly, tolly_again,
+        direction=6)))
 
     merrow = S.narrate([
         "A big man in old armour, drinking carefully."])
@@ -669,8 +674,9 @@ def wyvern_events():
     dree_again = S.say("Dree", [
         "If it helps: I am not the Dark Lord.",
         "I have a certificate. I had to get one."])
-    evs.append(tale(9, "Councillor Dree (the Suspect)", 20, 7, "Dree",
-                    dree, dree_again, direction=4))
+    evs.append(q_nix.returned("dree", tale(                        # NIX-4
+        9, "Councillor Dree (the Suspect)", 20, 7, "Dree", dree, dree_again,
+        direction=4)))
 
     perp = S.narrate([
         "A young woman with excellent posture and an",
@@ -851,7 +857,9 @@ def wyvern_events():
     # -- NORTH.md 3.1 and 3.2. Two new things to click on at the east end of
     # the bar. Both are pattern one - a new event - and neither of them
     # touches a line anybody in this room already had.
-    evs.append(dorcas_board(19, 7, 4))
+    board = dorcas_board(19, 7, 4)
+    board["pages"] += q_roland.board_pages(board["pages"][-1])   # ROL-3
+    evs.append(board)
     evs.append(the_register(20, 7, 6))
 
     evs.append(S.prop(18, "The Wyvern's Plaque", 17, 4, [
@@ -862,6 +870,7 @@ def wyvern_events():
         "", 0, extra=[S.trope()]))
     # WRE-2: the other side of the fire. No page until it is put up.
     evs.append(q_wren.second_plaque(21, 19, 4))
+    evs += q_roland.alumni_events(22)       # ROL-3: the dinner, while it is on
     return evs
 
 

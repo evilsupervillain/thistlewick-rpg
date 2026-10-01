@@ -287,6 +287,37 @@ SW_MER4_DONE = 124              # and they have left, which is the cure
 SW_HOB3_GONE = 125              # the anvil is out on the grass; off again after
 SW_HOB3_DONE = 126              # and back, to the inch
 IT_APOLOGY = 45
+# NIX-4, the longest loan (QUESTS.md A9, q_nix.py)
+SW_NIX4_BEGUN = 127             # the eleven are out of the Emporium
+SW_NIX4_DONE = 128              # and back, and the ledger ruled off
+VAR_NIX4_RETURNED = 17          # how many of the eleven have gone home
+IT_RETURNS, IT_PARCEL = 46, 47
+# NIX-5, half an encounter (QUESTS.md A10, q_nix.py)
+SW_NIX5_ON = 129                # Mr Bagshawe is being taken through; ends
+SW_NIX5_DONE = 130              # and he was, without a fight
+VAR_NIX5_BATTLES = 18           # battleCount() when the escort set out
+# WRE-3, the thing in the Gloamwood (QUESTS.md A11, q_wren.py)
+SW_WRE3_WALK = 131              # the society is out on its walk; ends
+SW_WRE3_DONE = 132              # and the Thing is proved not to exist
+AR_SOCIETY_BADGE = 40           # Wren's gear (QUESTS.md 0.5): only she wears it
+AT_BADGE = 7                    # an armour type of its own, for that
+# PIP-5, the struck verses (QUESTS.md A12, q_piper.py)
+SW_PIP5_ASKED = 133             # Piper knows there is a box
+SW_PIP5_SIGNED = 134            # Form S-7, countersigned on the wording
+SW_PIP5_KEY = 135               # the key, lifted while Fenn was listened to
+SW_PIP5_DONE = 136              # and the box opened, and shut again
+VAR_PIP5_DECOY = 19             # actor id of whoever asked Fenn about clause 12
+IT_FORM_S7, IT_ARCHIVE_KEY = 48, 49
+# HOB-2, the grave he has not made (QUESTS.md A13, q_hob.py)
+SW_HOB2_ON = 137                # Beatrice has gone quiet; off again after
+SW_HOB2_CARRYING = 138          # an attempt is on its way to the churchyard
+SW_HOB2_DONE = 139              # the gate is hung, and she has views on it
+VAR_HOB2_TRY = 20               # attempts made, of four
+WP_SOMETHING_TO_SAY = 41        # Hob's gear (QUESTS.md 0.5)
+# ROL-3, the alumni (QUESTS.md A14, q_roland.py)
+SW_ROL3_DINNER = 140            # the eleven are in the Slain Wyvern; ends
+SW_ROL3_DONE = 141              # and have drunk to him
+VAR_ROL3_HEARD = 21             # how many of the eleven have been spoken to
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -755,6 +786,11 @@ def build_actors():
         "regrettable step in the methodology. Carries seventeen specimen jars "
         "and a monograph in progress.",
         "Actor2", 7, 6, [WP_CROSSBOW, 0, AR_A_HAT, AR_LEATHER, 0]))
+    # WRE-3: the Gloamwood Society's badge is hers and nobody else's
+    # (QUESTS.md 0.5) - an armour type no class has, allowed on her alone.
+    # On the actor rather than the Cataloguer class, so no published class
+    # changes and the rule reads as what it is.
+    ac[WREN]["traits"] = [trait(52, AT_BADGE, 1)]
 
     upsert(ac, actor(
         ROLAND, "Roland", "Guest Star",
@@ -1409,6 +1445,22 @@ def build_items():
                     "From I. Scrope, week four, on the back of a syllabus. "
                     "Very sorry, in a very good hand. Hob keeps it.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=193))
+    upsert(it, item(IT_RETURNS, "Previously Owned Goods",
+                    "Eleven things, labelled for their owners in Nix's hand: "
+                    "four in Thistlewick, four in Nether Sopping, three up north.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=209))
+    upsert(it, item(IT_PARCEL, "A Parcel, Unaddressed",
+                    "Brown paper and string. The last of Hulda Bole's four "
+                    "hundred and six jobs. The client had moved.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=208))
+    upsert(it, item(IT_FORM_S7, "Form S-7",
+                    "Application to Consult Struck Material (Verse). In "
+                    "triplicate, in Piper's hand, which scans.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=193))
+    upsert(it, item(IT_ARCHIVE_KEY, "A Key Marked STRUCK",
+                    "Off Councillor Fenn's hook, while he was explaining "
+                    "clause twelve. It goes back on the way out.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=195))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",
@@ -1598,6 +1650,15 @@ def build_weapons():
                       WT_AXE, 3000, [0, 0, 66, 12, 0, 8, 2, 10], icon=99,
                       animation=25,
                       traits=[atk_el(EL_LIGHT), trait(22, 2, 0.1)]))
+    # HOB-2: the three markers he made for her and would not put up, melted
+    # down. His best (QUESTS.md 0.5), and slower than it need be, on purpose.
+    # An axe, as Beatrice II is: the one weapon type that is Hob's alone.
+    upsert(wp, weapon(WP_SOMETHING_TO_SAY, "Something To Say",
+                      "[Axe] Three grave markers, melted. The haft a shade "
+                      "long, the face left rough: so she'd have something to say.",
+                      WT_AXE, 0, [0, 0, 78, 12, 0, 6, -6, 12], icon=99,
+                      animation=22,
+                      traits=[trait(22, 2, 0.15)]))
     save("Weapons.json", wp)
 
 
@@ -2203,6 +2264,14 @@ def build_firstfield():
                      "The first one the Guild of Guides has issued.",
                      ET_ACCESSORY, AT_GENERAL, 0, [0, 0, 0, 0, 0, 0, 0, 5],
                      icon=191))
+    # -- the companion quests' (40-59) -------------------------------------
+    # WRE-3: honorary membership. Wren only (AT_BADGE). A small sharp eye and
+    # a great deal of luck, which is what forty years of looking comes to.
+    upsert(ar, armor(AR_SOCIETY_BADGE, "Gloamwood Society Badge",
+                     "[Accessory] Honorary member. Enamel: a Thing with nine "
+                     "heads, all of them busy. The only one ever given away.",
+                     ET_ACCESSORY, AT_BADGE, 0, [0, 0, 0, 0, 0, 0, 4, 12],
+                     icon=146, traits=[trait(22, 0, 0.05)]))
     save("Armors.json", ar)
 
     en = R.load("Enemies.json")

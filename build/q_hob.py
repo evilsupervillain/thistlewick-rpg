@@ -369,3 +369,226 @@ def outside_events(base_id, anvil_at, tile):
              ["We're not stuck. We're resting.",
               "Between modules."]),
     ]
+
+
+# ======================================================================
+# HOB-2, The Grave He Has Not Made (`QUESTS.md` A13)
+# ----------------------------------------------------------------------
+# Beatrice goes quiet. Not broken - quiet. Hob is bereft and unbearable, and
+# admits in the end what she told him to do eleven years ago: make her a
+# marker. He has never started it. The quest is four attempts: three
+# magnificent things he carries down to the churchyard and will not put up,
+# and a gate with a good latch, because the gate sticks and she would have
+# hated the fuss. She starts talking again on the walk home, about the latch.
+#
+# * **Nobody in it says she is the hammer**, including the narrator. The
+#   headstone has her name on it, and that is all.
+# * **The churchyard is new tiles in an empty corner of Map 1**, east of the
+#   chapel, drawn by `village.py` - `QUESTS.md` A13 has the argument. It is
+#   there for everybody, from the start; only the gate changes.
+# * **The attempts are made at the forge** (Map 6, a new event on it) and
+#   carried to her grave (Map 1). `SW_HOB2_CARRYING` is one attempt on its
+#   way, `VAR_HOB2_TRY` which; the fourth is hung, not put up. Every piece of
+#   it is a global, so a Hob sent home leaves it where it was.
+# * **His weapon is the three he would not put up**, melted, and made badly
+#   on purpose so that she would have something to say. It is his best.
+HOB2_ICON = 99
+
+
+def _hob2_quiet():
+    c = S.narrate([
+        "Hob stops in the doorway of his own smithy, with his",
+        "hand on Beatrice at his belt, and listens."])
+    c += S.say("Hob", ["...Beatrice?"])
+    c += [R.wait(40)]
+    c += S.narrate(["Nothing."])
+    c += S.say("Hob", ["She's not sulking. Hammers don't sulk."])
+    c += S.narrate([
+        "He says this four times in the next hour - to the",
+        "anvil, to the forge, to the quench and to you - and",
+        "is unbearable in between. Nobody has ever seen Hob",
+        "Grumnir at a loss, and he turns out to be very large",
+        "at it."])
+    c += S.say("Hob", ["Eleven years back, she told me to",
+                       "make her a marker. For the churchyard."])
+    c += S.say("Hob", ["Make it right, she said, and don't",
+                       "make a fuss. I've not started it.",
+                       "I can't get it right in my head."])
+    c += S.narrate(["He looks at the forge for a long time."])
+    c += S.say("Hob", ["She'll not say anything till I do.",
+                       "That'll be it."])
+    c += [S.trope(), R.control_switch(db.SW_HOB2_ON, True)]
+    return c
+
+
+_HOB2_MADE = {
+    1: ["Hob makes a headstone of wrought iron, with roses on",
+        "it that open as you watch, and her name in letters",
+        "you could hang a door on. It takes him all night. It",
+        "is magnificent."],
+    2: ["A cross of forged steel, eight feet high, with a",
+        "flame worked into the heart of it that is somehow",
+        "made of iron. It is the best thing you have ever",
+        "seen made by hand, until the next one."],
+    3: ["Something small this time: a plate, her name, and a",
+        "B and a G run together by the hilt of a little",
+        "sword. It is perfect. He looks at it as if it had",
+        "said something rude."],
+    4: ["A gate. A plain churchyard gate in good iron, true",
+        "on its hangings, with a latch that drops shut under",
+        "its own weight and stays shut."],
+}
+
+
+def _hob2_forge():
+    made = []
+    for n in (1, 2, 3, 4):
+        body = S.narrate(_HOB2_MADE[n])
+        if n == 4:
+            body += S.say("Hob", ["She'd have hated the fuss."])
+        made += R.if_then(R.condition_variable(db.VAR_HOB2_TRY, n), body)
+    make = [R.control_variable_add(db.VAR_HOB2_TRY, 1),
+            R.play_se("Fire1", pitch=80), R.wait(20),
+            R.play_se("Hammer", pitch=90), R.wait(12),
+            R.play_se("Hammer", pitch=100), R.wait(20)]
+    make += made + [R.control_switch(db.SW_HOB2_CARRYING, True)]
+    make += S.say("Hob", ["Right. Down to her with it."])
+    wait = S.say("Hob", ["Down to her with it first.",
+                         "Then we'll see."])
+    return R.if_then(R.condition_switch(db.SW_HOB2_CARRYING), wait, make)
+
+
+def forge_event(event_id, x, y):
+    """The forge on the smithy's back wall (Map 6): the quiet, as an autorun
+    the first time Hob walks in after the anvil is back, and then the four
+    attempts, one at a time."""
+    blank = R.image("")
+    kw = dict(direction_fix=True)
+    return R.event(event_id, "The Forge", x, y, [
+        R.page(S.narrate(["The forge, banked down. It is never quite out."]),
+               img=blank, **kw),
+        R.page(_hob2_quiet(), img=blank, trigger=3,
+               conditions={"actorValid": True, "actorId": db.HOB,
+                           "switch1Valid": True,
+                           "switch1Id": db.SW_HOB3_DONE}, **kw),
+        R.page(_hob2_forge(), img=blank,
+               conditions={"actorValid": True, "actorId": db.HOB,
+                           "switch1Valid": True,
+                           "switch1Id": db.SW_HOB2_ON}, **kw),
+        R.page(S.narrate([
+            "The forge. Chalked on the wall beside it, a drawing",
+            "of a latch, and under it, in another hand entirely,",
+            "'TOO HEAVY'."]), img=blank,
+            conditions={"switch1Valid": True,
+                        "switch1Id": db.SW_HOB2_DONE}, **kw),
+    ])
+
+
+def _hob2_grave():
+    no = {
+        1: S.narrate(["Hob sets the iron headstone up beside the parish",
+                      "one. The roses catch the light."]) +
+        S.say("Hob", ["No."]) +
+        S.narrate(["He does not say why. He takes it back up the lane",
+                   "under one arm."]),
+        2: S.narrate(["He stands the cross up. It is eight feet high. It",
+                      "can be seen from the road."]) +
+        S.say("Hob", ["She'd say it was showing off."]) +
+        S.narrate(["It is, a bit. It goes back up the lane."]),
+        3: S.narrate(["He props the little plate against the headstone.",
+                      "It is exactly right, and small, and he looks at",
+                      "it for a long time."]) +
+        S.say("Hob", ["It's right. It's not her."]) +
+        S.narrate(["On the way out the gate sticks, as it always has,",
+                   "and you all have to lift it to make it move. Hob",
+                   "stops with his hand on it."]) +
+        S.say("Hob", ["...Hang on."]),
+    }
+    c = []
+    for n in (1, 2, 3):
+        c += R.if_then(R.condition_variable(db.VAR_HOB2_TRY, n),
+                       no[n] + [R.control_switch(db.SW_HOB2_CARRYING, False)])
+    c += R.if_then(R.condition_variable(db.VAR_HOB2_TRY, 4), S.say("Hob", [
+        "Not this one. This one's for the gate."]))
+    return c
+
+
+def grave_event(event_id, x, y, tile):
+    """Beatrice Grumnir's grave (Map 1), the parish's plain headstone, for
+    everybody; with Hob and an attempt in hand, where each one is refused."""
+    stone = S.narrate([
+        "A plain headstone, the parish's own:",
+        "  BEATRICE GRUMNIR. SMITH. 1919 - 1989.",
+        "The grass round it has been cut. Somebody cuts it",
+        "every week, and nobody says who."])
+    img = R.image("", 0, tile_id=tile)
+    kw = dict(direction_fix=True)
+    return R.event(event_id, "Beatrice Grumnir's Grave", x, y, [
+        R.page(stone, img=img, **kw),
+        R.page(_hob2_grave(), img=img,
+               conditions={"actorValid": True, "actorId": db.HOB,
+                           "switch1Valid": True,
+                           "switch1Id": db.SW_HOB2_CARRYING}, **kw),
+    ])
+
+
+def _hob2_hung():
+    c = S.narrate([
+        "Hob lifts the old gate off what is left of its",
+        "hinge and hangs the new one. It takes him ten",
+        "minutes, and he does not hurry one of them."])
+    c += [R.play_se("Hammer", pitch=100), R.wait(15),
+          R.play_se("Hammer", pitch=110), R.wait(30),
+          R.play_se("Open1", pitch=80), R.wait(20),
+          R.play_se("Switch1", pitch=70), R.wait(30)]
+    c += S.narrate(["It swings shut under its own weight.",
+                    "The latch drops. Click."])
+    c += S.say("Hob", ["There."])
+    c += [R.wait(40)]
+    c += S.narrate([
+        "Nobody says anything. Half-way up the lane Hob stops,",
+        "and puts his hand to his belt, and listens."])
+    c += S.say("Hob", ["...She says the latch wants a spring."])
+    c += S.say("Hob", ["She says it's hung a quarter-inch proud",
+                       "on the low side, and the sneck's too",
+                       "heavy, and who was it taught me to use",
+                       "a sneck that heavy."])
+    c += S.say("Hob", ["She's right."])
+    c += S.narrate([
+        "He walks the rest of the way home a good deal faster",
+        "than he came, talking the whole way, and so, you",
+        "gather, does she."])
+    c += S.say("Hob", ["Them three I made for her. I'll melt",
+                       "them for a hammer. Make it badly, a",
+                       "bit. Give her something to say."])
+    c += [R.play_se("Fire1", pitch=80), R.wait(20),
+          R.gain_weapon(db.WP_SOMETHING_TO_SAY, 1), R.play_me("Item")]
+    c += S.got(["Got \\I[%d]\\C[3]Something To Say\\C[0]." % HOB2_ICON])
+    c += [R.control_switch(db.SW_HOB2_CARRYING, False),
+          R.control_switch(db.SW_HOB2_ON, False),
+          R.control_switch(db.SW_HOB2_DONE, True)]
+    c += S.companion_story(db.HOB)
+    return c
+
+
+def gate_event(event_id, x, y):
+    """The churchyard gate (Map 1), in the gap in the south wall: the old one,
+    stuck, which you lift every time; the new one being hung; and the new
+    one, which clicks. Below characters, walked through."""
+    old = R.image("!Door2", 2, direction=6, pattern=2)
+    new = R.image("!Door2", 3, direction=8, pattern=0)
+    kw = dict(trigger=1, priority=0, direction_fix=True, walk_anime=False)
+    return R.event(event_id, "The Churchyard Gate", x, y, [
+        R.page(S.narrate(["The gate sticks. You lift it, and shove, and it",
+                          "scrapes, and you are through."]), img=old, **kw),
+        R.page(_hob2_hung(), img=old,
+               conditions={"actorValid": True, "actorId": db.HOB,
+                           "switch1Valid": True,
+                           "switch1Id": db.SW_HOB2_CARRYING,
+                           "variableValid": True,
+                           "variableId": db.VAR_HOB2_TRY,
+                           "variableValue": 4}, **kw),
+        R.page([R.play_se("Switch1", pitch=70)], img=new,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_HOB2_DONE}, **kw),
+    ])

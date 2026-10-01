@@ -262,7 +262,7 @@ SHEETS = {
         (7, "drainage-commissioner.json"),  # are you a fire person?
     ],
     # The last three of item 1, then the companion quests (`QUESTS.md` 1).
-    # Cells 5-7 are free.
+    # Full.
     "Gen_People11": [
         (0, "mrs-puddifoot.json"),      # Friday to Wednesday
         (1, "tom-fenmarch.json"),       # four miles, both ways
@@ -271,6 +271,23 @@ SHEETS = {
         # is in the syllabus bandana, as Norbert is; Ivy writes a good hand.
         (3, "ivy-scrope.json"),         # very sorry
         (4, "hodge-arkwright.json"),    # less so
+        # NIX-5, half an encounter: the Works Band's first bassoon, who has
+        # to be got through the Gloamwood at night without a fight.
+        (5, "enoch-bagshawe.json"),     # the reed
+        # WRE-3, the Gloamwood Society: the chair and the secretary.
+        (6, "hester-lumb.json"),        # it's always tonight
+        (7, "cyril-dunmore.json"),      # second pencil
+    ],
+    # The companion quests, continued. Cell 7 is free.
+    "Gen_People12": [
+        (0, "edith-pellow.json"),       # WRE-3: I counted nine
+        # ROL-3, the Fairweather alumni: six of the eleven parties.
+        (1, "dame-florence-ickworth.json"),  # he was my page, at eleven
+        (2, "brother-anselm.json"),     # the Seven Bells
+        (3, "mags-turvey.json"),        # the siege kitchen
+        (4, "pim-corrow.json"),         # the heir, found
+        (5, "odile-marchbank.json"),    # the Ninth Lancers
+        (6, "old-jory.json"),           # the last survey
     ],
 }
 

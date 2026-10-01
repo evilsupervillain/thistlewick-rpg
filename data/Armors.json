@@ -31,5 +31,13 @@ null,
 {"id":29,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
 {"id":30,"name":"A Stick","note":"","description":"[Accessory] It is dangerous to go alone. Carried, rather\nthan wielded. Nobody knows why.","iconIndex":292,"etypeId":5,"atypeId":1,"price":1,"params":[0,0,1,0,0,0,0,0],"traits":[]},
 {"id":31,"name":"A Straighter Stick","note":"","description":"[Accessory] Nell picked this one out specially. It is\nnoticeably straighter.","iconIndex":292,"etypeId":5,"atypeId":1,"price":2,"params":[0,0,2,0,0,0,0,1],"traits":[]},
-{"id":32,"name":"Certificate of Completion","note":"","description":"[Accessory] For walking, talking, opening and hitting. The\nfirst one the Guild of Guides has issued.","iconIndex":191,"etypeId":5,"atypeId":1,"price":0,"params":[0,0,0,0,0,0,0,5],"traits":[]}
+{"id":32,"name":"Certificate of Completion","note":"","description":"[Accessory] For walking, talking, opening and hitting. The\nfirst one the Guild of Guides has issued.","iconIndex":191,"etypeId":5,"atypeId":1,"price":0,"params":[0,0,0,0,0,0,0,5],"traits":[]},
+{"id":33,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":34,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":35,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":36,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":37,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":38,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":39,"atypeId":0,"description":"","etypeId":1,"traits":[],"iconIndex":0,"name":"","note":"","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":40,"name":"Gloamwood Society Badge","note":"","description":"[Accessory] Honorary member. Enamel: a Thing with nine\nheads, all of them busy. The only one ever given away.","iconIndex":146,"etypeId":5,"atypeId":7,"price":0,"params":[0,0,0,0,0,0,4,12],"traits":[{"code":22,"dataId":0,"value":0.05}]}
 ]

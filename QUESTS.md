@@ -139,13 +139,13 @@ by the first step that needs it.
 | companion | gear | from | step |
 | --- | --- | --- | --- |
 | Merribell | the Pamphlet (accessory) | MER-1 | E2 |
-| Hob | the best weapon for him, forged badly on purpose | HOB-2 | A13 |
+| Hob | the best weapon for him, forged badly on purpose - **done**: weapon 41, "Something To Say", an axe (axes are his alone) | HOB-2 | A13 |
 | Zephyrine | a robe with a stat line | ZEPH-1 | C1 |
 | Nix | the coat (armour, and it fits) | NIX-1 | B5 |
 | Aldric | the shield | ALD-2 | E7 |
 | Piper | the rosette for second place (accessory) - she frames the certificate and wears the rosette; decided in A3 | PIP-3 | B3 |
 | Corvin | the scarf, the wrong colour (accessory) | COR-1 | D1 |
-| Wren | *nothing in her five gives gear* - decide in her first step (A1) | | |
+| Wren | **the Gloamwood Society badge** - decided in A11: armour 40, an accessory of a new armour type (7, "Badge") that only her actor can wear | WRE-3 | A11 |
 | Roland | the better sword he leaves at the door | ROL-2 | E18 |
 
 ### 0.6 Ids reserved for this effort
@@ -843,62 +843,355 @@ is worth carrying forward:
   new cells, which have no page until the theft.
 * `TIMELINE.md`: nothing dated.
 
+**A9-A14 were built in one session (30 Sep 2026) and share one commit**,
+against 0.1. Each step after A9 was written while the steps before it were
+still in their scenarios, so the six are interleaved through `db.py`,
+`build_game.py`, `story.py`, `art.py`, `village.py`, `journey.py`, Maps 1,
+10 and 14 and the database files; splitting the hunks by hand risked a
+commit that does not build. Each step is complete and has its own scenario,
+and the paragraphs below are per step as usual.
+
+**A9, NIX-4 The Longest Loan - done.** `build/q_nix.py` (new), hooked from
+`village.py` (five), `south.py` (four) and `north.py` (three), one line round
+each owner's event; `build/scenarios/q_nix4.json`. What is worth carrying
+forward:
+
+* **It starts at the Emporium's ledger** (Map 7, event 4), pages 2-5, with
+  Nix and `SW_NORTH` - so every owner she names is somebody already met.
+  Page 2 is the ask: eleven of **one item**, `IT_RETURNS` "Previously Owned
+  Goods", so the count in the bag is what is left; page 3 is the tally
+  (`\V[17]` of eleven); page 4 (`VAR_NIX4_RETURNED` 11) rules the book off
+  and opens a new page on the parcel; page 5 (`SW_NIX4_DONE`) is the closed
+  book, for everybody. One trope (the fetch chain), at the ask.
+* **The eleven, and the ladder rule.** `q_nix.returned(key, ev)` appends two
+  pages to an owner's event: the return, on `IT_RETURNS` + Nix + whatever
+  the owner's own last page needs (self switch A, for the seven with a short
+  version), and afterwards on self switch B - **their own last page with one
+  narrated line added**, so nobody loses a word. It asserts the owner's last
+  page needs nothing but A and that nothing of theirs uses B. Thistlewick:
+  Bram's mother (pie dish; the pie was a separate matter), the Old Man (a
+  chair: he can wait sat down), the Fisher (a keep net, for a pond with no
+  fish), the Gatekeeper (the key to a gate that has never been shut). Nether
+  Sopping: the Ferryman (a tide table; **pays**, a penny), Councillor Dree
+  (spectacles: his eyes are entirely ordinary now, and he will miss being
+  suspected), Tolly (a sheet of forty stamps, the old rate), **Hulda Bole**
+  (her good boots - and she gives Nix the last job's parcel, `IT_PARCEL`,
+  client not identified: **the something better**). Upper Clanging: Old
+  Sowerby (his snap tin, a sandwich eleven years old; **pays**, a rivet, and
+  Nix does not take it), Nib (the small can - there were always two), Bessie
+  Marsden (her gran's cradle, ahead of schedule: **one blush**). The Elder,
+  Mr Kell and Mrs Tunnicliffe were passed over because their last pages do
+  something (the guild reference, a room, the census) that a page on top
+  would shadow.
+* **A ladder's set piece runs first**: an owner never spoken to gives their
+  own scene, then the return. The scenario shows it on Tolly.
+* **Ids taken:** switches **127** `SW_NIX4_BEGUN`, **128** `SW_NIX4_DONE`;
+  variable **17** `VAR_NIX4_RETURNED`; items **46** `IT_RETURNS`, **47**
+  `IT_PARCEL`.
+* Tropes +1, blushes +1. Running tally for the effort: **tropes +7 fixed and
+  2-9 from PIP-2; blushes +7 fixed and 0-1 from PIP-2.**
+* `SW_STORY[NIX]` at the ruling-off. **The parcel is on the Emporium's
+  shelf, unopened**, a line in the new page - NIX-1 (B5) may want it.
+* **Candidate ending line** (G1; read `SW_NIX4_DONE`): "Nix's ledger has a
+  RETURNED column now, with eleven lines in it. Over the page there is a
+  parcel, for a client not yet identified."
+* **The rooms (0.1):** the Emporium was swept on 30 Sep and reads right (the
+  toy shelf is stock, there). Upper Clanging, never swept, was cropped: its
+  "dumpsters" are plain lidded bins and its two posters printed bills, both
+  right for a works town, so nothing was changed. The two inns' toy shelves
+  were fixed in A11, below.
+* **Scenario** `q_nix4`: the whole round, about 25 minutes; passes. It
+  clears Clanging's rain after its last `goto`, which teleports past the
+  South Road that clears it in play.
+* `TIMELINE.md`: 1989, Nix starts the ledger at fifteen.
+
+**A10, NIX-5 Half An Encounter - done.** NIX-5's section of `q_nix.py`,
+hooked from `journey.py` in five places; `build/scenarios/q_nix5.json`.
+
+* **Enoch Bagshawe**, first bassoon engaged by the Upper Clanging Works Band
+  (a brass band; they asked), with one reed that took three weeks and goes
+  the moment anything looks at him. He is on the milestone at the
+  **Gloamwood's mouth** - the world map's event 2 gets a page on
+  `SW_GLOAMWOOD` + Nix whose tail is the mouth's own "Go in / Think about
+  it", so saying "not tonight" loses nothing. The first telling sets the
+  mouth's self switch A and later nights are the short version, so the
+  **one blush** ("eight feet of tube, folded; nobody has ever complained")
+  counts once. Nix: "I halve them. What's half an encounter? Still an
+  encounter."
+* **A fight is detected without touching a troop**: `battleCount()` into
+  `VAR_NIX5_BATTLES` at the mouth; a new parallel event on each wood map,
+  **Mr Bagshawe's Reed** (Map 9 event 9, Map 10 event 7), fails it the
+  moment the count moves - running away counts - and the north exit (Map 10
+  event 2, page 3) checks again, as A10 says. Walking out of the south end
+  (Map 9 event 1, page 2) abandons it. Either way he goes home and is on
+  the milestone another night.
+* **Night** is a tint (`q_nix.NIGHT`) instead of the wood's gloom for as
+  long as `SW_NIX5_ON` is; a failure puts the gloom back.
+* **Through**: the moon on the road, one low note (`Horn` at pitch 50), the
+  fee, 300, and a receipt. **One trope** (the stealth section).
+* **Ids taken:** switches **129** `SW_NIX5_ON` (ends), **130**
+  `SW_NIX5_DONE`; variable **18** `VAR_NIX5_BATTLES`; face `Gen_People11`
+  **5**, Bagshawe.
+* Running tally: **tropes +8 fixed and 2-9; blushes +8 fixed and 0-1.**
+* **Candidate ending line** (G1; read `SW_NIX5_DONE`): "Enoch Bagshawe
+  crossed the Gloamwood by night without a single encounter, or half of
+  one. The Works Band has a bassoon."
+* **The rooms (0.1):** the Gloamwood was cropped, and **`mapkit.ROCK` and
+  `ROCK2` were `Rock Fire Pit A` and `B`** - campfire rings standing in the
+  wood's undergrowth, on Thistlewick's verges, on Nether Sopping's shore and
+  in Firstfield. They are `Boulder A` and `B` now, with the same flags
+  (0x60f), so nothing anybody walks changed; screenshots before and after.
+* **Scenario** `q_nix5`, encounters left on: three nights - abandoned at
+  the south end, failed by a forced battle (the parallel event fires as
+  the battle ends), and through to the north exit. Passes.
+* `TIMELINE.md`: nothing dated.
+
+**A11, WRE-3 The Thing In The Gloamwood - done.** WRE-3's section of
+`q_wren.py`, hooked from `village.py` and `journey.py`;
+`build/scenarios/q_wre3.json`.
+
+* **The answer was already in the game**: the nest on the first path ("that
+  is why there are nine of them"), the shed skin ("everything we have
+  killed this week was in the middle of courting"), and a Thing "difficult
+  to say how much of it there is". It was never one thing: nine crested
+  grass snakes, knotted, in season, seen at dusk. "It's nine of them.
+  Courting." / "...All at once?" / "It's the only way they know how."
+  **One blush.**
+* **The Gloamwood Society** - nine members, The Sighting four times a year
+  since 1960, a walk once a year - meets in the **Gilded Turnip** (Map 4,
+  events 8-10, at a new table at (12,11)): Mrs Lumb the chair, Mr Dunmore
+  the secretary, Miss Pellow who saw it in 1971. They are there for
+  everybody; once the Thing is dealt with Mrs Lumb's first page adds the
+  game's own "you are not going to tell them anyway". Wren's ask is her page
+  2 (`SW_GLOAMWOOD` + Wren). **One trope** (the cryptid).
+* **The walk** (`SW_WRE3_WALK`, ends): the three leave the inn and all nine
+  stand round the deep clearing (Map 10, events 8-16; six extras on stock
+  sprites, no lines). The proof is Mrs Lumb's page there with Wren; without
+  her they wait. **Miss Pellow is looked after** by everybody without
+  anybody arranging it, and is fine by the edge of the wood: hers, issue
+  forty-four, is the only accurate sighting in forty years - she counted
+  nine.
+* **Wren's gear is decided: the badge** (0.5), armour **40** "Gloamwood
+  Society Badge", an accessory of a new armour type **7, "Badge"**, which no
+  class can wear and **Wren's actor** has a trait for - on the actor, not
+  the Cataloguer class, so no published class changed. That is the pattern
+  for any later accessory that must be one companion's alone. LUK +12, AGI
+  +4, hit +5%.
+* **Ids taken:** switches **131** `SW_WRE3_WALK` (ends), **132**
+  `SW_WRE3_DONE`; armour **40**, armour type **7**; faces `Gen_People11`
+  **6** (Lumb), **7** (Dunmore) and `Gen_People12` **0** (Pellow) - the
+  first cell of the new sheet.
+* Running tally: **tropes +9 fixed and 2-9; blushes +9 fixed and 0-1.**
+* **Candidate ending line** (G1; read `SW_WRE3_DONE`): "The Gloamwood
+  Society has proved there is nothing in the Gloamwood. Next year's walk is
+  expected to be very well attended."
+* **The rooms (0.1):** both inns had `IN_SHELF_FRUIT` behind the bar, which
+  is `Sundries Shelf A` - **two teddy bears and a pink rabbit**. The Turnip's
+  is a bottle shelf now and the Wyvern's a jar shelf, same flags; the
+  Emporium keeps its toys, and the constant has a comment. (`IN_CABINET`
+  was tried for the Wyvern and refused: its lower cell is a star tile and
+  would have opened a cell of the bar.) The clearing needed nothing.
+* **Scenario** `q_wre3`; passes.
+* `TIMELINE.md`: 1960 the society; 1971 Miss Pellow counts nine.
+
+**A12, PIP-5 The Struck Verses - done.** PIP-5's section of `q_piper.py`,
+hooked from `village.py`; `build/scenarios/q_pip5.json`.
+
+* **Map 3 had no room**: the hall fills x 3-17 and its margins are two
+  tiles. So **Map 3 is 31 wide now** and the archive is a room in its black
+  east (x 23-27, y 5-8), `village.archive_room`; the hall is tile for tile
+  what it was in its old 21 columns (checked). The way in is the curtained
+  window on the north wall (`Middle Window B`, (16,4)): drawn back, there
+  is no window, there is a door marked STRUCK (event 9). Out is the
+  archive's doorway (event 11).
+* **A form, a key and a distraction.** The ask is the fete minutes' page 3
+  (Map 3 event 8, below its terminal A, with Piper): **one trope** (the
+  redacted archive). Form S-7 is in the Committee Records (event 7, which
+  are the records again afterwards, on its B); the Councillor on the wording
+  countersigns it (event 4: "'consult' or 'inspect'?"). And **Councillor
+  Fenn** (event 5) - "Nobody is listening to him. Remember him." - is
+  listened to, by whoever is third in the party (`VAR_PIP5_DECOY`, named by
+  `\N[\V[19]]`), and the key comes off his hook. Bram and Piper alone
+  cannot: "It wants a third."
+* **The box** (event 10, `Case A`, the Committee's best box): never
+  printed. The tally card in the lid is **`VAR_BLUSHES` read back**, Piper
+  says the number and "...That's about right", and one slip is shown:
+  verse forty-one, about a hedge, entirely innocent, struck anyway. "It
+  scans." **One blush.** The key goes back on Fenn's hook on the way out.
+* Only the ask and the box need Piper; the Clerk who can strike her off is
+  in the same room, and the scenario does that with the key in hand.
+* **Ids taken:** switches **133** `SW_PIP5_ASKED`, **134**
+  `SW_PIP5_SIGNED`, **135** `SW_PIP5_KEY`, **136** `SW_PIP5_DONE`; variable
+  **19** `VAR_PIP5_DECOY`; items **48** Form S-7, **49** the key.
+* Running tally: **tropes +10 fixed and 2-9; blushes +10 fixed and 0-1.**
+  `COMPANIONS.md` says this quest "requires the threshold in `journey.py`
+  to be recut" - **not done here**, by 0.2; G1 re-cuts once.
+* **Candidate ending line** (G1; read `SW_PIP5_DONE`): "The Committee's box
+  of struck verses holds \V[7]. Piper Quill has read every one of them,
+  and printed none."
+* **The rooms (0.1):** Prophecy Hall cropped; it reads right. The archive
+  is new.
+* **Scenario** `q_pip5`; passes.
+* `TIMELINE.md`: nothing dated.
+
+**A13, HOB-2 The Grave He Has Not Made - done.** HOB-2's section of
+`q_hob.py`, hooked from `village.py`; `build/scenarios/q_hob2.json`.
+
+* **The churchyard is on Map 1** - the call A13 asked to be argued. The
+  argument: `NORTH.md` 1.7's never-list is lines, faces, deleting events and
+  renumbering, and new tiles on empty grass move nothing and silence nobody
+  (A2 and A8 already drew on Map 1); a churchyard is outdoors beside its
+  chapel, where "behind the chapel" on Map 5 would be a graveyard inside a
+  building map; and `COMPANIONS.md` already treats the headstone as being
+  in Thistlewick churchyard, so this fills a gap rather than changing
+  anything. It is the empty strip east of the chapel, `village.CHURCHYARD`
+  (33,2)-(37,9): a low wall of `Fencepost C (Stone)` (Fenmarch's), four
+  parish graves, and **Beatrice Grumnir's**, event 29 at (35,4) - "BEATRICE
+  GRUMNIR. SMITH. 1919 - 1989", the grass cut every week by nobody who says
+  who. There for everybody from the start, like the gate that sticks
+  (event 30, `!Door2` 2, pattern 2: you lift it, every time).
+* **Beatrice goes quiet** the first time Hob walks into the smithy after the
+  anvil is back (`SW_HOB3_DONE`): a new event on the forge, **The Forge**,
+  Map 6 event 6 at (11,3), page 2 (autorun). Hob is very large at being at
+  a loss, and admits the marker. **One trope** (the smith's masterwork).
+  `SW_HOB2_ON` (ends).
+* **Four attempts**, each made at the forge (page 3) and carried to the
+  grave (event 29, page 2): a wrought-iron headstone with roses ("No."), an
+  eight-foot steel cross ("She'd say it was showing off."), a small perfect
+  plate ("It's right. It's not her." - and the gate sticks on the way
+  out); and the fourth is **a gate**, hung as you walk through with it
+  (event 30, page 2). "She says the latch wants a spring." **Nobody says
+  she is the hammer**; the scenario asserts that no line says "hammer is",
+  "a hammer" made of the markers, and that nobody says "aunt".
+* **Hob's gear, and his best weapon** (0.5): weapon **41** "Something To
+  Say", a flail made of the three markers he would not put up, made badly
+  on purpose so she would have something to say: ATK 78 (Number One is
+  68), AGI -6, crit +15%. An **axe**, as Beatrice II is - flails are
+  Bram's and Merribell's too, and axes are Hob's alone.
+* **Afterwards**: the new gate (`!Door2` 3) clicks as you go through, and
+  the forge has a latch chalked beside it with "TOO HEAVY" under it in
+  another hand. **HOB-4 (E-part) requires `SW_HOB2_DONE`**, as
+  `COMPANIONS.md` says - Hob is good at gates now.
+* **Ids taken:** switches **137** `SW_HOB2_ON` (ends), **138**
+  `SW_HOB2_CARRYING` (ends), **139** `SW_HOB2_DONE`; variable **20**
+  `VAR_HOB2_TRY`; weapon **41**. No faces.
+* No blush. Running tally: **tropes +11 fixed and 2-9 from PIP-2; blushes
+  +10 fixed and 0-1 from PIP-2.**
+* **Candidate ending line** (G1; read `SW_HOB2_DONE`): "Thistlewick
+  churchyard has a new gate, with a good latch. Somebody says the latch
+  wants a spring."
+* **The rooms (0.1):** the smithy was swept on 30 Sep and reads right; the
+  churchyard is new.
+* **Scenario** `q_hob2`: passes.
+* `TIMELINE.md`: 1919 and 1989, Beatrice Grumnir.
+
+**A14, ROL-3 The Alumni - done.** ROL-3's section of `q_roland.py`, hooked
+from `south.py` in two places; `build/scenarios/q_rol3.json`.
+
+* **None of the eleven parties is an existing NPC, and none can be.** The
+  game's Roland has been at this "since I was eleven" and is thirty-four,
+  so his first party is 1977 - after the Forty-Fourth (1960) and the
+  Forty-Sixth (1980) that `QUESTS.md` had guessed at. The Wyvern's
+  regulars keep their ladders untouched.
+* **The card is on Dorcas's Board** (Map 14 event 19, page 3, below its
+  terminal A, with Roland): THE FAIRWEATHER ALUMNI, from F. Ickworth (Dame),
+  who was first. "...Oh, how lovely. Oh no." **One trope** (the party
+  reunion). `SW_ROL3_DINNER` (ends) puts **eleven guests** about the room
+  at capacity, events 22-32, each with their party and their line, each
+  counted once into `VAR_ROL3_HEARD` on their own A: Dame Florence (the
+  Wyrm of Ickworth - he was her page, at eleven), Brother Anselm (the Seven
+  Bells), Mags Turvey (the Second Siege of Wenlow), Pim (the Lost Heir of
+  Corrow, found), Captain Odile Marchbank (the Ninth Lancers), Old Jory (the
+  Last Survey), Hettie Brack (the Goblin King's Riddles - the last answer
+  was "a door"), Lord Tobin (the Usurper of Hask), Ned Scarrow (the Drowned
+  Bell), Saul Pennock (Pennock's Cove), Major Royce (the Glass Fort). Every
+  one says "our Roland", and notices the others.
+* **The toast** is Dame Florence's (page 3: dinner, all eleven heard,
+  Roland): "To Roland Fairweather. Who got us all to the door." Nobody
+  says anything else. Then **the small gifts**: eleven consumables
+  (`q_roland.ROL3_GIFTS`) and their real names in a line - a whetstone, a
+  twist of tea, a pot of dripping, a map with one mile in pencil.
+  `SW_STORY[ROLAND]`. The board afterwards, for everybody: the card, signed
+  eleven times, with a ring from a glass.
+* **Before the tower door**, necessarily: the card needs Roland.
+* **Ids taken:** switches **140** `SW_ROL3_DINNER` (ends), **141**
+  `SW_ROL3_DONE`; variable **21** `VAR_ROL3_HEARD`; faces `Gen_People12`
+  **1-6** (Florence, Anselm, Mags, Pim, Odile, Jory); five one-liners share
+  stock faces nobody in the Wyvern wears.
+* No blush. Running tally at the end of Part A: **tropes +12 fixed and 2-9
+  from PIP-2; blushes +10 fixed and 0-1 from PIP-2.** Next free: switch
+  142, variable 22, item 50, weapon 42, armour 41, common event 4,
+  `Gen_People12` 7 (then `Gen_People13`).
+* **Candidate ending line** (G1; read `SW_ROL3_DONE`): "Eleven parties
+  finished their quests without Roland Fairweather. They drank to him
+  anyway: to the man who got them all to the door."
+* **The rooms (0.1):** the Slain Wyvern's bar had the teddy-bear shelf too
+  (A11, above); fixed. Two guests were moved off the bottom row when
+  `validate.py` found nothing beside them could be reached.
+* **Scenario** `q_rol3`: passes.
+* `TIMELINE.md`: 1977, Roland's first party.
+
+**Rerun for the rooms changed in A9-A14** (0.1): every scenario that walks
+Maps 3 or 4 - `village`, `reachable_village`, `guild`, `q_pip2`, `feud`,
+`wall_ring`, `blushes`. The rock and shelf swaps kept their flags, so no
+walk anywhere else changed.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick`, and this session **finish the
-rest of Part A**: A9 NIX-4, A10 NIX-5, A11 WRE-3, A12 PIP-5, A13 HOB-2 and
-A14 ROL-3, in that order. This overrides 0.1's "one step per session" for
-Part A only (Mike, 30 Sep 2026); every other rule in 0.1 and 0.2 still holds.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **B1, HOB-1 The Assize of
+Hammers** - one step per session again (0.1); Part A is done.
 
-Read section 0, the Part A entries and the Done paragraphs (A1-A8) once at
-the start. Before each step, read only that companion's section of
-`COMPANIONS.md` (Nix, Wren, Piper, Hob, Roland), and only when you reach it.
+Read section 0, the B1 entry (Part B's opening note too) and the Done
+paragraphs from A6 on once at the start, then Hob's section of
+`COMPANIONS.md` only. B1 is Great Dunnage's (`dunnage.py`, Maps 61-65): the
+Prime Warden, Warden Crabbe, the Schedule and the last prize are events 2-5
+on Map 62.
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
 byte: every existing page identical, only appended pages and new events.
 `validate.py`, and `apidigest.py . --write` if a signature moved.
 Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_<quest>.json`, run under `stdbuf -oL`, in the background
-if long. **Fix the room you are standing in** (0.1): crop its props before
+`build/scenarios/q_hob1.json`, run under `stdbuf -oL`, in the background if
+long. **Fix the room you are standing in** (0.1): crop its props before
 judging, screenshot before and after, and rerun every scenario that walks
-it. Then the step's Done paragraph (ids taken, tropes and blushes, running
-tally, candidate ending line, rooms fixed), **commit that step on its own,
-and move this prompt on by one**, so an early end is always resumable.
-Nothing is pushed. No full suite until G1.
+it. Then the Done paragraph (ids taken, tropes and blushes, running tally,
+candidate ending line, rooms fixed), **commit the step on its own**, and
+move this prompt on by one. Nothing is pushed. No full suite until G1.
 
-Things learned in A6-A8 that will bite again:
+Things learned in A6-A14 that will bite again:
 
-* **One module per companion holds several quests**, and a private helper
-  named like an earlier quest's (`_waiting`) silently replaces it. Prefix
-  helpers per quest, and treat a data diff on a map the step never meant to
-  touch as a bug.
-* **New faces come from the generator**: `tools/chargen` settings into
-  `build/characters/`, a slot in `build/art.py`'s `SHEETS`, `python3
-  build/art.py`, and a `story.FACES` entry. `Gen_People11` 5-7 are free;
-  open `Gen_People12` after. `../CHARGEN.md` "Making a character" has the
-  loop. A10 needs one face, A11 three, A14 about six (stock faces are fine
-  for one-liners).
-* **A tile from a sheet the map's tileset lacks draws as the wrong tile.**
-  `mapkit.borrowed(sheet, name)` gives `Inside_C` on tilesets 2, 6 and 7
-  and `Inside_B` on 6.
-* **A quest state that has to end** is a switch turned off again (as
-  `SW_HOB3_GONE` is): page conditions have no NOT.
-* **A page appended below a ladder requires the ladder's terminal switch**
-  (0.2). Read each owner's pages first; NIX-4 is eleven owners.
-* **Waiting on a background run**: `pgrep -f` inside a shell loop matches
-  its own command line, and `pkill -f` kills the shell running it. Wait on
-  the task notification or a log line instead.
-* **Decisions the queue leaves to the step - make the call, say why in the
-  Done paragraph, and keep going:** A11 decides Wren's gear (the badge, or
-  record that she has none); A12 first checks whether Map 3 has room for the
-  archive, and uses the black of Map 3 if not; A13 argues in writing for a
-  churchyard corner on Map 1 or uses behind the chapel (Map 5), and gives
-  Hob his weapon (0.5).
-
-When A14 is done, leave this prompt at B1 HOB-1 The Assize of Hammers - one
-step per session again - and update the memory note for the companion
-quests.
+* **HOB-1 is eleven owners, like NIX-4**, and `q_nix.returned(key, ev)` is
+  the pattern: a page on the item plus the owner's terminal self switch,
+  and an afterwards page that is their own last page plus one line, with
+  asserts that the last page needs only A and that nobody already uses B.
+  Pass over anybody whose last page *does* something (a shop, a room, a
+  form) - a page on top would shadow it. Read each owner's text first with
+  a dump of the map's events, not the module.
+* **Commit each step before writing the next.** A9-A12 were written while
+  the earlier scenarios ran and ended up in one commit because the hunks
+  interleave. Build the next step only after the commit.
+* **A scenario must not set a switch that starts an autorun on the map it
+  is standing on** and then `goto`: the autorun's message blocks the
+  transfer and the run hangs silently. Leave the map, set it, walk back in.
+* **One quest module per companion holds several quests**; prefix private
+  helpers per quest (`_nix5_`, `_hob2_`, `_pip5_`).
+* **A long speaker name eats the first line** (`Dame Florence:`); check
+  every line of a new module with `story._check_width` patched to collect
+  rather than raise, instead of one build per error.
+* **Mapkit constants lie.** `ROCK` was a campfire ring and `IN_SHELF_FRUIT`
+  is teddy bears; `IN_CABINET` is two different objects with a walkable
+  lower cell. Crop before using one somewhere new, and check flags before
+  swapping one tile for another (`Tilesets.json` flags, not the name).
+* **Gear only one companion can wear**: a weapon type only their class has
+  (Hob: axes; Bram and Merribell share flails), or for an accessory a new
+  armour type plus one trait on the *actor* (Wren's badge, A11).
+* **Faces**: `Gen_People12` 7 is free, then open `Gen_People13`. Stock faces
+  are fine for one-liners, but not one worn by somebody in the same room.
+* **Waiting on a background run**: chain runs in one background command
+  and wait on a marker line in its output, never with `pgrep -f` in a loop.
+  A killed run leaves its Chromium: kill the browser whose parent is 1, not
+  the one a live run owns.

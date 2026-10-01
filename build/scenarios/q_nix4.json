@@ -1,0 +1,745 @@
+{
+ "query": "?map=7&x=8&y=8&frames=90",
+ "comment": "QUESTS.md A9, NIX-4 The Longest Loan. The ledger as it was before the north and without Nix; with both, the ask: eleven out, one trope. Each of the eleven owners across three towns: the return needs Nix and the goods, and a ladder's own set piece runs first; afterwards is their own last page plus one line. Hulda's parcel; Bessie's blush; the eleventh says so. The ledger closed and a new page opened; Nix's story counted once; afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Nix, before the north: the ledger as it was.",
+   "eval": "$gameParty.addActor(5)"
+  },
+  {
+   "goto": [
+    7,
+    8,
+    5
+   ]
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 0,
+   "label": "no ask before Upper Clanging"
+  },
+  {
+   "eval": "$gameSwitches.setValue(47, true); $gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 0,
+   "label": "and none without Nix"
+  },
+  {
+   "eval": "$gameParty.addActor(5); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    8,
+    5,
+    8
+   ],
+   "label": "below the ledger, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 12
+  },
+  {
+   "shot": "q_nix4_ledger.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The RETURNED column has been ruled\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"One afternoon. Easy.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameSwitches.value(127), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    11,
+    true,
+    1
+   ],
+   "label": "eleven out, and the fetch chain is a trope"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"of eleven back.\"))",
+   "expect": true
+  },
+  {
+   "comment": "mother (Map 2, event 3)",
+   "goto": [
+    2,
+    10,
+    9
+   ]
+  },
+  {
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "the goods in the bag and no Nix: her own page"
+  },
+  {
+   "eval": "$gameParty.addActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1,
+   "label": "mother: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "shot": "q_nix4_mother.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The pie was a separate matter.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(3).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    10,
+    1,
+    2,
+    0
+   ]
+  },
+  {
+   "comment": "old_man (Map 1, event 13)",
+   "goto": [
+    1,
+    11,
+    18
+   ]
+  },
+  {
+   "check": "$gameMap.event(13).findProperPageIndex()",
+   "expect": 1,
+   "label": "old_man: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I'll wait sat down, then.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(13).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    9,
+    2,
+    2,
+    0
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Forty-seven was my boy.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It is better for waiting.\"))",
+   "expect": true,
+   "label": "afterwards: his own page, and one line"
+  },
+  {
+   "comment": "fisher (Map 1, event 18)",
+   "goto": [
+    1,
+    31,
+    24
+   ]
+  },
+  {
+   "check": "$gameMap.event(18).findProperPageIndex()",
+   "expect": 1,
+   "label": "fisher: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(18).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Man with a keep net's got to catch\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(18).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    8,
+    3,
+    2,
+    0
+   ]
+  },
+  {
+   "comment": "gatekeeper (Map 1, event 2)",
+   "goto": [
+    1,
+    18,
+    4
+   ]
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "gatekeeper: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"and not one ever had to knock.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(2).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    7,
+    4,
+    2,
+    0
+   ]
+  },
+  {
+   "comment": "ferryman (Map 13, event 8)",
+   "goto": [
+    13,
+    19,
+    30
+   ]
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([13,8,'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 2,
+   "label": "ferryman: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There isn't a column.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(8).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    6,
+    5,
+    3,
+    0
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Tide's still wrong.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"giving it a few more days\"))",
+   "expect": true,
+   "label": "afterwards: his own page, and one line"
+  },
+  {
+   "comment": "tolly (Map 14, event 7)",
+   "goto": [
+    14,
+    6,
+    12
+   ]
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 0,
+   "label": "not met yet: her own set piece first"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She goes back to addressing an envelope.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 2,
+   "label": "tolly: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Twenty letters, then. He's worth two.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(7).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    5,
+    6,
+    3,
+    0
+   ]
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "her set piece was not a tale"
+  },
+  {
+   "comment": "hulda (Map 14, event 5)",
+   "goto": [
+    14,
+    5,
+    9
+   ]
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([14,5,'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 2,
+   "label": "hulda: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "shot": "q_nix4_hulda.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That's better than boots.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(5).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    4,
+    7,
+    3,
+    1
+   ]
+  },
+  {
+   "comment": "dree (Map 14, event 9)",
+   "goto": [
+    14,
+    19,
+    7
+   ]
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([14,9,'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 2,
+   "label": "dree: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I shall miss being suspected.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(9).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    3,
+    8,
+    3,
+    1
+   ]
+  },
+  {
+   "comment": "sowerby (Map 21, event 10)",
+   "goto": [
+    21,
+    14,
+    31
+   ]
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([21,10,'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 2,
+   "label": "sowerby: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(10).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"You cannot beat a rivet.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(10).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    2,
+    9,
+    3,
+    1
+   ]
+  },
+  {
+   "comment": "nib (Map 22, event 3)",
+   "goto": [
+    22,
+    15,
+    10
+   ]
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([22,3,'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "nib: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I have decided to believe so.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(3).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    1,
+    10,
+    3,
+    1
+   ]
+  },
+  {
+   "comment": "bessie (Map 21, event 17)",
+   "goto": [
+    21,
+    5,
+    41
+   ]
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([21,17,'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(17).findProperPageIndex()",
+   "expect": 2,
+   "label": "bessie: the return"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(17).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "shot": "q_nix4_bessie.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Ahead of schedule. It's what I do.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[46]), $gameVariables.value(17), $gameMap.event(17).findProperPageIndex(), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    0,
+    11,
+    3,
+    1
+   ]
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 1,
+   "label": "one blush, the cradle"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That is the eleventh.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Back to the ledger: the book closed, and a new page.",
+   "goto": [
+    7,
+    8,
+    5
+   ]
+  },
+  {
+   "eval": "$gameScreen.changeWeather('none', 0, 0)",
+   "comment": "goto skips the South Road, which is what clears Clanging's rain"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 7
+  },
+  {
+   "shot": "q_nix4_acquired.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That's the book closed.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"On behalf of a client not yet identified.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That's how it starts.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(128), $gameSwitches.value(104), $gameVariables.value(15) - window._stories, $gameParty.numItems($dataItems[46]), $gameParty.numItems($dataItems[47])]",
+   "expect": [
+    true,
+    true,
+    1,
+    0,
+    0
+   ],
+   "label": "done; Nix's story, counted once; the bag empty"
+  },
+  {
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 4,
+   "label": "afterwards, for everybody"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It begins again.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
+   "expect": [
+    0,
+    0
+   ]
+  }
+ ]
+}

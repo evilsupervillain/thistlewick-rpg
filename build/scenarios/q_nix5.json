@@ -1,0 +1,350 @@
+{
+ "query": "?map=8&x=52&y=64&frames=90",
+ "comment": "QUESTS.md A10, NIX-5 Half An Encounter. Encounters are left on. The mouth without Nix is unchanged; with Nix and the wood cleared, Enoch Bagshawe and his reed, one blush. Night one: in at night with the battle count stored, and back out of the south end, abandoned. Night two: a forced battle, and the parallel reed event fails it the moment the battle ends. Night three: through to the north exit - the far-end check passes, the fee, one trope, Nix's story. Afterwards the mouth is the mouth.",
+ "steps": [
+  {
+   "comment": "Encounters stay on: this is the one scenario that wants them.",
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark()"
+  },
+  {
+   "eval": "$gameSwitches.setValue(3, true); $gameParty.addActor(2)"
+  },
+  {
+   "goto": [
+    8,
+    52,
+    63
+   ]
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0,
+   "label": "without Nix: the mouth as it was"
+  },
+  {
+   "eval": "$gameParty.addActor(5); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "comment": "First night: in, and straight back out of the south end."
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Enoch Bagshawe. First bassoon.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Still an encounter.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameMap.mapId(), $gameSwitches.value(129), $gameVariables.value(18) === $gameSystem.battleCount(), $gameScreen.tone().map(Math.round)]",
+   "expect": [
+    9,
+    true,
+    true,
+    [
+     -120,
+     -100,
+     -30,
+     90
+    ]
+   ],
+   "label": "in, at night, the count stored"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 1,
+   "label": "eight feet of tube, folded"
+  },
+  {
+   "shot": "q_nix5_night.png"
+  },
+  {
+   "check": "$gameMap.event(1).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Back? Well - it's the way I know.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameMap.mapId(), $gameSwitches.value(129), $gameScreen.tone().map(Math.round)]",
+   "expect": [
+    8,
+    false,
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "label": "abandoned: home, and daylight"
+  },
+  {
+   "comment": "Second night: a fight, forced, and the reed goes.",
+   "goto": [
+    8,
+    52,
+    63
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[$gameMap.mapId(), $gameSwitches.value(129)]",
+   "expect": [
+    9,
+    true
+   ]
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "the second night is the short version, and no second blush"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Same reed.\"))",
+   "expect": true
+  },
+  {
+   "eval": "window._mark(); $gameMap._interpreter.setup([{code:301,indent:0,parameters:[0,2,true,false]},{code:0,indent:0,parameters:[]}], 0)"
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Battle"
+  },
+  {
+   "eval": "$gameTroop.members().forEach(e => e.addState(1))"
+  },
+  {
+   "frames": 240
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That's the reed.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's forwards I'm no good at.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(129), $gameSwitches.value(130), $gameScreen.tone().map(Math.round)]",
+   "expect": [
+    false,
+    false,
+    [
+     -68,
+     -50,
+     -20,
+     40
+    ]
+   ],
+   "label": "failed: he has gone home, and the wood is only gloomy"
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "comment": "Third night: through, walking the last of it, encounters on.",
+   "goto": [
+    8,
+    52,
+    63
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "$gameSwitches.value(129)",
+   "expect": true
+  },
+  {
+   "goto": [
+    10,
+    15,
+    2
+   ]
+  },
+  {
+   "check": "[$gameScreen.tone().map(Math.round), $gameMap.event(7).findProperPageIndex(), $gameMap.event(2).findProperPageIndex()]",
+   "expect": [
+    [
+     -120,
+     -100,
+     -30,
+     90
+    ],
+    1,
+    2
+   ],
+   "label": "still night on the deep wood"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "shot": "q_nix5_through.png"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Didn't see a thing. That's the knack.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Receipt.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Out of the trees, and north.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameMap.mapId(), $gameSwitches.value(129), $gameSwitches.value(130), $gameSwitches.value(104), $gameVariables.value(15) - window._stories, $gameParty.gold() - window._gold, $gameVariables.value(2) - window._tropes, $gameScreen.tone().map(Math.round)]",
+   "expect": [
+    8,
+    false,
+    true,
+    true,
+    1,
+    300,
+    1,
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "label": "through: out, the fee, one trope, Nix's story counted"
+  },
+  {
+   "comment": "Afterwards: the mouth is the mouth again.",
+   "goto": [
+    8,
+    52,
+    63
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "choose": 1
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The road ends at a wall of trees.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Enoch Bagshawe\"))",
+   "expect": false
+  },
+  {
+   "check": "[$gameMap.mapId(), $gameVariables.value(7) - window._blushes]",
+   "expect": [
+    8,
+    0
+   ]
+  }
+ ]
+}

@@ -126,8 +126,12 @@ BUSH3 = b_tile(10, 3)
 FLOWERS = b_tile(8, 4)            # white
 FLOWERS2 = b_tile(9, 4)           # purple
 FLOWERS3 = b_tile(10, 4)          # blue
-ROCK = b_tile(11, 2)
-ROCK2 = b_tile(12, 2)
+# Outside_B's `Boulder A` and `Boulder B`. These were (11, 2) and (12, 2),
+# which are `Rock Fire Pit A` and `B`: campfire rings in the Gloamwood's
+# undergrowth and on Thistlewick's verges. Same flags (0x60f), so nothing
+# that walks past them changed (QUESTS.md A10-A11).
+ROCK = b_tile(15, 3)
+ROCK2 = b_tile(15, 4)
 LOGS = b_tile(12, 4)              # a stacked log pile
 TUB = b_tile(11, 1)               # pale open tub
 BARREL = b_tile(13, 1)
@@ -135,6 +139,8 @@ CRATE = b_tile(13, 2)
 POT = b_tile(8, 2)                # round grey urn
 BUCKET = b_tile(9, 2)
 SIGNPOST = b_tile(9, 1)           # a fingerpost with two boards
+GRAVE_A = b_tile(14, 1)          # `Grave A`, a stone cross
+GRAVE_B = b_tile(15, 1)          # `Grave B`, a headstone
 FENCE_PANEL = b_tile(10, 1)       # a short slatted fence panel
 STOVEPIPE = b_tile(8, 1)
 LILYPAD = b_tile(15, 15)
@@ -209,6 +215,8 @@ IN_BOOKCASE2 = (b_tile(15, 3), b_tile(15, 4))
 IN_CURTAIN_GREEN = (b_tile(2, 8), b_tile(2, 9))
 IN_SHELF_JARS = (b_tile(9, 3), b_tile(9, 4))   # pots and crockery
 IN_SHELF_BOTTLES = (b_tile(11, 3), b_tile(11, 4))
+# Not fruit: `Sundries Shelf A` with two teddy bears and a pink rabbit on its
+# top shelf. Right in a shop of previously owned goods; wrong behind a bar.
 IN_SHELF_FRUIT = (b_tile(10, 3), b_tile(10, 4))
 IN_SHELF_GOODS = (b_tile(8, 3), b_tile(8, 4))  # sacks and loaves
 IN_CABINET = (b_tile(8, 2), b_tile(8, 3))

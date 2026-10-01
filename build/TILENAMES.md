@@ -83,8 +83,8 @@ dresser is `Closet / Sundries Shelf A`.
 | `FLOWERS` | B 160 | Flowers A |
 | `FLOWERS2` | B 161 | Flowers B |
 | `FLOWERS3` | B 162 | Flowers C |
-| `ROCK` | B 147 | Rock Fire Pit A |
-| `ROCK2` | B 148 | Rock Fire Pit B |
+| `ROCK` | B 159 | Boulder A |
+| `ROCK2` | B 167 | Boulder B |
 | `LOGS` | B 164 | Fallen Log |
 | `TUB` | B 139 | Well |
 | `BARREL` | B 141 | Barrel |
@@ -92,6 +92,8 @@ dresser is `Closet / Sundries Shelf A`.
 | `POT` | B 144 | Pot |
 | `BUCKET` | B 145 | Basin A |
 | `SIGNPOST` | B 137 | Sign A |
+| `GRAVE_A` | B 142 | Grave A |
+| `GRAVE_B` | B 143 | Grave B |
 | `FENCE_PANEL` | B 138 | Sign B |
 | `STOVEPIPE` | B 136 | Chimney |
 | `LILYPAD` | B 255 | Lotus Pads C |

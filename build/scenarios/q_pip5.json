@@ -1,0 +1,380 @@
+{
+ "query": "?map=3&x=10&y=9&frames=90",
+ "comment": "QUESTS.md A12, PIP-5 The Struck Verses. The hall as it was; the curtain locked. Piper's ask on the fete minutes, one trope. The form from the records (which are then the records again); countersigned as to the wording; Fenn with nobody third to ask him, then Hob asks and the key comes off its hook. Piper struck off, and the key still opens the door; in the archive the box is hers to open; with her, the count (VAR_BLUSHES) and verse forty-one, one blush, her story. Out by the archive door; afterwards.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "Piper has been met and verse seven struck, without her in the party.",
+   "eval": "$gameSwitches.setValue(16, true); $gameSwitches.setValue(60, true); $gameSelfSwitches.setValue([3,8,'A'], true); $gameVariables.setValue(7, 13)"
+  },
+  {
+   "goto": [
+    3,
+    10,
+    9
+   ]
+  },
+  {
+   "check": "[8,7,4,5,9].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "label": "the hall as it was"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It is locked.\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameParty.addActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[8].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There'll be a box.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The distraction is what\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(133), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    1
+   ],
+   "label": "asked; the redacted archive is a trope"
+  },
+  {
+   "check": "[7].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"FORM S-7. APPLICATION TO CONSULT\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[48])",
+   "expect": 1
+  },
+  {
+   "check": "[7].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"your name, and one goat.\"))",
+   "expect": true,
+   "label": "and the records are the records again"
+  },
+  {
+   "check": "[4].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Countersigned. As to the wording.\"))",
+   "expect": true
+  },
+  {
+   "check": "[4,5].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2,
+    1
+   ]
+  },
+  {
+   "comment": "Bram and Piper alone: nobody to ask Fenn."
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It wants a third.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(19), $gameSwitches.value(135)]",
+   "expect": [
+    0,
+    false
+   ]
+  },
+  {
+   "eval": "$gameParty.addActor(3)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...Nobody has ever asked.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(19), $gameSwitches.value(135), $gameParty.numItems($dataItems[49])]",
+   "expect": [
+    3,
+    true,
+    1
+   ],
+   "label": "Hob asks; the key"
+  },
+  {
+   "check": "[5].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"the room, and he looks very well on it.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Piper struck off at the Clerk's desk, and the key still opens the door.",
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "goto": [
+    3,
+    16,
+    5
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    3,
+    25,
+    8
+   ],
+   "label": "through the curtain, into the archive"
+  },
+  {
+   "shot": "q_pip5_archive.png"
+  },
+  {
+   "check": "[10].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    0
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(10).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It is Piper's to open\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameParty.addActor(7); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[10].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(10).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 14
+  },
+  {
+   "shot": "q_pip5_box.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"They kept them. Every one.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"\\\\V[7].\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...That's about right.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"he trimmed it every Tuesday, through\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(136), $gameSwitches.value(106), $gameVariables.value(15) - window._stories, $gameVariables.value(7) - window._blushes, $gameParty.numItems($dataItems[48]), $gameParty.numItems($dataItems[49])]",
+   "expect": [
+    true,
+    true,
+    1,
+    1,
+    0,
+    0
+   ],
+   "label": "done: Piper's story counted, one blush, form and key gone"
+  },
+  {
+   "check": "[10].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2
+   ]
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    3,
+    16,
+    5
+   ],
+   "label": "and out, in front of the curtain"
+  },
+  {
+   "check": "[8,5].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    3,
+    2
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Struck material\"))",
+   "expect": true
+  }
+ ]
+}

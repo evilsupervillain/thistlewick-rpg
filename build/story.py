@@ -361,6 +361,28 @@ FACES = {
     # the knocked-down strip, `Gen_People11_Damage`, under the anvil.
     "Ivy": ("Gen_People11", 3),
     "Hodge": ("Gen_People11", 4),
+    # NIX-5, the Works Band's bassoonist, through the Gloamwood at night
+    # (`q_nix.py`).
+    "Bagshawe": ("Gen_People11", 5),
+    # WRE-3, the Gloamwood Society: its chair, its secretary, and Miss
+    # Pellow, who saw it in seventy-one (`q_wren.py`).
+    "Mrs Lumb": ("Gen_People11", 6),
+    "Mr Dunmore": ("Gen_People11", 7),
+    "Miss Pellow": ("Gen_People12", 0),
+    # ROL-3, the Fairweather alumni (`q_roland.py`): six of the eleven are
+    # drawn; the five with one line share stock faces nobody in the Slain
+    # Wyvern wears.
+    "Dame Florence": ("Gen_People12", 1),
+    "Brother Anselm": ("Gen_People12", 2),
+    "Mags": ("Gen_People12", 3),
+    "Pim": ("Gen_People12", 4),
+    "Odile": ("Gen_People12", 5),
+    "Old Jory": ("Gen_People12", 6),
+    "Hettie": ("People1", 1),
+    "Lord Tobin": ("People3", 2),
+    "Ned": ("People1", 0),
+    "Saul": ("People2", 4),
+    "Major Royce": ("People4", 6),
     # Fenmarch Hall, SITES.md step 16, drawn, `Gen_People5` 3 and 4. The
     # Fourth is Aldric Pemberton-Gore IV, and **"Aldric" is already Sir
     # Aldric**, so the household's name for him is the speaker. **"Mr

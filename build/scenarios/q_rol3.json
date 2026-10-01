@@ -1,0 +1,326 @@
+{
+ "query": "?map=14&x=12&y=10&frames=90",
+ "comment": "QUESTS.md A14, ROL-3 The Alumni. The Slain Wyvern as it was. The card on Dorcas's Board with Roland: the dinner on, one trope, eleven guests. Each heard once (counted once). Roland sent home and back; the toast, the gifts, Roland's story; the room itself again; the board afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._potions = $gameParty.numItems($dataItems[1]); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "The board read once, without Roland: the room as it was.",
+   "eval": "$gameSelfSwitches.setValue([14,19,'A'], true)"
+  },
+  {
+   "goto": [
+    14,
+    12,
+    10
+   ]
+  },
+  {
+   "check": "[19,22,23,24,25,26,27,28,29,30,31,32].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "label": "no dinner, nobody extra"
+  },
+  {
+   "eval": "$gameParty.addActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[19].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(19).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"THE FAIRWEATHER ALUMNI.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...Oh, how lovely. Oh no.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(140), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    1
+   ],
+   "label": "the dinner is on; the party reunion is a trope"
+  },
+  {
+   "check": "[22,23,24,25,26,27,28,29,30,31,32].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "label": "all eleven are here"
+  },
+  {
+   "shot": "q_rol3_dinner.png"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(22).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Go round. Say hello.\"))",
+   "expect": true
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(23).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(24).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(25).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(26).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(27).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(28).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The answer was 'a door'.\"))",
+   "expect": true
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(29).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(30).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(31).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(32).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "$gameVariables.value(21)",
+   "expect": 11,
+   "label": "all eleven heard"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(25).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "$gameVariables.value(21)",
+   "expect": 11,
+   "label": "and nobody counts twice"
+  },
+  {
+   "comment": "Roland sent home: the dinner waits.",
+   "eval": "$gameParty.removeActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[22].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1
+   ]
+  },
+  {
+   "eval": "$gameParty.addActor(10); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[22].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(22).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 18
+  },
+  {
+   "shot": "q_rol3_toast.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Who got us all to the door.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...Thank you. All of you.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(140), $gameSwitches.value(141), $gameSwitches.value(109), $gameVariables.value(15) - window._stories, $gameParty.numItems($dataItems[1]) - window._potions, $gameVariables.value(7) - window._blushes]",
+   "expect": [
+    false,
+    true,
+    true,
+    1,
+    2,
+    0
+   ],
+   "label": "the toast: Roland's story counted, the gifts, no blush"
+  },
+  {
+   "check": "[22,23,24,25,26,27,28,29,30,31,32].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "label": "and the room is itself again"
+  },
+  {
+   "eval": "$gameParty.removeActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[19].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    3
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(19).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"signed eleven times\"))",
+   "expect": true
+  }
+ ]
+}

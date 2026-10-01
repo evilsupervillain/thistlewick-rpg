@@ -34,6 +34,7 @@ import db
 import mapkit as K
 import q_hob
 import q_merribell
+import q_nix
 import rmmzdata as R
 import story as S
 from places import (MAP_CLANGING, MAP_WORKS, MAP_VALVE, MAP_FORGE, MAP_PARISH,
@@ -427,7 +428,7 @@ def clanging_events():
     # entirely cheerful about what he remembers, which is the north in one
     # man - see 4.1. No blush: this is the other register and it is doing
     # different work.
-    evs.append(talker(
+    evs.append(q_nix.returned("sowerby", talker(                   # NIX-4
         10, "Old Sowerby", 14, 30, "Sowerby",
         S.say("Sowerby", [
             "Sixty years I gave that works.",
@@ -446,7 +447,7 @@ def clanging_events():
         ]),
         S.say("Sowerby", [
             "Rivets. You cannot beat a rivet.",
-        ]), direction=2))
+        ]), direction=2)))
 
     # -- 11-13: the Cotterills. A foundry family, every child named after a
     # fastener, and the joke is never the family - it is Bram's face, and the
@@ -664,7 +665,7 @@ def clanging_events():
     # made leaving and coming back the way round the family rather than a walk
     # down it. Out here at the far end she is the last of the ten instead of
     # the first, which is also the order she joined them in.
-    evs.append(talker(
+    evs.append(q_nix.returned("bessie", talker(                    # NIX-4
         17, "Bessie Marsden", 5, 40, "Bessie",
         S.say("Bessie", [
             "Bessie Marsden. Cotterill, now.",
@@ -689,7 +690,7 @@ def clanging_events():
         S.say("Bessie", [
             "Second Saturday she has her dinner.",
             "I get the house to myself.",
-        ]), direction=2))
+        ]), direction=2)))
     return evs
 
 
@@ -1388,7 +1389,7 @@ def works_events():
         + q_hob.ott_pages(_ott_face())))                 # HOB-5
 
     # -- 3: Nib, the fortieth apprentice
-    evs.append(talker(
+    evs.append(q_nix.returned("nib", talker(                       # NIX-4
         3, "Nib", 16, 10, "Nib",
         S.say("Nib", [
             "I am the apprentice.",
@@ -1403,7 +1404,7 @@ def works_events():
         S.say("Nib", [
             "She will want the small can.",
             "She always wants the small can.",
-        ]), direction=4))
+        ]), direction=4)))
 
     # -- 4: the Two Hundred, in frame. The airship itself is section 5; what
     # is here is the shape of it and the chalk line, which is the town.

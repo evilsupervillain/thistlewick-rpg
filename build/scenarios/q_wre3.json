@@ -1,0 +1,318 @@
+{
+ "query": "?map=4&x=10&y=10&frames=90",
+ "comment": "QUESTS.md A11, WRE-3 The Thing In The Gloamwood. The society's table in the Gilded Turnip for everybody, and the callback once the Thing is dealt with. Wren's ask: one trope, the walk on, the three out of the inn. The clearing: all nine; without Wren they wait; with her, the proof - nine of them, courting, one blush - Miss Pellow looked after, the badge, Wren's story. The badge equips on Wren alone. Afterwards in the inn.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "The society, for everybody, before the Thing.",
+   "goto": [
+    4,
+    10,
+    10
+   ]
+  },
+  {
+   "check": "[8,9,10].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The Gloamwood Society. Thursdays.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Thistlewick will\"))",
+   "expect": false
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(10).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I saw it, you know. Once.\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameSwitches.setValue(3, true); $gameSelfSwitches.setValue([10,3,'A'], true)",
+   "comment": "the Thing dealt with, as the fight leaves it"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"never believe you, and you are not going to tell\"))",
+   "expect": true,
+   "label": "after the clearing, the callback"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 0,
+   "label": "no Wren, no ask"
+  },
+  {
+   "eval": "$gameParty.addActor(9); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "shot": "q_wre3_table.png"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I can prove it doesn't exist.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's always\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(131), $gameVariables.value(2) - window._tropes, [8,9,10].map(i => $gameMap.event(i).findProperPageIndex())]",
+   "expect": [
+    true,
+    1,
+    [
+     2,
+     1,
+     1
+    ]
+   ],
+   "label": "the walk is on, one trope (the cryptid), and the three are out of the inn"
+  },
+  {
+   "comment": "The clearing, without Wren first.",
+   "eval": "$gameParty.removeActor(9)"
+  },
+  {
+   "goto": [
+    10,
+    15,
+    11
+   ]
+  },
+  {
+   "check": "[8,9,10,11,12,13,14,15,16].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "label": "all nine on the walk"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"We'll wait for Miss Halloway.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSwitches.value(131)",
+   "expect": true
+  },
+  {
+   "eval": "$gameParty.addActor(9); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "shot": "q_wre3_walk.png"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "shot": "q_wre3_proof.png"
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's nine of them. Courting.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's the only way they know how.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Issue forty-four.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...I did count nine.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It goes on the cloak\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(131), $gameSwitches.value(132), $gameSwitches.value(108), $gameVariables.value(15) - window._stories, $gameVariables.value(7) - window._blushes, $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataArmors[40])]",
+   "expect": [
+    false,
+    true,
+    true,
+    1,
+    1,
+    0,
+    1
+   ],
+   "label": "done: the badge, Wren's story counted, one blush"
+  },
+  {
+   "check": "[8,9,10,11,12,13,14,15,16].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "label": "and the clearing is empty again"
+  },
+  {
+   "check": "[9,1,5,10].map(a => $gameActors.actor(a).canEquip($dataArmors[40]))",
+   "expect": [
+    true,
+    false,
+    false,
+    false
+   ],
+   "label": "the badge is Wren's and nobody else's"
+  },
+  {
+   "eval": "$gameActors.actor(9).changeEquip(4, $dataArmors[40])"
+  },
+  {
+   "check": "$gameActors.actor(9).equips()[4] && $gameActors.actor(9).equips()[4].id",
+   "expect": 40
+  },
+  {
+   "comment": "Back at the Turnip: the best issue ever.",
+   "goto": [
+    4,
+    10,
+    10
+   ]
+  },
+  {
+   "check": "[8,9,10].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    3,
+    2,
+    2
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Issue one hundred and sixty.\"))",
+   "expect": true
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(10).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nine. I counted nine.\"))",
+   "expect": true
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There's nothing there.\"))",
+   "expect": true
+  }
+ ]
+}

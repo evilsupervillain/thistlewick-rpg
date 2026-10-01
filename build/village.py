@@ -13,6 +13,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
+import q_nix
 import q_piper
 import q_hob
 import q_roland
@@ -55,6 +56,31 @@ HOME_START = (8, 8)            # Bram's bed-side, where a new game begins
 
 
 # ============================================================== the village ==
+# HOB-2's churchyard (QUESTS.md A13): new tiles in the empty corner east of
+# the chapel, between it and the trees - a low stone wall, the parish's
+# graves, and Beatrice Grumnir's. Nothing was moved to make room for it.
+CHURCHYARD = (33, 2, 37, 9)             # the wall's outside corners
+CHURCHYARD_GATE = (35, 9)               # the gap in its south run
+BEATRICE_GRAVE = (35, 4)
+CHURCHYARD_WALL = K.A(38)               # A2 `Fencepost C (Stone)`, Fenmarch's
+
+
+def churchyard(g):
+    x1, y1, x2, y2 = CHURCHYARD
+    for x in range(x1, x2 + 1):
+        g.set(x, y1, 1, CHURCHYARD_WALL)
+        if x != CHURCHYARD_GATE[0]:
+            g.set(x, y2, 1, CHURCHYARD_WALL)
+    for y in range(y1, y2 + 1):
+        g.set(x1, y, 1, CHURCHYARD_WALL)
+        g.set(x2, y, 1, CHURCHYARD_WALL)
+    g.autotile(1, kinds={38})
+    for (x, y), tile in [((34, 4), K.GRAVE_A), ((36, 4), K.GRAVE_B),
+                         ((34, 6), K.GRAVE_B), ((36, 6), K.GRAVE_A),
+                         ((34, 8), K.GRAVE_A)]:
+        g.set(x, y, 3, tile)
+
+
 def village_map():
     g = K.Canvas(VW, VH)
     g.fill(0, 0, VW - 1, VH - 1, 0, K.GRASS)
@@ -88,6 +114,7 @@ def village_map():
     g.building(*HOME, wall=K.WALL_PLANK, roof=K.ROOF_BROWN)
 
     g.autotile(0)
+    churchyard(g)
 
     # -- shop signs and windows, hung on the front wall next to each door
     g.set(HALL_DOOR[0] - 2, HALL_DOOR[1], 3, K.SIGN_SUN)
@@ -197,7 +224,8 @@ def village_events():
     keeper += S.say("Gatekeeper", ["Forty-seven."])
     keeper += S.narrate(["He does not say how many came back.",
                          "You decide not to make him."])
-    add(S.npc(2, "Gatekeeper", 17, 4, keeper, "People1", 2, direction=6))
+    add(q_nix.returned("gatekeeper", S.npc(                      # NIX-4
+        2, "Gatekeeper", 17, 4, keeper, "People1", 2, direction=6)))
 
     # -- 3-8: the doors ---------------------------------------------------------
     add(S.door(3, "Prophecy Hall Door", *HALL_DOOR, MAP_HALL, *arrival(MAP_HALL)))
@@ -262,7 +290,8 @@ def village_events():
         "Nobody tells you it's a rota.",
         "Come back, lad. That's all. Come back."])
     old += [S.trope()]
-    add(S.npc(13, "Old Man", 11, 17, old, "People4", 4))
+    add(q_nix.returned("old_man", S.npc(                         # NIX-4
+        13, "Old Man", 11, 17, old, "People4", 4)))
 
     # -- 14/15: the dog, and the man who speaks for him ------------------------
     add(S.npc(14, "Dog", 8, 27,
@@ -305,7 +334,8 @@ def village_events():
                        "anyone gives you today."])
     # On the west bank looking out over the water. The pond itself is
     # impassable, so a Fisher standing in it is a Fisher nobody can talk to.
-    add(S.npc(18, "Fisher", 32, 24, fish, "People1", 4, direction=6))
+    add(q_nix.returned("fisher", S.npc(                          # NIX-4
+        18, "Fisher", 32, 24, fish, "People1", 4, direction=6)))
 
     # -- 19/20: two barrels, because someone has to say it ---------------------
     loot = S.narrate(["You look in the barrel.",
@@ -370,6 +400,10 @@ def village_events():
     for ev in q_hob.outside_events(26, ANVIL_OUTSIDE,
                                    K.borrowed("Inside_C", "Blacksmith's Table A")):
         add(ev)
+
+    # -- 29-30: the churchyard, Beatrice's grave and its gate (HOB-2) ---------
+    add(q_hob.grave_event(29, *BEATRICE_GRAVE, K.GRAVE_B))
+    add(q_hob.gate_event(30, *CHURCHYARD_GATE))
     return evs
 
 
@@ -454,7 +488,8 @@ def aldric_event(event_id, x, y):
 ROOMS = {
     #          w   h  x1  y1  x2  y2  door_x
     MAP_HOME:   (17, 15, 3, 4, 13, 10, 8),
-    MAP_HALL:   (21, 18, 3, 4, 17, 13, 10),
+    # 31, not 21: PIP-5's archive is a room in the black east of the hall.
+    MAP_HALL:   (31, 18, 3, 4, 17, 13, 10),
     MAP_INN:    (19, 16, 3, 4, 15, 11, 9),
     MAP_CHAPEL: (19, 18, 3, 4, 15, 13, 9),
     MAP_SMITHY: (17, 15, 3, 4, 13, 10, 8),
@@ -539,7 +574,8 @@ def home_events():
         "off the wall. It's been up there a hundred",
         "years waiting for exactly this, and frankly",
         "it has been unbearable about it."])
-    evs.append(S.npc(3, "Mother", 10, 8, intro, "People1", 5, direction=8))
+    evs.append(q_nix.returned("mother", S.npc(                    # NIX-4
+        3, "Mother", 10, 8, intro, "People1", 5, direction=8)))
 
     # The sword over the fireplace: available once the Elder has said the words.
     take = S.narrate([
@@ -606,6 +642,7 @@ def hall_map():
         g.set(x, 12, 2, K.IN_TABLE_WOOD)
         g.set(x, 12, 3, K.INC_SCROLLS)
     g.scatter([(4, 13), (16, 13)], 2, K.INC_PLANT)
+    archive_room(g)
     return finish(MAP_HALL, g, "Prophecy Hall", bgm="Scene2",
                   battleback=("Stone1", "Castle1"), events=hall_events())
 def hall_events():
@@ -717,8 +754,10 @@ def hall_events():
         "'Shall be slain' or",
         "'shall be defeated'?",
         "Because 'slain' is a commitment."])
-    evs.append(S.npc(4, "Committee Member (Wording)", 13, 8, arg1,
-                     "People1", 3, direction=4))
+    wording = S.npc(4, "Committee Member (Wording)", 13, 8, arg1,
+                    "People1", 3, direction=4)
+    wording["pages"] += q_piper.wording_pages(wording["pages"][0])  # PIP-5
+    evs.append(wording)
 
     arg2 = S.say("Councillor Fenn", [
         "I keep saying it.",
@@ -728,21 +767,65 @@ def hall_events():
     arg2 += S.narrate(["Nobody is listening to him.",
                        "Remember him."])
     arg2 += [S.trope()]
-    evs.append(S.npc(5, "Committee Member (Clause Twelve)", 14, 11, arg2,
-                     "People4", 2, direction=4))
+    fenn = S.npc(5, "Committee Member (Clause Twelve)", 14, 11, arg2,
+                 "People4", 2, direction=4)
+    fenn["pages"] += q_piper.fenn_pages(fenn["pages"][0])           # PIP-5
+    evs.append(fenn)
 
     evs.append(S.sign(6, "The Wall of the Forty-Seven", 4, 4, [
         "Forty-seven portraits.",
         "Forty-six of them are looking at the viewer.",
         "One of them is looking at the door."]))
 
-    evs.append(S.prop(7, "Committee Records", 7, 4, [
+    records = S.prop(7, "Committee Records", 7, 4, [
         "Minutes of the meeting at which you were",
         "Chosen. Under 'apologies for absence':",
-        "your name, and one goat."], "", 0, extra=[S.trope()]))
+        "your name, and one goat."], "", 0, extra=[S.trope()])
+    records["pages"] += q_piper.records_pages(records["pages"][0])  # PIP-5
+    evs.append(records)
 
-    evs.append(fete_minutes(8, 6, 4))
+    minutes = fete_minutes(8, 6, 4)
+    minutes["pages"] += q_piper.minutes_pages(minutes["pages"][0],  # PIP-5
+                                              minutes["pages"][-1])
+    evs.append(minutes)
+
+    # PIP-5: behind the green curtain, a door; behind the door, the archive.
+    evs.append(q_piper.curtain_event(9, *CURTAIN, (MAP_HALL, *ARCHIVE_IN)))
+    evs += q_piper.archive_events(10, ARCHIVE_BOX, ARCHIVE_DOOR,
+                                  (MAP_HALL, CURTAIN[0], CURTAIN[1] + 1),
+                                  K.INC_CASE)
     return evs
+
+
+# PIP-5's archive: a room in the black east of Prophecy Hall, reached only
+# through the door behind the green curtain (its lower cell, on the floor
+# row). One wall's thickness of black between it and the hall.
+CURTAIN = (16, 4)
+ARCHIVE = (23, 5, 27, 8, 25)                # x1, y1, x2, y2, door_x
+ARCHIVE_IN = (25, 8)
+ARCHIVE_DOOR = (25, 9)
+ARCHIVE_BOX = (25, 5)
+
+
+def archive_room(g):
+    """`mapkit.interior`'s walls, for a second room on the hall's canvas -
+    `ashcombe._room`, with its doorway cut into the south wall and no step
+    below it: the way out is an event on the doorway, back to the curtain."""
+    x1, y1, x2, y2, door_x = ARCHIVE
+    top, face = K.IN_WALL_TOP_TAN, K.IN_WALL_FACE_TAN
+    g.fill(x1, y1, x2, y2, 0, K.IN_DARK_WOOD)
+    g.fill(x1 - 1, y1 - 3, x2 + 1, y1 - 3, 0, top)
+    g.fill(x1, y1 - 2, x2, y1 - 1, 0, face)
+    for y in range(y1 - 2, y2 + 2):
+        g.set(x1 - 1, y, 0, top)
+        g.set(x2 + 1, y, 0, top)
+    g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, top)
+    g.set(door_x, y2 + 1, 0, K.IN_DARK_WOOD)
+    for x in (x1, x1 + 1, x2 - 1, x2):
+        g.column(x, y1 - 1, 2, K.IN_BOOKCASE if x % 2 else K.IN_BOOKCASE2)
+    for x in (x1, x2):
+        g.set(x, y2 - 1, 2, K.IN_TABLE_WOOD)
+        g.set(x, y2 - 1, 3, K.INC_SCROLLS)
 
 
 def fete_minutes(event_id, x, y):
@@ -828,7 +911,8 @@ def inn_map():
     g.blit(12, 3, 2, K.IN_FIREPLACE)
     g.column(4, 3, 2, K.IN_SHELF_BOTTLES)
     g.column(5, 3, 2, K.IN_CABINET)
-    g.column(6, 3, 2, K.IN_SHELF_FRUIT)
+    # Was IN_SHELF_FRUIT, which is teddy bears and a pink rabbit: behind a bar.
+    g.column(6, 3, 2, K.IN_SHELF_BOTTLES)
     g.blit(8, 3, 2, K.IN_PIANO_WHOLE)
     g.column(7, 3, 2, K.IN_SHELF_JARS)
     # The bar: the bottles stood on the floorboards until tables went under
@@ -870,6 +954,9 @@ def inn_map():
     g.set(15, 7, 2, K.IN_BARREL2)       # "Basin", which is what it is called
     g.set(4, 10, 2, K.IN_BARREL)
     g.set(4, 11, 2, K.IN_BARREL2)
+    # WRE-3: the Gloamwood Society's table, with The Sighting on it.
+    g.set(*q_wren.WRE3_TABLE, 2, K.IN_TABLE_WOOD)
+    g.set(*q_wren.WRE3_TABLE, 3, K.INC_SCROLL)
     return finish(MAP_INN, g, "The Gilded Turnip", bgm="Town3",
                   battleback=("Wood1", "Room1"), events=inn_events())
 def inn_events():
@@ -901,6 +988,8 @@ def inn_events():
     evs.append(turnip)
 
     evs.append(the_washstand(7, 15, 7))
+    # WRE-3: the Gloamwood Society, at its own table (q_wren.py).
+    evs += q_wren.society_events(8)
     return evs
 
 
@@ -1337,6 +1426,7 @@ QUENCH = K.sf_tile("Inside_B", "Tub A")
 SWORD_STAND = K.sf_block("Inside_C", "Repository of Swords")
 SPEAR_STAND = K.sf_block("Inside_C", "Repository of Spears")
 SMITHY_ANVIL = (10, 5)          # Beatrice's cell
+SMITHY_FORGE = (11, 3)          # the forge's lower cell, on the back wall
 ANVIL_OUTSIDE = (9, 33)         # HOB-3: eleven feet outside the smithy door
 
 
@@ -1393,6 +1483,7 @@ def smithy_events():
     beatrice["pages"] += q_hob.beatrice_pages(beatrice["pages"][0])  # HOB-3
     evs.append(beatrice)
     evs.append(q_hob.anvil_event(5, *SMITHY_ANVIL, ANVIL))
+    evs.append(q_hob.forge_event(6, *SMITHY_FORGE))           # HOB-2
     return evs
 
 
@@ -1502,12 +1593,15 @@ def store_events():
 
     evs.append(nix_event(3, 11, 5))
 
-    evs.append(S.prop(4, "The Ledger", 8, 4, [
+    ledger = S.prop(4, "The Ledger", 8, 4, [
         "A ledger. Every entry reads 'ACQUIRED'.",
         "None of them say from where.",
         "One entry, in a different hand, reads",
         "'PLEASE STOP WRITING ACQUIRED'."],
-        "", 0, extra=[S.trope()]))
+        "", 0, extra=[S.trope()])
+    # NIX-4: the eleven longest loans, and the book closed (q_nix.py).
+    ledger["pages"] += q_nix.ledger_pages(ledger["pages"][0])
+    evs.append(ledger)
     return evs
 
 

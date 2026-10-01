@@ -1,0 +1,543 @@
+{
+ "query": "?map=1&x=35&y=12&frames=90",
+ "comment": "QUESTS.md A13, HOB-2 The Grave He Has Not Made. The new churchyard on Map 1 for everybody: the stuck gate, the plain headstone. Hob in the smithy before HOB-3 is done: nothing; after: Beatrice goes quiet, one trope, the marker admitted, nobody saying 'hammer'. Three attempts made at the forge and refused at the grave (one with Hob sent home in between); the fourth is a gate, hung on the way through, Beatrice on the latch, Something To Say, Hob's story. Only Hob can wield it. The new gate clicks.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark()"
+  },
+  {
+   "comment": "The churchyard is there for everybody: the headstone, and the gate that sticks.",
+   "goto": [
+    1,
+    35,
+    11
+   ]
+  },
+  {
+   "check": "$gameMap.event(29).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "check": "$gameMap.event(30).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 20
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The gate sticks.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    35,
+    9
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    35,
+    8
+   ],
+   "label": "in through the stuck gate"
+  },
+  {
+   "goto": [
+    1,
+    35,
+    5
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"BEATRICE GRUMNIR. SMITH. 1919 - 1989.\"))",
+   "expect": true
+  },
+  {
+   "shot": "q_hob2_churchyard.png"
+  },
+  {
+   "comment": "Hob, before the anvil came back: the smithy as it was.",
+   "eval": "$gameParty.addActor(3)"
+  },
+  {
+   "goto": [
+    6,
+    8,
+    11
+   ]
+  },
+  {
+   "check": "[$gameMap._interpreter.isRunning(), $gameMap.event(6).findProperPageIndex()]",
+   "expect": [
+    false,
+    0
+   ]
+  },
+  {
+   "goto": [
+    1,
+    6,
+    32
+   ],
+   "comment": "out, the anvil back (HOB-3 done), and in again"
+  },
+  {
+   "eval": "$gameSwitches.setValue(126, true); window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 6
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Eleven years back, she told me to\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"hammer\"))",
+   "expect": false,
+   "label": "nobody says she is the hammer"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Hammers don't sulk.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameSwitches.value(137), $gameVariables.value(2) - window._tropes, $gameMap.event(6).findProperPageIndex()]",
+   "expect": [
+    true,
+    1,
+    2
+   ],
+   "label": "quiet; the smith's masterwork is a trope"
+  },
+  {
+   "goto": [
+    6,
+    11,
+    4
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It takes him all night.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(20), $gameSwitches.value(138)]",
+   "expect": [
+    1,
+    true
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Down to her with it first.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Hob sent home with it in hand: the grave is only a grave.",
+   "eval": "$gameParty.removeActor(3)"
+  },
+  {
+   "goto": [
+    1,
+    35,
+    5
+   ]
+  },
+  {
+   "check": "$gameMap.event(29).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "eval": "$gameParty.addActor(3)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "goto": [
+    1,
+    35,
+    5
+   ]
+  },
+  {
+   "check": "$gameMap.event(29).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(29).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He does not say why.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSwitches.value(138)",
+   "expect": false
+  },
+  {
+   "goto": [
+    6,
+    11,
+    4
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"eight feet high\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(20), $gameSwitches.value(138)]",
+   "expect": [
+    2,
+    true
+   ]
+  },
+  {
+   "goto": [
+    1,
+    35,
+    5
+   ]
+  },
+  {
+   "check": "$gameMap.event(29).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(29).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She'd say it was showing off.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSwitches.value(138)",
+   "expect": false
+  },
+  {
+   "goto": [
+    6,
+    11,
+    4
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He looks at it as if it had\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(20), $gameSwitches.value(138)]",
+   "expect": [
+    3,
+    true
+   ]
+  },
+  {
+   "goto": [
+    1,
+    35,
+    5
+   ]
+  },
+  {
+   "check": "$gameMap.event(29).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(29).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's right. It's not her.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSwitches.value(138)",
+   "expect": false
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...Hang on.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    6,
+    11,
+    4
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She'd have hated the fuss.\"))",
+   "expect": true
+  },
+  {
+   "check": "[$gameVariables.value(20), $gameSwitches.value(138)]",
+   "expect": [
+    4,
+    true
+   ]
+  },
+  {
+   "goto": [
+    1,
+    35,
+    5
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(29).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"This one's for the gate.\"))",
+   "expect": true
+  },
+  {
+   "comment": "Through the gate with the gate.",
+   "goto": [
+    1,
+    35,
+    11
+   ]
+  },
+  {
+   "check": "$gameMap.event(30).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 12
+  },
+  {
+   "shot": "q_hob2_gate.png"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The latch drops. Click.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...She says the latch wants a spring.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Something To Say\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"hammer is\"))",
+   "expect": false
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"aunt\"))",
+   "expect": false,
+   "label": "and nobody explains it"
+  },
+  {
+   "check": "[$gameSwitches.value(137), $gameSwitches.value(138), $gameSwitches.value(139), $gameSwitches.value(102), $gameVariables.value(15) - window._stories, $gameParty.numItems($dataWeapons[41]), $gameVariables.value(7) - window._blushes]",
+   "expect": [
+    false,
+    false,
+    true,
+    true,
+    1,
+    1,
+    0
+   ],
+   "label": "hung; the weapon; Hob's story counted; no blush"
+  },
+  {
+   "check": "[3,1,5].map(a => $gameActors.actor(a).canEquip($dataWeapons[41]))",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "his, and nobody else's"
+  },
+  {
+   "check": "$gameMap.event(30).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    1,
+    35,
+    11
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 20
+  },
+  {
+   "check": "window._lines.length",
+   "expect": 0,
+   "label": "the new gate says nothing; it clicks"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    35,
+    9
+   ]
+  },
+  {
+   "shot": "q_hob2_after.png"
+  },
+  {
+   "goto": [
+    6,
+    8,
+    11
+   ]
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 3
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"TOO HEAVY\"))",
+   "expect": true
+  }
+ ]
+}

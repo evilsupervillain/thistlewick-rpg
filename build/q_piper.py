@@ -27,6 +27,8 @@ who spent the afternoon on it is furious.
 * **Done is a global switch, `SW_PIP2_DONE`**, for the ending: `SW_STORY
   [PIPER]` will be on after any of her quests.
 """
+import copy
+
 import db
 import rmmzdata as R
 import story as S
@@ -248,3 +250,239 @@ def turnip_pages(img):
         R.page(after, conditions=dict(
             piper, switch1Valid=True, switch1Id=db.SW_PIP2_DONE), **page),
     ]
+
+
+# ======================================================================
+# PIP-5, The Struck Verses (`QUESTS.md` A12)
+# ----------------------------------------------------------------------
+# The Committee keeps what it strikes. Of course it does. In a box, behind
+# the green curtain in Prophecy Hall, and getting at it is a form, a key and
+# a distraction - the last of which is what a party is for.
+#
+# * **What is in the box is never printed.** The player sees the count, which
+#   is `VAR_BLUSHES` read back - the number the game has been keeping all
+#   along - and Piper's face, and one verse: forty-one, which is about a
+#   hedge, and is entirely innocent, and was struck anyway.
+# * **The ask is the fete minutes'** (Map 3, event 8), below their terminal
+#   self switch A. The form is in the Committee Records (event 7); the
+#   Councillor on the wording countersigns it (event 4); and Councillor Fenn
+#   (event 5), whom nobody has ever listened to, is listened to - by whoever
+#   is third in the party - while the key comes off his hook.
+# * **Only the ask and the box need Piper.** The rest is global and the Clerk
+#   who can strike her off the roster is in the same room, so a Piper sent
+#   home half-way leaves the errand where it was.
+# * **The archive is a room in the black of Map 3**, east of the hall,
+#   drawn by `village.py`. The "curtain" is `Middle Window B`, a curtained
+#   window on the north wall; drawn back, it is a door marked STRUCK.
+VERSE_41 = [
+    "  'The Elder's hedge, one summer, grew",
+    "  much higher than the chapel wall;",
+    "  he trimmed it every Tuesday, through",
+    "  to autumn, and he trimmed it all.'",
+]
+
+
+def _pip5_after(page0, conds, lines):
+    """`page0` again, with one more narrated line - so nobody loses a word."""
+    page = copy.deepcopy(page0)
+    page["list"] = page["list"][:-1] + S.narrate(lines) + page["list"][-1:]
+    page["conditions"] = R.page([], conditions=conds)["conditions"]
+    return page
+
+
+def _pip5_page(page0, cmds, conds):
+    new = R.page(cmds, conditions=conds)
+    return dict(copy.deepcopy(page0), list=new["list"],
+                conditions=new["conditions"])
+
+
+def minutes_pages(page0, terminal):
+    """The fete minutes (Map 3, event 8): the ask, with Piper, below their
+    terminal page (`terminal`, on self switch A); and afterwards."""
+    ask = S.say("Piper", ["They keep what they strike. Of course",
+                          "they do. It's a Committee."])
+    ask += S.say("Piper", ["There'll be a box. There's always a box.",
+                           "Behind the green curtain, I'd say. It's",
+                           "the one thing in here that isn't on an",
+                           "inventory."])
+    ask += S.say("Piper", ["It'll want a form, a key and a",
+                           "distraction. The distraction is what",
+                           "you lot are for."])
+    ask += [S.trope(), R.control_switch(db.SW_PIP5_ASKED, True)]
+    again = S.say("Piper", ["A form, a key, a distraction.",
+                            "In that order, ideally."])
+    cmds = R.if_then(R.condition_switch(db.SW_PIP5_ASKED), again, ask)
+    a = dict(terminal["conditions"])
+    return [
+        _pip5_page(terminal, cmds, {
+            "switch1Valid": True, "switch1Id": a["switch1Id"],
+            "selfSwitchValid": True, "selfSwitchCh": "A",
+            "actorValid": True, "actorId": db.PIPER}),
+        _pip5_after(terminal, {"switch1Valid": True,
+                               "switch1Id": db.SW_PIP5_DONE},
+                    ["Pinned under them, a slip: 'Struck material",
+                     "consulted, Form S-7.' Initialled P.Q., in metre."]),
+    ]
+
+
+def records_pages(page0):
+    """The Committee Records (Map 3, event 7): the form is in here, once
+    Piper knows there is a box. Afterwards they are the records again."""
+    find = S.narrate([
+        "Behind the minutes, a pad of forms. The top one:",
+        "FORM S-7. APPLICATION TO CONSULT STRUCK MATERIAL",
+        "(VERSE). To be countersigned as to the wording."])
+    find += [R.gain_item(db.IT_FORM_S7, 1), R.play_me("Item"),
+             R.self_switch("B", True)]
+    find += S.got(["Got \\I[193]\\C[3]Form S-7\\C[0]."])
+    return [
+        _pip5_page(page0, find, {"switch1Valid": True,
+                                 "switch1Id": db.SW_PIP5_ASKED}),
+        dict(copy.deepcopy(page0), conditions=R.page([], conditions={
+            "selfSwitchValid": True, "selfSwitchCh": "B"})["conditions"]),
+    ]
+
+
+def wording_pages(page0):
+    """The Councillor on the wording (Map 3, event 4) countersigns Form S-7,
+    as to the wording, which is all he does."""
+    sign = S.narrate(["He reads Form S-7 twice, with a pencil."])
+    sign += S.say("Councillor", ["'Consult' or 'inspect'?",
+                                 "Because 'inspect' is a commitment."])
+    sign += S.narrate(["He crosses out 'inspect', writes 'consult',",
+                       "crosses that out too, and initials both."])
+    sign += S.say("Councillor", ["Countersigned. As to the wording.",
+                                 "The key is Fenn's. Good luck."])
+    sign += [R.control_switch(db.SW_PIP5_SIGNED, True)]
+    return [
+        _pip5_page(page0, sign, {"itemValid": True,
+                                 "itemId": db.IT_FORM_S7}),
+        _pip5_after(page0, {"switch1Valid": True,
+                            "switch1Id": db.SW_PIP5_SIGNED},
+                    ["He is still thinking about 'consult'."]),
+    ]
+
+
+DECOY = ("$gameParty.members().map(a => a.actorId())"
+         ".find(i => i !== %d && i !== %d) || 0" % (db.BRAM, db.PIPER))
+
+
+def fenn_pages(page0):
+    """Councillor Fenn (Map 3, event 5), whom nobody listens to. Somebody
+    does, at last - whoever is third in the party - and the key comes off
+    his hook while he explains."""
+    listened = S.narrate([
+        "There is a key on a hook on Councillor Fenn's belt,",
+        "with STRUCK on its tag. He does not leave his post."])
+    listened += S.narrate([
+        "\\N[\\V[%d]] asks him what he means, exactly," % db.VAR_PIP5_DECOY,
+        "about clause twelve."])
+    listened += S.say("Councillor Fenn", ["...Nobody has ever asked."])
+    listened += S.say("Councillor Fenn", ["Sit down. Sit DOWN.",
+                                          "It goes back to the original",
+                                          "wording, and the original wording",
+                                          "goes back to a horse -"])
+    listened += S.narrate([
+        "He is away. He will be some time. You take the key",
+        "off its hook, and he does not notice, because for",
+        "the first time in forty years somebody is nodding."])
+    listened += [R.gain_item(db.IT_ARCHIVE_KEY, 1), R.play_se("Key"),
+                 R.control_switch(db.SW_PIP5_KEY, True)]
+    listened += S.got(["Got \\I[195]\\C[3]A Key Marked STRUCK\\C[0]."])
+    alone = S.narrate([
+        "There is a key on a hook on Councillor Fenn's belt.",
+        "Somebody would have to ask him about clause twelve,",
+        "and it cannot be you: you are already Chosen, and",
+        "he has explained it to you. It wants a third."])
+    cmds = [R.control_variable_script(db.VAR_PIP5_DECOY, DECOY)]
+    cmds += R.if_then(R.condition_variable(db.VAR_PIP5_DECOY, 0, 3),
+                      listened, alone)
+    return [
+        _pip5_page(page0, cmds, {"switch1Valid": True,
+                                 "switch1Id": db.SW_PIP5_SIGNED}),
+        _pip5_after(page0, {"switch1Valid": True,
+                            "switch1Id": db.SW_PIP5_KEY},
+                    ["He is still explaining clause twelve, to",
+                     "the room, and he looks very well on it."]),
+    ]
+
+
+def curtain_event(event_id, x, y, archive):
+    """The green curtain in the north wall: behind it, a door. With the key,
+    through it, to `archive` - (map, x, y), the archive's arrival."""
+    door = S.narrate(["A window with green curtains, drawn. Behind",
+                      "them there is no window: there is a door",
+                      "marked STRUCK MATERIAL. NO ADMITTANCE WITHOUT",
+                      "FORM S-7. It is locked."])
+    go = S.narrate(["The key fits. Of course it does."])
+    go += [R.play_se("Open1"), R.transfer(*archive, 8, 0)]
+    blank = R.image("")
+    return R.event(event_id, "Behind the Curtain", x, y, [
+        R.page(door, img=blank, direction_fix=True),
+        R.page(go, img=blank, direction_fix=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_PIP5_KEY}),
+    ])
+
+
+def _pip5_box():
+    c = S.narrate([
+        "The best box the Committee owns, gilded, with a red",
+        "stone in the lid, and full to it: two hundred years of",
+        "struck verses, one to a slip, each dated, and each",
+        "initialled by whoever struck it."])
+    c += S.say("Piper", ["They kept them. Every one."])
+    c += S.narrate([
+        "She does not read them aloud. She reads them to",
+        "herself, one after another, and her face does a great",
+        "many things, and you watch it do them."])
+    c += [R.wait(40)]
+    c += S.narrate([
+        "In the lid there is a tally card, in the Clerk's hand:",
+        "STRUCK, THERE BEING CHILDREN PRESENT. The total at",
+        "the bottom is \\C[2]\\V[%d]\\C[0]." % db.VAR_BLUSHES])
+    c += S.say("Piper", ["\\V[%d]." % db.VAR_BLUSHES])
+    c += S.say("Piper", ["...That's about right."])
+    c += S.narrate([
+        "She holds up one slip, so that you can read it, and",
+        "only that one. Verse forty-one. It is about a hedge."])
+    c += S.narrate(VERSE_41)
+    c += [S.blush()]
+    c += S.say("Piper", ["It scans."])
+    c += S.narrate([
+        "She puts it back exactly where it was, and shuts the",
+        "lid, and the key goes back on Fenn's hook on the way",
+        "out, while he is still explaining."])
+    c += S.say("Piper", ["They were right to keep them.",
+                         "Somebody should."])
+    c += [R.gain_item(db.IT_ARCHIVE_KEY, -1), R.gain_item(db.IT_FORM_S7, -1),
+          R.control_switch(db.SW_PIP5_DONE, True)]
+    c += S.companion_story(db.PIPER)
+    return c
+
+
+def archive_events(base_id, box_at, door_at, back, box_tile):
+    """The archive (in the black of Map 3): the box, and the way back to
+    `back` - (map, x, y), in front of the curtain."""
+    box_img = R.image("", 0, tile_id=box_tile)
+    shut = S.narrate(["A gilded case, the best box in the building,",
+                      "with a card on it in the Clerk's hand: STRUCK.",
+                      "It is Piper's to open, if it is anybody's."])
+    after = S.narrate(["The gilded case marked STRUCK, shut. Everything",
+                       "in it is where it was, except one slip that",
+                       "has been very slightly straightened."])
+    return [
+        R.event(base_id, "The Box", *box_at, [
+            R.page(shut, img=box_img, direction_fix=True),
+            R.page(_pip5_box(), img=box_img, direction_fix=True,
+                   conditions={"switch1Valid": True,
+                               "switch1Id": db.SW_PIP5_KEY,
+                               "actorValid": True, "actorId": db.PIPER}),
+            R.page(after, img=box_img, direction_fix=True,
+                   conditions={"switch1Valid": True,
+                               "switch1Id": db.SW_PIP5_DONE})]),
+        R.event(base_id + 1, "Archive Door", *door_at, [R.page(
+            [R.play_se("Close1"), R.transfer(*back, 2, 0)],
+            img=R.image(""), trigger=1, priority=0, through=True)]),
+    ]
+
