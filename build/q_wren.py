@@ -725,8 +725,8 @@ def _wre1_complete():
 
 def _wre1_rules():
     c = S.narrate([
-        "Tucked into the inch-wide gap, as if it had been waiting,",
-        "is one of the Library's cards."])
+        "Tucked into it, as if it had been waiting, is one of the",
+        "Library's cards."])
     c += S.narrate([
         "A MONOGRAPH OF THE COLLEGIUM REQUIRES: (I) A TYPE",
         "SPECIMEN FOR EVERY ENTRY; (II) THREE FELLOWS TO REVIEW",
@@ -771,23 +771,27 @@ def _wre1_publish():
 
 
 def shelf_pages(page0):
-    """The monographs (Map 59, event 5), which have one page: Wren's page,
-    which starts the monograph, counts it and publishes it; afterwards, for
-    everybody; and afterwards, with her."""
+    """The monographs (Map 59, event 5), which have one page with her
+    reaction shot in it. Page 2 is that page exactly, for her, and it marks
+    the gap seen (self switch B, which is cosmetic - the quest is global);
+    page 3 is her second look, which finds the card and starts the
+    monograph, and after that counts it and publishes it; then afterwards,
+    for everybody, and afterwards with her."""
     status = S.narrate([
         "The inch-wide gap. Type specimens measured: \\V[%d]"
         % db.VAR_WRE1_SPECIMENS, "of eleven."])
     status += S.say("Wren", ["Not yet. Specimens, three reviewers,",
                              "six subscribers. Then there's room."])
-    # The shelf's own narration, before its Wren branch: on the first visit
-    # she gets her reaction shot and the card; after that, only the count.
+    # The shelf's own narration, before its Wren branch.
     first_branch = next(i for i, cmd in enumerate(page0["list"])
                         if cmd["code"] == 111)
     narration = page0["list"][:first_branch]
-    hers = R.if_then(
+    first_look = page0["list"][:-1] + [R.self_switch("B", True)]
+    second_look = narration + R.if_then(
         R.condition_switch(db.SW_WRE1_ON),
-        narration + R.if_then(_wre1_complete(), _wre1_publish(), status),
-        page0["list"][:-1] + _wre1_rules())
+        R.if_then(_wre1_complete(), _wre1_publish(), status),
+        S.narrate(["Wren goes back to the gap, as if it might have moved."])
+        + _wre1_rules())
     shelf = [
         "And in what was an inch-wide gap: THE FAUNA OF THE VALLEY,",
         "BY WHAT THEY ARE. W. HALLOWAY. It fits exactly."]
@@ -796,12 +800,14 @@ def shelf_pages(page0):
     after = copy.deepcopy(narration) + S.narrate(shelf) + [page0["list"][-1]]
     with_her = after[:-1] + S.narrate([
         "Wren does not look at it. Then she does."]) + [after[-1]]
+    wren = {"actorValid": True, "actorId": db.WREN}
     done = {"switch1Valid": True, "switch1Id": db.SW_WRE1_DONE}
     return [
-        _dressed(page0, hers, {"actorValid": True, "actorId": db.WREN}),
+        _dressed(page0, first_look, wren),
+        _dressed(page0, second_look, dict(wren, selfSwitchValid=True,
+                                          selfSwitchCh="B")),
         _dressed(page0, after, done),
-        _dressed(page0, with_her, dict(done, actorValid=True,
-                                       actorId=db.WREN)),
+        _dressed(page0, with_her, dict(done, **wren)),
     ]
 
 

@@ -70,12 +70,44 @@
    "frames": 60
   },
   {
-   "advance": 30
+   "advance": 20
   },
   {
    "check": "window._lines.some(l => l.includes(\"There's room.\"))",
    "expect": true,
-   "label": "her own reaction shot, kept"
+   "label": "the first look is the reaction shot, as published"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"(II) THREE FELLOWS\"))",
+   "expect": false,
+   "label": "and nothing of WRE-1 yet"
+  },
+  {
+   "check": "[$gameSwitches.value(164), $gameMap.event(5).findProperPageIndex()]",
+   "expect": [
+    false,
+    2
+   ],
+   "label": "the gap seen; her second look is next"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter",
+   "times": 1,
+   "gap": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There's room.\"))",
+   "expect": false,
+   "label": "the second look is the card, not the reaction again"
   },
   {
    "check": "window._lines.some(l => l.includes(\"SPECIMEN FOR EVERY ENTRY; (II) THREE FELLOWS TO REVIEW\"))",
@@ -660,7 +692,7 @@
   {
    "check": "[$gameMap.event(5).findProperPageIndex(), $gameMap.event(8).findProperPageIndex(), $gameMap.event(9).findProperPageIndex(), $gameMap.event(10).findProperPageIndex()]",
    "expect": [
-    3,
+    4,
     3,
     3,
     2
@@ -677,7 +709,7 @@
    "check": "[$gameParty.hasCancelSurprise(), $gameMap.event(5).findProperPageIndex()]",
    "expect": [
     false,
-    2
+    3
    ],
    "label": "without her, no upgrade; the shelf for everybody"
   },

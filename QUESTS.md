@@ -1687,14 +1687,17 @@ Hapgood, the Appeal and the chair); `build/scenarios/q_zeph2.json`.
 `nomap.py` (the pond) and `journey.py` (the eleven specimens); the records in
 `db.build_monograph`; `build/scenarios/q_wre1.json`.
 
-* **The start is the shelf** (Map 59 event 5, which has one page with her
-  reaction shot in it). Page 2 is hers - that reaction, kept, and then one
-  of the Library's cards tucked into the inch-wide gap: A MONOGRAPH OF THE
-  COLLEGIUM REQUIRES (I) A TYPE SPECIMEN FOR EVERY ENTRY; (II) THREE FELLOWS
-  TO REVIEW IT; (III) A LIST OF SUBSCRIBERS. "Rowbotham named three hundred
-  species and never had a type specimen for one of them. He named them after
-  his dogs." `SW_WRE1_ON`. **One trope** (the collect-them-all). The same
-  page counts what is left (`\V[24]` of eleven, three reviewers, six
+* **The start is the shelf's second look** (Map 59 event 5, which has one
+  page with her reaction shot in it). Page 2 is that page exactly, for her,
+  and marks the gap seen (its self switch B - cosmetic; the quest is
+  global); so her first visit is the published scene, word for word, which
+  `collegium` asserts. Page 3, her second look, finds one of the Library's
+  cards tucked into the gap: A MONOGRAPH OF THE COLLEGIUM REQUIRES (I) A
+  TYPE SPECIMEN FOR EVERY ENTRY; (II) THREE FELLOWS TO REVIEW IT; (III) A
+  LIST OF SUBSCRIBERS. "Rowbotham named three hundred species and never had
+  a type specimen for one of them. He named them after his dogs."
+  `SW_WRE1_ON`. **One trope** (the collect-them-all). The same page then
+  counts what is left (`\V[24]` of eleven, three reviewers, six
   subscribers) and publishes when it is all there.
 * **Decided: the specimens are on the world map**, one by each of eleven
   places, as tracks (`!Other1` 5, the footprints) that are there only while
@@ -1781,7 +1784,7 @@ Hapgood, the Appeal and the chair); `build/scenarios/q_zeph2.json`.
 * **The rooms (0.1):** the Library was cropped in C1; nothing changed - the
   reviewers stand on open floor at either end of the reading table, and the
   list is on the desk.
-* **Scenario** `q_wre1`: passes (44 checks): two specimens fought (one
+* **Scenario** `q_wre1`: passes (47 checks): two specimens fought (one
   walked on to, one started where it stands), nine set by script; the list
   opened as a shop and one subscription bought through it; Mott, Furze and
   the duck; publication; and the upgrade asserted present with her and gone
@@ -1792,6 +1795,22 @@ Hapgood, the Appeal and the chair); `build/scenarios/q_zeph2.json`.
   the count only, asserted.
 * `TIMELINE.md`: nothing dated (Rowbotham's "forty years" and Wren's first
   paper are not new dates).
+
+**Rerun for Part C** (0.1): after C4, every scenario that walks Maps 58-60
+was run again, alone and with no timeout - `collegium`, `q_zeph1`,
+`q_zeph3`, `q_zeph2`, `q_wre1` - and `nomap`, because the Duck's Pond had
+pages added twice. **The first `collegium` run failed, and it found a real
+fault**: C4 had put the card that starts WRE-1 on Wren's *first* visit to
+the shelf, straight after the published reaction shot - so the site step's
+assertion that her shelf says nothing of reviewers or specimens broke, the
+scene ran on past "She says nothing else, and walks on", and the walk after
+it never left the Library. Fixed in C4's own pages rather than in the
+assertion: her first visit is the published page exactly, and the card is
+her second look. The other `collegium` failure was its own count of the
+world-map doors' pages, which C1 and C3 took from three to six by design;
+the check now says six and why. **All six pass**: `collegium` 101 checks,
+`q_zeph1` 38, `q_zeph3` 17, `q_zeph2` 25, `q_wre1` 47, `nomap` 44. Nothing
+is owed.
 
 ---
 

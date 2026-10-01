@@ -6,8 +6,8 @@
     {"eval": "window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }"},
     {"check": "$gameMap.mapId()", "expect": 8},
     {"check": "$dataMap.events.filter(e => e && e.name === 'Collegium Arcanum').map(e => [e.x, e.y, e.pages[0].trigger, e.pages[0].priorityType, e.pages.length, (e.note||'').includes('-site')])",
-     "expect": [[112, 38, 1, 0, 3, false], [113, 38, 1, 0, 3, false]],
-     "label": "real doors on both of School of Magic's lower cells: player-touch, below characters, three pages, and not placeholders any more"},
+     "expect": [[112, 38, 1, 0, 6, false], [113, 38, 1, 0, 6, false]],
+     "label": "real doors on both of School of Magic's lower cells: player-touch, below characters, six pages (step 17's three, then ZEPH-1's two and ZEPH-2's one, QUESTS.md C1 and C3), and not placeholders any more"},
     {"check": "$gameParty.members().some(a => [4, 9].includes(a.actorId()))", "expect": false,
      "label": "neither Zephyrine nor Wren in the party to begin with"},
 
