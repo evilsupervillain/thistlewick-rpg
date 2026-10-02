@@ -512,7 +512,7 @@ Dr Furze              Miss Fettle           Cotter
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-129 constants.
+133 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -644,6 +644,10 @@ WORLD_SIGN_COAST             (63, 80)
 VAULT                        (23, 5, 25, 7, 24)
 VAULT_CHAIR                  (24, 5)
 COUNTING_BEFORE_DOOR         (8, 5)
+STUDY                        (28, 4, 33, 8, 30)
+STUDY_DOOR                   (6, 3)
+STUDY_DESK                   (31, 6)
+STUDY_MARKS                  (30, 3)
 ```
 
 
@@ -651,7 +655,7 @@ COUNTING_BEFORE_DOOR         (8, 5)
 
 The whole database of The Obligatory Quest.
 
-493 constants.
+499 constants.
 
 ```
 BRAM                         1
@@ -1099,6 +1103,12 @@ SK_STARTLE                   175
 SK_BOLT                      176
 SK_BITE_NOTES                177
 SK_NOT_THERE                 178
+SW_COR1_ON                   170
+SW_COR1_HOME                 171
+SW_COR1_DONE                 172
+IT_INVITATION                65
+AR_SCARF                     44
+AT_SCARF                     11
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32
