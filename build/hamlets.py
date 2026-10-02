@@ -49,6 +49,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_aldric
 import q_hob
 import q_merribell
 from places import (MAP_WORLD, MAP_LITTLE_GORE, MAP_SUMP,
@@ -225,6 +226,7 @@ def gore_events():
 
     evs.append(_person(3, "Hester Vane", HESTER,
                        R.image("Gen_People4", 5, direction=2), *vane_pages()))
+    evs[-1]["pages"] += q_aldric.vane_pages(evs[-1]["pages"][-1])  # ALD-1
     evs.append(q_hob.owned("winifred", _person(                    # HOB-1
         4, "Dame Winifred Cope", COPE,
         R.image(*S.FACES["Dame Winifred"], direction=2), *cope_pages())))
@@ -275,6 +277,7 @@ def gore_events():
         "a year or two apart, each with a drawing of a very round",
         "baby in the corner."])
     evs.append(R.event(8, "The Banns", *BANNS, [R.page(banns, **page)]))
+    evs[-1]["pages"] += q_aldric.banns_pages(evs[-1]["pages"][0])  # ALD-1
 
     # 9: the fingerpost, which is Little Gore's whole geography.
     post = S.narrate([

@@ -333,3 +333,182 @@ def committee_pages(page0):
         "   Beautifully. (Minuted at his request.)"])
     return [_like(page0, card, {"switch1Valid": True,
                                 "switch1Id": db.SW_ALD3_DONE})]
+
+
+# ======================================================================
+# ALD-1, The Errand (`QUESTS.md` E5)
+# ----------------------------------------------------------------------
+# He still has the letter. It has been in his tabard for nine years and is
+# soft at the folds. It must go to the next village, four miles off, and he
+# insists on leading, by a route of a hundred and ten miles that passes a
+# coast he has been told about. The party may correct him at any point and
+# should not. It is an invitation to a wedding nine years ago, which
+# everybody attended anyway.
+#
+# * **The start is the banns** (Map 50 event 8), which have no ladder: with
+#   Aldric, its own page and then INVITATIONS TO FOLLOW read over your
+#   shoulder - "...I am the invitations." Out of the tabard comes the letter,
+#   TO THE PARISH OF LITTLE GORE. BY HAND., his first errand, the morning he
+#   rode out. It is a key item from here, so a dismissed Aldric's errand
+#   waits on whoever is carrying it.
+# * **The route is a choice**: follow him - the coast, the Lay-By in the
+#   west, Frostwick, the Fenmarch road twice, three days, and over a rise, a
+#   sandy road and a wooden house on a knoll - or tell him this is Little
+#   Gore, which is shorter and a little sad. Both arrive.
+# * **The delivery is Mrs Vane's** (event 3, page 3: her A, Aldric and the
+#   letter). She opens an invitation to her own wedding, is delighted, and
+#   puts it on the mantelpiece. The first thing he has carried in six years
+#   that has got where it was going.
+# * **Afterwards for everybody**: Mrs Vane's own last page plus the
+#   mantelpiece, and the banns plus FOLLOWED. (P-G.)
+ALD1_LETTER_ICON = 192          # the envelope
+
+
+def _ald1_route():
+    c = [R.fadeout_screen()]
+    c += S.narrate([
+        "You follow him. Down to the coast, which is lovely, and",
+        "along it, which takes a day. Through a lay-by in the far",
+        "west, where he is fairly sure he has been before."])
+    c += S.narrate([
+        "Up to Frostwick, which is cold, and down the Fenmarch road,",
+        "twice, in different directions, both times on purpose.",
+        "He carries the letter the whole way, in his hand."])
+    c += S.narrate([
+        "On the third evening you come over a rise, and there is a",
+        "clearing, and a sandy road, and a wooden house on a knoll",
+        "with smoke going up from it. A painted board: LITTLE GORE."])
+    c += [R.fadein_screen()]
+    c += S.say("Aldric", [
+        "THERE. Little Gore. Told you I",
+        "knew the way."])
+    c += S.narrate(["It is a very good way. You would not change a mile of it."])
+    return c
+
+
+def _ald1_corrected():
+    c = S.narrate([
+        "You point at the fingerpost, which says LITTLE GORE, and",
+        "at the houses, and at the banns, which say so as well."])
+    c += S.say("Aldric", [
+        "...Is it? Oh. Oh, good. That is a",
+        "great deal shorter."])
+    c += S.narrate(["He looks, for a moment, at the road to the coast."])
+    c += S.say("Aldric", ["I should have liked to see",
+                          "the coast."])
+    return c
+
+
+def _ald1_letter():
+    c = S.narrate([
+        "Sir Aldric reads the banns over your shoulder, and then",
+        "the card under them, and goes a colour."])
+    c += S.say("Aldric", ["Invitations to follow."])
+    c += S.say("Aldric", ["...I am the invitations."])
+    c += S.narrate([
+        "He puts a hand into his tabard and brings out a letter,",
+        "soft at the folds and nine years old. TO THE PARISH OF",
+        "LITTLE GORE. BY HAND. P-G."])
+    c += S.say("Aldric", [
+        "My father gave me this the morning",
+        "I rode out. Four miles to Little",
+        "Gore, he said. Your first errand."])
+    c += S.say("Aldric", [
+        "Deliver it, and then you may go",
+        "errant. I have been errant for nine",
+        "years. I never delivered it."])
+    c += S.say("Aldric", [
+        "Little Gore! Four miles. I know the",
+        "way. Down to the coast, along it,",
+        "the west road, Frostwick -"])
+    c += S.narrate([
+        "It is about a hundred and ten miles. He has been told",
+        "about the coast. You are standing in Little Gore."])
+    c += [R.gain_item(db.IT_ALD1_LETTER, 1)]
+    c += R.choice_block(["Follow him", "Aldric, this is Little Gore"],
+                        [_ald1_route(), _ald1_corrected()])
+    c += S.say("Aldric", [
+        "Well. Mrs Vane's, then. The first",
+        "house. One knocks, I believe."])
+    return c
+
+
+def banns_pages(page0):
+    """Pages 2-3 of the banns (Map 50, event 8), which have no ladder: with
+    Aldric, its own page and then the letter out of his tabard; afterwards,
+    its own page and one line, for everybody."""
+    own = page0["list"][:-1]
+    nearly = S.say("Aldric", [
+        "Mrs Vane's, the first house. I have",
+        "it here. Nearly there."])
+    aldric = own + R.if_then(R.condition_item(db.IT_ALD1_LETTER), nearly,
+                             _ald1_letter())
+    after = own + S.narrate([
+        "Under INVITATIONS TO FOLLOW, in a fresh hand, very neat:",
+        "        FOLLOWED. (P-G.)"])
+    return [
+        _like(page0, aldric, {"actorValid": True, "actorId": db.ALDRIC}),
+        _like(page0, after, {"switch1Valid": True,
+                             "switch1Id": db.SW_ALD1_DONE}),
+    ]
+
+
+def _ald1_delivery():
+    c = S.narrate([
+        "Sir Aldric takes off his helmet, which nobody has seen him",
+        "do, and holds out the letter in both hands."])
+    c += S.say("Aldric", [
+        "Mrs Vane. For the parish of Little",
+        "Gore, by hand. With the compliments",
+        "of Fenmarch Hall. I am late."])
+    c += S.narrate([
+        "She opens it on the doorstep. Bess and Alfie and Nell",
+        "come and stand round her to see."])
+    c += S.narrate([
+        "SIR ALDRIC PEMBERTON-GORE THE SECOND REQUESTS THE PLEASURE",
+        "OF THE PARISH OF LITTLE GORE AT THE WEDDING OF HESTER",
+        "PLUMB AND THOMAS VANE, AT FENMARCH."])
+    c += S.say("Mrs Vane", ["...It's my wedding."])
+    c += S.say("Aldric", ["It is. I do apologise. It was",
+                          "my first errand."])
+    c += S.say("Mrs Vane", [
+        "Oh, but we all came anyway! All",
+        "eleven of us. In the rain. Nobody",
+        "had told us not to."])
+    c += S.say("Mrs Vane", [
+        "And now we're invited. Properly.",
+        "It's going on the mantelpiece.",
+        "Bess, fetch the good pin."])
+    c += S.narrate([
+        "It goes on the mantelpiece, propped against the clock,",
+        "where you can see it through the window from the road."])
+    c += S.narrate([
+        "Sir Aldric stands on the path with his hands empty, and",
+        "looks at them. It is the first thing he has carried in",
+        "six years that has got where it was going."])
+    c += S.say("Mrs Vane", ["You'll stop for tea."])
+    c += S.say("Aldric", [
+        "I should like that very much. I may",
+        "not find my way out afterwards."])
+    c += S.say("Mrs Vane", ["Then you'll stop for supper."])
+    c += [R.gain_item(db.IT_ALD1_LETTER, -1), R.play_me("Fanfare2")]
+    c += [S.trope(), R.control_switch(db.SW_ALD1_DONE, True)]
+    c += S.companion_story(db.ALDRIC)
+    return c
+
+
+def vane_pages(page0):
+    """Pages 3-4 for Mrs Vane (Map 50, event 3), in her own page's dress:
+    the delivery, with Aldric and the letter, below her ladder; afterwards,
+    her own last page and the mantelpiece, for everybody."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    after = page0["list"][:-1] + S.narrate([
+        "Through the window behind her, on the mantelpiece, an",
+        "invitation nine years late, propped against the clock."])
+    return [
+        _like(page0, _ald1_delivery(),
+              dict(known, actorValid=True, actorId=db.ALDRIC,
+                   itemValid=True, itemId=db.IT_ALD1_LETTER)),
+        _like(page0, after,
+              dict(known, switch1Valid=True, switch1Id=db.SW_ALD1_DONE)),
+    ]

@@ -1,0 +1,414 @@
+{
+ "query": "?map=50&x=11&y=16&frames=90",
+ "comment": "QUESTS.md E5, ALD-1 The Errand. Mrs Vane's first look with Aldric is the published page; the banns with Aldric are their own page and then the letter out of his tabard - corrected once ('this is Little Gore'), and with the letter taken back, followed the hundred and ten miles. The banns again: nearly there. Without Aldric Mrs Vane is her own page and the letter waits; with him, the delivery: the mantelpiece, one trope, his story. Afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "eval": "$gameParty.addActor(6)"
+  },
+  {
+   "goto": [
+    50,
+    8,
+    11
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "Mrs Vane, first look, with Aldric: her published page"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 25
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"letter\")) && !window._lines.some(l => l.includes(\"mantelpiece\"))",
+   "expect": true,
+   "label": "nothing of ALD-1"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "window._pick = 1"
+  },
+  {
+   "goto": [
+    50,
+    16,
+    14
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1,
+   "label": "the banns with Aldric"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "talking to event 8"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"BANNS OF MARRIAGE\")) && window._lines.some(l => l.includes(\"INVITATIONS TO FOLLOW.\")) && window._lines.some(l => l.includes(\"...I am the invitations.\")) && window._lines.some(l => l.includes(\"LITTLE GORE. BY HAND. P-G.\")) && window._lines.some(l => l.includes(\"...Is it? Oh. Oh, good.\")) && window._lines.some(l => l.includes(\"the coast.\"))",
+   "expect": true,
+   "label": "the banns, the letter, and corrected"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[68])",
+   "expect": 1,
+   "label": "the letter, a key item"
+  },
+  {
+   "eval": "$gameParty.loseItem($dataItems[68], 1); window._pick = 0"
+  },
+  {
+   "goto": [
+    50,
+    16,
+    14
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1,
+   "label": "the banns again, the letter taken back"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "talking to event 8"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"You follow him.\")) && window._lines.some(l => l.includes(\"THERE. Little Gore.\"))",
+   "expect": true,
+   "label": "and followed, the long way"
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"...Is it? Oh.\"))",
+   "expect": true,
+   "label": "not corrected this time"
+  },
+  {
+   "check": "$gameScreen.brightness()",
+   "expect": 255,
+   "label": "faded back in"
+  },
+  {
+   "eval": "window._pick = undefined"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[68])",
+   "expect": 1,
+   "label": "item 68 x1"
+  },
+  {
+   "goto": [
+    50,
+    16,
+    14
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1,
+   "label": "the banns a third time"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "talking to event 8"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Nearly there.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[68])",
+   "expect": 1,
+   "label": "still one letter"
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1,
+   "label": "without Aldric, Mrs Vane is her own page; the letter waits"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 0,
+   "label": "and the banns are the banns"
+  },
+  {
+   "eval": "$gameParty.addActor(6)"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    50,
+    8,
+    11
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "THE POINT: the delivery"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...It's my wedding.\")) && window._lines.some(l => l.includes(\"It's going on the mantelpiece.\")) && window._lines.some(l => l.includes(\"the first thing he has carried in\")) && window._lines.some(l => l.includes(\"Then you'll stop for supper.\"))",
+   "expect": true,
+   "label": "delivered"
+  },
+  {
+   "check": "$gameSwitches.value(182)",
+   "expect": true,
+   "label": "SW_ALD1_DONE"
+  },
+  {
+   "check": "$gameSwitches.value(105)",
+   "expect": true,
+   "label": "SW_STORY[ALDRIC]"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[68])",
+   "expect": 0,
+   "label": "the letter is on the mantelpiece"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "tropes +1"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 1,
+   "label": "companion stories +1"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "goto": [
+    50,
+    8,
+    11
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "Mrs Vane afterwards, for everybody"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 15
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Tom's in the gardens at Fenmarch.\")) && window._lines.some(l => l.includes(\"propped against the clock\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    50,
+    16,
+    14
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 2,
+   "label": "the banns afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "talking to event 8"
+  },
+  {
+   "advance": 15
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"INVITATIONS TO FOLLOW.\")) && window._lines.some(l => l.includes(\"FOLLOWED. (P-G.)\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "tropes +0"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 0,
+   "label": "companion stories +0"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "back on the map"
+  }
+ ]
+}

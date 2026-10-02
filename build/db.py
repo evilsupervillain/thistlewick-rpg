@@ -409,6 +409,9 @@ SW_MER3_DONE = 180              # write it down; the Table's Kit
 AR_TABLE_KIT = 46               # anybody's: an accessory of the general type
 # ALD-3, The Chapter House (QUESTS.md E4, q_aldric.py)
 SW_ALD3_DONE = 181              # the pin goes with the knight: At Large
+# ALD-1, The Errand (QUESTS.md E5, q_aldric.py)
+SW_ALD1_DONE = 182              # the letter delivered, nine years late
+IT_ALD1_LETTER = 68             # TO THE PARISH OF LITTLE GORE. BY HAND.
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1618,6 +1621,10 @@ def build_items():
                     "Gooseberry, 1931, her gran's, and the last jar. The label "
                     "says (BETTER). Wasps would like it very much.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=179))
+    upsert(it, item(IT_ALD1_LETTER, "The Letter (Nine Years Late)",
+                    "TO THE PARISH OF LITTLE GORE. BY HAND. P-G. Soft at the "
+                    "folds. His first errand, four miles.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=192))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

@@ -2292,14 +2292,72 @@ by `coldbarrow.draw_map(aldric=False)`; `build/scenarios/q_ald3.json`.
   first page, and the great map's cell at x 7 is event 5.
 * `TIMELINE.md`: nothing dated ("this Thursday" is not a year).
 
+**E5, ALD-1 The Errand - done.** ALD-1's section of `q_aldric.py`, hooked
+from `hamlets.py` in two places (Mrs Vane, the banns);
+`build/scenarios/q_ald1.json`.
+
+* **The start is the banns** (Map 50 event 8), which have no ladder and were
+  built as this quest's set-up: with Aldric, their own page whole, and then
+  INVITATIONS TO FOLLOW read over your shoulder. "...I am the invitations."
+  Out of the tabard comes a letter, soft at the folds, nine years old: TO
+  THE PARISH OF LITTLE GORE. BY HAND. P-G. His father gave it him the morning
+  he rode out - four miles, your first errand, deliver it and then you may go
+  errant. "I have been errant for nine years. I never delivered it." **The
+  letter is item 68**, a key item, so the errand belongs to whoever carries
+  it and a dismissed Aldric's waits.
+* **The route is a choice, and the party should not correct him**: "Follow
+  him" is the hundred and ten miles in three windows - the coast, which is
+  lovely, a lay-by in the far west where he is fairly sure he has been
+  before, Frostwick, the Fenmarch road twice in different directions both on
+  purpose, and on the third evening over a rise a wooden house on a knoll -
+  "THERE. Little Gore. Told you I knew the way." "Aldric, this is Little
+  Gore" is shorter and a little sad: "...Is it? Oh. Oh, good. That is a
+  great deal shorter." / "I should have liked to see the coast." Both end at
+  "Mrs Vane's, then. The first house. One knocks, I believe." The lay-by and
+  Frostwick are two of Mordaunt's three same-week pins, which nobody points
+  out.
+* **The delivery is Mrs Vane's** (event 3, page 3: her A, Aldric and the
+  letter). He takes his helmet off, which nobody has seen him do. It is SIR
+  ALDRIC PEMBERTON-GORE THE SECOND requesting the pleasure of the parish at
+  the wedding of HESTER PLUMB AND THOMAS VANE, at Fenmarch. "...It's my
+  wedding." All eleven came anyway, in the rain, because nobody had told
+  them not to; now they are invited, properly, and it goes on the
+  mantelpiece against the clock, with the good pin. He stands on the path
+  with his hands empty: the first thing he has carried in six years that
+  has got where it was going. Tea, and supper, since he may not find his way
+  out. **One trope** (the quest that started it all). Mrs Vane's first page
+  stays the published one, with Aldric or without - the site said "there is
+  no reaction shot with Aldric in the party", and there still is not.
+* **Afterwards for everybody**: Mrs Vane's own last page plus the invitation
+  on the mantelpiece through the window; the banns' own page plus, under
+  INVITATIONS TO FOLLOW, in a fresh hand, FOLLOWED. (P-G.)
+* **Ids taken:** switch **182** `SW_ALD1_DONE`; item **68**
+  `IT_ALD1_LETTER`. No faces, no new events.
+* One trope, no blush. Running tally: **tropes +31 fixed and 2-9 from
+  PIP-2; blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ALDRIC]` (on already after ALD-3 or ALD-4).
+* **Candidate ending line** (G1; read `SW_ALD1_DONE`): "Sir Aldric
+  Pemberton-Gore delivered his first errand, nine years late, by a route of
+  a hundred and ten miles. It is on a mantelpiece in Little Gore."
+* **The rooms (0.1):** Little Gore had never been swept. Map 50 was cropped
+  with `propsheet.py` (39 tiles) and screenshotted: the three houses, wood
+  and green roofs, `Sign B` the banns' board, `Sign A` the fingerpost, the
+  well, a barrel, a fallen log, flowers and trees. Everything is what its
+  event says. Nothing needed fixing.
+* **Scenario** `q_ald1`: passes (40 checks), first run - both routes (the
+  letter taken back between them), the letter waiting without Aldric, the
+  delivery, and afterwards without him.
+* `TIMELINE.md`: 1991 gains the letter, his first errand, given the morning
+  he rode out.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E5, ALD-1 The
-Errand**. E1-E4 (Merribell's MER-5, MER-1 and MER-3, and Aldric's ALD-3)
-are done, 2 Oct 2026. Mike asked
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E6, ALD-5
+Pemberton-Gore the Fourth**. E1-E5 (Merribell's MER-5, MER-1 and MER-3,
+and Aldric's ALD-3 and ALD-1) are done, 2 Oct 2026. Mike asked
 for E1-E6 in one session; if this prompt is being read, that session ended
 early, so carry on from here through E6, then the rerun for the part.
 
@@ -2320,18 +2378,17 @@ scenario, `build/scenarios/q_<quest>.json`, run in the background, one
 browser at a time. Then the Done paragraph, a commit, and this prompt moved
 on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +30 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 182, variable 26, item 68, weapon 42,
+Where things stand: tropes +31 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 183, variable 26, item 69, weapon 42,
 armour 47, armour type 13, class 12, common event 4, state 41, enemy 55,
 troop 53, skill 179, map 67, `Gen_People14` 1. Merribell has had her gear
 (the Pamphlet, armour 45). The Rule of Life's four lines are
 `q_merribell._MER5_RULE`.
 
-What E5 will need: Little Gore (Map 50). The banns have no ladder;
-INVITATIONS TO FOLLOW is ALD-1's set-up. Mrs Vane's ladder is one self
-switch. Dame Winifred is HOB-1's, so leave her. E6 (ALD-5) then needs
-ALD-1 done, and puts the Fourth at Little Gore and three paces behind
-Aldric at six places.
+What E6 will need: ALD-1 done (`SW_ALD1_DONE`), since Tom carries the
+news from Little Gore to Fenmarch. Fenmarch's world-map door refuses Aldric
+on pages 2-3 and its docstring expects ALD-5 to append; the `fenmarch`
+scenario asserts that refusal, so every new page must need ALD-5 done.
 
 Things learned that will bite again:
 
