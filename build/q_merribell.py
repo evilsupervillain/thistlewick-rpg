@@ -492,3 +492,341 @@ def ladder_pages(page0):
         "fitted by somebody who has never fitted a rung",
         "before, and it holds."]),
         {"switch1Valid": True, "switch1Id": db.SW_MER4_DONE})]
+
+
+# ======================================================================
+# MER-5, The Well at Sump (`QUESTS.md` E1)
+# ----------------------------------------------------------------------
+# Sump (Map 51, `hamlets.py`) has been cursed since 1794: headaches, short
+# tempers, no sleep, and a general sense that things used to be better. The
+# well has had a wasps' nest in it for as long, and nobody can say whose job
+# the wasps are. Merribell diagnoses it in nine seconds.
+#
+# * **The start is Mr Thurle's second look.** His first page with Merribell
+#   is the published reaction shot - she opens her mouth and is asked to
+#   speak through the chair - so the quest is his page 3, on his own self
+#   switch A and Merribell: she asks for an item three. The diagnosis is
+#   thirst, and the Water Committee is re-formed, one member, with you
+#   seconding. `SW_MER5_ON`.
+# * **The cure is the obvious thing** (the Creed's rule one): wasps want
+#   water and something sweet, and have had the water for two hundred
+#   years, so give them something sweet somewhere else. Mrs Pardew has her
+#   gran's last jar of jam, 1931, which she will hand to whoever asks once
+#   the Committee has sat - Merribell need not be there for that, so a
+#   dismissed Merribell does not strand the errand. The jam is an item.
+# * **The well is where it is lifted**, with Merribell and the jam, under the
+#   parish's Standing Orders for the Lifting of the Curse - drafted 1795 and
+#   never used - whose six clauses are every cliche of the cursed village in
+#   a row, each met by something smaller. That is the "biggest trope payload
+#   in the document": in the telling, and counted **once**.
+# * **The rule made literal**: item three is the Order's Rule of Life, four
+#   lines, adopted as a by-law, and the parish does it in order.
+# * **Afterwards is for everybody**: Mr Thurle, Mr Gammage (asleep), Mrs
+#   Pardew, the well, the minutes with an item three, and the sign.
+_MER5_RULE = [
+    "I.   Drink a glass of water.",
+    "II.  Sit down.",
+    "III. Dry socks: two pairs, and a spare.",
+    "IV.  Then see how you feel."]
+
+
+def _mer5_agenda():
+    c = S.narrate([
+        "Merribell plants herself in front of Mr Thurle, exactly",
+        "where a chair would be if there were one."])
+    c += S.say("Merribell", ["Mr Thurle. Is there an item three?"])
+    c += S.say("Mr Thurle", ["There is never an item three.",
+                             "There's never time."])
+    c += S.say("Merribell", ["There is now. I'll be quick."])
+    c += S.narrate([
+        "She is. Headaches: everybody. Sleep: nobody. Tempers:",
+        "short. A general sense that things used to be better.",
+        "Skin like a letter that has been left in a window."])
+    c += S.say("Merribell", [
+        "Lips cracked. Eyes sunk. I don't",
+        "need to ask anybody about their",
+        "water. I can tell from here what",
+        "colour all of your -"])
+    c += S.say("Mr Thurle", ["THROUGH the chair. Please."])
+    c += [S.blush()]
+    c += S.narrate([
+        "There is a short silence in the parish of Sump. Somebody",
+        "in the end house closes a window."])
+    c += S.say("Mr Thurle", ["...The chair recognises the Sister."])
+    c += S.say("Merribell", [
+        "When did anybody in Sump last",
+        "drink a glass of water?"])
+    c += S.narrate([
+        "He opens the ledger, and goes back, and goes on going",
+        "back, a page at a time, for some while."])
+    c += S.say("Mr Thurle", ["...1794."])
+    c += S.say("Merribell", [
+        "That's not a curse, Mr Thurle.",
+        "That's thirst. Six generations",
+        "of it."])
+    c += S.narrate([
+        "He takes his two fingers away from the side of his",
+        "head, and looks at them."])
+    c += S.say("Mr Thurle", ["It's a very thorough curse."])
+    c += S.say("Merribell", ["It's a very thorough thirst."])
+    c += S.say("Mr Thurle", [
+        "But the wasps. A wasp is the Pound.",
+        "A nest is Buildings. And the Water",
+        "Committee was wound up -"])
+    c += S.say("Merribell", [
+        "Then I move that the Water",
+        "Committee be re-formed. Have I a",
+        "seconder?"])
+    c += S.narrate([
+        "Everybody looks at you. You second it. It is the first",
+        "motion seconded in Sump since 1794, and Mr Thurle has",
+        "to look up how it is written down."])
+    c += S.say("Mr Thurle", [
+        "Carried. The Water Committee of",
+        "Sump: one member. Its first",
+        "business?"])
+    c += S.say("Merribell", ["Wasps."])
+    c += S.narrate([
+        "He writes WASPS. His pen hovers over the word after it,",
+        "the one it has always been, for a long moment."])
+    c += S.say("Mr Thurle", ["...Not deferred."])
+    c += S.say("Merribell", [
+        "Wasps want two things. Water, and",
+        "something sweet. They've had the",
+        "water for two hundred years."])
+    c += S.say("Merribell", [
+        "So we give them something sweet,",
+        "somewhere else. Has anybody in",
+        "Sump got anything sweet?"])
+    c += S.say("Mr Thurle", [
+        "Mrs Pardew has jam. Her gran's.",
+        "She won't open it. She says things",
+        "were better when it was made."])
+    c += [R.control_switch(db.SW_MER5_ON, True)]
+    return c
+
+
+def _mer5_sitting():
+    return S.say("Mr Thurle", [
+        "The Water Committee has the floor.",
+        "Item: wasps. Not deferred. I keep",
+        "writing that, to see how it looks."])
+
+
+def thurle_pages(page0):
+    """Pages 3-4 for Mr Thurle (Map 51, event 3), in his own page's dress:
+    the agenda with Merribell, below his ladder; afterwards for everybody."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    ask = R.if_then(R.condition_switch(db.SW_MER5_ON), _mer5_sitting(),
+                    _mer5_agenda())
+    after = S.say("Mr Thurle", [
+        "Item one, the curse: lifted. Item",
+        "two, the wasps: removed, to the end",
+        "of the spit. Item three: the Rule."])
+    after += S.narrate([
+        "He has his hat off, and both hands free, and no fingers",
+        "pressed to anything. There was time."])
+    return [
+        _like(page0, ask, dict(known, actorValid=True, actorId=db.MERRI)),
+        _like(page0, after,
+              dict(known, switch1Valid=True, switch1Id=db.SW_MER5_DONE)),
+    ]
+
+
+def pardew_pages(page0):
+    """Pages 3-4 for Mrs Pardew (Map 51, event 5). `page0` is her own last
+    page, which page 3 carries whole: the jam is handed to whoever asks once
+    the Committee has sat, Merribell or not."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    own = page0["list"][:-1]
+    jam = S.narrate([
+        "You tell her the Water Committee would like something",
+        "sweet. She looks at you for a long time."])
+    jam += S.say("Mrs Pardew", [
+        "It's my gran's. Gooseberry. 1931.",
+        "Things were better when it was",
+        "made. It says so on the label."])
+    jam += S.narrate([
+        "It does. In a careful hand under GOOSEBERRY 1931 it says",
+        "(BETTER). She gives it to you with both hands."])
+    jam += [R.gain_item(db.IT_JAM, 1), R.play_me("Item")]
+    jam += S.got(["Got \\I[179]\\C[3]Mrs Pardew's Jam\\C[0]."])
+    give = own + R.if_then(
+        R.condition_switch(db.SW_MER5_DONE, False),
+        R.if_then(R.condition_item(db.IT_JAM), [], jam))
+    after = S.say("Mrs Pardew", [
+        "You can talk to me before noon now.",
+        "Not after. That's just me."])
+    after += S.say("Mrs Pardew", ["Things are better.",
+                                  "It's in the minutes."])
+    return [
+        _like(page0, give,
+              dict(known, switch1Valid=True, switch1Id=db.SW_MER5_ON)),
+        _like(page0, after,
+              dict(known, switch1Valid=True, switch1Id=db.SW_MER5_DONE)),
+    ]
+
+
+def gammage_pages(page0):
+    """Page 3 for Mr Gammage (Map 51, event 4): his own last page, and then
+    he is."""
+    after = page0["list"][:-1] + S.narrate([
+        "And then, quite suddenly, he is. He snores like a man",
+        "making up for six generations."])
+    return [_like(page0, after, {
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_MER5_DONE})]
+
+
+def _mer5_orders():
+    """The Standing Orders for the Lifting of the Curse, 1795, never used:
+    every cliche of the cursed village, one clause each."""
+    c = S.say("Mr Thurle", [
+        "Before the Committee proceeds. The",
+        "Standing Orders for the Lifting of",
+        "the Curse. Drafted 1795. Never yet",
+        "used."])
+    c += [R.play_me("Curse1")]
+    c += S.say("Mr Thurle", ["One. A Chosen One shall be present."])
+    c += S.narrate(["You are. He writes PRESENT, and underlines it."])
+    c += S.say("Mr Thurle", ["Two. The guardian of the well",
+                             "shall be overcome."])
+    c += [R.play_se("Wind7", 60, 150)]
+    c += S.narrate([
+        "The hum in the well changes key. Something small and",
+        "striped comes up, tastes the air, and sets off down the",
+        "spit towards the jam. Then all of them do."])
+    c += S.narrate([
+        "It takes about four minutes and it is extremely loud.",
+        "Nobody is stung. Nobody had ever asked them to leave."])
+    c += S.say("Mr Thurle", ["Three. An ancient relic shall",
+                             "be given up."])
+    c += S.say("Mrs Pardew", ["Gooseberry. 1931."])
+    c += S.narrate(["It is being very well received at the end of the spit."])
+    c += S.say("Mr Thurle", ["Four. A price shall be paid, in",
+                             "sorrow."])
+    c += S.say("Mrs Pardew", ["...It was the last jar."])
+    c += S.narrate(["Everybody is quiet, respectfully, for about a second."])
+    c += S.say("Mr Thurle", ["Five. The eldest shall speak",
+                             "the riddle."])
+    c += S.narrate(["Mr Gammage opens one eye."])
+    c += S.say("Mr Gammage", [
+        "What's wet, and in the middle of",
+        "the village, and we've not had any",
+        "since 1794?"])
+    c += S.say("Merribell", ["Water."])
+    c += S.say("Mr Gammage", ["Took us six generations, that one."])
+    c += S.say("Mr Thurle", ["Six. The curse shall be called by",
+                             "its true name."])
+    c += S.say("Merribell", ["Thirst."])
+    c += S.narrate([
+        "He writes it down. The pen does not go through the",
+        "paper."])
+    return c
+
+
+def _mer5_cure():
+    c = S.narrate([
+        "Merribell takes the jar to the very end of the spit,",
+        "past the sign, where the sand runs down to the sea. She",
+        "opens it, and leaves it in the sun, and comes back."])
+    c += S.narrate([
+        "Mr Thurle comes over with the ledger. Mrs Pardew comes",
+        "out to see what is being done with her jam. Mr Gammage",
+        "does not come over, but he is listening."])
+    c += _mer5_orders()
+    c += [R.gain_item(db.IT_JAM, -1)]
+    c += S.narrate([
+        "The well is quiet. Merribell takes a coil of rope and a",
+        "tin cup out of her bag, because of course she has a coil",
+        "of rope and a tin cup in her bag, and lets it down."])
+    c += [R.play_se("Water1"), R.wait(30)]
+    c += S.narrate([
+        "It comes up full: clear and cold, and only very slightly",
+        "wasp-flavoured."])
+    c += S.say("Merribell", ["Item three. Through the chair."])
+    c += S.say("Mr Thurle", ["...The chair recognises the Sister."])
+    c += S.say("Merribell", [
+        "The Rule of Life of my order.",
+        "Mother Ursula Pym, 1702. Four",
+        "lines. Adopt it as a by-law."])
+    c += S.narrate(_MER5_RULE)
+    c += S.say("Mr Thurle", ["Seconded?"])
+    c += S.narrate(["You second it. You are getting good at this."])
+    c += S.say("Mr Thurle", ["Carried."])
+    c += S.narrate([
+        "So the parish of Sump does it, by law, in order. It",
+        "drinks a glass of water, one cup at a time, down the",
+        "street and back. It sits down, in the street."])
+    c += S.narrate([
+        "It looks to its socks, which in Sump are dry, and always",
+        "have been: the one line of the four nobody here has ever",
+        "had any trouble with. Then it sees how it feels."])
+    c += [R.tint_screen([17, 17, 0, 0], 60), R.play_me("Inn1")]
+    c += S.narrate([
+        "Mr Thurle takes his hat off. Mrs Pardew says \"Oh.\"",
+        "Mr Gammage is asleep, sitting up against the wall,",
+        "properly, for the first time since Tuesday."])
+    c += [R.tint_screen([0, 0, 0, 0], 60)]
+    c += S.say("Merribell", [
+        "That's the whole of my order.",
+        "Four lines. One's about socks.",
+        "It works."])
+    c += S.say("Mr Thurle", [
+        "Item one. The curse. Lifted, 2000.",
+        "There's time for an item four, if",
+        "anybody has one."])
+    c += S.narrate(["Nobody has. It is wonderful."])
+    c += [S.trope(), R.control_switch(db.SW_MER5_DONE, True)]
+    c += S.companion_story(db.MERRI)
+    return c
+
+
+def well_pages(page0):
+    """Pages 2-3 of the well (Map 51, event 6), which has no ladder: the
+    Committee at work while it sits, and the well afterwards, for everybody.
+    The cure needs Merribell and the jam, and says which is missing."""
+    absent = page0["list"][:-1] + S.narrate([
+        "The Water Committee is not present. The wasps carry on,",
+        "unminuted."])
+    no_jam = S.say("Merribell", [
+        "Water, and something sweet. They",
+        "have the water. Somebody in Sump",
+        "has something sweet."])
+    work = R.if_then(R.condition_actor_in_party(db.MERRI),
+                     R.if_then(R.condition_item(db.IT_JAM), _mer5_cure(),
+                               no_jam),
+                     absent)
+    after = S.narrate([
+        "The parish well: a good round stone head, with a rope on",
+        "it now, and a tin cup on the rope."])
+    after += S.narrate([
+        "Down the spit, in the sun, a great many wasps are being",
+        "extremely happy about a jam jar."])
+    return [
+        _like(page0, work, {"switch1Valid": True,
+                            "switch1Id": db.SW_MER5_ON}),
+        _like(page0, after, {"switch1Valid": True,
+                             "switch1Id": db.SW_MER5_DONE}),
+    ]
+
+
+def minutes_pages(page0):
+    """Page 2 of the minutes (Map 51, event 7): there is an item three."""
+    after = page0["list"][:-1] + S.narrate(
+        ["2000. Item 3: The Rule. Carried, and done, in order:"] +
+        _MER5_RULE[:3])
+    after += S.narrate([_MER5_RULE[3], "",
+                        "Under it, in the same hand: Felt better."])
+    return [_like(page0, after, {"switch1Valid": True,
+                                 "switch1Id": db.SW_MER5_DONE})]
+
+
+def sign_pages(page0):
+    """Page 2 of the fingerpost (Map 51, event 8): its own page, and a new
+    line painted under the old one."""
+    after = page0["list"][:-1] + S.narrate([
+        "Under it, in fresh paint: Lifted 2000.   Please Mind",
+        "The Well. (Rule Of Life Applies.)"])
+    return [_like(page0, after, {"switch1Valid": True,
+                                 "switch1Id": db.SW_MER5_DONE})]

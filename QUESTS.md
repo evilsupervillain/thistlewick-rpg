@@ -1987,48 +1987,126 @@ Mr Weir say nothing of COR-1, and both still hold, because every COR-1 page
 waits on `SW_COR1_ON`, which only his own second look at the Roll sets.
 Nothing is owed.
 
+**E1, MER-5 The Well at Sump - done.** MER-5's section at the bottom of
+`q_merribell.py`, hooked from `hamlets.py` in six places (Mr Thurle, Mr
+Gammage, Mrs Pardew, the well, the minutes, the sign);
+`build/scenarios/q_mer5.json`.
+
+* **The start is Mr Thurle's second look** (Map 51 event 3, page 3: his A
+  and Merribell). His first page with her is the published reaction shot -
+  "Through the chair, please." - and stays the first visit word for word.
+  On the second she plants herself where a chair would be and asks for an
+  item three. The diagnosis takes a paragraph; the ledger says nobody has
+  drunk a glass of water since 1794. "That's not a curse, Mr Thurle. That's
+  thirst. Six generations of it." / "It's a very thorough curse." / "It's a
+  very thorough thirst." **Decided: the wasps are made Water's business by
+  re-forming the Water Committee** - one member, Merribell, seconded by you,
+  the first motion seconded in Sump since 1794 - so nobody has to settle
+  whose they were. WASPS, and for the first time, "...Not deferred."
+  `SW_MER5_ON`. **One blush**: "I can tell from here what colour all of
+  your -" / "THROUGH the chair. Please."
+* **Decided: the cure is the Creed's rule one, the obvious thing** - wasps
+  want water and something sweet, have had the water for two hundred years,
+  so give them something sweet somewhere else. No fight: there is no wasp in
+  the stock enemy art (only `Machinerybee`, which is used and is a machine),
+  and the site already said "the wasps, which no sprite in the box can
+  draw". **Mrs Pardew's jam** is item **67**, her gran's last jar,
+  GOOSEBERRY 1931 (BETTER); her page 3 is her own last page plus the jam,
+  once, to whoever asks once the Committee sits - **Merribell need not be
+  there**, so a dismissed Merribell's errand waits on the well, not on her.
+* **The well** (event 6, no ladder): page 2 while the Committee sits -
+  without Merribell, its own page plus "The Water Committee is not present";
+  with her and no jam, what is missing; with both, the cure. **The trope
+  payload is the parish's Standing Orders for the Lifting of the Curse**,
+  drafted 1795 and never used, read by Mr Thurle clause by clause, each one
+  a cliche of the cursed village met by something smaller: a Chosen One
+  present (PRESENT, underlined); the guardian of the well overcome (they go
+  down the spit to the jam, four minutes, extremely loud, nobody stung -
+  "Nobody had ever asked them to leave"); an ancient relic given up
+  (gooseberry, 1931); a price paid in sorrow ("...It was the last jar", and
+  a respectful second); the eldest's riddle (Mr Gammage: "What's wet, and in
+  the middle of the village, and we've not had any since 1794?" - "Water." -
+  "Took us six generations, that one."); and the curse called by its true
+  name, Thirst. **Counted once**, as 0.2 says, however many it turns over.
+* **The rule made literal**: Merribell's rope and tin cup (of course she has
+  them), and item three - the Order's Rule of Life, Mother Ursula Pym, 1702,
+  four lines, adopted as a by-law: I. Drink a glass of water. II. Sit down.
+  III. Dry socks: two pairs, and a spare. IV. Then see how you feel. The
+  parish does it in order, and in Sump the socks were always dry - "the one
+  line of the four nobody here has ever had any trouble with". Mr Gammage
+  falls asleep sitting up. "Four lines. One's about socks. It works." The
+  curse, lifted, 2000, and time for an item four, which nobody has. The four
+  lines were written here, since `COMPANIONS.md` names them and nothing in
+  the game had yet; MER-2's socks line agrees, and E2's Pamphlet carries
+  them.
+* **Afterwards for everybody**: Mr Thurle (his hat off, both hands free -
+  "There was time"); Mr Gammage's own last page plus "And then, quite
+  suddenly, he is"; Mrs Pardew, who may be spoken to before noon now; the
+  well with a rope and a cup on it and the wasps happy down the spit; the
+  minutes' own page plus 2000, Item 3, the Rule, "Felt better."; and the
+  sign's own page (its trope included, as before) plus "Lifted 2000. Please
+  Mind The Well. (Rule Of Life Applies.)" Every Sump owner is now taken:
+  **PIP-4 (E12) should be Little Gore's**, and ALD-1 (E5) is there too.
+* **Ids taken:** switches **175** `SW_MER5_ON`, **176** `SW_MER5_DONE`; item
+  **67** `IT_JAM`. No faces, no new events.
+* One trope, one blush. Running tally: **tropes +27 fixed and 2-9 from
+  PIP-2; blushes +12 fixed and 0-1 from PIP-2.**
+* `SW_STORY[MERRI]` (on already after MER-2 or MER-4 in a game that did one).
+* **Candidate ending line** (G1; read `SW_MER5_DONE`): "The curse of Sump was
+  lifted in the year 2000 by the Water Committee, one member, with a glass
+  of water. The minutes record an item three."
+* **The rooms (0.1):** Sump had never been swept. Map 51 was cropped with
+  `propsheet.py` (19 tiles) and screenshotted: the sandbrick houses and gold
+  roofs, `Large Window C` as the doors, `Well` the well, `Sign B` the minutes'
+  board, `Sign A` the fingerpost, `Pot`, palms and cacti. Everything is what
+  its event says. Nothing needed fixing.
+* **Scenario** `q_mer5`: passes (74 checks). Its first run ran out of
+  `advance` presses in the agenda and the minutes (still busy, then a `goto`
+  that never arrived) - budgets, not pages; the cure takes 120.
+* `TIMELINE.md`: 1795 gains the Standing Orders, 1931 the jam, 1702 the Rule
+  of Life.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E1, MER-5 The
-Well at Sump** - the first of Part E, the rest in built places. Part D,
-Ashcombe, is done (D1-D2 and its rerun, 2 Oct 2026). One step per session
-again (0.1): Part D's override was for Part D only.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E2, MER-1 The
+Sisterhouse**. E1 (MER-5, the Well at Sump) is done, 2 Oct 2026. Mike asked
+for E1-E6 in one session; if this prompt is being read, that session ended
+early, so carry on from here through E6, then the rerun for the part.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Merribell's** section of `COMPANIONS.md`,
-and no other companion's. Read what the step needs by dumping Map 51's
-events and their text, not by opening a module. Sump (Map 51, `hamlets.py`) has
-never been swept - B1 cropped Little Gore for HOB-1's owners, not Sump: crop
-Map 51 with `propsheet.py` before judging, and
-screenshot before and after anything changed (0.1).
+B1 on, once, at the start; then **Merribell's** section of `COMPANIONS.md`
+(E2-E3) and **Aldric's** (E4-E6), each only when its first step comes up.
+Read what a step needs by dumping its maps' events and their text, not by
+opening a module. Weeping Bottom (Maps 54-55) has never been swept: crop
+them with `propsheet.py` before judging, and screenshot before and after
+anything changed (0.1).
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
-byte: every existing page identical, only appended pages and new events
-(and, on a widened map, every tile inside the old bounds). `validate.py`,
-and `apidigest.py . --write` / `tileaudit.py . --write` if a signature or
-constant moved. Screenshots of anything drawn, looked at. The step's own
-scenario, `build/scenarios/q_mer5.json`, run in the background, one browser
-at a time. Then the Done paragraph (ids taken, tropes and blushes, running
-tally, candidate ending line, rooms fixed), a commit, and this prompt moved
-on to E2. Nothing is pushed. No full suite until G1.
+byte: every existing page identical, only appended pages and new events.
+`validate.py`, and `apidigest.py . --write` (new `db` constants change
+`build/API.md`). Screenshots of anything drawn, looked at. The step's own
+scenario, `build/scenarios/q_<quest>.json`, run in the background, one
+browser at a time. Then the Done paragraph, a commit, and this prompt moved
+on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +26 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 175, variable 25, item 67, weapon 42,
+Where things stand: tropes +27 fixed and 2-9 from PIP-2; blushes +12 fixed
+and 0-1 from PIP-2. Next free: switch 177, variable 25, item 68, weapon 42,
 armour 45, armour type 12, class 12, common event 4, state 41, enemy 55,
-troop 53, skill 179, **map 67** (D2 took 66, so E18's dungeon is 67+),
-`Gen_People13` 5. Merribell's gear is **the Pamphlet** (0.5), from MER-1 in
-E2, not here. `q_merribell.py` exists (MER-2, MER-4).
+troop 53, skill 179, map 67, `Gen_People13` 5. Merribell's gear is **the
+Pamphlet** (0.5), from MER-1 in E2: armour 45, armour type 12. MER-5 wrote
+the Rule of Life's four lines (`q_merribell._MER5_RULE`); the Pamphlet
+carries them.
 
-What E1 will need deciding: the table says "Thurle event 3 on Map 51
-(two-page pair), Gammage 4, Mrs Pardew 5, the well 6, the minutes 7, the
-sign 8, the pool 9" and "the biggest trope payload in the document". Read
-every ladder before appending; **one trope per quest**, however many
-cliches the well turns over - the payload is in the telling, not the count,
-and the count is re-cut only in G1.
+What E2 will need: the Prioress's first page with Merribell is the published
+"We'll talk. Not today." - start on her second look. Sir Hamo and the chapel
+(Map 54 event 5) are ALD-2's and ALD-3's neighbours; leave them their pages.
+The `weeping_bottom` scenario resets the Prioress's and Bewick's self
+switch A before its Merribell pass and asserts no queue, contest or
+Pamphlet: every MER-1 page must wait on her second look.
 
 Things learned that will bite again:
 

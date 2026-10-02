@@ -396,7 +396,9 @@ def build_system():
             (db.SW_COR1_HOME, "COR-1: home, and the tea"),
             (db.SW_COR1_DONE, "COR-1: the speech; the scarf"),
             (db.SW_COR2_STEP, "COR-2: the doorstep; the sword's name"),
-            (db.SW_COR2_DONE, "COR-2: the report card")]:
+            (db.SW_COR2_DONE, "COR-2: the report card"),
+            (db.SW_MER5_ON, "MER-5: the Water Committee re-formed"),
+            (db.SW_MER5_DONE, "MER-5: the curse lifted; item three")]:
         switches[sid] = name
 
     variables = [""] * 32

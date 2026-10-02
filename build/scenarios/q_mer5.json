@@ -1,0 +1,801 @@
+{
+ "query": "?map=51&x=10&y=14&frames=90",
+ "comment": "QUESTS.md E1, MER-5 The Well at Sump. Mr Thurle's first look with Merribell is the published reaction shot; his second is the agenda (item three, the diagnosis, a blush, the Water Committee re-formed). The well with Merribell and no jam; Mrs Pardew's jam handed over without Merribell; the well without her waits; with her and the jam, the Standing Orders and the Rule (one trope, her story). Afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "$gameParty.members().map(a => a.actorId())",
+   "expect": [
+    1
+   ],
+   "label": "Bram alone"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "Thurle, first page"
+  },
+  {
+   "eval": "$gameParty.addActor(2)"
+  },
+  {
+   "goto": [
+    51,
+    12,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "with Merribell, the first look is the published page"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Through the chair, please.\")) && window._lines.some(l => l.includes(\"He is the chair.\"))",
+   "expect": true,
+   "label": "the reaction shot"
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"item three\")) && !window._lines.some(l => l.includes(\"Water Committee be re-formed\"))",
+   "expect": true,
+   "label": "and nothing of MER-5"
+  },
+  {
+   "check": "$gameSwitches.value(175)",
+   "expect": false,
+   "label": "switch 175 False"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    51,
+    12,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "THE POINT: her second look is the agenda"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Is there an item three?\")) && window._lines.some(l => l.includes(\"That's thirst.\")) && window._lines.some(l => l.includes(\"...1794.\")) && window._lines.some(l => l.includes(\"...Not deferred.\")) && window._lines.some(l => l.includes(\"Mrs Pardew has jam.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSwitches.value(175)",
+   "expect": true,
+   "label": "SW_MER5_ON"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "tropes +0"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 1,
+   "label": "blushes +1"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "goto": [
+    51,
+    12,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "event 3 on page 2"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The Water Committee has the floor.\"))",
+   "expect": true,
+   "label": "Thurle while it sits"
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"Is there an item three?\"))",
+   "expect": true,
+   "label": "the agenda once only"
+  },
+  {
+   "goto": [
+    51,
+    14,
+    12
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 1,
+   "label": "the well while the Committee sits"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "talking to event 6"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Somebody in Sump\"))",
+   "expect": true,
+   "label": "no jam: she says what is missing"
+  },
+  {
+   "check": "$gameSwitches.value(176)",
+   "expect": false,
+   "label": "switch 176 False"
+  },
+  {
+   "eval": "$gameParty.removeActor(2)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1,
+   "label": "without Merribell, Thurle is on his own page"
+  },
+  {
+   "goto": [
+    51,
+    17,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 0,
+   "label": "Mrs Pardew, first look"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "talking to event 5"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[67])",
+   "expect": 0,
+   "label": "item 67 x0"
+  },
+  {
+   "goto": [
+    51,
+    17,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 2,
+   "label": "Mrs Pardew, second look, the Committee sitting"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "talking to event 5"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Don't talk to me before noon.\")) && window._lines.some(l => l.includes(\"Gooseberry. 1931.\"))",
+   "expect": true,
+   "label": "her own page, then the jam"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[67])",
+   "expect": 1,
+   "label": "the jam, without Merribell"
+  },
+  {
+   "goto": [
+    51,
+    17,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 2,
+   "label": "event 5 on page 2"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "talking to event 5"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[67])",
+   "expect": 1,
+   "label": "only one jar"
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"Gooseberry\"))",
+   "expect": true,
+   "label": "not given twice"
+  },
+  {
+   "goto": [
+    51,
+    14,
+    12
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 1,
+   "label": "the well without Merribell"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "talking to event 6"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"A deep, steady hum\")) && window._lines.some(l => l.includes(\"The Water Committee is not present.\"))",
+   "expect": true,
+   "label": "the well waits"
+  },
+  {
+   "check": "$gameSwitches.value(176)",
+   "expect": false,
+   "label": "switch 176 False"
+  },
+  {
+   "eval": "$gameParty.addActor(2)"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    51,
+    14,
+    12
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 1,
+   "label": "the well with Merribell and the jam"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "talking to event 6"
+  },
+  {
+   "advance": 120
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Standing Orders\")) && window._lines.some(l => l.includes(\"A Chosen One shall be present.\")) && window._lines.some(l => l.includes(\"...It was the last jar.\")) && window._lines.some(l => l.includes(\"Took us six generations, that one.\")) && window._lines.some(l => l.includes(\"Thirst.\")) && window._lines.some(l => l.includes(\"I.   Drink a glass of water.\")) && window._lines.some(l => l.includes(\"IV.  Then see how you feel.\")) && window._lines.some(l => l.includes(\"Four lines. One's about socks.\"))",
+   "expect": true,
+   "label": "the orders and the rule"
+  },
+  {
+   "check": "$gameSwitches.value(176)",
+   "expect": true,
+   "label": "SW_MER5_DONE"
+  },
+  {
+   "check": "$gameSwitches.value(101)",
+   "expect": true,
+   "label": "SW_STORY[MERRI]"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "tropes +1"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 1,
+   "label": "companion stories +1"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[67])",
+   "expect": 0,
+   "label": "the jam is at the end of the spit"
+  },
+  {
+   "check": "$gameScreen.tone().join()",
+   "expect": "0,0,0,0",
+   "label": "tint back to normal"
+  },
+  {
+   "shot": "q_mer5_after.png"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "Thurle afterwards, with Merribell"
+  },
+  {
+   "eval": "$gameParty.removeActor(2)"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    51,
+    12,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "Thurle afterwards, for everybody"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Item three: the Rule.\")) && window._lines.some(l => l.includes(\"There was time.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    51,
+    7,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 0,
+   "label": "Mr Gammage first look"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 4,
+   "label": "talking to event 4"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "goto": [
+    51,
+    7,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 2,
+   "label": "Mr Gammage afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 4,
+   "label": "talking to event 4"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He is not asleep, and would like you\")) && window._lines.some(l => l.includes(\"And then, quite suddenly, he is.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    51,
+    17,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 3,
+   "label": "Mrs Pardew afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "talking to event 5"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Things are better.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    51,
+    14,
+    12
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 2,
+   "label": "the well afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "talking to event 6"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"a tin cup on the rope\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    51,
+    13,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 1,
+   "label": "the minutes afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 7,
+   "label": "talking to event 7"
+  },
+  {
+   "advance": 25
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"WASPS - DEFERRED\")) && window._lines.some(l => l.includes(\"2000. Item 3: The Rule.\")) && window._lines.some(l => l.includes(\"Felt better.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    51,
+    12,
+    13
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1,
+   "label": "the sign afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "talking to event 8"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Please Mind The Wasps.\")) && window._lines.some(l => l.includes(\"Lifted 2000.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 0,
+   "label": "companion stories +0"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "back on the map"
+  }
+ ]
+}

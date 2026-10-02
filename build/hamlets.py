@@ -50,6 +50,7 @@ import rmmzdata as R
 import db
 import story as S
 import q_hob
+import q_merribell
 from places import (MAP_WORLD, MAP_LITTLE_GORE, MAP_SUMP,
                     LITTLE_GORE_STEP, SUMP_STEP)
 
@@ -449,10 +450,13 @@ def sump_events():
     evs.append(_person(3, "Absalom Thurle", THURLE,
                        R.image("Gen_People4", 6, direction=2),
                        *thurle_pages()))
+    evs[-1]["pages"] += q_merribell.thurle_pages(evs[-1]["pages"][-1])   # MER-5
     evs.append(_person(4, "Mr Gammage", GAMMAGE,
                        R.image(*S.FACES["Mr Gammage"], direction=2), *gammage_pages()))
+    evs[-1]["pages"] += q_merribell.gammage_pages(evs[-1]["pages"][-1])  # MER-5
     evs.append(_person(5, "Mrs Pardew", PARDEW,
                        R.image(*S.FACES["Mrs Pardew"], direction=2), *pardew_pages()))
+    evs[-1]["pages"] += q_merribell.pardew_pages(evs[-1]["pages"][-1])   # MER-5
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 
@@ -467,6 +471,7 @@ def sump_events():
         "Something small and striped comes up, looks at you, and",
         "goes back down to report."])
     evs.append(R.event(6, "The Well", *WELL_S, [R.page(well, **page)]))
+    evs[-1]["pages"] += q_merribell.well_pages(evs[-1]["pages"][0])  # MER-5
 
     # 7: the minutes, which put the two facts one line apart and leave them
     # there. Joining them is MER-5's.
@@ -486,6 +491,7 @@ def sump_events():
         "is this year's: WASPS - DEFERRED. It is underlined, and",
         "the pen has gone through the paper."])
     evs.append(R.event(7, "The Minutes", *BOARD, [R.page(minutes, **page)]))
+    evs[-1]["pages"] += q_merribell.minutes_pages(evs[-1]["pages"][0])  # MER-5
 
     # 8: the sign on the road in, and the site's trope.
     sign = S.narrate([
@@ -495,6 +501,7 @@ def sump_events():
         "        Cursed 1794.   Please Mind The Wasps."])
     sign += [S.trope()]
     evs.append(R.event(8, "The Sign", *TOWN_SIGN, [R.page(sign, **page)]))
+    evs[-1]["pages"] += q_merribell.sign_pages(evs[-1]["pages"][0])  # MER-5
 
     # 9: the pool the world map shows, which is the sea.
     pool = S.narrate([

@@ -393,6 +393,10 @@ AT_SCARF = 11                   # an armour type of its own, as AT_BADGE is
 SW_COR2_STEP = 173              # sat on the doorstep; the sword's name read
 SW_COR2_DONE = 174              # the report card, out of the strongbox
 IT_REPORT_CARD = 66
+# MER-5, The Well at Sump (QUESTS.md E1, q_merribell.py)
+SW_MER5_ON = 175                # the Water Committee re-formed; wasps
+SW_MER5_DONE = 176              # the curse lifted; item three carried
+IT_JAM = 67                     # Mrs Pardew's gran's gooseberry, 1931
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1596,6 +1600,10 @@ def build_items():
                     "Pupil: Corvin. The surname has run. \"He will go far, if "
                     "he ever gets up.\" Kept dry, in oilcloth.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=193))
+    upsert(it, item(IT_JAM, "Mrs Pardew's Jam",
+                    "Gooseberry, 1931, her gran's, and the last jar. The label "
+                    "says (BETTER). Wasps would like it very much.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=179))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

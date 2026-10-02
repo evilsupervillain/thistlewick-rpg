@@ -130,12 +130,12 @@ when it does, in a round year.
 | Second Age, ~2,113 before year 1 | Mirabel born; 4,112 now | `evermore.mirabel_pages` | F |
 | 1400 | the Collegium Arcanum founded, by the Founder, in one afternoon ("six hundred years") | `collegium.arms_pages` | F |
 | 1500 | the First Dean's portrait hung, pending the Hanging Committee ("five hundred years") | `collegium.portrait_pages` | F |
-| 1702 | Weeping Bottom founded by Mother Ursula Pym, for the sea air | `weeping_bottom.stone_pages` | F |
+| 1702 | Weeping Bottom founded by Mother Ursula Pym, for the sea air. Her Rule of Life, four lines, one about socks, is the Order's founding pamphlet (MER-5 adopts it at Sump as a by-law) | `weeping_bottom.stone_pages`, `q_merribell` | F |
 | 1749 | the Sky Anvil falls into Meech's top field; his great-great-grandad makes it a gatepost | `nomap._sky_anvil` | F |
 | 1750 | the pilgrims build the shrine round it | `nomap._sky_anvil` | F |
 | 1788 | Great Dunnage seals its Counting House, "when the key was lost"; behind the Door, J. Pocklington, Clerk to the Corporation, leaves one chair and a note, WE SPENT IT, dated 1788 (NIX-2: "two hundred and twelve years") | `dunnage` (Mayor, Door, Memorandum), `q_nix` | F |
 | 1794 | Sump: wasps in the well; the Water Committee wound up. "Cursed 1794" | `hamlets` | F |
-| 1795 | Sump: "a general sense that things used to be better" | `hamlets` | F |
+| 1795 | Sump: "a general sense that things used to be better". The parish drafts its Standing Orders for the Lifting of the Curse, six clauses, never used until MER-5 | `hamlets`, `q_merribell` | F |
 | 1802 | the Hoyle Works' stores book begins; ITEM 1 | `field.stores_ledger` | P |
 | 1804 | an apprentice at the works since; Nib is the fortieth | `north.works_events` | P |
 | 1811 | Dame Honoria Pemberton-Gore's portrait | `fenmarch.portrait_pages` | F |
@@ -147,6 +147,7 @@ when it does, in a round year.
 | 1909 | the shipping stops; Bother's light is for the ones coming home | `south` (Bother) | P |
 | 1919 | Beatrice Grumnir born (the headstone) | `village.churchyard` | P |
 | 1930 | Mr Ottershaw (born 1910, "ninety in March") begins the animals: "seventy years. Three generations." Every case in the gallery is his, which is why none of them has a date on it | `fenmarch.ottershaw_pages` | F |
+| 1931 | Mrs Pardew's gran makes her last jar of gooseberry jam at Sump and labels it (BETTER) (MER-5) | `q_merribell` | F |
 | 1940 | the Clanging clock's town has been early "for sixty years" | `north.clanging_events` | P |
 | 1949 | Corvin's grandfather makes the black sword, cuts its name into his doorstep in old Ashcombe - in the old letters, as on the tang, and under them for visitors MIND THE STEP - and it stands there forty years holding the door open, until the water | `q_corvin` (COR-2) | F |
 | 1960 | the Gloamwood Society founded to prove the Thing in the Woods is not there; nine members, a walk a year, The Sighting four times a year (issue 160 in 2000) | `q_wren` (WRE-3) | F |
