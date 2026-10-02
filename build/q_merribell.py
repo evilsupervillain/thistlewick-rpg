@@ -830,3 +830,331 @@ def sign_pages(page0):
         "The Well. (Rule Of Life Applies.)"])
     return [_like(page0, after, {"switch1Valid": True,
                                  "switch1Id": db.SW_MER5_DONE})]
+
+
+# ======================================================================
+# MER-1, The Sisterhouse (`QUESTS.md` E2)
+# ----------------------------------------------------------------------
+# The mother house has split. Whatever Works has the west half of the ward
+# and soup; What Ought To Work has the east half, a doctrine and the correct
+# treatment in eleven stages. The Prioress holds symposia, and knows what
+# that means. It is settled the way this world settles things: a queue.
+#
+# * **The start is the Prioress's second look.** Her first page with
+#   Merribell is the published "We'll talk. Not today." - so the talk is her
+#   page 3, on her own self switch A and Merribell. The disappointment is
+#   the other way round: she stayed for the symposia. Merribell proposes the
+#   queue instead of the eleventh symposium; Sister Bewick agrees, in
+#   writing, off the page. `SW_MER1_ON`.
+# * **The queue is outside**, in the drizzle, up the track: six of the forty
+#   are events on Map 54 (13-18), empty before and after, while it waits.
+# * **The contest is the same page**, "Begin / Not yet", with Merribell and
+#   the queue waiting. Sir Hamo keeps the score from the bed on the line,
+#   because both orders treat him and he is very fair. Four patients come to
+#   Merribell with a choice each - the Rule's four lines plus the question
+#   she always asks - and a point each for the obvious thing
+#   (`VAR_MER1_POINTS`); sixteen more go through in a paragraph. Sister
+#   Bewick gets through one, and he really has the Weeping Bottom ague, and
+#   stage eleven works: one point, honestly given. **Whatever Works wins on
+#   points.** One blush, in the paragraph; one trope.
+# * **The Pamphlet** is the Order's founding document, Mother Ursula Pym's,
+#   four pages; Sister Bewick asks to be examined on it, which is how a
+#   doctrine is settled, and passes. The Prioress gives Merribell the
+#   founder's own copy: her gear (`QUESTS.md` 0.5), armour 45 of a new type.
+# * **Afterwards for everybody**: the Prioress, Sister Bewick and the line.
+#   The chapel is left alone for ALD-2.
+_MER1_PATIENTS = [
+    # (who, complaint lines, the right answer's index, right, wrong)
+    ("A carter", [
+        "A carter, grey in the face, holding his head as if it",
+        "might come off. He has driven since five this morning,",
+        "with the window down, in the rain, and nothing to drink."],
+     0, ["She hands him her flask. He drinks the lot, and",
+         "blinks, and his face comes back to the right colour."],
+     ["He looks at her. He holds his head a little tighter. She",
+      "gives him her flask anyway, and he drinks the lot."]),
+    ("A shepherdess", [
+        "A shepherdess who has walked in from the hill, through",
+        "the bog, and stands in the queue squelching. She has a",
+        "cough and two blisters and a very cross expression."],
+     2, ["Merribell takes a pair out of her bag. The shepherdess",
+         "changes them on the spot, and the cross expression goes."],
+     ["The shepherdess squelches. Merribell looks down, sighs at",
+      "herself, and gets a dry pair out of her bag."]),
+    ("A clerk", [
+        "A thin clerk who has stood in the queue since before it",
+        "was a queue, four hours, and is now quietly going the",
+        "colour of his paper, and leaning."],
+     1, ["She puts a stool under him just as his knees go. He sits.",
+         "He is fine. He says he has never been better."],
+     ["He leans further. Merribell catches him on the way down",
+      "and sits him on a stool, where he is fine."]),
+    ("A small boy", [
+        "A small boy, with his mother, who says he has been",
+        "impossible since ten o'clock and something must be wrong",
+        "with him. He is crying about a sock."],
+     3, ["The answer is no, not since breakfast. Sister Lamb brings",
+         "soup. The boy stops crying about the sock in mid-word."],
+     ["The boy cries louder. Merribell asks whether he has eaten,",
+      "which is what she should have asked, and he has not."]),
+]
+_MER1_CHOICES = ["Drink some water", "Sit down", "Dry socks",
+                 "Have you eaten?"]
+MER1_REST = 16                  # the sixteen who go through in a paragraph
+
+
+def _mer1_talk():
+    c = S.say("Prioress", [
+        "Sister. We'll talk. It's today,",
+        "now, and I know it is."])
+    c += S.narrate([
+        "She takes Merribell to the window on the west side, out",
+        "of the way of the line."])
+    c += S.say("Prioress", [
+        "You left at twenty-two. You said",
+        "we'd started holding symposia, and",
+        "you'd come to look after people."])
+    c += S.say("Merribell", [
+        "I'm sorry, Prioress. I know you",
+        "were disappointed."])
+    c += S.say("Prioress", [
+        "I was. Not in you. I stayed for the",
+        "symposia. Eleven of them. I chair",
+        "them very well."])
+    c += S.narrate([
+        "Merribell does not say anything. It is the kindest thing",
+        "she could have said."])
+    c += S.say("Prioress", [
+        "The eleventh is at three. Whether",
+        "Anything Works. It will be referred",
+        "to the twelfth."])
+    c += S.say("Merribell", [
+        "There's a queue at the gate. I",
+        "saw it coming down. Forty, and more",
+        "coming up the track."])
+    c += S.say("Merribell", [
+        "Don't hold the symposium. Open the",
+        "door. Twenty patients each half,",
+        "and whoever's through first is right."])
+    c += S.narrate([
+        "The Prioress looks at her for a long time. Then she",
+        "laughs, once, which nobody on either side of the ward",
+        "has heard her do."])
+    c += S.say("Prioress", [
+        "Sister Bewick will want it in",
+        "writing. Sister Bewick will want",
+        "it in writing IMMEDIATELY."])
+    c += S.narrate([
+        "She does. She writes it, in eleven clauses, and signs it,",
+        "and puts it in volume three. Somebody unlocks the gate."])
+    c += [R.control_switch(db.SW_MER1_ON, True)]
+    return c
+
+
+def _mer1_patient(n, who, lines, right, yes, no):
+    """One of the four: their complaint, Merribell's choice, a point for the
+    obvious thing."""
+    c = S.narrate(lines)
+    c += S.narrate(["%s. Merribell looks at them for about a second." % (
+        ["The first", "The second", "The third", "The fourth"][n])])
+    branches = []
+    for i in range(len(_MER1_CHOICES)):
+        if i == right:
+            b = S.narrate(yes) + [R.control_variable_add(db.VAR_MER1_POINTS, 1)]
+            b += S.say("Sir Hamo", ["Point to the west!"])
+        else:
+            b = S.narrate(no)
+            b += S.say("Sir Hamo", ["...Point withheld. Very fair."])
+        branches.append(b)
+    c += R.choice_block(_MER1_CHOICES, branches)
+    return c
+
+
+def _mer1_contest():
+    c = [R.fadeout_screen()]
+    c += S.narrate([
+        "The gate is opened. The queue comes in out of the",
+        "drizzle, steaming, and divides at the line: twenty to the",
+        "west, twenty to the east, by the toss of a bedpan."])
+    c += [R.fadein_screen()]
+    c += S.narrate([
+        "Sir Hamo keeps the score from the bed on the line,",
+        "since both orders treat him and he is very fair. He has",
+        "a slate, and a cough, and he is having a wonderful time."])
+    c += S.say("Sister Bewick", [
+        "Patient one. Stage one: the",
+        "history. Begin with the",
+        "grandparents."])
+    c += S.say("Merribell", ["Next!"])
+    c += [R.control_variable(db.VAR_MER1_POINTS, 0)]
+    for n, (who, lines, right, yes, no) in enumerate(_MER1_PATIENTS):
+        c += _mer1_patient(n, who, lines, right, yes, no)
+    c += S.narrate([
+        "Then the next sixteen, at a pace: a sprain, a fright, a",
+        "wasp sting, a man who has been told he is dying and has",
+        "only been reading the wrong almanac."])
+    c += S.narrate([
+        "She tells a farmer, at full volume, across the whole",
+        "ward, exactly where his hernia is and what he is to stop",
+        "lifting. He thanks her. So does the ward."])
+    c += [S.blush()]
+    c += [R.control_variable_add(db.VAR_MER1_POINTS, MER1_REST)]
+    c += S.say("Sir Hamo", [
+        "That's the west half through!",
+        "Twenty! Somebody find out how",
+        "the east is getting on."])
+    c += S.narrate([
+        "The east is on patient one, stage eleven. Every bed but",
+        "one has nineteen patients sitting on it, waiting, very",
+        "politely, with the history of their grandparents taken."])
+    c += S.say("Sister Bewick", [
+        "Stage eleven. The patient",
+        "will now feel better."])
+    c += S.narrate([
+        "Patient one is a fisherman called Mr Grebe, who has the",
+        "Weeping Bottom ague, properly, the first case anybody",
+        "has seen in nine years. He sits up. He feels better."])
+    c += S.say("Sister Bewick", ["...It worked."])
+    c += S.say("Merribell", [
+        "Of course it worked. He had it.",
+        "That's a point to the east, Sir",
+        "Hamo. Fair's fair."])
+    c += S.say("Sir Hamo", [
+        "Whatever Works, \\V[%d]. What" % db.VAR_MER1_POINTS,
+        "Ought To Work, one. On points!",
+        "Very fair."])
+    c += S.narrate([
+        "Nineteen patients get up off the east beds and walk",
+        "across the line, the way they always do at night, except",
+        "that it is the afternoon, and nobody minds."])
+    c += S.say("Sister Bewick", [
+        "Then it is settled. I should",
+        "like to be examined on your",
+        "doctrine. That is how a doctrine",
+        "is settled."])
+    c += S.say("Merribell", ["We haven't got one. We've got",
+                             "a pamphlet."])
+    c += S.say("Prioress", [
+        "We have got one. Mother Ursula's",
+        "own. It's been in the drawer since",
+        "the first symposium."])
+    c += S.narrate([
+        "Four pages, stitched, damp at the corners. The Rule of",
+        "Life is on the first page. Sister Bewick reads it, all",
+        "four lines, twice, and is examined on it, and passes."])
+    c += S.say("Sister Bewick", [
+        "It is very short.",
+        "I can find nothing wrong with it.",
+        "That is very annoying."])
+    c += S.say("Prioress", [
+        "Keep it, Sister. It works better",
+        "out of a drawer. Everything does."])
+    c += [R.gain_armor(db.AR_PAMPHLET, 1), R.play_me("Item")]
+    c += S.got(["Got \\C[3]The Pamphlet\\C[0]."])
+    c += S.narrate([
+        "There is no symposium at three. There is soup, on both",
+        "sides of the line. Sister Bewick has some. She writes in",
+        "her notebook: Intervention. Supported."])
+    c += [S.trope(), R.control_switch(db.SW_MER1_DONE, True)]
+    c += S.companion_story(db.MERRI)
+    return c
+
+
+def _mer1_waiting():
+    c = S.say("Prioress", [
+        "The queue's in. Sister Bewick has",
+        "her history forms out. Are you",
+        "ready, Sister?"])
+    c += R.choice_block(["Begin", "Not yet"], [
+        _mer1_contest(),
+        S.say("Merribell", ["A minute. I want to wash",
+                            "my hands. Twice."])])
+    return c
+
+
+def stope_pages(page0):
+    """Pages 3-4 for the Prioress (Map 55, event 2), in her own page's
+    dress: the talk and the contest with Merribell, below her ladder; and
+    afterwards, for everybody."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    ask = R.if_then(R.condition_switch(db.SW_MER1_ON), _mer1_waiting(),
+                    _mer1_talk())
+    after = S.say("Prioress", [
+        "No symposium at three. Soup at",
+        "noon, and the queue at two. Bring a",
+        "chair. People sit down now."])
+    after += S.say("Prioress", ["It's in the rule."])
+    return [
+        _like(page0, ask, dict(known, actorValid=True, actorId=db.MERRI)),
+        _like(page0, after,
+              dict(known, switch1Valid=True, switch1Id=db.SW_MER1_DONE)),
+    ]
+
+
+def bewick_pages(page0):
+    """Page 3 for Sister Bewick (Map 55, event 3): her own last page, plus
+    the pamphlet she keeps in volume three."""
+    after = page0["list"][:-1] + S.narrate([
+        "There is a pamphlet in volume three now, as a bookmark,",
+        "at chapter nine. She has read it eleven times."])
+    return [_like(page0, after, {
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_MER1_DONE})]
+
+
+def line_pages(page0):
+    """Page 2 of the line (Map 55, event 8): its own page, and the minutes
+    of a symposium that was not held."""
+    after = page0["list"][:-1] + S.narrate([
+        "The eleventh has been added, in the Prioress's hand: Not",
+        "held. A queue instead. Whatever Works, on points. Soup."])
+    return [_like(page0, after, {"switch1Valid": True,
+                                 "switch1Id": db.SW_MER1_DONE})]
+
+
+# The last six of the forty, who are on Map 54, in the drizzle, up the track:
+# (name, (sheet, index), what they say). Strangers, so stock sprites.
+MER1_QUEUE = [
+    ("Number Thirty-Five", ("People1", 4), [
+        "Thirty-five. Chest. It's the air.",
+        "I came for the air."]),
+    ("Number Thirty-Six", ("People2", 3), [
+        "Thirty-six! I'm not ill. Mum said",
+        "to queue, so I'm queueing."]),
+    ("Number Thirty-Seven", ("People1", 6), [
+        "Thirty-seven. Knee. It'll keep.",
+        "It's kept since Michaelmas."]),
+    ("Number Thirty-Eight", ("People4", 1), [
+        "Thirty-eight. They say there's soup",
+        "on the one side and a book on the",
+        "other. I'm hoping for soup."]),
+    ("Number Thirty-Nine", ("People4", 4), [
+        "Thirty-nine. Don't know what I've",
+        "got. That's why I'm in a queue."]),
+    ("Number Forty", ("People1", 2), [
+        "Forty. Last. Somebody's always",
+        "last. Wet, an' all."]),
+]
+
+
+def queue_events(base_id, cells, people):
+    """Events `base_id`.. on Map 54: the end of the queue, standing in the
+    drizzle while `SW_MER1_ON` and gone home once it is done. `people` is
+    [(name, (sheet, index), lines)], one per cell."""
+    evs = []
+    for i, ((x, y), (name, img, lines)) in enumerate(zip(cells, people)):
+        waiting = S.say(name, lines, face=False)
+        waiting += R.if_then(R.condition_actor_in_party(db.MERRI), S.narrate([
+            "Merribell looks along the queue the way a general looks",
+            "along a line, and very nearly smiles."]))
+        evs.append(R.event(base_id + i, name, x, y, [
+            R.page([], img=R.image(""), trigger=0, priority=0, through=True),
+            R.page(waiting, img=R.image(img[0], img[1], direction=8),
+                   trigger=0, priority=1,
+                   conditions={"switch1Valid": True,
+                               "switch1Id": db.SW_MER1_ON}),
+            R.page([], img=R.image(""), trigger=0, priority=0, through=True,
+                   conditions={"switch1Valid": True,
+                               "switch1Id": db.SW_MER1_DONE}),
+        ]))
+    return evs

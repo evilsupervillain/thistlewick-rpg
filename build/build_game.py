@@ -398,7 +398,9 @@ def build_system():
             (db.SW_COR2_STEP, "COR-2: the doorstep; the sword's name"),
             (db.SW_COR2_DONE, "COR-2: the report card"),
             (db.SW_MER5_ON, "MER-5: the Water Committee re-formed"),
-            (db.SW_MER5_DONE, "MER-5: the curse lifted; item three")]:
+            (db.SW_MER5_DONE, "MER-5: the curse lifted; item three"),
+            (db.SW_MER1_ON, "MER-1: the queue instead of the symposium"),
+            (db.SW_MER1_DONE, "MER-1: on points; the Pamphlet")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -426,6 +428,7 @@ def build_system():
     variables[db.VAR_HOB1_ASKED] = "HOB-1: owners asked, of eleven"
     variables[db.VAR_ZEPH1_PAID] = "ZEPH-1: crowns turned out in the Library"
     variables[db.VAR_WRE1_SPECIMENS] = "WRE-1: type specimens, of eleven"
+    variables[db.VAR_MER1_POINTS] = "MER-1: Whatever Works' points"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
@@ -438,7 +441,7 @@ def build_system():
         "optAutosave": False, "optDrawTitle": True,
         "switches": switches, "variables": variables,
         # WRE-3's badge is Wren's alone: a type of its own (QUESTS.md 0.5).
-        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe", "Scarf"],
+        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe", "Scarf", "Pamphlet"],
         # The blank project ships all three vehicles parked on map 1 at
         # coordinates from a tutorial map that is not in this game - the
         # airship at (154, 70), which is a hundred tiles off the east edge of

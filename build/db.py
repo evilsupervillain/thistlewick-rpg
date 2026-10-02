@@ -397,6 +397,12 @@ IT_REPORT_CARD = 66
 SW_MER5_ON = 175                # the Water Committee re-formed; wasps
 SW_MER5_DONE = 176              # the curse lifted; item three carried
 IT_JAM = 67                     # Mrs Pardew's gran's gooseberry, 1931
+# MER-1, The Sisterhouse (QUESTS.md E2, q_merribell.py)
+SW_MER1_ON = 177                # the queue instead of the symposium
+SW_MER1_DONE = 178              # Whatever Works, on points; the Pamphlet
+VAR_MER1_POINTS = 25            # Whatever Works' score, of twenty
+AR_PAMPHLET = 45                # Merribell's gear (QUESTS.md 0.5): hers alone
+AT_PAMPHLET = 12                # an armour type of its own, as AT_BADGE is
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -889,6 +895,8 @@ def build_actors():
     ac[ZEPH]["traits"] = [trait(52, AT_ROBE, 1)]
     # COR-1: the scarf his mother knitted, in the wrong colour.
     ac[CORVIN]["traits"] = [trait(52, AT_SCARF, 1)]
+    # MER-1: the founder's own copy of the Pamphlet, four lines and soup.
+    ac[MERRI]["traits"] = [trait(52, AT_PAMPHLET, 1)]
 
     upsert(ac, actor(
         ROLAND, "Roland", "Guest Star",
@@ -2415,6 +2423,15 @@ def build_firstfield():
                      "heads, all of them busy. The only one ever given away.",
                      ET_ACCESSORY, AT_BADGE, 0, [0, 0, 0, 0, 0, 0, 4, 12],
                      icon=146, traits=[trait(22, 0, 0.05)]))
+    # MER-1: Merribell's gear. An accessory of a type only her actor has: the
+    # Order's founding document, Mother Ursula Pym's own copy. Healing +, as
+    # COMPANIONS.md has it - pharmacology x1.25, so what she gives out does a
+    # quarter more, and a little MAT for what she casts.
+    upsert(ar, armor(AR_PAMPHLET, "The Pamphlet",
+                     "[Pamphlet] Mother Ursula Pym, 1702. Four pages, stitched, "
+                     "damp at the corners. The Rule of Life is on the first.",
+                     ET_ACCESSORY, AT_PAMPHLET, 0, [0, 20, 0, 0, 12, 8, 0, 0],
+                     icon=189, traits=[trait(23, 3, 1.25)]))
     save("Armors.json", ar)
 
     en = R.load("Enemies.json")

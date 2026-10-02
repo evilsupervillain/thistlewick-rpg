@@ -2066,23 +2066,105 @@ Gammage, Mrs Pardew, the well, the minutes, the sign);
 * `TIMELINE.md`: 1795 gains the Standing Orders, 1931 the jam, 1702 the Rule
   of Life.
 
+**E2, MER-1 The Sisterhouse - done.** MER-1's section at the bottom of
+`q_merribell.py`, hooked from `weeping_bottom.py` in four places (the
+Prioress, Sister Bewick, the line, the queue); `build/scenarios/q_mer1.json`.
+
+* **The start is the Prioress's second look** (Map 55 event 2, page 3: her
+  A and Merribell). Her first page with Merribell is the published "We'll
+  talk. Not today." and stays the first visit. On the second, it is today.
+  **Decided: the master's disappointment runs the other way** - "I was. Not
+  in you. I stayed for the symposia. Eleven of them. I chair them very
+  well." - and Merribell says nothing, which is the kindest thing she could
+  have said. Instead of the eleventh symposium (Whether Anything Works, at
+  three), Merribell proposes the queue at the gate: twenty patients each
+  half, and whoever is through first is right. The Prioress laughs, once;
+  Sister Bewick wants it in writing IMMEDIATELY, and writes it, in eleven
+  clauses, into volume three. `SW_MER1_ON`.
+* **The queue is outside**, in the drizzle, on the track up to the door:
+  the last six of the forty, Numbers Thirty-Five to Forty, Map 54 events
+  **13-18** at (16,14)-(16,19), stock sprites (strangers), each with a line
+  and, with Merribell, her looking along them "the way a general looks along
+  a line". Empty before, and gone home after.
+* **The contest is the Prioress's same page**, "Begin / Not yet" ("A minute.
+  I want to wash my hands. Twice."). Sir Hamo keeps the score from the bed
+  on the line, since both orders treat him and he is very fair. **Decided:
+  the four answers are the Rule's** - Drink some water, Sit down, Dry socks,
+  and the question she always asks, Have you eaten? - and four patients each
+  want one of them: a carter who has driven since five with nothing to
+  drink, a shepherdess squelching from the bog, a clerk who has stood in the
+  queue four hours, and a small boy crying about a sock. The obvious thing is
+  a point ("Point to the west!"); anything else, she gets there anyway and the
+  point is withheld ("Very fair."). Sixteen more go through in a paragraph,
+  including the farmer told at full volume across the ward exactly where his
+  hernia is - **one blush**. `VAR_MER1_POINTS` keeps the score and Sir Hamo
+  reads it off `\V[25]`.
+* **Sister Bewick is not a villain**: she gets through one patient in the
+  time, stage eleven, and Mr Grebe the fisherman really has the Weeping
+  Bottom ague, the first case in nine years. "...It worked." Merribell gives
+  her the point. **Whatever Works wins on points** - nineteen or twenty to
+  one. Then Bewick asks to be examined on Whatever Works' doctrine, which is
+  how a doctrine is settled; the Prioress has Mother Ursula's own pamphlet in
+  the drawer since the first symposium, the Rule is on its first page, and
+  Bewick is examined on it and passes: "It is very short. I can find nothing
+  wrong with it. That is very annoying." No symposium at three; soup, on
+  both sides. Her notebook: Intervention. Supported. (D1's was
+  Unsupported.) **One trope** (the return to the monastery).
+* **Merribell's gear** (0.5): armour **45** "The Pamphlet", an accessory of
+  a new armour type **12, "Pamphlet"**, which her actor has a trait for - the
+  badge pattern. MMP +20, MAT +12, MDF +8, and pharmacology x1.25 - healing
+  +, as `COMPANIONS.md` has it: what she gives out does a quarter more.
+* **Afterwards for everybody**: the Prioress (no symposium; soup at noon,
+  the queue at two; bring a chair, people sit down now, "It's in the
+  rule."); Sister Bewick's own last page plus the pamphlet in volume three as
+  a bookmark, read eleven times; the line's own page plus the eleventh
+  minute, Not held. The chapel (ALD-2's) and Sir Hamo (on the line, ALD-3's
+  neighbour) were left alone.
+* **Ids taken:** switches **177** `SW_MER1_ON`, **178** `SW_MER1_DONE`;
+  variable **25** `VAR_MER1_POINTS`; armour **45** `AR_PAMPHLET`, armour type
+  **12** `AT_PAMPHLET`; Map 54 events 13-18. No faces.
+* One trope, one blush. Running tally: **tropes +28 fixed and 2-9 from
+  PIP-2; blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[MERRI]` (on already after MER-2, -4 or -5 in a game that did
+  one).
+* **Candidate ending line** (G1; read `SW_MER1_DONE`): "The Order of
+  Whatever Works won the Sisterhouse on points, nineteen to one, in an
+  afternoon. Sister Bewick has been examined on its doctrine, and passed. It
+  is four lines long."
+* **The rooms (0.1):** Weeping Bottom had never been swept. Maps 54-55 were
+  cropped with `propsheet.py` (41 tiles) and screenshotted: the green roofs,
+  the chapel's stained glass, `Monument A` the founder's stone, ferns and
+  mushrooms; in the ward the beds, `Medicine Shelf`s, `Bookshelf A`, the
+  stew pot and soup bowl, `Pot A` the jug on Bewick's desk, the open book on
+  the line and `Closed Books C`. Every event sits on what it says. Nothing
+  needed fixing. (A batch of shots carried Map 54's drizzle into the ward's
+  shot; the door clears it in play, and `weeping_bottom` asserts the ward
+  dry.)
+* **Scenario** `q_mer1`: passes (52 checks), first run - three answers right
+  and one wrong (the boy, asked for water), 19 points, the score read off
+  the variable, the Pamphlet Merribell's and nobody else's, and the queue
+  shot in the rain.
+* `TIMELINE.md`: 1991 gains the last ague case before Mr Grebe's, 1996
+  Merribell leaving at twenty-two, and her age, twenty-six.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E2, MER-1 The
-Sisterhouse**. E1 (MER-5, the Well at Sump) is done, 2 Oct 2026. Mike asked
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E3, MER-3 The
+Healers' Table**. E1 (MER-5, the Well at Sump) and E2 (MER-1, the
+Sisterhouse) are done, 2 Oct 2026. Mike asked
 for E1-E6 in one session; if this prompt is being read, that session ended
 early, so carry on from here through E6, then the rerun for the part.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
 B1 on, once, at the start; then **Merribell's** section of `COMPANIONS.md`
-(E2-E3) and **Aldric's** (E4-E6), each only when its first step comes up.
+(E3) and **Aldric's** (E4-E6), each only when its first step comes up.
 Read what a step needs by dumping its maps' events and their text, not by
-opening a module. Weeping Bottom (Maps 54-55) has never been swept: crop
-them with `propsheet.py` before judging, and screenshot before and after
-anything changed (0.1).
+opening a module. The Slain Wyvern (Map 14) was swept on 30 Sep; crop
+anything else a step touches with `propsheet.py` before judging, and
+screenshot before and after anything changed (0.1).
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
@@ -2093,20 +2175,17 @@ scenario, `build/scenarios/q_<quest>.json`, run in the background, one
 browser at a time. Then the Done paragraph, a commit, and this prompt moved
 on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +27 fixed and 2-9 from PIP-2; blushes +12 fixed
-and 0-1 from PIP-2. Next free: switch 177, variable 25, item 68, weapon 42,
-armour 45, armour type 12, class 12, common event 4, state 41, enemy 55,
-troop 53, skill 179, map 67, `Gen_People13` 5. Merribell's gear is **the
-Pamphlet** (0.5), from MER-1 in E2: armour 45, armour type 12. MER-5 wrote
-the Rule of Life's four lines (`q_merribell._MER5_RULE`); the Pamphlet
-carries them.
+Where things stand: tropes +28 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 179, variable 26, item 68, weapon 42,
+armour 46, armour type 13, class 12, common event 4, state 41, enemy 55,
+troop 53, skill 179, map 67, `Gen_People13` 5. Merribell has had her gear
+(the Pamphlet, armour 45). The Rule of Life's four lines are
+`q_merribell._MER5_RULE`.
 
-What E2 will need: the Prioress's first page with Merribell is the published
-"We'll talk. Not today." - start on her second look. Sir Hamo and the chapel
-(Map 54 event 5) are ALD-2's and ALD-3's neighbours; leave them their pages.
-The `weeping_bottom` scenario resets the Prioress's and Bewick's self
-switch A before its Merribell pass and asserts no queue, contest or
-Pamphlet: every MER-1 page must wait on her second look.
+What E3 will need: four visiting healers (faces; looks drafted for
+`Gen_People13` 5-7 and a new `Gen_People14` 0), Ysolde chairs. Her own event's
+ladder ends on self switch B, behind the bench quest - so the Table is new
+events, not pages on her.
 
 Things learned that will bite again:
 

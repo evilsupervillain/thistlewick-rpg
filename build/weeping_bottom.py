@@ -46,6 +46,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_merribell
 from places import MAP_WORLD, MAP_WEEPING_BOTTOM, MAP_WARD, WEEPING_BOTTOM_STEP
 
 # The name `worldmap.json`'s door event carries for this site.
@@ -134,6 +135,7 @@ SIGN = (18, 20)                 # the board by the track
 PIM = (26, 13)
 SHORE = [(28, 11), (28, 14), (28, 17)]
 GARDEN = (4, 20, 10, 21)        # x1, y1, x2, y2: the physic garden
+QUEUE = [(TRACK_X + 1, y) for y in range(14, 20)]     # MER-1's last six
 
 STONE_TILE = K.sf_block("Outside_C", "Monument A")      # 1x2, on its base
 WALL_MOSS = K.sf_tile("Outside_B", "Wall Moss")
@@ -348,6 +350,9 @@ def valley_events():
         "fern, and they are doing splendidly."])
     evs.append(R.event(12, "The Physic Garden", GARDEN[0], GARDEN[1],
                        [R.page(garden, **PAGE)]))
+
+    # 13-18: the last six of MER-1's queue of forty, up the track.
+    evs += q_merribell.queue_events(13, QUEUE, q_merribell.MER1_QUEUE)  # MER-1
     return evs
 
 
@@ -619,9 +624,11 @@ def ward_events():
     evs = [exit_tile_in(1)]
     evs.append(_person(2, "Prioress Stope", STOPE,
                        R.image("Gen_People5", 1, direction=2), *stope_pages()))
+    evs[-1]["pages"] += q_merribell.stope_pages(evs[-1]["pages"][-1])   # MER-1
     evs.append(_person(3, "Sister Bewick", BEWICK,
                        R.image("Gen_People5", 2, direction=4),
                        *bewick_pages()))
+    evs[-1]["pages"] += q_merribell.bewick_pages(evs[-1]["pages"][-1])  # MER-1
     evs.append(_person(4, "Sir Hamo Tench", HAMO,
                        R.image(*S.FACES["Sir Hamo"], direction=8), *hamo_pages()))
     evs.append(_person(5, "Sister Lamb", LAMB,
@@ -666,6 +673,7 @@ def ward_events():
         "Ten of them, and every one ends the same way: Resolved,",
         "that the matter be referred to the next symposium."])
     evs.append(R.event(8, "The Line", *MINUTES, [R.page(line, **PAGE)]))
+    evs[-1]["pages"] += q_merribell.line_pages(evs[-1]["pages"][0])    # MER-1
 
     # 9: the correct treatment, in eleven stages.
     treatment = S.narrate([

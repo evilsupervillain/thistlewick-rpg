@@ -162,10 +162,10 @@ when it does, in a round year.
 | 1989 | Nix, fifteen, starts the ledger; the first page's eleven things are never sold, and go home in NIX-4 ("eleven years" for every one of them: Bram's mother's pie dish, the Old Man's chair, Hulda Bole's good boots). Hulda takes her first fetching job the same year, and Tolly buys a sheet of stamps | `q_nix`, `south` | P |
 | 1989 | Attempt 199 lost in sight of the Tower, "eleven years dead" on her crag; the last entry in the attempt log | `field`, `north` | P |
 | 1989 | Zephyrine Vance's incident at the Collegium Arcanum: the Dean, the duck and an unsanctioned quantity of fire ("eleven years", `village`, `collegium`). That spring she borrows three books from the Library and does not return them; the expulsion is drafted, initialled by the Dean, referred to the Registrar and never filed, so she goes on unpaid study leave (ZEPH-1). What she said at High Table was that Dr Hapgood's paper, On the Kindling of Damp Materials, had gone out under the Master's name (ZEPH-3) | `q_zephyrine` | F |
-| 1991 | Sir Aldric Pemberton-Gore the Third goes out errant, "nine years ago"; the flowers under his portrait start. Tom marries Mrs Vane at Fenmarch, in the rain | `fenmarch.fourth_pages`, `portrait_pages`, `tom_pages`; `hamlets.vane_pages` | F |
+| 1991 | Sir Aldric Pemberton-Gore the Third goes out errant, "nine years ago"; the flowers under his portrait start. Tom marries Mrs Vane at Fenmarch, in the rain. The last case of the Weeping Bottom ague before Mr Grebe's ("nine years", MER-1) | `fenmarch.fourth_pages`, `portrait_pages`, `tom_pages`; `hamlets.vane_pages`; `q_merribell` | F |
 | 1992 | Aldric, with a commission that says "dragon", talks about Horace with the Wrong Dragon until dark ("eight years ago") | `nomap._wrong_dragon` | F |
 | 1994 | Aldric reaches Thistlewick and cannot find the north gate; Perpetua Small wakes on the beach. That winter his horse walks into Plummer's yard at Great Dunnage on her own, saddled ("six years", ALD-4) | `db.build_actors`, `village`; `dunnage.plummer_pages`, `q_aldric` | P |
-| 1996 | Mr Pilbeam rescues Rosamund from the eagle | `fairholme` | F |
+| 1996 | Mr Pilbeam rescues Rosamund from the eagle. Merribell leaves the Sisterhouse at twenty-two, because it has begun holding symposia (MER-1) | `fairholme`, `q_merribell` | F |
 
 ## 5. Ages stated
 
@@ -175,6 +175,7 @@ when it does, in a round year.
 | Mr Ottershaw | ninety in March | `fenmarch` |
 | Thaddeus Rook's rival | ninety-one | `sable_hart` |
 | Ysolde Marrow | seventy-eight | `south` |
+| Merribell | twenty-six (left the Sisterhouse at twenty-two, MER-1) | `q_merribell` |
 | Halbert Quy | in his seventies | `south` |
 | Mrs Emberthwaite | seventy (Rosamund's word) | `fairholme` |
 | Corvin Ash | thirty (nineteen, and eleven years in the corner) | `south` |

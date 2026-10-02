@@ -1,0 +1,555 @@
+{
+ "query": "?map=55&x=7&y=11&frames=90",
+ "comment": "QUESTS.md E2, MER-1 The Sisterhouse. The Prioress's first look with Merribell is the published 'Not today'; her second is the talk and the queue. 'Not yet' once; the queue on Map 54 without Merribell; then the contest - four patients, three answered right and one wrong, sixteen in a paragraph, Mr Grebe's ague and stage eleven - Whatever Works on points (19-1), the Pamphlet (Merribell's alone), one trope, one blush, her story. Afterwards for everybody, and the queue gone home.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "eval": "const sc2 = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { if (Array.isArray(window._picks) && window._picks.length) { const p = window._picks.shift(); const u = window._pick; window._pick = undefined; const r = sc2.call(this, c, p, k); window._pick = u; return r; } return sc2.call(this, c, d, k); }"
+  },
+  {
+   "eval": "$gameParty.addActor(2)"
+  },
+  {
+   "goto": [
+    55,
+    12,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0,
+   "label": "with Merribell, the first look is the published page"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"We'll talk. Not today.\"))",
+   "expect": true,
+   "label": "the reaction shot"
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"queue\")) && !window._lines.some(l => l.includes(\"symposium at three. Whether\"))",
+   "expect": true,
+   "label": "and nothing of MER-1"
+  },
+  {
+   "check": "$gameSwitches.value(177)",
+   "expect": false,
+   "label": "switch 177 False"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    55,
+    12,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "THE POINT: her second look is the talk"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I stayed for the\")) && window._lines.some(l => l.includes(\"There's a queue at the gate.\")) && window._lines.some(l => l.includes(\"IMMEDIATELY.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSwitches.value(177)",
+   "expect": true,
+   "label": "SW_MER1_ON"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "tropes +0"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "eval": "window._pick = 1"
+  },
+  {
+   "goto": [
+    55,
+    12,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "the queue is in: Begin / Not yet"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"A minute. I want to wash\"))",
+   "expect": true,
+   "label": "not yet"
+  },
+  {
+   "check": "$gameSwitches.value(178)",
+   "expect": false,
+   "label": "switch 178 False"
+  },
+  {
+   "eval": "window._pick = undefined"
+  },
+  {
+   "eval": "$gameParty.removeActor(2)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "without Merribell, the Prioress is on her own page"
+  },
+  {
+   "goto": [
+    54,
+    15,
+    19
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(6)"
+  },
+  {
+   "check": "[13,14,15,16,17,18].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "label": "the last six of the forty, up the track"
+  },
+  {
+   "shot": "q_mer1_queue.png"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 18,
+   "label": "talking to Number Forty"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Forty. Last.\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameParty.addActor(2)"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "window._picks = [0, 0, 2, 1, 0]"
+  },
+  {
+   "goto": [
+    55,
+    12,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "the contest"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 140
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Patient one. Stage one\")) && window._lines.some(l => l.includes(\"Point to the west!\")) && window._lines.some(l => l.includes(\"Point withheld. Very fair.\")) && window._lines.some(l => l.includes(\"exactly where his hernia is\")) && window._lines.some(l => l.includes(\"...It worked.\")) && window._lines.some(l => l.includes(\"On points!\")) && window._lines.some(l => l.includes(\"The Pamphlet\")) && window._lines.some(l => l.includes(\"Intervention. Supported.\"))",
+   "expect": true,
+   "label": "the queue, Mr Grebe, and the Pamphlet"
+  },
+  {
+   "check": "$gameVariables.value(25)",
+   "expect": 19,
+   "label": "VAR_MER1_POINTS: three right, one wrong, sixteen"
+  },
+  {
+   "check": "window._lines.some(l => l.includes('Whatever Works, \\\\V[25]'))",
+   "expect": true,
+   "label": "Sir Hamo reads the score off the variable"
+  },
+  {
+   "check": "$gameSwitches.value(178)",
+   "expect": true,
+   "label": "SW_MER1_DONE"
+  },
+  {
+   "check": "$gameSwitches.value(101)",
+   "expect": true,
+   "label": "SW_STORY[MERRI]"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "tropes +1"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 1,
+   "label": "blushes +1"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 1,
+   "label": "companion stories +1"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "$gameParty.numItems($dataArmors[45])",
+   "expect": 1,
+   "label": "the Pamphlet"
+  },
+  {
+   "check": "[$gameActors.actor(2).canEquip($dataArmors[45]), $gameActors.actor(1).canEquip($dataArmors[45])]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "hers alone"
+  },
+  {
+   "check": "$gameScreen.brightness()",
+   "expect": 255,
+   "label": "faded back in"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "the Prioress afterwards, with Merribell"
+  },
+  {
+   "eval": "$gameParty.removeActor(2)"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    55,
+    12,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "the Prioress afterwards, for everybody"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"No symposium at three.\")) && window._lines.some(l => l.includes(\"It's in the rule.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    55,
+    17,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(6)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "Sister Bewick, first look"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "goto": [
+    55,
+    17,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(6)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "Sister Bewick afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "talking to event 3"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Volume three, chapter\")) && window._lines.some(l => l.includes(\"a pamphlet in volume three now\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    55,
+    13,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1,
+   "label": "the line afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "talking to event 8"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"PATIENTS WILL KINDLY REMAIN\")) && window._lines.some(l => l.includes(\"Not\")) && window._lines.some(l => l.includes(\"Whatever Works, on points.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    54,
+    15,
+    19
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[13,14,15,16,17,18].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "label": "the queue has gone home"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "tropes +0"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 0,
+   "label": "companion stories +0"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "back on the map"
+  }
+ ]
+}
