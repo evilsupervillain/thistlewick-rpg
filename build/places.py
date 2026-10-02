@@ -327,3 +327,14 @@ WORLD_SIGN_COAST = (63, 80)     # was (28,45): the two ends of the coast road
 VAULT = (23, 5, 25, 7, 24)
 VAULT_CHAIR = (24, 5)           # Chair A (Wood), 1x2: back, then the seat
 COUNTING_BEFORE_DOOR = (8, 5)
+
+# COR-1's study (`../QUESTS.md` D1), Corvin's old bedroom: drawn by
+# `ashcombe.py` in the black east of Map 53, which was widened for it from 26
+# to 36 columns - the kitchen and the museum are tile for tile what they were.
+# Its door is an event in the kitchen's north wall, up from (6, 4), and its
+# way out is the foot of its stairs; both are `q_corvin.py`'s.
+#           x1 y1  x2  y2 door_x
+STUDY = (28, 4, 33, 8, 30)
+STUDY_DOOR = (6, 3)             # on the kitchen's north wall face
+STUDY_DESK = (31, 6)            # Table A, two cells, the committee's papers
+STUDY_MARKS = (30, 3)           # the height marks, on the north wall face

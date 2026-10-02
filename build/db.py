@@ -382,6 +382,13 @@ CL_WREN_PUBLISHED = 11          # her class, plus the upgrade (see below)
 EN_SPECIMENS = list(range(44, 55))       # the eleven type specimens
 TR_SPECIMENS = list(range(42, 53))       # one troop each
 SK_STARTLE, SK_BOLT, SK_BITE_NOTES, SK_NOT_THERE = 175, 176, 177, 178
+# COR-1, Ashcombe (New) (QUESTS.md D1, q_corvin.py)
+SW_COR1_ON = 170                # his name on the Roll: Away. Today, then
+SW_COR1_HOME = 171              # through his mother's door, and the tea
+SW_COR1_DONE = 172              # the speech, which went well; the scarf
+IT_INVITATION = 65              # the eleventh, never posted
+AR_SCARF = 44                   # Corvin's gear (QUESTS.md 0.5): his alone
+AT_SCARF = 11                   # an armour type of its own, as AT_BADGE is
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -872,6 +879,8 @@ def build_actors():
     ac[NIX]["traits"] = [trait(52, AT_COAT, 1)]
     # ZEPH-1: the Collegium's robe, with her name sewn in.
     ac[ZEPH]["traits"] = [trait(52, AT_ROBE, 1)]
+    # COR-1: the scarf his mother knitted, in the wrong colour.
+    ac[CORVIN]["traits"] = [trait(52, AT_SCARF, 1)]
 
     upsert(ac, actor(
         ROLAND, "Roland", "Guest Star",
@@ -1574,6 +1583,10 @@ def build_items():
     upsert(it, item(IT_FINES_NOTICE, "Notice of Fines (Eleventh)",
                     "The Collegium Library, to Miss Z. Vance, on study leave. "
                     "Folded very small, and kept in her hat.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=192))
+    upsert(it, item(IT_INVITATION, "Invitation (Eleventh)",
+                    "The Flood Dinner Committee requests the pleasure of Mr "
+                    "C. Ash as Speaker. Saturday. It has no stamp on it.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=192))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
@@ -2505,6 +2518,15 @@ def build_contest():
                      "Registrar's cupboard. Her name is sewn in the collar.",
                      ET_BODY, AT_ROBE, 0, [0, 60, 0, 20, 30, 40, 4, 0],
                      icon=154, traits=[trait(23, 4, 0.9)]))
+    # COR-1: Corvin's gear. An accessory of a type only his actor has. It
+    # keeps out the cold (ice x0.5) and, by a slow three per cent, about
+    # cancels the elective curse's bleed, which nobody planned.
+    upsert(ar, armor(AR_SCARF, "Scarf (Wrong Colour)",
+                     "[Scarf] Very long, very warm and bright yellow, like the "
+                     "new roofs. For somebody who feels the cold.",
+                     ET_ACCESSORY, AT_SCARF, 0, [80, 0, 0, 8, 0, 12, 0, 6],
+                     icon=139, traits=[trait(11, EL_ICE, 0.5),
+                                       trait(22, 7, 0.03)]))
     save("Armors.json", ar)
 
     en = R.load("Enemies.json")

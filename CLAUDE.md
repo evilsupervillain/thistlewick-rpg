@@ -360,7 +360,8 @@ Append instead.
   indoors - Mrs Ash's kitchen and the Drainage Museum, side by side in the
   black like Gladhollow's back room, with no display name. `ashcombe.py`,
   `SITES.md` step 14. `MAP_ASHCOMBE`, `MAP_ASHCOMBE_IN`; its `journey.py`
-  alias is `ASH` |
+  alias is `ASH`. COR-1 widened Map 53 from 26 to 36 columns for a third room,
+  Corvin's old bedroom that is a study, in its black east (`places.STUDY`) |
 | Maps 54-55 | Weeping Bottom, the valley bottom with the Sisterhouse in it,
   in a drizzle, and the ward, split down the middle by a line between the two
   orders. `weeping_bottom.py`, `SITES.md` step 15. `MAP_WEEPING_BOTTOM`,

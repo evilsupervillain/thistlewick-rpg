@@ -388,7 +388,10 @@ def build_system():
             (db.SW_WRE1_FURZE, "WRE-1: reviewed by Furze"),
             (db.SW_WRE1_DUCK_DUE, "WRE-1: the duck's review is due (ends)"),
             (db.SW_WRE1_DUCK, "WRE-1: reviewed by the duck"),
-            (db.SW_WRE1_DONE, "WRE-1: published")]:
+            (db.SW_WRE1_DONE, "WRE-1: published"),
+            (db.SW_COR1_ON, "COR-1: on the Roll; today, then"),
+            (db.SW_COR1_HOME, "COR-1: home, and the tea"),
+            (db.SW_COR1_DONE, "COR-1: the speech; the scarf")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -428,7 +431,7 @@ def build_system():
         "optAutosave": False, "optDrawTitle": True,
         "switches": switches, "variables": variables,
         # WRE-3's badge is Wren's alone: a type of its own (QUESTS.md 0.5).
-        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe"],
+        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe", "Scarf"],
         # The blank project ships all three vehicles parked on map 1 at
         # coordinates from a tutorial map that is not in this game - the
         # airship at (154, 70), which is a hundred tiles off the east edge of

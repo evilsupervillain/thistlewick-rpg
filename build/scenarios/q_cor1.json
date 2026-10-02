@@ -1,0 +1,687 @@
+{
+ "query": "?map=53&x=19&y=5&frames=90",
+ "comment": "QUESTS.md D1, COR-1 Ashcombe (New). The Roll with Corvin: the published page, then his own name on it ('...Today, then.'). Her door: he knocks, and goes in. Home: the tea, and one trope (going home). The study up a flight: the committee's desk and eleven unposted invitations, the height marks. The Flood Dinner's notice: 'Not yet', then confirmed, the speech (it goes well) and the scarf, the wrong colour, armour 44, his alone. Afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "comment": "Without Corvin, the Roll is the published page and nothing else."
+  },
+  {
+   "goto": [
+    53,
+    19,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 0,
+   "label": "the Roll without Corvin: its own page"
+  },
+  {
+   "check": "$gameMap.event(13).findProperPageIndex()",
+   "expect": 0,
+   "label": "no study door yet"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0
+  },
+  {
+   "comment": "With Corvin: the first read is the published page exactly.",
+   "eval": "$gameParty.addActor(8); window._mark()"
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Roll with Corvin, first read"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    19,
+    4,
+    8
+   ],
+   "label": "under the Roll, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 7,
+   "label": "the Roll"
+  },
+  {
+   "advance": 8
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"(Written to.)\"))",
+   "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That is me\"))",
+   "expect": false,
+   "label": "the first read is the published page, word for word"
+  },
+  {
+   "check": "$gameSwitches.value(170)",
+   "expect": false
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 2,
+   "label": "second look"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 24
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"That is me.\")) && window._lines.some(l => l.includes(\"They counted me anyway.\")) && window._lines.some(l => l.includes(\"...Today, then.\"))",
+   "expect": true,
+   "label": "his own name: Away. (Written to.)"
+  },
+  {
+   "check": "$gameSwitches.value(170)",
+   "expect": true,
+   "label": "SW_COR1_ON"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "no trope at the Roll"
+  },
+  {
+   "comment": "Out to the street and up to her door: he knocks, and goes in.",
+   "goto": [
+    52,
+    22,
+    13
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "her door, COR-1's page"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 16
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 53,
+   "label": "THE POINT: in through her door, with Corvin"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    5,
+    8
+   ],
+   "label": "just inside the kitchen"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"like a visitor\")) && window._lines.some(l => l.includes(\"It's always open!\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSelfSwitches.value([53, 2, 'A'])",
+   "expect": true,
+   "label": "her ladder's terminal, set by the door"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "Mrs Ash, Corvin's page"
+  },
+  {
+   "shot": "q_cor1_kitchen.png"
+  },
+  {
+   "key": "ArrowRight",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    7,
+    8,
+    8
+   ],
+   "label": "below Mrs Ash, facing her"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "Mrs Ash"
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"There you are, love.\")) && window._lines.some(l => l.includes(\"As the Ruins.\")) && window._lines.some(l => l.includes(\"...I did like it.\"))",
+   "expect": true,
+   "label": "home: the tea, the Roll, the letter to the Ruins"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"My boy's away\"))",
+   "expect": false,
+   "label": "and not 'my boy's away', with him in the kitchen"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "going home: one trope"
+  },
+  {
+   "check": "$gameSwitches.value(171)",
+   "expect": true,
+   "label": "SW_COR1_HOME"
+  },
+  {
+   "check": "$gameMap.event(13).findProperPageIndex()",
+   "expect": 1,
+   "label": "the study door is in the wall now"
+  },
+  {
+   "comment": "Round the table to the study door in the north wall.",
+   "key": "ArrowLeft",
+   "times": 4,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    6,
+    4,
+    8
+   ],
+   "label": "below the study door"
+  },
+  {
+   "shot": "q_cor1_study_door.png"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 150
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 53
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    30,
+    8
+   ],
+   "label": "up in the study"
+  },
+  {
+   "shot": "q_cor1_study.png"
+  },
+  {
+   "comment": "The committee's desk.",
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    31,
+    7,
+    8
+   ],
+   "label": "below the desk, facing it"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 15,
+   "label": "the committee's desk"
+  },
+  {
+   "advance": 24
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Hon. Sec.: Mrs Ash.\")) && window._lines.some(l => l.includes(\"You'd only have said not today.\"))",
+   "expect": true,
+   "label": "eleven invitations, never posted"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[65])",
+   "expect": 1,
+   "label": "the invitation"
+  },
+  {
+   "comment": "The height marks, between the windows.",
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    30,
+    4,
+    8
+   ],
+   "label": "below the height marks"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 16
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She drew where he would\"))",
+   "expect": true,
+   "label": "exactly the top of his head"
+  },
+  {
+   "comment": "Down the stair and back to the kitchen.",
+   "key": "ArrowDown",
+   "times": 6,
+   "gap": 30
+  },
+  {
+   "frames": 150
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 53
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    6,
+    4
+   ],
+   "label": "back in the kitchen, under the study door"
+  },
+  {
+   "comment": "A dismissed Corvin's errand waits: without him the notice is its own page.",
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "goto": [
+    52,
+    6,
+    15
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 0,
+   "label": "the notice without Corvin, invitation or no"
+  },
+  {
+   "eval": "$gameParty.addActor(8)"
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 2,
+   "label": "with him and the invitation"
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    6,
+    15,
+    2
+   ],
+   "label": "above the notice, facing it"
+  },
+  {
+   "comment": "'Not yet' first.",
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 9
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"...Saturday.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameSwitches.value(172)",
+   "expect": false
+  },
+  {
+   "comment": "And then the Dinner.",
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 80
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"By the ROAD.\")) && window._lines.some(l => l.includes(\"You were\")) && window._lines.some(l => l.includes(\"Which was very good about it.\")) && window._lines.some(l => l.includes(\"...It is the wrong colour.\"))",
+   "expect": true,
+   "label": "the speech, which goes well, and the scarf"
+  },
+  {
+   "check": "$gameSwitches.value(172)",
+   "expect": true,
+   "label": "SW_COR1_DONE"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[65])",
+   "expect": 0,
+   "label": "the invitation handed in"
+  },
+  {
+   "check": "$gameParty.numItems($dataArmors[44])",
+   "expect": 1,
+   "label": "the scarf"
+  },
+  {
+   "check": "$gameActors.actor(8).canEquip($dataArmors[44])",
+   "expect": true,
+   "label": "his to wear"
+  },
+  {
+   "check": "[1,3,4,5,6,7,9,10].some(i => $gameActors.actor(i).canEquip($dataArmors[44]))",
+   "expect": false,
+   "label": "and nobody else's"
+  },
+  {
+   "check": "$gameSwitches.value(107)",
+   "expect": true,
+   "label": "SW_STORY[CORVIN]"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 1,
+   "label": "one more companion story"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "no second trope at the Dinner"
+  },
+  {
+   "check": "$gameScreen.brightness()",
+   "expect": 255,
+   "label": "and the lights back up"
+  },
+  {
+   "shot": "q_cor1_after_dinner.png"
+  },
+  {
+   "comment": "Afterwards, with him.",
+   "eval": "window._lines = []; window._pick = undefined"
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 1,
+   "label": "the notice afterwards"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 8
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"C. ASH. (CONFIRMED.)\"))",
+   "expect": true
+  },
+  {
+   "comment": "Afterwards for everybody.",
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "her door: the door"
+  },
+  {
+   "goto": [
+    53,
+    7,
+    8
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "Mrs Ash afterwards"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1,
+   "label": "the menus afterwards"
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 0,
+   "label": "the Roll as it was"
+  },
+  {
+   "check": "$gameMap.event(13).findProperPageIndex()",
+   "expect": 1,
+   "label": "the study door stays"
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 2,
+   "label": "the desk afterwards"
+  },
+  {
+   "check": "$gameMap.event(16).findProperPageIndex()",
+   "expect": 1
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It's a new pot.\")) && window._lines.some(l => l.includes(\"same\"))",
+   "expect": true,
+   "label": "her own last page, and another one started"
+  },
+  {
+   "eval": "$gameParty.addActor(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "with him, still his page"
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 3
+  },
+  {
+   "check": "$gameMap.event(16).findProperPageIndex()",
+   "expect": 2
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He keeps it on.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "no blush: warm, not red"
+  }
+ ]
+}

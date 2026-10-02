@@ -30,7 +30,9 @@ own. Nothing here spends either.
   get reaction shots that cost nothing. The Flood Dinner's speaker is TO BE
   CONFIRMED, Mrs Ash is knitting something long for "somebody who feels the
   cold", and neither the invitation nor the scarf is handed over; the
-  bedroom that is now a study is not built.
+  bedroom that is now a study is not built. (Since built, `QUESTS.md` D1:
+  its pages are `q_corvin.py`'s, hooked one line each, and the study is
+  drawn here by `study_room`, in the indoors map's black east.)
 * **COR-2 is not spent either.** The drowned street, its doorstep and the
   report card are the lake's week, and it is not this week. The Roll in the
   museum has one name marked Away. (Written to.) in place of a tick, and does
@@ -43,8 +45,10 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_corvin
 import q_hob
 from places import MAP_WORLD, MAP_ASHCOMBE, MAP_ASHCOMBE_IN, ASHCOMBE_STEP
+from places import STUDY, STUDY_DESK
 
 # The name `worldmap.json`'s door events carry for this site.
 SITE = "Ashcombe"
@@ -213,14 +217,16 @@ def ash_door():
         "It would not be kind."])
     stop += [R.self_switch("A", True)]
     again = S.say("Corvin", ["Not today."])
-    return R.event(3, "Mrs Ash's Door", *ASH_DOOR, [
+    pages = [
         R.page(S.door_page(MAP_ASHCOMBE_IN, tx, ty, 8), img=img, trigger=1,
                priority=1),
         R.page(stop, img=img, trigger=1, priority=1, conditions=corvin),
         R.page(again, img=img, trigger=1, priority=1,
                conditions=dict(corvin, selfSwitchValid=True,
                                selfSwitchCh="A")),
-    ])
+    ]
+    pages += q_corvin.door_pages(pages[0])                          # COR-1
+    return R.event(3, "Mrs Ash's Door", *ASH_DOOR, pages)
 
 
 def plaque_pages():
@@ -346,6 +352,7 @@ def ashcombe_events():
         "Again."])
     evs.append(R.event(9, "The Flood Dinner", *NOTICE,
                        [R.page(notice, **page)]))
+    evs[-1]["pages"] += q_corvin.notice_pages(evs[-1]["pages"][0])  # COR-1
 
     # 10: a boy with a paper boat and nowhere to sail it.
     wilf = S.narrate([
@@ -371,7 +378,7 @@ def ashcombe_events():
 # One map, two rooms in the black: Mrs Ash's kitchen to the west and the
 # Drainage Museum to the east. The map shows no name on arrival, because it is
 # two places.
-IW, IH = 26, 13
+IW, IH = 36, 13                     # 26 until COR-1's study, in the east
 #            x1  y1  x2  y2  door_x
 KITCHEN = (2, 4, 9, 8, 5)
 MUSEUM_ROOM = (14, 4, 23, 8, 18)
@@ -423,6 +430,39 @@ def _room(g, x1, y1, x2, y2, door_x, floor, top, face):
     g.set(door_x, y2 + 3, 0, K.a5(91))
 
 
+GLOBE = K.sf_tile("Inside_C", "Globe")
+NOTES = K.sf_tile("Inside_C", "Notes D")
+PEN = K.sf_tile("Inside_C", "Pen A")
+DRAWERS = K.sf_block("Inside_B", "Chest of Drawers")    # 1x2: the pigeonholes
+
+
+def study_room(g):
+    """COR-1's study, which was Corvin's bedroom: "rebuilt, larger, with
+    better light, and currently a study" (`COMPANIONS.md`). In the map's black
+    east, `village.archive_room`'s idiom, with the kitchen's white walls since
+    it is the same house; two tall windows for the light, a bookshelf, a
+    globe, the Flood Dinner Committee's desk and the pigeonholes over it. Up
+    a flight from the kitchen, so its way out is a stair. Its events - the
+    door, the stair, the desk and the height marks - are `q_corvin.py`'s."""
+    x1, y1, x2, y2, door_x = STUDY
+    _room(g, x1, y1, x2, y2, door_x, K.IN_WOOD_FLOOR, K.IN_WALL_TOP_WHITE,
+          K.IN_WALL_FACE_WHITE)
+    g.fill(x1 + 1, y1 + 1, x2 - 1, y2 - 1, 1, K.IN_BLUE_RUG)
+    g.column(x1 + 1, y1 - 2, 3, K.IN_WINDOW)
+    g.column(x1 + 3, y1 - 2, 3, K.IN_WINDOW)
+    g.column(x1, y1 - 1, 2, K.IN_BOOKSHELF)
+    g.column(x2, y1 - 1, 2, DRAWERS)
+    dx, dy = STUDY_DESK
+    g.set(dx, dy, 2, K.IN_TABLE[0][0])
+    g.set(dx + 1, dy, 2, K.IN_TABLE[0][1])
+    g.set(dx, dy, 3, NOTES)
+    g.set(dx + 1, dy, 3, PEN)
+    g.column(dx + 1, dy - 2, 2, CHAIR)
+    g.set(x1, y1 + 2, 3, GLOBE)
+    g.set(x1, y2, 3, K.INC_PLANT2)
+    g.set(x2, y2, 3, K.INC_PLANT2)
+
+
 def indoors_map():
     x1, y1, x2, y2, door_x = KITCHEN
     g = K.interior(IW, IH, x1, y1, x2, y2, door_x=door_x,
@@ -430,6 +470,7 @@ def indoors_map():
                    wall_face=K.IN_WALL_FACE_WHITE)
     _room(g, *MUSEUM_ROOM, K.IN_DIAMOND_TILE, K.IN_WALL_TOP_RED,
           K.IN_WALL_FACE_RED)
+    study_room(g)                                                   # COR-1
 
     # Rugs. Layer 1 is floor art.
     g.fill(4, 6, 7, 8, 1, K.IN_GREEN_RUG)
@@ -579,6 +620,7 @@ def indoors_events():
                        ASH_DOOR[0], ASH_DOOR[1] + 1)]
     evs.append(_person(2, "Mrs Ash", MRS_ASH,
                        R.image("Gen_People4", 7, direction=4), *ash_pages()))
+    evs[-1]["pages"] += q_corvin.mrs_ash_pages(evs[-1]["pages"][-1])  # COR-1
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 
@@ -624,6 +666,7 @@ def indoors_events():
         "",
         "     Away.  (Written to.)"])
     evs.append(R.event(7, "The Roll", ROLL_X, my1 - 1, [R.page(roll, **page)]))
+    evs[-1]["pages"] += q_corvin.roll_pages(evs[-1]["pages"][0])    # COR-1
 
     # 8: the menus.
     menus = S.narrate([
@@ -635,6 +678,7 @@ def indoors_events():
         "Curator. Mrs Ash, on knitting. The Curator. The Curator."])
     evs.append(R.event(8, "The Menus", MENUS_X, my1 - 1,
                        [R.page(menus, **page)]))
+    evs[-1]["pages"] += q_corvin.menus_pages(evs[-1]["pages"][0])   # COR-1
 
     # 9: the lake, in oils.
     painting = S.narrate([
@@ -671,6 +715,7 @@ def indoors_events():
         "the knitting, and the knitting is still going."])
     evs.append(R.event(12, "The Work Basket", *BASKET_AT,
                        [R.page(basket, **page)]))
+    evs += q_corvin.study_events(13)                                # COR-1
     return evs
 
 
