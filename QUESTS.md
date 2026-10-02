@@ -2000,9 +2000,9 @@ again (0.1): Part D's override was for Part D only.
 Read section 0, the Part E table in section 2 and the Done paragraphs from
 B1 on, once, at the start; then **Merribell's** section of `COMPANIONS.md`,
 and no other companion's. Read what the step needs by dumping Map 51's
-events and their text, not by opening a module. Sump (Little Gore and Sump,
-`hamlets.py`) was cropped in B1 for HOB-1's owners but never swept as a
-room it changes: crop Map 51 with `propsheet.py` before judging, and
+events and their text, not by opening a module. Sump (Map 51, `hamlets.py`) has
+never been swept - B1 cropped Little Gore for HOB-1's owners, not Sump: crop
+Map 51 with `propsheet.py` before judging, and
 screenshot before and after anything changed (0.1).
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
