@@ -448,7 +448,7 @@ Order within E is cheapest first; reorder freely.
 | E15 | HOB-4 The Sky Anvil | `nomap.py`, Elias Meech, a gate for a gatepost; the west road | star-iron, one weapon, not for Hob |
 | E16 | ZEPH-4 The Cinder Fen | `nomap.py`, the Commissioner (faceless on purpose), the triplicate | the burning, the road it opens |
 | E17 | ROL-5 The Understudy | the finale's pages - **read `CLAUDE.md` "The ending" and the Former Premises' pages 3-5 first** | the understudy (1 face), a page at the tower door |
-| E18 | ROL-2 Roland's Own Quest | nothing | a small dungeon (66+), the thing, the better sword |
+| E18 | ROL-2 Roland's Own Quest | nothing | a small dungeon (67+; COR-2 took 66), the thing, the better sword |
 
 ### Part F - Spare (`SPARE.md`, `q_spare.py`)
 
@@ -1974,44 +1974,61 @@ Lay-By's) and `ashcombe.py` (Mr Weir); `build/scenarios/q_cor2.json`.
 * `TIMELINE.md`: 1949, the grandfather makes the sword and cuts its name
   into the step ("forty years" before the water).
 
+**Rerun for Part D** (0.1): after D2, every scenario that walks Maps 52-53,
+Map 66 or the lake was run again, alone and with no timeout - `ashcombe`
+(97 checks), `q_cor1` (71), `q_cor2` (37), `q_hob1` (81, Mrs Dimmock's post
+box is on Map 52), `nomap` (44, Ashcombe Lake had pages appended),
+`placeholder_doors` (12, it counts Ashcombe's world-map door cells) and
+`q_wre1` (47, the Pond Kappa is three steps off the lake). They were found
+by parsing every scenario's `query` and `goto` map ids and grepping for
+Ashcombe and the lake's cells. **All seven pass**, with no check changed:
+`ashcombe` asserts that the door refuses with Corvin and that Mrs Ash and
+Mr Weir say nothing of COR-1, and both still hold, because every COR-1 page
+waits on `SW_COR1_ON`, which only his own second look at the Roll sets.
+Nothing is owed.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **the end of Part D**:
-the rerun of every scenario that walks Maps 52-53, 66 and the lake, and a
-"Rerun for Part D" paragraph. D1 and D2, COR-1 and COR-2, are done (2 Oct
-2026); after the rerun the next step is E1. One step per session (0.1), unless the session's own
-prompt overrides it for the part.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E1, MER-5 The
+Well at Sump** - the first of Part E, the rest in built places. Part D,
+Ashcombe, is done (D1-D2 and its rerun, 2 Oct 2026). One step per session
+again (0.1): Part D's override was for Part D only.
 
-Read section 0, the Part D entries and the Done paragraphs from B1 on,
-once; then **Corvin's** section of `COMPANIONS.md`, and no other
-companion's. Dump Maps 52-53's events and Map 8's event 55 (Ashcombe Lake)
-rather than opening a module. Ashcombe was swept in D1.
+Read section 0, the Part E table in section 2 and the Done paragraphs from
+B1 on, once, at the start; then **Merribell's** section of `COMPANIONS.md`,
+and no other companion's. Read what the step needs by dumping Map 51's
+events and their text, not by opening a module. Sump (Little Gore and Sump,
+`hamlets.py`) was cropped in B1 for HOB-1's owners but never swept as a
+room it changes: crop Map 51 with `propsheet.py` before judging, and
+screenshot before and after anything changed (0.1).
 
-Per step, exactly as before: `build_game.py`, a `git diff --stat data/`
-that touches only what the step meant to, old pages compared byte for byte
-(only appended pages and new events), `validate.py`, apidigest/tileaudit if
-a signature or constant moved, screenshots of anything drawn, the step's
-scenario `build/scenarios/q_cor2.json` in the background, the Done
-paragraph, a commit, and this prompt moved on. Nothing is pushed. No full
-suite until G1. At the end of Part D, rerun every scenario that walks Maps
-52-53 and the lake (`ashcombe`, `q_cor1`, `q_cor2`, `q_hob1`, `nomap`,
-`q_wre1`) and write "Rerun for Part D".
+Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
+that touches only what the step meant to - and compare old pages byte for
+byte: every existing page identical, only appended pages and new events
+(and, on a widened map, every tile inside the old bounds). `validate.py`,
+and `apidigest.py . --write` / `tileaudit.py . --write` if a signature or
+constant moved. Screenshots of anything drawn, looked at. The step's own
+scenario, `build/scenarios/q_mer5.json`, run in the background, one browser
+at a time. Then the Done paragraph (ids taken, tropes and blushes, running
+tally, candidate ending line, rooms fixed), a commit, and this prompt moved
+on to E2. Nothing is pushed. No full suite until G1.
 
 Where things stand: tropes +26 fixed and 2-9 from PIP-2; blushes +11 fixed
 and 0-1 from PIP-2. Next free: switch 175, variable 25, item 67, weapon 42,
 armour 45, armour type 12, class 12, common event 4, state 41, enemy 55,
-troop 53, skill 179, map 67, `Gen_People13` 5. Corvin has had his gear (the
-scarf, D1).
+troop 53, skill 179, **map 67** (D2 took 66, so E18's dungeon is 67+),
+`Gen_People13` 5. Merribell's gear is **the Pamphlet** (0.5), from MER-1 in
+E2, not here. `q_merribell.py` exists (MER-2, MER-4).
 
-What D2 needs: the drowned street is a new map in no place (66, drawn in
-`q_corvin.py`, registered in `build_game.MAP_NAMES`); the way in is Ashcombe
-Lake on the world map (`nomap.py`, event 55, whose ladder is self switch A);
-the doorstep carries the sword's real name, which COR-5 left on the tang
-unread; the report card is in a strongbox in the old schoolroom. Mr Weir
-(Map 53 event 5) was left free by D1 for an afterwards page.
+What E1 will need deciding: the table says "Thurle event 3 on Map 51
+(two-page pair), Gammage 4, Mrs Pardew 5, the well 6, the minutes 7, the
+sign 8, the pool 9" and "the biggest trope payload in the document". Read
+every ladder before appending; **one trope per quest**, however many
+cliches the well turns over - the payload is in the telling, not the count,
+and the count is re-cut only in G1.
 
 Things learned that will bite again:
 
@@ -2022,16 +2039,22 @@ Things learned that will bite again:
   meant to touch as a bug.
 * **"Afterwards" is the person's own last page plus one line**, on a page
   above the quest's, conditioned on their ladder's terminal and the done
-  switch. Avoid an owner another quest already gave an afterwards page.
+  switch. Avoid an owner another quest already gave an afterwards page
+  (Mrs Ash, Mr Weir, Mrs Dimmock and the Ashcombe notice are taken).
 * **A published first page that is wrong with the companion standing in
-  it** ("my boy's away") is skipped by setting the owner's terminal self
-  switch by script from the step before (ALD-4, COR-1), and the quest page
-  carries what of it is still true.
+  it** is skipped by setting the owner's terminal self switch by script from
+  the step before (ALD-4, COR-1), and the quest page carries what of it is
+  still true.
+* **A published reaction shot stays the first visit, word for word**: start
+  the quest on a second look (WRE-1's shelf, COR-1's Roll).
+* **A map in no place** is drawn in the quest module, registered in
+  `build_game.MAP_NAMES` with a `build()` call beside the place modules',
+  and its id goes in `places.py` (COR-2, Map 66).
+* **The Outside sheets' `Dirt` reads as beach sand.** For wet ground, lay
+  `Soil` (A2 kind 31, an overlay) over it on layer 1; `!Chest` 5 is the iron
+  box, 0-3 are treasure chests.
 * **A long speaker name eats the first line.** Check every line at once with
   `story._check_width` patched to collect.
-* **New events on a busy map go after everything else** so no existing id
-  moves; a map widened into its black is compared tile for tile inside the
-  old bounds.
 * **Waiting on a background run:** wait on the log's last line ("all checks
   passed" / "N FAILURE(S)"), never on a `pgrep -f` that matches itself. A
   killed run leaves its Chromium: kill the browser whose parent is 1.
