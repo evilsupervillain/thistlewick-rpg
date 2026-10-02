@@ -297,6 +297,13 @@ SHEETS = {
         # WRE-1: two of Rowbotham's three students, her reviewers again.
         (3, "professor-mott.json"),     # forty years a beetle
         (4, "doctor-furze.json"),       # it's a goose
+        # MER-3, the Healers' Table: four of the five (Ysolde is the fifth).
+        (5, "grizel-pennyfeather.json"),  # a femur and a church candlestick
+        (6, "lucius-hobday.json"),      # a barbarian and a lute string
+        (7, "nan-gilly.json"),          # a wizard and his own staff
+    ],
+    "Gen_People14": [
+        (0, "cuthbert-spence.json"),    # MER-3: a paladin's sash
     ],
 }
 

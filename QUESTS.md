@@ -2147,23 +2147,100 @@ Prioress, Sister Bewick, the line, the queue); `build/scenarios/q_mer1.json`.
 * `TIMELINE.md`: 1991 gains the last ague case before Mr Grebe's, 1996
   Merribell leaving at twenty-two, and her age, twenty-six.
 
+**E3, MER-3 The Healers' Table - done.** MER-3's section at the bottom of
+`q_merribell.py`; the back room drawn by `south.back_room`, its events
+appended by `south.wyvern_events` in one line; `build/scenarios/q_mer3.json`.
+
+* **Decided: the Table meets in a back room that is really there.**
+  `COMPANIONS.md` says "a back room of the Slain Wyvern", and the bar is full
+  - ROL-3's dinner, six tales, three recruits and Dorcas. So Map 14 was
+  widened from 25 to 37 columns, `village.archive_room`'s way, and the bar is
+  tile for tile what it was (checked): `places.WYVERN_BACK` (28,4)-(34,9), in
+  the bar's own wood, one long table of five `Table D`s with a bottle, the
+  Table's minutes open, and bottles; a `Medicine Shelf`, a `Bookshelf A`, two
+  plants. Its door is on the bar's north wall face at (15,3), between the
+  bookcase and the red curtain, and is drawn only for the Table; its way out
+  is the foot of the room, back to (15,4). (The crates at (3,15) and (21,15)
+  looked like back stairs in a screenshot and are crates.)
+* **Ysolde's own event is left alone**: its ladder ends on self switch B,
+  behind the bench at the Barrow, and the quest cannot reasonably wait on
+  that (0.2). So the Table is new events - **Map 14 events 33-40**: the
+  door, the way out, "Ysolde (in the chair)", the four, and a card - and
+  while the Table sits Ysolde is in the chair and also at her own table in
+  the bar, which nobody in a pub would remark on.
+* **The door appears for Merribell** (page 2, her actor): THE TABLE. MEDICS
+  ONLY., and Ysolde from across the bar - "Sister! You. Yes, you, with the
+  flask. You're a medic, aren't you? Then you're on the list. In."
+  `SW_MER3_ON`. While it sits, without her: "Merribell is on the list. You
+  are not, and somebody inside says so." Afterwards, a door anybody may
+  use, to an empty room.
+* **The round** (Ysolde's chair page): **Mother Grizel Pennyfeather** (81),
+  a femur set with a church candlestick during the service ("The vicar
+  carried on."); **Dr Lucius Hobday** (70), a barbarian stitched with a lute
+  string ("The bard wanted it back. He got it back. Eventually."); **Nan
+  Gilly** (88), a wizard's leg splinted with his own staff ("He walks with it
+  now. Never said thank you. Sends a card."); **Mr Cuthbert Spence** (64),
+  a tourniquet out of a paladin's sash ("He minded about the sash."); and
+  Ysolde, the duke's son, four hit points, nine weeks - "You've heard it."
+  Then Merribell, the youngest by thirty-eight years: water, sitting down
+  and socks always work; "I've never lost anybody. I know what that means.
+  It isn't a virtue. It's an average." **Nobody consoles her and nobody
+  mocks her**: they look at Ysolde, "which is what the chair is for".
+  "Then write it down. All of it. Every cup of water and every pair of
+  socks. Now, tonight. While you still think it's boring. Because one day it
+  won't be, and you'll want to know what you did on all the days it
+  worked." And the day it doesn't, come down and tell them. "...Yes, Mrs
+  Marrow." **No blush** - this is the Register B moment `COMPANIONS.md`
+  asked for, Ysolde's second; **one trope** (the veterans' reunion). She
+  starts writing down today in the book with every ailment in Thistlewick
+  in it.
+* **The Table's Kit** is armour **46**, an accessory of the general type -
+  anybody's, since it "goes to the youngest" and the Pamphlet is already
+  hers alone: a candle-end, a coil of gut string, a splint and a very good
+  sash, rolled in canvas. MHP +60, MMP +10, DEF +10, MDF +10, recovery
+  effect x1.15, HP regen 4%. Price 0.
+* **Afterwards for everybody**: the four and the chair gone home; the card
+  on the table - NEXT YEAR. SISTER M. (THISTLEWICK) TO SPEAK. "Bring the
+  book. All of it." With the four asides while it sits (Grizel's candlestick
+  is on her mantelpiece; the wizard is ninety and still cross; Mr Spence was
+  the youngest "until about four minutes ago. It was lovely.").
+* **Ids taken:** switches **179** `SW_MER3_ON`, **180** `SW_MER3_DONE`;
+  armour **46** `AR_TABLE_KIT`; Map 14 events 33-40; `places.WYVERN_BACK`,
+  `WYVERN_BACK_DOOR`, `WYVERN_BACK_TABLE`; faces `Gen_People13` **5-7**
+  (Mother Grizel, Dr Hobday, Nan Gilly) and `Gen_People14` **0** (Mr Spence,
+  the first cell of a new sheet), generated, settings in `build/characters/`.
+  Nobody fights, so nothing goes on `AUDIT.md`.
+* One trope, no blush. Running tally: **tropes +29 fixed and 2-9 from
+  PIP-2; blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[MERRI]` (on already after any other of hers).
+* **Candidate ending line** (G1; read `SW_MER3_DONE`): "Sister Merribell is
+  to speak at the Healers' Table next year. She has nothing to tell them yet.
+  She is writing it down."
+* **The rooms (0.1):** the Wyvern was swept on 30 Sep and is unchanged
+  inside its old bounds. The back room is new, screenshotted empty and with
+  the Table sitting.
+* **Scenario** `q_mer3`: passes (36 checks). The first run failed one check
+  of its own - a last "nothing moved" delta measured from before the scene -
+  and passes with a mark after it.
+* `TIMELINE.md`: the four healers' ages.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E3, MER-3 The
-Healers' Table**. E1 (MER-5, the Well at Sump) and E2 (MER-1, the
-Sisterhouse) are done, 2 Oct 2026. Mike asked
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E4, ALD-3 The
+Chapter House**. E1-E3 (Merribell's MER-5, MER-1 and MER-3) are done,
+2 Oct 2026. Mike asked
 for E1-E6 in one session; if this prompt is being read, that session ended
 early, so carry on from here through E6, then the rerun for the part.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Merribell's** section of `COMPANIONS.md`
-(E3) and **Aldric's** (E4-E6), each only when its first step comes up.
+B1 on, once, at the start; then **Aldric's** section of `COMPANIONS.md` (E4-E6), and no
+other companion's.
 Read what a step needs by dumping its maps' events and their text, not by
-opening a module. The Slain Wyvern (Map 14) was swept on 30 Sep; crop
-anything else a step touches with `propsheet.py` before judging, and
+opening a module. Coldbarrow (Map 48), Little Gore (Map 50) and Fenmarch
+(Maps 56-57) have never been swept; crop anything a step touches with `propsheet.py` before judging, and
 screenshot before and after anything changed (0.1).
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
@@ -2175,17 +2252,18 @@ scenario, `build/scenarios/q_<quest>.json`, run in the background, one
 browser at a time. Then the Done paragraph, a commit, and this prompt moved
 on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +28 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 179, variable 26, item 68, weapon 42,
-armour 46, armour type 13, class 12, common event 4, state 41, enemy 55,
-troop 53, skill 179, map 67, `Gen_People13` 5. Merribell has had her gear
+Where things stand: tropes +29 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 181, variable 26, item 68, weapon 42,
+armour 47, armour type 13, class 12, common event 4, state 41, enemy 55,
+troop 53, skill 179, map 67, `Gen_People14` 1. Merribell has had her gear
 (the Pamphlet, armour 45). The Rule of Life's four lines are
 `q_merribell._MER5_RULE`.
 
-What E3 will need: four visiting healers (faces; looks drafted for
-`Gen_People13` 5-7 and a new `Gen_People14` 0), Ysolde chairs. Her own event's
-ladder ends on self switch B, behind the bench quest - so the Table is new
-events, not pages on her.
+What E4 will need: Mordaunt's first page with Aldric is the published "The
+committee will write." - start on his second look. The great map shows
+`img/pictures/Coldbarrow_Map.png`, drawn by running `coldbarrow.py`, with
+nine red pins in it; afterwards wants a picture without them. Aldric's gear
+(the shield) is E7's, not this part's.
 
 Things learned that will bite again:
 

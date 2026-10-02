@@ -24,7 +24,8 @@ import q_merribell
 import q_nix
 import q_roland
 import q_wren
-from places import (MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
+from places import (WYVERN_BACK, WYVERN_BACK_TABLE,
+                    MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
                     WORLD_SOPPING_STEP, WORLD_LIGHTHOUSE_STEP)
 
@@ -428,7 +429,8 @@ def sopping_events():
 # ================================================================ interiors ==
 ROOMS = {
     #                w   h  x1  y1  x2  y2  door_x
-    MAP_WYVERN:     (25, 21, 3, 4, 21, 15, 12),
+    # 37, not 25: MER-3's back room is in the black east (`back_room`).
+    MAP_WYVERN:     (37, 21, 3, 4, 21, 15, 12),
     MAP_GUILD:      (19, 17, 3, 4, 15, 11, 9),
     MAP_OUTFIT:     (17, 16, 3, 4, 13, 10, 8),
     MAP_COTTAGE:    (17, 16, 3, 4, 13, 10, 8),
@@ -528,8 +530,47 @@ def wyvern_map():
     g.scatter([(21, 15), (3, 15)], 2, K.IN_CRATE)
     g.set(21, 6, 2, K.IN_BARREL_WOOD)
     g.set(13, 15, 2, K.IN_BARREL_WOOD)
+    back_room(g)                                                    # MER-3
     return finish(MAP_WYVERN, g, "The Slain Wyvern", bgm="Town5",
                   battleback=("Wood1", "Room1"), events=wyvern_events())
+
+
+BACK_MEDICINE = K.sf_block("Inside_B", "Medicine Shelf")     # 1x2, on its base
+BACK_BOOKS = K.sf_block("Inside_B", "Bookshelf A")           # 1x2, on its base
+BACK_OPEN_BOOK = K.sf_tile("Inside_C", "Open Book A (V)")
+
+
+def back_room(g):
+    """MER-3's back room, where every surviving party medic within forty
+    miles meets once a year to compare the worst thing they have had to
+    improvise with (`COMPANIONS.md`). In the map's black east, Ashcombe's
+    `_room` idiom, in the bar's own wood: one long table, a medicine shelf, a
+    bookshelf, and the Table's minutes open at this year. Nobody else uses it,
+    so it is drawn whether or not the Table is sitting; its door only
+    appears while it is."""
+    x1, y1, x2, y2, door_x = WYVERN_BACK
+    g.fill(x1, y1, x2, y2, 0, K.IN_DARK_WOOD)
+    g.fill(x1 - 1, y1 - 3, x2 + 1, y1 - 3, 0, K.IN_WALL_TOP)
+    g.fill(x1, y1 - 2, x2, y1 - 1, 0, K.IN_WALL_FACE)
+    for y in range(y1 - 2, y2 + 2):
+        g.set(x1 - 1, y, 0, K.IN_WALL_TOP)
+        g.set(x2 + 1, y, 0, K.IN_WALL_TOP)
+    g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, K.IN_WALL_TOP)
+    g.fill(x1, y2 + 2, x2, y2 + 3, 0, K.IN_WALL_FACE)
+    g.set(door_x, y2 + 1, 0, K.IN_DARK_WOOD)
+    g.set(door_x, y2 + 2, 0, K.a5(91))
+    g.set(door_x, y2 + 3, 0, K.a5(91))
+
+    tx1, ty, tx2 = WYVERN_BACK_TABLE
+    for x in range(tx1, tx2 + 1):
+        g.set(x, ty, 2, K.IN_TABLE_WOOD)
+    g.set(tx1, ty, 3, K.INC_GOBLET)
+    g.set(tx1 + 2, ty, 3, BACK_OPEN_BOOK)
+    g.set(tx2, ty, 3, K.INC_BOTTLES)
+    g.column(x1 + 1, y1 - 1, 2, BACK_MEDICINE)
+    g.column(x2 - 1, y1 - 1, 2, BACK_BOOKS)
+    g.set(x1, y2, 3, K.INC_PLANT2)
+    g.set(x2, y2, 3, K.INC_PLANT2)
 
 
 def wyvern_events():
@@ -873,6 +914,7 @@ def wyvern_events():
     # WRE-2: the other side of the fire. No page until it is put up.
     evs.append(q_wren.second_plaque(21, 19, 4))
     evs += q_roland.alumni_events(22)       # ROL-3: the dinner, while it is on
+    evs += q_merribell.back_room_events(33)  # MER-3: the Table, once a year
     return evs
 
 

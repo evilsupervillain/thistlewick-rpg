@@ -310,7 +310,9 @@ Append instead.
 | Troops 30-33 | northern encounter groups |
 | Maps 1-7 | Thistlewick and interiors |
 | Maps 8-12 | the journey |
-| Maps 13-18 | Nether Sopping and its interiors, and the lighthouse |
+| Maps 13-18 | Nether Sopping and its interiors, and the lighthouse. MER-3
+  widened Map 14, the Slain Wyvern, from 25 to 37 columns for its back room,
+  where the Healers' Table meets, in its black east (`places.WYVERN_BACK`) |
 | Maps 19-20 | the Bottomless Pit, the Barrow of the Forty-Fourth |
 | Maps 21-25 | Upper Clanging and its interiors: the works, the inn, the forge,
   the Parish Rooms. `north.py` |

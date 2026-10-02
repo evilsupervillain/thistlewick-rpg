@@ -423,6 +423,11 @@ FACES = {
     # WRE-1's reviewers (QUESTS.md C4), Rowbotham's students, generated.
     "Professor Mott": ("Gen_People13", 3),
     "Dr Furze": ("Gen_People13", 4),
+    # MER-3's Healers' Table (QUESTS.md E3): four of the five, generated.
+    "Mother Grizel": ("Gen_People13", 5),
+    "Dr Hobday": ("Gen_People13", 6),
+    "Nan Gilly": ("Gen_People13", 7),
+    "Mr Spence": ("Gen_People14", 0),
     "Miss Fettle": ("Gen_People6", 4),
     "Cotter": ("SF_Actor2", 7),
 }

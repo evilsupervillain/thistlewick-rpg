@@ -1,0 +1,427 @@
+{
+ "query": "?map=14&x=12&y=15&frames=90",
+ "comment": "QUESTS.md E3, MER-3 The Healers' Table. The back-room door in the bar's north wall is nothing without Merribell; with her it is there, Ysolde calls her over, and in. Out and back without her: medics only. Ysolde in the chair: the round, Merribell has nothing, write it down (Register B, no blush), the Table's Kit, one trope, her story. Afterwards: the four gone home, the card, and the door to an empty room for anybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "$gameMap.event(33).findProperPageIndex()",
+   "expect": 0,
+   "label": "the door: nothing, without Merribell"
+  },
+  {
+   "check": "[35,36,37,38,39,40].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "label": "the back room is empty"
+  },
+  {
+   "eval": "$gameParty.addActor(2)"
+  },
+  {
+   "check": "$gameMap.event(33).findProperPageIndex()",
+   "expect": 1,
+   "label": "with Merribell, the door is there"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    14,
+    15,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"THE TABLE. MEDICS ONLY.\")) && window._lines.some(l => l.includes(\"Then you're on the list. In.\"))",
+   "expect": true,
+   "label": "Ysolde calls her over"
+  },
+  {
+   "check": "$gameSwitches.value(179)",
+   "expect": true,
+   "label": "SW_MER3_ON"
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    14,
+    31,
+    9
+   ],
+   "label": "THE POINT: through into the back room"
+  },
+  {
+   "check": "[35,36,37,38,39].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "label": "the Table is sitting"
+  },
+  {
+   "shot": "q_mer3_table.png"
+  },
+  {
+   "goto": [
+    14,
+    32,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "check": "$gameMap.event(37).findProperPageIndex()",
+   "expect": 1,
+   "label": "Dr Hobday, an aside"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 37,
+   "label": "talking to event 37"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"the lute\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    14,
+    31,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    15,
+    4
+   ],
+   "label": "out through the bottom of the room, to the door"
+  },
+  {
+   "eval": "$gameParty.removeActor(2)"
+  },
+  {
+   "check": "$gameMap.event(33).findProperPageIndex()",
+   "expect": 2,
+   "label": "without Merribell, while it sits"
+  },
+  {
+   "eval": "window._lines = []; $gamePlayer.setDirection(8)"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"You are not, and somebody inside says so.\"))",
+   "expect": true,
+   "label": "medics only"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    15,
+    4
+   ],
+   "label": "still in the bar"
+  },
+  {
+   "eval": "$gameParty.addActor(2)"
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    31,
+    9
+   ],
+   "label": "in again, with her"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    14,
+    28,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(35).findProperPageIndex()",
+   "expect": 1,
+   "label": "Ysolde in the chair"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 35,
+   "label": "talking to event 35"
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Set with a church\")) && window._lines.some(l => l.includes(\"Stitched with a lute\")) && window._lines.some(l => l.includes(\"splinted with his\")) && window._lines.some(l => l.includes(\"out of a paladin's\")) && window._lines.some(l => l.includes(\"I've never lost anybody.\")) && window._lines.some(l => l.includes(\"Then write it down.\")) && window._lines.some(l => l.includes(\"While you still think it's boring.\")) && window._lines.some(l => l.includes(\"The Table's Kit\\\\C[0]\")) && window._lines.some(l => l.includes(\"starts writing down today\"))",
+   "expect": true,
+   "label": "the round, nothing, and write it down"
+  },
+  {
+   "check": "$gameSwitches.value(180)",
+   "expect": true,
+   "label": "SW_MER3_DONE"
+  },
+  {
+   "check": "$gameSwitches.value(101)",
+   "expect": true,
+   "label": "SW_STORY[MERRI]"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "tropes +1"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 1,
+   "label": "companion stories +1"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "$gameParty.numItems($dataArmors[46])",
+   "expect": 1,
+   "label": "the Table's Kit"
+  },
+  {
+   "check": "[$gameActors.actor(1).canEquip($dataArmors[46]), $gameActors.actor(2).canEquip($dataArmors[46])]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "anybody's"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "check": "[35,36,37,38,39,40].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    1
+   ],
+   "label": "gone home; the card"
+  },
+  {
+   "eval": "$gameParty.removeActor(2)"
+  },
+  {
+   "goto": [
+    14,
+    31,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(40).findProperPageIndex()",
+   "expect": 1,
+   "label": "the card, for everybody"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 40,
+   "label": "talking to event 40"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"SISTER M. (THISTLEWICK) TO SPEAK.\")) && window._lines.some(l => l.includes(\"Bring the book.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    14,
+    31,
+    10
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap.event(33).findProperPageIndex()",
+   "expect": 3,
+   "label": "the door afterwards, for everybody"
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    31,
+    9
+   ],
+   "label": "an empty room, anybody may go in"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 0,
+   "label": "companion stories +0"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "back on the map"
+  }
+ ]
+}

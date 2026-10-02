@@ -346,5 +346,12 @@ STUDY_MARKS = (30, 3)           # the height marks, on the north wall face
 # open four ways (0x600) against the finished `data/Map008.json` with nothing
 # standing on it.
 MAP_DROWNED_STREET = 66
+# MER-3 (QUESTS.md E3): the Slain Wyvern's back room, in Map 14's black east,
+# where the Healers' Table meets once a year. Drawn by `south.back_room`; its
+# events are `q_merribell.py`'s. Its door is on the bar's north wall face,
+# between the bookcase and the red curtain, and appears only for the Table.
+WYVERN_BACK = (28, 4, 34, 9, 31)        # x1, y1, x2, y2, door_x
+WYVERN_BACK_DOOR = (15, 3)              # on the north wall face of the bar
+WYVERN_BACK_TABLE = (29, 6, 33)         # Table D from x 29 to 33, row 6
 ASHCOMBE_LAKE = (104, 54)
 LAKE_SHORE_STEP = (104, 55)

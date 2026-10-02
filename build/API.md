@@ -450,7 +450,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (199)
+### `FACES` — who already has a face (203)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -504,7 +504,8 @@ Mr Ottershaw          Mr Gedge              Prewitt               Dean Fenwold
 The Mayor             Prime Warden          Mr Tibbs              Mrs Harbottle
 Mr Dray               Miss Moon             The Convenor          Fellow Grice
 Fellow Amory          Fellow Blunt          Mr Pennock            Professor Mott
-Dr Furze              Miss Fettle           Cotter
+Dr Furze              Mother Grizel         Dr Hobday             Nan Gilly
+Mr Spence             Miss Fettle           Cotter
 ```
 
 
@@ -512,7 +513,7 @@ Dr Furze              Miss Fettle           Cotter
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-136 constants.
+139 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -649,6 +650,9 @@ STUDY_DOOR                   (6, 3)
 STUDY_DESK                   (31, 6)
 STUDY_MARKS                  (30, 3)
 MAP_DROWNED_STREET           66
+WYVERN_BACK                  (28, 4, 34, 9, 31)
+WYVERN_BACK_DOOR             (15, 3)
+WYVERN_BACK_TABLE            (29, 6, 33)
 ASHCOMBE_LAKE                (104, 54)
 LAKE_SHORE_STEP              (104, 55)
 ```
@@ -658,7 +662,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-510 constants.
+513 constants.
 
 ```
 BRAM                         1
@@ -1123,6 +1127,9 @@ SW_MER1_DONE                 178
 VAR_MER1_POINTS              25
 AR_PAMPHLET                  45
 AT_PAMPHLET                  12
+SW_MER3_ON                   179
+SW_MER3_DONE                 180
+AR_TABLE_KIT                 46
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

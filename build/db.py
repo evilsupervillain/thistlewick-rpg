@@ -403,6 +403,10 @@ SW_MER1_DONE = 178              # Whatever Works, on points; the Pamphlet
 VAR_MER1_POINTS = 25            # Whatever Works' score, of twenty
 AR_PAMPHLET = 45                # Merribell's gear (QUESTS.md 0.5): hers alone
 AT_PAMPHLET = 12                # an armour type of its own, as AT_BADGE is
+# MER-3, The Healers' Table (QUESTS.md E3, q_merribell.py)
+SW_MER3_ON = 179                # the Table is sitting; she is on the list
+SW_MER3_DONE = 180              # write it down; the Table's Kit
+AR_TABLE_KIT = 46               # anybody's: an accessory of the general type
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -2432,6 +2436,14 @@ def build_firstfield():
                      "damp at the corners. The Rule of Life is on the first.",
                      ET_ACCESSORY, AT_PAMPHLET, 0, [0, 20, 0, 0, 12, 8, 0, 0],
                      icon=189, traits=[trait(23, 3, 1.25)]))
+    # MER-3: the Table's Kit - a candle-end, a coil of gut string, a splint
+    # and a very good sash, in canvas. Anybody's; it goes to the youngest.
+    upsert(ar, armor(AR_TABLE_KIT, "The Table's Kit",
+                     "[Accessory] A candle-end, a coil of gut string, a splint "
+                     "and a very good sash, rolled up in canvas.",
+                     ET_ACCESSORY, AT_GENERAL, 0,
+                     [60, 10, 0, 10, 0, 10, 0, 0], icon=187,
+                     traits=[trait(23, 2, 1.15), trait(22, 7, 0.04)]))
     save("Armors.json", ar)
 
     en = R.load("Enemies.json")

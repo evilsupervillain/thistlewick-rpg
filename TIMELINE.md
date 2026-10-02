@@ -176,6 +176,7 @@ when it does, in a round year.
 | Thaddeus Rook's rival | ninety-one | `sable_hart` |
 | Ysolde Marrow | seventy-eight | `south` |
 | Merribell | twenty-six (left the Sisterhouse at twenty-two, MER-1) | `q_merribell` |
+| the Healers' Table | Nan Gilly eighty-eight, Mother Grizel Pennyfeather eighty-one, Dr Lucius Hobday seventy, Mr Cuthbert Spence sixty-four - the youngest until Merribell, by thirty-eight years (MER-3) | `q_merribell` |
 | Halbert Quy | in his seventies | `south` |
 | Mrs Emberthwaite | seventy (Rosamund's word) | `fairholme` |
 | Corvin Ash | thirty (nineteen, and eleven years in the corner) | `south` |

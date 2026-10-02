@@ -32,14 +32,18 @@ now do it. Properly.
   Three blushes, each once, because the form is spent: the chest, the cough,
   and the witness writing down what they were told to.
 
-MER-4, The Man Who Cannot Stay Down (`QUESTS.md` A7) is at the bottom: pages
-for Tobias Frayne's cottage (Map 43), handed out to `frayne.py`.
+MER-4, The Man Who Cannot Stay Down (`QUESTS.md` A7) is below it: pages
+for Tobias Frayne's cottage (Map 43), handed out to `frayne.py`. Then MER-5
+(Sump, `hamlets.py`), MER-1 (the Sisterhouse, `weeping_bottom.py`) and MER-3
+(the Slain Wyvern's back room, `south.py`), each in its own section.
 """
 import copy
 
 import db
 import rmmzdata as R
 import story as S
+from places import (MAP_WYVERN, WYVERN_BACK, WYVERN_BACK_DOOR,
+                    WYVERN_BACK_TABLE)
 
 
 def _like(page0, cmds, conditions):
@@ -1157,4 +1161,212 @@ def queue_events(base_id, cells, people):
                    conditions={"switch1Valid": True,
                                "switch1Id": db.SW_MER1_DONE}),
         ]))
+    return evs
+
+
+# ======================================================================
+# MER-3, The Healers' Table (`QUESTS.md` E3)
+# ----------------------------------------------------------------------
+# Every surviving party medic within forty miles meets once a year in a back
+# room of the Slain Wyvern and compares the worst thing they have ever had to
+# improvise with. Ysolde Marrow chairs. Merribell is the youngest by
+# thirty-eight years, is asked to speak, and has nothing, because nobody has
+# died on her.
+#
+# * **The back room is new**, in Map 14's black east (`south.back_room`), and
+#   its door is on the bar's north wall face, between the bookcase and the
+#   red curtain. Ysolde's own event ends its ladder on self switch B, behind
+#   the bench at the Barrow, so the Table is new events and not pages on her:
+#   the door, the way out, Ysolde in the chair, the four, and a card.
+# * **The door appears for Merribell**: with her in the party it is there,
+#   with a card on it - THE TABLE. MEDICS ONLY. - and Ysolde calls her over
+#   from across the bar the first time (`SW_MER3_ON`). While the Table sits
+#   it is a door for her and a refusal for anybody else; afterwards it is a
+#   door to an empty room with a card on the table.
+# * **The scene is Ysolde's, in the chair**: the worst thing each of them has
+#   improvised with, round the table, and then Merribell, who has nothing.
+#   The room does not console her and does not mock her. Ysolde tells her to
+#   write it down, all of it, now, while she still thinks it is boring. That
+#   is the Register B moment, so no blush; one trope (the veterans' reunion).
+# * **The Table's Kit** is an accessory, armour 46, anybody's: something from
+#   each of the five, rolled up in canvas.
+_MER3_ROUND = [
+    ("Mother Grizel", [
+        "A femur. Set with a church",
+        "candlestick, in the church, during",
+        "the service. The vicar carried on."]),
+    ("Dr Hobday", [
+        "A barbarian. Stitched with a lute",
+        "string. The bard wanted it back.",
+        "He got it back. Eventually."]),
+    ("Nan Gilly", [
+        "A wizard's leg, splinted with his",
+        "own staff. He walks with it now.",
+        "Never said thank you. Sends a card."]),
+    ("Mr Spence", [
+        "A tourniquet, out of a paladin's",
+        "sash. He minded about the sash."]),
+]
+_MER3_SEATS = [         # where the four sit, and which way they face
+    ("Mother Grizel", (30, 5), 2), ("Dr Hobday", (32, 5), 2),
+    ("Nan Gilly", (30, 7), 8), ("Mr Spence", (32, 7), 8)]
+_MER3_ASIDES = {        # what each says if spoken to while the Table sits
+    "Mother Grizel": ["Eighty-one. Seven parties. The",
+                      "candlestick's on my mantelpiece."],
+    "Dr Hobday": ["Seventy. Don't ask the bard about",
+                  "the lute. He'll play it."],
+    "Nan Gilly": ["Eighty-eight. The wizard's ninety.",
+                  "He's still cross."],
+    "Mr Spence": ["I was the youngest. Until about",
+                  "four minutes ago. It was lovely."],
+}
+
+
+def _mer3_invite():
+    c = S.narrate([
+        "There is a door in the wall between the bookcase and the",
+        "curtain that you have never noticed. A card is pinned to",
+        "it: THE TABLE. MEDICS ONLY."])
+    c += S.say("Ysolde", [
+        "Sister! You. Yes, you, with the",
+        "flask. You're a medic, aren't you?",
+        "Then you're on the list. In."])
+    c += S.say("Merribell", ["...Me?"])
+    c += S.say("Ysolde", [
+        "Every party medic within forty",
+        "miles, once a year. You're within",
+        "forty miles. Don't dawdle."])
+    c += [R.control_switch(db.SW_MER3_ON, True)]
+    return c
+
+
+def _mer3_table():
+    x1, y1, x2, y2, door_x = WYVERN_BACK
+    c = []
+    c += S.narrate([
+        "A back room, a long table, a medicine shelf, and four old",
+        "people who all look up at once, the way people do who",
+        "have spent their lives listening for somebody falling."])
+    c += S.say("Ysolde", [
+        "The Table is sitting. Item one,",
+        "the worst thing you've ever had to",
+        "improvise with. Round the table."])
+    for who, lines in _MER3_ROUND:
+        c += S.say(who, lines)
+    c += S.say("Ysolde", [
+        "A duke's son. Four hit points.",
+        "Nine weeks. You've heard it."])
+    c += S.narrate([
+        "Everybody has heard it. Everybody nods anyway, because",
+        "it is a very good one."])
+    c += S.say("Ysolde", ["Sister?"])
+    c += S.narrate([
+        "Merribell has her hands round a cup she has not drunk",
+        "from. She is the youngest at the table by thirty-eight",
+        "years."])
+    c += S.say("Merribell", [
+        "I haven't got one. I've never had",
+        "to improvise. Water, and sitting",
+        "down, and socks. It always works."])
+    c += S.say("Merribell", [
+        "I've never lost anybody. I know",
+        "what that means. It isn't a virtue.",
+        "It's an average."])
+    c += S.narrate([
+        "Nobody says that she will. Nobody says that she won't.",
+        "Nobody laughs, and nobody pats her hand. The four of them",
+        "look at Ysolde, which is what the chair is for."])
+    c += S.say("Ysolde", [
+        "Then write it down. All of it.",
+        "Every cup of water and every pair",
+        "of socks. Now, tonight."])
+    c += S.say("Ysolde", [
+        "While you still think it's boring.",
+        "Because one day it won't be, and",
+        "you'll want to know what you did",
+        "on all the days it worked."])
+    c += S.say("Ysolde", [
+        "And the day it doesn't, you come",
+        "down here, and you tell us. That's",
+        "what the Table is for, love."])
+    c += S.say("Merribell", ["...Yes, Mrs Marrow."])
+    c += S.narrate([
+        "Mother Grizel puts a candle-end on the table. Dr Hobday",
+        "puts down a coil of gut string, and Nan Gilly a splint,",
+        "and Mr Spence, after some thought, a very good sash."])
+    c += S.say("Ysolde", [
+        "The Table's Kit. It goes to the",
+        "youngest. It always has. It's been",
+        "a while."])
+    c += [R.gain_armor(db.AR_TABLE_KIT, 1), R.play_me("Item")]
+    c += S.got(["Got \\C[3]The Table's Kit\\C[0]."])
+    c += S.narrate([
+        "Merribell takes out her book - the one with every ailment",
+        "in Thistlewick in it, dated - and turns to a clean page,",
+        "and starts writing down today."])
+    c += [S.trope(), R.control_switch(db.SW_MER3_DONE, True)]
+    c += S.companion_story(db.MERRI)
+    return c
+
+
+def back_room_events(first_id):
+    """Events for Map 14, appended after everything else so no id moves:
+    the door in the bar, the way back out, Ysolde in the chair, the four,
+    and the card left on the table. Each is nothing until the Table sits."""
+    x1, y1, x2, y2, door_x = WYVERN_BACK
+    blank = R.page([], img=R.image(""), trigger=0, priority=0, through=True)
+    on = {"switch1Valid": True, "switch1Id": db.SW_MER3_ON}
+    done = {"switch1Valid": True, "switch1Id": db.SW_MER3_DONE}
+    door_img = R.image("!Door1", 0, direction=2)
+    go_in = S.door_page(MAP_WYVERN, door_x, y2, 8)
+    evs = []
+
+    sitting = R.if_then(R.condition_actor_in_party(db.MERRI), go_in, S.narrate([
+        "The door between the bookcase and the curtain. A card on",
+        "it says THE TABLE. MEDICS ONLY. Merribell is on the list.",
+        "You are not, and somebody inside says so."]))
+    evs.append(R.event(first_id, "The Back Room Door", *WYVERN_BACK_DOOR, [
+        copy.deepcopy(blank),
+        R.page(R.if_then(R.condition_switch(db.SW_MER3_ON, False),
+                         _mer3_invite()) + go_in,
+               img=door_img, trigger=1, priority=1,
+               conditions={"actorValid": True, "actorId": db.MERRI}),
+        R.page(sitting, img=door_img, trigger=1, priority=1, conditions=on),
+        R.page(go_in, img=door_img, trigger=1, priority=1, conditions=done),
+    ]))
+
+    out = S.exit_tile(first_id + 1, "The Back Room Way Out", door_x, y2 + 2,
+                      MAP_WYVERN, WYVERN_BACK_DOOR[0], WYVERN_BACK_DOOR[1] + 1)
+    evs.append(out)
+
+    tx1, ty, tx2 = WYVERN_BACK_TABLE
+    chair = R.image(*S.FACES["Ysolde"], direction=6)
+    evs.append(R.event(first_id + 2, "Ysolde (in the chair)", x1, ty, [
+        copy.deepcopy(blank),
+        R.page(_mer3_table(), img=chair, trigger=0, priority=1,
+               conditions=on),
+        copy.deepcopy(dict(blank, conditions=R.page([], conditions=done)[
+            "conditions"])),
+    ]))
+    for i, (who, (x, y), d) in enumerate(_MER3_SEATS):
+        evs.append(R.event(first_id + 3 + i, who, x, y, [
+            copy.deepcopy(blank),
+            R.page(S.say(who, _MER3_ASIDES[who]),
+                   img=R.image(*S.FACES[who], direction=d), trigger=0,
+                   priority=1, conditions=on),
+            copy.deepcopy(dict(blank, conditions=R.page([], conditions=done)[
+                "conditions"])),
+        ]))
+
+    card = S.narrate([
+        "The Table has gone home until next year. On the table, a",
+        "card in Ysolde's hand:",
+        "        NEXT YEAR. SISTER M. (THISTLEWICK) TO SPEAK."])
+    card += S.narrate([
+        "Under it, smaller: Bring the book. All of it."])
+    evs.append(R.event(first_id + 7, "The Table", tx1 + 2, ty, [
+        copy.deepcopy(blank),
+        R.page(card, img=R.image(""), trigger=0, priority=1,
+               direction_fix=True, conditions=done),
+    ]))
     return evs
