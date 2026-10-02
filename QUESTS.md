@@ -2428,46 +2428,89 @@ Fourth at home, the Third's portrait); `build/scenarios/q_ald5.json`.
 * `TIMELINE.md`: nothing new (the Fourth was ten in 1991 and is nineteen,
   which the ages table has).
 
+**Rerun for E1-E6** (0.1): parsing every scenario's `query` and `goto` map
+ids and grepping for the places' names finds **67** that walk a map this
+part changed - because E3 widened Map 14, E6 put an event on Maps 1, 13 and
+61, and E6 appended a page to Fenmarch's door on Map 8, and almost every
+scenario walks one of those. That is the full suite, which waits for G1. So
+the rerun was chosen by what each change can reach, and the reasoning is
+here to be checked:
+* **every site scenario for a map whose pages changed** - `hamlets` (Sump,
+  Little Gore), `weeping_bottom` (the Sisterhouse, the queue), `coldbarrow`,
+  `fenmarch` (the gallery and the world-map door) and `placeholder_doors`
+  (it counts site door cells);
+* **a sample of the Slain Wyvern**, for the widening and its eight new
+  events: `tavern`, `reachable_sopping` (walks in with the arrow keys) and
+  `q_rol3` (whose dinner events, 22-32, are the ones immediately before
+  MER-3's);
+* **each step scenario whose map a later step changed again**: `q_mer1`
+  (Map 54, the Fourth in E6), `q_ald3` (Map 48, the same) and `q_ald1` (Map
+  50, the same). `q_mer5`, `q_mer3` and `q_ald5` ran on their maps' final
+  state.
+* **Not rerun, and why**: the Fourth's events on Maps 1, 13 and 61 are a
+  blank first page, through and below characters, until ALD-5 is done and
+  Aldric is in the party, which no other scenario sets - nothing can walk
+  into, collide with or trigger them. Fenmarch's door gains a page only on
+  the same condition. Map 14's new events are blank and through except the
+  back-room door, which is on a wall face and needs Merribell. Every old
+  page on every map was compared byte for byte at each step.
+
+**Ten of eleven passed first time** - `hamlets` 72, `weeping_bottom` 101,
+`coldbarrow` 32, `placeholder_doors` 12, `tavern` 3, `reachable_sopping` 7,
+`q_rol3` 18, `q_mer1` 52, `q_ald3` 33, `q_ald1` 40. **`fenmarch` failed one
+check, and it was a count changed by design**: it asserts the world-map
+door's page count, which ALD-5 took from three to four. The check now says
+four, and its label says whose the fourth is. `fenmarch` then passed (76 checks).
+The `weeping_bottom`, `hamlets` and `coldbarrow` reaction-shot assertions
+(no queue, no diagnosis, no promotion) all still hold, because each of
+those scenarios resets the owner's self switch before its companion pass,
+and every quest page waits on the second look. Nothing is owed.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **the rerun for E1-E6**
-(the end-of-part paragraph). E1-E6 are done, 2 Oct 2026: Merribell's MER-5,
-MER-1 and MER-3, and Aldric's ALD-3, ALD-1 and ALD-5. Mike asked
-for E1-E6 in one session; if this prompt is being read, that session ended
-early, so carry on from here through E6, then the rerun for the part.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E7, ALD-2 The
+Vigil**. E1-E6 are done, with their rerun, 2 Oct 2026: Merribell's MER-5,
+MER-1 and MER-3, and Aldric's ALD-3, ALD-1 and ALD-5. One step per session
+again (0.1) unless Mike asks for more.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Aldric's** section of `COMPANIONS.md` (E4-E6), and no
-other companion's.
-Read what a step needs by dumping its maps' events and their text, not by
-opening a module. Coldbarrow (Map 48), Little Gore (Map 50) and Fenmarch
-(Maps 56-57) have never been swept; crop anything a step touches with `propsheet.py` before judging, and
-screenshot before and after anything changed (0.1).
+B1 on, once, at the start; then **Aldric's** section of `COMPANIONS.md`, and
+no other companion's. Read what the step needs by dumping its maps' events
+and their text, not by opening a module. Crop anything a step touches with
+`propsheet.py` before judging, and screenshot before and after anything
+changed (0.1). Weeping Bottom (Maps 54-55) and Coldbarrow (Map 48) were
+swept in E2 and E4.
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
-byte: every existing page identical, only appended pages and new events.
-`validate.py`, and `apidigest.py . --write` (new `db` constants change
-`build/API.md`). Screenshots of anything drawn, looked at. The step's own
-scenario, `build/scenarios/q_<quest>.json`, run in the background, one
-browser at a time. Then the Done paragraph, a commit, and this prompt moved
-on. Nothing is pushed. No full suite until G1.
+byte: every existing page identical, only appended pages and new events
+(and, on a widened map, every tile inside the old bounds). `validate.py`,
+and `apidigest.py . --write` (new `db` constants change `build/API.md`).
+Screenshots of anything drawn, looked at. The step's own scenario,
+`build/scenarios/q_ald2.json`, run in the background, one browser at a time.
+Then the Done paragraph, a commit, and this prompt moved on. Nothing is
+pushed. No full suite until G1.
 
 Where things stand: tropes +32 fixed and 2-9 from PIP-2; blushes +13 fixed
 and 0-1 from PIP-2. Next free: switch 184, variable 26, item 69, weapon 42,
 armour 47, armour type 13, class 12, common event 4, state 41, enemy 55,
 troop 53, skill 179, map 67, `Gen_People14` 1. Merribell has had her gear
-(the Pamphlet, armour 45). The Rule of Life's four lines are
-`q_merribell._MER5_RULE`.
+(the Pamphlet, armour 45). **Aldric's gear is the shield, from this step**
+(0.5): a new armour type 13 and one trait on his actor, the badge pattern.
 
-What the rerun needs: the list and the reasoning are in the E6 commit's
-successor, the "Rerun for E1-E6" paragraph; if it is not written yet, run
-`hamlets`, `weeping_bottom`, `coldbarrow`, `fenmarch`,
-`placeholder_doors`, `tavern`, `reachable_sopping`, `q_rol3`, `q_mer1`,
-`q_ald3` and `q_ald1`, one at a time, no timeout.
+What E7 will need: "the chapel at Weeping Bottom (Map 54, event 5) or
+Coldbarrow". Weeping Bottom's chapel is locked and set out for the eleventh
+symposium, which MER-1 cancelled - so after MER-1 it is free, and before it
+the symposium is in it; decide which and say why. Coldbarrow's Chapter House
+"is not one, and does not pretend to be". The vigil is a troop with a
+turn-count victory in which Aldric cannot act and covers everybody: read
+how WRE-1 and PIP-3 built their fights in `db.py` before designing it.
+Aldric now has a squire who follows him (ALD-5) and a rank (ALD-3,
+nickname "Knight Errant, At Large"); the vigil is "confirmation, thirty
+years late". Sir Hamo, in the Sisterhouse, is a knight of his Order.
 
 Things learned that will bite again:
 
@@ -2496,4 +2539,12 @@ Things learned that will bite again:
   `story._check_width` patched to collect.
 * **Waiting on a background run:** wait on the log's last line ("all checks
   passed" / "N FAILURE(S)"), never on a `pgrep -f` that matches itself. A
-  killed run leaves its Chromium: kill the browser whose parent is 1.
+  killed run leaves its Chromium: kill the browser whose parent is 1. And
+  never `pkill -f` a pattern that is in your own command line: it kills the
+  shell running it (E4).
+* **`advance` budgets run short on published first pages**, which are often
+  long: Mordaunt's took more than twenty presses. "still busy" then a `goto`
+  that never arrives is the budget, not the page (E1, E4).
+* **The end-of-part rerun by map id is the whole suite** once Maps 1, 8, 13
+  or 14 are touched. Choose by what each change can reach and write the
+  reasoning down (the E1-E6 rerun paragraph).

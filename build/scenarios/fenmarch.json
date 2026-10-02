@@ -20,7 +20,7 @@
      114,
      1,
      0,
-     3,
+     4,
      false
     ],
     [
@@ -28,11 +28,11 @@
      114,
      1,
      0,
-     3,
+     4,
      false
     ]
    ],
-   "label": "real doors on both of Large Mansion's lower cells: player-touch, below characters, three pages, and not placeholders any more"
+   "label": "real doors on both of Large Mansion's lower cells: player-touch, below characters, four pages - the site's three and ALD-5's, on which the Fourth finds the gate (QUESTS.md E6) - and not placeholders any more"
   },
   {
    "check": "$gameParty.members().some(a => [6, 9].includes(a.actorId()))",
