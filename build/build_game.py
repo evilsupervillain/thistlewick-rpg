@@ -404,7 +404,8 @@ def build_system():
             (db.SW_MER3_ON, "MER-3: the Table is sitting"),
             (db.SW_MER3_DONE, "MER-3: write it down; the Table's Kit"),
             (db.SW_ALD3_DONE, "ALD-3: Knight Errant, At Large"),
-            (db.SW_ALD1_DONE, "ALD-1: the letter delivered")]:
+            (db.SW_ALD1_DONE, "ALD-1: the letter delivered"),
+            (db.SW_ALD5_DONE, "ALD-5: the Fourth squires for him")]:
         switches[sid] = name
 
     variables = [""] * 32

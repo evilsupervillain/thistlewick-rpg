@@ -128,7 +128,7 @@ def chapter_map():
     m = K.new_map(w, h, K.TS_INSIDE, name="The Chapter House",
                   bgm="Castle2", battleback=("Castle1", "Castle1"))
     m["data"] = g.data
-    m["events"] = [None] + chapter_events()
+    m["events"] = [None] + q_aldric.with_follower(chapter_events(), MAP_COLDBARROW)  # ALD-5
     return m
 
 

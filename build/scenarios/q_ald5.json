@@ -1,0 +1,531 @@
+{
+ "query": "?map=50&x=11&y=16&frames=90",
+ "comment": "QUESTS.md E6, ALD-5 Pemberton-Gore the Fourth. Nothing at Little Gore until ALD-1 is done (set here; q_ald1 does it); then the Fourth, waiting without Aldric, and with him the meeting: UNCLE, the family story, 'I know', three paces behind - one trope, his story. Then following: six places with Aldric, nobody without. Fenmarch's door lets him in now, the gate found first time; the Third's portrait with him in front of it; the Fourth at home afterwards, for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 0,
+   "label": "nobody, before the letter"
+  },
+  {
+   "eval": "$gameSwitches.setValue(182, true)",
+   "comment": "ALD-1 done; q_ald1 walks it"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Fourth has turned up"
+  },
+  {
+   "goto": [
+    50,
+    14,
+    15
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Fourth, without Aldric"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 10,
+   "label": "talking to event 10"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Is my uncle with you?\"))",
+   "expect": true,
+   "label": "waiting for him"
+  },
+  {
+   "check": "$gameSwitches.value(183)",
+   "expect": false,
+   "label": "switch 183 False"
+  },
+  {
+   "eval": "$gameParty.addActor(6)"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    50,
+    14,
+    15
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 1,
+   "label": "THE POINT: the Fourth, with Aldric"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 10,
+   "label": "talking to event 10"
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"UNCLE.\")) && window._lines.some(l => l.includes(\"Nine pins, Mordaunt says.\")) && window._lines.some(l => l.includes(\"lost. For six years.\")) && window._lines.some(l => l.includes(\"I know.\")) && window._lines.some(l => l.includes(\"long way round. And the long way\")) && window._lines.some(l => l.includes(\"You went OUT.\")) && window._lines.some(l => l.includes(\"...Three paces behind, then.\")) && window._lines.some(l => l.includes(\"It's on the arms.\"))",
+   "expect": true,
+   "label": "the meeting"
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"AT LARGE\"))",
+   "expect": true,
+   "label": "ALD-3 not done here: the nine pins, not the rank"
+  },
+  {
+   "check": "$gameSwitches.value(183)",
+   "expect": true,
+   "label": "SW_ALD5_DONE"
+  },
+  {
+   "check": "$gameSwitches.value(105)",
+   "expect": true,
+   "label": "SW_STORY[ALDRIC]"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "tropes +1"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 1,
+   "label": "companion stories +1"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 3,
+   "label": "following, with Aldric"
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 2,
+   "label": "and not there, without him"
+  },
+  {
+   "eval": "$gameParty.addActor(6)"
+  },
+  {
+   "goto": [
+    1,
+    17,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(31).findProperPageIndex()",
+   "expect": 1,
+   "label": "map 1: three paces behind"
+  },
+  {
+   "check": "[$gameMap.event(31).x, $gameMap.event(31).y]",
+   "expect": [
+    17,
+    3
+   ],
+   "label": "map 1: where he stands"
+  },
+  {
+   "goto": [
+    1,
+    17,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(31).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Fourth at Thistlewick"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 31,
+   "label": "talking to event 31"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I found it at once.\")) && window._lines.some(l => l.includes(\"I haven't said.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    13,
+    18,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(18).findProperPageIndex()",
+   "expect": 1,
+   "label": "map 13: three paces behind"
+  },
+  {
+   "check": "[$gameMap.event(18).x, $gameMap.event(18).y]",
+   "expect": [
+    18,
+    3
+   ],
+   "label": "map 13: where he stands"
+  },
+  {
+   "goto": [
+    48,
+    11,
+    9
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(16).findProperPageIndex()",
+   "expect": 1,
+   "label": "map 48: three paces behind"
+  },
+  {
+   "check": "[$gameMap.event(16).x, $gameMap.event(16).y]",
+   "expect": [
+    11,
+    8
+   ],
+   "label": "map 48: where he stands"
+  },
+  {
+   "goto": [
+    54,
+    17,
+    23
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(19).findProperPageIndex()",
+   "expect": 1,
+   "label": "map 54: three paces behind"
+  },
+  {
+   "check": "[$gameMap.event(19).x, $gameMap.event(19).y]",
+   "expect": [
+    17,
+    22
+   ],
+   "label": "map 54: where he stands"
+  },
+  {
+   "goto": [
+    61,
+    19,
+    27
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(19).findProperPageIndex()",
+   "expect": 1,
+   "label": "map 61: three paces behind"
+  },
+  {
+   "check": "[$gameMap.event(19).x, $gameMap.event(19).y]",
+   "expect": [
+    19,
+    26
+   ],
+   "label": "map 61: where he stands"
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "check": "$gameMap.event(19).findProperPageIndex()",
+   "expect": 0,
+   "label": "Great Dunnage without Aldric: nobody"
+  },
+  {
+   "eval": "$gameParty.addActor(6)"
+  },
+  {
+   "goto": [
+    8,
+    86,
+    115
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(62).findProperPageIndex(), $gameMap.event(63).findProperPageIndex()]",
+   "expect": [
+    3,
+    3
+   ],
+   "label": "Fenmarch's door: the gate, found"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 15
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Gate's just here, uncle.\")) && window._lines.some(l => l.includes(\"...Shall we go in?\"))",
+   "expect": true,
+   "label": "Aldric goes home"
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"Shall we press on?\"))",
+   "expect": true,
+   "label": "not the refusal"
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 56,
+   "label": "in at the gate, with Aldric"
+  },
+  {
+   "goto": [
+    57,
+    25,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Third's portrait, with him in front of it"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 14,
+   "label": "talking to event 14"
+  },
+  {
+   "advance": 15
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"I was going to come back.\")) && window._lines.some(l => l.includes(\"changes the flowers anyway\"))",
+   "expect": true
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "check": "$gameMap.event(14).findProperPageIndex()",
+   "expect": 0,
+   "label": "the portrait without him"
+  },
+  {
+   "goto": [
+    57,
+    8,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0,
+   "label": "the Fourth at home, first look"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 25
+  },
+  {
+   "goto": [
+    57,
+    8,
+    6
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "the Fourth at home afterwards, for everybody"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Mind the moat!\")) && window._lines.some(l => l.includes(\"He is a squire now.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "tropes +0"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 0,
+   "label": "companion stories +0"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "back on the map"
+  }
+ ]
+}

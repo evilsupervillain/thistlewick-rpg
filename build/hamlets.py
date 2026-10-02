@@ -137,7 +137,7 @@ def gore_map():
 
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Little Gore", bgm="Town6")
     m["data"] = g.data
-    m["events"] = [None] + gore_events()
+    m["events"] = [None] + q_aldric.with_follower(gore_events(), MAP_LITTLE_GORE)  # ALD-5
     return m
 
 

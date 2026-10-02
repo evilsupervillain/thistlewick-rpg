@@ -412,6 +412,8 @@ SW_ALD3_DONE = 181              # the pin goes with the knight: At Large
 # ALD-1, The Errand (QUESTS.md E5, q_aldric.py)
 SW_ALD1_DONE = 182              # the letter delivered, nine years late
 IT_ALD1_LETTER = 68             # TO THE PARISH OF LITTLE GORE. BY HAND.
+# ALD-5, Pemberton-Gore the Fourth (QUESTS.md E6, q_aldric.py)
+SW_ALD5_DONE = 183              # three paces behind; and the gate, found
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

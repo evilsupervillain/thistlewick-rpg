@@ -357,5 +357,18 @@ WYVERN_BACK_TABLE = (29, 6, 33)         # Table D from x 29 to 33, row 6
 # the knight - `coldbarrow.draw_map` writes it beside Coldbarrow_Map, with no
 # red pins in it, and `q_aldric` shows it.
 COLDBARROW_MAP_AT_LARGE = "Coldbarrow_Map_AtLarge"
+# ALD-5 (QUESTS.md E6): where the Fourth stands, three paces behind his uncle,
+# at the six places he follows him to - a step or two off the square each
+# map is entered by from the world map, on open ground. Little Gore's is
+# also where he turns up. The place modules hand their event lists to
+# `q_aldric.with_follower`, which appends him at the next id.
+FOURTH_FOLLOWS = {
+    MAP_VILLAGE: (17, 3),           # in at (19, 3), the north road
+    MAP_SOPPING: (18, 3),           # in at (20, 3)
+    MAP_COLDBARROW: (11, 8),        # in at (9, 8), the Chapter House door
+    MAP_LITTLE_GORE: (14, 16),      # in at (11, 16), beside the road
+    MAP_WEEPING_BOTTOM: (17, 22),   # in at (15, 24), off the track
+    MAP_DUNNAGE: (19, 26),          # in at (17, 26), inside the gate
+}
 ASHCOMBE_LAKE = (104, 54)
 LAKE_SHORE_STEP = (104, 55)

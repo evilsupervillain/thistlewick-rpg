@@ -46,6 +46,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_aldric
 import q_merribell
 from places import MAP_WORLD, MAP_WEEPING_BOTTOM, MAP_WARD, WEEPING_BOTTOM_STEP
 
@@ -218,7 +219,7 @@ def valley_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Weeping Bottom", bgm="Town2",
                   bgm_volume=60)
     m["data"] = g.data
-    m["events"] = [None] + valley_events()
+    m["events"] = [None] + q_aldric.with_follower(valley_events(), MAP_WEEPING_BOTTOM)  # ALD-5
     return m
 
 

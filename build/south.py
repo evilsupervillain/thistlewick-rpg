@@ -19,6 +19,7 @@ import db
 import mapkit as K
 import rmmzdata as R
 import story as S
+import q_aldric
 import q_hob
 import q_merribell
 import q_nix
@@ -230,7 +231,7 @@ def sopping_map():
     m = K.new_map(TOWN_W, TOWN_H, K.TS_OUTSIDE, name="Nether Sopping",
                   bgm="Town6")
     m["data"] = g.data
-    m["events"] = [None] + sopping_events()
+    m["events"] = [None] + q_aldric.with_follower(sopping_events(), MAP_SOPPING)  # ALD-5
     return m
 
 

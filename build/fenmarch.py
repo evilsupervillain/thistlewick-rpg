@@ -41,6 +41,7 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_aldric
 from places import MAP_WORLD, MAP_FENMARCH, MAP_GALLERY, FENMARCH_STEP
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -519,6 +520,7 @@ def gallery_events():
     evs.append(_person(2, "The Fourth", FOURTH,
                        R.image("Gen_People5", 3, direction=2),
                        *fourth_pages()))
+    evs[-1]["pages"] += q_aldric.fourth_pages(evs[-1]["pages"][-1])  # ALD-5
     evs.append(_person(3, "Mrs Puddifoot", PUDDIFOOT,
                        R.image(*S.FACES["Mrs Puddifoot"], direction=6), *puddifoot_pages()))
     evs.append(_person(4, "Mr Ottershaw", OTTERSHAW,
@@ -555,6 +557,7 @@ def gallery_events():
     # 14: the flowers under the Third, which is how his portrait is read.
     evs.append(R.event(eid, "The Third", THIRD, y1,
                        [R.page(portrait_pages(THIRD)[0], **PAGE)]))
+    evs[-1]["pages"] += q_aldric.third_portrait_pages(evs[-1]["pages"][0])  # ALD-5
     eid += 1
 
     # 15-: the cases, two rows of sixteen. Sixteen animals, two sheets.
@@ -778,8 +781,8 @@ def world_doors(base_id, cells):
     **With Sir Aldric in the party it is a refusal.** ALD-1 sets out from this
     house and ALD-5 is his nephew in it, so his walking in is the quest, and
     followers are drawn, so he cannot wait at the gate. He looks at the house
-    and then the other way, and you press on. ALD-1 and ALD-5 append their
-    own pages after these three."""
+    and then the other way, and you press on. ALD-5 appends the fourth page,
+    on which his squire finds the gate; ALD-1 turned out to need none."""
     aldric = {"actorValid": True, "actorId": db.ALDRIC}
     evs = []
     for i, (x, y) in enumerate(sorted(cells)):
@@ -814,6 +817,7 @@ def world_doors(base_id, cells):
             R.page(again, conditions=dict(aldric, selfSwitchValid=True,
                                           selfSwitchCh="A"), **touch),
         ]))
+        evs[-1]["pages"] += q_aldric.fenmarch_door_pages(evs[-1]["pages"][0])  # ALD-5
     return evs
 
 

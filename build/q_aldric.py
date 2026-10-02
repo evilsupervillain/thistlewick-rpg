@@ -29,7 +29,9 @@ import copy
 import db
 import rmmzdata as R
 import story as S
-from places import MAP_DUNNAGE, COLDBARROW_MAP_AT_LARGE
+from places import (MAP_DUNNAGE, COLDBARROW_MAP_AT_LARGE, FOURTH_FOLLOWS,
+                    MAP_VILLAGE, MAP_SOPPING, MAP_COLDBARROW, MAP_LITTLE_GORE,
+                    MAP_WEEPING_BOTTOM)
 
 DUCHESS_EVENT = 15              # Map 61; Plummer's scene points at her
 
@@ -512,3 +514,223 @@ def vane_pages(page0):
         _like(page0, after,
               dict(known, switch1Valid=True, switch1Id=db.SW_ALD1_DONE)),
     ]
+
+
+# ======================================================================
+# ALD-5, Pemberton-Gore the Fourth (`QUESTS.md` E6)
+# ----------------------------------------------------------------------
+# His nephew turns up: nineteen, magnificent, courteous, found the north gate
+# unassisted on the first attempt, raised on the story of the knight who went
+# out and never came back, and he wants to squire for him. The comedy is
+# entirely Aldric's face; the warmth is that the lad is right.
+#
+# * **Decided: it needs ALD-1**, as NIX-1 needs NIX-4. The Fourth cannot come
+#   to Fenmarch's door to meet him - Aldric will not go in - so the news has
+#   to reach the house, and it goes the way everything between Little Gore
+#   and Fenmarch goes: Tom walks it every day. Once the letter is delivered,
+#   the Fourth turns up at Little Gore (Map 50, a new event), having found it
+#   first time.
+# * **The scene is his**, with Aldric: "UNCLE." The family story, the nine
+#   pins, the gate he can find. Aldric tries to tell him he has been lost
+#   for six years, mostly in Thistlewick. "I know." Grandfather said the
+#   Pemberton-Gores always go the long way round, and the long way round is
+#   still a way - and nobody else in the family ever went OUT; they came
+#   over the wall. Three paces behind, then. One trope (the prodigy
+#   successor).
+# * **"A page on Aldric everywhere afterwards in which somebody is following
+#   him"**: the Fourth stands a few paces off the way in at six places -
+#   Thistlewick, Nether Sopping, Coldbarrow, Little Gore, Weeping Bottom and
+#   Great Dunnage - on a page that needs Aldric in the party and the quest
+#   done, with a line each. Without Aldric he is not there; he is at home.
+# * **And then Aldric can go home**: Fenmarch's world-map door, which refuses
+#   him, gains a page with him and the quest done - the Fourth finds the gate
+#   first time, and Sir Aldric goes in. The Third's portrait, with the
+#   flowers under it, gains a page with him standing in front of it; and the
+#   Fourth's own event in the gallery its afterwards page, for everybody.
+ALD5_FOLLOWING = {
+    # map: what the Fourth says, three paces behind his uncle
+    MAP_VILLAGE: ["Uncle says the north gate's just",
+                    "over there. I found it at once.",
+                    "I haven't said."],
+    MAP_SOPPING: ["I'm keeping three paces behind.",
+                "It's how you squire. I read it.",
+                "He keeps stopping, though."],
+    MAP_COLDBARROW: ["Mordaunt asked where Uncle was.",
+                   "I said: here. He wrote it down",
+                   "and looked so pleased."],
+    MAP_LITTLE_GORE: ["Mrs Vane gave me cake. She says",
+                    "the invitation's on the mantel.",
+                    "I've seen it. It's lovely."],
+    MAP_WEEPING_BOTTOM: ["It's very damp. Uncle says it's",
+                       "bracing. I think he means it's",
+                       "damp, but nicely."],
+    MAP_DUNNAGE: ["Duchess knew him straight off.",
+                "She's never looked at me like",
+                "that. I'm working on it."],
+}
+
+
+def _ald5_meeting():
+    c = S.narrate([
+        "A young man in blue and silver comes up the sandy road at",
+        "a run, with a very clean helmet under his arm, and stops",
+        "dead in front of Sir Aldric."])
+    c += S.say("The Fourth", ["UNCLE."])
+    c += S.say("Aldric", ["...Hello. Er."])
+    c += S.say("The Fourth", [
+        "Pemberton-Gore. The Fourth. I was",
+        "ten when you went! Tom said you'd",
+        "been HERE. With the letter!"])
+    c += S.say("The Fourth", [
+        "Grandfather's letter. The first",
+        "errand! The knight who went out and",
+        "never came back. It's our best one."])
+    c += S.narrate([
+        "Sir Aldric's face does several things at once, none of",
+        "which it has had to do before."])
+    c += R.if_then(R.condition_switch(db.SW_ALD3_DONE), S.say("The Fourth", [
+        "And Mordaunt says you're AT LARGE.",
+        "That's a RANK. They made it up for",
+        "you. On a Thursday."]), S.say("The Fourth", [
+        "Nine pins, Mordaunt says. Nine!",
+        "Three in one week! Nobody's ever",
+        "been three places in one week."]))
+    c += S.say("Aldric", ["It was a busy week."])
+    c += S.say("The Fourth", [
+        "I want to squire for you. I can",
+        "find gates. I found ours first time.",
+        "I could find you all of them."])
+    c += S.say("Aldric", [
+        "Lad. I ought to tell you. I have",
+        "not been in the field. I have been",
+        "lost. For six years."])
+    c += S.say("Aldric", ["In Thistlewick. Mostly."])
+    c += S.say("The Fourth", ["I know."])
+    c += S.narrate(["Sir Aldric looks at him."])
+    c += S.say("The Fourth", [
+        "Grandfather said we always go the",
+        "long way round. And the long way",
+        "round is still a way."])
+    c += S.say("The Fourth", [
+        "And nobody else in the family ever",
+        "went OUT, uncle. They all came over",
+        "the wall. You went OUT."])
+    c += S.narrate([
+        "It is not how Sir Aldric would describe the last six",
+        "years. It is, he finds, standing in the road, true."])
+    c += S.say("Aldric", [
+        "...Three paces behind, then. And",
+        "you'll tell me if I'm facing the",
+        "wrong way."])
+    c += S.say("The Fourth", ["You always are, uncle.",
+                              "It's on the arms."])
+    c += [R.play_me("Fanfare1")]
+    c += S.narrate(["The Fourth takes up his place, three paces behind, and",
+                    "polishes his helmet, which does not need it."])
+    c += [S.trope(), R.control_switch(db.SW_ALD5_DONE, True)]
+    c += S.companion_story(db.ALDRIC)
+    return c
+
+
+def fourth_meeting_event(event_id, x, y, follows):
+    """Map 50: the Fourth, turned up at Little Gore once the letter is
+    delivered. Nothing before; with Aldric, the meeting; without, waiting;
+    afterwards, nothing without Aldric and following with him."""
+    img = R.image(*S.FACES["The Fourth"], direction=8)
+    blank = R.page([], img=R.image(""), trigger=0, priority=0, through=True)
+    waiting = S.say("The Fourth", [
+        "Is my uncle with you? Sir Aldric?",
+        "Tom said he came HERE. Four miles!",
+        "I found it first time."])
+    meet = R.if_then(R.condition_actor_in_party(db.ALDRIC), _ald5_meeting(),
+                     waiting)
+    done = {"switch1Valid": True, "switch1Id": db.SW_ALD5_DONE}
+    return R.event(event_id, "The Fourth", x, y, [
+        copy.deepcopy(blank),
+        R.page(meet, img=img, trigger=0, priority=1, conditions={
+            "switch1Valid": True, "switch1Id": db.SW_ALD1_DONE}),
+        copy.deepcopy(dict(blank, conditions=R.page([], conditions=done)[
+            "conditions"])),
+        R.page(_ald5_follow(follows), img=img, trigger=0, priority=1,
+               conditions=dict(R.page([], conditions=done)["conditions"],
+                               actorValid=True, actorId=db.ALDRIC)),
+    ])
+
+
+def _ald5_follow(where):
+    c = S.narrate([
+        "Three paces behind Sir Aldric, as near as he can manage,",
+        "stands the Fourth, pretending to look at something else."])
+    c += S.say("The Fourth", ALD5_FOLLOWING[where])
+    return c
+
+
+def following_event(event_id, x, y, where):
+    """The Fourth, three paces behind his uncle, at one of the places Aldric
+    goes: nothing at all unless Aldric is in the party and ALD-5 is done.
+    `where` is a map id, a key of `ALD5_FOLLOWING`."""
+    blank = R.page([], img=R.image(""), trigger=0, priority=0, through=True)
+    page = R.page(_ald5_follow(where),
+                  img=R.image(*S.FACES["The Fourth"], direction=2),
+                  trigger=0, priority=1, conditions={
+                      "switch1Valid": True, "switch1Id": db.SW_ALD5_DONE,
+                      "actorValid": True, "actorId": db.ALDRIC})
+    return R.event(event_id, "The Fourth (following)", x, y, [blank, page])
+
+
+def fenmarch_door_pages(page0):
+    """Page 4 of Fenmarch's world-map door (two cells): with Aldric and his
+    squire, the Fourth finds the gate first time, and Sir Aldric goes home.
+    `page0` is the door's own first page, whose transfer is the way in."""
+    home = S.narrate([
+        "A grey house behind a low wall, with a moat all the way",
+        "round it. Sir Aldric has stopped in the road."])
+    home += S.say("The Fourth", ["Gate's just here, uncle.",
+                                 "This way."])
+    home += S.narrate([
+        "He finds it first time. Sir Aldric looks at it for a long",
+        "moment, and at the house, and at his nephew, and does not",
+        "look the other way."])
+    home += S.say("Aldric", ["...Shall we go in?"])
+    way_in = [c for c in page0["list"] if c["code"] == 201][0]
+    home += [dict(copy.deepcopy(way_in), indent=0)]
+    return [_like(page0, home, {
+        "switch1Valid": True, "switch1Id": db.SW_ALD5_DONE,
+        "actorValid": True, "actorId": db.ALDRIC})]
+
+
+def third_portrait_pages(page0):
+    """Page 2 of the Third's portrait (Map 57, event 14): its own page, and
+    Sir Aldric in front of it."""
+    c = page0["list"][:-1] + S.narrate([
+        "Sir Aldric stands in front of it for some time: himself,",
+        "from behind, walking out of the picture at a good pace."])
+    c += S.say("Aldric", ["I was going to come back.",
+                          "...I have, rather."])
+    c += S.narrate([
+        "Mrs Puddifoot changes the flowers anyway, because it is",
+        "the morning, and nobody tells her not to."])
+    return [_like(page0, c, {
+        "switch1Valid": True, "switch1Id": db.SW_ALD5_DONE,
+        "actorValid": True, "actorId": db.ALDRIC})]
+
+
+def fourth_pages(page0):
+    """Page 3 for the Fourth at home (Map 57, event 2): his own last page and
+    one line, for everybody, once he is a squire."""
+    after = page0["list"][:-1] + S.narrate([
+        "He is a squire now. When his uncle is out, so is he, three",
+        "paces behind; when he is home, he keeps the helmet clean."])
+    return [_like(page0, after, {
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_ALD5_DONE})]
+
+
+def with_follower(events, map_id):
+    """`events` with the Fourth appended at the next id, at
+    `places.FOURTH_FOLLOWS[map_id]`: at Little Gore the event he turns up as,
+    everywhere else the one that follows Aldric. One line in a place module:
+    `m["events"] = [None] + q_aldric.with_follower(x_events(), MAP_X)`."""
+    x, y = FOURTH_FOLLOWS[map_id]
+    make = fourth_meeting_event if map_id == MAP_LITTLE_GORE else following_event
+    return list(events) + [make(len(events) + 1, x, y, map_id)]

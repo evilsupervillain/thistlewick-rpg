@@ -256,7 +256,7 @@ def town_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Great Dunnage", bgm="Town3",
                   bgm_volume=70)
     m["data"] = g.data
-    m["events"] = [None] + town_events()
+    m["events"] = [None] + q_aldric.with_follower(town_events(), MAP_DUNNAGE)  # ALD-5
     return m
 
 

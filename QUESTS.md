@@ -2350,14 +2350,92 @@ from `hamlets.py` in two places (Mrs Vane, the banns);
 * `TIMELINE.md`: 1991 gains the letter, his first errand, given the morning
   he rode out.
 
+**E6, ALD-5 Pemberton-Gore the Fourth - done.** ALD-5's section at the
+bottom of `q_aldric.py`; hooked from six place modules in one line each
+(`q_aldric.with_follower` round the events list of Maps 1, 13, 48, 50, 54
+and 61) and from `fenmarch.py` in three places (the world-map door, the
+Fourth at home, the Third's portrait); `build/scenarios/q_ald5.json`.
+
+* **Decided: it needs ALD-1**, as NIX-1 needs NIX-4. `COMPANIONS.md` says
+  "placeable anywhere", and Fenmarch is the one place it cannot be: the
+  world-map door refuses Aldric, so the Fourth has to come to him. The news
+  goes the way everything between Little Gore and Fenmarch goes - Tom walks
+  it every day - so once the letter is delivered the Fourth turns up at
+  Little Gore (Map 50 event **10**, at (14,16) by the road), having found it
+  first time. Without Aldric: "Is my uncle with you? Tom said he came HERE.
+  Four miles! I found it first time."
+* **The meeting** (with Aldric): "UNCLE." He was ten when his uncle went;
+  the knight who went out and never came back is "our best one"; nine pins,
+  Mordaunt says, three in one week (or, after ALD-3, "you're AT LARGE. That's
+  a RANK. They made it up for you. On a Thursday."). He wants to squire: he
+  can find gates. Aldric's face does several things at once, none of which
+  it has had to do before, and he tells him: lost, for six years. "In
+  Thistlewick. Mostly." / "I know." Grandfather said the Pemberton-Gores
+  always go the long way round, and the long way round is still a way; and
+  nobody else in the family ever went OUT - "They all came over the wall.
+  You went OUT." It is not how Sir Aldric would describe the last six
+  years; it is, he finds, true. "...Three paces behind, then. And you'll
+  tell me if I'm facing the wrong way." / "You always are, uncle. It's on
+  the arms." **One trope** (the prodigy successor).
+* **"An appended page on Aldric everywhere afterwards in which somebody is
+  following him"** (`COMPANIONS.md`). Aldric is not an event while he is in
+  the party, so **decided: the Fourth is**, a few paces off the way in at six
+  places Aldric goes - Thistlewick (17,3), Nether Sopping (18,3), the
+  Chapter House (11,8), Little Gore (14,16, the same event he turned up as),
+  Weeping Bottom (17,22) and Great Dunnage (19,26), `places.FOURTH_FOLLOWS` -
+  on a page that needs ALD-5 done and Aldric in the party, with a line each
+  ("Uncle says the north gate's just over there. I found it at once. I
+  haven't said."; Mordaunt wrote down "here" and looked so pleased; Duchess
+  knew him straight off, "I'm working on it"). Without Aldric each is a
+  blank page, through and below characters, so nothing in any existing walk
+  can touch it. **Map 1 event 31, Map 13 event 18, Map 48 event 16, Map 54
+  event 19, Map 61 event 19**, each appended after every other event.
+* **And Aldric can go home.** Fenmarch's world-map door (Map 8 events 62-63)
+  keeps its three pages and gains a fourth, with Aldric and ALD-5 done: "Gate's
+  just here, uncle. This way." He finds it first time, and Sir Aldric looks
+  at the house, and at his nephew, "and does not look the other way" -
+  "...Shall we go in?" - and the door's own transfer. In the gallery, the
+  Third's portrait (Map 57 event 14) is its own page and then him in front
+  of it: "I was going to come back. ...I have, rather." Mrs Puddifoot changes
+  the flowers anyway. `fenmarch.py`'s docstring expected ALD-1 to append a
+  page to the door as well; it turned out not to need one, and now says so.
+* **Afterwards for everybody**: the Fourth at home (Map 57 event 2) - his own
+  last page plus "He is a squire now. When his uncle is out, so is he, three
+  paces behind; when he is home, he keeps the helmet clean."
+* **Ids taken:** switch **183** `SW_ALD5_DONE`; the events above;
+  `places.FOURTH_FOLLOWS`. No new faces - the Fourth was drawn for the site
+  (`Gen_People5` 3).
+* One trope, no blush. **Running tally at the end of E6: tropes +32 fixed
+  and 2-9 from PIP-2; blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ALDRIC]` (on already after ALD-1, which this needs).
+* **Candidate ending line** (G1; read `SW_ALD5_DONE`): "Sir Aldric
+  Pemberton-Gore the Third has a squire, who finds the gates. He has been
+  home. He went the long way round, and it was still a way."
+* **The rooms (0.1):** Fenmarch had never been swept. Maps 56-57 were
+  cropped with `propsheet.py` (38 tiles) and screenshotted: the green roofs
+  and chimneys, `Stone Pillar B (Moss)` the gateposts, the trees and
+  mushrooms; in the gallery the cases and portraits (character sheets),
+  `Planter A` the flowers under the Third, the clock, `Large Fireplace`,
+  `Table C` and `Table D`, chairs and a stool. Everything is what its event
+  says. Nothing needed fixing. The six followers stand on cells checked
+  open on each map's passability, beside and not on the way in.
+* **Scenario** `q_ald5`: passes (50 checks): the Fourth nothing before the
+  letter and waiting without Aldric, the meeting, the five other followers
+  present with Aldric and absent without, in at Fenmarch's gate, the
+  portrait and the Fourth at home. Its first run failed one fragment of its
+  own that spanned a line break. Two followers were also screenshotted
+  (Thistlewick, and outside Great Dunnage's gate).
+* `TIMELINE.md`: nothing new (the Fourth was ten in 1991 and is nineteen,
+  which the ages table has).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E6, ALD-5
-Pemberton-Gore the Fourth**. E1-E5 (Merribell's MER-5, MER-1 and MER-3,
-and Aldric's ALD-3 and ALD-1) are done, 2 Oct 2026. Mike asked
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **the rerun for E1-E6**
+(the end-of-part paragraph). E1-E6 are done, 2 Oct 2026: Merribell's MER-5,
+MER-1 and MER-3, and Aldric's ALD-3, ALD-1 and ALD-5. Mike asked
 for E1-E6 in one session; if this prompt is being read, that session ended
 early, so carry on from here through E6, then the rerun for the part.
 
@@ -2378,17 +2456,18 @@ scenario, `build/scenarios/q_<quest>.json`, run in the background, one
 browser at a time. Then the Done paragraph, a commit, and this prompt moved
 on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +31 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 183, variable 26, item 69, weapon 42,
+Where things stand: tropes +32 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 184, variable 26, item 69, weapon 42,
 armour 47, armour type 13, class 12, common event 4, state 41, enemy 55,
 troop 53, skill 179, map 67, `Gen_People14` 1. Merribell has had her gear
 (the Pamphlet, armour 45). The Rule of Life's four lines are
 `q_merribell._MER5_RULE`.
 
-What E6 will need: ALD-1 done (`SW_ALD1_DONE`), since Tom carries the
-news from Little Gore to Fenmarch. Fenmarch's world-map door refuses Aldric
-on pages 2-3 and its docstring expects ALD-5 to append; the `fenmarch`
-scenario asserts that refusal, so every new page must need ALD-5 done.
+What the rerun needs: the list and the reasoning are in the E6 commit's
+successor, the "Rerun for E1-E6" paragraph; if it is not written yet, run
+`hamlets`, `weeping_bottom`, `coldbarrow`, `fenmarch`,
+`placeholder_doors`, `tavern`, `reachable_sopping`, `q_rol3`, `q_mer1`,
+`q_ald3` and `q_ald1`, one at a time, no timeout.
 
 Things learned that will bite again:
 

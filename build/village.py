@@ -21,6 +21,7 @@ import q_wren
 import q_zephyrine
 import rmmzdata as R
 import story as S
+import q_aldric
 from places import (MAP_VILLAGE, MAP_HOME, MAP_HALL, MAP_INN, MAP_CHAPEL,
                     MAP_SMITHY, MAP_STORE, MAP_WORLD, VILLAGE_GATE,
                     WORLD_VILLAGE_STEP)
@@ -172,7 +173,7 @@ def village_map():
 
     m = K.new_map(VW, VH, K.TS_OUTSIDE, name="Thistlewick", bgm="Town1")
     m["data"] = g.data
-    m["events"] = [None] + village_events()
+    m["events"] = [None] + q_aldric.with_follower(village_events(), MAP_VILLAGE)  # ALD-5
     return m
 
 
