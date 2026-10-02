@@ -1,8 +1,10 @@
 """Corvin Ash's companion quests - `COMPANIONS.md`, his section, and
 `QUESTS.md` for the order they are built in.
 
-Nothing here draws a map, and this module imports no place module: the place
-modules call in here for pages.
+This module imports no place module: the place modules call in here for
+pages. The one map it draws is COR-2's drowned street, Map 66, which is in no
+place (`QUESTS.md` 0.4); COR-1's study is in Mrs Ash's house and is drawn by
+`ashcombe.py`.
 
 COR-5, The Appraisal (`QUESTS.md` B4)
 -------------------------------------
@@ -50,13 +52,34 @@ Nothing in this quest goes wrong for him, which is the joke and the point.
   confirms himself, and it is Saturday. The speech goes well. On the last
   word his mother casts off: the scarf, bright yellow like the new roofs,
   the wrong colour for everything he owns (armour 44, his alone).
+
+COR-2, Ashcombe (Old) (`QUESTS.md` D2)
+--------------------------------------
+The drowned one is under the lake, which is let down once a year for the
+sluices; that week you can walk in. One street, a pub sign, a doorstep, and
+in a strongbox in the schoolroom his own report card, which is bad. The one
+moment in his story that is allowed to be simply sad, undercut at once.
+
+* **The week is the week of the Flood Dinner**, so it needs COR-1: with
+  Corvin, once he has spoken, Ashcombe Lake is down (its page below the
+  lake's one-self-switch ladder) and there is a street at the bottom of the
+  mud. Map 66, `drowned_street_map`.
+* **The doorstep** is the sad part, and nobody says anything clever in it.
+  Then the letters cut into it, the same as the tang's, and under them for
+  visitors MIND THE STEP: his grandfather made the sword, and it was the
+  doorstop. That is its name. One trope (the sunken ruin).
+* **The strongbox** is the undercut: the schoolmistress kept everybody's
+  reports, and his says he will go far, if he ever gets up. He laughs.
+  Item 66, which the ending reads.
 """
 import copy
 
 import db
+import mapkit as K
 import rmmzdata as R
 import story as S
 from places import MAP_ASHCOMBE_IN, STUDY, STUDY_DESK, STUDY_DOOR, STUDY_MARKS
+from places import MAP_DROWNED_STREET, MAP_WORLD, LAKE_SHORE_STEP
 
 FEE = 30
 
@@ -511,3 +534,265 @@ def menus_pages(page0):
         "Pinned on top, this year's. At the foot: C. Ash, on the",
         "water. Somebody has written under it in pencil: VERY GOOD."],
         {"switch1Valid": True, "switch1Id": db.SW_COR1_DONE})]
+
+
+# ============================================================== COR-2 ====
+DROWNED_W, DROWNED_H = 22, 15
+MUD = K.SAND                        # `K.SAND` is Outside_A2's `Dirt`
+WET = K.A(31)                       # `Soil`, an overlay: Dirt under it is mud
+MOSS = K.A(39)                      # `Moss`, an overlay, on the old floors
+LAKEWATER = K.A(8)                  # Outside_A1 `Water C (Dirt)`
+OLD_STREET = K.a5(28)               # `Cobblestones A (Ruins)`
+OLD_FLOOR = K.a5(38)                # `Cobblestones G (Ruins)`
+DOORSTEP = K.a5(71)                 # `Stairs (Ruins)`: one step, on its own
+PUB_SIGN = K.sf_tile("Outside_B", "Shop Sign (Pub)")
+RUBBLE_MOSS = K.sf_tile("Outside_C", "Rubble B (Moss)")
+RUBBLE = K.sf_tile("Outside_C", "Rubble")
+STUMP_WALL = K.sf_tile("Outside_C", "Broken Stone Pillar B (Moss)")
+WEEDS = [K.sf_tile("Outside_B", n) for n in
+         ("Dead Grass B", "Fern", "Stump (Moss)", "Rocks", "Fallen Log")]
+LILY = K.sf_tile("Outside_B", "Lotus Pads A")
+
+STREET_ROWS = (7, 8)
+#              x1 y1 x2 y2: the floor of what each was
+ANCHOR_PLOT = (3, 3, 6, 5)
+ASH_PLOT = (9, 3, 11, 5)
+SCHOOL_PLOT = (14, 3, 18, 5)
+ANCHOR_SIGN = (5, 6)
+STEP_AT = (10, 6)
+STRONGBOX = (16, 4)
+CHURCH_WATER = (20, 7)              # the street runs on into the lake
+DROWNED_ARRIVE = (10, 13)
+
+
+def drowned_street_map():
+    """Old Ashcombe, with the lake let down off it for sluice week: one
+    street of cobbles in a bed of mud, the lake still standing round three
+    sides, and three plots where the Anchor, the Ashes' house and the
+    schoolroom were - a sign, a doorstep and a strongbox. The slope at the
+    south is the way back up to the shore."""
+    w, h = DROWNED_W, DROWNED_H
+    g = K.Canvas(w, h)
+    g.fill(0, 0, w - 1, h - 1, 0, MUD)
+    g.fill(0, 0, w - 1, 1, 0, LAKEWATER)
+    g.fill(0, 0, 1, 10, 0, LAKEWATER)
+    g.fill(w - 2, 0, w - 1, 10, 0, LAKEWATER)
+    for x, y in [(2, 10), (3, 2), (19, 2), (19, 10), (4, 11), (5, 11),
+                 (15, 11), (16, 11), (16, 12)]:
+        g.set(x, y, 0, LAKEWATER)
+    g.fill(2, STREET_ROWS[0], w - 3, STREET_ROWS[1], 0, OLD_STREET)
+    for x1, y1, x2, y2 in (ANCHOR_PLOT, ASH_PLOT, SCHOOL_PLOT):
+        g.fill(x1, y1, x2, y2, 0, OLD_FLOOR)
+    g.set(*STEP_AT, 0, DOORSTEP)
+    # Layer 1 is the lake's leavings: the bed wet through, and moss on the
+    # floors it lay longest over.
+    for y in range(h):
+        for x in range(w):
+            if g.get(x, y, 0) == MUD:
+                g.set(x, y, 1, WET)
+    for x, y in [(4, 3), (5, 4), (10, 4), (15, 3), (16, 5), (17, 4)]:
+        g.set(x, y, 1, MOSS)
+    g.autotile(0)
+    g.autotile(1)
+
+    # What is left of the walls, at the corners and along the backs.
+    for x, y in [(2, 3), (2, 5), (7, 3), (7, 5), (4, 2), (8, 4), (12, 3),
+                 (12, 5), (13, 4), (15, 2), (17, 2), (19, 3), (19, 5)]:
+        g.set(x, y, 2, STUMP_WALL)
+    for x, y in [(3, 6), (6, 6), (9, 6), (11, 6), (14, 6), (18, 6), (5, 2),
+                 (10, 2)]:
+        g.set(x, y, 2, RUBBLE_MOSS if (x + y) % 2 else RUBBLE)
+    g.set(*ANCHOR_SIGN, 3, PUB_SIGN)
+
+    # The lake bed south of the street, and its puddles.
+    for i, (x, y) in enumerate([(3, 10), (7, 12), (13, 10), (18, 12),
+                                (6, 9), (15, 9), (2, 12), (19, 13),
+                                (13, 13), (8, 10)]):
+        g.set(x, y, 3, WEEDS[i % len(WEEDS)])
+    for x, y in [(4, 11), (16, 12)]:
+        g.set(x, y, 3, LILY)
+
+    m = K.new_map(w, h, K.TS_OUTSIDE, name="Old Ashcombe", bgm="")
+    m["bgs"] = {"name": "Drips", "pan": 0, "pitch": 100, "volume": 60}
+    m["data"] = g.data
+    m["events"] = [None] + _cor2_events()
+    return m
+
+
+def _cor2_sign():
+    c = S.narrate([
+        "A pub sign, face up in the mud and propped against what is",
+        "left of a wall: THE ANCHOR, with an anchor on it."])
+    c += S.narrate([
+        "It hung over a pub for a hundred years. It has been under",
+        "a lake for eleven. It is the first time it has been any",
+        "use."])
+    return c
+
+
+def _cor2_step():
+    c = S.narrate([
+        "A doorstep. Only the step, at the edge of the old street,",
+        "with nothing behind it now but mud and a square of stones",
+        "where a house was."])
+    c += S.narrate([
+        "Corvin sits down on it. He does not say anything for a",
+        "long time, and nor does anybody else."])
+    c += S.say("Corvin", ["I used to sit here. Waiting for",
+                          "something to happen."])
+    c += S.say("Corvin", ["Then it did. And I was in the",
+                          "Slain Wyvern, waiting."])
+    c += [R.wait(60)]
+    c += S.narrate([
+        "The lake drips off the stones. Up the hill, a long way",
+        "off, a bell rings for somebody's dinner."])
+    c += [R.play_se("Bell1", volume=40), R.wait(90)]
+    c += S.narrate([
+        "When at last he gets up, there are letters cut into the",
+        "step where he was sitting: the old letters, the ones on",
+        "the tang of his sword. And under them, in plain capitals,",
+        "for visitors:"])
+    c += S.narrate(["", "                  MIND THE STEP"])
+    c += S.say("Corvin", ["My grandfather cut that. He made",
+                          "the sword as well."])
+    c += S.say("Corvin", ["It stood here forty years, holding",
+                          "the door open. That is its name."])
+    c += S.narrate([
+        "He puts his hand on the hilt, very lightly, the way you",
+        "would introduce yourself to somebody you had known all",
+        "your life."])
+    c += [S.trope(), R.control_switch(db.SW_COR2_STEP, True)]
+    c += S.narrate([
+        "Next door, in what was the schoolroom, something square",
+        "and iron is sitting in the mud."])
+    return c
+
+
+def _cor2_card():
+    c = [R.play_se("Chest1")]
+    c += S.narrate([
+        "The strongbox is rusted shut. Corvin opens it with the",
+        "black sword, which turns out to be very good at it."])
+    c += S.narrate([
+        "Inside, dry, wrapped in oilcloth: a report for every",
+        "child old Ashcombe ever had, in the schoolmistress's",
+        "careful hand. She kept everybody's."])
+    c += S.narrate([
+        "Corvin's is near the top. It was the last year.",
+        "",
+        "ASHCOMBE SCHOOL. Pupil: Corvin - the surname has run."])
+    c += S.narrate([
+        "Arithmetic: looks out of the window at it.",
+        "Composition: writes, darkly. Will not read it out.",
+        "Conduct: sits in the corner. Asked to sit elsewhere,",
+        "sits in a different corner."])
+    c += S.narrate([
+        "General: Corvin could do anything he put his mind to,",
+        "and has put it to waiting. He will go far, if he ever",
+        "gets up."])
+    c += S.narrate([
+        "It is very quiet in the drowned street. Then Corvin",
+        "laughs - once, out loud. Nobody in the party has heard",
+        "him do it before."])
+    c += S.say("Corvin", ["It is a fair report."])
+    c += S.narrate(["He puts it in his coat, next to the scarf."])
+    c += [R.gain_item(db.IT_REPORT_CARD),
+          R.control_switch(db.SW_COR2_DONE, True)]
+    c += S.companion_story(db.CORVIN)
+    return c
+
+
+def _cor2_events():
+    corvin = _cor1_corvin()
+    wall = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
+    evs = []
+    for i in range(2):
+        evs.append(S.exit_tile(i + 1, "The Way Up", DROWNED_ARRIVE[0] + i,
+                               DROWNED_H - 1, MAP_WORLD, *LAKE_SHORE_STEP))
+
+    sign = _cor2_sign()
+    evs.append(R.event(3, "The Anchor", *ANCHOR_SIGN, [
+        R.page(sign, **wall),
+        R.page(sign + S.say("Corvin", ["I was not allowed in. I sat",
+                                       "outside it and waited."]),
+               conditions=corvin, **wall)]))
+
+    step = S.narrate([
+        "A doorstep, at the edge of the old street, with nothing",
+        "behind it."])
+    named = S.narrate([
+        "The doorstep. Cut into it, in the old letters and then in",
+        "plain capitals: MIND THE STEP."])
+    evs.append(R.event(4, "The Doorstep", *STEP_AT, [
+        R.page(step, **wall),
+        R.page(R.if_then(R.condition_switch(db.SW_COR2_STEP), named,
+                         _cor2_step()), conditions=corvin, **wall)]))
+
+    box = dict(wall, img=R.image("!Chest", 5, direction=2))   # the iron one
+    shut = S.narrate([
+        "A strongbox, in the mud of what was the schoolroom, rusted",
+        "shut."])
+    waiting = shut + S.narrate([
+        "Corvin does not look at it. He is looking along the street",
+        "for something else."])
+    opened = S.narrate([
+        "The strongbox, open: everybody's reports, back in their",
+        "oilcloth. One fewer than there were."])
+    evs.append(R.event(5, "The Strongbox", *STRONGBOX, [
+        R.page(shut, **box),
+        R.page(R.if_then(R.condition_switch(db.SW_COR2_DONE), opened,
+                         R.if_then(R.condition_switch(db.SW_COR2_STEP),
+                                   _cor2_card(), waiting)),
+               conditions=corvin, **box)]))
+
+    church = S.narrate([
+        "The street goes on into the water. Just under the surface,",
+        "a green roof: the old church, up to its eaves. You could",
+        "skim a stone on to it."])
+    evs.append(R.event(6, "The Street's End", *CHURCH_WATER,
+                       [R.page(church, **wall)]))
+    return evs
+
+
+def lake_pages(last):
+    """Two pages for Ashcombe Lake (Map 8, event 55), below its one-self-
+    switch ladder: afterwards for everybody, and with Corvin, once COR-1 is
+    done, sluice week - the lake is let down in the week of the Flood Dinner,
+    and old Ashcombe is up for air."""
+    after = _cor1_plus(last, [
+        "Somewhere under it there is a doorstep with a sword's",
+        "name cut into it, and a strongbox one report lighter."],
+        {"selfSwitchValid": True, "selfSwitchCh": "A",
+         "switch1Valid": True, "switch1Id": db.SW_COR2_DONE})
+    week = S.narrate([
+        "Ashcombe Lake - and it is not well up. It is the week.",
+        "The sluices are open for the culverts, as they are every",
+        "year in the week of the Flood Dinner, and the water has",
+        "gone down off the old street like a tide that is bored."])
+    week += S.narrate([
+        "At the bottom of a slope of wet mud below the shore,",
+        "there is a street."])
+    week += S.narrate(["Corvin looks at it for a long time."])
+    week += R.choice_block(["Walk down", "Not now"], [
+        [R.transfer(MAP_DROWNED_STREET, *DROWNED_ARRIVE, 8, 0)],
+        S.say("Corvin", ["...In a minute."])])
+    cmds = R.if_then(R.condition_switch(db.SW_COR2_DONE),
+                     after["list"][:-1], week)
+    return [after, _cor1_dressed(last, cmds, _cor1_corvin(
+        selfSwitchValid=True, selfSwitchCh="A",
+        switch1Valid=True, switch1Id=db.SW_COR1_DONE))]
+
+
+def weir_pages(last):
+    """Mr Weir (Map 53, event 5) afterwards, below his one-self-switch
+    ladder, for everybody."""
+    return [_cor1_plus(last, [
+        "Sluice week went off splendidly, he tells you. Somebody",
+        "sat on a doorstep down there for an hour, and the",
+        "culverts did not mind in the least."],
+        {"selfSwitchValid": True, "selfSwitchCh": "A",
+         "switch1Valid": True, "switch1Id": db.SW_COR2_DONE})]
+
+
+def build():
+    R.save_map(MAP_DROWNED_STREET, drowned_street_map())

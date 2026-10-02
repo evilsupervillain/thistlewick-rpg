@@ -1899,14 +1899,90 @@ Roll, the menus, the study's four events, and the study drawn by
   opened. Both of the Dinner's choices are walked, "Not yet" first.
 * `TIMELINE.md`: nothing dated (eleven invitations are 1989's eleven years).
 
+**D2, COR-2 Ashcombe (Old) - done.** COR-2's section at the bottom of
+`q_corvin.py`, which draws Map 66 (`q_corvin.build`, called from
+`build_game`), hooked from `nomap.py` (the lake, in a wrapper like the
+Lay-By's) and `ashcombe.py` (Mr Weir); `build/scenarios/q_cor2.json`.
+
+* **Decided: the week is the week of the Flood Dinner**, so COR-2 needs
+  COR-1, as NIX-1 needs NIX-4. The lake says the sluices are opened "once a
+  year, for a week"; the Dinner is annual and its committee's speaker is
+  Mr Weir, whose whole life is the culverts. So with Corvin, once he has
+  spoken, **Ashcombe Lake** (Map 8 event 55, page 4: its A, Corvin,
+  `SW_COR1_DONE`) is down, "like a tide that is bored", with a street at the
+  bottom of the mud: "Walk down / Not now" ("...In a minute."). The week
+  lasts until he has been, since nothing in the game keeps a calendar.
+  Below the lake's ladder, so a player who always pressed on stops once
+  first; `nomap.py` asserts the lake's cell is `places.ASHCOMBE_LAKE`.
+* **The drowned street is Map 66, "Old Ashcombe"**, 22x15 on the Outside
+  tileset, drawn in `q_corvin.py` since it is in no place (0.4): the lake
+  still standing round three sides (`Water C (Dirt)`), the bed `Dirt` with
+  `Soil` laid over it on layer 1 so it reads wet and grey, dry at the
+  margins, one street of `Cobblestones A (Ruins)`, and three plots of
+  `Cobblestones G (Ruins)` with moss on them where the Anchor, the Ashes'
+  house and the schoolroom were, outlined by `Broken Stone Pillar B (Moss)`
+  and rubble. Silent, with the `Drips` background sound. The first draw was
+  pale beach sand and a red-and-gold treasure chest; the strongbox is
+  `!Chest` 5, the iron one. The way out is the foot of the slope, to
+  `places.LAKE_SHORE_STEP` (104,55), checked open four ways.
+* **The doorstep** (event 4, `Stairs (Ruins)`, one step on its own) **is the
+  one moment allowed to be simply sad**, and nothing in it is a joke: he
+  sits on it, as he did, "waiting for something to happen. Then it did. And
+  I was in the Slain Wyvern, waiting." A bell, up the hill, a long way off.
+  Then the letters cut where he sat: the old ones, as on the tang, and under
+  them for visitors, **MIND THE STEP**. His grandfather made the sword, and
+  it stood on the step forty years holding the door open. "That is its
+  name." - **the name COR-5 left on the tang unread, and his mother's "Mind
+  the step. It's new." from COR-1**, which nobody points out. **One trope**
+  (the sunken ruin), `SW_COR2_STEP`. The weapon record is not renamed: a
+  database name is not part of a save, and the name is better said once.
+* **The strongbox** (event 5) waits for the doorstep - before it, Corvin "is
+  looking along the street for something else". After, it is the undercut:
+  he opens it with the black sword, "which turns out to be very good at it";
+  the schoolmistress kept everybody's reports, dry in oilcloth; his surname
+  has run. Arithmetic, looks out of the window at it; Composition, writes
+  darkly; Conduct, sits in the corner, and asked to sit elsewhere sits in a
+  different corner; "He will go far, if he ever gets up." Corvin laughs, out
+  loud, which nobody in the party has heard before. "It is a fair report."
+  **Item 66**, the report card, which the ending reads. `SW_COR2_DONE` and
+  his story. The schoolmistress does not speak, so **no face**.
+* **The Anchor** (event 3): the pub sign face up in the mud, a hundred years
+  over a pub and eleven under a lake, "the first time it has been any use";
+  with Corvin, he was not allowed in, so he sat outside and waited. **The
+  street's end** (event 6): the old church, up to its eaves - you could skim
+  a stone on to it, which is Mr Weir's line in the museum, true.
+* **Afterwards for everybody**: the lake's own last page plus a doorstep
+  with a sword's name cut into it and a strongbox one report lighter; **Mr
+  Weir** (Map 53 event 5, below his ladder, left free by D1), his own last
+  page plus sluice week going off splendidly - "Somebody sat on a doorstep
+  down there for an hour, and the culverts did not mind in the least."
+* **Ids taken:** switches **173** `SW_COR2_STEP`, **174** `SW_COR2_DONE`;
+  item **66** `IT_REPORT_CARD`; **Map 66** `MAP_DROWNED_STREET`, events 1-6;
+  `places.ASHCOMBE_LAKE`, `LAKE_SHORE_STEP`. No faces.
+* One trope, no blush. **Running tally at the end of Part D: tropes +26
+  fixed and 2-9 from PIP-2; blushes +11 fixed and 0-1 from PIP-2.**
+* `SW_STORY[CORVIN]` (on already after COR-5 or COR-1).
+* **Candidate ending line** (G1; read `SW_COR2_DONE`): "Corvin Ash's sword is
+  called Mind The Step. His grandfather made it for a doorstop. His school
+  report says he will go far, if he ever gets up. He is up."
+* **The rooms (0.1):** Map 66 is new and was screenshotted twice (the sand
+  and the treasure chest, then the mud and the strongbox). Maps 52-53 were
+  swept in D1; Mr Weir's room is unchanged.
+* **Scenario** `q_cor2`: passes (37 checks), first run - "Not now" and then
+  in, the strongbox before the doorstep and after, the Anchor, out by the
+  slope, and afterwards with and without Corvin.
+* `TIMELINE.md`: 1949, the grandfather makes the sword and cuts its name
+  into the step ("forty years" before the water).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step D2, COR-2
-Ashcombe (Old)** - the second and last of Part D, Ashcombe. D1, COR-1, is
-done (2 Oct 2026). One step per session (0.1), unless the session's own
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **the end of Part D**:
+the rerun of every scenario that walks Maps 52-53, 66 and the lake, and a
+"Rerun for Part D" paragraph. D1 and D2, COR-1 and COR-2, are done (2 Oct
+2026); after the rerun the next step is E1. One step per session (0.1), unless the session's own
 prompt overrides it for the part.
 
 Read section 0, the Part D entries and the Done paragraphs from B1 on,
@@ -1924,10 +2000,10 @@ suite until G1. At the end of Part D, rerun every scenario that walks Maps
 52-53 and the lake (`ashcombe`, `q_cor1`, `q_cor2`, `q_hob1`, `nomap`,
 `q_wre1`) and write "Rerun for Part D".
 
-Where things stand: tropes +25 fixed and 2-9 from PIP-2; blushes +11 fixed
-and 0-1 from PIP-2. Next free: switch 173, variable 25, item 66, weapon 42,
+Where things stand: tropes +26 fixed and 2-9 from PIP-2; blushes +11 fixed
+and 0-1 from PIP-2. Next free: switch 175, variable 25, item 67, weapon 42,
 armour 45, armour type 12, class 12, common event 4, state 41, enemy 55,
-troop 53, skill 179, map 66, `Gen_People13` 5. Corvin has had his gear (the
+troop 53, skill 179, map 67, `Gen_People13` 5. Corvin has had his gear (the
 scarf, D1).
 
 What D2 needs: the drowned street is a new map in no place (66, drawn in

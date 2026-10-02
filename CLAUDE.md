@@ -394,6 +394,9 @@ Append instead.
 | Maps 66-79 | **companion quests** (`QUESTS.md` 0.6): new maps in no existing
   place - ROL-2's dungeon, SPA-2's tubes, COR-2's drowned street. A new room in
   a built place is drawn by that place's module, on its own map where it can be |
+| Map 66 | Old Ashcombe, the drowned street under Ashcombe Lake, for the week
+  it is let down (COR-2). Drawn by `q_corvin.py`; `places.MAP_DROWNED_STREET`.
+  In from the lake's world-map cell, out to `places.LAKE_SHORE_STEP` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills

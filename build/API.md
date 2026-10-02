@@ -512,7 +512,7 @@ Dr Furze              Miss Fettle           Cotter
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-133 constants.
+136 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -648,6 +648,9 @@ STUDY                        (28, 4, 33, 8, 30)
 STUDY_DOOR                   (6, 3)
 STUDY_DESK                   (31, 6)
 STUDY_MARKS                  (30, 3)
+MAP_DROWNED_STREET           66
+ASHCOMBE_LAKE                (104, 54)
+LAKE_SHORE_STEP              (104, 55)
 ```
 
 
@@ -655,7 +658,7 @@ STUDY_MARKS                  (30, 3)
 
 The whole database of The Obligatory Quest.
 
-499 constants.
+502 constants.
 
 ```
 BRAM                         1
@@ -1109,6 +1112,9 @@ SW_COR1_DONE                 172
 IT_INVITATION                65
 AR_SCARF                     44
 AT_SCARF                     11
+SW_COR2_STEP                 173
+SW_COR2_DONE                 174
+IT_REPORT_CARD               66
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

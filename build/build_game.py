@@ -42,6 +42,8 @@ import fenmarch  # noqa: E402
 import collegium  # noqa: E402
 import dunnage  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
+import places  # noqa: E402
+import q_corvin  # noqa: E402  draws COR-2's drowned street, Map 66
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -119,6 +121,7 @@ MAP_NAMES = [
     (dunnage.MAP_COUNTING_HOUSE, "The Counting House", dunnage.MAP_DUNNAGE),
     (dunnage.MAP_BONDED, "The Bonded Warehouse", dunnage.MAP_DUNNAGE),
     (dunnage.MAP_BELL, "The Bell", dunnage.MAP_DUNNAGE),
+    (places.MAP_DROWNED_STREET, "Old Ashcombe", journey.MAP_WORLD),
 ]
 
 
@@ -391,7 +394,9 @@ def build_system():
             (db.SW_WRE1_DONE, "WRE-1: published"),
             (db.SW_COR1_ON, "COR-1: on the Roll; today, then"),
             (db.SW_COR1_HOME, "COR-1: home, and the tea"),
-            (db.SW_COR1_DONE, "COR-1: the speech; the scarf")]:
+            (db.SW_COR1_DONE, "COR-1: the speech; the scarf"),
+            (db.SW_COR2_STEP, "COR-2: the doorstep; the sword's name"),
+            (db.SW_COR2_DONE, "COR-2: the report card")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -485,6 +490,7 @@ def main():
     fenmarch.build()
     collegium.build()
     dunnage.build()
+    q_corvin.build()                    # COR-2's drowned street
     shape_wall_tops()
     build_map_infos()
     build_tilesets()

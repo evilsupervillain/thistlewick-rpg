@@ -148,6 +148,7 @@ when it does, in a round year.
 | 1919 | Beatrice Grumnir born (the headstone) | `village.churchyard` | P |
 | 1930 | Mr Ottershaw (born 1910, "ninety in March") begins the animals: "seventy years. Three generations." Every case in the gallery is his, which is why none of them has a date on it | `fenmarch.ottershaw_pages` | F |
 | 1940 | the Clanging clock's town has been early "for sixty years" | `north.clanging_events` | P |
+| 1949 | Corvin's grandfather makes the black sword, cuts its name into his doorstep in old Ashcombe - in the old letters, as on the tang, and under them for visitors MIND THE STEP - and it stands there forty years holding the door open, until the water | `q_corvin` (COR-2) | F |
 | 1960 | the Gloamwood Society founded to prove the Thing in the Woods is not there; nine members, a walk a year, The Sighting four times a year (issue 160 in 2000) | `q_wren` (WRE-3) | F |
 | 1969 | Gideon Markup prices the Sword of Ultimate Ending | `penultima` | F |
 | 1970 | Tobias Frayne's first revival of eleven, "in thirty years" | `frayne` | F |

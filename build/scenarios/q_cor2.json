@@ -1,0 +1,448 @@
+{
+ "query": "?map=8&x=104&y=56&frames=90",
+ "comment": "QUESTS.md D2, COR-2 Ashcombe (Old). The lake is let down in the week of the Flood Dinner, so with Corvin and COR-1 done it is the week. 'Not now', then down to the drowned street: the strongbox waits, the doorstep (simply sad; MIND THE STEP, the sword's name; the sunken ruin, one trope), the Anchor, and the report card (the laugh). Out, and afterwards for everybody: the lake and Mr Weir.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "comment": "The lake has been stopped at once (its A). Without COR-1 done it is not the week, with Corvin or without.",
+   "eval": "$gameSelfSwitches.setValue([8, 55, 'A'], true)"
+  },
+  {
+   "goto": [
+    8,
+    104,
+    55
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(55).findProperPageIndex()",
+   "expect": 1,
+   "label": "the lake, its own page"
+  },
+  {
+   "eval": "$gameParty.addActor(8)"
+  },
+  {
+   "check": "$gameMap.event(55).findProperPageIndex()",
+   "expect": 1,
+   "label": "with Corvin, before the Dinner: still its own page"
+  },
+  {
+   "eval": "$gameSwitches.setValue(172, true); window._mark(); window._pick = 1"
+  },
+  {
+   "check": "$gameMap.event(55).findProperPageIndex()",
+   "expect": 3,
+   "label": "with Corvin, after the Dinner: sluice week"
+  },
+  {
+   "comment": "'Not now' first.",
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It is the week.\")) && window._lines.some(l => l.includes(\"...In a minute.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "still on the shore"
+  },
+  {
+   "key": "ArrowDown",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "eval": "window._pick = 0"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 12
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 66,
+   "label": "THE POINT: down into old Ashcombe"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    10,
+    13
+   ],
+   "label": "at the foot of the slope"
+  },
+  {
+   "shot": "q_cor2_street.png"
+  },
+  {
+   "comment": "Up to the street, along to the schoolroom: the strongbox will wait for the doorstep.",
+   "key": "ArrowUp",
+   "times": 6,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    10,
+    7
+   ]
+  },
+  {
+   "key": "ArrowRight",
+   "times": 6,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    16,
+    5,
+    8
+   ],
+   "label": "below the strongbox, facing it"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5
+  },
+  {
+   "advance": 8
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"looking along the street\"))",
+   "expect": true,
+   "label": "not yet: he is looking for something else"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[66])",
+   "expect": 0
+  },
+  {
+   "comment": "Back to the doorstep.",
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 6,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    10,
+    7,
+    8
+   ],
+   "label": "below the doorstep, facing it"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 4
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Waiting for\")) && window._lines.some(l => l.includes(\"MIND THE STEP\")) && window._lines.some(l => l.includes(\"That is its name.\"))",
+   "expect": true,
+   "label": "the doorstep, and the sword's name"
+  },
+  {
+   "check": "$gameSwitches.value(173)",
+   "expect": true,
+   "label": "SW_COR2_STEP"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "the sunken ruin: one trope"
+  },
+  {
+   "shot": "q_cor2_doorstep.png"
+  },
+  {
+   "comment": "The pub sign.",
+   "key": "ArrowLeft",
+   "times": 5,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    5,
+    7,
+    8
+   ]
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 3
+  },
+  {
+   "advance": 8
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"THE ANCHOR\")) && window._lines.some(l => l.includes(\"not allowed in\"))",
+   "expect": true
+  },
+  {
+   "comment": "And the strongbox again.",
+   "key": "ArrowRight",
+   "times": 11,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    16,
+    5,
+    8
+   ]
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"She kept everybody's.\")) && window._lines.some(l => l.includes(\"if he ever\")) && window._lines.some(l => l.includes(\"It is a fair report.\"))",
+   "expect": true,
+   "label": "the report card, and the laugh"
+  },
+  {
+   "check": "$gameParty.numItems($dataItems[66])",
+   "expect": 1,
+   "label": "the report card"
+  },
+  {
+   "check": "$gameSwitches.value(174)",
+   "expect": true,
+   "label": "SW_COR2_DONE"
+  },
+  {
+   "check": "$gameSwitches.value(107)",
+   "expect": true,
+   "label": "SW_STORY[CORVIN]"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 1
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "still one trope"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "no blush"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 8
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"One fewer than there were.\"))",
+   "expect": true,
+   "label": "opened, afterwards"
+  },
+  {
+   "comment": "Out the way they came.",
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 6,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 7,
+   "gap": 30
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "back on the shore"
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    104,
+    55
+   ],
+   "label": "on places.LAKE_SHORE_STEP"
+  },
+  {
+   "check": "$gameMap.event(55).findProperPageIndex()",
+   "expect": 3,
+   "label": "the lake with Corvin, afterwards"
+  },
+  {
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "check": "$gameMap.event(55).findProperPageIndex()",
+   "expect": 2,
+   "label": "the lake afterwards for everybody"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 8
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"sword's\"))",
+   "expect": true,
+   "label": "a doorstep with a sword's name cut into it"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([53, 5, 'A'], true)"
+  },
+  {
+   "goto": [
+    53,
+    18,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 2,
+   "label": "Mr Weir afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "ArrowRight",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 12
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"quite quiet\")) && window._lines.some(l => l.includes(\"culverts did not mind\"))",
+   "expect": true,
+   "label": "his own last page and the line"
+  }
+ ]
+}

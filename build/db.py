@@ -389,6 +389,10 @@ SW_COR1_DONE = 172              # the speech, which went well; the scarf
 IT_INVITATION = 65              # the eleventh, never posted
 AR_SCARF = 44                   # Corvin's gear (QUESTS.md 0.5): his alone
 AT_SCARF = 11                   # an armour type of its own, as AT_BADGE is
+# COR-2, Ashcombe (Old) (QUESTS.md D2, q_corvin.py)
+SW_COR2_STEP = 173              # sat on the doorstep; the sword's name read
+SW_COR2_DONE = 174              # the report card, out of the strongbox
+IT_REPORT_CARD = 66
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1588,6 +1592,10 @@ def build_items():
                     "The Flood Dinner Committee requests the pleasure of Mr "
                     "C. Ash as Speaker. Saturday. It has no stamp on it.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=192))
+    upsert(it, item(IT_REPORT_CARD, "Report Card (Ashcombe School)",
+                    "Pupil: Corvin. The surname has run. \"He will go far, if "
+                    "he ever gets up.\" Kept dry, in oilcloth.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=193))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

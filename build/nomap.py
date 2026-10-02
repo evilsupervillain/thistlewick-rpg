@@ -34,6 +34,8 @@ no `build()` and nothing in `MAP_NAMES`.
 """
 import rmmzdata as R
 
+import places
+import q_corvin
 import q_wren
 import q_zephyrine
 
@@ -393,7 +395,15 @@ def _ashcombe_lake():
     again = S.narrate([
         "Ashcombe Lake, well up over the old street. Not",
         "this week."])
-    return _site(ASHCOMBE_LAKE, stop, first, again)
+    site = _site(ASHCOMBE_LAKE, stop, first, again)
+
+    def build(base_id, cells):          # COR-2's two pages, appended
+        assert sorted(cells) == [places.ASHCOMBE_LAKE], cells
+        evs = site(base_id, cells)
+        for ev in evs:
+            ev["pages"] += q_corvin.lake_pages(ev["pages"][-1])
+        return evs
+    return build
 
 
 # ========================================================== the Duck's Pond ==

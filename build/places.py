@@ -338,3 +338,13 @@ STUDY = (28, 4, 33, 8, 30)
 STUDY_DOOR = (6, 3)             # on the kitchen's north wall face
 STUDY_DESK = (31, 6)            # Table A, two cells, the committee's papers
 STUDY_MARKS = (30, 3)           # the height marks, on the north wall face
+
+# COR-2's drowned street (`../QUESTS.md` D2): old Ashcombe, under the lake,
+# for the week it is let down. A map in no place, drawn by `q_corvin.py`.
+# The way in is Ashcombe Lake's world-map cell, which `worldmap.json` puts at
+# (104, 54) and `nomap.py` asserts; the way out is one south of it, checked
+# open four ways (0x600) against the finished `data/Map008.json` with nothing
+# standing on it.
+MAP_DROWNED_STREET = 66
+ASHCOMBE_LAKE = (104, 54)
+LAKE_SHORE_STEP = (104, 55)

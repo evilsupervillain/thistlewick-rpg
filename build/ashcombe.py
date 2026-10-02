@@ -645,6 +645,7 @@ def indoors_events():
     # 5: the curator.
     evs.append(_person(5, "Hubert Weir", WEIR,
                        R.image("Gen_People5", 0, direction=2), *weir_pages()))
+    evs[-1]["pages"] += q_corvin.weir_pages(evs[-1]["pages"][-1])  # COR-2
 
     # 6: the plan of the drains.
     plan = S.narrate([
