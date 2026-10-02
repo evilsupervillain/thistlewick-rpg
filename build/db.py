@@ -407,6 +407,8 @@ AT_PAMPHLET = 12                # an armour type of its own, as AT_BADGE is
 SW_MER3_ON = 179                # the Table is sitting; she is on the list
 SW_MER3_DONE = 180              # write it down; the Table's Kit
 AR_TABLE_KIT = 46               # anybody's: an accessory of the general type
+# ALD-3, The Chapter House (QUESTS.md E4, q_aldric.py)
+SW_ALD3_DONE = 181              # the pin goes with the knight: At Large
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

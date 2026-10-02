@@ -2224,14 +2224,82 @@ appended by `south.wyvern_events` in one line; `build/scenarios/q_mer3.json`.
   and passes with a mark after it.
 * `TIMELINE.md`: the four healers' ages.
 
+**E4, ALD-3 The Chapter House - done.** ALD-3's section at the bottom of
+`q_aldric.py`, hooked from `coldbarrow.py` in three places (Mordaunt, the
+eight cells of the great map, the committee's two); the second picture drawn
+by `coldbarrow.draw_map(aldric=False)`; `build/scenarios/q_ald3.json`.
+
+* **The start is Mordaunt's second look** (Map 48 event 2, page 3: his A and
+  Aldric). His first page with Aldric is the published "Where am I?" /
+  "Frostwick, sir. And Fenmarch. And a lay-by in the west." / "The
+  committee will write." On the second it is Thursday, and the committee
+  will see him now.
+* **Decided: the committee is Mordaunt**, "appointed to it four times", who
+  sits in each of the four seats in turn and is quorate - so the empty
+  chairs and stools of the site were never empty, and nobody new needs a
+  face. Findings: nine pins; all nine correct; three the same week. "The
+  committee has been unable to fault the pins. It has therefore had to
+  fault the knight." / "Entirely fair." The request to REMAIN IN ONE PLACE,
+  "Informed. In ink." - in six years of trying to leave Thistlewick nobody
+  has once asked him to stay anywhere - and the offer: Knight Commander of
+  the Chapter, a desk, here, a pin that does not move, contingent on
+  remaining in one place.
+* **The refusal**: "That is the finest thing I have been offered in nine
+  years. Thank you." / "No." A knight who stays put is a post; Dame Winifred
+  (Little Gore's white pin) is a very fine post, and happy, and he honours
+  her; he would be at that desk by nine every morning "and I should never
+  once find it twice". "But you asked. Nobody asks a man to stay. Put that
+  in the minutes, would you? In ink." **One trope** (the guild that has lost
+  your file - which has nine).
+* **Decided: the rank is the answer to the data problem.** The knight cannot
+  stay with the pin, so "Resolved: that the pin go with the knight." The
+  nine red pins come out of the map, eight into the heap on the desk, and the
+  ninth goes on his tabard: **Knight Errant, At Large**, a rank of the Order
+  created this Thursday, and "wherever the knight is, sir, the map is
+  correct. That is the system now." It is **Change Nickname** (code 324) on
+  his actor, `Pemberton-Gore III` to `Knight Errant, At Large`, because the
+  status screen's nickname is the one place a rank shows - what
+  `COMPANIONS.md` calls "a proper rank", and what the ending's "somebody in
+  this party finally got promoted" can read.
+* **Afterwards for everybody**: Mordaunt ("Sir Aldric is wherever he is. He
+  has the pin. The map is correct. That is the system." - with very few red
+  pins left to move); the great map's eight cells, which show
+  `Coldbarrow_Map_AtLarge` - the same map with the red pins out and the
+  white ones where they were - and a card in the margin, PEMBERTON-GORE. AT
+  LARGE. PIN CARRIED.; and the committee's table, CONCLUDED. Sir A.
+  informed. Offered the Chapter. Declined. "Beautifully. (Minuted at his
+  request.)"
+* **Ids taken:** switch **181** `SW_ALD3_DONE`; `places.
+  COLDBARROW_MAP_AT_LARGE`, `img/pictures/Coldbarrow_Map_AtLarge.png`. No
+  faces, no items.
+* One trope, no blush. Running tally: **tropes +30 fixed and 2-9 from
+  PIP-2; blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ALDRIC]` (on already after ALD-4 in a game that did it).
+* **Candidate ending line** (G1; read `SW_ALD3_DONE`) - the Prophecy
+  noticing a promotion: "Sir Aldric Pemberton-Gore the Third has been
+  promoted, to Knight Errant, At Large. He carries his own pin. Wherever he
+  is, the map is correct."
+* **The rooms (0.1):** Coldbarrow had never been swept. Map 48 was cropped
+  with `propsheet.py` (16 tiles) and screenshotted: `World Map` four abreast
+  as the great map, the stained glass, `Armor A (Stand)` twice, the
+  committee's `Table A` with two `Chair A (Wood)` and two stools, the desk
+  with `Notes B` and the ledger, `Bookshelf A` the files. Everything is what
+  its event says. Nothing needed fixing. `Coldbarrow_Map.png` was redrawn by
+  the same run and is byte for byte what it was.
+* **Scenario** `q_ald3`: passes (33 checks), the picture asserted by name
+  through a spy on `showPicture`. Two earlier runs failed on the scenario,
+  not the pages: twenty presses were too few for Mordaunt's published
+  first page, and the great map's cell at x 7 is event 5.
+* `TIMELINE.md`: nothing dated ("this Thursday" is not a year).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E4, ALD-3 The
-Chapter House**. E1-E3 (Merribell's MER-5, MER-1 and MER-3) are done,
-2 Oct 2026. Mike asked
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E5, ALD-1 The
+Errand**. E1-E4 (Merribell's MER-5, MER-1 and MER-3, and Aldric's ALD-3)
+are done, 2 Oct 2026. Mike asked
 for E1-E6 in one session; if this prompt is being read, that session ended
 early, so carry on from here through E6, then the rerun for the part.
 
@@ -2252,18 +2320,18 @@ scenario, `build/scenarios/q_<quest>.json`, run in the background, one
 browser at a time. Then the Done paragraph, a commit, and this prompt moved
 on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +29 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 181, variable 26, item 68, weapon 42,
+Where things stand: tropes +30 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 182, variable 26, item 68, weapon 42,
 armour 47, armour type 13, class 12, common event 4, state 41, enemy 55,
 troop 53, skill 179, map 67, `Gen_People14` 1. Merribell has had her gear
 (the Pamphlet, armour 45). The Rule of Life's four lines are
 `q_merribell._MER5_RULE`.
 
-What E4 will need: Mordaunt's first page with Aldric is the published "The
-committee will write." - start on his second look. The great map shows
-`img/pictures/Coldbarrow_Map.png`, drawn by running `coldbarrow.py`, with
-nine red pins in it; afterwards wants a picture without them. Aldric's gear
-(the shield) is E7's, not this part's.
+What E5 will need: Little Gore (Map 50). The banns have no ladder;
+INVITATIONS TO FOLLOW is ALD-1's set-up. Mrs Vane's ladder is one self
+switch. Dame Winifred is HOB-1's, so leave her. E6 (ALD-5) then needs
+ALD-1 done, and puts the Fourth at Little Gore and three paces behind
+Aldric at six places.
 
 Things learned that will bite again:
 

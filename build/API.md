@@ -513,7 +513,7 @@ Mr Spence             Miss Fettle           Cotter
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-139 constants.
+140 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -653,6 +653,7 @@ MAP_DROWNED_STREET           66
 WYVERN_BACK                  (28, 4, 34, 9, 31)
 WYVERN_BACK_DOOR             (15, 3)
 WYVERN_BACK_TABLE            (29, 6, 33)
+COLDBARROW_MAP_AT_LARGE      'Coldbarrow_Map_AtLarge'
 ASHCOMBE_LAKE                (104, 54)
 LAKE_SHORE_STEP              (104, 55)
 ```
@@ -662,7 +663,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-513 constants.
+514 constants.
 
 ```
 BRAM                         1
@@ -1130,6 +1131,7 @@ AT_PAMPHLET                  12
 SW_MER3_ON                   179
 SW_MER3_DONE                 180
 AR_TABLE_KIT                 46
+SW_ALD3_DONE                 181
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

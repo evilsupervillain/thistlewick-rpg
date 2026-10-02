@@ -29,9 +29,19 @@ import copy
 import db
 import rmmzdata as R
 import story as S
-from places import MAP_DUNNAGE
+from places import MAP_DUNNAGE, COLDBARROW_MAP_AT_LARGE
 
 DUCHESS_EVENT = 15              # Map 61; Plummer's scene points at her
+
+
+def _like(page0, cmds, conditions):
+    """A page in exactly another page's dress - image, priority, movement -
+    with its own commands and conditions (`q_merribell._like`)."""
+    shaped = R.page(cmds, conditions=conditions)
+    page = copy.deepcopy(page0)
+    page["list"] = shaped["list"]
+    page["conditions"] = shaped["conditions"]
+    return page
 
 
 def _ald4_reunion():
@@ -143,3 +153,183 @@ def sign_page(page0):
     page["conditions"] = R.page([], conditions={
         "switch1Valid": True, "switch1Id": db.SW_ALD4_DONE})["conditions"]
     return page
+
+
+# ======================================================================
+# ALD-3, The Chapter House (`QUESTS.md` E4)
+# ----------------------------------------------------------------------
+# The Order of the Errant keeps a great map with a pin for every knight in
+# the field. Aldric has nine. The Order has formed a committee and would like
+# him to stay put for the duration of the review, which is the one thing he
+# cannot do and the one thing he has always wanted to be asked. He is offered
+# a promotion contingent on remaining in one place, and refuses it
+# beautifully.
+#
+# * **The start is Mordaunt's second look** (Map 48 event 2: his A and
+#   Aldric). His first page with Aldric is the published "The committee will
+#   write." On the second it is Thursday, and the committee sits.
+# * **The committee is Mordaunt**, appointed to it four times, so he sits in
+#   each of the four seats in turn and is quorate. No faces.
+# * **The rank is the answer to the data problem**: the knight cannot stay
+#   with the pin, so the pin goes with the knight. Knight Errant, At Large -
+#   Change Nickname on his actor, which is the one place a rank shows - and
+#   one red pin on his tabard. The map is correct wherever he is.
+# * **Afterwards for everybody**: Mordaunt, the great map (a second picture
+#   with no red pins, `coldbarrow.draw_map`), and the committee's table.
+ALD3_RANK = "Knight Errant, At Large"
+
+
+def _ald3_picture(indent=0):
+    """Show Picture 1: the great map as it is now, with no red pins in it."""
+    return [{"code": 231, "indent": indent,
+             "parameters": [1, COLDBARROW_MAP_AT_LARGE, 1, 0, 408, 222, 84,
+                            84, 255, 0]}]
+
+
+def _ald3_committee():
+    c = S.narrate([
+        "Mordaunt looks up from the map, sees Sir Aldric, and puts",
+        "his fistful of pins down on the desk, very carefully, as",
+        "if they might go off."])
+    c += S.say("Mordaunt", [
+        "Sir Aldric. It is Thursday.",
+        "The committee will see you now."])
+    c += S.narrate([
+        "He crosses to the committee's table and sits in the first",
+        "chair. Then he gets up and sits in the second, and then",
+        "on each of the stools. Then he stands behind them all."])
+    c += S.say("Aldric", ["Is it just you, Mordaunt?"])
+    c += S.say("Mordaunt", [
+        "It is the committee, sir. I have",
+        "been appointed to it four times.",
+        "We are quorate."])
+    c += S.say("Mordaunt", [
+        "Finding one: nine pins. Finding",
+        "two: all nine are correct. Finding",
+        "three: three of them are the same",
+        "week."])
+    c += S.say("Mordaunt", [
+        "The committee has been unable to",
+        "fault the pins. It has therefore",
+        "had to fault the knight."])
+    c += S.say("Aldric", ["Entirely fair."])
+    c += S.say("Mordaunt", [
+        "Recommendation: that Sir Aldric be",
+        "requested to REMAIN IN ONE PLACE",
+        "for the duration of the review."])
+    c += S.say("Mordaunt", ["You are so requested, sir.",
+                            "Informed. In ink."])
+    c += S.narrate([
+        "Sir Aldric goes very still. In six years of trying to",
+        "leave Thistlewick, nobody has ever once asked him to",
+        "stay anywhere."])
+    c += S.say("Mordaunt", [
+        "And the committee is empowered to",
+        "offer: Knight Commander of the",
+        "Chapter. A desk. Here. A pin that",
+        "does not move."])
+    c += S.say("Mordaunt", ["Contingent on remaining in",
+                            "one place."])
+    c += S.narrate([
+        "It is the one thing he cannot do, and the one thing he",
+        "has always wanted to be asked. Everybody in the room can",
+        "see both of those at once, including the knight."])
+    c += S.say("Aldric", [
+        "Mordaunt. That is the finest thing",
+        "I have been offered in nine years.",
+        "Thank you."])
+    c += S.say("Aldric", ["No."])
+    c += S.say("Aldric", [
+        "A knight who stays put is a post.",
+        "Dame Winifred is a very fine post,",
+        "and she is happy, and I honour her."])
+    c += S.say("Aldric", [
+        "I should be at that desk by nine",
+        "every morning. And I should never",
+        "once find it twice."])
+    c += S.say("Aldric", [
+        "But you asked. Nobody asks a man to",
+        "stay. Put that in the minutes, would",
+        "you? In ink."])
+    c += S.narrate([
+        "Mordaunt writes for some time. Then he reads it back to",
+        "himself, and crosses nothing out, which the ledger on his",
+        "desk would tell you is a first."])
+    c += S.say("Mordaunt", [
+        "Then the committee has a data",
+        "problem, sir. The knight cannot",
+        "stay with the pin."])
+    c += S.say("Mordaunt", ["Resolved: that the pin go",
+                            "with the knight."])
+    c += S.narrate([
+        "He goes along the great map and takes out the nine red",
+        "pins one at a time, and puts eight of them in the heap on",
+        "his desk. The ninth he holds out."])
+    c += S.say("Mordaunt", [
+        "Knight Errant, At Large. A rank of",
+        "the Order, created this Thursday.",
+        "The pin goes with the knight."])
+    c += S.say("Mordaunt", [
+        "And wherever the knight is, sir,",
+        "the map is correct. That is the",
+        "system now."])
+    c += S.narrate([
+        "Sir Aldric pins it to his tabard, over the knight who is",
+        "facing the wrong way, and stands up very straight."])
+    c += S.say("Aldric", ["Splendid fellow."])
+    c += [{"code": 324, "indent": 0, "parameters": [db.ALDRIC, ALD3_RANK]},
+          R.play_me("Fanfare1")]
+    c += S.got(["Sir Aldric is now \\C[3]%s\\C[0]." % ALD3_RANK])
+    c += [S.trope(), R.control_switch(db.SW_ALD3_DONE, True)]
+    c += S.companion_story(db.ALDRIC)
+    return c
+
+
+def mordaunt_pages(page0):
+    """Pages 3-4 for Mordaunt (Map 48, event 2), in his own page's dress: the
+    committee with Aldric, below his ladder; afterwards, for everybody."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    after = S.say("Mordaunt", [
+        "Sir Aldric is wherever he is. He",
+        "has the pin. The map is correct.",
+        "That is the system."])
+    after += S.narrate([
+        "He has very few red pins left to move, and does not seem",
+        "to know what to do with his hands."])
+    return [
+        _like(page0, _ald3_committee(),
+              dict(known, actorValid=True, actorId=db.ALDRIC)),
+        _like(page0, after,
+              dict(known, switch1Valid=True, switch1Id=db.SW_ALD3_DONE)),
+    ]
+
+
+def great_map_pages(page0):
+    """Page 2 of each cell of the great map (Map 48, events 3-10): the
+    picture without the red pins, and the card where they were."""
+    look = _ald3_picture() + [R.wait(20)] + S.narrate([
+        "The island, in the Order's own survey, four sheets",
+        "wide, with a pin for every knight in the field."])
+    look += S.narrate([
+        "One pin, one knight: a white head for each of them,",
+        "spread thin, standing where they were put. No red ones."])
+    look += S.narrate([
+        "In the margin, a small card in Mordaunt's hand:",
+        "   PEMBERTON-GORE. AT LARGE. PIN CARRIED."])
+    look += [{"code": 235, "indent": 0, "parameters": [1]}]
+    return [_like(page0, look, {"switch1Valid": True,
+                                "switch1Id": db.SW_ALD3_DONE})]
+
+
+def committee_pages(page0):
+    """Page 2 of the committee's table (Map 48, events 11-12)."""
+    card = S.narrate([
+        "Two chairs and two stools, all empty, and a card",
+        "on the table:",
+        "   REVIEW OF PINS (PEMBERTON-GORE): CONCLUDED.",
+        "   Sir A. informed. Offered the Chapter. Declined."])
+    card += S.narrate([
+        "Beneath it, in a smaller hand, in ink:",
+        "   Beautifully. (Minuted at his request.)"])
+    return [_like(page0, card, {"switch1Valid": True,
+                                "switch1Id": db.SW_ALD3_DONE})]

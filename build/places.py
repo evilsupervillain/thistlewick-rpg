@@ -353,5 +353,9 @@ MAP_DROWNED_STREET = 66
 WYVERN_BACK = (28, 4, 34, 9, 31)        # x1, y1, x2, y2, door_x
 WYVERN_BACK_DOOR = (15, 3)              # on the north wall face of the bar
 WYVERN_BACK_TABLE = (29, 6, 33)         # Table D from x 29 to 33, row 6
+# ALD-3 (QUESTS.md E4): the Chapter House's great map once the pin goes with
+# the knight - `coldbarrow.draw_map` writes it beside Coldbarrow_Map, with no
+# red pins in it, and `q_aldric` shows it.
+COLDBARROW_MAP_AT_LARGE = "Coldbarrow_Map_AtLarge"
 ASHCOMBE_LAKE = (104, 54)
 LAKE_SHORE_STEP = (104, 55)

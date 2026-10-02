@@ -40,8 +40,9 @@ import rmmzdata as R
 
 import db
 import story as S
+import q_aldric
 from places import (MAP_WORLD, MAP_COLDBARROW, COLDBARROW_STEP,
-                    WORLD_VILLAGE)
+                    WORLD_VILLAGE, COLDBARROW_MAP_AT_LARGE)
 
 # The name `worldmap.json`'s door events carry for this site.
 SITE = "Coldbarrow"
@@ -219,6 +220,7 @@ def chapter_events():
     evs = [S.exit_tile(1, "Chapter House Door", door_x, y2 + 2,
                        MAP_WORLD, *COLDBARROW_STEP)]
     evs.append(R.event(2, "Mordaunt", *MORDAUNT, mordaunt_pages()))
+    evs[-1]["pages"] += q_aldric.mordaunt_pages(evs[-1]["pages"][-1])  # ALD-3
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 
@@ -239,6 +241,7 @@ def chapter_events():
     for i, x in enumerate(MAP_X):
         evs.append(R.event(3 + i, "The Great Map", x, y1 - 1,
                            [R.page(look, **page)]))
+        evs[-1]["pages"] += q_aldric.great_map_pages(evs[-1]["pages"][0])  # ALD-3
     n = 3 + len(MAP_X)
 
     # The committee's table. It is not sitting.
@@ -252,10 +255,10 @@ def chapter_events():
         "   Sir A. requested to REMAIN IN ONE PLACE",
         "   for the duration. Not yet informed."])
     cx, cy = COMMITTEE
-    evs.append(R.event(n, "The Committee's Table", cx, cy,
-                       [R.page(table, **page)]))
-    evs.append(R.event(n + 1, "The Committee's Table", cx + 1, cy,
-                       [R.page(table, **page)]))
+    for i in range(2):
+        evs.append(R.event(n + i, "The Committee's Table", cx + i, cy,
+                           [R.page(table, **page)]))
+        evs[-1]["pages"] += q_aldric.committee_pages(evs[-1]["pages"][0])  # ALD-3
 
     # The files: every other knight is a thin one. His are the shelf.
     files = S.narrate([
@@ -284,8 +287,13 @@ def chapter_events():
 
 
 # ============================================================= the picture ==
-def draw_map():
+def draw_map(aldric=True):
     """Writes `img/pictures/Coldbarrow_Map.png` - the great map, with pins.
+
+    With `aldric` False it writes `COLDBARROW_MAP_AT_LARGE` instead: the
+    same map after ALD-3, when the nine red pins have come out and the one
+    that is left goes about on his tabard. The white pins that stood aside
+    for a red one keep their places, so the two pictures differ only there.
 
     Not part of the data build, like `art.py`: run this module to redraw it.
     The world is `build/worldmap/generated.png` at four pixels a cell, toned
@@ -333,10 +341,12 @@ def draw_map():
 
     for name in OTHER_PINS:
         pin(name, (236, 232, 220), dx=-6 if name in ALDRIC_PINS else 0)
-    for name in ALDRIC_PINS:
-        pin(name, (214, 32, 28))
+    if aldric:
+        for name in ALDRIC_PINS:
+            pin(name, (214, 32, 28))
 
-    path = os.path.join(HERE, "..", "img", "pictures", PICTURE + ".png")
+    name = PICTURE if aldric else COLDBARROW_MAP_AT_LARGE
+    path = os.path.join(HERE, "..", "img", "pictures", name + ".png")
     png.write(path, np.clip(out, 0, 255).astype(np.uint8))
     print("wrote", os.path.normpath(path))
 
@@ -372,3 +382,4 @@ def build():
 
 if __name__ == "__main__":
     draw_map()
+    draw_map(aldric=False)                                          # ALD-3

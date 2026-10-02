@@ -1,0 +1,322 @@
+{
+ "query": "?map=48&x=9&y=8&frames=90",
+ "comment": "QUESTS.md E4, ALD-3 The Chapter House. Mordaunt's first look with Aldric is the published 'The committee will write.'; his second is Thursday: the committee (Mordaunt, four times), the findings, the request to remain in one place, Knight Commander offered and declined, and the pin issued to the knight - Knight Errant, At Large, his nickname. One trope, no blush, his story. Afterwards for everybody: Mordaunt, the great map without red pins, the committee's card.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "$gameActors.actor(6).nickname()",
+   "expect": "Pemberton-Gore III",
+   "label": "his nickname before"
+  },
+  {
+   "eval": "$gameParty.addActor(6)"
+  },
+  {
+   "goto": [
+    48,
+    13,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0,
+   "label": "with Aldric, the first look is the published page"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 45
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"The committee will write.\"))",
+   "expect": true,
+   "label": "the reaction shot"
+  },
+  {
+   "check": "!window._lines.some(l => l.includes(\"Knight Commander\")) && !window._lines.some(l => l.includes(\"At Large\"))",
+   "expect": true,
+   "label": "and nothing of ALD-3"
+  },
+  {
+   "check": "$gameSwitches.value(181)",
+   "expect": false,
+   "label": "switch 181 False"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    48,
+    13,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "THE POINT: his second look is Thursday"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 90
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"It is Thursday.\")) && window._lines.some(l => l.includes(\"We are quorate.\")) && window._lines.some(l => l.includes(\"REMAIN IN ONE PLACE\")) && window._lines.some(l => l.includes(\"Knight Commander\")) && window._lines.some(l => l.includes(\"No.\")) && window._lines.some(l => l.includes(\"A knight who stays put is a post.\")) && window._lines.some(l => l.includes(\"Resolved: that the pin go\")) && window._lines.some(l => l.includes(\"Splendid fellow.\"))",
+   "expect": true,
+   "label": "the committee, the offer, the refusal, the pin"
+  },
+  {
+   "check": "$gameSwitches.value(181)",
+   "expect": true,
+   "label": "SW_ALD3_DONE"
+  },
+  {
+   "check": "$gameSwitches.value(105)",
+   "expect": true,
+   "label": "SW_STORY[ALDRIC]"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 1,
+   "label": "tropes +1"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 1,
+   "label": "companion stories +1"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "$gameActors.actor(6).nickname()",
+   "expect": "Knight Errant, At Large",
+   "label": "the rank"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "Mordaunt afterwards, with Aldric"
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "goto": [
+    48,
+    13,
+    5
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "Mordaunt afterwards, for everybody"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "talking to event 2"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"He\")) && window._lines.some(l => l.includes(\"has the pin. The map is correct.\"))",
+   "expect": true
+  },
+  {
+   "goto": [
+    48,
+    7,
+    4
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8)"
+  },
+  {
+   "check": "[3,4,5,6,7,8,9,10].map(i => $gameMap.event(i).findProperPageIndex())",
+   "expect": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "label": "the great map, every cell"
+  },
+  {
+   "eval": "window._lines = []; window._pics = []; const sp = Game_Screen.prototype.showPicture; Game_Screen.prototype.showPicture = function (id, name) { window._pics.push(name); return sp.apply(this, arguments); }"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "reading the great map (the cell at x 7)"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"No red ones.\")) && window._lines.some(l => l.includes(\"PIN CARRIED.\"))",
+   "expect": true
+  },
+  {
+   "check": "window._pics",
+   "expect": [
+    "Coldbarrow_Map_AtLarge"
+   ],
+   "label": "the picture without the red pins"
+  },
+  {
+   "check": "$gameScreen.picture(1)",
+   "expect": null,
+   "label": "and taken down after"
+  },
+  {
+   "goto": [
+    48,
+    7,
+    7
+   ]
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gamePlayer.setDirection(4)"
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 1,
+   "label": "the committee's table afterwards"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 12,
+   "label": "talking to event 12"
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"CONCLUDED.\")) && window._lines.some(l => l.includes(\"Beautifully.\"))",
+   "expect": true
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "tropes +0"
+  },
+  {
+   "check": "$gameVariables.value(7) - window._blushes",
+   "expect": 0,
+   "label": "blushes +0"
+  },
+  {
+   "check": "$gameVariables.value(15) - window._stories",
+   "expect": 0,
+   "label": "companion stories +0"
+  },
+  {
+   "check": "$gameParty.gold() - window._gold",
+   "expect": 0,
+   "label": "gold +0"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "back on the map"
+  }
+ ]
+}

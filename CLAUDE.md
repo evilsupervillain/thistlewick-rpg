@@ -350,7 +350,9 @@ Append instead.
 | Map 48 | The Chapter House of the Order of the Errant at Coldbarrow.
   `coldbarrow.py`, `SITES.md` step 11. `MAP_COLDBARROW`. The great map is
   a **picture**, `img/pictures/Coldbarrow_Map.png`, drawn by running the
-  module - not by the data build - with every pin placed by site name |
+  module - not by the data build - with every pin placed by site name.
+  Running it also writes `Coldbarrow_Map_AtLarge.png`, the same map with
+  Aldric's nine red pins out of it, which the great map shows after ALD-3 |
 | Map 49 | The Sable Hart, the inn where every corner is taken. `sable_hart.py`,
   `SITES.md` step 12. **`MAP_SABLE_HART`, not `MAP_INN`** - that is
   Thistlewick's, Map 4. Its `journey.py` alias is `HART`: `SH` is the
