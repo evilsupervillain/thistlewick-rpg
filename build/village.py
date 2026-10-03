@@ -1494,7 +1494,9 @@ def smithy_events():
     beatrice["pages"] += q_hob.beatrice_pages(beatrice["pages"][0])  # HOB-3
     evs.append(beatrice)
     evs.append(q_hob.anvil_event(5, *SMITHY_ANVIL, ANVIL))
-    evs.append(q_hob.forge_event(6, *SMITHY_FORGE))           # HOB-2
+    forge = q_hob.forge_event(6, *SMITHY_FORGE)               # HOB-2
+    forge["pages"] += q_hob.star_iron_page(forge["pages"][-1])  # HOB-4
+    evs.append(forge)
     return evs
 
 

@@ -1,0 +1,252 @@
+{
+ "query": "?map=8&x=76&y=27&frames=90",
+ "comment": "QUESTS.md E15, HOB-4 The Sky Anvil. The site's published first stop with Hob in it; nothing before HOB-2; Press on; the trade - a gate out of eleven gates, the spring on the latch, the star-iron; the gate on the shrine for everybody; a dismissed Hob's star-iron waiting; the sword at the forge, carrying HOB-2's page; not for Hob.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "$gameMap.event(50).findProperPageIndex()",
+   "expect": 0,
+   "label": "the Sky Anvil, never stopped at"
+  },
+  {
+   "eval": "$gameParty.addActor(3)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(50).findProperPageIndex()",
+   "expect": 0,
+   "label": "with Hob, never stopped at: still the first stop (below the ladder)"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0; $gameMap.event(50).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has('Came down out of the sky in'), window._has('star-iron'), $gameSelfSwitches.value([8, 50, 'A'])]",
+   "expect": [
+    true,
+    false,
+    true
+   ],
+   "label": "the published first stop, word for word, with Hob standing in it"
+  },
+  {
+   "check": "$gameMap.event(50).findProperPageIndex()",
+   "expect": 1,
+   "label": "with Hob but before HOB-2: the site's own second page"
+  },
+  {
+   "eval": "$gameSwitches.setValue(139, true); $gameSwitches.setValue(126, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(50).findProperPageIndex()",
+   "expect": 2,
+   "label": "with Hob and HOB-2 done: the trade"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(50).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Elias Meech is leaning on it.'), window._has('star-iron'), $gameSwitches.value(200)]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "Press on: nothing happens"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0; $gameMap.event(50).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has('Still between gates.'), window._has('That\\'s star-iron.'), window._has('Latch wanted a spring.'), window._has('That\\'s a very good gate.'), window._has('Got \\\\I[313]')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "the trade: a gate out of eleven gates, the spring, the star-iron"
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[71]), $gameSwitches.value(200), $gameSwitches.value(201)]",
+   "expect": [
+    1,
+    true,
+    false
+   ],
+   "label": "the star-iron in the bag; traded, not done"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    1,
+    0,
+    0
+   ],
+   "label": "one trope (the star-metal blade), no blush, no story yet"
+  },
+  {
+   "check": "$gameMap.event(50).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0; $gameMap.event(50).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('a gate hung on it now'), window._has('anything to open before.'), window._has('Still between gates.')]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "the gate on the shrine, for everybody"
+  },
+  {
+   "eval": "$gameParty.removeActor(3)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(50).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards without Hob"
+  },
+  {
+   "goto": [
+    6,
+    11,
+    4
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 3,
+   "label": "the forge without Hob: HOB-2's afterwards"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('TOO HEAVY'), window._has('star-iron'), $gameParty.numItems($dataItems[71])]",
+   "expect": [
+    true,
+    false,
+    1
+   ],
+   "label": "a dismissed Hob's star-iron waits in the bag"
+  },
+  {
+   "eval": "$gameParty.addActor(3)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 4,
+   "label": "with Hob and the star-iron: the sword"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has('TOO HEAVY'), window._has('exactly one thing'), window._has('Swords are'), window._has('It\\'s not on its own.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "HOB-2's page carried, then one sword, not for anybody he will name"
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[71]), $gameParty.numItems($dataWeapons[42]), $gameSwitches.value(201), $gameSwitches.value(102)]",
+   "expect": [
+    0,
+    1,
+    true,
+    true
+   ],
+   "label": "the star-iron gone, the sword in the bag, done, Hob's story"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    0,
+    0,
+    1
+   ],
+   "label": "no second trope, no blush; Hob's first story"
+  },
+  {
+   "check": "[$gameActors.actor(3).canEquip($dataWeapons[42]), $gameActors.actor(1).canEquip($dataWeapons[42])]",
+   "expect": [
+    false,
+    true
+   ],
+   "label": "not for Hob; a sword is for whoever"
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 3,
+   "label": "the forge its own afterwards again"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}

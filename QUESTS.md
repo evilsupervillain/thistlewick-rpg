@@ -3077,6 +3077,75 @@ Lorrimer on the front, three shut doors, Sops); `build/scenarios/q_nix3.json`.
 * `TIMELINE.md`: nothing dated.
 
 
+**E15, HOB-4 The Sky Anvil - done.** HOB-4's section at the bottom of
+`q_hob.py`, hooked from `nomap.py` (the Sky Anvil, in a wrapper like the
+pond's) and `village.py` (the forge); `build/scenarios/q_hob4.json`.
+
+* **The trade is at the Sky Anvil** (Map 8 event 50, (76,26)), page 3, below
+  its ladder (self switch A) with Hob and **`SW_HOB2_DONE`** - `COMPANIONS.md`
+  makes HOB-2 the one dependency a chain earns: Hob is good at gates now.
+  The site's own second-visit narration and "Stop a while / Press on", then
+  Meech's own "Still between gates", then Hob's hand flat on the stone "the
+  way you would put it on a horse": "That's star-iron." / "On a Tuesday." /
+  "I'll make you a gate for it." / "Out of what? I've no iron. Never thrown a
+  gate out, mind." The published first stop stays the first visit, with Hob
+  in it or not, word for word.
+* **Decided: the gate is made there, out of the eleven gates.** The site
+  says the gatepost "outlasted eleven gates"; a farmer never throws one out,
+  so they are in the hedge-bottom, rusting in order, and Hob sorts them on
+  the snow and works the afternoon cold with what is in his pack. That keeps
+  the quest to one trip out and one home. Then **the spring**: HOB-2 ended
+  with Beatrice saying the churchyard latch wanted a spring, and he has
+  carried one in his pocket since - "Latch wanted a spring." Nobody asks who
+  said so. Meech hangs it on the shrine (his own published answer to where a
+  gate would go), it swings to and stays, "...That's a very good gate", and
+  Hob lifts the Sky Anvil out of the top of the shrine "like an egg out of an
+  egg cup" - very heavy, not mentioned. **Item 71**, Star-Iron, a key item,
+  so a dismissed Hob's errand waits in the bag. "Pilgrims'll miss it." /
+  "They've a gate to open now." **One trope** (the star-metal blade).
+  `SW_HOB4_TRADED`.
+* **The sword is made at his forge** (Map 6 event 6, page 5): below HOB-2's
+  afterwards page (`SW_HOB2_DONE`, its terminal) with Hob and the star-iron,
+  and carrying that page - the chalked latch, TOO HEAVY - first. It makes
+  exactly one thing, and he knew it would: a sword, plain, long in the blade,
+  "that takes the light like frost on a window". **Decided: a sword, because
+  Hob cannot hold one** - his class takes flails, axes and gloves - so "not
+  for Hob" is a fact of the data, not a line. "Nobody. It's a sword. Swords
+  are for whoever." / "She says a sword's no use on its own." / "It's not on
+  its own." He wraps it in sacking, puts it in your pack and does not look at
+  anybody. **He does not say who it is for**, and the scene names nobody; the
+  player can guess (four of the party carry swords, and one of them was
+  Chosen with one off a wall). **Weapon 42**, Star-Iron Sword: ATK 66, DEF
+  +6, MAT +8, MDF +8, AGI +6, LUK +14, critical +6%; price 0. No gear: Hob
+  has his axe.
+* **Afterwards for everybody**: the Sky Anvil, "with a gate hung on it now
+  and nothing in the top", Meech leaning on the gate, and if you stop: "Best
+  gate in the county. Pilgrims come up and open it and shut it all
+  afternoon. Nobody's ever given them anything to open before." (His own
+  last page was "Still between gates", which is no longer true, so it is not
+  carried.) The forge goes back to HOB-2's afterwards once the star-iron is
+  spent.
+* **Ids taken:** switches **200** `SW_HOB4_TRADED`, **201** `SW_HOB4_DONE`;
+  item **71** `IT_STAR_IRON` (icon 313, the bright ingot); weapon **42**
+  `WP_STAR_IRON` (icon 119). No faces (Meech is `Gen_People2` 7), no new
+  events.
+* One trope, no blush. **Running tally at the end of E15: tropes +41 fixed
+  and 2-9 from PIP-2; blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[HOB]` (on already after HOB-1, -2, -3 or -5 in a game that did
+  one).
+* **Candidate ending line** (G1; read `SW_HOB4_DONE`): "The Sky Anvil has a
+  gate on it, out of eleven gates, with a spring on the latch. The star-iron
+  made one sword. Hob Grumnir has not said who it is for."
+* **The rooms (0.1):** the Sky Anvil is a world-map cell and the gate is in
+  the telling; the smithy was swept on 30 Sep. Nothing drawn.
+* **Scenario** `q_hob4`: passes (21 checks), first run - the published
+  first stop with Hob in it, nothing before HOB-2, Press on, the trade, the
+  gate for everybody, the star-iron waiting without Hob, the sword carrying
+  HOB-2's page, and the sword asserted unequippable by Hob and equippable by
+  Bram.
+* `TIMELINE.md`: nothing new (1749 and 1750 are the site's).
+
+
 ---
 
 ## Restart prompt

@@ -37,6 +37,7 @@ import rmmzdata as R
 import places
 import q_aldric
 import q_corvin
+import q_hob
 import q_wren
 import q_zephyrine
 
@@ -128,7 +129,14 @@ def _sky_anvil():
     again_stop = S.say("Meech", [
         "Still between gates. If you come across",
         "a good one, you know where I am."])
-    return _site(SKY_ANVIL, stop, first, again, again_stop)
+    site = _site(SKY_ANVIL, stop, first, again, again_stop)
+
+    def build(base_id, cells):          # HOB-4's two pages, appended
+        evs = site(base_id, cells)
+        for ev in evs:
+            ev["pages"] += q_hob.sky_anvil_pages(again)
+        return evs
+    return build
 
 
 # ============================================================== the Lay-By ==

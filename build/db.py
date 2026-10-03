@@ -451,6 +451,11 @@ SW_NIX3_ON = 198                # Lorrimer's challenge; the list; ends
 SW_NIX3_DONE = 199              # won on paperwork; a Dark Lord signed for
 VAR_NIX3_LOCATED = 27           # the list's three things, with receipts
 AR_LORRIMER_TOOLS = 48          # anybody's: left on a barrel, in a huff
+# HOB-4, The Sky Anvil (QUESTS.md E15, q_hob.py)
+SW_HOB4_TRADED = 200            # a gate out of eleven; the gatepost traded
+SW_HOB4_DONE = 201              # one sword, and he will not say who for
+IT_STAR_IRON = 71               # the Sky Anvil, under one arm
+WP_STAR_IRON = 42               # the one thing it makes; not for Hob
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1674,6 +1679,10 @@ def build_items():
                     "The Lay of the Forty-Eighth, by the Quills, chroniclers "
                     "to the Committee. Properly metred. A very good middle.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=189))
+    upsert(it, item(IT_STAR_IRON, "Star-Iron",
+                    "The Sky Anvil. Fell in 1749, on a Tuesday, and was a "
+                    "gatepost. Very heavy. Hob does not mention this.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=313))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",
@@ -1872,6 +1881,13 @@ def build_weapons():
                       WT_AXE, 0, [0, 0, 78, 12, 0, 6, -6, 12], icon=99,
                       animation=22,
                       traits=[trait(22, 2, 0.15)]))
+    # HOB-4: the one thing the star-iron makes. A sword, which Hob's class
+    # cannot hold - he made it knowing - and he will not say who it is for.
+    upsert(wp, weapon(WP_STAR_IRON, "Star-Iron Sword",
+                      "[Sword] A gatepost that fell out of the sky. Takes the "
+                      "light like frost on a window. Hob won't say who for.",
+                      WT_SWORD, 0, [0, 0, 66, 6, 8, 8, 6, 14], icon=119,
+                      animation=6, traits=[trait(22, 2, 0.06)]))
     save("Weapons.json", wp)
 
 

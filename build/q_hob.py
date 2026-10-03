@@ -1021,3 +1021,138 @@ def owned(key, ev):
                       conditions=ask["conditions"]))
     pages.append(again)
     return ev
+
+
+# ================================================================ HOB-4 ==
+# The Sky Anvil (`QUESTS.md` E15). A meteorite fell in 1749 and has been a
+# farm gatepost ever since. Elias Meech will not sell his gatepost, because it
+# is a very good gatepost, but he will trade it for a gate - and Hob has
+# lately become quite good at gates, so it needs HOB-2 (`COMPANIONS.md`: the
+# one place a chain earns the dependency).
+#
+# * **The trade is at the Sky Anvil** (`nomap.py`'s world-map cell), below
+#   its ladder (self switch A) with Hob and `SW_HOB2_DONE`. The gate is made
+#   there and then, cold, out of the eleven gates the gatepost has outlasted,
+#   which Meech has never thrown out - and the spring Hob has carried since
+#   the churchyard goes on the latch. The star-iron is a key item, so a
+#   dismissed Hob's errand is in the bag, waiting.
+# * **The sword is made at Hob's forge** (Map 6 event 6), below HOB-2's
+#   afterwards page and carrying it: exactly one thing, a sword, which his
+#   class cannot hold. He will not say who it is for.
+# * **Afterwards for everybody**: the Sky Anvil with a gate on it.
+STAR_ICON = 313
+STAR_SWORD_ICON = 119
+
+
+def _hob4_trade():
+    c = S.say("Meech", ["Still between gates. If you come across",
+                        "a good one, you know where I am."])
+    c += S.narrate([
+        "Hob puts his hand flat on the grey stone in the top of",
+        "the shrine, the way you would put it on a horse."])
+    c += S.say("Hob", ["That's star-iron. That's come down",
+                       "out of the sky, that has."])
+    c += S.say("Meech", ["On a Tuesday."])
+    c += S.say("Hob", ["I'll make you a gate for it."])
+    c += S.say("Meech", ["Out of what? I've no iron.",
+                         "Never thrown a gate out, mind."])
+    c += S.narrate([
+        "He has not. All eleven are in the hedge-bottom along the",
+        "top field, where each was put when it went, rusting",
+        "quietly in order."])
+    c += S.narrate([
+        "Hob has them out one after another and sorts them on the",
+        "snow into what will do and what won't, and works the",
+        "afternoon through, cold, with what he carries in his pack."])
+    c += [R.play_se("Hammer", 70), R.wait(30), R.play_se("Hammer", 70),
+          R.wait(30)]
+    c += S.narrate([
+        "A gate, out of eleven gates, true on its hangings. Then he",
+        "takes a spring out of his pocket, where it has been since a",
+        "churchyard in Thistlewick, and fits it to the latch."])
+    c += S.say("Hob", ["Latch wanted a spring."])
+    c += S.narrate([
+        "Meech hangs it on the shrine himself. It swings to, and",
+        "the latch drops, and stays."])
+    c += [R.play_se("Door1", 80)]
+    c += S.say("Meech", ["...That's a very good gate."])
+    c += S.say("Meech", ["Go on, then. Take it. Mind",
+                         "your back."])
+    c += S.narrate([
+        "Hob lifts the Sky Anvil out of the top of the shrine like",
+        "an egg out of an egg cup, and puts it under one arm. It is",
+        "very heavy. He does not mention this."])
+    c += [R.gain_item(db.IT_STAR_IRON, 1), R.play_me("Item")]
+    c += S.got(["Got \\I[%d]\\C[3]Star-Iron\\C[0]." % STAR_ICON])
+    c += S.say("Meech", ["Pilgrims'll miss it."])
+    c += S.say("Hob", ["They've a gate to open now."])
+    c += [S.trope(), R.control_switch(db.SW_HOB4_TRADED, True)]
+    return c
+
+
+def sky_anvil_pages(again):
+    """Two pages for the Sky Anvil (Map 8), whose ladder is self switch A:
+    with Hob, once HOB-2 is done, the trade; and afterwards, for everybody,
+    a gate on the shrine. `again` is the site's own second-visit narration."""
+    stop = ["Stop a while", "Press on"]
+    trade = list(again) + R.choice_block(stop, [_hob4_trade(), []])
+    after = S.narrate([
+        "The Sky Anvil, in the snow, with a gate hung on it now",
+        "and nothing in the top. Elias Meech is leaning on the",
+        "gate."]) + R.choice_block(stop, [S.say("Meech", [
+            "Best gate in the county. Pilgrims",
+            "come up and open it and shut it all",
+            "afternoon. Nobody's ever given them",
+            "anything to open before."]), []])
+    a = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    page = dict(trigger=1, priority=0, through=True, img=R.image(""))
+    return [
+        R.page(trade, conditions=dict(a, actorValid=True, actorId=db.HOB,
+                                      switch1Valid=True,
+                                      switch1Id=db.SW_HOB2_DONE), **page),
+        R.page(after, conditions=dict(a, switch1Valid=True,
+                                      switch1Id=db.SW_HOB4_TRADED), **page),
+    ]
+
+
+def _hob4_sword():
+    c = S.narrate([
+        "Hob puts the star-iron in the fire and says nothing for a",
+        "long time, which for Hob is about a minute."])
+    c += [R.play_se("Fire1", 70), R.wait(30)]
+    c += S.narrate([
+        "It makes exactly one thing. He knew it would. He makes a",
+        "sword - plain, long in the blade, that takes the light",
+        "like frost on a window."])
+    c += [R.play_se("Hammer", 80), R.wait(20), R.play_se("Hammer", 80),
+          R.wait(40)]
+    c += S.narrate([
+        "Hob cannot use a sword. Everybody in the smithy knows it,",
+        "and nobody says so. You ask who it is for."])
+    c += S.say("Hob", ["Nobody. It's a sword. Swords are",
+                       "for whoever."])
+    c += S.narrate(["He listens to the hammer at his belt for a while."])
+    c += S.say("Hob", ["She says a sword's no use on its own."])
+    c += S.say("Hob", ["It's not on its own."])
+    c += S.narrate([
+        "He wraps it in sacking and puts it in your pack, and does",
+        "not look at anybody, and goes to see about the fire."])
+    lose = R.gain_item(db.IT_STAR_IRON)
+    lose["parameters"] = [db.IT_STAR_IRON, 1, 0, 1]     # operation 1: decrease
+    c += [lose, R.gain_weapon(db.WP_STAR_IRON, 1), R.play_me("Item")]
+    c += S.got(["Got \\I[%d]\\C[3]Star-Iron Sword\\C[0]." % STAR_SWORD_ICON])
+    c += [R.control_switch(db.SW_HOB4_DONE, True)]
+    c += S.companion_story(db.HOB)
+    return c
+
+
+def star_iron_page(last):
+    """The forge (Map 6 event 6), below HOB-2's afterwards page and carrying
+    it: with Hob and the star-iron, the sword."""
+    page = copy.deepcopy(last)
+    page["list"] = R.page(last["list"][:-1] + _hob4_sword())["list"]
+    page["conditions"] = R.page([], conditions={
+        "switch1Valid": True, "switch1Id": db.SW_HOB2_DONE,
+        "itemValid": True, "itemId": db.IT_STAR_IRON,
+        "actorValid": True, "actorId": db.HOB})["conditions"]
+    return [page]

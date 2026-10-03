@@ -421,7 +421,9 @@ def build_system():
             (db.SW_PIP1_FIXED, "PIP-1: fixed, A. & P. Quill"),
             (db.SW_PIP1_DONE, "PIP-1: the official account settled"),
             (db.SW_NIX3_ON, "NIX-3: Lorrimer's list (ends)"),
-            (db.SW_NIX3_DONE, "NIX-3: won on paperwork")]:
+            (db.SW_NIX3_DONE, "NIX-3: won on paperwork"),
+            (db.SW_HOB4_TRADED, "HOB-4: a gate for the gatepost"),
+            (db.SW_HOB4_DONE, "HOB-4: one sword, not for Hob")]:
         switches[sid] = name
 
     variables = [""] * 32
