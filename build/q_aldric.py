@@ -734,3 +734,208 @@ def with_follower(events, map_id):
     x, y = FOURTH_FOLLOWS[map_id]
     make = fourth_meeting_event if map_id == MAP_LITTLE_GORE else following_event
     return list(events) + [make(len(events) + 1, x, y, map_id)]
+
+
+# ======================================================================
+# ALD-2, The Vigil (`QUESTS.md` E7)
+# ----------------------------------------------------------------------
+# A knight is confirmed by keeping vigil in a chapel. He has kept eleven,
+# every one in the wrong chapel, one of them a barn. The party keeps the
+# twelfth with him, in the right one, and he may not move or speak until it
+# is light - and things come.
+#
+# * **The right chapel is Weeping Bottom's**, the Order's chapel for the
+#   west, which the Sisters lend it, and **Sir Hamo Tench is the sponsor**:
+#   a knight of the Order, in the field in the ward for fourteen years. The
+#   start is his second look with Aldric (Map 55 event 4, below his one-self-
+#   switch ladder). The symposium has the chapel at three in the afternoon
+#   and the vigil has it at night, so it needs nothing of MER-1.
+# * **The shield has been waiting over the chapel door for thirty years**,
+#   sent for his first vigil, which he kept somewhere else. The Sisters took
+#   it for a pun about vigilance. Regardant means looking back, to see who is
+#   behind you: that is the whole of the Order, and he has been facing his
+#   friends, not the wrong way. It is his gear (`QUESTS.md` 0.5).
+# * **The vigil is a fight** (`db.build_vigil`): he cannot act and draws
+#   everything; the party keeps him up until dawn. Broken if he falls, and
+#   lost if everybody does - either way it waits, and Sir Hamo with it.
+# * **Afterwards for everybody**: Sir Hamo's last page and his letter to
+#   Coldbarrow; the chapel's own page and the pale patch over its door.
+ALD2_BATTLEBACK = ("Temple", "Temple")
+
+
+def _ald2_offer():
+    c = S.narrate([
+        "He looks at Sir Aldric for a while, the way one knight",
+        "looks at another's spurs."])
+    c += S.say("Sir Hamo", ["Pemberton-Gore. Were you",
+                            "ever confirmed? The vigil, and so on."])
+    c += S.say("Aldric", ["Eleven times. None of them",
+                          "took."])
+    c += S.say("Aldric", ["Wrong chapel, every one.",
+                          "Coldbarrow, twice. It says CHAPTER",
+                          "HOUSE on the door. I thought it was",
+                          "being modest."])
+    c += S.say("Aldric", ["And one was a barn. It had",
+                          "a weathercock. I was very nearly",
+                          "sure."])
+    c += S.say("Sir Hamo", ["The Order's chapel for the",
+                            "west is across the yard. Always has",
+                            "been. The Sisters lend it us."])
+    c += S.say("Sir Hamo", ["There's a shield over the",
+                            "door, inside. Thirty years it's hung",
+                            "there. Nobody's come for it."])
+    c += S.narrate([
+        "A knight on it, in a field, looking back over his",
+        "shoulder. The Sisters have always taken it for a pun,",
+        "about vigilance."])
+    c += S.say("Aldric", ["...That's mine."])
+    c += S.say("Sir Hamo", ["I'll stand sponsor. Dusk",
+                            "to dawn. You don't move, and you",
+                            "don't speak. Your friends keep the",
+                            "watch."])
+    c += S.say("Sir Hamo", ["Things come, at night, at",
+                            "Weeping Bottom. They always have.",
+                            "Tonight?"])
+    return c
+
+
+def _ald2_into_battle():
+    """Sir Aldric at the front, if four others are; then the chapel's
+    battleback, the fight, and the map's own battleback back."""
+    front = R.script([
+        "const a = $gameActors.actor(%d);" % db.ALDRIC,
+        "if (!$gameParty.battleMembers().includes(a)) {",
+        "  const all = $gameParty.allMembers();",
+        "  $gameParty.swapOrder(all.indexOf(a),",
+        "    $gameParty.maxBattleMembers() - 1);",
+        "}",
+    ])
+    return front + [{"code": 283, "indent": 0,
+                     "parameters": list(ALD2_BATTLEBACK)}]
+
+
+def _ald2_confirmed():
+    c = S.narrate([
+        "Morning. Sir Hamo gets up out of the chair at the back,",
+        "a joint at a time, and takes the shield down from over",
+        "the door."])
+    c += S.say("Sir Hamo", ["Sir Aldric Pemberton-Gore.",
+                            "Vigil kept, in the right chapel,",
+                            "dusk to dawn. Confirmed."])
+    c += S.say("Sir Hamo", ["Thirty years late. The",
+                            "Order's never minded late. It minds",
+                            "wrong chapels."])
+    c += S.narrate([
+        "He holds it out. Argent, a knight rampant regardant: a",
+        "knight in a field, looking back over his shoulder."])
+    c += S.say("Aldric", ["They told me it was a pun.",
+                          "About vigilance."])
+    c += S.say("Sir Hamo", ["It's not. He's looking",
+                            "back to see who's behind him. That's",
+                            "the whole of the Order."])
+    c += S.say("Sir Hamo", ["You don't lead. You look",
+                            "round, and you see who's bleeding,",
+                            "and you go and stand in front of",
+                            "them."])
+    c += S.say("Aldric", ["...I always thought I was",
+                          "facing the wrong way."])
+    c += S.say("Sir Hamo", ["You were facing your",
+                            "friends."])
+    c += R.if_then(R.condition_switch(db.SW_ALD5_DONE), S.narrate([
+        "Outside, the Fourth has kept the door all night, three",
+        "paces from it. Facing the right way, he points out."]))
+    c += [R.gain_armor(db.AR_REGARDANT, 1), R.play_me("Fanfare2")]
+    c += S.narrate([
+        "Sir Aldric takes the shield. He has not said anything",
+        "for eleven hours, and he does not say anything now."])
+    c += [S.trope(), R.control_switch(db.SW_ALD2_DONE, True)]
+    c += S.companion_story(db.ALDRIC)
+    return c
+
+
+def _ald2_again():
+    return S.say("Sir Hamo", ["Twelfth's not done, then.",
+                              "Took me four goes. When you're",
+                              "ready. The chapel's not going",
+                              "anywhere. Nor am I."])
+
+
+def _ald2_broken():
+    return S.narrate([
+        "Sir Hamo helps him up. Nobody says anything about it,",
+        "least of all Sir Aldric."]) + _ald2_again()
+
+
+def _ald2_lost():
+    return S.narrate([
+        "The Sisters find the lot of you on the chapel floor at",
+        "six, and put you to bed on the line, so that both halves",
+        "can treat you."]) + _ald2_again()
+
+
+def _ald2_vigil():
+    c = [R.fadeout_screen()]
+    c += S.narrate([
+        "Dusk. Leek soup first, from both halves of the ward; it",
+        "is the rule. Then Sir Hamo unlocks the chapel with a key",
+        "he keeps on a string, under the nightshirt."])
+    c += [R.recover_all(0)]
+    c += S.narrate([
+        "The symposium's chairs stand in their two rows, facing",
+        "one another, and watch. Over the door hangs the shield,",
+        "the knight on it looking back."])
+    c += S.say("Sir Hamo", ["From now. Not a word,",
+                            "Pemberton-Gore."])
+    c += S.narrate([
+        "He does not say one. Sir Hamo sits down at the back and",
+        "coughs, very quietly, until midnight. Then something",
+        "comes in under the door."])
+    c += _ald2_into_battle()
+    c += [R.battle(db.TR_VIGIL, can_escape=False, can_lose=True)]
+    bodies = [(601, _ald2_confirmed()),
+              (602, _ald2_broken() + [R.recover_all(0)]),
+              (603, _ald2_lost() + [R.recover_all(0)])]
+    for code, body in bodies:
+        c += [{"code": code, "indent": 0, "parameters": []}]
+        c += R.shift(body, 1)
+        c += [{"code": 0, "indent": 1, "parameters": []}]
+    c += [{"code": 604, "indent": 0, "parameters": []}]
+    c += [{"code": 283, "indent": 0, "parameters": ["", ""]},
+          R.fadein_screen()]
+    return c
+
+
+def hamo_pages(last):
+    """Pages 3-4 for Sir Hamo (Map 55, event 4), in his own last page's
+    dress: with Aldric, his last page and then the vigil, below his ladder;
+    afterwards, his last page and the letter to Coldbarrow, for everybody."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    own = last["list"][:-1]
+    later = S.say("Sir Hamo", ["Thirty years. It'll keep",
+                               "till you're ready. So will I."])
+    ask = own + _ald2_offer() + R.choice_block(
+        ["Tonight", "Not yet"], [_ald2_vigil(), later])
+    after = own + S.narrate([
+        "On the blanket, a letter to Coldbarrow, nearly done:",
+        "   IN THE FIELD. CONFIRMED: ONE. (PEMBERTON-GORE.)",
+        "   FIRST IN THIRTY YEARS."])
+    after += R.if_then(R.condition_actor_in_party(db.ALDRIC),
+                       S.say("Sir Hamo", ["Anybody behind you, Sir",
+                                          "Aldric?"]) +
+                       S.say("Aldric", ["Always."]))
+    return [
+        _like(last, ask, dict(known, actorValid=True, actorId=db.ALDRIC)),
+        _like(last, after,
+              dict(known, switch1Valid=True, switch1Id=db.SW_ALD2_DONE)),
+    ]
+
+
+def chapel_pages(page0):
+    """Page 2 of Weeping Bottom's chapel (Map 54, event 5), which has no
+    ladder: its own page, and the patch over the door, for everybody."""
+    after = page0["list"][:-1] + S.narrate([
+        "Over the door inside, a paler patch on the wall, the",
+        "shape of a shield, where one hung for thirty years."])
+    return [_like(page0, after, {"switch1Valid": True,
+                                 "switch1Id": db.SW_ALD2_DONE})]
+

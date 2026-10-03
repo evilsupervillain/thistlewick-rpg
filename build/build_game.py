@@ -405,7 +405,8 @@ def build_system():
             (db.SW_MER3_DONE, "MER-3: write it down; the Table's Kit"),
             (db.SW_ALD3_DONE, "ALD-3: Knight Errant, At Large"),
             (db.SW_ALD1_DONE, "ALD-1: the letter delivered"),
-            (db.SW_ALD5_DONE, "ALD-5: the Fourth squires for him")]:
+            (db.SW_ALD5_DONE, "ALD-5: the Fourth squires for him"),
+            (db.SW_ALD2_DONE, "ALD-2: the vigil kept; confirmed")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -446,7 +447,7 @@ def build_system():
         "optAutosave": False, "optDrawTitle": True,
         "switches": switches, "variables": variables,
         # WRE-3's badge is Wren's alone: a type of its own (QUESTS.md 0.5).
-        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe", "Scarf", "Pamphlet"],
+        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe", "Scarf", "Pamphlet", "Escutcheon"],
         # The blank project ships all three vehicles parked on map 1 at
         # coordinates from a tutorial map that is not in this game - the
         # airship at (154, 70), which is a hundred tiles off the east edge of

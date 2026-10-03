@@ -414,6 +414,15 @@ SW_ALD1_DONE = 182              # the letter delivered, nine years late
 IT_ALD1_LETTER = 68             # TO THE PARISH OF LITTLE GORE. BY HAND.
 # ALD-5, Pemberton-Gore the Fourth (QUESTS.md E6, q_aldric.py)
 SW_ALD5_DONE = 183              # three paces behind; and the gate, found
+# ALD-2, The Vigil (QUESTS.md E7, q_aldric.py, db.build_vigil)
+SW_ALD2_DONE = 184              # dusk to dawn, in the right chapel: confirmed
+AR_REGARDANT = 47               # Aldric's gear (QUESTS.md 0.5): his alone
+AT_ESCUTCHEON = 13              # an armour type of its own, as AT_BADGE is
+ST_VIGIL = 41                   # keeping vigil: does not move, draws everything
+EN_DAMP, EN_SMALL_HOURS, EN_TEMPTATION, EN_LIGHT = 55, 56, 57, 58
+TR_VIGIL = 53
+SK_SEEPS_IN, SK_SIT_DOWN, SK_HOW_LATE, SK_THIS_WAY = 179, 180, 181, 182
+VIGIL_DAWN = 5                  # the turn at whose end it is light
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -908,6 +917,8 @@ def build_actors():
     ac[CORVIN]["traits"] = [trait(52, AT_SCARF, 1)]
     # MER-1: the founder's own copy of the Pamphlet, four lines and soup.
     ac[MERRI]["traits"] = [trait(52, AT_PAMPHLET, 1)]
+    # ALD-2: the shield over the chapel door, thirty years waiting for him.
+    ac[ALDRIC]["traits"] = [trait(52, AT_ESCUTCHEON, 1)]
 
     upsert(ac, actor(
         ROLAND, "Roland", "Guest Star",
@@ -2523,6 +2534,7 @@ def build():
     build_firstfield()
     build_contest()
     build_monograph()
+    build_vigil()
 
 
 # ================================================= the companion quests ======
@@ -2720,3 +2732,139 @@ def build_monograph():
                     itype=2, consumable=False, scope=0, occasion=3, icon=189))
     save("Items.json", it)
 
+
+
+def build_vigil():
+    """ALD-2, the vigil (QUESTS.md E7): a defence battle in which Aldric is
+    present, cannot act and cannot be commanded, and draws everything that
+    comes at the party - his whole class, as the boss condition.
+
+    * **He keeps vigil** (state 41): restriction 4, so he is never given a
+      turn, and a target rate of ten, so nearly everything aimed at the
+      party is aimed at him. Substitute would be the literal reading, but
+      the engine only lets a battler who can move substitute, so the cover
+      is the targeting.
+    * **The things that come hit for a share of the target's hit points**,
+      so the fight is the same fight at any level: the party keeps him up
+      and thins out what it can. The Small Hours cannot be fought, only got
+      through, so the only way to win is the dawn - a troop page at the end
+      of turn `VIGIL_DAWN` that kills everything still in the chapel.
+    * **If he falls, the vigil is broken**: a troop page aborts the battle,
+      which Battle Processing reports as an escape. The party cannot run."""
+    sk = R.load("Skills.json")
+    upsert(sk, skill(SK_SEEPS_IN, "Seeps In", "", "b.mhp * 0.08",
+                     hit_type=0, animation=0,
+                     message="%1 seeps into %2's armour."))
+    upsert(sk, skill(SK_SIT_DOWN, "Suggests Sitting Down", "",
+                     "b.mhp * 0.06", hit_type=0, animation=0,
+                     message="%1 suggests to %2, very reasonably, that "
+                             "they sit down."))
+    upsert(sk, skill(SK_HOW_LATE, "How Late It Is", "", "0", dmg_type=0, hit_type=0,
+                     animation=0, effects=[effect(21, 10, 0.4)],
+                     message="%1 hums something about how late it is."))
+    upsert(sk, skill(SK_THIS_WAY, "THIS WAY", "", "b.mhp * 0.12",
+                     hit_type=0, animation=0,
+                     message="%1 says THIS WAY to %2, very brightly."))
+    save("Skills.json", sk)
+
+    st = R.load("States.json")
+    upsert(st, state(
+        ST_VIGIL, "Keeping Vigil", 81, restriction=4,
+        traits=[trait(23, 0, 10)], auto_removal=0, max_turns=1, min_turns=1,
+        message1="%1 is keeping vigil.", message4="%1 may move.",
+        priority=90))
+    save("States.json", st)
+
+    ar = R.load("Armors.json")
+    upsert(ar, armor(AR_REGARDANT, "Shield (Regardant)",
+                     "[Escutcheon] Argent, a knight rampant regardant: "
+                     "looking back, to see who is behind him.",
+                     ET_SHIELD, AT_ESCUTCHEON, 0, [60, 0, 0, 40, 0, 24, 0, 6],
+                     icon=129, traits=[trait(62, 1, 1), trait(23, 1, 0.3)]))
+    save("Armors.json", ar)
+
+    en = R.load("Enemies.json")
+    upsert(en, enemy(
+        EN_DAMP, "The Damp", "Undine", 0, [260, 0, 30, 20, 20, 30, 12, 10],
+        60, 0, [action(SK_SEEPS_IN, 5)],
+        note="ALD-2. It comes in under the chapel door at Weeping Bottom "
+             "every night. It always has."))
+    upsert(en, enemy(
+        EN_SMALL_HOURS, "The Small Hours", "Siren", 0,
+        [999999, 0, 20, 999, 20, 999, 8, 10], 200, 0,
+        [action(SK_HOW_LATE, 5)],
+        note="ALD-2. Cannot be fought, only got through. Gone at dawn."))
+    upsert(en, enemy(
+        EN_TEMPTATION, "A Small Temptation", "Petitdevil", 0,
+        [240, 0, 24, 16, 24, 20, 30, 10], 80, 0, [action(SK_SIT_DOWN, 5)],
+        note="ALD-2. Sits on the end of the altar rail. Very reasonable."))
+    upsert(en, enemy(
+        EN_LIGHT, "A Light Going Away", "SF_Will_o_the_wisp", 0,
+        [260, 0, 36, 18, 30, 24, 24, 10], 100, 0, [action(SK_THIS_WAY, 5)],
+        note="ALD-2. Bobs off down the valley, saying THIS WAY. He has "
+             "followed every light in the valley but this one."))
+    save("Enemies.json", en)
+
+    end = {"code": 0, "indent": 0, "parameters": []}
+
+    def page(lines_or_cmds, span=0, **cond):
+        cmds = (R.text(lines_or_cmds) if isinstance(lines_or_cmds[0], str)
+                else lines_or_cmds)
+        return {"conditions": dict(BLANK_TROOP_CONDITIONS, **cond),
+                "list": cmds + [end], "span": span}
+
+    # The killable three are sized to the party, as the contest's acts are.
+    size_them = R.script([
+        "for (const e of $gameTroop.members()) {",
+        "  if (e.mhp > 99999) continue;",
+        "  const want = 30 * $gameParty.highestLevel() *",
+        "    $gameParty.battleMembers().length;",
+        "  e.addParam(0, Math.max(0, want - e.mhp));",
+        "  e.setHp(e.mhp);",
+        "}",
+    ])
+    # Change Actor State: fixed actor, add.
+    kneel = [{"code": 313, "indent": 0, "parameters": [0, ALDRIC, 0, ST_VIGIL]}]
+    turn0 = size_them + kneel + R.text([
+        "Sir Aldric kneels at the altar rail. He will not move",
+        "until it is light, or speak, and whatever comes for any",
+        "of you will have to come past him."]) + R.text([
+        "The damp comes in under the door, as it always has.",
+        "The small hours come in after it, and sit down. They",
+        "cannot be fought. They can only be got through."])
+    appear = lambda i: [{"code": 335, "indent": 0, "parameters": [i]}]
+    temptation = appear(2) + R.text([
+        "Something small sits down on the end of the altar rail,",
+        "and asks Sir Aldric, very reasonably, whether he would",
+        "not like to sit down."])
+    wisp = appear(3) + R.text([
+        "A light at the window, bobbing away down the valley,",
+        "says THIS WAY. Sir Aldric has followed every light in",
+        "the valley. He does not follow this one."])
+    fallen = R.text([
+        "Sir Aldric goes down, and gets straight up again, which",
+        "is not allowed, and he knows it.",
+        "The vigil is broken."]) + [
+        {"code": 340, "indent": 0, "parameters": []}]
+    # Change Enemy State: the entire troop, add Dead.
+    dawn = R.text([
+        "Grey at the east window. Then light, all down the",
+        "chapel, and everything that came in the night is",
+        "suddenly not there."]) + [
+        {"code": 333, "indent": 0, "parameters": [-1, 0, 1]}]
+    pages = [
+        page(turn0, turnValid=True, turnA=0, turnB=0),
+        page(fallen, actorValid=True, actorId=ALDRIC, actorHp=0),
+        page(dawn, turnEnding=True, turnValid=True, turnA=VIGIL_DAWN,
+             turnB=0),
+        page(temptation, turnValid=True, turnA=2, turnB=0),
+        page(wisp, turnValid=True, turnA=3, turnB=0),
+    ]
+    tr = R.load("Troops.json")
+    t = troop(TR_VIGIL, "The Vigil",
+              [(EN_DAMP, 200, 300), (EN_SMALL_HOURS, 400, 250),
+               (EN_TEMPTATION, 560, 330), (EN_LIGHT, 330, 380),
+               (EN_DAMP, 620, 240)], pages=pages)
+    t["members"][2]["hidden"] = t["members"][3]["hidden"] = True
+    upsert(tr, t)
+    save("Troops.json", tr)

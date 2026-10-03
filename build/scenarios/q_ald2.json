@@ -1,0 +1,389 @@
+{
+ "query": "?map=55&x=12&y=10&frames=90",
+ "comment": "QUESTS.md E7, ALD-2 The Vigil. Sir Hamo's first page is the published reaction shot; the second look with Aldric is the vigil. Not yet; then the vigil broken (Aldric falls), lost (everybody falls) and kept to dawn, fought for real with the party on auto-battle: troop 53, dawn at the end of turn five, Aldric drawing nearly every hit. The shield, Aldric's alone. Afterwards for everybody: Sir Hamo and the chapel.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; window._troops = []; window._hits = []; window._vigil = false; window._appeared = []; window._turns = -1; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._auto = false; const ab = Game_BattlerBase.prototype.isAutoBattle; Game_BattlerBase.prototype.isAutoBattle = function () { return (window._auto && this.isActor()) || ab.call(this); }; const ap = Game_Action.prototype.apply; Game_Action.prototype.apply = function (t) { if (this.subject().isEnemy() && t.isActor()) window._hits.push(t.actorId()); return ap.call(this, t); }; const pv = BattleManager.processVictory; BattleManager.processVictory = function () { window._turns = $gameTroop.turnCount(); window._appeared = $gameTroop.members().filter(e => e.isAppeared()).map(e => e.enemyId()); return pv.call(this); }; window._mode = ''; const ss = Scene_Battle.prototype.start; Scene_Battle.prototype.start = function () { ss.call(this); this._bf = 0; window._troops.push($gameTroop._troopId); }; const su = Scene_Battle.prototype.update; Scene_Battle.prototype.update = function () { su.call(this); this._bf++; const al = $gameActors.actor(6); if (al.isStateAffected(41)) window._vigil = true; if (window._mode === 'keepup' && al.isAlive()) al.setHp(al.mhp); if (window._mode === 'fall' && this._bf === 300) { al.addState(1); al.setHp(0); } if (window._mode === 'lose' && this._bf === 300) { $gameParty.members().forEach(a => { a.addState(1); a.setHp(0); }); } }"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 0,
+   "label": "Sir Hamo: his first page"
+  },
+  {
+   "comment": "Aldric fifth in a party of five, so the vigil has to bring him to the front.",
+   "eval": "[2, 3, 8, 6].forEach(id => $gameParty.addActor(id)); $gameParty.allMembers().map(a => a.actorId())"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes('for once')) && !window._lines.some(l => l.includes('ever confirmed'))",
+   "expect": true,
+   "label": "the first visit is the published reaction shot, and nothing of the vigil"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 2,
+   "label": "the second look, with Aldric: the vigil"
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 1,
+   "label": "without him, Sir Hamo's own last page"
+  },
+  {
+   "eval": "$gameParty.addActor(6); window._mark(); window._pick = 1"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._lines.some(l => l.includes('Soup at noon')), window._lines.some(l => l.includes('...That')), window._lines.some(l => l.includes('So will I.')), window._troops]",
+   "expect": [
+    true,
+    true,
+    true,
+    []
+   ],
+   "label": "his own last page, the shield over the door, and 'Not yet': no vigil"
+  },
+  {
+   "check": "[$gameSwitches.value(184), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    false,
+    0
+   ]
+  },
+  {
+   "comment": "Tonight - and Aldric falls at frame 300: the vigil is broken.",
+   "eval": "window._mark(); window._pick = 0; window._auto = true; window._mode = 'fall'"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 200
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "[window._troops, window._vigil, window._lines.some(l => l.includes('The vigil is broken.')), window._lines.some(l => l.includes('Took me four goes'))]",
+   "expect": [
+    [
+     53
+    ],
+    true,
+    true,
+    true
+   ],
+   "label": "broken: troop 53, Aldric kept vigil, fell, and Sir Hamo will wait"
+  },
+  {
+   "check": "[$gameSwitches.value(184), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataArmors[47])]",
+   "expect": [
+    false,
+    0,
+    0
+   ],
+   "label": "nothing spent"
+  },
+  {
+   "check": "[$gameParty.battleMembers().includes($gameActors.actor(6)), $gameActors.actor(6).isAlive(), $gameActors.actor(6).isStateAffected(41), $gameMap.battleback1Name()]",
+   "expect": [
+    true,
+    true,
+    false,
+    ""
+   ],
+   "label": "he was brought to the front; recovered; the state gone; the ward's battleback back"
+  },
+  {
+   "comment": "Tonight - and everybody falls: lost, and it waits.",
+   "eval": "window._mark(); window._pick = 0; window._mode = 'lose'"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 200
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "[window._troops, window._lines.some(l => l.includes('chapel floor')), window._lines.some(l => l.includes('Took me four goes'))]",
+   "expect": [
+    [
+     53
+    ],
+    true,
+    true
+   ],
+   "label": "lost: the Sisters put you to bed on the line"
+  },
+  {
+   "check": "[$gameSwitches.value(184), $gameParty.members().every(a => a.isAlive())]",
+   "expect": [
+    false,
+    true
+   ]
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 2,
+   "label": "the vigil is still offered"
+  },
+  {
+   "comment": "Tonight - kept up, to dawn.",
+   "eval": "window._mark(); window._pick = 0; window._mode = 'keepup'"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 260
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "check": "[window._troops, window._turns, window._vigil]",
+   "expect": [
+    [
+     53
+    ],
+    5,
+    true
+   ],
+   "label": "won at dawn, at the end of turn five, and not before"
+  },
+  {
+   "check": "[55, 56, 57, 58].every(id => window._appeared.includes(id))",
+   "expect": true,
+   "label": "the temptation and the light came in"
+  },
+  {
+   "check": "window._hits.filter(id => id === 6).length / Math.max(1, window._hits.length) >= 0.7",
+   "expect": true,
+   "label": "he took nearly everything"
+  },
+  {
+   "eval": "[window._hits.length, window._hits.filter(id => id === 6).length]"
+  },
+  {
+   "check": "[window._lines.some(l => l.includes('Confirmed.')), window._lines.some(l => l.includes('facing your')), window._lines.some(l => l.includes('the Fourth'))]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "confirmed; facing his friends; no Fourth without ALD-5"
+  },
+  {
+   "check": "[$gameSwitches.value(184), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(105), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    1,
+    0,
+    true,
+    1
+   ],
+   "label": "done; one trope (the night watch), no blush; his story"
+  },
+  {
+   "check": "[$gameParty.numItems($dataArmors[47]), $gameActors.actor(6).canEquip($dataArmors[47]), $gameActors.actor(2).canEquip($dataArmors[47]), $gameActors.actor(3).canEquip($dataArmors[47])]",
+   "expect": [
+    1,
+    true,
+    false,
+    false
+   ],
+   "label": "the shield, and only Aldric can carry it"
+  },
+  {
+   "check": "[$gameActors.actor(6).isStateAffected(41), $gameMap.battleback1Name(), $gameMap.isEventRunning()]",
+   "expect": [
+    false,
+    "",
+    false
+   ]
+  },
+  {
+   "comment": "Afterwards.",
+   "eval": "window._mode = ''; window._auto = false; window._mark()"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3,
+   "label": "Sir Hamo afterwards, with Aldric"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 15
+  },
+  {
+   "check": "[window._lines.some(l => l.includes('Soup at noon')), window._lines.some(l => l.includes('CONFIRMED: ONE')), window._lines.some(l => l.includes('Always.'))]",
+   "expect": [
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "eval": "$gameParty.removeActor(6); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3,
+   "label": "and for everybody"
+  },
+  {
+   "eval": "$gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 15
+  },
+  {
+   "check": "[window._lines.some(l => l.includes('CONFIRMED: ONE')), window._lines.some(l => l.includes('Always.'))]",
+   "expect": [
+    true,
+    false
+   ]
+  },
+  {
+   "goto": [
+    54,
+    7,
+    18
+   ]
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 1,
+   "label": "the chapel afterwards"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 15
+  },
+  {
+   "check": "[window._lines.some(l => l.includes('SYMPOSIUM THE ELEVENTH')), window._lines.some(l => l.includes('the', 'shape of a shield') || l.includes('shape of a shield'))]",
+   "expect": [
+    true,
+    true
+   ]
+  },
+  {
+   "eval": "$gameSwitches.setValue(184, false)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 0,
+   "label": "the chapel before: its own page only"
+  },
+  {
+   "eval": "$gameSwitches.setValue(184, true)"
+  },
+  {
+   "comment": "One look at the fight itself, in the chapel.",
+   "eval": "$gameParty.addActor(6); $gameMap.changeBattleback('Temple', 'Temple'); window._auto = true; window._mode = 'keepup'; BattleManager.setup(53, false, true); SceneManager.push(Scene_Battle)"
+  },
+  {
+   "frames": 150
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 90
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 90
+  },
+  {
+   "shot": "q_ald2_battle.png"
+  },
+  {
+   "eval": "window._mode = ''; $gameParty.members().forEach(a => { a.addState(1); a.setHp(0); })"
+  },
+  {
+   "key": "Enter",
+   "times": 8,
+   "gap": 60
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "back from the look"
+  }
+ ]
+}

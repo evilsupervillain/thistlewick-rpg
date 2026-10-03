@@ -2466,15 +2466,109 @@ The `weeping_bottom`, `hamlets` and `coldbarrow` reaction-shot assertions
 those scenarios resets the owner's self switch before its companion pass,
 and every quest page waits on the second look. Nothing is owed.
 
+
+**E7, ALD-2 The Vigil - done.** ALD-2's section at the bottom of
+`q_aldric.py`, hooked from `weeping_bottom.py` in two places (Sir Hamo, the
+chapel); the fight in `db.build_vigil`; `build/scenarios/q_ald2.json`.
+
+* **Decided: Weeping Bottom's chapel, not Coldbarrow.** It is the Order's
+  chapel for the west, which the Sisters lend it, and the symposium has it
+  at three in the afternoon while a vigil has it at night - so it needs
+  nothing of MER-1, and the published locked door and the chairs set out
+  facing one another are still true on the night. Coldbarrow's Chapter House
+  "is not one", so it became two of his eleven wrong chapels ("It says
+  CHAPTER HOUSE on the door. I thought it was being modest."), with a barn
+  that had a weathercock.
+* **The sponsor is Sir Hamo Tench**, the Order's knight in the field in the
+  ward for fourteen years, and the start is his second look with Aldric (Map
+  55 event 4, page 3: his A and Aldric), carrying his own last page; his
+  first page with Aldric is the published salute and stays the first visit.
+  **Decided: the shield has been over the chapel door for thirty years**,
+  hung for the vigil Aldric was due at sixteen and kept somewhere else; the
+  Sisters took the knight on it for a pun about vigilance. "...That's mine."
+  "Tonight / Not yet" ("Thirty years. It'll keep till you're ready. So will
+  I.").
+* **The vigil** is leek soup from both halves (Recover All), Sir Hamo's key
+  on a string under the nightshirt, the symposium's chairs watching, "From
+  now. Not a word, Pemberton-Gore." - and **troop 53**, a defence battle in
+  the chapel (battleback `Temple`, put back to the map's own after):
+  * **Aldric keeps vigil**, state **41**: restriction 4, so he never gets a
+    turn and cannot be commanded, and target rate x10, so he draws nearly
+    everything aimed at the party. Substitute was the literal reading, and
+    the engine only lets a battler who can move substitute, so the cover is
+    the targeting. The scenario counts the hits: he took at least 70% of
+    them. If he is fifth in the party he is brought to the front first.
+  * **The things that come** hit for a share of the target's hit points, so
+    it is the same fight at any level: **the Damp** (two, `Undine`, Seeps
+    In, 8%), **the Small Hours** (`Siren`, 999,999 hit points - "cannot be
+    fought, only got through" - humming How Late It Is, a sleep), **a Small
+    Temptation** (`Petitdevil`, from turn 2, Suggests Sitting Down, 6%) and
+    **a Light Going Away** (`SF_Will_o_the_wisp`, from turn 3, THIS WAY,
+    12%: "Sir Aldric has followed every light in the valley. He does not
+    follow this one."). None was used by any enemy before. The killable
+    three are sized to the party, as the contest's acts are.
+  * **The only win is the dawn**: a troop page at the end of turn
+    `VIGIL_DAWN` (5) kills whatever is still in the chapel. **If he falls,
+    the vigil is broken** - a troop page aborts, which Battle Processing
+    reports as an escape, and the party cannot run; if everybody falls it is
+    lost, and the Sisters put you to bed on the line so both halves can
+    treat you. Either way, Recover All, and Sir Hamo: "Took me four goes...
+    The chapel's not going anywhere. Nor am I." It waits.
+* **Confirmed**: "Thirty years late. The Order's never minded late. It minds
+  wrong chapels." Regardant is looking back, to see who is behind him -
+  "That's the whole of the Order. You don't lead. You look round, and you
+  see who's bleeding, and you go and stand in front of them." / "...I always
+  thought I was facing the wrong way." / "You were facing your friends." -
+  which is the family arms, ALD-4's saddle, ALD-5's squire and his class, said
+  once. With ALD-5 done, the Fourth has kept the door all night, facing the
+  right way. He has not said anything for eleven hours, and does not now.
+  **One trope** (the night watch).
+* **Aldric's gear** (0.5): armour **47** "Shield (Regardant)", a shield of a
+  new armour type **13, "Escutcheon"**, which his actor has a trait for -
+  the badge pattern, in the shield slot. MHP +60, DEF +40, MDF +24, LUK +6,
+  guard x1.3, and **substitute**: he covers whoever is bleeding without
+  being asked, now always and not only while Interposing.
+* **Afterwards for everybody**: Sir Hamo's own last page plus a letter to
+  Coldbarrow on the blanket, IN THE FIELD. CONFIRMED: ONE. (PEMBERTON-GORE.)
+  FIRST IN THIRTY YEARS. - and with Aldric, "Anybody behind you, Sir
+  Aldric?" / "Always."; the chapel's own page plus the paler patch over its
+  door, the shape of a shield.
+* **Ids taken:** switch **184** `SW_ALD2_DONE`; armour **47**
+  `AR_REGARDANT`, armour type **13** `AT_ESCUTCHEON`; state **41**
+  `ST_VIGIL`; enemies **55-58**; troop **53**; skills **179-182**. No
+  faces, no new events, nothing for `AUDIT.md` (stock art). **Fixed on the
+  way:** two of the first names chosen, `EN_WISP` and `SK_LULLABY`, were
+  already `db` constants (the Gloamwood's wisp, Piper's lullaby) and
+  rebinding them moved two old troops and a learning - the data diff showed
+  it, and they are `EN_LIGHT` and `SK_HOW_LATE`.
+* One trope, no blush. Running tally: **tropes +33 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ALDRIC]` (on already after ALD-1, -3, -4 or -5 in a game that
+  did one).
+* **Candidate ending line** (G1; read `SW_ALD2_DONE`): "Sir Aldric
+  Pemberton-Gore the Third kept his vigil in the right chapel, thirty years
+  late, and did not move until it was light. The knight on his shield is
+  looking back, to see who is behind him. Somebody always is."
+* **The rooms (0.1):** Weeping Bottom was swept in E2; nothing drawn, and the
+  fight was screenshotted in the chapel.
+* **Scenario** `q_ald2`: passes (30 checks), fought for real on
+  auto-battle, three times: broken (Aldric felled at frame 300), lost
+  (everybody felled) and kept to dawn - won at the end of turn five and not
+  before, the temptation and the light both came in, and he took 15 of the
+  16 hits aimed at the party. Its first run failed only its own last step,
+  a look at the fight that killed the party for the shot and never pressed
+  through the defeat; the shot is now taken first.
+* `TIMELINE.md`: 1970, the shield over the door and the first wrong chapel;
+  Aldric's age, forty-six.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E7, ALD-2 The
-Vigil**. E1-E6 are done, with their rerun, 2 Oct 2026: Merribell's MER-5,
-MER-1 and MER-3, and Aldric's ALD-3, ALD-1 and ALD-5. One step per session
-again (0.1) unless Mike asks for more.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E8, ALD-6 The
+Wrong Dragon**. E1-E7 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
+asked for E7-E12 in one session, with the part's rerun at the end of E12.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
 B1 on, once, at the start; then **Aldric's** section of `COMPANIONS.md`, and
@@ -2494,23 +2588,19 @@ Screenshots of anything drawn, looked at. The step's own scenario,
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +32 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 184, variable 26, item 69, weapon 42,
-armour 47, armour type 13, class 12, common event 4, state 41, enemy 55,
-troop 53, skill 179, map 67, `Gen_People14` 1. Merribell has had her gear
-(the Pamphlet, armour 45). **Aldric's gear is the shield, from this step**
-(0.5): a new armour type 13 and one trait on his actor, the badge pattern.
+Where things stand: tropes +33 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 185, variable 26, item 69, weapon 42,
+armour 48, armour type 14, class 12, common event 4, state 42, enemy 59,
+troop 54, skill 183, map 67, `Gen_People14` 1. Aldric has had his gear (the
+shield, armour 47, E7). **The E7-E12 rerun will need `weeping_bottom`**: its
+companion pass asserts Sir Hamo says nothing of a vigil, and ALD-2 starts on
+his second look. Merribell has had her gear (the Pamphlet, armour 45).
 
-What E7 will need: "the chapel at Weeping Bottom (Map 54, event 5) or
-Coldbarrow". Weeping Bottom's chapel is locked and set out for the eleventh
-symposium, which MER-1 cancelled - so after MER-1 it is free, and before it
-the symposium is in it; decide which and say why. Coldbarrow's Chapter House
-"is not one, and does not pretend to be". The vigil is a troop with a
-turn-count victory in which Aldric cannot act and covers everybody: read
-how WRE-1 and PIP-3 built their fights in `db.py` before designing it.
-Aldric now has a squire who follows him (ALD-5) and a rank (ALD-3,
-nickname "Knight Errant, At Large"); the vigil is "confirmation, thirty
-years late". Sir Hamo, in the Sisterhouse, is a knight of his Order.
+What E8 will need: the Wrong Dragon's cave, Map 8 event 53, two pages (the
+`nomap._site` pair); "Somebody Large" speaks with Mike's silhouette
+(`Supplied` 2), and what it is stays a closed subject (`SITES.md`, `NORTH.md`
+1.3). He only ever called his horse "Horse" (ALD-4), and they "talked about
+Horace until it got dark".
 
 Things learned that will bite again:
 
@@ -2545,6 +2635,14 @@ Things learned that will bite again:
 * **`advance` budgets run short on published first pages**, which are often
   long: Mordaunt's took more than twenty presses. "still busy" then a `goto`
   that never arrives is the budget, not the page (E1, E4).
+* **A new `db` constant can rebind an old one.** `EN_WISP` and `SK_LULLABY`
+  were already taken, and the build silently moved two troops and a class
+  learning to the new ids. Grep `db.py` for a name before using it; the
+  data diff is what caught it (E7).
+* **A turn-count fight can be fought for real in a scenario**: wrap
+  `Game_BattlerBase.isAutoBattle` true for actors and `advance` through it
+  (q_ald2). Kill the party only after any screenshot, and press through
+  the defeat message.
 * **The end-of-part rerun by map id is the whole suite** once Maps 1, 8, 13
   or 14 are touched. Choose by what each change can reach and write the
   reasoning down (the E1-E6 rerun paragraph).

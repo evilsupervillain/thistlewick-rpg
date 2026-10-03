@@ -153,6 +153,7 @@ when it does, in a round year.
 | 1960 | the Gloamwood Society founded to prove the Thing in the Woods is not there; nine members, a walk a year, The Sighting four times a year (issue 160 in 2000) | `q_wren` (WRE-3) | F |
 | 1969 | Gideon Markup prices the Sword of Ultimate Ending | `penultima` | F |
 | 1970 | Tobias Frayne's first revival of eleven, "in thirty years" | `frayne` | F |
+| 1970 | Aldric, sixteen, is due to keep his vigil: the Order hangs his shield, a knight rampant regardant, over the door of its chapel for the west at Weeping Bottom, and he keeps the vigil somewhere else - the first of eleven wrong chapels in thirty years, two of them Coldbarrow's Chapter House and one a barn with a weathercock. Confirmed at the twelfth, in 2000, with Sir Hamo as sponsor (ALD-2) | `q_aldric` (ALD-2) | F |
 | 1971 | Edith Pellow sees the Thing, and counts nine heads; The Sighting, issue forty-four | `q_wren` (WRE-3) | F |
 | 1974 | Walt Ashbury, twenty-six years at the Eight Hours | `restwell` | F |
 | 1977 | Roland Fairweather, eleven, page to Dame Florence Ickworth: the Wyrm of Ickworth, the first of his eleven parties ("since I was eleven", and thirty-four now) | `q_roland` (ROL-3) | P |
@@ -175,6 +176,7 @@ when it does, in a round year.
 | Mr Ottershaw | ninety in March | `fenmarch` |
 | Thaddeus Rook's rival | ninety-one | `sable_hart` |
 | Ysolde Marrow | seventy-eight | `south` |
+| Sir Aldric Pemberton-Gore III | forty-six (sixteen at the vigil he was due, "thirty years late", ALD-2) | `q_aldric` |
 | Merribell | twenty-six (left the Sisterhouse at twenty-two, MER-1) | `q_merribell` |
 | the Healers' Table | Nan Gilly eighty-eight, Mother Grizel Pennyfeather eighty-one, Dr Lucius Hobday seventy, Mr Cuthbert Spence sixty-four - the youngest until Merribell, by thirty-eight years (MER-3) | `q_merribell` |
 | Halbert Quy | in his seventies | `south` |

@@ -305,6 +305,7 @@ def valley_events():
     # 5: the chapel, locked, and set out for the symposium.
     evs.append(R.event(5, "The Chapel", *CHAPEL_DOOR,
                        [R.page(chapel_pages(), **PAGE)]))
+    evs[-1]["pages"] += q_aldric.chapel_pages(evs[-1]["pages"][0])      # ALD-2
 
     # 6: the founder's stone, and the site's trope.
     first, later = stone_pages()
@@ -632,6 +633,7 @@ def ward_events():
     evs[-1]["pages"] += q_merribell.bewick_pages(evs[-1]["pages"][-1])  # MER-1
     evs.append(_person(4, "Sir Hamo Tench", HAMO,
                        R.image(*S.FACES["Sir Hamo"], direction=8), *hamo_pages()))
+    evs[-1]["pages"] += q_aldric.hamo_pages(evs[-1]["pages"][-1])       # ALD-2
     evs.append(_person(5, "Sister Lamb", LAMB,
                        R.image(*S.FACES["Sister Lamb"], direction=4), *lamb_pages()))
 
