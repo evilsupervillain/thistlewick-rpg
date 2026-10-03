@@ -1,0 +1,285 @@
+{
+ "query": "?map=57&x=10&y=8&frames=90",
+ "comment": "QUESTS.md E9, WRE-4 The Cabinet. Both owners' first visits published with Wren; Mrs Puddifoot's second look engages her; Mr Ottershaw shows the joins and walks past case forty; the write-up, the fee and the Fourth's delight; a dismissed Wren's errand waiting; afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s))"
+  },
+  {
+   "eval": "$gameParty.addActor(9)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "Mrs Puddifoot: her first page"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 0,
+   "label": "Mr Ottershaw: his first page"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Eighty of them.'), window._has('naturalist')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "her first visit is the published page, with Wren"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('COMPOSED'), window._has('ASKED')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "his first visit is the published page, with Wren"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 1,
+   "label": "Ottershaw with Wren, not yet engaged: his own last page"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "Mrs Puddifoot's second look, with Wren"
+  },
+  {
+   "eval": "$gameParty.removeActor(9)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1,
+   "label": "without Wren, her own last page"
+  },
+  {
+   "eval": "$gameParty.addActor(9)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Friday to Wednesday.'), window._has('A proper one.'), window._has('Dr Rowbotham named'), $gameSwitches.value(186)]",
+   "expect": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "her own last page, and the engagement"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('far end'), window._has('A proper one.')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "engaged: Mr Ottershaw at the far end"
+  },
+  {
+   "eval": "$gameParty.removeActor(9)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 1,
+   "label": "a dismissed Wren's errand waits: his own page"
+  },
+  {
+   "eval": "$gameParty.addActor(9)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 2,
+   "label": "with her, the joins"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Still looking for the'), window._has('has ever ASKED.'), window._has('There is no join.'), window._has('writes nothing'), $gameSwitches.value(187)]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "his last page, the joins, and case forty, which she does not write down"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Every join.'), window._has('has ever ASKED.')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "not shown twice"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 50
+  },
+  {
+   "check": "[window._has('SEVENTY-NINE') || window._has('Seventy-nine composed'), window._has('Case forty: not examined.'), window._has('Anybody can have real.')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "the write-up: seventy-nine, case forty not examined, and the Fourth delighted"
+  },
+  {
+   "check": "[$gameSwitches.value(188), $gameParty.gold() - window._gold, $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(108), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    600,
+    1,
+    0,
+    true,
+    1
+   ],
+   "label": "done; the fee; one trope (the nobleman's collection), no blush; her story"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: Mrs Puddifoot, with Wren"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: Mr Ottershaw, with Wren"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Friday to Wednesday.'), window._has('She dusts it first')]",
+   "expect": [
+    true,
+    true
+   ]
+  },
+  {
+   "eval": "$gameParty.removeActor(9)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "and for everybody"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3,
+   "label": "and for everybody"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Still looking for the'), window._has(\"underlined 'finest'\")]",
+   "expect": [
+    true,
+    true
+   ]
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 0,
+   "label": "the Marsh Bear's case keeps its one page"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

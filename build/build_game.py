@@ -407,7 +407,10 @@ def build_system():
             (db.SW_ALD1_DONE, "ALD-1: the letter delivered"),
             (db.SW_ALD5_DONE, "ALD-5: the Fourth squires for him"),
             (db.SW_ALD2_DONE, "ALD-2: the vigil kept; confirmed"),
-            (db.SW_ALD6_DONE, "ALD-6: the Wrong Dragon, read to")]:
+            (db.SW_ALD6_DONE, "ALD-6: the Wrong Dragon, read to"),
+            (db.SW_WRE4_ON, "WRE-4: engaged to authenticate"),
+            (db.SW_WRE4_JOINS, "WRE-4: shown every join"),
+            (db.SW_WRE4_DONE, "WRE-4: written up; the fee")]:
         switches[sid] = name
 
     variables = [""] * 32

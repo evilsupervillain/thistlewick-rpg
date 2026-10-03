@@ -425,6 +425,11 @@ SK_SEEPS_IN, SK_SIT_DOWN, SK_HOW_LATE, SK_THIS_WAY = 179, 180, 181, 182
 VIGIL_DAWN = 5                  # the turn at whose end it is light
 # ALD-6, The Wrong Dragon (QUESTS.md E8, q_aldric.py)
 SW_ALD6_DONE = 185              # the cave lit; read to; the commission reported
+# WRE-4, The Cabinet (QUESTS.md E9, q_wren.py)
+SW_WRE4_ON = 186                # engaged to authenticate the collection
+SW_WRE4_JOINS = 187             # Mr Ottershaw has shown her every join
+SW_WRE4_DONE = 188              # written up, honestly; the fee
+WRE4_FEE = 600                  # crowns, the family's, for the write-up
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

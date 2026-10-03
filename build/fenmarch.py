@@ -42,6 +42,7 @@ import rmmzdata as R
 import db
 import story as S
 import q_aldric
+import q_wren
 from places import MAP_WORLD, MAP_FENMARCH, MAP_GALLERY, FENMARCH_STEP
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -523,9 +524,11 @@ def gallery_events():
     evs[-1]["pages"] += q_aldric.fourth_pages(evs[-1]["pages"][-1])  # ALD-5
     evs.append(_person(3, "Mrs Puddifoot", PUDDIFOOT,
                        R.image(*S.FACES["Mrs Puddifoot"], direction=6), *puddifoot_pages()))
+    evs[-1]["pages"] += q_wren.puddifoot_pages(evs[-1]["pages"][-1])  # WRE-4
     evs.append(_person(4, "Mr Ottershaw", OTTERSHAW,
                        R.image("Gen_People5", 4, direction=4),
                        *ottershaw_pages()))
+    evs[-1]["pages"] += q_wren.ottershaw_pages(evs[-1]["pages"][-1])  # WRE-4
 
     # 5: the fire, which the stock fireplace does not have - step 12.
     evs.append(R.event(5, "The Fire", FIRE_X + 1, y1, [R.page(

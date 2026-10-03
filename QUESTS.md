@@ -2621,17 +2621,76 @@ lake's); `build/scenarios/q_ald6.json`.
   back, and afterwards with and without him.
 * `TIMELINE.md`: 1993, the right dragon slain by somebody else.
 
+
+**E9, WRE-4 The Cabinet - done.** WRE-4's section at the bottom of
+`q_wren.py`, hooked from `fenmarch.py` in two places (Mrs Puddifoot, Mr
+Ottershaw); `build/scenarios/q_wre4.json`.
+
+* **Decided: Mrs Puddifoot asks.** The Marsh Bear's case has Wren's
+  published "Not unless I'm asked.", and somebody had to. The family is the
+  Fourth, but ALD-5's afterwards page is on him, so the owner is the
+  housekeeper who dusts all eighty, Friday to Wednesday: her second look with
+  Wren (Map 57 event 3, page 3: her A and Wren), carrying her own last page.
+  "You're a naturalist. A proper one. With the jars." The Fourth is across
+  the gallery before she has finished, and speaks from where he stands: "Three
+  generations we've been proud of them. Dr Rowbotham named the bear!" / "He
+  named everything. That was the problem." `SW_WRE4_ON`.
+* **Mr Ottershaw shows her the joins** (event 4, page 3: his A, Wren and the
+  engagement): "Seventy years. Nobody has ever ASKED." The Marsh Bear (bear
+  to the waist, crab below - the crab end came for the crayfish), the
+  Phoenix (a salamander, and the top of something that fell in Cook's fire),
+  the Horse (crab and unicorn: the plate is blank because nobody liked to ask
+  what it was) - each one what `fenmarch.SEWN` actually drew. She finds each
+  join only once he has put his finger on it. `SW_WRE4_JOINS`.
+* **Decided: the composite that is real is case forty**, the Home Farm's
+  unicorn that "kept the foxes down" - drawn as a wolf and a unicorn, and
+  the one case whose plate already says it was bred at Fenmarch. He walks
+  past it "the way you go past a door you don't open"; she looks at the
+  shoulder and the horn for a long time; there is no join; she writes
+  nothing. Nobody says it is real.
+* **The write-up**, read back at Mrs Puddifoot's: eighty cases, seventy-nine
+  composed by Mr J. Ottershaw, none what its plate says, not one ever lived;
+  "The joins are the finest work I have seen... I could not find these
+  without being shown, and then I could not stop looking at them. Case
+  forty: not examined." - honest, and silent on the one thing. "...None of
+  them?" / "None of them. I'm sorry." Then: "COMPOSED. By Mr Ottershaw.
+  Nobody else in the county has a COMPOSER... That's better than real.
+  Anybody can have real." The fee, **600 crowns**, from a tin on the
+  mantelpiece (`db.WRE4_FEE`); "Nobody has ever been pleased with a write-up
+  of mine... I'm not sure what to do with my face." **One trope** (the
+  nobleman's collection). No gear - Wren has her badge.
+* **Afterwards for everybody**: Mrs Puddifoot's own last page plus the
+  write-up framed over the fire, dusted first, before the cases; Mr
+  Ottershaw's plus a copy pinned over his bench with "finest" underlined
+  twice.
+* **Ids taken:** switches **186** `SW_WRE4_ON`, **187** `SW_WRE4_JOINS`,
+  **188** `SW_WRE4_DONE`; `db.WRE4_FEE`. No faces, no items, no new events.
+* One trope, no blush. Running tally: **tropes +35 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[WREN]` (on already after WRE-1, -2, -3 or -5 in a game that did
+  one).
+* **Candidate ending line** (G1; read `SW_WRE4_DONE`): "The Fenmarch
+  Collection has been authenticated by W. Halloway: seventy-nine composed,
+  the finest joins she has seen. The family has never been prouder. Case
+  forty was not examined."
+* **The rooms (0.1):** the gallery was swept in E6 and is unchanged.
+* **Scenario** `q_wre4`: passes (24 checks), first run - both owners'
+  published first visits with Wren, the engagement, the wait, a dismissed
+  Wren's errand waiting at Mr Ottershaw, the joins and case forty, the
+  write-up and the fee, and afterwards with and without her.
+* `TIMELINE.md`: nothing new (Ottershaw's 1930 is already there).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E9, WRE-4 The
-Cabinet**. E1-E8 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E10, COR-3 The
+Rivals' Retreat**. E1-E9 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
 asked for E7-E12 in one session, with the part's rerun at the end of E12.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Wren's** section of `COMPANIONS.md`, and
+B1 on, once, at the start; then **Corvin's** section of `COMPANIONS.md`, and
 no other companion's. Read what the step needs by dumping its maps' events
 and their text, not by opening a module. Crop anything a step touches with
 `propsheet.py` before judging, and screenshot before and after anything
@@ -2648,19 +2707,18 @@ Screenshots of anything drawn, looked at. The step's own scenario,
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +34 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 186, variable 26, item 69, weapon 42,
+Where things stand: tropes +35 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 189, variable 26, item 69, weapon 42,
 armour 48, armour type 14, class 12, common event 4, state 42, enemy 59,
 troop 54, skill 183, map 67, `Gen_People14` 1. Aldric has had his gear (the
 shield, armour 47, E7). **The E7-E12 rerun will need `weeping_bottom`**: its
 companion pass asserts Sir Hamo says nothing of a vigil, and ALD-2 starts on
 his second look. Merribell has had her gear (the Pamphlet, armour 45).
 
-What E9 will need: Fenmarch's gallery, Map 57 - Mrs Puddifoot (event 3),
-Mr Ottershaw (4), the thirty-two cases (15-46; every one is two animals,
-`fenmarch.SEWN`, and the Marsh Bear's case has Wren's "Not unless I'm
-asked."). The Fourth (2) already has ALD-5's afterwards page: avoid him as
-an owner. Fenmarch was swept in E6.
+What E10 will need: the Sable Hart, Map 49 - Crake (event 2, with a
+published Corvin reaction on his first page), the league table (8, no
+ladder, "stops at fourth"), the rota (9), the newsletter (10, "his chair is
+kept"), the empty table in the middle (11). Not swept yet: crop it.
 
 Things learned that will bite again:
 

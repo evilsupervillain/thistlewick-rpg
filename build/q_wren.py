@@ -971,3 +971,186 @@ def pond_page():
         conditions={"selfSwitchValid": True, "selfSwitchCh": "A",
                     "switch1Valid": True, "switch1Id": db.SW_WRE1_DUCK_DUE,
                     "actorValid": True, "actorId": db.WREN})
+
+
+# ================================================================ WRE-4 ==
+# The Cabinet (`QUESTS.md` E9). A manor holds eighty impossible animals in
+# glass cases, and she is engaged to authenticate them. All eighty are two
+# animals sewn together; the taxidermist is ninety and unrepentant and an
+# artist, and the joins are magnificent. She writes it up honestly, which
+# means saying the workmanship is the finest she has seen, which she means.
+#
+# * **The manor is Fenmarch**, Map 57 (`COMPANIONS.md` says reuse it), and
+#   the Marsh Bear's case already has her "Not unless I'm asked." **Mrs
+#   Puddifoot asks** - her second look with Wren, below her one-self-switch
+#   ladder - because she dusts all eighty and the family has always wanted
+#   them looked at properly. The Fourth is the family, and speaks in the
+#   scene from where he stands, but he is not the owner: ALD-5's afterwards
+#   page is on him.
+# * **Mr Ottershaw shows her the joins** (his second look, with Wren and the
+#   engagement): nobody in seventy years has asked. He walks her down the
+#   gallery case by case, and past case forty, the Home Farm's unicorn,
+#   without looking at it. She looks. There is no join. She writes nothing.
+# * **The write-up** goes back to Mrs Puddifoot, read out: seventy-nine
+#   composed, the finest joins she has seen, and case forty "not examined" -
+#   the composite that is real, which she does not mention. The Fourth is
+#   prouder than ever: nobody else in the county has a composer. The fee is
+#   `db.WRE4_FEE`.
+# * **Afterwards for everybody**: Mrs Puddifoot and the framed write-up; Mr
+#   Ottershaw, who has been asked.
+def _wre4_engage():
+    c = S.narrate([
+        "Mrs Puddifoot looks at Wren's jars, and her notebook, and",
+        "the way she has been looking at the cases."])
+    c += S.say("Mrs Puddifoot", ["You're a naturalist.",
+                                 "A proper one. With the jars."])
+    c += S.say("Mrs Puddifoot", ["The family's always",
+                                 "wanted them looked at. Properly.",
+                                 "By somebody who knows."])
+    c += S.narrate([
+        "The Fourth is across the gallery before she has finished,",
+        "helmet under his arm."])
+    c += S.say("The Fourth", ["A NATURALIST? Would you?",
+                              "Three generations we've been proud",
+                              "of them. Dr Rowbotham named the",
+                              "bear!"])
+    c += S.say("Wren", ["He named everything. That was",
+                        "the problem."])
+    c += S.say("Wren", ["I'll tell you what they are. All",
+                        "eighty. You may not like it."])
+    c += S.say("The Fourth", ["We'll love it. We love",
+                              "everything. Ask anybody."])
+    c += S.say("Mrs Puddifoot", ["There's a fee. The",
+                                 "rest are upstairs, one in every",
+                                 "bedroom. Mind the moat."])
+    c += [R.control_switch(db.SW_WRE4_ON, True)]
+    c += S.narrate([
+        "Wren opens her notebook, and this time she does not",
+        "close it again."])
+    return c
+
+
+def _wre4_waiting():
+    return S.say("Mrs Puddifoot", ["Mr Ottershaw's at the",
+                                   "far end. He'll want to show you.",
+                                   "He's never been asked."])
+
+
+def _wre4_writeup():
+    c = S.narrate([
+        "Wren has been through the gallery and every bedroom, and",
+        "under one bed. She reads it out to the household, standing,",
+        "the way you would read a will."])
+    c += S.narrate([
+        "THE FENMARCH COLLECTION. EIGHTY CASES.",
+        "Seventy-nine composed, each of two animals, by Mr J.",
+        "Ottershaw, 1930 to the present. None is what its plate",
+        "says. Not one of them ever lived."])
+    c += S.narrate([
+        "The joins are the finest work I have seen. I have looked",
+        "for joins all my life. I could not find these without",
+        "being shown, and then I could not stop looking at them.",
+        "Case forty: not examined. W. Halloway."])
+    c += S.say("The Fourth", ["...None of them?"])
+    c += S.say("Wren", ["None of them. I'm sorry."])
+    c += [R.wait(30)]
+    c += S.say("The Fourth", ["COMPOSED. By Mr",
+                              "Ottershaw. Nobody else in the",
+                              "county has a COMPOSER."])
+    c += S.say("The Fourth", ["That's better than",
+                              "real. Anybody can have real."])
+    c += S.narrate([
+        "He means it, magnificently. Mrs Puddifoot counts out the",
+        "fee from a tin on the mantelpiece, and has the write-up",
+        "framed before Wren has her coat on."])
+    c += [R.gain_gold(db.WRE4_FEE)]
+    c += R.text(["Got \\C[3]%d\\G\\C[0]." % db.WRE4_FEE])
+    c += S.say("Wren", ["Nobody has ever been pleased",
+                        "with a write-up of mine."])
+    c += S.say("Wren", ["...I'm not sure what to do with",
+                        "my face."])
+    c += [S.trope(), R.control_switch(db.SW_WRE4_DONE, True)]
+    c += S.companion_story(db.WREN)
+    return c
+
+
+def puddifoot_pages(last):
+    """Pages 3-4 for Mrs Puddifoot (Fenmarch's gallery, event 3), in her own
+    last page's dress: with Wren, below her ladder, the engagement, the wait
+    and the write-up; afterwards, her last page and the frame."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    own = last["list"][:-1]
+    ask = own + R.if_then(
+        R.condition_switch(db.SW_WRE4_JOINS), _wre4_writeup(),
+        R.if_then(R.condition_switch(db.SW_WRE4_ON), _wre4_waiting(),
+                  _wre4_engage()))
+    after = own + S.narrate([
+        "Over the fire, framed: SEVENTY-NINE COMPOSED. THE FINEST",
+        "WORK I HAVE SEEN. She dusts it first, before the cases."])
+    return [
+        _dressed(last, ask, dict(known, actorValid=True, actorId=db.WREN)),
+        _dressed(last, after, dict(known, switch1Valid=True,
+                                   switch1Id=db.SW_WRE4_DONE)),
+    ]
+
+
+def _wre4_joins():
+    c = S.say("Wren", ["Mr Ottershaw. I've been engaged",
+                       "to authenticate them."])
+    c += S.narrate([
+        "He puts down the needle. He takes off the green lenses, and",
+        "puts them on again, to see her better."])
+    c += S.say("Mr Ottershaw", ["Seventy years. Nobody",
+                                "has ever ASKED."])
+    c += S.narrate([
+        "He takes her down the gallery at a pace you would not",
+        "expect of a man of ninety, one case at a time."])
+    c += S.say("Mr Ottershaw", ["The Marsh Bear. Bear",
+                                "to the waist, crab below. The crab",
+                                "end came for the crayfish."])
+    c += S.say("Mr Ottershaw", ["The Phoenix. A",
+                                "salamander, and the top of something",
+                                "that fell in Cook's fire."])
+    c += S.say("Mr Ottershaw", ["The Horse. Crab and",
+                                "unicorn. The plate's blank because",
+                                "nobody liked to ask what it was."])
+    c += S.narrate([
+        "At every case he shows her the join, and she finds it",
+        "only once he has put his finger on it. She writes each",
+        "one down. Her hand is not quite steady."])
+    c += S.narrate([
+        "He goes past case forty, the Home Farm's unicorn, without",
+        "looking at it, the way you go past a door you don't open."])
+    c += S.narrate([
+        "Wren stops. She looks at the shoulder, and the horn, and",
+        "the shoulder again, for a long time. There is no join."])
+    c += S.narrate([
+        "She looks at Mr Ottershaw. He is threading a needle. She",
+        "closes her notebook, and writes nothing, and walks on."])
+    c += S.say("Wren", ["They're magnificent."])
+    c += S.say("Mr Ottershaw", ["I know. Put it in",
+                                "writing. Nobody ever has."])
+    c += [R.control_switch(db.SW_WRE4_JOINS, True)]
+    return c
+
+
+def ottershaw_pages(last):
+    """Pages 3-4 for Mr Ottershaw (Fenmarch's gallery, event 4), in his own
+    last page's dress: with Wren and the engagement, the joins, below his
+    ladder; afterwards, his last page and the write-up over his bench."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    own = last["list"][:-1]
+    shown = S.say("Mr Ottershaw", ["Every join. Go and",
+                                   "write it down, Miss Halloway."])
+    joins = own + R.if_then(R.condition_switch(db.SW_WRE4_JOINS), shown,
+                            _wre4_joins())
+    after = own + S.narrate([
+        "Pinned over his bench, a copy of the write-up. He has",
+        "underlined 'finest' twice, and hums louder."])
+    return [
+        _dressed(last, joins, dict(known, actorValid=True, actorId=db.WREN,
+                                   switch1Valid=True,
+                                   switch1Id=db.SW_WRE4_ON)),
+        _dressed(last, after, dict(known, switch1Valid=True,
+                                   switch1Id=db.SW_WRE4_DONE)),
+    ]
