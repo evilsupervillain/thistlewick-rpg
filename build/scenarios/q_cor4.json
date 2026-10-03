@@ -1,0 +1,188 @@
+{
+ "query": "?map=8&x=67&y=116&frames=90",
+ "comment": "QUESTS.md E11, COR-4 Mother Selvidge. The published reading, walked onto, with Corvin standing there; the fair's second look with him - Press on, one crown (no credit), then three readings for two crowns; afterwards with and without him.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._fair = () => $gameMap.event($dataMap.events.find(e => e && e.name === 'The Fair').id); window._has = s => window._lines.some(l => l.includes(s))"
+  },
+  {
+   "eval": "$gameParty.addActor(8); $gameParty.gainGold(100)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "window._fair().findProperPageIndex()",
+   "expect": 0,
+   "label": "the fair, never paid"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    67,
+    115
+   ]
+  },
+  {
+   "check": "[window._has('surprised to see you.'), window._has('four'), window._has('Eleven years ago')]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "the published reading, with Corvin standing there, and nothing of COR-4"
+  },
+  {
+   "check": "window._fair().findProperPageIndex()",
+   "expect": 2,
+   "label": "the second look, with Corvin"
+  },
+  {
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "window._fair().findProperPageIndex()",
+   "expect": 1,
+   "label": "without him, the fair's own second page"
+  },
+  {
+   "eval": "$gameParty.addActor(8); window._mark(); window._pick = 1"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._fair().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('shuffling.'), window._has('Eleven years ago'), $gameSwitches.value(191)]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "Press on: nothing"
+  },
+  {
+   "eval": "$gameParty.loseGold($gameParty.gold() - 1); window._mark(); window._pick = 0"
+  },
+  {
+   "eval": "window._fair().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has(\"don't do credit\"), window._has('Eleven years ago'), $gameSwitches.value(191), $gameParty.gold()]",
+   "expect": [
+    true,
+    false,
+    false,
+    1
+   ],
+   "label": "one crown: the cards don't do credit, and it waits"
+  },
+  {
+   "eval": "$gameParty.gainGold(49); window._mark(); window._pick = 0"
+  },
+  {
+   "eval": "window._fair().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has('Eleven years ago'), window._has('No destiny whatsoever.'), window._has('Keep your money.'), window._has('young men a year.'), window._has('They all went and did'), window._has('He keeps the coat.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "three readings; four young men a year; he keeps the coat"
+  },
+  {
+   "check": "[$gameSwitches.value(191), window._gold - $gameParty.gold(), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(107), $gameVariables.value(15) - window._stories, $gameParty.numItems($dataItems[69]) + $gameParty.numItems($dataItems[70])]",
+   "expect": [
+    true,
+    2,
+    1,
+    0,
+    true,
+    1,
+    0
+   ],
+   "label": "done; two crowns, once; one trope, no blush; his story; nothing given"
+  },
+  {
+   "check": "window._fair().findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards, with Corvin"
+  },
+  {
+   "eval": "$gameParty.removeActor(8); window._mark(); window._pick = 0"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "window._fair().findProperPageIndex()",
+   "expect": 3,
+   "label": "and for everybody"
+  },
+  {
+   "eval": "window._fair().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('standing up very straight'), window._has('Keep your money.'), window._gold - $gameParty.gold()]",
+   "expect": [
+    true,
+    true,
+    0
+   ]
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

@@ -966,3 +966,106 @@ def middle_pages(page0):
         "not brood at all."]))
     return [_cor1_dressed(page0, c, {"switch1Valid": True,
                                      "switch1Id": db.SW_COR3_DONE})]
+
+
+# ============================================================== COR-4 ====
+# Mother Selvidge (`QUESTS.md` E11). The fortune-teller who told him at
+# nineteen that he was the rival of a great hero is still working the fairs,
+# remembers nothing, and reads him again: a long life, a useful trade, and
+# no destiny whatsoever. Again: the same. The third reading is the quest.
+#
+# * **It is the Fair's second look with Corvin** (Map 8 event 54, below its
+#   one-self-switch ladder), and that switch is set only when she is paid -
+#   so a party that never crossed her palm has never been to her booth, and
+#   this waits until they have. Two crowns for the first reading, as for
+#   anybody; the second and third are free, because her own second page
+#   says "Same again? Keep your money."
+# * **The third reading has no mysticism in it**: she says the rival thing
+#   to about four young men a year, because it is the reading that makes
+#   them stand up straight, and it has never once been wrong, in the sense
+#   that they all went and did something. Nobody tells him he is nothing.
+# * **Gives nothing.** He keeps the coat.
+# * **Afterwards for everybody**: the fair's own second page, with a young
+#   man in the queue standing up very straight.
+def _cor4_readings():
+    c = S.narrate([
+        "Corvin stops in front of the little striped booth, and",
+        "reads the sign, and stands there for some time."])
+    c += S.say("Corvin", ["Eleven years ago. Two crowns.",
+                          "You told me I was the rival of a",
+                          "great hero."])
+    c += S.say("Mother Selvidge", ["Did I, dear? I",
+                                   "dare say I did. Cross my palm."])
+    c += [R.lose_gold(2), R.play_se("Coin")]
+    c += S.narrate([
+        "She takes his hand, and looks at it for a long time, and",
+        "then at him, for longer."])
+    c += S.say("Mother Selvidge", ["A long life. A",
+                                   "useful trade. Something with your",
+                                   "hands. No destiny whatsoever."])
+    c += S.say("Corvin", ["...Again."])
+    c += S.narrate([
+        "She shuffles, and cuts, and lays them out again, and does",
+        "not charge him, and looks."])
+    c += S.say("Mother Selvidge", ["A long life. A",
+                                   "useful trade. No destiny. Same",
+                                   "again, dear. Keep your money."])
+    c += S.say("Corvin", ["Again."])
+    c += [R.wait(40)]
+    c += S.narrate([
+        "This time she does not shuffle. She puts the cards down,",
+        "and folds her hands on them, and looks at him the way",
+        "your aunt would."])
+    c += S.say("Mother Selvidge", ["Shall I tell you a",
+                                   "thing, dear? The rival of a great",
+                                   "hero. I say that to about four",
+                                   "young men a year."])
+    c += S.say("Mother Selvidge", ["Lads like you, at",
+                                   "nineteen, sat in a heap. It's the",
+                                   "reading that makes them stand up",
+                                   "straight."])
+    c += S.say("Mother Selvidge", ["And it has never once",
+                                   "been wrong. They all went and did",
+                                   "something."])
+    c += S.say("Corvin", ["I sat in a corner. For eleven",
+                          "years."])
+    c += S.say("Mother Selvidge", ["And then you got up.",
+                                   "Look at you. You're stood in a",
+                                   "fair a long way from anywhere with",
+                                   "your friends."])
+    c += S.say("Mother Selvidge", ["Never wrong, dear.",
+                                   "Ask anybody I've read."])
+    c += S.narrate([
+        "Corvin looks at the cards, and at the party, and at his",
+        "long black coat. He thinks about taking it off."])
+    c += S.narrate(["He keeps the coat. It is a very good coat."])
+    c += [S.trope(), R.control_switch(db.SW_COR4_DONE, True)]
+    c += S.companion_story(db.CORVIN)
+    return c
+
+
+def fair_pages(last):
+    """Pages 3-4 of the Fair (Map 8, event 54), in its second page's dress:
+    with Corvin, the tent and then the three readings, below its ladder;
+    afterwards, the tent and a young man in the queue, for everybody."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    tent = S.narrate([
+        "The fair in the big tent. Mother Selvidge is at",
+        "the back, shuffling."])
+    pay = R.if_then(R.condition_script("$gameParty.gold() >= 2"),
+                    _cor4_readings(),
+                    S.say("Mother Selvidge", ["Two crowns, dear. The",
+                                              "cards don't do credit."]))
+    visit = tent + R.choice_block(["Go to the fair", "Press on"], [pay, []])
+    queue = tent + S.narrate([
+        "In front of her booth a young man in a hat has just been",
+        "told something, and is standing up very straight."])
+    same = S.say("Mother Selvidge", ["Same again? It'll be the",
+                                     "same again, dear. Keep your money."])
+    after = queue + R.choice_block(["Go to the fair", "Press on"],
+                                   [same, []])
+    return [
+        _cor1_dressed(last, visit, _cor1_corvin(**known)),
+        _cor1_dressed(last, after, dict(known, switch1Valid=True,
+                                        switch1Id=db.SW_COR4_DONE)),
+    ]

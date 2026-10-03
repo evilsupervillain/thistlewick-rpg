@@ -412,7 +412,8 @@ def build_system():
             (db.SW_WRE4_JOINS, "WRE-4: shown every join"),
             (db.SW_WRE4_DONE, "WRE-4: written up; the fee"),
             (db.SW_COR3_ON, "COR-3: seventeenth"),
-            (db.SW_COR3_DONE, "COR-3: the meeting; his chair kept")]:
+            (db.SW_COR3_DONE, "COR-3: the meeting; his chair kept"),
+            (db.SW_COR4_DONE, "COR-4: the third reading")]:
         switches[sid] = name
 
     variables = [""] * 32

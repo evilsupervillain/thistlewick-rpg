@@ -2750,17 +2750,64 @@ league table, the newsletter, the empty table);
   him.
 * `TIMELINE.md`: nothing dated (eleven years is 1989's).
 
+
+**E11, COR-4 Mother Selvidge - done.** COR-4's section at the bottom of
+`q_corvin.py`, hooked from `nomap.py` (the Fair, one line in its own
+builder); `build/scenarios/q_cor4.json`.
+
+* **The start is the Fair's second look with Corvin** (Map 8 event 54, page
+  3: its A and Corvin), with its own "Go to the fair / Press on". Its A is
+  set only when Mother Selvidge is paid, so a party that never crossed her
+  palm has never sat at her booth and this waits until they have - the
+  ladder's terminal, as 0.2 says. The published reading ("somebody is going
+  to be very surprised to see you"), with Corvin standing in the tent or
+  not, stays the first visit word for word.
+* **Three readings, two crowns.** "Eleven years ago. Two crowns. You told me
+  I was the rival of a great hero." / "Did I, dear? I dare say I did." The
+  first is paid, as for anybody, and refused on credit ("The cards don't do
+  credit"); the second and third are free, because her own second page says
+  "Same again? ... Keep your money." A long life, a useful trade, something
+  with his hands, no destiny whatsoever. "...Again." The same. "Again."
+* **The third reading has no mysticism in it**: she puts the cards down and
+  folds her hands on them "the way your aunt would" - she says the rival
+  thing to about four young men a year, lads at nineteen sat in a heap,
+  because it is the reading that makes them stand up straight, "and it has
+  never once been wrong. They all went and did something." / "I sat in a
+  corner. For eleven years." / "And then you got up. Look at you. You're
+  stood in a fair a long way from anywhere with your friends." Nobody tells
+  him he is nothing. **One trope** (the prophecy that made him).
+* **Gives nothing** (`COMPANIONS.md`): he thinks about taking the long black
+  coat off, and keeps it. "It is a very good coat." The scenario asserts no
+  item and two crowns, once.
+* **Afterwards for everybody**: the tent, and in front of her booth a young
+  man in a hat who has just been told something and is standing up very
+  straight; her own "Same again? ... Keep your money." if you go in.
+* **Ids taken:** switch **191** `SW_COR4_DONE`. No faces, no items, no new
+  events.
+* One trope, no blush. Running tally: **tropes +37 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[CORVIN]` (on already after any other of his).
+* **Candidate ending line** (G1; read `SW_COR4_DONE`): "Mother Selvidge has
+  read Corvin Ash three times. A long life, a useful trade, no destiny
+  whatsoever. She has never once been wrong."
+* **The rooms (0.1):** the Fair is a world-map cell; nothing drawn.
+* **Scenario** `q_cor4`: passes (13 checks), first run - walked onto the
+  cell for the published reading with Corvin there, Press on, one crown and
+  no credit, then the three readings for two crowns, and afterwards with
+  and without him.
+* `TIMELINE.md`: nothing new (nineteen and eleven years are 1989's).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E11, COR-4
-Mother Selvidge**. E1-E10 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E12, PIP-4 The
+Elegy**. E1-E11 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
 asked for E7-E12 in one session, with the part's rerun at the end of E12.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Corvin's** section of `COMPANIONS.md`, and
+B1 on, once, at the start; then **Piper's** section of `COMPANIONS.md`, and
 no other companion's. Read what the step needs by dumping its maps' events
 and their text, not by opening a module. Crop anything a step touches with
 `propsheet.py` before judging, and screenshot before and after anything
@@ -2777,17 +2824,19 @@ Screenshots of anything drawn, looked at. The step's own scenario,
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +36 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 191, variable 26, item 69, weapon 42,
+Where things stand: tropes +37 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 192, variable 26, item 69, weapon 42,
 armour 48, armour type 14, class 12, common event 4, state 42, enemy 59,
 troop 54, skill 183, map 67, `Gen_People14` 1. Aldric has had his gear (the
 shield, armour 47, E7). **The E7-E12 rerun will need `weeping_bottom`**: its
 companion pass asserts Sir Hamo says nothing of a vigil, and ALD-2 starts on
 his second look. Merribell has had her gear (the Pamphlet, armour 45).
 
-What E11 will need: `nomap.py`'s Fair, Map 8 event 54 - two pages, and its
-self switch A is set only when Mother Selvidge is paid (two crowns). Her own
-second page says "Same again? ... Keep your money."
+What E12 will need: Little Gore (Map 50) - every Sump owner is MER-5's,
+and Mrs Vane, Dame Winifred, the Fourth, Mrs Puddifoot and Mr Ottershaw
+already carry other quests' pages, so an interview page appended to any of
+them has to carry what would otherwise have shown. Self switch D is free on
+Maps 50, 51, 56 and 57.
 
 Things learned that will bite again:
 

@@ -433,6 +433,8 @@ WRE4_FEE = 600                  # crowns, the family's, for the write-up
 # COR-3, The Rivals' Retreat (QUESTS.md E10, q_corvin.py)
 SW_COR3_ON = 189                # seventeenth, of seventeen; he sat down
 SW_COR3_DONE = 190              # the meeting; second; his chair is kept
+# COR-4, Mother Selvidge (QUESTS.md E11, q_corvin.py)
+SW_COR4_DONE = 191              # three readings; four young men a year
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

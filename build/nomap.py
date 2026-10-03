@@ -373,6 +373,7 @@ def _fair():
                        through=True),
                 R.page(again, img=R.image(""), trigger=1, priority=0,
                        through=True, conditions=DONE)]))
+            evs[-1]["pages"] += q_corvin.fair_pages(evs[-1]["pages"][-1])  # COR-4
         return evs
     return build
 
