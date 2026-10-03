@@ -146,7 +146,7 @@ by the first step that needs it.
 | Piper | the rosette for second place (accessory) - she frames the certificate and wears the rosette; decided in A3 | PIP-3 | B3 |
 | Corvin | the scarf, the wrong colour (accessory) | COR-1 | D1 |
 | Wren | **the Gloamwood Society badge** - decided in A11: armour 40, an accessory of a new armour type (7, "Badge") that only her actor can wear | WRE-3 | A11 |
-| Roland | the better sword he leaves at the door | ROL-2 | E18 |
+| Roland | the better sword he leaves at the door - **done**: weapon 43, The Drawn Sword, out of the stone under Carn Drey, laid on the grass at the tower door beside Fairweather's Own | ROL-2 | E18 |
 
 ### 0.6 Ids reserved for this effort
 
@@ -3340,6 +3340,106 @@ and `journey.py` (the tower door's page, and her event beside it);
 * `TIMELINE.md`: 1978, Roland at twelve told it is nearly ready
   ("twenty-two years"); 1993, Maud into Fellow Blunt's yard at nine; her age,
   sixteen.
+
+**E18, ROL-2 Roland's Own Quest - done.** ROL-2's section at the bottom of
+`q_roland.py`, which draws Map 67 (`q_roland.build`, called from
+`build_game`), hooked from `dunnage.py`'s Bell (the card) and `journey.py`
+(the cave, and the tower door's pages through `q_roland.door_pages`); the
+records in `db.build_worm`; `build/scenarios/q_rol2.json`.
+
+* **Decided: it needs ROL-1**, like ROL-5: the prophecy lives at the
+  meetings. The start is **the card on the snug table** (Map 65 event **16**,
+  `places.SNUG_CARD`, the table cell, read from beside), which ROL-1's
+  narration already put there: RESERVED. R. FAIRWEATHER. With Roland he turns
+  it over without looking, and on the back, in Fellow Amory's hand, is the
+  prophecy as minuted - WHEN THE STONE IS READY, ONE OF THE LINE SHALL DRAW THE
+  SWORD THEREFROM, AND GO DOWN UNDER CARN DREY, AND THE WORM THAT SLEEPS THERE
+  SHALL BE ENDED, AND THE LAND SHALL BE GLAD. "I know it by heart. I was
+  twelve." Carn Drey is an afternoon east; he has never been; it isn't ready;
+  **Fellow Blunt checks the stone - from the gate, quarterly, and has never
+  gone down: the stairs are not his department; it's minuted.** You suggest
+  somebody go down the stairs and look. "...Today?" "Today / Not today"
+  ("It isn't ready."). Today: GONE TO SEE, in pencil, propped against the salt
+  (`SW_ROL2_ON`).
+* **The place is Map 67, "Under Carn Drey"**, 21x21 on the Dungeon tileset,
+  Dirt Cave throughout (one family), drawn in `q_roland.py` since it is in no
+  place (0.4): stairs down into the stone's room, the stone in the middle with
+  `!Weapon` 0 standing in it, two tall rocks, a short passage, and the Worm's
+  room at the bottom of the hill. **The way in is a `WB_CAVE` event in the
+  hill's south face** (Map 8 event **83**, `places.CARN_DREY` (39,55)), there
+  only once the party has gone to see - a gate and a plate, THE WORM. NOT
+  READY. (FELLOW BLUNT, QUARTERLY.) "The gate is not locked. Nobody ever tried
+  it." - "Go down / Not yet", with Roland; without him it waits. Down is the
+  tower's gloom idiom (a tint), lifted on the way out, which comes up at
+  `places.CARN_DREY_STEP` (40,55), the road's side (the cell south of the cave
+  is hill). The Worm's room was drawn 15x8 first and was too big and too bright
+  for "asleep in the dark"; it is 11x6, dimmed. No random encounters.
+* **The stone** (event 2): twenty-two years of dust on the hilt and none on
+  the stone. "Readiness. The stone?" You say it looks ready to you; nobody has
+  ever said that to him. His hand on the hilt "the way you might put a hand on
+  a horse you were not sure of", and it comes out "as if it had only been
+  waiting to be asked". "...Oh." / "It's ready." `SW_ROL2_DRAWN`. Nobody draws
+  the moral.
+* **Decided: the Worm is never drawn on the map.** It is coiled three times
+  round the room in the dark - "You have, you realise, been walking beside it
+  since the stairs" - so the room is its body and the fight shows it: **enemy
+  59**, the Worm of Carn Drey, stock `SF_Anaconda` (unused, and a worm, not a
+  dragon - ALD-6's is the valley's only dragon, and stays so), fixed numbers
+  "scaled for a hero of nineteen" (1,600 hit points), skills **183** Coils and
+  **184** Looks At Roland ("It was expecting somebody younger."); **troop 54**,
+  no escape. Before the sword: "Not yet. The sword first. It's in the
+  prophecy, and the order matters to the committee." "I'm thirty-four. I'm
+  sorry. I did mean to come sooner." It can be lost ("Again, after tea?",
+  Recover All, and it waits).
+* **Won**: over before Piper has got to the end of the first line of a verse
+  (or "in about the time it takes to say so" without her); the land - the
+  top of the hill, a field with sheep in it - is presumably glad. "That's it.
+  That was it. Twenty-two years." / "Would you - I know it's a great deal to
+  ask. Would you mind being surprised? Only a little." **You are. Everybody
+  is** - at Roland Fairweather, who has finished something. He laughs till he
+  has to wipe his eyes, and thanks each of you by name. **Played straight, and
+  not sad; nobody says whose prophecy it is** (asserted). **One trope** (the
+  epic). `SW_ROL2_DONE` and his story.
+* **Roland's gear (0.5) is the sword out of the stone**: **weapon 43**, The
+  Drawn Sword, strictly better than Fairweather's Own in every parameter (ATK
+  72, DEF +14, MAT +12, MDF +12, AGI +10, LUK +16, Light, critical +15%, hit
+  +6%; asserted). **He keeps it till the door** - "It's had one afternoon. It
+  ought to have another." - so nothing goes in the bag at Carn Drey, and
+  **nothing keeps him at the door**: the tower door gains pages 3 and 4 (on
+  `SW_ROL2_DONE`, and on it and `SW_ROL5_DONE` together), each its own page
+  with the hand-over spliced **inside** his departure, after Fairweather's Own
+  and before "Take it up there" - he unbuckles the sword out of Carn Drey and
+  lays it on top; "And that one." The splice is found by that line and asserts
+  it is still there. His departure, his lines and the first sword are
+  untouched, and ROL-4's refit still reads `WP_FAIRWEATHER`.
+* **Afterwards for everybody**: the card - under GONE TO SEE, in the same
+  pencil, DONE. (R.F.) It took an afternoon.; and the plate on the cave - under
+  NOT READY, READY. DONE. (R.F.) The Worm's room is empty and walkable.
+* **Ids taken:** switches **205** `SW_ROL2_ON`, **206** `SW_ROL2_DRAWN`,
+  **207** `SW_ROL2_DONE`; weapon **43** `WP_DRAWN` (icon 120); enemy **59**
+  `EN_WORM`; troop **54** `TR_WORM`; skills **183-184**; **Map 67**
+  `MAP_CARN_DREY`, events 1-3; Map 65 event 16, Map 8 event 83;
+  `places.CARN_DREY`, `CARN_DREY_STEP`, `SNUG_CARD`. No faces; stock art, so
+  nothing for `AUDIT.md`.
+* One trope, no blush. **Running tally at the end of Part E: tropes +44 fixed
+  and 2-9 from PIP-2; blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ROLAND]` (on already after ROL-1, which this needs).
+* **Candidate ending line** (G1; read `SW_ROL2_DONE`): "Roland Fairweather's
+  prophecy was discharged in an afternoon, under Carn Drey, with help. He
+  asked to be surprised. Everybody was."
+* **The rooms (0.1):** Map 67 is new, screenshotted lit and in its gloom, and
+  the fight once; the Bell was swept in B1 and is unchanged; the cave was
+  screenshotted in the hill.
+* **Scenario** `q_rol2`: passes (31 checks): the card before ROL-1, without
+  and with Roland, Not today and Today; the cave walked onto, waiting without
+  him, Not yet, Go down; the Worm before the sword; the stone walked to and
+  drawn; the Worm without him; a look at the fight; lost, then won with
+  Piper; out by the stairs with the gloom lifted; both afterwards; and the
+  tower door walked onto, both swords on the grass, and both switches' page.
+  Its first run gave the fight sixty presses and checked while the battle was
+  still up; the fight's kill now comes sooner and `advance` has 250.
+* `TIMELINE.md`: the 1978 row gains Fellow Blunt's quarterly look from the
+  gate and the Worm ended in 2000.
 
 ---
 

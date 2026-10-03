@@ -401,6 +401,11 @@ Append instead.
 | Map 66 | Old Ashcombe, the drowned street under Ashcombe Lake, for the week
   it is let down (COR-2). Drawn by `q_corvin.py`; `places.MAP_DROWNED_STREET`.
   In from the lake's world-map cell, out to `places.LAKE_SHORE_STEP` |
+| Map 67 | Under Carn Drey, the dirt cave under the hill east of Great Dunnage
+  where Roland's prophecy puts the stone and the Worm (ROL-2). Drawn by
+  `q_roland.py`; `places.MAP_CARN_DREY`. In from the cave event at
+  `places.CARN_DREY`, there once the party has gone to see; out to
+  `places.CARN_DREY_STEP` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills

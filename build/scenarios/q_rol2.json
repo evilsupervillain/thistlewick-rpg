@@ -1,0 +1,549 @@
+{
+ "query": "?map=65&x=4&y=10&frames=90",
+ "comment": "QUESTS.md E18, ROL-2 Roland's Own Quest. The snug's card: nothing before ROL-1, RESERVED without Roland, the prophecy on its back with him, Not today and then Today; the cave in Carn Drey, walked onto, waiting without him, Not yet, Go down; the Worm before the sword; the stone, walked to, drawn; the Worm without him; a look at the fight; lost, then won with Piper; out by the stairs; the plate and the card afterwards; and at the tower door, both swords on the grass.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._troops = []; window._auto = 'win'; const ss = Scene_Battle.prototype.start; Scene_Battle.prototype.start = function () { ss.call(this); this._bf = 0; window._troops.push($gameTroop._troopId); }; const su = Scene_Battle.prototype.update; Scene_Battle.prototype.update = function () { su.call(this); if (++this._bf === 60) { if (window._auto === 'win') $gameTroop.members().forEach(e => e.addState(1)); else if (window._auto === 'lose') $gameParty.members().forEach(a => a.addState(1)); } }"
+  },
+  {
+   "check": "[$gameMap.event(16).event().name, $gameMap.event(16).findProperPageIndex()]",
+   "expect": [
+    "The Snug's Card",
+    0
+   ],
+   "label": "no card before the hundred and forty-first meeting"
+  },
+  {
+   "eval": "$gameSwitches.setValue(154, true); $gameParty.gainItem($dataItems[52], 1)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(16).findProperPageIndex()",
+   "expect": 1,
+   "label": "after ROL-1, without Roland: RESERVED"
+  },
+  {
+   "eval": "$gameParty.addActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(16).findProperPageIndex()",
+   "expect": 2,
+   "label": "with Roland: the prophecy on the back"
+  },
+  {
+   "goto": [
+    65,
+    4,
+    7
+   ]
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    4,
+    7,
+    2
+   ],
+   "label": "at the snug, facing the table"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('WORM THAT SLEEPS THERE'), window._has('I was twelve.'), window._has('...Today?'), window._has('Another day.'), $gameSwitches.value(205)]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "label": "read from beside: the prophecy as minuted; Not today"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('GONE TO SEE'), $gameSwitches.value(205), $gameMap.event(16).findProperPageIndex()]",
+   "expect": [
+    true,
+    true,
+    3
+   ],
+   "label": "Today: GONE TO SEE"
+  },
+  {
+   "goto": [
+    8,
+    40,
+    55
+   ]
+  },
+  {
+   "check": "[$gameMap.event(83).event().name, $gameMap.event(83).findProperPageIndex(), $gameMap.event(83).tileId() > 0]",
+   "expect": [
+    "Carn Drey",
+    2,
+    true
+   ],
+   "label": "the cave in Carn Drey, with Roland"
+  },
+  {
+   "eval": "$gameParty.removeActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(83).findProperPageIndex()",
+   "expect": 1,
+   "label": "without Roland, it waits"
+  },
+  {
+   "eval": "$gameParty.addActor(10); window._mark(); window._pick = 1"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowLeft",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, window._has('NOT READY'), window._has('Roland looks at the gate'), $gameMap.mapId()]",
+   "expect": [
+    39,
+    55,
+    true,
+    true,
+    8
+   ],
+   "label": "walked onto the cave: Fellow Blunt's plate; Not yet"
+  },
+  {
+   "key": "ArrowRight",
+   "gap": 30
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowLeft",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gameScreen.tone()[3] > 0]",
+   "expect": [
+    67,
+    10,
+    17,
+    true
+   ],
+   "label": "Go down: under Carn Drey, in the gloom"
+  },
+  {
+   "shot": "q_rol2_stone.png"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Something very long is asleep'), window._has('The sword first.'), $gameSwitches.value(206)]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "the Worm before the sword: not yet; the order matters to the committee"
+  },
+  {
+   "goto": [
+    67,
+    10,
+    17
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    10,
+    15,
+    8
+   ],
+   "label": "walked up to the stone, which blocks"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Readiness. The stone?'), window._has(\"It's ready.\"), $gameSwitches.value(206), $gameMap.event(2).findProperPageIndex(), $gameMap.event(2).characterName()]",
+   "expect": [
+    true,
+    true,
+    true,
+    2,
+    ""
+   ],
+   "label": "drawn: it was ready"
+  },
+  {
+   "eval": "$gameParty.removeActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "without Roland the Worm sleeps on"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._has('Roland is not')",
+   "expect": true,
+   "label": "it is Roland's prophecy, and he is not here"
+  },
+  {
+   "eval": "$gameParty.addActor(10); $gameParty.addActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1,
+   "label": "with Roland and the sword: the Worm"
+  },
+  {
+   "comment": "A look at the fight."
+  },
+  {
+   "eval": "window._auto = 'none'; BattleManager.setup(54, false, true); SceneManager.push(Scene_Battle)"
+  },
+  {
+   "frames": 150
+  },
+  {
+   "shot": "q_rol2_battle.png"
+  },
+  {
+   "eval": "$gameTroop.members().forEach(e => e.addState(1)); window._auto = 'win'"
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "back from the look"
+  },
+  {
+   "goto": [
+    67,
+    10,
+    5
+   ]
+  },
+  {
+   "eval": "window._auto = 'lose'; window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 250
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "[window._troops.slice(-1)[0], window._has('Again, after tea?'), $gameSwitches.value(207), $gameParty.members().every(a => a.hp === a.mhp), SceneManager._scene.constructor.name]",
+   "expect": [
+    54,
+    true,
+    false,
+    true,
+    "Scene_Map"
+   ],
+   "label": "lost: the Worm goes back to sleep; recovered; nothing done"
+  },
+  {
+   "eval": "window._auto = 'win'; window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 250
+  },
+  {
+   "frames": 120
+  },
+  {
+   "check": "[window._has('I did'), window._has('first'), window._has('line of a verse.'), window._has('presumably glad'), window._has('Would you mind being'), window._has('by name'), window._has('It ought to'), $gameSwitches.value(207)]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "won, with Piper: over before her first line; surprised; thanked by name; discharged"
+  },
+  {
+   "check": "window._lines.some(l => /whose|It's mine|belongs to/i.test(l))",
+   "expect": false,
+   "label": "nobody says whose it is"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories, $gameParty.gold() - window._gold, $gameParty.hasItem($dataWeapons[43], true)]",
+   "expect": [
+    1,
+    0,
+    1,
+    0,
+    false
+   ],
+   "label": "one trope (the epic), no blush, one story, no gold, and no sword in the bag: he keeps it till the door"
+  },
+  {
+   "check": "[$gameMap.event(3).findProperPageIndex(), $gameMap.event(3).isNormalPriority()]",
+   "expect": [
+    2,
+    false
+   ],
+   "label": "the Worm is gone"
+  },
+  {
+   "goto": [
+    67,
+    10,
+    17
+   ]
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gameScreen.tone().join(',')]",
+   "expect": [
+    8,
+    40,
+    55,
+    "0,0,0,0"
+   ],
+   "label": "out by the stairs, east of the cave, the gloom lifted"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(83).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "[$gameMap.event(83).findProperPageIndex(), window._has('READY. DONE.')]",
+   "expect": [
+    3,
+    true
+   ],
+   "label": "the plate, amended, for everybody"
+  },
+  {
+   "goto": [
+    65,
+    4,
+    6
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(16).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "[window._has('DONE. (R.F.)'), window._has('afternoon.')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "the card on the snug, for everybody"
+  },
+  {
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    45
+   ]
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 2,
+   "label": "the tower door, ROL-2 done and ROL-5 not: the sword's page"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has('At the foot of the tower'), window._has('sword out of Carn Drey'), window._has('Drawn Sword'), window._has('Take it up there.'), window._has('It is not him.'), $gameSwitches.value(21)]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "label": "at the door he goes, as ever, and leaves both swords"
+  },
+  {
+   "check": "[$gameParty.hasItem($dataWeapons[43]), $gameParty.hasItem($dataWeapons[30]), $gameParty.members().some(a => a.actorId() === 10)]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "the drawn sword and Fairweather's Own, and no Roland"
+  },
+  {
+   "check": "[$dataWeapons[43].params[2] > $dataWeapons[30].params[2], $dataWeapons[43].params.every((v, i) => v >= $dataWeapons[30].params[i])]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "strictly better than Fairweather's Own"
+  },
+  {
+   "eval": "$gameSwitches.setValue(204, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3,
+   "label": "with ROL-5 done as well: both, on two switches"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}

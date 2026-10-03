@@ -361,6 +361,17 @@ STUDY_MARKS = (30, 3)           # the height marks, on the north wall face
 # open four ways (0x600) against the finished `data/Map008.json` with nothing
 # standing on it.
 MAP_DROWNED_STREET = 66
+
+# ROL-2's dungeon (`../QUESTS.md` E18): under Carn Drey, the hill east of
+# Great Dunnage, in no place, drawn by `q_roland.py`. Its world-map door is a
+# `WB_CAVE` event in the hill's south face, there only once the party has
+# gone to see; the way back out comes down one cell east, the side the road
+# is on. Both checked open four ways; the cell south of the cave is not.
+# The card is on the Bell's snug table, Map 65, read from beside.
+MAP_CARN_DREY = 67
+CARN_DREY = (39, 55)
+CARN_DREY_STEP = (40, 55)
+SNUG_CARD = (4, 8)
 # MER-3 (QUESTS.md E3): the Slain Wyvern's back room, in Map 14's black east,
 # where the Healers' Table meets once a year. Drawn by `south.back_room`; its
 # events are `q_merribell.py`'s. Its door is on the bar's north wall face,

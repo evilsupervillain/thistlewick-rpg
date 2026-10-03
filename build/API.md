@@ -514,7 +514,7 @@ Miss Fettle           Cotter
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-145 constants.
+149 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -655,6 +655,10 @@ STUDY_DOOR                   (6, 3)
 STUDY_DESK                   (31, 6)
 STUDY_MARKS                  (30, 3)
 MAP_DROWNED_STREET           66
+MAP_CARN_DREY                67
+CARN_DREY                    (39, 55)
+CARN_DREY_STEP               (40, 55)
+SNUG_CARD                    (4, 8)
 WYVERN_BACK                  (28, 4, 34, 9, 31)
 WYVERN_BACK_DOOR             (15, 3)
 WYVERN_BACK_TABLE            (29, 6, 33)
@@ -669,7 +673,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-560 constants.
+568 constants.
 
 ```
 BRAM                         1
@@ -1184,6 +1188,14 @@ SW_ZEPH4_DONE                202
 IT_FEN_CERTIFICATE           72
 SW_ROL5_ON                   203
 SW_ROL5_DONE                 204
+SW_ROL2_ON                   205
+SW_ROL2_DRAWN                206
+SW_ROL2_DONE                 207
+WP_DRAWN                     43
+EN_WORM                      59
+TR_WORM                      54
+SK_COILS                     183
+SK_LOOKS_AT_HIM              184
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

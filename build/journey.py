@@ -211,6 +211,7 @@ def world_map():
     m["events"] += q_wren.specimen_events(len(m["events"]))
     m["events"].append(q_zephyrine.fen_road_event(len(m["events"])))  # ZEPH-4
     m["events"].append(q_roland.understudy_at_door(len(m["events"])))  # ROL-5
+    m["events"].append(q_roland.carn_drey_door(len(m["events"])))      # ROL-2
     return m
 
 

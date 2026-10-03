@@ -29,6 +29,7 @@ sold, and travelled, and came back.
 import copy
 
 import db
+import mapkit as K
 import places
 import rmmzdata as R
 import story as S
@@ -712,14 +713,38 @@ def _rol5_at_door():
                      c + [R.self_switch("A", True)])
 
 
+def _rol2_sword_at(door, split):
+    """`door` with the drawn sword laid on the grass beside Fairweather's
+    Own, inside his departure (before "Take it up there"); and where `split`
+    has moved to."""
+    at = next(i for i in range(1, split)
+              if door[i]["code"] == 401
+              and "Take it up there" in door[i]["parameters"][0]) - 1
+    assert door[at]["code"] == 101, "the departure moved: find the hand-over"
+    give = _rol2_hand_over()
+    give = R.shift(give, door[at]["indent"])
+    return door[:at] + give + door[at:], split + len(give)
+
+
 def door_pages(door, split):
-    """The Obligatory Tower's door (Map 8, event 4) once she has gone north:
-    its own page, `door`, with her scene after the first `split` commands -
-    his departure, which still happens - and nothing else changed."""
-    return [R.page(door[:split] + _rol5_at_door() + door[split:],
-                   img=R.image(""), trigger=1, priority=0, through=True,
-                   conditions={"switch1Valid": True,
-                               "switch1Id": db.SW_ROL5_DONE})]
+    """The Obligatory Tower's door (Map 8, event 4), after its own page.
+    His departure always happens; these only add to it.
+
+    * ROL-5 (`SW_ROL5_DONE`): her scene after the departure, once.
+    * ROL-2 (`SW_ROL2_DONE`): the sword out of the stone, handed over with
+      Fairweather's Own, inside the departure - and both, on two switches."""
+    touch = dict(img=R.image(""), trigger=1, priority=0, through=True)
+    rol5 = {"switch1Valid": True, "switch1Id": db.SW_ROL5_DONE}
+    rol2 = {"switch1Valid": True, "switch1Id": db.SW_ROL2_DONE}
+    sworded, split2 = _rol2_sword_at(door, split)
+    return [
+        R.page(door[:split] + _rol5_at_door() + door[split:],
+               conditions=rol5, **touch),
+        R.page(sworded, conditions=rol2, **touch),
+        R.page(sworded[:split2] + _rol5_at_door() + sworded[split2:],
+               conditions=dict(rol2, switch2Valid=True,
+                               switch2Id=db.SW_ROL5_DONE), **touch),
+    ]
 
 
 def understudy_at_door(event_id):
@@ -733,3 +758,299 @@ def understudy_at_door(event_id):
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_ROL5_DONE}),
     ])
+
+
+# ======================================================================
+# ROL-2, Roland's Own Quest (`QUESTS.md` E18)
+# ----------------------------------------------------------------------
+# His prophecy names a thing in a place. The party goes and does it. It takes
+# an afternoon, because he is over-levelled and the thing was scaled for a hero
+# of nineteen, and it is over before Piper has got a verse out. He asks them,
+# carefully and without much hope, to be surprised. They are. It is kind, it is
+# not sad, and it is played completely straight: his life's work, finished in
+# an afternoon by four people who were glad to help.
+#
+# * **It needs ROL-1**: the meetings are where the prophecy lives, and the
+#   card on the snug table (Map 65, the last event) has it on the back, in
+#   Fellow Amory's hand. "Today / Not today" (`SW_ROL2_ON`).
+# * **The place is under Carn Drey**, the hill east of Great Dunnage, Map 67,
+#   drawn here: a cave on the world map (`places.CARN_DREY`) that is there
+#   once they have gone to see; the stone at the foot of the stairs, with the
+#   sword in it; and the Worm, coiled three times round the room at the
+#   bottom, asleep in the dark, so that it is never drawn - the fight shows it.
+# * **Fellow Blunt checks the stone from the gate, quarterly**, and has never
+#   gone down: the stairs are not his department. The stone was ready.
+# * **The better sword is the sword out of the stone**, `WP_DRAWN`, strictly
+#   better than Fairweather's Own. He carries it and leaves it at the tower
+#   door with the other, inside his own departure - which still happens.
+#   Nothing here keeps him at the door. Nobody answers whose prophecy it is.
+CARN_W, CARN_H = 21, 21
+CARN_WORM_ROOM = (5, 3, 15, 8)
+CARN_GLOOM = [-68, -68, -51, 68]   # the bottom of a hill; the tower's idiom
+CARN_STONE_ROOM = (6, 12, 14, 17)
+CARN_STONE = (10, 14)
+CARN_WORM = (10, 4)
+CARN_WAY_OUT = (10, 18)
+CARN_ARRIVE = (10, 17)
+CARN_PROPHECY = [
+    "WHEN THE STONE IS READY, ONE OF THE LINE SHALL DRAW THE",
+    "SWORD THEREFROM, AND GO DOWN UNDER CARN DREY, AND THE",
+    "WORM THAT SLEEPS THERE SHALL BE ENDED, AND THE LAND",
+    "SHALL BE GLAD."]
+
+
+def carn_drey_map():
+    """Under Carn Drey: stairs down into a dirt cave, the stone at the foot
+    of them, a short way on, and a long dark room at the bottom of the hill
+    with something asleep in it. Dirt Cave throughout, its own family."""
+    g = K.Canvas(CARN_W, CARN_H)
+    g.fill(0, 0, CARN_W - 1, CARN_H - 1, 0, K.DG_WALL_TOP)
+    g.fill(*CARN_WORM_ROOM, 0, K.DG_FLOOR2)
+    g.fill(*CARN_STONE_ROOM, 0, K.DG_FLOOR)
+    g.fill(10, CARN_WORM_ROOM[3] + 1, 10, CARN_STONE_ROOM[1] - 1, 0, K.DG_FLOOR)
+    g.set(*CARN_WAY_OUT, 0, K.DG_FLOOR)
+    g.dungeon_walls(K.DG_WALL_TOP, K.DG_WALL_FACE)
+    g.autotile(0)
+    d = lambda name, i=0: K.sf_tile("Dungeon_B", name, i)
+    g.set(*CARN_WAY_OUT, 2, d("Stairs A (Up)"))
+    g.set(*CARN_STONE, 2, d("Boulder A (Dirt Cave)"))
+    rock = K.sf_block("Dungeon_B", "Tall Rock A (Dirt Cave)")
+    for x, y in [(7, 13), (13, 13), (6, 5), (14, 5)]:
+        g.column(x, y - 1, 3, rock[:2])
+    g.scatter([(7, 16), (13, 15), (8, 12), (12, 7), (8, 6), (13, 4)],
+              3, d("Gravel A (Dirt Cave)"))
+    g.scatter([(5, 8), (15, 8), (7, 3)], 3, d("Boulder A (Dirt Cave)"))
+    m = K.new_map(CARN_W, CARN_H, K.TS_DUNGEON, name="Under Carn Drey",
+                  bgm="Dungeon2", battleback=("DirtCave", "DirtCave"))
+    m["data"] = g.data
+    m["events"] = [None] + carn_drey_events()
+    return m
+
+
+def _rol2_card():
+    c = S.narrate([
+        "The card on the snug table says RESERVED. R. FAIRWEATHER.",
+        "Roland turns it over without looking. On the back, in",
+        "Fellow Amory's hand, is the prophecy, as minuted:"])
+    c += S.narrate(CARN_PROPHECY)
+    c += S.say("Roland", ["I know it by heart. I was twelve."])
+    c += S.narrate(["You ask where Carn Drey is."])
+    c += S.say("Roland", ["East of here. An afternoon.",
+                          "I've never been."])
+    c += S.narrate(["You ask why not."])
+    c += S.say("Roland", ["It isn't ready. Fellow Blunt",
+                          "checks the stone. Quarterly."])
+    c += S.narrate(["You ask how."])
+    c += S.say("Roland", ["He looks at it from the gate. He",
+                          "has never gone down. The stairs are",
+                          "not his department; it's minuted."])
+    c += S.narrate([
+        "You suggest that somebody could go down the stairs and",
+        "look. There is a very long pause."])
+    c += S.say("Roland", ["...Today?"])
+    go = S.say("Roland", ["Today. Yes. All right. Today."])
+    go += S.narrate([
+        "He takes a pencil out of his coat and writes on the card,",
+        "under the prophecy, GONE TO SEE, and props it up against",
+        "the salt."])
+    go += [R.control_switch(db.SW_ROL2_ON, True)]
+    c += R.choice_block(["Today", "Not today"], [
+        go, S.say("Roland", ["No. You're right. Another day.",
+                             "It isn't ready."])])
+    return c
+
+
+def snug_card_event(event_id):
+    """The RESERVED card on the Bell's snug table (Map 65, the last event):
+    nothing before the hundred and forty-first meeting; the prophecy on its
+    back, with Roland; and the pencil under it, for everybody."""
+    met = {"switch1Valid": True, "switch1Id": db.SW_ROL1_DONE}
+    card = S.narrate(["A card on the snug table: RESERVED. R. FAIRWEATHER."])
+    return R.event(event_id, "The Snug's Card", *places.SNUG_CARD, [
+        R.page([], img=R.image(""), priority=0, through=True),
+        R.page(card, img=R.image(""), conditions=met),
+        R.page(_rol2_card(), img=R.image(""),
+               conditions=dict(met, actorValid=True, actorId=db.ROLAND)),
+        R.page(card + S.narrate([
+            "On the back, under the prophecy, in pencil: GONE TO SEE."]),
+            img=R.image(""), conditions={"switch1Valid": True,
+                                         "switch1Id": db.SW_ROL2_ON}),
+        R.page(card + S.narrate([
+            "On the back, under the prophecy, in pencil: GONE TO SEE.",
+            "And under that, in the same pencil: DONE. (R.F.) It took",
+            "an afternoon."]),
+            img=R.image(""), conditions={"switch1Valid": True,
+                                         "switch1Id": db.SW_ROL2_DONE}),
+    ])
+
+
+def _rol2_draw():
+    c = S.narrate([
+        "A stone at the foot of the stairs, with a sword in it to",
+        "the hilt. There are twenty-two years of dust on the hilt,",
+        "and none at all on the stone."])
+    c += S.narrate(["Roland stands in front of it for a long time."])
+    c += S.say("Roland", ["Readiness. The stone?"])
+    c += S.narrate([
+        "You say that it looks ready to you. Nobody has ever said",
+        "that to him."])
+    c += S.narrate([
+        "He puts his hand on the hilt the way you might put a hand",
+        "on a horse you were not sure of, and the sword comes out",
+        "of the stone as if it had only been waiting to be asked."])
+    c += [R.play_se("Sword4", 80, 90), R.flash_screen([255, 255, 221, 136],
+                                                      30, True)]
+    c += S.say("Roland", ["...Oh."])
+    c += S.say("Roland", ["It's ready."])
+    c += S.narrate([
+        "He does not say anything else for a little while. Then he",
+        "goes on down, with it."])
+    c += [R.control_switch(db.SW_ROL2_DRAWN, True)]
+    return c
+
+
+def _rol2_won():
+    c = R.if_then(R.condition_actor_in_party(db.PIPER), S.narrate([
+        "It is over before Piper has got to the end of the first",
+        "line of a verse."]), S.narrate([
+            "It is over in about the time it takes to say so."]))
+    c += S.narrate([
+        "The Worm of Carn Drey is ended, as the prophecy said, and",
+        "the land - the top of the hill, which is a field with",
+        "sheep in it - is presumably glad."])
+    c += S.narrate([
+        "Roland stands with the sword and looks at the place where",
+        "it was."])
+    c += S.say("Roland", ["That's it. That was it.",
+                          "Twenty-two years."])
+    c += S.say("Roland", ["Would you - I know it's a great",
+                          "deal to ask. Would you mind being",
+                          "surprised? Only a little."])
+    c += S.narrate([
+        "You are. Everybody is - not at the Worm, which was over",
+        "before anybody could be, but at Roland Fairweather, who",
+        "has finished something, standing in the dark at the",
+        "bottom of a hill with his mouth open."])
+    c += S.narrate([
+        "He laughs. Then he sits down on the floor of the Worm's",
+        "room and laughs until he has to wipe his eyes, and then he",
+        "gets up and thanks each of you, by name, which takes a",
+        "while, because he means it."])
+    c += S.say("Roland", ["I'll keep the sword till the door.",
+                          "It's had one afternoon. It ought to",
+                          "have another."])
+    c += [S.trope(), R.control_switch(db.SW_ROL2_DONE, True)]
+    c += S.companion_story(db.ROLAND)
+    return c
+
+
+def _rol2_worm():
+    c = S.narrate([
+        "At the bottom of Carn Drey something very long is asleep,",
+        "coiled three times round the room. You have, you realise,",
+        "been walking beside it since the stairs."])
+    c += S.narrate([
+        "It opens one eye. It has been waiting since before Roland",
+        "was born, for a hero of nineteen."])
+    c += S.say("Roland", ["I'm thirty-four. I'm sorry. I did",
+                          "mean to come sooner."])
+    c += S.narrate([
+        "The Worm, which is old and very large and has been looking",
+        "forward to this, uncoils."])
+    c += [R.battle(db.TR_WORM, can_escape=False, can_lose=True)]
+    lost = S.narrate([
+        "The Worm, which has waited twenty-two years, is in no",
+        "hurry, and goes back to sleep. Neither is Roland."])
+    lost += S.say("Roland", ["Again, after tea?"])
+    for code, body in [(601, _rol2_won()), (603, lost + [R.recover_all(0)])]:
+        c += [{"code": code, "indent": 0, "parameters": []}]
+        c += R.shift(body, 1)
+        c += [{"code": 0, "indent": 1, "parameters": []}]
+    c += [{"code": 604, "indent": 0, "parameters": []}]
+    return c
+
+
+def carn_drey_events():
+    """The way out, the stone with the sword in it, and the Worm."""
+    roland = {"actorValid": True, "actorId": db.ROLAND}
+    drawn = {"switch1Valid": True, "switch1Id": db.SW_ROL2_DRAWN}
+    done = {"switch1Valid": True, "switch1Id": db.SW_ROL2_DONE}
+    sword = R.image("!Weapon", 0, direction=2, pattern=1)
+    not_his = S.narrate([
+        "It is Roland's prophecy, not yours, and Roland is not",
+        "here."])
+    stone = R.event(2, "The Stone", *CARN_STONE, [
+        R.page(S.narrate([
+            "A stone at the foot of the stairs, with a sword in it to",
+            "the hilt, and twenty-two years of dust on the hilt."])
+            + not_his, img=sword, direction_fix=True),
+        R.page(_rol2_draw(), img=sword, direction_fix=True,
+               conditions=roland),
+        R.page(S.narrate(["The stone, with a slot in it the shape of a",
+                          "sword."]), img=R.image(""), conditions=drawn),
+    ])
+    asleep = S.narrate([
+        "Something very long is asleep in the dark at the bottom",
+        "of the hill."])
+    worm = R.event(3, "The Worm", *CARN_WORM, [
+        R.page(asleep + R.if_then(
+            R.condition_actor_in_party(db.ROLAND),
+            S.say("Roland", ["Not yet. The sword first. It's in",
+                             "the prophecy, and the order matters",
+                             "to the committee."]), not_his), img=R.image("")),
+        R.page(_rol2_worm(), img=R.image(""), conditions=dict(drawn, **roland)),
+        R.page([], img=R.image(""), priority=0, through=True,
+               conditions=done),
+    ])
+    out = R.event(1, "Way Out", *CARN_WAY_OUT, [R.page(
+        [R.play_se("Move1"), R.tint_screen([0, 0, 0, 0], 1, False),
+         R.transfer(places.MAP_WORLD, *places.CARN_DREY_STEP, 6)],
+        img=R.image(""), trigger=1, priority=0, through=True)])
+    return [out, stone, worm]
+
+
+def _rol2_hand_over():
+    """At the tower door, inside his departure, after Fairweather's Own."""
+    c = S.narrate([
+        "Then he unbuckles the sword out of Carn Drey, which he has",
+        "carried since the afternoon, and lays it on top."])
+    c += [R.gain_weapon(db.WP_DRAWN, 1), R.play_me("Fanfare2")]
+    c += S.narrate(["Got \\I[120]\\C[3]The Drawn Sword\\C[0]."])
+    c += S.say("Roland", ["And that one. It's had one afternoon.",
+                          "It ought to have another."])
+    return c
+
+
+def carn_drey_door(event_id):
+    """The cave in Carn Drey's south face (Map 8, the last event): nothing
+    until the party has gone to see; then a gate and Fellow Blunt's plate,
+    and in with Roland; and afterwards the plate amended, for everybody."""
+    cave = R.image(tile_id=K.WB_CAVE)
+    touch = dict(img=cave, trigger=1, priority=0, through=True)
+    plate = S.narrate([
+        "A cave in the side of Carn Drey, with an iron gate across",
+        "it and a plate: THE WORM. NOT READY. (FELLOW BLUNT,",
+        "QUARTERLY.) The gate is not locked. Nobody ever tried it."])
+    on = {"switch1Valid": True, "switch1Id": db.SW_ROL2_ON}
+    go_in = [R.play_se("Open1"), R.tint_screen(CARN_GLOOM, 1, False),
+             R.transfer(places.MAP_CARN_DREY, *CARN_ARRIVE, 8)]
+    return R.event(event_id, "Carn Drey", *places.CARN_DREY, [
+        R.page([], img=R.image(""), priority=0, through=True),
+        R.page(plate + S.narrate([
+            "It is Roland's prophecy, and Roland is not here."]),
+            conditions=on, **touch),
+        R.page(plate + R.choice_block(["Go down", "Not yet"], [
+            go_in, S.narrate(["Not yet. Roland looks at the gate for a",
+                              "while anyway."])]),
+            conditions=dict(on, actorValid=True, actorId=db.ROLAND),
+            **touch),
+        R.page(S.narrate([
+            "Carn Drey, with its gate open. Under NOT READY on the",
+            "plate, somebody has written in pencil: READY. DONE.",
+            "(R.F.)"]), conditions={"switch1Valid": True,
+                                   "switch1Id": db.SW_ROL2_DONE}, **touch),
+    ])
+
+
+def build():
+    R.save_map(places.MAP_CARN_DREY, carn_drey_map())

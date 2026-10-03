@@ -1308,6 +1308,7 @@ def bell_events():
     evs += q_piper.rival_events()                                     # PIP-3
     evs += q_roland.meeting_events()                                  # ROL-1
     evs.append(q_roland.understudy_event(len(evs) + 1))               # ROL-5
+    evs.append(q_roland.snug_card_event(len(evs) + 1))                # ROL-2
     return evs
 
 

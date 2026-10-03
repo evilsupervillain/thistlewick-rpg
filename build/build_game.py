@@ -44,6 +44,7 @@ import dunnage  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import places  # noqa: E402
 import q_corvin  # noqa: E402  draws COR-2's drowned street, Map 66
+import q_roland  # noqa: E402  draws ROL-2's dungeon, Map 67
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -122,6 +123,7 @@ MAP_NAMES = [
     (dunnage.MAP_BONDED, "The Bonded Warehouse", dunnage.MAP_DUNNAGE),
     (dunnage.MAP_BELL, "The Bell", dunnage.MAP_DUNNAGE),
     (places.MAP_DROWNED_STREET, "Old Ashcombe", journey.MAP_WORLD),
+    (places.MAP_CARN_DREY, "Under Carn Drey", journey.MAP_WORLD),
 ]
 
 
@@ -426,7 +428,10 @@ def build_system():
             (db.SW_HOB4_DONE, "HOB-4: one sword, not for Hob"),
             (db.SW_ZEPH4_DONE, "ZEPH-4: the Fen burnt; the road open"),
             (db.SW_ROL5_ON, "ROL-5: met the understudy; to tell her?"),
-            (db.SW_ROL5_DONE, "ROL-5: told; she is at the tower door")]:
+            (db.SW_ROL5_DONE, "ROL-5: told; she is at the tower door"),
+            (db.SW_ROL2_ON, "ROL-2: gone to see, under Carn Drey"),
+            (db.SW_ROL2_DRAWN, "ROL-2: the sword out of the stone"),
+            (db.SW_ROL2_DONE, "ROL-2: the Worm ended; discharged")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -524,6 +529,7 @@ def main():
     collegium.build()
     dunnage.build()
     q_corvin.build()                    # COR-2's drowned street
+    q_roland.build()                    # ROL-2's dungeon under Carn Drey
     shape_wall_tops()
     build_map_infos()
     build_tilesets()

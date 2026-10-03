@@ -462,6 +462,14 @@ IT_FEN_CERTIFICATE = 72         # the Commissioner's; countersigned by scorch
 # ROL-5, The Understudy (QUESTS.md E17, q_roland.py)
 SW_ROL5_ON = 203                # met her; he is deciding whether to tell her
 SW_ROL5_DONE = 204              # told; she asked whose; she has gone north
+# ROL-2, Roland's Own Quest (QUESTS.md E18, q_roland.py)
+SW_ROL2_ON = 205                # going to see: the card says GONE TO SEE
+SW_ROL2_DRAWN = 206             # the sword is out of the stone
+SW_ROL2_DONE = 207              # the Worm of Carn Drey is ended; discharged
+WP_DRAWN = 43                   # out of the stone; he leaves it at the door
+EN_WORM = 59
+TR_WORM = 54
+SK_COILS, SK_LOOKS_AT_HIM = 183, 184
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -2603,6 +2611,7 @@ def build():
     build_contest()
     build_monograph()
     build_vigil()
+    build_worm()
 
 
 # ================================================= the companion quests ======
@@ -2935,4 +2944,46 @@ def build_vigil():
                (EN_DAMP, 620, 240)], pages=pages)
     t["members"][2]["hidden"] = t["members"][3]["hidden"] = True
     upsert(tr, t)
+    save("Troops.json", tr)
+
+
+def build_worm():
+    """ROL-2, the Worm of Carn Drey (QUESTS.md E18): the thing Roland's
+    prophecy names, scaled for a hero of nineteen and met by a man of
+    thirty-four with friends. A real fight and a short one - it is over before
+    Piper has got a verse out - so its numbers are fixed, not sized to the
+    party, and an over-levelled party is the point. And the sword out of the
+    stone, which is strictly better than Fairweather's Own, and which he
+    leaves at the tower door beside it."""
+    sk = R.load("Skills.json")
+    upsert(sk, skill(SK_COILS, "Coils", "", "a.atk * 4 - b.def * 2",
+                     animation=1, message="%1 coils round %2."))
+    upsert(sk, skill(SK_LOOKS_AT_HIM, "Looks At Roland", "", "0", dmg_type=0,
+                     hit_type=0, scope=11, animation=0,
+                     message="%1 looks at Roland for a long time. It was "
+                             "expecting somebody younger."))
+    save("Skills.json", sk)
+
+    wp = R.load("Weapons.json")
+    upsert(wp, weapon(WP_DRAWN, "The Drawn Sword",
+                      "[Sword] Out of a stone under Carn Drey, in an afternoon, "
+                      "with help. It has had one afternoon. It would like another.",
+                      WT_SWORD, 0, [0, 0, 72, 14, 12, 12, 10, 16], icon=120,
+                      animation=25,
+                      traits=[trait(31, EL_LIGHT, 0), trait(22, 2, 0.15),
+                              trait(22, 0, 0.06)]))
+    save("Weapons.json", wp)
+
+    en = R.load("Enemies.json")
+    upsert(en, enemy(
+        EN_WORM, "The Worm of Carn Drey", "SF_Anaconda", 0,
+        [1600, 0, 70, 40, 30, 30, 28, 10], 600, 0,
+        [action(SK_COILS, 5), action(SK_LOOKS_AT_HIM, 3)],
+        note="ROL-2. Asleep under Carn Drey since before Roland was born, "
+             "waiting for a hero of nineteen."))
+    save("Enemies.json", en)
+
+    tr = R.load("Troops.json")
+    upsert(tr, troop(TR_WORM, "The Worm of Carn Drey",
+                     [(EN_WORM, 408, 300)]))
     save("Troops.json", tr)
