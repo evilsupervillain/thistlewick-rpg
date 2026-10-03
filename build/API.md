@@ -664,7 +664,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-536 constants.
+538 constants.
 
 ```
 BRAM                         1
@@ -1155,6 +1155,8 @@ SW_WRE4_ON                   186
 SW_WRE4_JOINS                187
 SW_WRE4_DONE                 188
 WRE4_FEE                     600
+SW_COR3_ON                   189
+SW_COR3_DONE                 190
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

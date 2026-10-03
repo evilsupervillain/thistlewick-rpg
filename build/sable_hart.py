@@ -36,6 +36,7 @@ import mapkit as K
 import rmmzdata as R
 
 import db
+import q_corvin
 import story as S
 from places import MAP_WORLD, MAP_SABLE_HART, SABLE_HART_STEP
 
@@ -322,6 +323,7 @@ def hart_events():
     for eid, name, xy, cell, pages in people:
         evs.append(_person(eid, name, xy, R.image("Gen_People4", cell,
                                                   direction=2), *pages()))
+    evs[1]["pages"] += q_corvin.crake_pages(evs[1]["pages"][-1])       # COR-3
     evs.append(_person(7, "Mrs Garrow", GARROW,
                        R.image(*S.FACES["Mrs Garrow"], direction=2), *garrow_pages()))
 
@@ -342,6 +344,7 @@ def hart_events():
         "Somebody has put in a fifth pin, to be sure."])
     evs.append(R.event(8, "The League Table", *LEAGUE,
                        [R.page(league, **page)]))
+    evs[-1]["pages"] += q_corvin.league_pages(evs[-1]["pages"][0])  # COR-3
 
     # 9: the rota.
     rota = S.narrate([
@@ -368,6 +371,7 @@ def hart_events():
         "a member in good standing, and his chair is kept."])
     evs.append(R.event(10, "The Newsletter", MORROW[0] - 1, MORROW[1],
                        [R.page(news, **page)]))
+    evs[-1]["pages"] += q_corvin.newsletter_pages(evs[-1]["pages"][0])  # COR-3
 
     # 11: the middle of the room.
     empty = S.narrate([
@@ -375,6 +379,7 @@ def hart_events():
         "stool at each end. There is dust on both stools."])
     evs.append(R.event(11, "An Empty Table", *MIDDLE[1],
                        [R.page(empty, **page)]))
+    evs[-1]["pages"] += q_corvin.middle_pages(evs[-1]["pages"][0])  # COR-3
 
     # 12: the fire, which the stock fireplace does not have. `!Flame` 3
     # facing left is the middle-sized one of its four rows.

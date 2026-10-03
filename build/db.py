@@ -430,6 +430,9 @@ SW_WRE4_ON = 186                # engaged to authenticate the collection
 SW_WRE4_JOINS = 187             # Mr Ottershaw has shown her every join
 SW_WRE4_DONE = 188              # written up, honestly; the fee
 WRE4_FEE = 600                  # crowns, the family's, for the write-up
+# COR-3, The Rivals' Retreat (QUESTS.md E10, q_corvin.py)
+SW_COR3_ON = 189                # seventeenth, of seventeen; he sat down
+SW_COR3_DONE = 190              # the meeting; second; his chair is kept
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

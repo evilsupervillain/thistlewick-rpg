@@ -1,0 +1,298 @@
+{
+ "query": "?map=49&x=10&y=8&frames=90",
+ "comment": "QUESTS.md E10, COR-3 The Rivals' Retreat. Crake's published reaction shot first; the table as published without Corvin; with him, its own page and then seventeenth; the meeting on Crake's second look - the new category, second, his chair kept; a dismissed Corvin's errand waiting; afterwards for everybody.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s))"
+  },
+  {
+   "eval": "$gameParty.addActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0,
+   "label": "Crake: his first page"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 1,
+   "label": "the table, with Corvin"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has(\"I'm not here.\"), window._has('meetings')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "Crake's first visit is the published reaction shot"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "Crake with Corvin, before the table: his own last page"
+  },
+  {
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 0,
+   "label": "without Corvin, the table as published"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('fifth pin'), window._has('C. ASH')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "and it still stops at fourth"
+  },
+  {
+   "eval": "$gameParty.addActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('fifth pin'), window._has('17. C. ASH'), window._has('Blackwood is NEW.'), $gameSwitches.value(189), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    1
+   ],
+   "label": "its own page, then seventeenth; one trope (the dark mirror, again)"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('does not look at the bottom'), window._has('17. C. ASH'), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    false,
+    0
+   ],
+   "label": "not twice"
+  },
+  {
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 1,
+   "label": "a dismissed Corvin's errand waits: Crake's own page"
+  },
+  {
+   "eval": "$gameParty.addActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 2,
+   "label": "with him, the meeting"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has('Veyle has the dark corner'), window._has('Quorum is two.'), window._has('There is now.'), window._has('Second, behind the'), window._has('very good chair'), window._has('stays for it')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "his last page; the meeting; a new category; second; his chair; the pie"
+  },
+  {
+   "check": "[$gameSwitches.value(190), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(107), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    0,
+    0,
+    true,
+    1
+   ],
+   "label": "done; no second trope, no blush; his story"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards: Crake"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 2,
+   "label": "afterwards: the table"
+  },
+  {
+   "check": "$gameMap.event(10).findProperPageIndex()",
+   "expect": 1,
+   "label": "afterwards: the newsletter"
+  },
+  {
+   "check": "$gameMap.event(11).findProperPageIndex()",
+   "expect": 1,
+   "label": "afterwards: the chair"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('KEPT. (C. ASH.)'), window._has('does')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "with Corvin, he sits in it"
+  },
+  {
+   "eval": "$gameParty.removeActor(8)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "for everybody"
+  },
+  {
+   "check": "$gameMap.event(8).findProperPageIndex()",
+   "expect": 2,
+   "label": "for everybody"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Veyle has the dark corner'), window._has('We find it very')]",
+   "expect": [
+    true,
+    true
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(8).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('fifth pin'), window._has('2. C. ASH'), window._has('5. T. ROOK')]",
+   "expect": [
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(10).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('as ever'), window._has('PRESENT: C.')]",
+   "expect": [
+    true,
+    true
+   ]
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('KEPT. (C. ASH.)'), window._has('not brood at all')]",
+   "expect": [
+    true,
+    false
+   ]
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

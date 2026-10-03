@@ -2680,13 +2680,83 @@ Ottershaw); `build/scenarios/q_wre4.json`.
   write-up and the fee, and afterwards with and without her.
 * `TIMELINE.md`: nothing new (Ottershaw's 1930 is already there).
 
+
+**E10, COR-3 The Rivals' Retreat - done.** COR-3's section at the bottom of
+`q_corvin.py`, hooked from `sable_hart.py` in four places (Crake, the
+league table, the newsletter, the empty table);
+`build/scenarios/q_cor3.json`.
+
+* **The start is the league table** (Map 49 event 8), which has no ladder
+  and no published reaction shot, and which the site built to stop at fourth
+  for this: with Corvin, its own page, and then he takes out the fifth pin
+  and reads the rest - 5. K. BLACKWOOD 12 (keen), 6-16 members by post,
+  **17. C. ASH 0 (no meetings attended)**. "Seventeenth. Of seventeen.
+  Behind Blackwood. Blackwood is NEW." He takes it very hard, and sits down
+  at the nearest table, which is the empty one in the middle, in the light.
+  Across the room Crake opens his book. **One trope** (the dark mirror,
+  again - the site's was Crake's). `SW_COR3_ON`.
+* **Decided: the fix is a meeting**, because points are scored at meetings
+  and he has sent apologies to a hundred and twelve (the newsletter's issue
+  number). Crake convenes it on his second look with Corvin and the switch
+  (event 2, page 3: his A, Corvin, `SW_COR3_ON`), carrying his own last
+  page; his first page with Corvin is the published "I'm not here." and
+  stays the first visit. "Quorum is two. We are five, and a member." Rook
+  reviews: a vow (a fortune-teller, twopence - "A vow you paid for. That's
+  binding. Two points."); a scar (no - "Don't ask about the scar", and
+  Veyle looks very briefly disappointed); standing in the rain - "I sat in
+  the corner of the Slain Wyvern. For eleven years." / "...In ONE corner?" /
+  "Out of turn?" / "There wasn't a rota." Nobody has ever sat in one corner
+  for eleven years; is there a category? "There is now." "Front page."
+  Blackwood would like that category one day, when he has a corner.
+  **Second, thirty-nine, behind the scar**; Rook moves himself down to
+  fifth and is visibly happier there. Veyle offers the dark corner out of
+  turn; NOBODY out of turn, however rainy.
+* **Decided: the chair the newsletter keeps is not a corner.** It is the
+  stool he sat down on, in the middle of the room, in the light, where
+  nobody broods - somebody has dusted it, "and it does not look as if it
+  has been easy". "...It's a very good chair." Mrs Garrow brings him a pie
+  and he stays for it (the tinker, in her own page, left before his came).
+  Nobody uses the word for what this is. No gear, no item: Corvin has his
+  scarf.
+* **Afterwards for everybody**: Crake's own last page plus "Mr Ash attends
+  now. Not every week. He sends apologies when he doesn't. We find it very
+  reassuring."; the table's own page plus the rota moved up an inch and two
+  new lines in red, 2. C. ASH 39 (one corner, eleven years) and 5. T. ROOK
+  35 (by his own request); the newsletter's own page plus issue one hundred
+  and thirteen, PRESENT: C. ASH; the empty table, one stool dusted, KEPT.
+  (C. ASH.) - and with Corvin, he sits on it for a minute and does not brood
+  at all.
+* **Ids taken:** switches **189** `SW_COR3_ON`, **190** `SW_COR3_DONE`. No
+  faces, no items, no new events.
+* One trope, no blush. Running tally: **tropes +36 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[CORVIN]` (on already after COR-1, -2 or -5 in a game that did
+  one).
+* **Candidate ending line** (G1; read `SW_COR3_DONE`): "Corvin Ash is second
+  on the league table at the Sable Hart, behind a scar. He has a chair there,
+  in the middle of the room, in the light. He attends."
+* **The rooms (0.1):** the Sable Hart had never been swept. Map 49 was
+  cropped with `propsheet.py` (23 tiles) and screenshotted: `Large Window A`
+  over Crake's corner, `Curtains B` over Veyle's (no window behind it, as he
+  says), `Open Book A` on Rook's table and `Notes D` on Morrow's, two
+  `Posted Notice`s for the table and the rota, the `Large Fireplace`, the bar
+  with `Bottle Shelf A`, `Wine Rack` and the `Bell`, `Pint Mug C`s in the
+  corners, and the middle's two `Table A`s and four `Stool A`s. Everything
+  is what its event says. Nothing needed fixing.
+* **Scenario** `q_cor3`: passes (24 checks), first run - Crake's published
+  reaction shot, the table as published without Corvin and still stopping
+  at fourth, then his seventeenth (and not twice), a dismissed Corvin's
+  errand waiting at Crake, the meeting, and afterwards with and without
+  him.
+* `TIMELINE.md`: nothing dated (eleven years is 1989's).
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E10, COR-3 The
-Rivals' Retreat**. E1-E9 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E11, COR-4
+Mother Selvidge**. E1-E10 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
 asked for E7-E12 in one session, with the part's rerun at the end of E12.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
@@ -2707,18 +2777,17 @@ Screenshots of anything drawn, looked at. The step's own scenario,
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +35 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 189, variable 26, item 69, weapon 42,
+Where things stand: tropes +36 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 191, variable 26, item 69, weapon 42,
 armour 48, armour type 14, class 12, common event 4, state 42, enemy 59,
 troop 54, skill 183, map 67, `Gen_People14` 1. Aldric has had his gear (the
 shield, armour 47, E7). **The E7-E12 rerun will need `weeping_bottom`**: its
 companion pass asserts Sir Hamo says nothing of a vigil, and ALD-2 starts on
 his second look. Merribell has had her gear (the Pamphlet, armour 45).
 
-What E10 will need: the Sable Hart, Map 49 - Crake (event 2, with a
-published Corvin reaction on his first page), the league table (8, no
-ladder, "stops at fourth"), the rota (9), the newsletter (10, "his chair is
-kept"), the empty table in the middle (11). Not swept yet: crop it.
+What E11 will need: `nomap.py`'s Fair, Map 8 event 54 - two pages, and its
+self switch A is set only when Mother Selvidge is paid (two crowns). Her own
+second page says "Same again? ... Keep your money."
 
 Things learned that will bite again:
 

@@ -796,3 +796,173 @@ def weir_pages(last):
 
 def build():
     R.save_map(MAP_DROWNED_STREET, drowned_street_map())
+
+
+# ============================================================== COR-3 ====
+# The Rivals' Retreat (`QUESTS.md` E10). An inn on a moor where doomed rivals
+# brood professionally; a rota for the darkest corner; a newsletter; a league
+# table on which Corvin, a member who has never attended, is seventeenth.
+#
+# * **The start is the league table** (Map 49 event 8), which has no ladder
+#   and no published reaction shot: with Corvin, its own page, and then he
+#   takes out the fifth pin and reads the rest. Seventeenth, of seventeen,
+#   behind Blackwood, who is new. He takes it very hard, and sits down.
+# * **The fix is a meeting**, because points are only scored at meetings and
+#   he has sent apologies to a hundred and twelve of them. Crake convenes it
+#   on his second look with Corvin (event 2, below his one-self-switch
+#   ladder), Rook reviews the points, and everybody is lovely about it
+#   without once using the word. Eleven years in one corner of the Slain
+#   Wyvern is not a category. It is now. Second, behind the scar.
+# * **His chair is kept**, the newsletter has always said - and it is not a
+#   corner. It is a stool at the empty table in the middle of the room, in
+#   the light, which nobody but a tinker has ever sat at. He sits at it, and
+#   stays for his pie.
+# * **Afterwards for everybody**: Crake, the table re-ruled, the newsletter's
+#   next issue, and the stool with no dust on it.
+def _cor3_seventeenth():
+    c = S.narrate([
+        "Corvin looks at the fifth pin for a long moment. Then he",
+        "takes it out, and lifts the rota, and reads down."])
+    c += S.narrate([
+        "   5. K. BLACKWOOD ... 12   (keen)",
+        "   6-16. members by post, in order of their last letter",
+        "   17. C. ASH ............ 0   (no meetings attended)"])
+    c += S.say("Corvin", ["Seventeenth."])
+    c += S.say("Corvin", ["Of seventeen. Behind",
+                          "Blackwood. Blackwood is NEW."])
+    c += S.narrate([
+        "He puts the pin back, very carefully, and sits down at",
+        "the nearest table, which is the one in the middle of the",
+        "room, in the light. Nobody in the Sable Hart says a word.",
+        "Across the room, Crake opens his book."])
+    c += [S.trope(), R.control_switch(db.SW_COR3_ON, True)]
+    return c
+
+
+def league_pages(page0):
+    """Pages 2-3 of the league table (Map 49, event 8), which has no ladder:
+    with Corvin, its own page and then the rest of it; afterwards, its own
+    page and the table re-ruled, for everybody."""
+    own = page0["list"][:-1]
+    again = S.narrate(["Corvin does not look at the bottom of it again."])
+    corvin = own + R.if_then(R.condition_switch(db.SW_COR3_ON), again,
+                             _cor3_seventeenth())
+    after = own + S.narrate([
+        "The rota has been moved up an inch. Under it, new, in red:",
+        "   2. C. ASH ............ 39   (one corner, eleven years)",
+        "   5. T. ROOK ........... 35   (by his own request)"])
+    return [
+        _cor1_dressed(page0, corvin, _cor1_corvin()),
+        _cor1_dressed(page0, after, {"switch1Valid": True,
+                                     "switch1Id": db.SW_COR3_DONE}),
+    ]
+
+
+def _cor3_meeting():
+    c = S.say("Crake", ["Mr Ash. You've seen the",
+                        "table."])
+    c += S.say("Corvin", ["Seventeenth."])
+    c += S.say("Crake", ["Points are scored at",
+                         "meetings, I'm afraid, and you have",
+                         "sent apologies to a hundred and",
+                         "twelve of them. Beautifully."])
+    c += S.say("Crake", ["Shall we have one? Now.",
+                         "Quorum is two. We are five, and",
+                         "a member."])
+    c += [R.play_se("Bell1", 70)]
+    c += S.narrate([
+        "He rings a little bell. The four corners and the fire",
+        "come into the middle of the room, which none of them has",
+        "stood in for years, and stand round Corvin's table."])
+    c += S.say("Rook", ["Review of points. Ash, C.",
+                        "A vow?"])
+    c += S.say("Corvin", ["A fortune-teller said I was",
+                          "the rival of a great hero. I paid",
+                          "twopence."])
+    c += S.say("Rook", ["A vow you paid for. That's",
+                        "binding. Two points."])
+    c += S.say("Rook", ["A scar?"])
+    c += S.say("Corvin", ["No."])
+    c += S.say("Veyle", ["Don't ask about the scar."])
+    c += S.narrate([
+        "Nobody asks about the scar. Veyle looks, very briefly,",
+        "disappointed."])
+    c += S.say("Rook", ["Standing in the rain?"])
+    c += S.say("Corvin", ["I sat in the corner of the",
+                          "Slain Wyvern. For eleven years."])
+    c += [R.wait(40)]
+    c += S.say("Rook", ["...In ONE corner?"])
+    c += S.say("Veyle", ["Out of turn?"])
+    c += S.say("Corvin", ["There wasn't a rota."])
+    c += S.say("Crake", ["Nobody has ever sat in one",
+                         "corner for eleven years. Mr Rook,",
+                         "is there a category?"])
+    c += S.say("Rook", ["There is now."])
+    c += S.say("Morrow", ["Front page."])
+    c += S.say("Blackwood", ["Could I have that",
+                             "category, one day? When I've got",
+                             "a corner?"])
+    c += S.narrate([
+        "Rook does the sum twice, in the margin, and rules a new",
+        "line in red. C. ASH, thirty-nine. Second, behind the",
+        "scar. He moves himself down to fifth, and is visibly",
+        "happier there."])
+    c += S.say("Veyle", ["Have the dark corner. Go on.",
+                         "Monday's only four days."])
+    c += S.say("Crake", ["NOBODY out of turn,",
+                         "however rainy."])
+    c += S.say("Crake", ["Besides, his chair is kept.",
+                         "It always has been."])
+    c += S.narrate([
+        "It is the stool he is sitting on: in the middle of the",
+        "room, in the light, where nobody broods. Somebody has",
+        "dusted it. It does not look as if it has been easy."])
+    c += S.say("Corvin", ["...It's a very good chair."])
+    c += S.narrate([
+        "Mrs Garrow brings him a pie. He stays for it. Nobody uses",
+        "the word for what this is, and nobody needs to."])
+    c += [R.control_switch(db.SW_COR3_DONE, True)]
+    c += S.companion_story(db.CORVIN)
+    return c
+
+
+def crake_pages(last):
+    """Pages 3-4 for Crake (Map 49, event 2), in his own last page's dress:
+    the meeting, with Corvin once he has read the table, below his ladder;
+    afterwards, his last page and one line, for everybody."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    own = last["list"][:-1]
+    after = own + S.say("Crake", ["Mr Ash attends now. Not",
+                                  "every week. He sends apologies",
+                                  "when he doesn't. We find it very",
+                                  "reassuring."])
+    return [
+        _cor1_dressed(last, own + _cor3_meeting(), _cor1_corvin(
+            switch1Valid=True, switch1Id=db.SW_COR3_ON, **known)),
+        _cor1_dressed(last, after, dict(known, switch1Valid=True,
+                                        switch1Id=db.SW_COR3_DONE)),
+    ]
+
+
+def newsletter_pages(page0):
+    """Page 2 of the newsletter (Map 49, event 10): its own page and the
+    next issue, for everybody."""
+    return [_cor1_plus(page0, [
+        "Issue one hundred and thirteen, stop press: PRESENT: C.",
+        "ASH. A new category (one corner, eleven years). One",
+        "stool dusted."], {"switch1Valid": True,
+                           "switch1Id": db.SW_COR3_DONE})]
+
+
+def middle_pages(page0):
+    """Page 2 of the empty table (Map 49, event 11): one stool dusted, and
+    with Corvin, him at it."""
+    c = S.narrate([
+        "A table in the middle of the room, in the light, with a",
+        "stool at each end. One of them has been dusted, and has a",
+        "card on it: KEPT. (C. ASH.)"])
+    c += R.if_then(R.condition_actor_in_party(db.CORVIN), S.narrate([
+        "Corvin sits on it for a minute, in the light, and does",
+        "not brood at all."]))
+    return [_cor1_dressed(page0, c, {"switch1Valid": True,
+                                     "switch1Id": db.SW_COR3_DONE})]
