@@ -2797,13 +2797,108 @@ builder); `build/scenarios/q_cor4.json`.
   and without him.
 * `TIMELINE.md`: nothing new (nineteen and eleven years are 1989's).
 
+
+**E12, PIP-4 The Elegy - done.** PIP-4's section at the bottom of
+`q_piper.py`, hooked from `hamlets.py` (the fingerpost, and seven owners in
+Little Gore and Sump) and `fenmarch.py` (four owners), one line each;
+`build/scenarios/q_pip4.json`.
+
+* **Decided: Little Gore, and the man is Abel Thrush**, the carrier, who
+  walked Little Gore - Fenmarch - Sump with the post every day for fifty
+  years and died in the spring of 1991; Tom walks the Fenmarch half now. E1
+  had already said PIP-4 should be Little Gore's - every Sump owner was
+  MER-5's - and a carrier is the one man all three places would each have
+  known differently. Nobody had to be dead recently: Mrs Vane's published
+  pages are cheerful, and stay so.
+* **The commission is a card nailed to the back of the fingerpost** (Map 50
+  event 9, which has no ladder), "where nobody reads but a chronicler":
+  with Piper, its own page and then WANTED: AN ELEGY. For ABEL THRUSH,
+  carrier, who walked this road fifty years and never had one. Something
+  with a bit of a tune. The parish will pay. Ask anybody. "Piper Quill has
+  never met Abel Thrush. Piper Quill will have to ask anybody." **One
+  trope** (the tragic backstory of the NPC you never met). `SW_PIP4_ON`
+  (ends). After that the post shows the count, `\V[26]` of eleven.
+* **The eleven, and none of them the same man**: Mrs Vane (a year of Tom's
+  letters, never once read one, knew); Tom (never stopped talking, four
+  miles each way - "I talk the whole way now. Somebody has to."); Dame
+  Winifred (waved at eight every morning for two years, never said one
+  word); Bess (Gran says he was a giant, carried a cow to Fenmarch); Alfie (a
+  two-finger whistle you could hear at Sump); Nell (in weddings she is him
+  sometimes - round the green, and say POST); Mrs Puddifoot (over the wall
+  every day for fifty years, never used the gate, like family); Mr Ottershaw
+  (every heron he found dead on the road, wept over each); the Fourth (he
+  said he came in by the gate every day); Mr Gammage (a bottle of Fenmarch
+  water on Sump's well every Tuesday for forty years, and nobody drank it);
+  Mrs Pardew (a terrible man for his tea, all day to do four miles). Piper
+  writes each one down; it does not agree with anything else in the book;
+  she underlines it.
+* **Decided: the interview pages carry whatever would have shown.** Five of
+  the eleven already have other quests' pages - Mrs Vane ALD-1's, Dame
+  Winifred HOB-1's, the Fourth ALD-5's, Mrs Puddifoot and Mr Ottershaw
+  WRE-4's - and an appended page beats them all. So `q_piper._pip4_carry`
+  rebuilds `Game_Event.refresh`'s choice inside the page, as a chain of
+  Conditional Branch scripts over that event's own pages (switches, self
+  switches, variable, item, actor), and then the interview. The page needs
+  Piper and `SW_PIP4_ON`, and the owner's A where the owner has a ladder;
+  `SW_PIP4_ON` goes off when the elegy is written, so nothing is shadowed
+  afterwards. Heard is the owner's self switch **D** (free on Maps 50, 51,
+  56 and 57), counted in `VAR_PIP4_HEARD`, so a dismissed Piper's count
+  waits. The scenario checks ALD-1's and HOB-1's afterwards pages are carried
+  through.
+* **The elegy is nine lines**, written at the foot of the post out of the
+  contradictions rather than resolving them, and not performed: "She does
+  not stand on anything. She does not read it out." She pins it under the
+  Fenmarch arm.
+
+      He never spoke a word. He never stopped.
+      He came in at the gate. He climbed the wall.
+      He read no letter, and he knew them all.
+      He carried a cow, and wept over a bird.
+      He brought the water nobody would drink,
+      and stopped for tea, and was at eight each day
+      where somebody looked up to see him wave.
+      Eleven people knew him. All are true.
+      The road is four miles long. He walks it still.
+
+  Little Gore reads it one at a time all afternoon. "It's him. All of him.
+  Every one of us is in it." / "...We did wonder whether it might have a bit
+  more of a tune." Piper laughs, out loud, about her own work, which nobody
+  has heard her do: "Next time." **No blush** - this is the Register B one,
+  and nothing in it is at anybody's expense. **Item 69**, Elegy (Nine
+  Lines), her copy.
+* **Afterwards for everybody**: the fingerpost's own page plus the nine lines
+  under a little roof somebody has made for them, which people stop and read
+  on their way past; with Piper, she does not read it again.
+* **Ids taken:** switches **192** `SW_PIP4_ON` (ends), **193**
+  `SW_PIP4_DONE`; variable **26** `VAR_PIP4_HEARD`; item **69**
+  `IT_ELEGY`. No faces, no new events.
+* One trope, no blush. **Running tally at the end of E12: tropes +38 fixed
+  and 2-9 from PIP-2; blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[PIPER]` (on already after PIP-2, -3 or -5 in a game that did
+  one).
+* **Candidate ending line** (G1; read `SW_PIP4_DONE`) - one of the game's
+  two best lines is the elegy's last, so the ending can quote it: "On the
+  back of the fingerpost at Little Gore there are nine lines by Piper Quill,
+  which she has never performed. The road is four miles long. He walks it
+  still."
+* **The rooms (0.1):** Little Gore was swept in E5, Sump in E1 and Fenmarch
+  in E6; nothing drawn.
+* **Scenario** `q_pip4`: passes (42 checks), first run - the card with
+  Piper and the post without her, the count, all eleven across four maps
+  with Mrs Vane carrying ALD-1's afterwards and Dame Winifred HOB-1's,
+  not twice, a dismissed Piper's errand waiting at Mr Ottershaw, the nine
+  lines, and afterwards for everybody with every owner back on their own
+  page.
+* `TIMELINE.md`: 1941, Abel Thrush starts the round; 1991, he dies, and the
+  card goes up.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E12, PIP-4 The
-Elegy**. E1-E11 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **the rerun for E7-E12**
+(0.1), then step E13, PIP-1 The Authorised Version. E1-E12 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
 asked for E7-E12 in one session, with the part's rerun at the end of E12.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
@@ -2824,19 +2919,18 @@ Screenshots of anything drawn, looked at. The step's own scenario,
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +37 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 192, variable 26, item 69, weapon 42,
+Where things stand: tropes +38 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 194, variable 27, item 70, weapon 42,
 armour 48, armour type 14, class 12, common event 4, state 42, enemy 59,
 troop 54, skill 183, map 67, `Gen_People14` 1. Aldric has had his gear (the
 shield, armour 47, E7). **The E7-E12 rerun will need `weeping_bottom`**: its
 companion pass asserts Sir Hamo says nothing of a vigil, and ALD-2 starts on
 his second look. Merribell has had her gear (the Pamphlet, armour 45).
 
-What E12 will need: Little Gore (Map 50) - every Sump owner is MER-5's,
-and Mrs Vane, Dame Winifred, the Fourth, Mrs Puddifoot and Mr Ottershaw
-already carry other quests' pages, so an interview page appended to any of
-them has to carry what would otherwise have shown. Self switch D is free on
-Maps 50, 51, 56 and 57.
+What the rerun will need: `weeping_bottom`, `fenmarch`, `sable_hart`,
+`hamlets`, `nomap` and `supplied_faces` (the site scenarios of every map
+E7-E12 appended to), and `q_ald1`, `q_mer5`, `q_ald5`, `q_mer1`, `q_wre4` and
+`q_ald6` (step scenarios whose maps a later step changed). One at a time.
 
 Things learned that will bite again:
 
@@ -2875,6 +2969,10 @@ Things learned that will bite again:
   were already taken, and the build silently moved two troops and a class
   learning to the new ids. Grep `db.py` for a name before using it; the
   data diff is what caught it (E7).
+* **An appended page that would shadow another quest's page can carry it**:
+  `q_piper._pip4_carry(pages)` rebuilds the engine's page choice as a chain
+  of script conditions, so the new page shows what would have shown and then
+  its own part (E12).
 * **A turn-count fight can be fought for real in a scenario**: wrap
   `Game_BattlerBase.isAutoBattle` true for actors and `advance` through it
   (q_ald2). Kill the party only after any screenshot, and press through

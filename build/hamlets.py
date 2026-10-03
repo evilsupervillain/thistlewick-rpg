@@ -39,8 +39,9 @@ later as pages of their own. Nothing here spends one.
 * **Merribell in the party is a reaction shot and not the quest.** She looks
   at the Parish Clerk for about nine seconds and opens her mouth, and he asks
   her to speak through the chair. There is no chair. He is the chair.
-* **PIP-4 is not here yet.** Either hamlet can host it; Little Gore has more
-  people in it who liked each other, which is what an elegy wants.
+* **PIP-4 is hosted by Little Gore** (`q_piper`, E12): its commission is a
+  card on the back of the fingerpost, and its eleven interviews are pages on
+  people in both hamlets and at Fenmarch, appended last on each.
 * **One trope, the cursed village, on Sump's sign. No blush**: both places are
   warm, and neither has anybody in it for a double meaning to land on.
 """
@@ -52,6 +53,7 @@ import story as S
 import q_aldric
 import q_hob
 import q_merribell
+import q_piper
 from places import (MAP_WORLD, MAP_LITTLE_GORE, MAP_SUMP,
                     LITTLE_GORE_STEP, SUMP_STEP)
 
@@ -227,9 +229,11 @@ def gore_events():
     evs.append(_person(3, "Hester Vane", HESTER,
                        R.image("Gen_People4", 5, direction=2), *vane_pages()))
     evs[-1]["pages"] += q_aldric.vane_pages(evs[-1]["pages"][-1])  # ALD-1
+    evs[-1]["pages"] += q_piper.interview_pages("vane", evs[-1]["pages"])  # PIP-4
     evs.append(q_hob.owned("winifred", _person(                    # HOB-1
         4, "Dame Winifred Cope", COPE,
         R.image(*S.FACES["Dame Winifred"], direction=2), *cope_pages())))
+    evs[-1]["pages"] += q_piper.interview_pages("winifred", evs[-1]["pages"])  # PIP-4
 
     # 5-7: the three Vanes on the green, playing weddings; the narration says
     # how small they are. Nell was the spiky-haired boy, People1:0, under a
@@ -255,6 +259,7 @@ def gore_events():
             (6, "Alfie", ALFIE, S.FACES["Alfie"], alfie, 4),
             (7, "Nell", NELL, S.FACES["Nell"], nell, 8)]:
         evs.append(S.npc(eid, name, *xy, cmds, sheet, idx, direction=facing))
+        evs[-1]["pages"] += q_piper.interview_pages(name.lower(), evs[-1]["pages"])  # PIP-4
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 
@@ -290,6 +295,7 @@ def gore_events():
         "and a heart round two of them, nine years deep."])
     evs.append(R.event(9, "The Fingerpost", *FINGERPOST,
                        [R.page(post, **page)]))
+    evs[-1]["pages"] += q_piper.fingerpost_pages(evs[-1]["pages"][0])  # PIP-4
     return evs
 
 
@@ -457,9 +463,11 @@ def sump_events():
     evs.append(_person(4, "Mr Gammage", GAMMAGE,
                        R.image(*S.FACES["Mr Gammage"], direction=2), *gammage_pages()))
     evs[-1]["pages"] += q_merribell.gammage_pages(evs[-1]["pages"][-1])  # MER-5
+    evs[-1]["pages"] += q_piper.interview_pages("gammage", evs[-1]["pages"])  # PIP-4
     evs.append(_person(5, "Mrs Pardew", PARDEW,
                        R.image(*S.FACES["Mrs Pardew"], direction=2), *pardew_pages()))
     evs[-1]["pages"] += q_merribell.pardew_pages(evs[-1]["pages"][-1])   # MER-5
+    evs[-1]["pages"] += q_piper.interview_pages("pardew", evs[-1]["pages"])  # PIP-4
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 

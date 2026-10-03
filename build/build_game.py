@@ -413,7 +413,9 @@ def build_system():
             (db.SW_WRE4_DONE, "WRE-4: written up; the fee"),
             (db.SW_COR3_ON, "COR-3: seventeenth"),
             (db.SW_COR3_DONE, "COR-3: the meeting; his chair kept"),
-            (db.SW_COR4_DONE, "COR-4: the third reading")]:
+            (db.SW_COR4_DONE, "COR-4: the third reading"),
+            (db.SW_PIP4_ON, "PIP-4: the interviews (ends)"),
+            (db.SW_PIP4_DONE, "PIP-4: the elegy, nine lines")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -442,6 +444,7 @@ def build_system():
     variables[db.VAR_ZEPH1_PAID] = "ZEPH-1: crowns turned out in the Library"
     variables[db.VAR_WRE1_SPECIMENS] = "WRE-1: type specimens, of eleven"
     variables[db.VAR_MER1_POINTS] = "MER-1: Whatever Works' points"
+    variables[db.VAR_PIP4_HEARD] = "PIP-4: accounts of Abel Thrush, of eleven"
 
     system.update({
         "gameTitle": "The Obligatory Quest",

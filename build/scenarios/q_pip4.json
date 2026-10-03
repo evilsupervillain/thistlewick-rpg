@@ -1,0 +1,520 @@
+{
+ "query": "?map=50&x=11&y=16&frames=90",
+ "comment": "QUESTS.md E12, PIP-4 The Elegy. The fingerpost's card with Piper; the eleven interviews across Little Gore, Sump and Fenmarch, two of them carrying other quests' afterwards pages; a dismissed Piper's errand waiting; the nine lines, not performed, and a bit more of a tune; afterwards for everybody and every owner back to their own page.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s))"
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 0,
+   "label": "the fingerpost, nobody with it"
+  },
+  {
+   "eval": "$gameParty.addActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 1,
+   "label": "with Piper, the back of the post"
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 0,
+   "label": "Bess before the commission: her own page"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('FENMARCH  4 MILES'), window._has('WANTED: AN ELEGY.'), $gameSwitches.value(192), $gameVariables.value(2) - window._tropes]",
+   "expect": [
+    true,
+    true,
+    true,
+    1
+   ],
+   "label": "its own page, then the commission; one trope (the backstory of the NPC you never met)"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('of eleven'), window._has('WANTED')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "then the count"
+  },
+  {
+   "eval": "[[50,3],[50,4],[51,4],[51,5],[56,7],[57,2],[57,3],[57,4]].forEach(([m,e]) => $gameSelfSwitches.setValue([m,e,'A'], true)); $gameSwitches.setValue(182, true); $gameSelfSwitches.setValue([50,4,'B'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "comment": "Mrs Vane after ALD-1 and Dame Winifred after HOB-1: the interview has to carry those afterwards pages."
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 4,
+   "label": "Mrs Vane, with Piper: the interview page"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"never\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Mrs Vane: ALD-1's afterwards, then Abel"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 1,
+   "label": "heard: 1"
+  },
+  {
+   "check": "window._has('invitation nine years late')",
+   "expect": true,
+   "label": "ALD-1's afterwards page carried"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"said one word\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Dame Winifred"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 2,
+   "label": "heard: 2"
+  },
+  {
+   "check": "window._has('She is in her helmet')",
+   "expect": true,
+   "label": "HOB-1's afterwards page carried"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('has this one already'), $gameVariables.value(26)]",
+   "expect": [
+    true,
+    2
+   ],
+   "label": "not twice"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"carried a cow\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Bess"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 3,
+   "label": "heard: 3"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"two\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Alfie"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 4,
+   "label": "heard: 4"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"say POST\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Nell"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 5,
+   "label": "heard: 5"
+  },
+  {
+   "check": "window._has(\"I'm everybody else.\")",
+   "expect": true,
+   "label": "Nell's own page carried"
+  },
+  {
+   "goto": [
+    51,
+    10,
+    14
+   ]
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"Fenmarch water\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Mr Gammage"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 6,
+   "label": "heard: 6"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"his tea\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Mrs Pardew"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 7,
+   "label": "heard: 7"
+  },
+  {
+   "goto": [
+    56,
+    16,
+    25
+   ]
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"talk the whole way\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Tom"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 8,
+   "label": "heard: 8"
+  },
+  {
+   "goto": [
+    57,
+    10,
+    8
+   ]
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"came in by it\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "the Fourth"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 9,
+   "label": "heard: 9"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"Never used the\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Mrs Puddifoot"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 10,
+   "label": "heard: 10"
+  },
+  {
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 1,
+   "label": "a dismissed Piper's errand waits: Mr Ottershaw's own page"
+  },
+  {
+   "eval": "$gameParty.addActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('Abel Thrush, the carrier'), window._has(\"heron\"), window._has('Piper writes it down')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Mr Ottershaw"
+  },
+  {
+   "check": "$gameVariables.value(26)",
+   "expect": 11,
+   "label": "heard: 11"
+  },
+  {
+   "goto": [
+    50,
+    11,
+    16
+   ]
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has('He never spoke a word. He never stopped.'), window._has('The road is four miles long. He walks it still.'), window._has('She does not read it out.'), window._has('bit more of a tune'), window._has('Next time.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "nine lines, not performed; a bit more of a tune"
+  },
+  {
+   "check": "[$gameSwitches.value(193), $gameSwitches.value(192), $gameParty.numItems($dataItems[69]), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(106), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    false,
+    1,
+    0,
+    0,
+    true,
+    1
+   ],
+   "label": "done, the interviews over; her copy; no second trope, no blush; her story"
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 2,
+   "label": "afterwards, the fingerpost"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "Mrs Vane back to her own afterwards page"
+  },
+  {
+   "check": "$gameMap.event(5).findProperPageIndex()",
+   "expect": 0,
+   "label": "and Bess to hers"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('nine lines in Piper'), window._has('does not read it again')]",
+   "expect": [
+    true,
+    true
+   ]
+  },
+  {
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(9).findProperPageIndex()",
+   "expect": 2,
+   "label": "for everybody"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('nine lines in Piper'), window._has('does not read it again')]",
+   "expect": [
+    true,
+    false
+   ]
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

@@ -435,6 +435,11 @@ SW_COR3_ON = 189                # seventeenth, of seventeen; he sat down
 SW_COR3_DONE = 190              # the meeting; second; his chair is kept
 # COR-4, Mother Selvidge (QUESTS.md E11, q_corvin.py)
 SW_COR4_DONE = 191              # three readings; four young men a year
+# PIP-4, The Elegy (QUESTS.md E12, q_piper.py)
+SW_PIP4_ON = 192                # commissioned; the interviews; ends
+SW_PIP4_DONE = 193              # nine lines, pinned up, not performed
+VAR_PIP4_HEARD = 26             # accounts of Abel Thrush, of eleven
+IT_ELEGY = 69                   # Piper's copy
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1650,6 +1655,10 @@ def build_items():
                     "TO THE PARISH OF LITTLE GORE. BY HAND. P-G. Soft at the "
                     "folds. His first errand, four miles.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=192))
+    upsert(it, item(IT_ELEGY, "Elegy (Nine Lines)",
+                    "Abel Thrush, carrier, Little Gore - Fenmarch - Sump. "
+                    "Piper's copy. She has not performed it.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=193))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

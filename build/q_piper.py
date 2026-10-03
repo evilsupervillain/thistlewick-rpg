@@ -744,3 +744,246 @@ def rival_events():
                                "switch1Id": db.SW_PIP3_DONE}),
         ]))
     return evs
+
+
+# ================================================================ PIP-4 ==
+# The Elegy (`QUESTS.md` E12). She is commissioned to write an elegy for a
+# man she never met, by a village that loved him, and the only way to do it
+# is to interview eleven people who all describe somebody different. She
+# writes it out of the contradictions, it is nine lines long, and she does
+# not perform it. **Register B: no punchline at anybody's expense.** The
+# joke is that the village had asked for a bit more of a tune.
+#
+# * **The man is Abel Thrush**, the carrier, who walked Little Gore -
+#   Fenmarch - Sump with the post for fifty years and died in the spring of
+#   1991; Tom walks the Fenmarch half now. The commission is a card nailed to
+#   the back of Little Gore's fingerpost, where nobody reads but a
+#   chronicler: its own page, and with Piper, the card.
+# * **The eleven are other quests' owners**, in three places, so each
+#   interview page has to carry whatever page would otherwise have shown:
+#   `_pip4_carry` rebuilds `Game_Event.refresh`'s choice as a chain of
+#   script conditions over the event's own pages, then the interview. The
+#   page needs Piper and `SW_PIP4_ON`, which goes off when the elegy is
+#   written, so nothing is shadowed afterwards. Heard is the owner's self
+#   switch D (free on all four maps), counted in `VAR_PIP4_HEARD`.
+# * **Afterwards for everybody**: the fingerpost, with the nine lines under
+#   the Fenmarch arm.
+PIP4_ELEGY = [
+    "ABEL THRUSH, CARRIER. LITTLE GORE - FENMARCH - SUMP.",
+    "He never spoke a word. He never stopped.",
+    "He came in at the gate. He climbed the wall.",
+    "He read no letter, and he knew them all.",
+    "He carried a cow, and wept over a bird.",
+    "He brought the water nobody would drink,",
+    "and stopped for tea, and was at eight each day",
+    "where somebody looked up to see him wave.",
+    "Eleven people knew him. All are true.",
+    "The road is four miles long. He walks it still.",
+]
+
+# Who said what. Keyed by owner; each is (speaker, lines, Piper's note).
+PIP4_HEARD = {
+    "vane": ("Mrs Vane", [
+        "Abel? He brought Tom's letters",
+        "a whole year, every day, and never",
+        "once read one. He knew, mind."],
+        "He read no letter, and knew them all."),
+    "tom": ("Tom", [
+        "Never stopped talking. Four",
+        "miles each way, about everything.",
+        "I talk the whole way now. Somebody",
+        "has to."], "He never stopped."),
+    "winifred": ("Dame Winifred", [
+        "Waved every morning,",
+        "eight o'clock, two years. Never",
+        "said one word. Shy, I thought."],
+        "He never spoke a word."),
+    "bess": ("Bess", [
+        "Gran says he was a giant. He",
+        "carried a cow to Fenmarch once,",
+        "because it wouldn't walk."], "He carried a cow."),
+    "alfie": ("Alfie", [
+        "He could whistle with two",
+        "fingers. You could hear it at Sump.",
+        "Dad can't. I'm learning."], "A whistle you could hear at Sump."),
+    "nell": ("Nell", [
+        "When we play weddings I'm him,",
+        "sometimes. He brings the letter.",
+        "You go round the green and say POST."],
+        "He brings the letter. Round the green."),
+    "puddifoot": ("Mrs Puddifoot", [
+        "Over the wall, every",
+        "day, fifty years. Never used the",
+        "gate once. Like family."], "He climbed the wall."),
+    "ottershaw": ("Mr Ottershaw", [
+        "He brought me every",
+        "heron he found dead on the road.",
+        "Wept over each one. Four miles."],
+        "He wept over a bird."),
+    "fourth": ("The Fourth", [
+        "I asked him the way to",
+        "the gate, when I was ten. He said",
+        "he came in by it every day."],
+        "He came in at the gate."),
+    "gammage": ("Mr Gammage", [
+        "Every Tuesday, forty",
+        "years, a bottle of Fenmarch water",
+        "on our well. Nobody drank it."],
+        "The water nobody would drink."),
+    "pardew": ("Mrs Pardew", [
+        "Terrible man for his tea.",
+        "Stopped anywhere for it. Took him",
+        "all day to do four miles."], "He stopped for tea."),
+}
+
+
+def _pip4_test(conditions):
+    """A JavaScript expression that is true when a page's conditions hold,
+    evaluated by a Conditional Branch inside the same event."""
+    c, out = conditions, []
+    if c["switch1Valid"]:
+        out.append("$gameSwitches.value(%d)" % c["switch1Id"])
+    if c["switch2Valid"]:
+        out.append("$gameSwitches.value(%d)" % c["switch2Id"])
+    if c["variableValid"]:
+        out.append("$gameVariables.value(%d) >= %d"
+                   % (c["variableId"], c["variableValue"]))
+    if c["selfSwitchValid"]:
+        out.append("$gameSelfSwitches.value([this._mapId, this._eventId, "
+                   "'%s'])" % c["selfSwitchCh"])
+    if c["itemValid"]:
+        out.append("$gameParty.hasItem($dataItems[%d])" % c["itemId"])
+    if c["actorValid"]:
+        out.append("$gameParty.members().includes($gameActors.actor(%d))"
+                   % c["actorId"])
+    return " && ".join(out) or "true"
+
+
+def _pip4_carry(pages):
+    """The commands of whichever of `pages` the engine would show, as a
+    chain of Conditional Branches: the last page whose conditions hold, as
+    `Game_Event.refresh` decides it."""
+    shown = pages[0]["list"][:-1]
+    for page in pages[1:]:
+        shown = R.if_then(
+            R.condition_script(_pip4_test(page["conditions"])),
+            page["list"][:-1], shown)
+    return shown
+
+
+def _pip4_interview(key):
+    speaker, lines, note = PIP4_HEARD[key]
+    c = S.narrate([
+        "Piper asks about Abel Thrush, the carrier, and gets out",
+        "her notebook."])
+    c += S.say(speaker, lines)
+    c += S.narrate([
+        "Piper writes it down: %s" % note,
+        "It does not agree with anything else in the book. She",
+        "underlines it."])
+    c += [R.self_switch("D"), R.control_variable_add(db.VAR_PIP4_HEARD)]
+    return c
+
+
+def interview_pages(key, pages):
+    """One page appended to an owner's event: with Piper while the elegy is
+    being written, the page that would have shown, and then their account
+    of Abel Thrush - once. `pages` is the event's whole list so far."""
+    heard = S.narrate(["Piper has this one already. She nods, and does not",
+                       "write it down twice."])
+    cmds = _pip4_carry(pages) + R.if_then(
+        R.condition_self_switch("D"), heard, _pip4_interview(key))
+    conds = {"actorValid": True, "actorId": db.PIPER,
+             "switch1Valid": True, "switch1Id": db.SW_PIP4_ON}
+    # Below a ladder the page needs its terminal (0.2): the owner's A, where
+    # the owner's first page sets one.
+    if any(p["conditions"]["selfSwitchValid"] and
+           p["conditions"]["selfSwitchCh"] == "A" for p in pages):
+        conds.update(selfSwitchValid=True, selfSwitchCh="A")
+    return [_pip5_page(pages[-1], cmds, conds)]
+
+
+def _pip4_commission():
+    c = S.narrate([
+        "Piper goes round the back of the post, the way a chronicler",
+        "reads the back of everything. There is a card nailed there,",
+        "gone soft with weather:"])
+    c += S.narrate([
+        "WANTED: AN ELEGY. For ABEL THRUSH, carrier, who walked",
+        "this road fifty years and never had one. Something with a",
+        "bit of a tune. The parish will pay. Ask anybody."])
+    c += S.say("Piper", ["Piper Quill has never met",
+                         "Abel Thrush. Piper Quill will have",
+                         "to ask anybody."])
+    c += S.narrate([
+        "She takes the card down, and puts it in her book, and",
+        "looks up the road towards Fenmarch, and down it, towards",
+        "Sump. It is a long road for a short poem."])
+    c += [S.trope(), R.control_switch(db.SW_PIP4_ON, True)]
+    return c
+
+
+def _pip4_count():
+    return S.narrate([
+        "Piper's notebook: \\V[%d] of eleven, and not one of them"
+        % db.VAR_PIP4_HEARD,
+        "the same man. Little Gore, Fenmarch, and Sump."])
+
+
+def _pip4_write():
+    c = S.narrate([
+        "Piper sits down at the foot of the fingerpost with her",
+        "book open on her knee, and reads all eleven, and does not",
+        "try to make them agree."])
+    c += S.narrate([
+        "She writes for a long time, and crosses most of it out,",
+        "and what is left is nine lines."])
+    c += [R.wait(30)]
+    c += S.narrate(PIP4_ELEGY[:4])
+    c += S.narrate(PIP4_ELEGY[4:7])
+    c += S.narrate(PIP4_ELEGY[7:])
+    c += [R.wait(40)]
+    c += S.narrate([
+        "She does not stand on anything. She does not read it out.",
+        "She pins it to the post, under the Fenmarch arm, and",
+        "steps back."])
+    c += S.narrate([
+        "Little Gore comes out to read it, one at a time, all",
+        "afternoon. Mrs Vane reads it twice."])
+    c += S.say("Mrs Vane", ["It's him. All of him. Every",
+                            "one of us is in it."])
+    c += S.say("Mrs Vane", ["...We did wonder whether it",
+                            "might have a bit more of a tune."])
+    c += S.narrate([
+        "Piper laughs - properly, out loud, about her own work,",
+        "which nobody has heard her do before."])
+    c += S.say("Piper", ["Next time."])
+    c += [R.gain_item(db.IT_ELEGY, 1)]
+    c += R.text(["Got \\I[193]\\C[3]Elegy (Nine Lines)\\C[0]."])
+    c += [R.control_switch(db.SW_PIP4_ON, False),
+          R.control_switch(db.SW_PIP4_DONE, True)]
+    c += S.companion_story(db.PIPER)
+    return c
+
+
+def fingerpost_pages(page0):
+    """Pages 2-3 of Little Gore's fingerpost (Map 50, event 9), which has no
+    ladder: with Piper, its own page and the commission, the count or the
+    writing; afterwards, its own page and the nine lines, for everybody."""
+    own = page0["list"][:-1]
+    working = R.if_then(
+        R.condition_variable(db.VAR_PIP4_HEARD, 11, 1), _pip4_write(),
+        _pip4_count())
+    piper = own + R.if_then(R.condition_switch(db.SW_PIP4_ON), working,
+                            _pip4_commission())
+    after = own + S.narrate([
+        "Under the Fenmarch arm, under a little roof somebody has",
+        "made for it, nine lines in Piper's hand: ABEL THRUSH,",
+        "CARRIER. People stop and read it on their way past."])
+    after += R.if_then(R.condition_actor_in_party(db.PIPER), S.narrate([
+        "Piper does not read it again. She does not need to."]))
+    return [
+        _pip5_page(page0, piper, {"actorValid": True, "actorId": db.PIPER}),
+        _pip5_page(page0, after, {"switch1Valid": True,
+                                  "switch1Id": db.SW_PIP4_DONE}),
+    ]
