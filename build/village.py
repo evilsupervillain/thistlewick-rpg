@@ -776,10 +776,12 @@ def hall_events():
     fenn["pages"] += q_piper.fenn_pages(fenn["pages"][0])           # PIP-5
     evs.append(fenn)
 
-    evs.append(S.sign(6, "The Wall of the Forty-Seven", 4, 4, [
+    wall = S.sign(6, "The Wall of the Forty-Seven", 4, 4, [
         "Forty-seven portraits.",
         "Forty-six of them are looking at the viewer.",
-        "One of them is looking at the door."]))
+        "One of them is looking at the door."])
+    wall["pages"] += q_piper.wall_page(wall["pages"][0])            # PIP-1
+    evs.append(wall)
 
     records = S.prop(7, "Committee Records", 7, 4, [
         "Minutes of the meeting at which you were",
@@ -798,6 +800,7 @@ def hall_events():
     evs += q_piper.archive_events(10, ARCHIVE_BOX, ARCHIVE_DOOR,
                                   (MAP_HALL, CURTAIN[0], CURTAIN[1] + 1),
                                   K.INC_CASE)
+    evs.append(q_piper.ambrosine_event(12, *AMBROSINE))             # PIP-1
     return evs
 
 
@@ -809,6 +812,8 @@ ARCHIVE = (23, 5, 27, 8, 25)                # x1, y1, x2, y2, door_x
 ARCHIVE_IN = (25, 8)
 ARCHIVE_DOOR = (25, 9)
 ARCHIVE_BOX = (25, 5)
+# PIP-1: Ambrosine Quill, at the Committee's paperwork by the door.
+AMBROSINE = (7, 12)
 
 
 def archive_room(g):

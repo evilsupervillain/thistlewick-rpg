@@ -450,7 +450,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (203)
+### `FACES` — who already has a face (204)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -505,7 +505,7 @@ The Mayor             Prime Warden          Mr Tibbs              Mrs Harbottle
 Mr Dray               Miss Moon             The Convenor          Fellow Grice
 Fellow Amory          Fellow Blunt          Mr Pennock            Professor Mott
 Dr Furze              Mother Grizel         Dr Hobday             Nan Gilly
-Mr Spence             Miss Fettle           Cotter
+Mr Spence             Ambrosine             Miss Fettle           Cotter
 ```
 
 
@@ -664,7 +664,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-543 constants.
+548 constants.
 
 ```
 BRAM                         1
@@ -1162,6 +1162,11 @@ SW_PIP4_ON                   192
 SW_PIP4_DONE                 193
 VAR_PIP4_HEARD               26
 IT_ELEGY                     69
+SW_PIP1_ON                   194
+SW_PIP1_GOOD                 195
+SW_PIP1_FIXED                196
+SW_PIP1_DONE                 197
+IT_AUTHORISED                70
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

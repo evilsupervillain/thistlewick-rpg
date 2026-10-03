@@ -2922,22 +2922,103 @@ part's own and ran on their maps' final state (`q_ald2`, `q_cor3`, `q_cor4`,
 reaction-shot assertion still holds because every new page waits on a second
 look, a quest switch, or both. Nothing is owed.
 
+**E13, PIP-1 The Authorised Version - done.** PIP-1's section at the bottom
+of `q_piper.py`, hooked from `village.py` in two places (Ambrosine, the Wall
+of the Forty-Seven); `build/scenarios/q_pip1.json`.
+
+* **Ambrosine Quill is a new event in Prophecy Hall** (Map 3 event **12**,
+  `village.AMBROSINE` (7,12)), at the Committee's paperwork table by the
+  door, in the Quills' crimson. Empty first page; there **with Piper once the
+  road has been walked** (`SW_LEFT_VILLAGE`, as PIP-2) - she started "the
+  morning they voted", and it is finished while you are away. The Committee
+  approved it on Tuesday. "He hasn't finished yet." / "The shape has, dear."
+  **One trope** (the rival chronicler). `SW_PIP1_ON` keeps her there for
+  everybody, so a dismissed Piper's errand waits: "Where is my niece? I have
+  a question about a rhyme."
+* **The document**, read in four cantos of twelve: THE LAY OF THE
+  FORTY-EIGHTH, by A. Quill, Chronicler to the Committee, APPROVED. Canto one,
+  an orphan boy "who never knew a mother's care" (his mother is at home,
+  making a pie - "Nobody goes north with a mother. It doesn't scan."); canto
+  four, the wolf ("Your grandmother had a wolf in numbers forty-one,
+  forty-two and forty-three. The same wolf."); **canto six, the good middle**
+  - "Nobody does the middle" - and Piper, after a moment: "...It is a good
+  middle."; canto nine, Merribell dies by a holy well. With Merribell in the
+  party she asks what she died of ("It doesn't say, dear. It scans." / "I'd
+  have had a glass of water and sat down."); without, Piper has it noted she
+  is alive. Bram reads all twelve again looking for a turnip. There is not one.
+* **Decided: three answers, two endings** (`COMPANIONS.md`: "fight it, or fix
+  it, or - the choice worth building - read it, and find it very good").
+  **Fight it** ends nothing: a letter to the Committee, which approved it,
+  carried across the hall to the Clerk, who files it under 'no change' - his
+  own published line - and the choice is put again next visit. **It's very
+  good** (`SW_PIP1_GOOD`): Piper looks at you as if you had hit her, reads
+  canto six again, and agrees; Ambrosine takes her spectacles off - "Four
+  generations. The Committee approves. It doesn't read. Nobody has ever said
+  that before." Bram would like a copy for his mother, who is in it, briefly,
+  in the past tense. One footnote, in small type: "None of this happened. It
+  is very good. - P.Q." **Fix it** (`SW_PIP1_FIXED`): the afternoon, in metre,
+  and Ambrosine fights for the wolf for an hour; **the wolf becomes the goat
+  that sent its apologies to the meeting at which Bram was Chosen** (the
+  Committee Records' published line) - "A goat is a sort of wolf. If you
+  squint." Four fixed cantos (a mother with a pie; the goat, "and that is how
+  a record's made"; the middle, wet, and no rhyme for turnip; Merribell, who
+  did not fall, and socks); "The middle is worse." / "The middle is true." /
+  "...It scans. Just." Signed A. QUILL and P. QUILL, the first account with
+  two Quills on it, and the Clerk stamps it AMENDED. Both ends give **item
+  70**, The Authorised Version, set `SW_PIP1_DONE` and her story.
+* **No gear** (Piper has the rosette) and **no blush**: nothing in it is a
+  Register A moment.
+* **Afterwards for everybody**: Ambrosine on her ending - the good middle
+  read most mornings, and the footnote; or A. and P. Quill, with a goat in it
+  that is in the minutes - and with Piper, the two nod "as one professional
+  to another, which is new". **The Wall of the Forty-Seven** (event 6, one
+  page, no ladder, nobody else's afterwards) gets its own page plus a card in
+  the space under the forty-seventh: ACCOUNT BY A. QUILL. APPROVED., and a
+  footnote; or A. AND P. QUILL. AMENDED., and a goat in the margin.
+* **Ids taken:** switches **194** `SW_PIP1_ON`, **195** `SW_PIP1_GOOD`, **196**
+  `SW_PIP1_FIXED`, **197** `SW_PIP1_DONE`; item **70** `IT_AUTHORISED` (icon
+  189, the open book); Map 3 event 12; `village.AMBROSINE`; face
+  `Gen_People14` **1** (Ambrosine, generated: Piper's purple, up in a bun,
+  spectacles, the crimson high collar; `build/characters/ambrosine-quill.json`).
+  She does not fight, so nothing goes on `AUDIT.md`.
+* One trope, no blush. Running tally: **tropes +39 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[PIPER]` (on already after PIP-2, -3, -4 or -5 in a game that did
+  one).
+* **Candidate ending lines** (G1; read `SW_PIP1_GOOD` / `SW_PIP1_FIXED`):
+  good - "The official account of the Forty-Eighth is by Ambrosine Quill, and
+  it is very good. Bram is an orphan in it, and there is a wolf. It has one
+  footnote, by P. Quill: none of this happened."; fixed - "The official
+  account of the Forty-Eighth is by A. and P. Quill. It is true, and it
+  scans, and where the wolf was there is a goat, which is in the minutes."
+* **The rooms (0.1):** Prophecy Hall was swept on 30 Sep; cropped again with
+  `propsheet.py` (17 tiles) and screenshotted, and it reads right - nothing
+  changed. Ambrosine was screenshotted at the table by the scenario.
+* **Scenario** `q_pip1`: passes (24 checks): absent alone and before the
+  road, the reading with Merribell, Fight it (filed, nothing ends), the wait
+  without Piper, It's very good, the switches put back, Fix it, and
+  afterwards with and without Piper on both endings, with the Wall. Its first
+  run failed only its own screenshot path.
+* `TIMELINE.md`: nothing dated ("forty-one, forty-two and forty-three" are
+  portrait numbers, already the grandmother's; Tuesday is not a year).
+
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E13, PIP-1 The
-Authorised Version**. E1-E12 are done with their reruns (E1-E6 on 2 Oct
-2026, E7-E12 on 3 Oct). One step per session again (0.1) unless Mike asks
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E14, NIX-3 Professional
+Courtesy**. E1-E12 are done with their reruns (E1-E6 on 2 Oct 2026, E7-E12
+on 3 Oct), and E13 (3 Oct); E13-E15's rerun is owed at the end of E15. One step per session again (0.1) unless Mike asks
 for more.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Piper's** section of `COMPANIONS.md`, and
+B1 on, once, at the start; then **Nix's** section of `COMPANIONS.md`, and
 no other companion's. Read what the step needs by dumping its maps' events
 and their text, not by opening a module. Crop anything a step touches with
 `propsheet.py` before judging, and screenshot before and after anything
-changed (0.1). Prophecy Hall (Map 3) is Thistlewick's, swept on 30 Sep;
+changed (0.1). Thistlewick and Nether Sopping were swept on 30 Sep;
 every place Part E has touched so far has been swept.
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
@@ -2946,22 +3027,22 @@ byte: every existing page identical, only appended pages and new events
 (and, on a widened map, every tile inside the old bounds). `validate.py`,
 and `apidigest.py . --write` (new `db` constants change `build/API.md`).
 Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_pip1.json`, run in the background, one browser at a time.
+`build/scenarios/q_nix3.json`, run in the background, one browser at a time.
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +38 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 194, variable 27, item 70, weapon 42,
+Where things stand: tropes +39 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 198, variable 27, item 71, weapon 42,
 armour 48, armour type 14, class 12, common event 4, state 42, enemy 59,
-troop 54, skill 183, map 67, `Gen_People14` 1. Aldric has had his gear (the
-shield, armour 47, E7). **The E7-E12 rerun will need `weeping_bottom`**: its
-companion pass asserts Sir Hamo says nothing of a vigil, and ALD-2 starts on
-his second look. Merribell has had her gear (the Pamphlet, armour 45).
+troop 54, skill 183, map 67, `Gen_People14` 2. Aldric has had his gear (the
+shield, armour 47, E7). Merribell has had her gear (the Pamphlet, armour 45).
 
-What E13 will need: Prophecy Hall (Map 3) and Ambrosine Quill, Piper's
-aunt, who needs a face (generate it: `build/characters/`, a cell in
-`Gen_People14` from 1, `art.py` in the background). Read PIP-5's and PIP-2's
-Done paragraphs for what Prophecy Hall already carries.
+What E14 will need: an existing town and Cobb Lorrimer, who needs a face
+(generate it: `build/characters/`, `Gen_People14` 2, `art.py` in the
+background). Read NIX-4's, NIX-5's, NIX-1's and NIX-2's Done paragraphs for
+the owners Nix's quests have already used. The E13-E15 rerun will need
+`reachable_village` and `q_pip5` (Prophecy Hall gained Ambrosine at (7,12),
+who blocks her cell with Piper in the party after the road).
 
 Things learned that will bite again:
 

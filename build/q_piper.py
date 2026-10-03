@@ -987,3 +987,320 @@ def fingerpost_pages(page0):
         _pip5_page(page0, after, {"switch1Valid": True,
                                   "switch1Id": db.SW_PIP4_DONE}),
     ]
+
+
+# ================================================================ PIP-1 ==
+# The Authorised Version (`QUESTS.md` E13). Her aunt Ambrosine is writing
+# the official account of Bram's quest and has already finished it, having
+# started before he left, because the shape is known. It is better than what
+# happened. Bram is an orphan in it, Merribell dies in it, and there is a bit
+# with a wolf. The Committee has approved it.
+#
+# * **Ambrosine is a new event in Prophecy Hall** (Map 3 event 12), at the
+#   Committee's paperwork by the door: empty until Piper is in the party and
+#   the road has been walked - it is finished while you were away - and then
+#   there, and she reads it to you. `SW_PIP1_ON` keeps her there for
+#   everybody, so a dismissed Piper's errand waits ("Where is my niece?").
+# * **Three answers, two endings.** "It's very good" is the one worth
+#   building (`COMPANIONS.md`): it stands, with one footnote by P. Quill.
+#   "Fix it" is the two of them putting the truth into metre - and the wolf
+#   becomes the goat that sent its apologies to the meeting at which Bram
+#   was Chosen, which is in the minutes. "Fight it" is a letter to the
+#   Committee, which approved it, and which files it under 'no change': it
+#   ends nothing and the choice is put again.
+# * **Afterwards for everybody**: Ambrosine on her ending, and the Wall of
+#   the Forty-Seven's card for the Forty-Eighth, one `if_then` on the ending.
+AUTH_CANTO_1 = [
+    "  'An orphan boy of humble birth,",
+    "  who never knew a mother's care,",
+    "  went northward, out across the earth,",
+    "  with nothing but a sword, and prayer.'",
+]
+AUTH_CANTO_4 = [
+    "  'And in the Gloamwood, grey and old,",
+    "  a wolf came padding from the wood,",
+    "  and spoke, and what the grey wolf told",
+    "  he kept, and kept it for his good.'",
+]
+AUTH_CANTO_6 = [
+    "  'And on the mountain, in the night,",
+    "  he doubted, on a single stone,",
+    "  and forty-seven, robed in light,",
+    "  stood round, and he was not alone.'",
+]
+AUTH_CANTO_9 = [
+    "  'And Merribell, the healer, fell,",
+    "  and with her last breath bade him go;",
+    "  he laid her by a holy well,",
+    "  and wept, and went on through the snow.'",
+]
+# The fixed version: the same four cantos, in metre, and true.
+FIXED_CANTOS = [
+    ["  'A farmer's boy, whose mother still",
+     "  was in the kitchen, with a pie,",
+     "  took down the sword against his will,",
+     "  and went, and did not ask her why.'"],
+    ["  'There was no wolf. There was a goat,",
+     "  which sent apologies, and stayed",
+     "  away; the Clerk took careful note,",
+     "  and that is how a record's made.'"],
+    ["  'And in the middle, it was wet,",
+     "  and they walked on, and on, and on,",
+     "  and argued for a week, and yet",
+     "  found no rhyme for turnip. None.'"],
+    ["  'And Merribell, who did not fall,",
+     "  sat everybody down instead,",
+     "  and gave them water, first of all,",
+     "  and socks, and saw that they were fed.'"],
+]
+AUTH_NO_TURNIP = "There is not a turnip in it anywhere."
+
+
+def _pip1_reading():
+    """Ambrosine reads it to you - four cantos of twelve, and the good
+    middle, and who is in the room decides who minds what."""
+    c = S.narrate([
+        "THE LAY OF THE FORTY-EIGHTH. Being the Authorised",
+        "Account of the Chosen One, Bram Thistle. By A. Quill,",
+        "Chronicler to the Committee. APPROVED."])
+    c += S.narrate(AUTH_CANTO_1)
+    c += S.narrate([
+        "Bram has a mother. She is at home, as far as he knows,",
+        "and was making a pie when he last saw her."])
+    c += S.say("Ambrosine", ["It's an orphan's road, dear.",
+                             "It always is. Nobody goes north",
+                             "with a mother. It doesn't scan."])
+    c += S.narrate(AUTH_CANTO_4)
+    c += S.say("Piper", ["There was no wolf."])
+    c += S.say("Ambrosine", ["There is always a wolf.",
+                             "Your grandmother had a wolf in",
+                             "numbers forty-one, forty-two and",
+                             "forty-three. The same wolf. A good wolf."])
+    c += S.narrate(AUTH_CANTO_6)
+    c += S.say("Ambrosine", ["That's the middle. Nobody",
+                             "does the middle. Everybody has a",
+                             "beginning and an end, and in between",
+                             "they walk. That is a good middle."])
+    c += S.narrate(["Piper does not say anything for a moment."])
+    c += S.say("Piper", ["...It is a good middle."])
+    c += S.narrate(AUTH_CANTO_9)
+    merri = S.narrate(["Merribell reads canto nine with professional",
+                       "interest, and then again."])
+    merri += S.say("Merribell", ["What did I die of?"])
+    merri += S.say("Ambrosine", ["It doesn't say, dear. It",
+                                 "scans."])
+    merri += S.say("Merribell", ["I'd have had a glass of",
+                                 "water and sat down."])
+    no_merri = S.say("Piper", ["Sister Merribell is alive,",
+                               "and well, and would want it noted",
+                               "that she is."])
+    c += R.if_then(R.condition_actor_in_party(db.MERRI), merri, no_merri)
+    c += S.narrate([
+        "Twelve cantos. He slays the Dark Lord at the top of a",
+        "tower in a thunderstorm, in a rhyme on 'tower' that was",
+        "never going to be anything but 'hour', and comes home."])
+    c += S.narrate([
+        "Bram reads all twelve again, looking for a turnip.",
+        AUTH_NO_TURNIP])
+    c += [R.wait(30)]
+    c += S.say("Ambrosine", ["Well, Piper? You have",
+                             "a face. Your mother had that face."])
+    return c
+
+
+def _pip1_good():
+    """The ending worth building: you read it, and it is very good, and you
+    say so."""
+    c = S.narrate([
+        "You tell her it is very good. It is. It is properly",
+        "metred, and it has a good middle, and none of it",
+        "happened."])
+    c += S.narrate(["Piper looks at you as if you had hit her."])
+    c += [R.wait(30)]
+    c += S.narrate([
+        "Then she takes the manuscript back off the table and",
+        "reads canto six again, to herself, and her mouth goes",
+        "on moving after the last line."])
+    c += S.say("Piper", ["...It's very good."])
+    c += S.say("Ambrosine", ["Thank you."])
+    c += S.narrate([
+        "Ambrosine Quill takes her spectacles off, and holds",
+        "them, and does not put them back on for a while."])
+    c += S.say("Ambrosine", ["Four generations. The",
+                             "Committee approves. It doesn't read.",
+                             "Nobody has ever said that before."])
+    c += S.narrate([
+        "Bram says he would like a copy, for his mother. Ambrosine",
+        "points out, gently, that his mother is in it, briefly,",
+        "in the past tense. He would still like a copy."])
+    c += S.say("Piper", ["Piper Quill has a professional",
+                         "objection. She will put it in a",
+                         "footnote."])
+    c += S.say("Ambrosine", ["One footnote."])
+    c += S.say("Piper", ["One."])
+    c += S.narrate([
+        "At the foot of canto twelve, in small type: 'None of",
+        "this happened. It is very good. - P.Q.' Ambrosine reads",
+        "it twice, and initials it, as to the wording."])
+    c += [R.control_switch(db.SW_PIP1_GOOD, True)]
+    return c
+
+
+def _pip1_fix():
+    """The other ending: the two of them put what happened into metre."""
+    c = S.narrate([
+        "You say it could be fixed. Piper has her book open",
+        "before you have finished, at the first page, where",
+        "Bram is asleep and eleven people are outside."])
+    c += S.say("Ambrosine", ["It has to scan, Piper.",
+                             "I won't have it not scanning."])
+    c += S.say("Piper", ["It will scan."])
+    c += S.narrate([
+        "It takes the afternoon. Ambrosine gives up the orphan",
+        "for a mother in a kitchen, and Merribell for a glass of",
+        "water, and fights for the wolf for an hour."])
+    c += S.say("Ambrosine", ["There is always a wolf."])
+    c += S.say("Piper", ["There was a goat. It sent its",
+                         "apologies to the meeting. It is in",
+                         "the minutes."])
+    c += S.narrate(["Ambrosine looks at the Committee Records for a long",
+                    "time, and then at her niece."])
+    c += S.say("Ambrosine", ["...A goat is a sort of",
+                             "wolf. If you squint."])
+    for canto in FIXED_CANTOS:
+        c += S.narrate(canto)
+    c += S.say("Ambrosine", ["The middle is worse."])
+    c += S.say("Piper", ["The middle is true."])
+    c += S.say("Ambrosine", ["...It scans. Just."])
+    c += S.narrate([
+        "She signs the fair copy A. QUILL, and hands Piper the",
+        "pen, and Piper signs under her, and it is the first",
+        "account in four generations with two Quills on it."])
+    c += S.narrate([
+        "Across the hall the Clerk stamps it AMENDED, which he",
+        "has not had cause to do before, and looks pleased."])
+    c += [R.control_switch(db.SW_PIP1_FIXED, True)]
+    return c
+
+
+def _pip1_fight():
+    """Fight it: a letter to the Committee, which approved it. Nothing ends,
+    and the choice is put again on the next visit."""
+    c = S.say("Piper", ["Piper Quill will fight it."])
+    c += S.say("Ambrosine", ["With what, dear?"])
+    c += S.say("Piper", ["A letter. To the Committee."])
+    c += S.say("Ambrosine", ["The Committee approved it.",
+                             "You'd be writing to tell them they",
+                             "had approved it. They know. They",
+                             "were there."])
+    c += S.narrate([
+        "Piper writes it anyway, three sides, in the third",
+        "person, and carries it across the hall to the Clerk,",
+        "who reads it, and stamps it, and files it."])
+    c += S.say("Clerk", ["Filed under 'no change'."])
+    c += S.say("Piper", ["...Piper Quill will think of",
+                         "something else."])
+    return c
+
+
+def _pip1_end():
+    c = [R.gain_item(db.IT_AUTHORISED, 1), R.play_me("Item")]
+    c += S.got(["Got \\I[189]\\C[3]The Authorised Version\\C[0]."])
+    c += [R.control_switch(db.SW_PIP1_DONE, True)]
+    c += S.companion_story(db.PIPER)
+    return c
+
+
+def _pip1_choice():
+    return R.choice_block(
+        ["It's very good", "Fix it", "Fight it"],
+        [_pip1_good() + _pip1_end(), _pip1_fix() + _pip1_end(),
+         _pip1_fight()], cancel=2)
+
+
+def _pip1_meet():
+    c = S.narrate([
+        "A woman in the Quills' crimson is at the Committee's",
+        "table with a stack of manuscript squared off in front",
+        "of her and a pen she is no longer using."])
+    c += S.say("Piper", ["Aunt Ambrosine."])
+    c += S.say("Ambrosine", ["Piper. And this is the",
+                             "Forty-Eighth. You're shorter."])
+    c += S.say("Ambrosine", ["It's done. The official",
+                             "account. I started the morning they",
+                             "voted. One knows the shape."])
+    c += S.say("Piper", ["He hasn't finished yet."])
+    c += S.say("Ambrosine", ["The shape has, dear.",
+                             "The Committee approved it on Tuesday.",
+                             "Sit down. I'll read you the best bits."])
+    c += [S.trope(), R.control_switch(db.SW_PIP1_ON, True)]
+    c += _pip1_reading()
+    c += _pip1_choice()
+    return c
+
+
+def _pip1_again():
+    c = S.say("Ambrosine", ["Well? It's still very",
+                            "good. It was very good on Tuesday."])
+    c += S.narrate([
+        "The manuscript is squared off on the table, twelve",
+        "cantos, APPROVED, with a wolf in it."])
+    c += _pip1_choice()
+    return c
+
+
+def _pip1_alone():
+    return S.say("Ambrosine", ["Where is my niece? I",
+                               "have a question about a rhyme, and",
+                               "she will have an answer, and it will",
+                               "be the wrong one."])
+
+
+def _pip1_after():
+    good = S.say("Ambrosine", ["It is a very good",
+                               "middle. I read it again most",
+                               "mornings. And the footnote."])
+    fixed = S.say("Ambrosine", ["A. and P. Quill. It has",
+                                "a goat in it now. The goat is in the",
+                                "minutes, so I can't object."])
+    c = R.if_then(R.condition_switch(db.SW_PIP1_GOOD), good, fixed)
+    c += R.if_then(R.condition_actor_in_party(db.PIPER), S.narrate([
+        "Piper and her aunt nod to one another, as one",
+        "professional to another, which is new."]))
+    return c
+
+
+def ambrosine_event(event_id, x, y):
+    """Ambrosine Quill (Map 3), at the Committee's paperwork by the door:
+    empty until Piper has been on the road; then the reading and the choice;
+    then, for everybody, the account settled."""
+    img = R.image(*S.FACES["Ambrosine"], direction=4)
+    return R.event(event_id, "Ambrosine Quill", x, y, [
+        R.page([], img=R.image(""), priority=0, through=True),
+        R.page(_pip1_meet(), img=img, conditions={
+            "actorValid": True, "actorId": db.PIPER,
+            "switch1Valid": True, "switch1Id": db.SW_LEFT_VILLAGE}),
+        R.page(R.if_then(R.condition_actor_in_party(db.PIPER),
+                         _pip1_again(), _pip1_alone()), img=img,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_PIP1_ON}),
+        R.page(_pip1_after(), img=img, conditions={
+            "switch1Valid": True, "switch1Id": db.SW_PIP1_DONE}),
+    ])
+
+
+def wall_page(page0):
+    """The Wall of the Forty-Seven (Map 3, event 6), which has no ladder:
+    its own page, and the card in the space left for the Forty-Eighth."""
+    good = S.narrate([
+        "Under the forty-seventh, a space, and a card pinned in",
+        "it: THE FORTY-EIGHTH. ACCOUNT BY A. QUILL. APPROVED.",
+        "And under that, in small type, one footnote."])
+    fixed = S.narrate([
+        "Under the forty-seventh, a space, and a card pinned in",
+        "it: THE FORTY-EIGHTH. ACCOUNT BY A. AND P. QUILL.",
+        "AMENDED. There is a goat in the margin."])
+    cmds = page0["list"][:-1] + R.if_then(
+        R.condition_switch(db.SW_PIP1_GOOD), good, fixed)
+    return [_pip5_page(page0, cmds, {"switch1Valid": True,
+                                     "switch1Id": db.SW_PIP1_DONE})]

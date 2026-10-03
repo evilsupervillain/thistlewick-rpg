@@ -1,0 +1,311 @@
+{
+ "query": "?map=3&x=10&y=13&frames=90",
+ "comment": "QUESTS.md E13, PIP-1 The Authorised Version. Ambrosine absent before the road and without Piper; the reading with Merribell there; Fight it (no change); a dismissed Piper's errand waiting; It's very good (the footnote); the switches put back; Fix it (the goat, A. & P. Quill); afterwards for everybody on both endings, and the Wall's card.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 0,
+   "label": "Ambrosine, nobody with Bram: nothing there"
+  },
+  {
+   "eval": "$gameParty.addActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 0,
+   "label": "with Piper, before the road: still nothing (it is finished while you are away)"
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 0,
+   "label": "the Wall: its own page"
+  },
+  {
+   "eval": "$gameSwitches.setValue(2, true); $gameParty.addActor(2)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 1,
+   "label": "with Piper, after the road: Ambrosine"
+  },
+  {
+   "shot": "q_pip1_hall.png"
+  },
+  {
+   "eval": "window._mark(); window._pick = 2; $gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 120
+  },
+  {
+   "check": "[window._has('THE LAY OF THE FORTY-EIGHTH'), window._has('An orphan boy'), window._has('a wolf came padding'), window._has('That is a good middle.'), window._has('What did I die of?'), window._has('would want it noted'), window._has('Filed under \\'no change\\'.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "label": "the reading - orphan, wolf, the good middle, Merribell asks what she died of - then Fight it, filed under 'no change'"
+  },
+  {
+   "check": "[$gameSwitches.value(194), $gameSwitches.value(195), $gameSwitches.value(196), $gameSwitches.value(197), $gameParty.numItems($dataItems[70])]",
+   "expect": [
+    true,
+    false,
+    false,
+    false,
+    0
+   ],
+   "label": "fighting it ends nothing: on, no ending, no copy"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    1,
+    0,
+    0
+   ],
+   "label": "one trope (the rival chronicler), no blush, no story yet"
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 2,
+   "label": "the choice waits on her next page"
+  },
+  {
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 2,
+   "label": "a dismissed Piper's errand waits: Ambrosine still there"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Where is my niece?'), window._has('THE LAY'), $gameSwitches.value(197)]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "without Piper: where is my niece, and nothing settled"
+  },
+  {
+   "eval": "$gameParty.addActor(7); $gameParty.removeActor(2)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); window._pick = 0; $gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 120
+  },
+  {
+   "check": "[window._has('still very'), window._has('None of'), window._has('Nobody has ever said that before.'), window._has('There was a goat')]",
+   "expect": [
+    true,
+    true,
+    true,
+    false
+   ],
+   "label": "It's very good: the footnote, and nobody has ever said that"
+  },
+  {
+   "check": "[$gameSwitches.value(195), $gameSwitches.value(196), $gameSwitches.value(197), $gameParty.numItems($dataItems[70]), $gameSwitches.value(106)]",
+   "expect": [
+    true,
+    false,
+    true,
+    1,
+    true
+   ],
+   "label": "the good ending: switch, done, the copy, Piper's story"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    0,
+    0,
+    1
+   ],
+   "label": "no second trope, no blush; her first story"
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('very good'), window._has('professional to another'), window._has('A. and P. Quill')]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "afterwards with Piper, the good ending"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Forty-seven portraits.'), window._has('ACCOUNT BY A. QUILL. APPROVED.'), window._has('AMENDED')]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "the Wall: its own page, and the Forty-Eighth's card, approved"
+  },
+  {
+   "eval": "$gameSwitches.setValue(195, false); $gameSwitches.setValue(197, false); $gameParty.loseItem($dataItems[70], 1)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 2,
+   "label": "switches put back: the choice again"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 140
+  },
+  {
+   "check": "[window._has('There was a goat'), window._has('A goat is a sort of'), window._has('and that is how a record'), window._has('found no rhyme for turnip'), window._has('stamps it AMENDED'), window._has('None of')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "label": "Fix it: the goat in the minutes, the true middle, A. and P. Quill"
+  },
+  {
+   "check": "[$gameSwitches.value(195), $gameSwitches.value(196), $gameSwitches.value(197), $gameParty.numItems($dataItems[70])]",
+   "expect": [
+    false,
+    true,
+    true,
+    1
+   ],
+   "label": "the fixed ending: switch, done, the copy"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    0,
+    0,
+    0
+   ],
+   "label": "no trope, no blush, story already counted"
+  },
+  {
+   "eval": "$gameParty.removeActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(12).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards, for everybody"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('A. and P. Quill'), window._has('professional to another')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "afterwards without Piper, the fixed ending"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(6).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Forty-seven portraits.'), window._has('AMENDED'), window._has('APPROVED.')]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "the Wall: amended, with a goat in the margin"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}

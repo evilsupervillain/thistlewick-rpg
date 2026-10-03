@@ -415,7 +415,11 @@ def build_system():
             (db.SW_COR3_DONE, "COR-3: the meeting; his chair kept"),
             (db.SW_COR4_DONE, "COR-4: the third reading"),
             (db.SW_PIP4_ON, "PIP-4: the interviews (ends)"),
-            (db.SW_PIP4_DONE, "PIP-4: the elegy, nine lines")]:
+            (db.SW_PIP4_DONE, "PIP-4: the elegy, nine lines"),
+            (db.SW_PIP1_ON, "PIP-1: the Authorised Version, read"),
+            (db.SW_PIP1_GOOD, "PIP-1: very good; one footnote"),
+            (db.SW_PIP1_FIXED, "PIP-1: fixed, A. & P. Quill"),
+            (db.SW_PIP1_DONE, "PIP-1: the official account settled")]:
         switches[sid] = name
 
     variables = [""] * 32

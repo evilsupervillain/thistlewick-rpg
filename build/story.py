@@ -428,6 +428,8 @@ FACES = {
     "Dr Hobday": ("Gen_People13", 6),
     "Nan Gilly": ("Gen_People13", 7),
     "Mr Spence": ("Gen_People14", 0),
+    # PIP-1's rival chronicler (QUESTS.md E13), Piper's aunt, generated.
+    "Ambrosine": ("Gen_People14", 1),
     "Miss Fettle": ("Gen_People6", 4),
     "Cotter": ("SF_Actor2", 7),
 }

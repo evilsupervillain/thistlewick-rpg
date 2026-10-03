@@ -440,6 +440,12 @@ SW_PIP4_ON = 192                # commissioned; the interviews; ends
 SW_PIP4_DONE = 193              # nine lines, pinned up, not performed
 VAR_PIP4_HEARD = 26             # accounts of Abel Thrush, of eleven
 IT_ELEGY = 69                   # Piper's copy
+# PIP-1, The Authorised Version (QUESTS.md E13, q_piper.py)
+SW_PIP1_ON = 194                # Ambrosine has read it to us; the choice
+SW_PIP1_GOOD = 195              # ending: it is very good; one footnote
+SW_PIP1_FIXED = 196             # ending: fixed, in metre; A. & P. Quill
+SW_PIP1_DONE = 197              # either ending
+IT_AUTHORISED = 70              # the Authorised Version, a copy
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1659,6 +1665,10 @@ def build_items():
                     "Abel Thrush, carrier, Little Gore - Fenmarch - Sump. "
                     "Piper's copy. She has not performed it.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=193))
+    upsert(it, item(IT_AUTHORISED, "The Authorised Version",
+                    "The Lay of the Forty-Eighth, by the Quills, chroniclers "
+                    "to the Committee. Properly metred. A very good middle.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=189))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",
