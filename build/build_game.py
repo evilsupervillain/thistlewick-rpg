@@ -419,7 +419,9 @@ def build_system():
             (db.SW_PIP1_ON, "PIP-1: the Authorised Version, read"),
             (db.SW_PIP1_GOOD, "PIP-1: very good; one footnote"),
             (db.SW_PIP1_FIXED, "PIP-1: fixed, A. & P. Quill"),
-            (db.SW_PIP1_DONE, "PIP-1: the official account settled")]:
+            (db.SW_PIP1_DONE, "PIP-1: the official account settled"),
+            (db.SW_NIX3_ON, "NIX-3: Lorrimer's list (ends)"),
+            (db.SW_NIX3_DONE, "NIX-3: won on paperwork")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -449,6 +451,7 @@ def build_system():
     variables[db.VAR_WRE1_SPECIMENS] = "WRE-1: type specimens, of eleven"
     variables[db.VAR_MER1_POINTS] = "MER-1: Whatever Works' points"
     variables[db.VAR_PIP4_HEARD] = "PIP-4: accounts of Abel Thrush, of eleven"
+    variables[db.VAR_NIX3_LOCATED] = "NIX-3: located with receipts, of three"
 
     system.update({
         "gameTitle": "The Obligatory Quest",

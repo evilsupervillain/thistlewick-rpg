@@ -33,6 +33,7 @@ import copy
 import db
 import rmmzdata as R
 import story as S
+from places import MAP_SOPPING
 
 RETURNS_ICON = 209
 PARCEL_ICON = 208
@@ -995,3 +996,286 @@ def vault_events(base_id, vault, chair, back_to):
                         "switch1Id": db.SW_NIX2_DONE}),
     ])
     return [out, mayor, chair_ev]
+
+
+# ================================================================ NIX-3 ==
+# Professional Courtesy (`QUESTS.md` E14). Cobb Lorrimer steals things, says
+# so, and finds Nix's whole vocabulary - "locates", "ahead of schedule",
+# "the client" - insulting. The contest is not a fight: a client, a list and
+# an afternoon, and Nix wins on paperwork.
+#
+# * **Lorrimer is at the Adventurers' Guild** (Map 15 event 7), registered,
+#   under T. With Nix he challenges; then he is gone to the front.
+# * **The client is Sops and Tibb**, the two children who cannot play Chosen
+#   One properly because nobody will be the Dark Lord. Their list: a rope, a
+#   helmet, a sword and a Dark Lord (who loses).
+# * **Nix locates three with permission**, at three of Nether Sopping's shut
+#   doors - the Net Loft's rope, asked for properly at last; the pot at the
+#   front door nobody answers, waited for; an oar off one of the eleven
+#   boats, offered by the Ferryman, who keeps the key. Each is a page on the
+#   door, with Nix and `SW_NIX3_ON`, carrying the door's own page; located
+#   is the door's self switch A, counted in `VAR_NIX3_LOCATED`, so a
+#   dismissed Nix's count waits.
+# * **The judging** is Lorrimer's, by the children (Map 13 event 19): his
+#   three are stolen and go back to their owners; Nix's three have receipts.
+#   The fourth thing cannot be stolen, so Nix locates it: Lorrimer signs on
+#   as Dark Lord, afternoons, and reads (WHO LOSES) a moment too late. He
+#   leaves his tools on a barrel, in a huff, which means they were located.
+# * **Afterwards for everybody**: Lorrimer on the front, losing better; Sops,
+#   her own last page and the Dark Lord who comes in the afternoons now.
+TOOLS_ICON = 208
+
+
+def _nix3_challenge():
+    c = S.narrate([
+        "A man in a teal hood is leaning on the Guild's wall with",
+        "his arms folded, the way a man leans who would like to",
+        "be asked what he does."])
+    c += S.say("Lorrimer", ["Cobb Lorrimer. Thief.",
+                            "Registered. Pell's got me down under T."])
+    c += S.say("Lorrimer", ["And you'll be the one",
+                            "who LOCATES."])
+    c += S.say("Nix", ["I locate things. Ahead of schedule.",
+                       "On behalf of a client."])
+    c += S.say("Lorrimer", ["LOCATES. AHEAD OF",
+                            "SCHEDULE. THE CLIENT. It's stealing",
+                            "with a waistcoat on. It's a job you've",
+                            "failed to apply for."])
+    c += S.say("Nix", ["Nothing in my shop was stolen. I can",
+                       "tell you how I got every piece of it."])
+    c += S.say("Lorrimer", ["Prove it. There's two",
+                            "kids on the front playing Chosen One",
+                            "with no kit. I said I'd get it them.",
+                            "You get it too. First back with the lot."])
+    c += S.narrate([
+        "He produces the list, in a child's hand: ONE ROPE. ONE",
+        "HELMIT. ONE SWORD. ONE DARK LORD (WHO LOSES)."])
+    c += S.say("Lorrimer", ["A client, a list and",
+                            "an afternoon. No fighting. I don't",
+                            "fight. I'm a professional."])
+    c += S.say("Nix", ["So am I."])
+    c += S.narrate(["He is out of the door before Nix has finished",
+                    "saying it."])
+    c += [S.trope(), R.control_switch(db.SW_NIX3_ON, True)]
+    return c
+
+
+def lorrimer_guild(event_id, x, y):
+    """Lorrimer at the Guild (Map 15): there with Nix until he has made his
+    challenge; then gone to the front, and gone for good afterwards."""
+    img = R.image(*S.FACES["Lorrimer"], direction=4)
+    blank = R.image("")
+    return R.event(event_id, "Cobb Lorrimer (Guild)", x, y, [
+        R.page([], img=blank, priority=0, through=True),
+        R.page(_nix3_challenge(), img=img,
+               conditions={"actorValid": True, "actorId": db.NIX}),
+        R.page([], img=blank, priority=0, through=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_NIX3_ON}),
+        R.page([], img=blank, priority=0, through=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_NIX3_DONE}),
+    ])
+
+
+def _nix3_rope():
+    c = S.narrate([
+        "Nix knocks. A voice from inside, over the nets: 'The",
+        "rope is spoken for.'"])
+    c += S.say("Nix", ["Who for?"])
+    c += S.narrate([
+        "'Whoever asks properly. Nobody ever has. They read the",
+        "card and go off.'"])
+    c += S.say("Nix", ["May I borrow the rope, please, until",
+                       "sundown, for two children playing",
+                       "Chosen One? I'll write you a receipt."])
+    c += S.narrate([
+        "A long pause. Then a coil of rope comes out of the",
+        "window and lands at Nix's feet, and the voice says,",
+        "'Properly.'"])
+    c += S.narrate([
+        "Nix writes a receipt - ONE ROPE, LENT, UNTIL SUNDOWN -",
+        "and pins it under the card."])
+    return c
+
+
+def _nix3_pot():
+    c = S.narrate([
+        "Nix knocks, and there is no answer, and Nix waits. Nix",
+        "is very good at waiting. It is most of locating."])
+    c += S.narrate([
+        "After about an hour the door opens an inch, on an old",
+        "woman who has not been asked anything in years and is",
+        "not sure she likes it."])
+    c += S.say("Nix", ["The pot. For a helmet. For a child,",
+                       "until sundown. I'll take the dead thing",
+                       "out of it first."])
+    c += S.narrate([
+        "'...Keep it,' she says. 'Keep the dead thing an' all.'",
+        "Nix takes the pot, leaves the dead thing, and writes a",
+        "receipt for both."])
+    return c
+
+
+def _nix3_oar():
+    c = S.narrate([
+        "Nix does not open the lock, though Nix could, in about",
+        "four seconds. The Ferryman, who keeps the key, is",
+        "fetched instead, and comes up from the pier."])
+    c += S.narrate([
+        "He lets them choose an oar off one of the eleven boats.",
+        "'Nobody's rowed her since. She'd like being a sword.'"])
+    c += S.narrate([
+        "Nix writes a receipt - ONE OAR (SWORD), LENT, WITH",
+        "THANKS - and the Ferryman folds it into his hat."])
+    return c
+
+
+_NIX3_DOORS = {"rope": _nix3_rope, "pot": _nix3_pot, "oar": _nix3_oar}
+
+
+def _nix3_count():
+    return S.narrate([
+        "Nix's list: \\V[%d] of three, with receipts. And one Dark"
+        % db.VAR_NIX3_LOCATED,
+        "Lord (who loses), still to find."])
+
+
+def located_page(key, page0):
+    """One page on a shut door (Map 13, events 13-15): with Nix while the
+    list is out, the door's own page, and then the thing located, once."""
+    done = S.narrate(["Nix's receipt is pinned to the door."])
+    get = _NIX3_DOORS[key]() + [R.self_switch("A"),
+                                R.control_variable_add(db.VAR_NIX3_LOCATED)]
+    cmds = page0["list"][:-1] + R.if_then(
+        R.condition_self_switch("A"), done, get) + _nix3_count()
+    page = copy.deepcopy(page0)
+    page["list"] = R.page(cmds)["list"]
+    page["conditions"] = R.page([], conditions={
+        "actorValid": True, "actorId": db.NIX,
+        "switch1Valid": True, "switch1Id": db.SW_NIX3_ON})["conditions"]
+    return [page]
+
+
+def _nix3_judging():
+    c = S.narrate([
+        "Sops and Tibb sit on a barrel each, as judges. Lorrimer",
+        "lays his out first, with a flourish."])
+    c += S.say("Lorrimer", ["One rope. Off the ferry.",
+                            "One helmet, out of the outfitters'",
+                            "window. One sword."])
+    c += S.narrate([
+        "The sword is the very good one off the knees of the man",
+        "having a day off. He has come up the street after it in",
+        "his socks, and stands there, still having a day off."])
+    c += S.say("Sops", ["Where'd you get them?"])
+    c += S.say("Lorrimer", ["I STOLE them. I'm a",
+                            "thief. It's the whole point of me."])
+    c += S.say("Tibb", ["Mum says we're not to have stolen",
+                        "things. She says it twice."])
+    c += S.narrate([
+        "Nix lays out a coil of rope, a pot and an oar, and on",
+        "top of each, a receipt."])
+    c += S.say("Sops", ["...This one's got PAPERWORK."])
+    c += S.say("Nix", ["Lent until sundown, and signed for.",
+                       "The rope was asked for properly. The",
+                       "pot was waited for. The oar was offered."])
+    c += S.narrate([
+        "The ferry, the outfitters and the man in his socks take",
+        "their things back off Lorrimer, one at a time, politely.",
+        "He watches them go."])
+    c += S.say("Lorrimer", ["...You can't win a",
+                            "THIEVING contest on PAPERWORK."])
+    c += S.say("Nix", ["It wasn't a thieving contest.",
+                       "It was a list."])
+    c += S.say("Tibb", ["There's one more thing on it."])
+    c += S.narrate([
+        "ONE DARK LORD (WHO LOSES). Neither child will be it.",
+        "Nobody in Nether Sopping will be it. Lorrimer has not",
+        "got one. You cannot steal a Dark Lord."])
+    c += S.narrate(["Nix takes out a form, and a pen, and turns to",
+                    "Lorrimer."])
+    c += S.say("Nix", ["Position available. Dark Lord,",
+                       "afternoons. Villainous. A proper",
+                       "criminal post. You'd be good at it."])
+    c += S.say("Lorrimer", ["...Villainous?"])
+    c += S.say("Nix", ["Very. Sign here."])
+    c += S.narrate([
+        "He signs. He reads what he has signed - (WHO LOSES) - a",
+        "moment too late, and the children are already running",
+        "at him with an oar and a pot on."])
+    c += S.narrate([
+        "He loses magnificently, three times before sundown,",
+        "storms off up the street in a huff, and leaves his",
+        "tools on the barrel."])
+    c += S.say("Nix", ["Unattended property. Located.",
+                       "I'll write him a receipt."])
+    c += [R.gain_armor(db.AR_LORRIMER_TOOLS, 1), R.play_me("Item")]
+    c += S.got(["Got \\I[%d]\\C[3]Lorrimer's Tools\\C[0]." % TOOLS_ICON])
+    # The children's own first pages say nobody will be the Dark Lord, which
+    # stopped being true just now: their terminal self switches, by script.
+    c += R.script([
+        "$gameSelfSwitches.setValue([%d, 9, 'A'], true);" % MAP_SOPPING,
+        "$gameSelfSwitches.setValue([%d, 17, 'A'], true);" % MAP_SOPPING])
+    c += [R.control_switch(db.SW_NIX3_ON, False),
+          R.control_switch(db.SW_NIX3_DONE, True)]
+    c += S.companion_story(db.NIX)
+    return c
+
+
+def _nix3_waiting():
+    c = S.narrate([
+        "Lorrimer is on the front with a rope, a real helmet and",
+        "a very good sword at his feet, looking over his",
+        "shoulder."])
+    c += S.say("Lorrimer", ["Had mine before dinner.",
+                            "Where's yours?"])
+    return c
+
+
+def _nix3_front():
+    with_nix = R.if_then(R.condition_variable(db.VAR_NIX3_LOCATED, 3, 1),
+                         _nix3_judging(), _nix3_waiting())
+    without = S.say("Lorrimer", ["Where's your clerk?",
+                                 "The one who LOCATES. I'm not doing",
+                                 "this twice."])
+    return R.if_then(R.condition_actor_in_party(db.NIX), with_nix, without)
+
+
+def _nix3_after():
+    c = S.say("Lorrimer", ["Don't. I signed it. I",
+                           "read it after. It's afternoons."])
+    c += S.narrate([
+        "Cobb Lorrimer, Dark Lord (afternoons), signed for. He has",
+        "come back every day since, under protest, and is",
+        "getting very good at losing."])
+    c += R.if_then(R.condition_actor_in_party(db.NIX), S.say("Lorrimer", [
+        "And I want a receipt for my tools."]))
+    return c
+
+
+def lorrimer_front(event_id, x, y):
+    """Lorrimer on the front (Map 13), by the children: there while the list
+    is out, with the judging; and afterwards, for everybody."""
+    img = R.image(*S.FACES["Lorrimer"], direction=4)
+    return R.event(event_id, "Cobb Lorrimer", x, y, [
+        R.page([], img=R.image(""), priority=0, through=True),
+        R.page(_nix3_front(), img=img, conditions={
+            "switch1Valid": True, "switch1Id": db.SW_NIX3_ON}),
+        R.page(_nix3_after(), img=img, conditions={
+            "switch1Valid": True, "switch1Id": db.SW_NIX3_DONE}),
+    ])
+
+
+def sops_page(last):
+    """Sops (Map 13 event 9), whose ladder is one self switch: afterwards,
+    her own last page and the Dark Lord who comes in the afternoons."""
+    page = copy.deepcopy(last)
+    page["list"] = page["list"][:-1] + S.narrate([
+        "Except in the afternoons, now, when he comes down the",
+        "street in a teal hood, under protest, and loses."]) + \
+        page["list"][-1:]
+    page["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_NIX3_DONE})["conditions"]
+    return [page]

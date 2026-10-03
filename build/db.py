@@ -446,6 +446,11 @@ SW_PIP1_GOOD = 195              # ending: it is very good; one footnote
 SW_PIP1_FIXED = 196             # ending: fixed, in metre; A. & P. Quill
 SW_PIP1_DONE = 197              # either ending
 IT_AUTHORISED = 70              # the Authorised Version, a copy
+# NIX-3, Professional Courtesy (QUESTS.md E14, q_nix.py)
+SW_NIX3_ON = 198                # Lorrimer's challenge; the list; ends
+SW_NIX3_DONE = 199              # won on paperwork; a Dark Lord signed for
+VAR_NIX3_LOCATED = 27           # the list's three things, with receipts
+AR_LORRIMER_TOOLS = 48          # anybody's: left on a barrel, in a huff
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -2497,6 +2502,12 @@ def build_firstfield():
                      ET_ACCESSORY, AT_GENERAL, 0,
                      [60, 10, 0, 10, 0, 10, 0, 0], icon=187,
                      traits=[trait(23, 2, 1.15), trait(22, 7, 0.04)]))
+    upsert(ar, armor(AR_LORRIMER_TOOLS, "Lorrimer's Tools",
+                     "[Accessory] Picks, a jemmy, a hood-pin and a list of "
+                     "things he meant to take. Left in a huff; located.",
+                     ET_ACCESSORY, AT_GENERAL, 0,
+                     [0, 0, 6, 0, 0, 0, 14, 10], icon=208,
+                     traits=[trait(22, 2, 0.05), trait(22, 1, 0.03)]))
     save("Armors.json", ar)
 
     en = R.load("Enemies.json")

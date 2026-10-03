@@ -3003,18 +3003,92 @@ of the Forty-Seven); `build/scenarios/q_pip1.json`.
   portrait numbers, already the grandmother's; Tuesday is not a year).
 
 
+**E14, NIX-3 Professional Courtesy - done.** NIX-3's section at the bottom
+of `q_nix.py`, hooked from `south.py` in four places (Lorrimer at the Guild,
+Lorrimer on the front, three shut doors, Sops); `build/scenarios/q_nix3.json`.
+
+* **Decided: Nether Sopping, and the Adventurers' Guild.** `COMPANIONS.md`
+  wants "a room in an existing town"; Lorrimer's complaint is that Nix's
+  words make thieving sound "like a job somebody has failed to apply for",
+  so he is at the one place in the valley where you apply for jobs -
+  registered, "Pell's got me down under T." **Cobb Lorrimer** is a new event
+  (Map 15 event **7**, `south.LORRIMER_GUILD` (14,8)), empty except with
+  Nix: LOCATES. AHEAD OF SCHEDULE. THE CLIENT. "It's stealing with a
+  waistcoat on." **One trope** (the rival thief). `SW_NIX3_ON` (ends).
+* **Decided: the client is Sops and Tibb**, the two children on the front
+  who play Chosen One and cannot find anybody to be the Dark Lord (their
+  published pages). Their list, in a child's hand: ONE ROPE. ONE HELMIT.
+  ONE SWORD. ONE DARK LORD (WHO LOSES). A client, a list and an afternoon;
+  no fighting - "I'm a professional." / "So am I."
+* **Nix locates three, with permission, at three of the town's shut doors**
+  (Map 13 events 13-15, one page each, no ladder), each a page with Nix and
+  the switch carrying the door's own page: **the Net Loft**, whose card has
+  said THE ROPE IS SPOKEN FOR since the game was built - spoken for by
+  whoever asks properly, and nobody ever had; **the front door nobody
+  answers**, waited at for an hour ("It is most of locating") for the pot
+  with a dead thing in it, which is a helmet - "Keep the dead thing an'
+  all"; and **the boat shed**, which Nix could open in four seconds and does
+  not: the Ferryman, who keeps the key, offers an oar off one of the eleven
+  boats - "She'd like being a sword." Located is each door's self switch A,
+  counted in `VAR_NIX3_LOCATED`, so a dismissed Nix's list waits.
+* **The judging is on the front** (Map 13 event **19**, `south.
+  LORRIMER_FRONT` (26,19), beside the children; ahead of Nix he "had mine
+  before dinner"). His three are a rope off the ferry, a helmet out of the
+  outfitters' window and the very good sword off the knees of the man
+  having a day off, who has come up the street after it in his socks. "Mum
+  says we're not to have stolen things." Nix's three have receipts - "This
+  one's got PAPERWORK" - and his go back to their owners, politely. "You
+  can't win a THIEVING contest on PAPERWORK." / "It wasn't a thieving
+  contest. It was a list." **The fourth cannot be stolen, so Nix locates
+  it**: Dark Lord, afternoons, "a proper criminal post" - "...Villainous?" /
+  "Very. Sign here." He reads (WHO LOSES) a moment too late, loses
+  magnificently three times before sundown, and leaves his tools on the
+  barrel in a huff: "Unattended property. Located." **Armour 48**,
+  Lorrimer's Tools, an accessory of the general type (Nix has the coat):
+  ATK +6, AGI +14, LUK +10, critical +5%, evasion +3%. The children's own
+  first pages say nobody will be the Dark Lord, so the judging sets both
+  their self switches A by script (ALD-4's way).
+* **Afterwards for everybody**: Lorrimer on the front, "Don't. I signed it.
+  I read it after. It's afternoons." - getting very good at losing - and
+  with Nix, he wants a receipt for his tools; **Sops**, her own last page
+  ("The Dark Lord's stayed home again. He does that now.") plus "Except in
+  the afternoons, now, when he comes down the street in a teal hood, under
+  protest, and loses." The doors go back to their own pages; the Guild's
+  Lorrimer is gone for good.
+* **Ids taken:** switches **198** `SW_NIX3_ON` (ends), **199** `SW_NIX3_DONE`;
+  variable **27** `VAR_NIX3_LOCATED`; armour **48** `AR_LORRIMER_TOOLS`;
+  Map 15 event 7, Map 13 event 19; face `Gen_People14` **2** (Lorrimer,
+  generated in the borrowed hood, teal, with a waxed moustache;
+  `build/characters/cobb-lorrimer.json`). He does not fight: nothing for
+  `AUDIT.md`.
+* One trope, no blush. Running tally: **tropes +40 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[NIX]` (on already after NIX-1, -2, -4 or -5 in a game that did
+  one).
+* **Candidate ending line** (G1; read `SW_NIX3_DONE`): "Cobb Lorrimer, thief,
+  lost a contest to Nix on paperwork. He is the Dark Lord in Nether Sopping
+  now, afternoons, signed for, and he loses."
+* **The rooms (0.1):** Nether Sopping and the Guild were swept on 30 Sep;
+  cropped again (92 tiles) and screenshotted with Lorrimer in both places.
+  Nothing changed.
+* **Scenario** `q_nix3`: passes (22 checks). Its first run failed two of its
+  own checks - a fragment spanning a line break, and `numArmors`, which is
+  not an engine method (`numItems` takes an armour).
+* `TIMELINE.md`: nothing dated.
+
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E14, NIX-3 Professional
-Courtesy**. E1-E12 are done with their reruns (E1-E6 on 2 Oct 2026, E7-E12
-on 3 Oct), and E13 (3 Oct); E13-E15's rerun is owed at the end of E15. One step per session again (0.1) unless Mike asks
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E15, HOB-4 The Sky
+Anvil**. E1-E12 are done with their reruns (E1-E6 on 2 Oct 2026, E7-E12
+on 3 Oct), and E13-E14 (3 Oct); E13-E15's rerun is owed at the end of E15. One step per session again (0.1) unless Mike asks
 for more.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Nix's** section of `COMPANIONS.md`, and
+B1 on, once, at the start; then **Hob's** section of `COMPANIONS.md`, and
 no other companion's. Read what the step needs by dumping its maps' events
 and their text, not by opening a module. Crop anything a step touches with
 `propsheet.py` before judging, and screenshot before and after anything
@@ -3027,22 +3101,24 @@ byte: every existing page identical, only appended pages and new events
 (and, on a widened map, every tile inside the old bounds). `validate.py`,
 and `apidigest.py . --write` (new `db` constants change `build/API.md`).
 Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_nix3.json`, run in the background, one browser at a time.
+`build/scenarios/q_hob4.json`, run in the background, one browser at a time.
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +39 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 198, variable 27, item 71, weapon 42,
-armour 48, armour type 14, class 12, common event 4, state 42, enemy 59,
-troop 54, skill 183, map 67, `Gen_People14` 2. Aldric has had his gear (the
+Where things stand: tropes +40 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 200, variable 28, item 71, weapon 42,
+armour 49, armour type 14, class 12, common event 4, state 42, enemy 59,
+troop 54, skill 183, map 67, `Gen_People14` 3. Aldric has had his gear (the
 shield, armour 47, E7). Merribell has had her gear (the Pamphlet, armour 45).
 
-What E14 will need: an existing town and Cobb Lorrimer, who needs a face
-(generate it: `build/characters/`, `Gen_People14` 2, `art.py` in the
-background). Read NIX-4's, NIX-5's, NIX-1's and NIX-2's Done paragraphs for
-the owners Nix's quests have already used. The E13-E15 rerun will need
-`reachable_village` and `q_pip5` (Prophecy Hall gained Ambrosine at (7,12),
-who blocks her cell with Piper in the party after the road).
+What E15 will need: `nomap.py`'s Sky Anvil on the world map, Elias Meech
+(`Gen_People2` 7), a gate for a gatepost, the west road; star-iron, one
+weapon, not for Hob. Read HOB-2's (A13) and HOB-1's (B1) Done paragraphs. The
+E13-E15 rerun will need `reachable_village` and `q_pip5` (Prophecy Hall
+gained Ambrosine at (7,12), who blocks her cell with Piper in the party
+after the road), and, for Nether Sopping (NIX-3: Lorrimer at the Guild
+(14,8) and on the front (26,19), pages on three shut doors and Sops),
+`reachable_sopping`, `south_road`, `guild`, `q_nix4`, `q_hob1`, `q_mer2`.
 
 Things learned that will bite again:
 

@@ -232,6 +232,7 @@ def sopping_map():
                   bgm="Town6")
     m["data"] = g.data
     m["events"] = [None] + q_aldric.with_follower(sopping_events(), MAP_SOPPING)  # ALD-5
+    m["events"].append(q_nix.lorrimer_front(19, *LORRIMER_FRONT))     # NIX-3
     return m
 
 
@@ -332,7 +333,9 @@ def sopping_events():
                            "He does that now."])
     # Fixed, not wandering: they are one tile off the lower street and a
     # random walker there is a random blockage on the way to the Guild.
-    evs.append(talker(9, "Children Playing", 24, 19, "Sops", kids, again))
+    sops = talker(9, "Children Playing", 24, 19, "Sops", kids, again)
+    sops["pages"] += q_nix.sops_page(sops["pages"][-1])            # NIX-3
+    evs.append(sops)
 
     # -- 10: the fish stall ----------------------------------------------------
     stall = S.say("Merchant", [
@@ -393,6 +396,9 @@ def sopping_events():
     ]
     for i, ((name, lines), (x, y)) in enumerate(zip(shut, SHED_DOORS)):
         evs.append(S.sign(13 + i, name, x, y + 1, lines))
+    # NIX-3: three of Lorrimer's list, located with receipts (q_nix.py).
+    for ev, key in zip(evs[-4:-1], ["oar", "rope", "pot"]):
+        ev["pages"] += q_nix.located_page(key, ev["pages"][0])     # NIX-3
 
     # The Chandler's keeps the hours on its card, so once the lamp is lit it
     # opens. Appended (NORTH.md 1.7, pattern 2): the shut page above is what
@@ -1645,6 +1651,12 @@ def guild_map():
                   events=guild_events())
 
 
+# NIX-3: Cobb Lorrimer, leaning on the Guild's east wall; then on the front,
+# beside the two children who are his client and Nix's.
+LORRIMER_GUILD = (14, 8)
+LORRIMER_FRONT = (26, 19)
+
+
 def guild_events():
     evs = [S.exit_tile(1, "Guild Door", *threshold(MAP_GUILD), MAP_SOPPING,
                        *OUT[MAP_GUILD])]
@@ -1665,6 +1677,7 @@ def guild_events():
         "because that was the rule when the rule was",
         "made and nobody has been able to unmake it."],
         "", 0, extra=[S.trope()]))
+    evs.append(q_nix.lorrimer_guild(7, *LORRIMER_GUILD))            # NIX-3
     return evs
 
 

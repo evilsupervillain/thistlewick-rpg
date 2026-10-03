@@ -430,6 +430,8 @@ FACES = {
     "Mr Spence": ("Gen_People14", 0),
     # PIP-1's rival chronicler (QUESTS.md E13), Piper's aunt, generated.
     "Ambrosine": ("Gen_People14", 1),
+    # NIX-3's rival thief (QUESTS.md E14), generated, in a borrowed hood.
+    "Lorrimer": ("Gen_People14", 2),
     "Miss Fettle": ("Gen_People6", 4),
     "Cotter": ("SF_Actor2", 7),
 }

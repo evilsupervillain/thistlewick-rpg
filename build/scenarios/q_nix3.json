@@ -1,0 +1,339 @@
+{
+ "query": "?map=15&x=9&y=9&frames=90",
+ "comment": "QUESTS.md E14, NIX-3 Professional Courtesy. Lorrimer at the Guild only with Nix; the challenge; on the front ahead of Nix; the three doors located with receipts, not twice; a dismissed Nix's list waiting; the judging on paperwork, the Dark Lord signed for, the tools; afterwards for everybody, Sops's line, the doors their own again.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 0,
+   "label": "the Guild: no Lorrimer without Nix"
+  },
+  {
+   "eval": "$gameParty.addActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 1,
+   "label": "with Nix: Lorrimer, leaning on the wall"
+  },
+  {
+   "shot": "q_nix3_guild.png"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(7).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has('Cobb Lorrimer. Thief.'), window._has('ONE DARK LORD (WHO LOSES)'), window._has('So am I.'), $gameSwitches.value(198)]",
+   "expect": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "the challenge: LOCATES, the list, the switch"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    1,
+    0,
+    0
+   ],
+   "label": "one trope (the rival thief), no blush, no story yet"
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 2,
+   "label": "and he is gone to the front"
+  },
+  {
+   "goto": [
+    13,
+    24,
+    20
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "check": "[$gameMap.event(19).findProperPageIndex(), $gameMap.event(14).findProperPageIndex(), $gameMap.event(15).findProperPageIndex(), $gameMap.event(13).findProperPageIndex()]",
+   "expect": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "label": "Lorrimer on the front; three shut doors with a page for Nix"
+  },
+  {
+   "shot": "q_nix3_front.png"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(19).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Had mine before dinner.'), window._has('PAPERWORK')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "Lorrimer, ahead, before Nix has any"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(14).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('ROPE IS SPOKEN FOR'), window._has('Whoever asks properly.'), window._has('of three, with receipts'), $gameVariables.value(27)]",
+   "expect": [
+    true,
+    true,
+    true,
+    1
+   ],
+   "label": "the Net Loft: its own page, then the rope, asked for properly"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(14).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('receipt is pinned'), window._has('Whoever asks'), $gameVariables.value(27)]",
+   "expect": [
+    true,
+    false,
+    1
+   ],
+   "label": "the rope not twice"
+  },
+  {
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(15).findProperPageIndex(), $gameMap.event(19).findProperPageIndex()]",
+   "expect": [
+    0,
+    1
+   ],
+   "label": "without Nix: the door its own, Lorrimer waiting"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(19).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Where\\'s your clerk?'), $gameVariables.value(27), $gameSwitches.value(199)]",
+   "expect": [
+    true,
+    1,
+    false
+   ],
+   "label": "a dismissed Nix's list waits"
+  },
+  {
+   "eval": "$gameParty.addActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(15).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Keep the dead thing'), $gameVariables.value(27)]",
+   "expect": [
+    true,
+    2
+   ],
+   "label": "the front door: waited for"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('eleven boats'), window._has('She\\'d like being a sword.'), $gameVariables.value(27)]",
+   "expect": [
+    true,
+    true,
+    3
+   ],
+   "label": "the boat shed: an oar, offered"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(19).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has('This one\\'s got PAPERWORK.'), window._has('You cannot steal a Dark Lord.'), window._has('Very. Sign here.'), window._has('Lorrimer\\'s Tools')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "the judging: stolen, receipts, the Dark Lord signed for, the tools located"
+  },
+  {
+   "check": "[$gameParty.numItems($dataArmors[48]), $gameSwitches.value(198), $gameSwitches.value(199), $gameSwitches.value(104), $gameSelfSwitches.value([13, 9, 'A']), $gameSelfSwitches.value([13, 17, 'A'])]",
+   "expect": [
+    1,
+    false,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "the tools; the list ended, done, Nix's story; both children past their first page"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    0,
+    0,
+    1
+   ],
+   "label": "no second trope, no blush; Nix's first story"
+  },
+  {
+   "check": "[$gameMap.event(19).findProperPageIndex(), $gameMap.event(9).findProperPageIndex(), $gameMap.event(17).findProperPageIndex(), $gameMap.event(14).findProperPageIndex(), $gameMap.event(13).findProperPageIndex()]",
+   "expect": [
+    2,
+    2,
+    1,
+    0,
+    0
+   ],
+   "label": "afterwards: Lorrimer, Sops; Tibb and the doors their own again"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(19).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('getting very good at losing'), window._has('receipt for my tools')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "afterwards with Nix"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(9).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('stayed home again'), window._has('teal hood')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "Sops: her own last page, and the Dark Lord in the afternoons"
+  },
+  {
+   "eval": "$gameParty.removeActor(5)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(19).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('getting very good at losing'), window._has('receipt for my tools')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "afterwards without Nix"
+  },
+  {
+   "goto": [
+    15,
+    9,
+    9
+   ]
+  },
+  {
+   "check": "$gameMap.event(7).findProperPageIndex()",
+   "expect": 3,
+   "label": "the Guild: Lorrimer gone for good"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}

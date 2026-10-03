@@ -305,6 +305,7 @@ SHEETS = {
     "Gen_People14": [
         (0, "cuthbert-spence.json"),    # MER-3: a paladin's sash
         (1, "ambrosine-quill.json"),    # PIP-1: the Authorised Version
+        (2, "cobb-lorrimer.json"),      # NIX-3: steals things, and says so
     ],
 }
 
