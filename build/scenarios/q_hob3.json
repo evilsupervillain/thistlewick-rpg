@@ -323,12 +323,13 @@
    "frames": 30
   },
   {
-   "check": "[$gameMap.event(5).findProperPageIndex(), $gameMap.event(4).findProperPageIndex() !== 3, $gameMap._interpreter.isRunning()]",
+   "check": "[$gameMap.event(5).findProperPageIndex(), $gameMap.event(4).findProperPageIndex() !== 3, $gameMap._interpreter.eventId()]",
    "expect": [
     3,
     true,
-    false
-   ]
+    6
+   ],
+   "label": "the anvil back, and the interpreter running the Forge (event 6) - not nothing, because HOB-2 (A13, after this scenario was written) starts \"Beatrice goes quiet\" as an autorun the first time Hob walks in once the anvil is back, by design"
   },
   {
    "shot": "q_hob3_back.png"

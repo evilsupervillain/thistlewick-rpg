@@ -3146,16 +3146,45 @@ pond's) and `village.py` (the forge); `build/scenarios/q_hob4.json`.
 * `TIMELINE.md`: nothing new (1749 and 1750 are the site's).
 
 
+**Rerun for E13-E15** (0.1): parsing every scenario's `query` and `goto` map
+ids and grepping for the places' names finds 63 that touch Maps 3, 6, 8, 13
+or 15 - nearly all of them for Map 8. So the rerun was chosen by what each
+change can reach, as for E1-E6:
+* **Map 3** (Ambrosine stands at (7,12) and blocks it, with Piper in the
+  party after the road; the Wall gains a page on `SW_PIP1_DONE`): `village`,
+  `reachable_village` (walks to the Wall), `q_pip5`, `guild` (the Elder's
+  reference) and `blushes` (the fete minutes).
+* **Map 6** (the forge's new page needs the star-iron): `q_hob2`, `q_hob3`,
+  `q_rol4`.
+* **Map 8** (only the Sky Anvil's event, whose new pages need its A and Hob
+  and HOB-2 or HOB-4's switch): `nomap`, which walks onto it. The rest of
+  Map 8's scenarios walk past an event they cannot change.
+* **Maps 13 and 15** (Lorrimer's two events, blank and through until
+  `SW_NIX3_ON`; three shut doors with a page needing Nix and the switch;
+  Sops's page on `SW_NIX3_DONE`): `roster` (Pell's desk), `reachable_sopping`,
+  `audit_fixes`, `south_road`, `feud`, `q_ald5`, `q_hob1`, `q_mer2`, `q_nix4`.
+
+**Seventeen of eighteen passed first time**, with no check changed:
+`village` 12, `reachable_village` 6, `q_pip5` 33, `guild` 7, `blushes` 36,
+`q_hob2` 46, `q_rol4` 31, `nomap` 44, `roster` 19, `reachable_sopping` 7,
+`audit_fixes` 10, `south_road` 4, `feud` 8, `q_ald5` 50, `q_hob1` 81,
+`q_mer2` 52, `q_nix4` 60. **`q_hob3` failed one check, and it was not this
+part**: it was written in A8 and asserted that nothing runs when Hob walks
+back into the smithy with the anvil returned - and A13 (HOB-2) made exactly
+that moment the autorun where Beatrice goes quiet, by design. It had not been
+run since. The forge's E15 page needs the star-iron, which `q_hob3` never
+holds. The check now asserts the interpreter is running the Forge (event 6),
+and its label says why; `q_hob3` then passed (30 checks). Nothing is owed.
+
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E16, ZEPH-4 The Cinder
-Fen** - unless the "Rerun for E13-E15" paragraph is missing from section 3,
-in which case finish that first: the eighteen scenarios listed in the E15
-entry below, alone, then the paragraph and a commit. E1-E15 are done (E1-E6
-on 2 Oct 2026, E7-E15 on 3 Oct). One step per session again (0.1) unless
+Fen**. E1-E15 are done with their reruns (E1-E6 on 2 Oct 2026, E7-E15 on 3
+Oct). One step per session again (0.1) unless
 Mike asks for more.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
@@ -3185,13 +3214,7 @@ shield, armour 47, E7). Merribell has had her gear (the Pamphlet, armour 45).
 What E16 will need: `nomap.py`'s Cinder Fen on the world map, the
 Commissioner (`Gen_People10` 7, faceless on purpose in the site - check), the
 triplicate; the burning, and the road it opens. Read ZEPH-1's (C1), ZEPH-3's
-(C2), ZEPH-2's (C3) and ZEPH-5's (A7) Done paragraphs. The E13-E15 rerun's
-eighteen, chosen by reach: Map 3 (Ambrosine blocks (7,12) with Piper after
-the road) `village`, `reachable_village`, `q_pip5`, `guild`, `blushes`; Map
-6 (the forge's page needs the star-iron) `q_hob2`, `q_hob3`, `q_rol4`; Map 8
-(only the Sky Anvil's event) `nomap`; Maps 13 and 15 (Lorrimer's two events,
-three doors, Sops) `roster`, `reachable_sopping`, `audit_fixes`,
-`south_road`, `feud`, `q_ald5`, `q_hob1`, `q_mer2`, `q_nix4`.
+(C2), ZEPH-2's (C3) and ZEPH-5's (A7) Done paragraphs.
 
 Things learned that will bite again:
 
@@ -3238,6 +3261,13 @@ Things learned that will bite again:
   `Game_BattlerBase.isAutoBattle` true for actors and `advance` through it
   (q_ald2). Kill the party only after any screenshot, and press through
   the defeat message.
+* **An old scenario can be stale against a later step's design**: `q_hob3`
+  (A8) asserted nothing runs in the smithy, and HOB-2 (A13) made that the
+  autorun where Beatrice goes quiet; nobody reran it until E13-E15. When a
+  step adds an autorun or a page to a room, rerun the older scenarios that
+  stand in that room.
+* **`$gameParty.numArmors` is not an engine method**; `numItems` takes an
+  armour or a weapon too (E14).
 * **The end-of-part rerun by map id is the whole suite** once Maps 1, 8, 13
   or 14 are touched. Choose by what each change can reach and write the
   reasoning down (the E1-E6 rerun paragraph).
