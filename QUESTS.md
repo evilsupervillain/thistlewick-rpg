@@ -3259,14 +3259,96 @@ Lay-By's) and `journey.py` (the Fen Road's sign, after WRE-1's specimens);
 * `TIMELINE.md`: 1970, Mr Tinder retires and the Fen goes unburnt ("thirty
   years").
 
+**E17, ROL-5 The Understudy - done.** ROL-5's section at the bottom of
+`q_roland.py`, hooked from `dunnage.py`'s Bell (Mrs Dewhirst, the understudy)
+and `journey.py` (the tower door's page, and her event beside it);
+`build/scenarios/q_rol5.json`.
+
+* **Decided: it needs ROL-1**, as NIX-1 needs NIX-4: the meetings are what
+  there is to tell, and the minutes are in the party's bag. The 141st meeting
+  never mentioned an understudy (item five, any other business, was silence),
+  and that is the point - she is not on the agenda.
+* **Maud Penhallow, sixteen, is at the Bell's snug table** once the meeting
+  has sat (Map 65 event **15**, `places.UNDERSTUDY_BELL` (4,9), facing the
+  table), for everybody: without Roland, "Is Mr Fairweather with you? I'm
+  meant to study how he stands." In Fellow Blunt's yard since she was nine -
+  sword, horse, lineage, the lot, "in case it's ready and you're - you know."
+  / "Old." / "They said 'unavailable'." She has been told it is nearly ready
+  since she was nine; they will not let her come to the meetings, because she
+  is not on the agenda. "What are they like?" / "...Short."
+* **His moral position, in two looks, both his.** The first (Roland): an hour
+  on her guard in the yard behind the Bell, almost nothing said, and she finds
+  a gap in his nobody has found in fifteen years; outside, "She's been told
+  it's nearly ready. I was told that when I was twelve... I don't know whether
+  to tell her." `SW_ROL5_ON`. Without him, she waits: "He stands differently
+  when he's thinking." The second (Roland and the switch): "I've thought about
+  it." He sits on the other side of that table, where he is never the asset,
+  and tells her - apologies, the sorcerer; readiness, not; the lineage,
+  present; the asset, available; thanked; eleven minutes, a hundred and
+  forty-one times - and lays the minutes in front of her. She reads them
+  twice, eats some pie, and thinks. "Eleven minutes." / "Somebody should have
+  told you at nine. Somebody should have told me at twelve."
+* **The question is dropped**: "Whose prophecy is it? Exactly?" Roland opens
+  his mouth and closes it; "It's - it names a lineage. Mine. It's -"; and Mrs
+  Dewhirst comes over to ask about pudding, and the question stays on the
+  table among the plates, and nobody picks it up. The scenario asserts no line
+  answers it. **One trope** (the successor). No item: the minutes go back in
+  the bag.
+* **Decided: what she does with it is go and see the end of one.** "You've
+  never seen the end of one. Eleven doors... Then I'll be at the door. I'll
+  tell you how it ends." He laughs, properly, which nobody at the Bell has
+  heard. `SW_ROL5_DONE` and his story; she is gone from the snug.
+* **The tower door is `COMPANIONS.md`'s "somebody at the tower door after
+  all"**, and nothing keeps him: the Tower Door (Map 8 event 4) gains page 2
+  on `SW_ROL5_DONE`, which is page 1 exactly with her scene spliced in after
+  `roland_departure` (`journey.py` passes the split; the check is that page 2
+  minus the splice is page 1, command for command). Once, on the door's self
+  switch A: if he has just gone, forty paces off he looks back at the girl
+  beside the door with a practice sword, she raises it the way you are taught
+  at nine, and he raises a hand and goes; then, either way, "Somebody is at the
+  tower door after all. It is not him." / "I'm the understudy. I'll wait here.
+  When you come out, I'll go and tell him how it ends." She stands beside the
+  door (Map 8 event **82**, `places.UNDERSTUDY_DOOR` (65,43), west of it on the
+  grass, the door's cell and the way up left clear): "Go on. I'll be here.
+  Somebody ought to see the end of one." His departure, its lines and its
+  sword are untouched.
+* **Afterwards for everybody**: Mrs Dewhirst's own last page (Map 65 event 2,
+  page 4, on her A and `SW_ROL5_DONE`) plus "Snug's empty, love. Miss
+  Penhallow's gone north. Said to tell Mr Fairweather she'd be at the door."
+  With Roland it beats ROL-1's page, which after the meeting is her own page
+  anyway.
+* **Ids taken:** switches **203** `SW_ROL5_ON`, **204** `SW_ROL5_DONE`; Map 65
+  event 15, Map 8 event 82; `places.UNDERSTUDY_BELL`, `UNDERSTUDY_DOOR`; face
+  `Gen_People14` **3** (Maud, generated: brown ponytail with a ribbon, the
+  silver practice jacket; `build/characters/maud-penhallow.json`). She does not
+  fight: nothing for `AUDIT.md`.
+* One trope, no blush. Running tally: **tropes +43 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ROLAND]` (on already after ROL-1, which this needs).
+* **Candidate ending line** (G1; read `SW_ROL5_DONE`) - after "who thinks
+  about this one": "Somebody saw the end of this one. She is sixteen, and
+  she waited at the door, and she has gone to tell him how it ends." Her
+  question is not in it.
+* **The rooms (0.1):** the Bell was swept in B1 and is unchanged; Maud was
+  screenshotted at the snug and beside the tower door.
+* **Scenario** `q_rol5`: passes (27 checks), first run - nobody before ROL-1,
+  waiting without Roland, walked to and met, a dismissed Roland's errand
+  waiting, the telling (never answered), Mrs Dewhirst with and without him,
+  and the tower door walked onto: he leaves as published, her scene once, the
+  door's own page after, her line from beside, and the scene again with the
+  switches put back and Roland not there to leave.
+* `TIMELINE.md`: 1978, Roland at twelve told it is nearly ready
+  ("twenty-two years"); 1993, Maud into Fellow Blunt's yard at nine; her age,
+  sixteen.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E17, ROL-5 The
-Understudy**. E1-E16 are done (reruns for E1-E6 on 2 Oct 2026, E7-E15 on 3
-Oct; E16-E18's rerun is owed at the end of E18). One step per session again (0.1) unless
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E18, ROL-2 Roland's
+Own Quest**. E1-E17 are done (reruns for E1-E6 on 2 Oct 2026, E7-E15 on 3
+Oct; E16-E18's rerun is owed at the end of E18, which ends Part E). One step per session again (0.1) unless
 Mike asks for more.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
@@ -3283,21 +3365,23 @@ byte: every existing page identical, only appended pages and new events
 (and, on a widened map, every tile inside the old bounds). `validate.py`,
 and `apidigest.py . --write` (new `db` constants change `build/API.md`).
 Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_rol5.json`, run in the background, one browser at a time.
+`build/scenarios/q_rol2.json`, run in the background, one browser at a time.
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +42 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 203, variable 28, item 73, weapon 43,
+Where things stand: tropes +43 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 205, variable 28, item 73, weapon 43,
 armour 49, armour type 14, class 12, common event 4, state 42, enemy 59,
-troop 54, skill 183, map 67, `Gen_People14` 3. Aldric has had his gear (the
+troop 54, skill 183, map 67, `Gen_People14` 4. Aldric has had his gear (the
 shield, armour 47, E7). Merribell has had her gear (the Pamphlet, armour 45).
 
-What E17 will need: the finale's pages - **read this game's `CLAUDE.md`
-"The ending" and the Former Premises' pages 3-5 first** - the understudy (one
-generated face), and a page at the tower door. Read ROL-4's (A5), ROL-3's
-(A14) and ROL-1's (B7) Done paragraphs. Map 8's last event is now 81 (E16's
-Fen Road sign); anything new on Map 8 goes after it.
+What E18 will need: a small dungeon in no place (Map 67, drawn in
+`q_roland.py`, registered in `build_game.MAP_NAMES` like COR-2's Map 66), the
+thing (stock monster art), and the better sword he leaves at the door - Roland's
+gear (0.5): `journey.roland_departure` hands over `WP_FAIRWEATHER`, and the
+tower door now has two pages (ROL-5's), so a new sword must reach both. Read
+ROL-4's (A5) Done paragraph: the refit reads `WP_FAIRWEATHER`. Map 8's last
+event is now 82.
 
 Things learned that will bite again:
 

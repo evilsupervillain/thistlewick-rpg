@@ -450,7 +450,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (205)
+### `FACES` — who already has a face (206)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -505,8 +505,8 @@ The Mayor             Prime Warden          Mr Tibbs              Mrs Harbottle
 Mr Dray               Miss Moon             The Convenor          Fellow Grice
 Fellow Amory          Fellow Blunt          Mr Pennock            Professor Mott
 Dr Furze              Mother Grizel         Dr Hobday             Nan Gilly
-Mr Spence             Ambrosine             Lorrimer              Miss Fettle
-Cotter
+Mr Spence             Ambrosine             Lorrimer              Maud
+Miss Fettle           Cotter
 ```
 
 
@@ -514,7 +514,7 @@ Cotter
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-143 constants.
+145 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -645,6 +645,8 @@ WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)
 FEN_ROAD_SIGN                (33, 53)
 FEN_ROAD_END                 (47, 117)
+UNDERSTUDY_BELL              (4, 9)
+UNDERSTUDY_DOOR              (65, 43)
 VAULT                        (23, 5, 25, 7, 24)
 VAULT_CHAIR                  (24, 5)
 COUNTING_BEFORE_DOOR         (8, 5)
@@ -667,7 +669,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-558 constants.
+560 constants.
 
 ```
 BRAM                         1
@@ -1180,6 +1182,8 @@ IT_STAR_IRON                 71
 WP_STAR_IRON                 42
 SW_ZEPH4_DONE                202
 IT_FEN_CERTIFICATE           72
+SW_ROL5_ON                   203
+SW_ROL5_DONE                 204
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

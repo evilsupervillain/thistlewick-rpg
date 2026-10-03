@@ -1284,6 +1284,7 @@ def bell_events():
                        R.image(*S.FACES["Mrs Dewhirst"], direction=2),
                        *dewhirst_pages())
     dewhirst["pages"].append(q_roland.dewhirst_page(dewhirst["pages"][-1]))  # ROL-1
+    dewhirst["pages"].append(q_roland.dewhirst_after(dewhirst["pages"][1]))  # ROL-5
     evs.append(dewhirst)
     harbottle = _person(3, "Mrs Harbottle", HARBOTTLE,
                         R.image("Gen_People6", 3, direction=6),
@@ -1306,6 +1307,7 @@ def bell_events():
     evs.append(_thing(8, "The Bell", THE_BELL, bell_pages()))
     evs += q_piper.rival_events()                                     # PIP-3
     evs += q_roland.meeting_events()                                  # ROL-1
+    evs.append(q_roland.understudy_event(len(evs) + 1))               # ROL-5
     return evs
 
 

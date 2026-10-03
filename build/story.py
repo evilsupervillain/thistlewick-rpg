@@ -432,6 +432,8 @@ FACES = {
     "Ambrosine": ("Gen_People14", 1),
     # NIX-3's rival thief (QUESTS.md E14), generated, in a borrowed hood.
     "Lorrimer": ("Gen_People14", 2),
+    # ROL-5's understudy (QUESTS.md E17), sixteen, generated.
+    "Maud": ("Gen_People14", 3),
     "Miss Fettle": ("Gen_People6", 4),
     "Cotter": ("SF_Actor2", 7),
 }

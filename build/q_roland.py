@@ -29,6 +29,7 @@ sold, and travelled, and came back.
 import copy
 
 import db
+import places
 import rmmzdata as R
 import story as S
 
@@ -519,3 +520,216 @@ def meeting_events():
                             conditions=gone))
         evs.append(R.event(eid, name, x, y, pages))
     return evs
+
+
+# ======================================================================
+# ROL-5, The Understudy (`QUESTS.md` E17)
+# ----------------------------------------------------------------------
+# Somebody is being trained to replace him against the day the prophecy is
+# ready. She is sixteen, she is extraordinary, and she has been told nothing
+# about the review meetings. His whole moral position, for the length of the
+# quest, is whether to tell her. He tells her. She takes it well, and asks the
+# question nobody has asked in twenty-two years - whose prophecy is it,
+# exactly? - and it is dropped, and never answered.
+#
+# * **It needs ROL-1**: the meetings are what there is to tell, and the minutes
+#   are in the party's bag. Maud Penhallow sits at the Bell's snug table once
+#   the hundred and forty-first has sat (Map 65, the last event), where the
+#   meetings are held and she is not allowed to go.
+# * **Two looks, both Roland's**: the first, he looks at her guard for an hour
+#   and does not tell her (`SW_ROL5_ON`); the second, he has thought about it.
+#   Without him she waits, and says so. Global switches, so a dismissed
+#   Roland's errand waits.
+# * **Nothing keeps him at the door.** What changes is that somebody is at the
+#   tower door after all, and it is not him: she goes north to see the end of
+#   one, since he never has. The door (Map 8, event 4) gains a page on
+#   `SW_ROL5_DONE` that is its own page with her scene spliced in after his
+#   departure, once (the door's self switch A); and she stands beside it.
+UNDERSTUDY_EVENT_DOOR = "Maud (at the door)"
+
+
+def _rol5_meet():
+    c = S.narrate([
+        "A girl of about sixteen sits at the snug table in a practice",
+        "jacket, with a wooden sword across her knees and a pie she",
+        "has forgotten about. She sees Roland, and stands up so fast",
+        "that the pie goes over."])
+    c += S.say("Maud", ["You're him. You're Roland",
+                        "Fairweather."])
+    c += S.say("Roland", ["...Guilty."])
+    c += S.say("Maud", ["Maud Penhallow. I'm your understudy."])
+    c += S.narrate(["Roland's face does something very careful."])
+    c += S.say("Maud", ["Fellow Blunt's had me in his yard",
+                        "since I was nine. Sword, horse,",
+                        "lineage, the lot. In case."])
+    c += S.say("Roland", ["In case of what?"])
+    c += S.say("Maud", ["In case it's ready and you're -",
+                        "you know."])
+    c += S.say("Roland", ["Old."])
+    c += S.say("Maud", ["They said 'unavailable'."])
+    c += S.say("Maud", ["They say it's nearly ready. It's",
+                        "been nearly ready since I was nine.",
+                        "Is it nearly ready?"])
+    c += S.narrate(["There is a pause, of the kind that has eleven",
+                    "minutes in it."])
+    c += S.say("Roland", ["They'd know better than I would."])
+    c += S.say("Maud", ["They won't let me come to the",
+                        "meetings. I'm not on the agenda.",
+                        "What are they like?"])
+    c += S.say("Roland", ["...Short."])
+    c += S.narrate([
+        "She asks him to look at her guard. He does, for an hour,",
+        "in the yard behind the Bell, and says almost nothing, which",
+        "from Roland is a great deal. She is extraordinary: she finds",
+        "a gap in his that nobody has found in fifteen years."])
+    c += S.narrate(["Outside, Roland is quiet for most of a street."])
+    c += S.say("Roland", ["She's been told it's nearly ready.",
+                          "I was told that when I was twelve."])
+    c += S.say("Roland", ["I don't know whether to tell her.",
+                          "I'm going to think about it. You'll",
+                          "have noticed I'm not very good at it."])
+    c += [R.control_switch(db.SW_ROL5_ON, True)]
+    return c
+
+
+def _rol5_tell():
+    c = S.narrate([
+        "Maud is at the snug table again, with a new pie, which",
+        "she is guarding."])
+    c += S.say("Roland", ["I've thought about it."])
+    c += S.narrate([
+        "He sits down across from her, which he has never done at",
+        "that table, because at that table he is the asset."])
+    c += S.say("Roland", ["Miss Penhallow. The meetings.",
+                          "I'll tell you what they're like."])
+    c += S.narrate([
+        "He tells her. Apologies: the sorcerer. The minutes of the",
+        "last. Readiness: the stone, not ready; the sword, in the",
+        "stone; the lineage, present. The asset: available.",
+        "Thanked. Eleven minutes, a hundred and forty-one times."])
+    c += S.say("Roland", ["May I have those back a moment?"])
+    c += S.narrate([
+        "You give him the minutes, and he lays them on the table in",
+        "front of her. She reads them twice, and then she eats some",
+        "of the pie, and thinks, the way a person thinks who has been",
+        "told to wait for seven years and is good at it."])
+    c += S.say("Maud", ["Eleven minutes."])
+    c += S.say("Roland", ["Eleven. I'm sorry. Somebody should",
+                          "have told you at nine. Somebody",
+                          "should have told me at twelve."])
+    c += S.say("Maud", ["Can I ask something?"])
+    c += S.say("Roland", ["Anything."])
+    c += S.say("Maud", ["Whose prophecy is it?",
+                        "Exactly?"])
+    c += S.narrate([
+        "Roland opens his mouth, and then he closes it. In twenty-two",
+        "years of meetings, nobody has asked."])
+    c += S.say("Roland", ["It's - it names a lineage. Mine.",
+                          "It's -"])
+    c += S.narrate([
+        "Mrs Dewhirst comes over to ask whether anybody wants",
+        "pudding, and the question stays where it is, on the table",
+        "among the plates, and nobody picks it up."])
+    c += S.say("Maud", ["Then I'm not waiting either."])
+    c += S.say("Maud", ["You've never seen the end of one.",
+                        "Eleven doors, you said. Where does",
+                        "this one end?"])
+    c += S.say("Roland", ["At a tower, in the north. I leave",
+                          "at the door."])
+    c += S.say("Maud", ["Then I'll be at the door. Somebody",
+                        "ought to see the end of one. I'll",
+                        "tell you how it ends."])
+    c += S.narrate([
+        "Roland laughs - properly, out loud, which nobody at the",
+        "Bell has heard him do. Then he gives you back the minutes."])
+    c += S.say("Roland", ["...Yes. All right. Do."])
+    c += [S.trope(), R.control_switch(db.SW_ROL5_DONE, True)]
+    c += S.companion_story(db.ROLAND)
+    return c
+
+
+def understudy_event(event_id):
+    """Maud Penhallow at the Bell's snug table (Map 65, the last event):
+    nobody before the hundred and forty-first meeting; then waiting for the
+    asset; met, with Roland; told, with him on a second look; and gone north
+    once she has asked whose prophecy it is."""
+    img = R.image(*S.FACES["Maud"], direction=8)
+    met = {"switch1Valid": True, "switch1Id": db.SW_ROL1_DONE}
+    on = {"switch1Valid": True, "switch1Id": db.SW_ROL5_ON}
+    roland = {"actorValid": True, "actorId": db.ROLAND}
+    blank = dict(img=R.image(""), priority=0, through=True)
+    return R.event(event_id, "Maud Penhallow", *places.UNDERSTUDY_BELL, [
+        R.page([], **blank),
+        R.page(S.narrate([
+            "A girl of about sixteen in a practice jacket, at the snug",
+            "table, with a wooden sword across her knees, watching the",
+            "door."]) + S.say("Maud", ["Is Mr Fairweather with you? I'm",
+                                       "meant to study how he stands."]),
+            img=img, direction_fix=True, conditions=met),
+        R.page(_rol5_meet(), img=img, direction_fix=True,
+               conditions=dict(met, **roland)),
+        R.page(S.say("Maud", ["Is he coming back? He went off",
+                              "thinking. You can tell. He stands",
+                              "differently when he's thinking."]),
+               img=img, direction_fix=True, conditions=on),
+        R.page(_rol5_tell(), img=img, direction_fix=True,
+               conditions=dict(on, **roland)),
+        R.page([], conditions={"switch1Valid": True,
+                               "switch1Id": db.SW_ROL5_DONE}, **blank),
+    ])
+
+
+def dewhirst_after(own):
+    """Mrs Dewhirst (Map 65, event 2) afterwards, below her ladder: her own
+    last page for everybody, and a line about the snug."""
+    page = copy.deepcopy(own)
+    page["list"] = own["list"][:-1] + S.say("Mrs Dewhirst", [
+        "Snug's empty, love. Miss",
+        "Penhallow's gone north. Said to tell",
+        "Mr Fairweather she'd be at the door."])
+    page["list"] += R.page([])["list"][-1:]
+    page["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_ROL5_DONE})["conditions"]
+    return page
+
+
+def _rol5_at_door():
+    """Spliced into the tower door's page after his departure, once."""
+    c = R.if_then(R.condition_switch(db.SW_ROLAND_GONE), S.narrate([
+        "Forty paces off, he stops, and looks back once, at the girl",
+        "standing beside the door with a practice sword. She raises",
+        "it to him, the way you are taught to at nine. He raises a",
+        "hand, and goes."]))
+    c += S.narrate(["Somebody is at the tower door after all.",
+                    "It is not him."])
+    c += S.say("Maud", ["He said somebody ought to see the",
+                        "end of one."])
+    c += S.say("Maud", ["I'm the understudy. I'll wait here.",
+                        "When you come out, I'll go and tell",
+                        "him how it ends."])
+    return R.if_then(R.condition_self_switch("A", False),
+                     c + [R.self_switch("A", True)])
+
+
+def door_pages(door, split):
+    """The Obligatory Tower's door (Map 8, event 4) once she has gone north:
+    its own page, `door`, with her scene after the first `split` commands -
+    his departure, which still happens - and nothing else changed."""
+    return [R.page(door[:split] + _rol5_at_door() + door[split:],
+                   img=R.image(""), trigger=1, priority=0, through=True,
+                   conditions={"switch1Valid": True,
+                               "switch1Id": db.SW_ROL5_DONE})]
+
+
+def understudy_at_door(event_id):
+    """Maud beside the tower door (Map 8, the last event), once she has gone
+    north: nobody before."""
+    return R.event(event_id, UNDERSTUDY_EVENT_DOOR, *places.UNDERSTUDY_DOOR, [
+        R.page([], img=R.image(""), priority=0, through=True),
+        R.page(S.say("Maud", ["Go on. I'll be here. Somebody",
+                              "ought to see the end of one."]),
+               img=R.image(*S.FACES["Maud"], direction=2),
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ROL5_DONE}),
+    ])

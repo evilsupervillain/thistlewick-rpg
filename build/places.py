@@ -327,6 +327,13 @@ WORLD_SIGN_COAST = (63, 80)     # was (28,45): the two ends of the coast road
 FEN_ROAD_SIGN = (33, 53)
 FEN_ROAD_END = (47, 117)
 
+# ROL-5's understudy (`../QUESTS.md` E17): at the Bell's snug table, south of
+# it, facing up; and, once she has gone north, beside the Obligatory Tower's
+# door on the world map - west of it, on the grass, so the door's own cell and
+# the way up to it stay clear. Both checked open against the finished maps.
+UNDERSTUDY_BELL = (4, 9)
+UNDERSTUDY_DOOR = (65, 43)
+
 # NIX-2's room behind the Door (`../QUESTS.md` B6): drawn by `dunnage.py` in
 # the black east of Map 63, which was widened for it from 18 to 30 columns -
 # the lobby is tile for tile what it was - and furnished by `q_nix.py`. The

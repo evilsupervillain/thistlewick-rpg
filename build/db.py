@@ -459,6 +459,9 @@ WP_STAR_IRON = 42               # the one thing it makes; not for Hob
 # ZEPH-4, The Cinder Fen (QUESTS.md E16, q_zephyrine.py)
 SW_ZEPH4_DONE = 202             # nine hundred acres, sanctioned; the road dry
 IT_FEN_CERTIFICATE = 72         # the Commissioner's; countersigned by scorch
+# ROL-5, The Understudy (QUESTS.md E17, q_roland.py)
+SW_ROL5_ON = 203                # met her; he is deciding whether to tell her
+SW_ROL5_DONE = 204              # told; she asked whose; she has gone north
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

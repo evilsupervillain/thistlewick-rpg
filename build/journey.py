@@ -19,6 +19,7 @@ import db
 import mapkit as K
 import rmmzdata as R
 import q_nix
+import q_roland
 import q_wren
 import q_zephyrine
 import story as S
@@ -209,6 +210,7 @@ def world_map():
     # existing event's id moves (q_wren.py).
     m["events"] += q_wren.specimen_events(len(m["events"]))
     m["events"].append(q_zephyrine.fen_road_event(len(m["events"])))  # ZEPH-4
+    m["events"].append(q_roland.understudy_at_door(len(m["events"])))  # ROL-5
     return m
 
 
@@ -254,6 +256,7 @@ def world_events():
 
     # 4: the tower - and the door at which the guest star always leaves
     door = roland_departure()
+    split = len(door)               # ROL-5 splices the understudy in here
     door += S.narrate([
         "The Obligatory Tower.",
         "It is exactly as tall as everyone said, which",
@@ -271,7 +274,9 @@ def world_events():
     # is touched by it.
     evs.append(R.event(4, "Tower Door", TOWER_DOOR[0], TOWER_DOOR[1],
                        [R.page(door, img=R.image(""), trigger=1, priority=0,
-                               through=True)], note="<noairship>"))
+                               through=True)]
+                       + q_roland.door_pages(door, split),           # ROL-5
+                       note="<noairship>"))
 
     # 5: the wayshrine - the one safe place on the road
     shrine = S.narrate([

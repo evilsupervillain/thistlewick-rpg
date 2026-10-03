@@ -159,6 +159,7 @@ when it does, in a round year.
 | 1971 | Edith Pellow sees the Thing, and counts nine heads; The Sighting, issue forty-four | `q_wren` (WRE-3) | F |
 | 1974 | Walt Ashbury, twenty-six years at the Eight Hours | `restwell` | F |
 | 1977 | Roland Fairweather, eleven, page to Dame Florence Ickworth: the Wyrm of Ickworth, the first of his eleven parties ("since I was eleven", and thirty-four now) | `q_roland` (ROL-3) | P |
+| 1978 | Roland, twelve, is told his prophecy is nearly ready - a lineage, a stone, a sword in it and a sorcerer - and its preparation begins: "twenty-two years" of review meetings, a hundred and forty-one by 2000 (ROL-1, ROL-5) | `q_roland` (ROL-5) | F |
 | 1986 | Sir Hamo Tench comes to Weeping Bottom for the sea air | `weeping_bottom.hamo_pages` | F |
 | 1989 | Corvin, nineteen, sits down in the corner of the Slain Wyvern; Ashcombe floods "in his absence". Dame Winifred at Little Gore. Wat Pardle puts up the Standing Stones, if theory six is right, which it is. Bond No. 1 in the Bonded Warehouse: Nix, fifteen, puts gran's coat in bond till it fits, makes a speech from a crate, and pays the rent by post for eleven years sooner than come back (NIX-1). The same year Nix gives Hulda Bole her first job, a parcel to be delivered at twenty-six, which is also her last. Dr Pike takes a room | `south`, `ashcombe`, `hamlets`, `journey`, `dunnage`, `restwell`, `q_nix` | P/F |
 | 1989 | Beatrice Grumnir dies; the parish's plain headstone in the new churchyard, "1919 - 1989"; she has told Hob to make her a marker, and the village stops mentioning it ("eleven years") | `q_hob` (HOB-2), `village.churchyard` | P |
@@ -169,6 +170,7 @@ when it does, in a round year.
 | 1991 | Abel Thrush, carrier, dies in the spring; Tom takes the Fenmarch half of the round on. Dame Winifred (in the field at Little Gore since 1989) knew him two years and he never said a word to her; Tom says he never stopped talking. The parish's card wanting an elegy goes up on the back of the fingerpost, and stays there nine years (PIP-4) | `q_piper` (PIP-4) | F |
 | 1992 | Aldric, with a commission that says "dragon", talks about Horace with the Wrong Dragon until dark ("eight years ago") | `nomap._wrong_dragon` | F |
 | 1993 | the dragon on Aldric's commission is slain by somebody else, "a year or two after" his visit to the wrong one; the slayer drinks in the Slain Wyvern and is insufferable about it (ALD-6, offstage). The commission stays in Aldric's tabard, undischarged, until 2000: DRAGON: FOUND. NOT SLAIN. READ TO. | `q_aldric` (ALD-6) | F |
+| 1993 | Maud Penhallow, nine, goes into Fellow Blunt's yard as Roland's understudy - sword, horse, lineage, "in case" - and is told the prophecy is nearly ready (ROL-5) | `q_roland` (ROL-5) | F |
 | 1994 | Aldric reaches Thistlewick and cannot find the north gate; Perpetua Small wakes on the beach. That winter his horse walks into Plummer's yard at Great Dunnage on her own, saddled ("six years", ALD-4) | `db.build_actors`, `village`; `dunnage.plummer_pages`, `q_aldric` | P |
 | 1996 | Mr Pilbeam rescues Rosamund from the eagle. Merribell leaves the Sisterhouse at twenty-two, because it has begun holding symposia (MER-1) | `fairholme`, `q_merribell` | F |
 
@@ -185,6 +187,7 @@ when it does, in a round year.
 | the Healers' Table | Nan Gilly eighty-eight, Mother Grizel Pennyfeather eighty-one, Dr Lucius Hobday seventy, Mr Cuthbert Spence sixty-four - the youngest until Merribell, by thirty-eight years (MER-3) | `q_merribell` |
 | Halbert Quy | in his seventies | `south` |
 | Mrs Emberthwaite | seventy (Rosamund's word) | `fairholme` |
+| Maud Penhallow | sixteen (in the yard since nine) | `q_roland` (ROL-5) |
 | Corvin Ash | thirty (nineteen, and eleven years in the corner) | `south` |
 | the Cotterills | Cotter 24, Rivet 22, Gudgeon 20, Tappet 18, Ferrule 16, Grommet 15, Clevis 13, Shim 11, Spare 9, and one due in the spring | `north` (Gudgeon's register) |
 | Pemberton-Gore IV | nineteen; found the gate at ten | `fenmarch` |

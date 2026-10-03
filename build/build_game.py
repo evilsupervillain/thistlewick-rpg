@@ -424,7 +424,9 @@ def build_system():
             (db.SW_NIX3_DONE, "NIX-3: won on paperwork"),
             (db.SW_HOB4_TRADED, "HOB-4: a gate for the gatepost"),
             (db.SW_HOB4_DONE, "HOB-4: one sword, not for Hob"),
-            (db.SW_ZEPH4_DONE, "ZEPH-4: the Fen burnt; the road open")]:
+            (db.SW_ZEPH4_DONE, "ZEPH-4: the Fen burnt; the road open"),
+            (db.SW_ROL5_ON, "ROL-5: met the understudy; to tell her?"),
+            (db.SW_ROL5_DONE, "ROL-5: told; she is at the tower door")]:
         switches[sid] = name
 
     variables = [""] * 32

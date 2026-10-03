@@ -1,0 +1,413 @@
+{
+ "query": "?map=65&x=4&y=10&frames=90",
+ "comment": "QUESTS.md E17, ROL-5 The Understudy. Maud Penhallow at the Bell's snug: nobody before ROL-1, waiting without Roland, met (walked to), a dismissed Roland's errand waiting, told - whose prophecy, never answered - and gone north; Mrs Dewhirst afterwards; at the Obligatory Tower's door, walked onto: Roland leaves exactly as published and somebody is at the door after all; once; and again with Roland not there to leave.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "[$gameMap.event(15).event().name, $gameMap.event(15).findProperPageIndex(), $gameMap.event(15).characterName()]",
+   "expect": [
+    "Maud Penhallow",
+    0,
+    ""
+   ],
+   "label": "nobody at the snug before the hundred and forty-first meeting"
+  },
+  {
+   "eval": "$gameSwitches.setValue(154, true); $gameParty.gainItem($dataItems[52], 1)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(15).findProperPageIndex(), $gameMap.event(15).characterName()]",
+   "expect": [
+    1,
+    "Gen_People14"
+   ],
+   "label": "after ROL-1, without Roland: the understudy, waiting for the asset"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(15).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "[window._has('meant to study how he stands'), $gameSwitches.value(203)]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "without Roland she waits; nothing starts"
+  },
+  {
+   "eval": "$gameParty.addActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 2,
+   "label": "with Roland: the meeting"
+  },
+  {
+   "goto": [
+    65,
+    4,
+    10
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    4,
+    10,
+    8
+   ],
+   "label": "facing her across the snug, from below"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has(\"I'm your understudy.\"), window._has('nearly ready since I was nine.'), window._has('...Short.'), window._has('whether to tell her.'), window._has('Whose prophecy'), $gameSwitches.value(203), $gameSwitches.value(204)]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    false
+   ],
+   "label": "walked to and met: the understudy, the guard, and he does not tell her"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    0,
+    0,
+    0
+   ],
+   "label": "nothing counted yet"
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 4,
+   "label": "a second look with Roland: the telling"
+  },
+  {
+   "eval": "$gameParty.removeActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 3,
+   "label": "a dismissed Roland's errand waits"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(15).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "[window._has('He stands'), $gameSwitches.value(204)]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "without him: he went off thinking"
+  },
+  {
+   "eval": "$gameParty.addActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(15).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 100
+  },
+  {
+   "check": "[window._has(\"I've thought about it.\"), window._has('a hundred and forty-one times.'), window._has('Whose prophecy is it?'), window._has('pudding'), window._has('Then I\\'ll be at the door.'), window._has('...Yes. All right. Do.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "told: the meetings, the minutes, whose prophecy, pudding, the door"
+  },
+  {
+   "check": "window._lines.some(l => /It's mine|it is mine|belongs to/i.test(l))",
+   "expect": false,
+   "label": "the question is never answered"
+  },
+  {
+   "check": "[$gameSwitches.value(204), $gameSwitches.value(109), $gameParty.numItems($dataItems[52]), $gameParty.gold() - window._gold, $gameParty.members().some(a => a.actorId() === 10)]",
+   "expect": [
+    true,
+    true,
+    1,
+    0,
+    true
+   ],
+   "label": "done; his story; the minutes back in the bag; no gold; Roland still with you"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    1,
+    0,
+    1
+   ],
+   "label": "one trope (the successor), no blush, one story"
+  },
+  {
+   "check": "[$gameMap.event(15).findProperPageIndex(), $gameMap.event(15).characterName()]",
+   "expect": [
+    5,
+    ""
+   ],
+   "label": "she has gone north"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([65, 2, 'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "Mrs Dewhirst afterwards, with Roland"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Fifteen crowns, love.'), window._has(\"Penhallow's gone north.\"), window._has('snug\\'s booked')]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "her own page, and the snug is empty"
+  },
+  {
+   "eval": "$gameParty.removeActor(10)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "Mrs Dewhirst afterwards, for everybody"
+  },
+  {
+   "eval": "$gameParty.addActor(10)"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    45
+   ]
+  },
+  {
+   "check": "[$gameMap.event(82).event().name, $gameMap.event(82).findProperPageIndex(), $gameMap.event(82).characterName(), $gameMap.event(4).findProperPageIndex()]",
+   "expect": [
+    "Maud (at the door)",
+    1,
+    "Gen_People14",
+    1
+   ],
+   "label": "at the tower: she is beside the door, and the door has her page"
+  },
+  {
+   "shot": "q_rol5_door.png"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, window._has('At the foot of the tower, Roland Fairweather'), window._has('Forty paces off, he stops'), window._has('It is not him.'), window._has('him how it ends.'), window._has('Not yet.')]",
+   "expect": [
+    66,
+    43,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "walked onto the door: he leaves, as ever; she raises her sword; somebody is at the door after all"
+  },
+  {
+   "check": "[$gameSwitches.value(21), $gameParty.members().some(a => a.actorId() === 10), $gameParty.hasItem($dataWeapons[30]), $gameSelfSwitches.value([8, 4, 'A'])]",
+   "expect": [
+    true,
+    false,
+    true,
+    true
+   ],
+   "label": "Roland gone, the sword left on the grass, her scene once"
+  },
+  {
+   "shot": "q_rol5_after.png"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('The Obligatory Tower.'), window._has('It is not him.'), window._has('Roland Fairweather')]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "a second visit: the door's own page, nothing twice"
+  },
+  {
+   "goto": [
+    8,
+    65,
+    44
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    65,
+    44,
+    8
+   ],
+   "label": "she blocks her cell; facing her"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 10
+  },
+  {
+   "check": "window._has(\"Go on. I'll be here.\")",
+   "expect": true,
+   "label": "read from beside: she'll be here"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([8, 4, 'A'], false); $gameSwitches.setValue(21, false); window._mark(); window._pick = 1"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    44
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('It is not him.'), window._has('Forty paces off'), window._has('At the foot of the tower')]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "with Roland not there to leave (put back): she is at the door all the same, and he is not described going"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}
