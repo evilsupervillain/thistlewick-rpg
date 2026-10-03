@@ -319,6 +319,14 @@ WORLD_SIGN_NORTH = (64, 46)     # was (29,11): visitors 47, survivors scratched 
 WORLD_SIGN_COAST = (63, 80)     # was (28,45): the two ends of the coast road
 # and the west road's own is `WORLD_JUNCTION`, which always was a constant.
 
+# ZEPH-4's road (`../QUESTS.md` E16): the causeway out of the burnt Cinder Fen,
+# (47,118), runs north to Great Dunnage. Its signpost stands beside the gate,
+# south-east of `DUNNAGE_STEP`, a `WB_SIGN` read from beside like the four
+# above; and the Fen end of the road is the cell north of the Fen's own. Both
+# checked open four ways against the finished `data/Map008.json`.
+FEN_ROAD_SIGN = (33, 53)
+FEN_ROAD_END = (47, 117)
+
 # NIX-2's room behind the Door (`../QUESTS.md` B6): drawn by `dunnage.py` in
 # the black east of Map 63, which was widened for it from 18 to 30 columns -
 # the lobby is tile for tile what it was - and furnished by `q_nix.py`. The

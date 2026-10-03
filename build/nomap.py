@@ -257,7 +257,14 @@ def _cinder_fen():
     again_stop = S.say("Commissioner", [
         "Still wet. The form's still good.",
         "It doesn't expire. I made sure of that."])
-    return _site(CINDER_FEN, stop, first, again, again_stop)
+    site = _site(CINDER_FEN, stop, first, again, again_stop)
+
+    def build(base_id, cells):          # ZEPH-4's two pages, appended
+        evs = site(base_id, cells)
+        for ev in evs:
+            ev["pages"] += q_zephyrine.fen_pages()
+        return evs
+    return build
 
 
 # ========================================================== the Wrong Dragon ==

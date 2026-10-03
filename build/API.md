@@ -514,7 +514,7 @@ Cotter
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-141 constants.
+143 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -643,6 +643,8 @@ DUNNAGE_STEP                 (31, 53)
 WORLD_SIGN_SOUTH             (58, 73)
 WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)
+FEN_ROAD_SIGN                (33, 53)
+FEN_ROAD_END                 (47, 117)
 VAULT                        (23, 5, 25, 7, 24)
 VAULT_CHAIR                  (24, 5)
 COUNTING_BEFORE_DOOR         (8, 5)
@@ -665,7 +667,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-556 constants.
+558 constants.
 
 ```
 BRAM                         1
@@ -1176,6 +1178,8 @@ SW_HOB4_TRADED               200
 SW_HOB4_DONE                 201
 IT_STAR_IRON                 71
 WP_STAR_IRON                 42
+SW_ZEPH4_DONE                202
+IT_FEN_CERTIFICATE           72
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32

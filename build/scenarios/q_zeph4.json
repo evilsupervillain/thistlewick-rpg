@@ -1,0 +1,303 @@
+{
+ "query": "?map=8&x=47&y=117&frames=90",
+ "comment": "QUESTS.md E16, ZEPH-4 The Cinder Fen. The published first stop walked onto with Zephyrine in it; the burning on the second stop - Press on first, then the form, sanctioned, the fire, the causeway, the countersignature and the certificate; afterwards with and without her; the causeway north to Great Dunnage and the Fen Road's sign back south.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "[$gameMap.event(52).findProperPageIndex(), $gameMap.event(81).event().name, $gameMap.event(81).findProperPageIndex(), $gameMap.event(81).isNormalPriority()]",
+   "expect": [
+    0,
+    "The Fen Road",
+    0,
+    false
+   ],
+   "label": "the Fen never stopped at; the Fen Road's sign blank and below until the burning"
+  },
+  {
+   "eval": "$gameParty.addActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(52).findProperPageIndex()",
+   "expect": 0,
+   "label": "with Zephyrine, never stopped at: still the first stop"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, window._has('Are you a fire person?'), window._has('You say you are a turnip person.'), window._has(\"I'm a fire person.\"), $gameSelfSwitches.value([8, 52, 'A'])]",
+   "expect": [
+    47,
+    118,
+    true,
+    true,
+    false,
+    true
+   ],
+   "label": "walked onto the Fen: the published first stop, word for word, with Zephyrine standing in it"
+  },
+  {
+   "check": "$gameMap.event(52).findProperPageIndex()",
+   "expect": 2,
+   "label": "with Zephyrine, a second stop: the burning"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(52).findProperPageIndex()",
+   "expect": 1,
+   "label": "without her: the site's own second page"
+  },
+  {
+   "eval": "$gameParty.addActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(52).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('looks back at'), window._has('SANCTIONED'), $gameSwitches.value(202)]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "Press on: she looks back, nothing burns"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0; $gameMap.event(52).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 140
+  },
+  {
+   "check": "[window._has('Still wet. The form'), window._has(\"I'm a fire person.\"), window._has('QUANTITY OF FIRE.'), window._has('SANCTIONED.'), window._has('from the shoulder'), window._has('Dunnock'), window._has('GT DUNNAGE'), window._has('Countersigned by the Fen.'), window._has('Certificate of Burning'), window._has('In triplicate.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "the form, the quantity, sanctioned, the fire (the Collegium's way, ZEPH-5 undone), the causeway, the countersignature, the certificate"
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[72]), $gameSwitches.value(202), $gameSwitches.value(103), $gameScreen.tone().join(','), $gameParty.gold() - window._gold]",
+   "expect": [
+    1,
+    true,
+    true,
+    "0,0,0,0",
+    0
+   ],
+   "label": "the certificate; done; her story; the tint put back; no gold"
+  },
+  {
+   "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameVariables.value(15) - window._stories]",
+   "expect": [
+    1,
+    0,
+    1
+   ],
+   "label": "one trope (the elemental hazard), no blush, one story"
+  },
+  {
+   "check": "[$gameMap.event(52).findProperPageIndex(), $gameMap.event(81).findProperPageIndex(), $gameMap.event(81).isNormalPriority()]",
+   "expect": [
+    3,
+    1,
+    true
+   ],
+   "label": "afterwards: the Fen burnt, and the sign up by Great Dunnage"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(52).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('burnt, black and dry'), window._has('First I\\'ve had back'), window._has('Still sanctioned.'), window._has('Still wet.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    false
+   ],
+   "label": "afterwards with Zephyrine: the Commissioner, and still sanctioned"
+  },
+  {
+   "eval": "$gameParty.removeActor(4)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(52).findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards without her"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(52).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('First I\\'ve had back'), window._has('Still sanctioned.')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "afterwards for everybody, without her line"
+  },
+  {
+   "shot": "q_zeph4_fen.png"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0; $gameMap.event(52).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, window._has('Take the causeway') || window._has('causeway north')]",
+   "expect": [
+    8,
+    31,
+    53,
+    true
+   ],
+   "label": "the causeway north, to Great Dunnage's step"
+  },
+  {
+   "key": "ArrowRight",
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    32,
+    53
+   ],
+   "label": "beside the sign"
+  },
+  {
+   "key": "ArrowRight",
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    32,
+    53,
+    6
+   ],
+   "label": "the sign blocks its cell; facing it"
+  },
+  {
+   "shot": "q_zeph4_sign.png"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('THE FEN ROAD.'), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    true,
+    32,
+    53
+   ],
+   "label": "read from beside; Not now"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 90
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, window._has('causeway south')]",
+   "expect": [
+    8,
+    47,
+    117,
+    true
+   ],
+   "label": "the fen road south, to the cell above the Fen"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}

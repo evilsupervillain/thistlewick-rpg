@@ -155,6 +155,7 @@ when it does, in a round year.
 | 1969 | Gideon Markup prices the Sword of Ultimate Ending | `penultima` | F |
 | 1970 | Tobias Frayne's first revival of eleven, "in thirty years" | `frayne` | F |
 | 1970 | Aldric, sixteen, is due to keep his vigil: the Order hangs his shield, a knight rampant regardant, over the door of its chapel for the west at Weeping Bottom, and he keeps the vigil somewhere else - the first of eleven wrong chapels in thirty years, two of them Coldbarrow's Chapter House and one a barn with a weathercock. Confirmed at the twelfth, in 2000, with Sir Hamo as sponsor (ALD-2) | `q_aldric` (ALD-2) | F |
+| 1970 | Mr Tinder, the parish's last fire person, retires; the Cinder Fen is not burnt again, and the causeway to Great Dunnage goes a foot under. Zephyrine burns it, sanctioned, in triplicate, "thirty years" later (ZEPH-4) | `q_zephyrine` (ZEPH-4) | F |
 | 1971 | Edith Pellow sees the Thing, and counts nine heads; The Sighting, issue forty-four | `q_wren` (WRE-3) | F |
 | 1974 | Walt Ashbury, twenty-six years at the Eight Hours | `restwell` | F |
 | 1977 | Roland Fairweather, eleven, page to Dame Florence Ickworth: the Wyrm of Ickworth, the first of his eleven parties ("since I was eleven", and thirty-four now) | `q_roland` (ROL-3) | P |

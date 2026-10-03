@@ -456,6 +456,9 @@ SW_HOB4_TRADED = 200            # a gate out of eleven; the gatepost traded
 SW_HOB4_DONE = 201              # one sword, and he will not say who for
 IT_STAR_IRON = 71               # the Sky Anvil, under one arm
 WP_STAR_IRON = 42               # the one thing it makes; not for Hob
+# ZEPH-4, The Cinder Fen (QUESTS.md E16, q_zephyrine.py)
+SW_ZEPH4_DONE = 202             # nine hundred acres, sanctioned; the road dry
+IT_FEN_CERTIFICATE = 72         # the Commissioner's; countersigned by scorch
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
@@ -1683,6 +1686,10 @@ def build_items():
                     "The Sky Anvil. Fell in 1749, on a Tuesday, and was a "
                     "gatepost. Very heavy. Hob does not mention this.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=313))
+    upsert(it, item(IT_FEN_CERTIFICATE, "Certificate of Burning",
+                    "The Cinder Fen, 900 acres. Fire person: Z. Vance. "
+                    "Quantity: sanctioned. Countersigned, in scorch, by the Fen.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=193))
     upsert(it, item(IT_ITEM_ONE, "ITEM 1",
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",

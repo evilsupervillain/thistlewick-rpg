@@ -20,6 +20,7 @@ import mapkit as K
 import rmmzdata as R
 import q_nix
 import q_wren
+import q_zephyrine
 import story as S
 import wilds as W
 import field as F
@@ -207,6 +208,7 @@ def world_map():
     # WRE-1's eleven type specimens, after everything else, so that no
     # existing event's id moves (q_wren.py).
     m["events"] += q_wren.specimen_events(len(m["events"]))
+    m["events"].append(q_zephyrine.fen_road_event(len(m["events"])))  # ZEPH-4
     return m
 
 

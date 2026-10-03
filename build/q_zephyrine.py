@@ -26,6 +26,7 @@ import copy
 
 import db
 import mapkit as K
+import places
 import rmmzdata as R
 import story as S
 
@@ -950,3 +951,193 @@ def hapgood_senior_page(last):
         "round him."],
         {"selfSwitchValid": True, "selfSwitchCh": "A",
          "switch1Valid": True, "switch1Id": db.SW_ZEPH2_DONE})
+
+
+# =============================================================== ZEPH-4 ==
+# The Cinder Fen (`QUESTS.md` E16).
+#
+# Something needs burning and everybody agrees: nine hundred acres of sodden
+# fen drowning the road to Great Dunnage a foot at a time, and nobody in the
+# parish able to do it since Mr Tinder retired in 1970. The pure ability
+# quest - an unsanctioned quantity of fire, sanctioned, in writing, in
+# triplicate, by a parish that wants the form back afterwards.
+#
+# * **It hangs off the Fen's world-map event** (`nomap.py`), whose two pages
+#   are the Commissioner's first stop and its short version on self switch A.
+#   Page 3 needs A and Zephyrine, so the published "Are you a fire person?"
+#   stays the first visit with her standing in it; her answer is the second.
+#   It is all one scene, so nothing waits on a dismissed Zephyrine.
+# * **The form is the joke and the payoff.** QUANTITY OF FIRE is a box, and
+#   she has been told for eleven years that hers was the wrong amount; the
+#   Fen's countersignature, which nobody has ever got back, is a scorch in
+#   the corner of the third copy, held out over the edge all night.
+# * **The road is real**: the causeway that comes up out of the mud goes to
+#   Great Dunnage, both ways, for everybody - the Fen's page 4 and a new
+#   signpost by the town's gate (`places.FEN_ROAD_SIGN`), Map 8's last event.
+# * **Afterwards** the Fen's own last page is not carried - "still wet" and
+#   "still waiting for a fire person" are no longer true - as HOB-4's Meech.
+
+_FEN_SEEN = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+_FEN_TOUCH = dict(img=R.image(""), trigger=1, priority=0, through=True)
+
+
+def _z4_fire():
+    """Nine hundred acres, from the edge of the path, on the world map."""
+    c = R.if_then(R.condition_switch(db.SW_ZEPH5_DONE), S.narrate([
+        "She does not aim it. She means it, at all nine hundred",
+        "acres at once, the way Dunnock's missing page says to."]),
+        S.narrate([
+            "She aims it properly, from the shoulder, the way the",
+            "Collegium taught her, at all nine hundred acres."]))
+    c += [R.play_se("Fire1"), R.show_animation(-1, 66, True),
+          R.play_se("Wind1", 80), R.wait(10),
+          R.tint_screen([68, 17, -34, 0], 30, False),
+          R.play_se("Fire2", 100, 80), R.show_animation(-1, 68, False),
+          R.flash_screen([255, 170, 68, 170], 30, False),
+          R.shake_screen(5, 5, 60, False), R.wait(20),
+          R.play_se("Fire3", 100, 70), R.show_animation(-1, 70, True),
+          R.tint_screen([119, 0, -68, 34], 40, False),
+          R.flash_screen([255, 102, 34, 221], 45, False),
+          R.shake_screen(8, 6, 90, False), R.wait(40)]
+    c += S.narrate([
+        "The reeds go up with a sound like a crowd drawing breath.",
+        "The line of it runs out across the Fen a mile wide, and",
+        "the crust cracks, and the water under it goes to steam."])
+    c += S.narrate([
+        "It burns all afternoon and all night. Nobody in the",
+        "parish goes to bed. Somebody brings out chairs."])
+    c += [R.play_se("Fire1", 70, 60), R.wait(30),
+          R.tint_screen([-68, -68, -34, 68], 90, True), R.wait(30),
+          R.play_se("Crow", 60, 100),
+          R.tint_screen([0, 0, 0, 0], 90, True)]
+    return c
+
+
+def _z4_scene():
+    c = S.say("Commissioner", ["Still wet. The form's still good.",
+                               "It doesn't expire. I made sure of that."])
+    c += S.narrate([
+        "Zephyrine is looking at the Fen the way some people look",
+        "at a cake in a window."])
+    c += S.say("Zephyrine", ["I'm a fire person."])
+    c += S.say("Commissioner", ["You don't look like a fire",
+                                "person."])
+    c += S.say("Zephyrine", ["I was expelled for it. An",
+                             "unsanctioned quantity of fire.",
+                             "It's in my file."])
+    c += S.say("Commissioner", ["Unsanctioned? Oh, that's only the",
+                                "form. We can sanction anything.",
+                                "That's what it's FOR."])
+    c += S.narrate([
+        "The form is three sheets on the clipboard, with carbon",
+        "between. Zephyrine reads all of it, which nobody has ever",
+        "done: NAME OF FIRE PERSON. QUANTITY OF FIRE.",
+        "COUNTERSIGNATURE OF FEN (WHERE APPLICABLE)."])
+    c += S.say("Zephyrine", ["Quantity. What do I put?"])
+    c += S.say("Commissioner", ["Nine hundred acres."])
+    c += S.narrate([
+        "She writes it in very neatly, pressing hard enough for",
+        "all three copies, in the hand of a person who has been",
+        "told for eleven years that hers was the wrong amount."])
+    c += [R.play_se("Book1"), R.wait(10), R.play_se("Book1"), R.wait(10),
+          R.play_se("Book1")]
+    c += S.narrate(["The Commissioner stamps it. SANCTIONED.",
+                    "Three times."])
+    c += S.say("Commissioner", ["There. You're sanctioned."])
+    c += S.say("Zephyrine", ["...Say that again."])
+    c += S.say("Commissioner", ["Sanctioned. In triplicate.",
+                                "Stand well back, everybody, please.",
+                                "Further than that."])
+    c += _z4_fire()
+    c += S.narrate([
+        "In the morning the Fen is black and dry and smoking",
+        "gently, and the water has gone down the old drains the",
+        "reeds had choked. Out of the mud, running north, comes",
+        "a road."])
+    c += S.narrate([
+        "A causeway, stone, older than anybody, with a milestone",
+        "on it that says GT DUNNAGE. It has been a foot under",
+        "since Mr Tinder retired."])
+    c += S.say("Commissioner", ["Thirty years. He used to do it",
+                                "with a match and a lot of patience."])
+    c += S.narrate([
+        "Zephyrine has held the third copy out over the edge of",
+        "the fire all night, at arm's length. It comes back with",
+        "a scorch in one corner, exactly in the box."])
+    c += S.say("Commissioner", ["Countersigned by the Fen.",
+                                "Thirty years in this job. I've",
+                                "never had one back."])
+    c += S.narrate([
+        "The third copy goes into the clipboard. Out of it, in",
+        "exchange, comes a certificate, already filled in, which",
+        "has been waiting thirty years for somebody's name."])
+    c += [R.gain_item(db.IT_FEN_CERTIFICATE), R.play_me("Item")]
+    c += S.got(["Received \\C[3]Certificate of Burning\\C[0]."])
+    c += S.say("Zephyrine", ["It's the first piece of paper",
+                             "about me and fire that I've liked."])
+    c += S.say("Commissioner", ["Same again in thirty years?"])
+    c += S.say("Zephyrine", ["Write to me. In triplicate."])
+    c += [S.trope(), R.control_switch(db.SW_ZEPH4_DONE, True)]
+    c += S.companion_story(db.ZEPH)
+    return c
+
+
+def _z4_causeway(to, lines, direction=8):
+    """Down the road, a day's walk in a window, and the transfer."""
+    return S.narrate(lines) + [R.transfer(places.MAP_WORLD, *to,
+                                          direction=direction)]
+
+
+def fen_pages():
+    """Pages 3 and 4 of the Cinder Fen's world-map event, in its dress: the
+    burning, with Zephyrine on a second stop; and the Fen burnt, with the
+    road, for everybody."""
+    unburnt = S.narrate([
+        "The Cinder Fen, unburnt. The Drainage Commissioner",
+        "is still waiting for a fire person."])
+    burn = R.page(unburnt + R.choice_block(
+        ["Stop a while", "Press on"],
+        [_z4_scene(), S.narrate(["You press on. Zephyrine looks back at",
+                                 "the Fen twice."])]),
+        conditions=dict(_FEN_SEEN, actorValid=True, actorId=db.ZEPH),
+        **_FEN_TOUCH)
+    burnt = S.narrate([
+        "The Cinder Fen, burnt, black and dry. A causeway runs",
+        "north out of it towards Great Dunnage, past a milestone."])
+    stop = S.say("Commissioner", ["The third copy's in.",
+                                  "Countersigned. First I've had back",
+                                  "in thirty years."])
+    stop += R.if_then(R.condition_actor_in_party(db.ZEPH),
+                      S.say("Commissioner", ["Miss Vance. Still sanctioned."])
+                      + S.say("Zephyrine", ["I know. I keep checking."]))
+    road = _z4_causeway(places.DUNNAGE_STEP, [
+        "You take the causeway north. It is a long day's walk on",
+        "dry stone, and at the end of it, the walls of Great",
+        "Dunnage."])
+    after = R.page(burnt + R.choice_block(
+        ["Take the causeway", "Stop a while", "Press on"],
+        [road, stop, []]),
+        conditions=dict(_FEN_SEEN, switch1Valid=True,
+                        switch1Id=db.SW_ZEPH4_DONE), **_FEN_TOUCH)
+    return [burn, after]
+
+
+def fen_road_event(event_id):
+    """The Fen Road's signpost by Great Dunnage's gate (Map 8, the last
+    event): nothing until the Fen is burnt, then a `WB_SIGN` read from
+    beside, and the road south."""
+    sign = S.narrate([
+        "A new signpost, the paint still wet: THE FEN ROAD.",
+        "CINDER FEN. (BURNT. SANCTIONED.)"])
+    sign += R.choice_block(["Take the fen road", "Not now"], [
+        _z4_causeway(places.FEN_ROAD_END, [
+            "You take the causeway south. It is a long day's walk on",
+            "dry stone, across a black fen that smells of bonfires,",
+            "to where a person with a clipboard is waiting."],
+            direction=2), []])
+    return R.event(event_id, "The Fen Road", *places.FEN_ROAD_SIGN, [
+        R.page([], img=R.image(""), priority=0, through=True),
+        R.page(sign, img=R.image(tile_id=K.WB_SIGN), trigger=0, priority=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ZEPH4_DONE}),
+    ])

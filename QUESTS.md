@@ -3177,18 +3177,100 @@ holds. The check now asserts the interpreter is running the Forge (event 6),
 and its label says why; `q_hob3` then passed (30 checks). Nothing is owed.
 
 
+**E16, ZEPH-4 The Cinder Fen - done.** ZEPH-4's section at the bottom of
+`q_zephyrine.py`, hooked from `nomap.py` (the Fen, in a wrapper like the
+Lay-By's) and `journey.py` (the Fen Road's sign, after WRE-1's specimens);
+`build/scenarios/q_zeph4.json`.
+
+* **The start is the Fen's second stop with Zephyrine** (Map 8 event 52, page
+  3: its A and Zephyrine), below its one-self-switch ladder, with the site's
+  own "Stop a while / Press on". The published "Are you a fire person? You
+  don't look like a fire person." stays the first visit word for word with
+  her standing in it - which is the set-up, since her answer is the second
+  stop: "I'm a fire person." / "You don't look like a fire person." The page
+  carries the Commissioner's own last line ("Still wet. The form's still
+  good.") first. "Press on" with her: she looks back at the Fen twice.
+* **Decided: the form is the joke and the payoff**, since `COMPANIONS.md`
+  makes it "an unsanctioned quantity of fire, sanctioned". She was expelled
+  for one; "Oh, that's only the form. We can sanction anything. That's what
+  it's FOR." She reads all three sheets, which nobody has ever done - NAME OF
+  FIRE PERSON. QUANTITY OF FIRE. COUNTERSIGNATURE OF FEN (WHERE APPLICABLE) -
+  asks what to put for quantity ("Nine hundred acres") and writes it in "in
+  the hand of a person who has been told for eleven years that hers was the
+  wrong amount". SANCTIONED, three times. "...Say that again."
+* **The fire** reuses ZEPH-3's effects on the player (animations 66, 68, 70,
+  two tints, two flashes, two shakes), all put back. It reads ZEPH-5: with
+  it done she does not aim, "the way Dunnock's missing page says to";
+  without, she aims properly, from the shoulder, the Collegium's way. It
+  burns all afternoon and all night; nobody in the parish goes to bed;
+  somebody brings out chairs. **No fight** - the Fen is the hazard, and the
+  quest is the one ability nobody else has.
+* **Decided: the Fen's countersignature is a scorch.** The published first
+  stop has "There's a box for it. I've never had one back." She held the third
+  copy out over the edge all night; it comes back scorched in one corner,
+  exactly in the box. "Thirty years in this job. I've never had one back." The
+  certificate, filled in thirty years ago and waiting for a name, is **item
+  72**, Certificate of Burning (icon 193). "It's the first piece of paper about
+  me and fire that I've liked." / "Same again in thirty years?" / "Write to
+  me. In triplicate." **One trope** (the elemental hazard only one member can
+  solve). No gear - she has the robe (or chose not to).
+* **Decided: the road is a real two-way causeway to Great Dunnage**, since
+  the Fen was drowning "the road to Great Dunnage". The world map is a file,
+  not a drawing, and a page cannot repaint tiles, so the road is travelled in
+  a window: the Fen's afterwards page asks "Take the causeway / Stop a while /
+  Press on" and the causeway is a long day's walk on dry stone to
+  `places.DUNNAGE_STEP`; and **a new signpost by Great Dunnage's gate** (Map 8
+  event **81**, `places.FEN_ROAD_SIGN` (33,53), south-east of the step, a
+  `WB_SIGN` that blocks its cell and is read from beside like the other four)
+  reads THE FEN ROAD. CINDER FEN. (BURNT. SANCTIONED.) and goes south to
+  `places.FEN_ROAD_END` (47,117), the cell north of the Fen. Before the burning
+  the sign is a blank page, through and below characters, so nothing in any
+  existing walk can touch it. On foot it is 91 steps from Great Dunnage to the
+  Fen, so the reward is one long walk, both ways, into the far south (Sump,
+  the Fair, the Wrong Dragon) - modest, and real.
+* **Afterwards for everybody**: the Fen burnt, black and dry, a causeway north
+  past a milestone; "Stop a while" is the Commissioner - "The third copy's in.
+  Countersigned. First I've had back in thirty years." - and with Zephyrine,
+  "Miss Vance. Still sanctioned." / "I know. I keep checking." **The Fen's
+  own last page is not carried**: "still wet" and "still waiting for a fire
+  person" are no longer true, HOB-4's Meech's way. The Commissioner keeps no
+  pronoun.
+* **Ids taken:** switch **202** `SW_ZEPH4_DONE`; item **72**
+  `IT_FEN_CERTIFICATE`; Map 8 event **81**; `places.FEN_ROAD_SIGN`,
+  `FEN_ROAD_END`. No faces (the Commissioner is `Gen_People10` 7, a face with
+  no sprite, as the site drew), no variables.
+* One trope, no blush. Running tally: **tropes +42 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ZEPH]` (on already after ZEPH-1, -2, -3 or -5 in a game that did
+  one).
+* **Candidate ending line** (G1; read `SW_ZEPH4_DONE`): "The Cinder Fen was
+  burnt in the year 2000 by Zephyrine Vance, fire person, sanctioned, in
+  triplicate. The road to Great Dunnage is dry, and the form came back
+  countersigned."
+* **The rooms (0.1):** the Fen is a world-map cell (the `Trail` stamp) and
+  nothing was drawn on it; the sign is the stock `WB_SIGN`, screenshotted by
+  the gate.
+* **Scenario** `q_zeph4`: passes (21 checks), first run - walked onto the
+  Fen for the published first stop with Zephyrine, the site's own second page
+  without her, Press on, the burning (the Collegium's way, ZEPH-5 undone), the
+  tint put back, the certificate and no gold, afterwards with and without her,
+  the causeway north to Great Dunnage's step, the sign blocking its cell and
+  read from beside, Not now, and the fen road back south.
+* `TIMELINE.md`: 1970, Mr Tinder retires and the Fen goes unburnt ("thirty
+  years").
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E16, ZEPH-4 The Cinder
-Fen**. E1-E15 are done with their reruns (E1-E6 on 2 Oct 2026, E7-E15 on 3
-Oct). One step per session again (0.1) unless
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E17, ROL-5 The
+Understudy**. E1-E16 are done (reruns for E1-E6 on 2 Oct 2026, E7-E15 on 3
+Oct; E16-E18's rerun is owed at the end of E18). One step per session again (0.1) unless
 Mike asks for more.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Zephyrine's** section of `COMPANIONS.md`, and
+B1 on, once, at the start; then **Roland's** section of `COMPANIONS.md`, and
 no other companion's. Read what the step needs by dumping its maps' events
 and their text, not by opening a module. Crop anything a step touches with
 `propsheet.py` before judging, and screenshot before and after anything
@@ -3201,20 +3283,21 @@ byte: every existing page identical, only appended pages and new events
 (and, on a widened map, every tile inside the old bounds). `validate.py`,
 and `apidigest.py . --write` (new `db` constants change `build/API.md`).
 Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_zeph4.json`, run in the background, one browser at a time.
+`build/scenarios/q_rol5.json`, run in the background, one browser at a time.
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +41 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 202, variable 28, item 72, weapon 43,
+Where things stand: tropes +42 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 203, variable 28, item 73, weapon 43,
 armour 49, armour type 14, class 12, common event 4, state 42, enemy 59,
 troop 54, skill 183, map 67, `Gen_People14` 3. Aldric has had his gear (the
 shield, armour 47, E7). Merribell has had her gear (the Pamphlet, armour 45).
 
-What E16 will need: `nomap.py`'s Cinder Fen on the world map, the
-Commissioner (`Gen_People10` 7, faceless on purpose in the site - check), the
-triplicate; the burning, and the road it opens. Read ZEPH-1's (C1), ZEPH-3's
-(C2), ZEPH-2's (C3) and ZEPH-5's (A7) Done paragraphs.
+What E17 will need: the finale's pages - **read this game's `CLAUDE.md`
+"The ending" and the Former Premises' pages 3-5 first** - the understudy (one
+generated face), and a page at the tower door. Read ROL-4's (A5), ROL-3's
+(A14) and ROL-1's (B7) Done paragraphs. Map 8's last event is now 81 (E16's
+Fen Road sign); anything new on Map 8 goes after it.
 
 Things learned that will bite again:
 
