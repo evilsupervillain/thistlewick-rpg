@@ -3151,13 +3151,15 @@ pond's) and `village.py` (the forge); `build/scenarios/q_hob4.json`.
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E15, HOB-4 The Sky
-Anvil**. E1-E12 are done with their reruns (E1-E6 on 2 Oct 2026, E7-E12
-on 3 Oct), and E13-E14 (3 Oct); E13-E15's rerun is owed at the end of E15. One step per session again (0.1) unless Mike asks
-for more.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E16, ZEPH-4 The Cinder
+Fen** - unless the "Rerun for E13-E15" paragraph is missing from section 3,
+in which case finish that first: the eighteen scenarios listed in the E15
+entry below, alone, then the paragraph and a commit. E1-E15 are done (E1-E6
+on 2 Oct 2026, E7-E15 on 3 Oct). One step per session again (0.1) unless
+Mike asks for more.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Hob's** section of `COMPANIONS.md`, and
+B1 on, once, at the start; then **Zephyrine's** section of `COMPANIONS.md`, and
 no other companion's. Read what the step needs by dumping its maps' events
 and their text, not by opening a module. Crop anything a step touches with
 `propsheet.py` before judging, and screenshot before and after anything
@@ -3170,24 +3172,26 @@ byte: every existing page identical, only appended pages and new events
 (and, on a widened map, every tile inside the old bounds). `validate.py`,
 and `apidigest.py . --write` (new `db` constants change `build/API.md`).
 Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_hob4.json`, run in the background, one browser at a time.
+`build/scenarios/q_zeph4.json`, run in the background, one browser at a time.
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +40 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 200, variable 28, item 71, weapon 42,
+Where things stand: tropes +41 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 202, variable 28, item 72, weapon 43,
 armour 49, armour type 14, class 12, common event 4, state 42, enemy 59,
 troop 54, skill 183, map 67, `Gen_People14` 3. Aldric has had his gear (the
 shield, armour 47, E7). Merribell has had her gear (the Pamphlet, armour 45).
 
-What E15 will need: `nomap.py`'s Sky Anvil on the world map, Elias Meech
-(`Gen_People2` 7), a gate for a gatepost, the west road; star-iron, one
-weapon, not for Hob. Read HOB-2's (A13) and HOB-1's (B1) Done paragraphs. The
-E13-E15 rerun will need `reachable_village` and `q_pip5` (Prophecy Hall
-gained Ambrosine at (7,12), who blocks her cell with Piper in the party
-after the road), and, for Nether Sopping (NIX-3: Lorrimer at the Guild
-(14,8) and on the front (26,19), pages on three shut doors and Sops),
-`reachable_sopping`, `south_road`, `guild`, `q_nix4`, `q_hob1`, `q_mer2`.
+What E16 will need: `nomap.py`'s Cinder Fen on the world map, the
+Commissioner (`Gen_People10` 7, faceless on purpose in the site - check), the
+triplicate; the burning, and the road it opens. Read ZEPH-1's (C1), ZEPH-3's
+(C2), ZEPH-2's (C3) and ZEPH-5's (A7) Done paragraphs. The E13-E15 rerun's
+eighteen, chosen by reach: Map 3 (Ambrosine blocks (7,12) with Piper after
+the road) `village`, `reachable_village`, `q_pip5`, `guild`, `blushes`; Map
+6 (the forge's page needs the star-iron) `q_hob2`, `q_hob3`, `q_rol4`; Map 8
+(only the Sky Anvil's event) `nomap`; Maps 13 and 15 (Lorrimer's two events,
+three doors, Sops) `roster`, `reachable_sopping`, `audit_fixes`,
+`south_road`, `feud`, `q_ald5`, `q_hob1`, `q_mer2`, `q_nix4`.
 
 Things learned that will bite again:
 
