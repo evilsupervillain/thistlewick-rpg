@@ -2892,22 +2892,53 @@ Little Gore and Sump) and `fenmarch.py` (four owners), one line each;
 * `TIMELINE.md`: 1941, Abel Thrush starts the round; 1991, he dies, and the
   card goes up.
 
+
+**Rerun for E7-E12** (0.1): parsing every scenario's `query` and `goto` map
+ids and grepping for the places' names finds eighteen that walk a map this
+part changed (Maps 8, 49, 50, 51, 54, 55, 56 and 57). Four of them are this
+part's own and ran on their maps' final state (`q_ald2`, `q_cor3`, `q_cor4`,
+`q_pip4`). The other fourteen were run again, alone and with no timeout:
+* **every site scenario for a map whose pages changed** - `weeping_bottom`
+  (Sir Hamo's first visit with Aldric is still the published salute, and its
+  companion pass still asserts nothing of a vigil), `fenmarch`, `sable_hart`
+  (Crake's reaction shot, and the table stopping at fourth without Corvin),
+  `hamlets`, `nomap` (the cave and the Fair), `supplied_faces` (Somebody
+  Large in the cave) and `placeholder_doors` (it counts the world map's
+  site doors);
+* **each step scenario whose map a later step changed again** - `q_ald1`
+  and `q_hob1` (Map 50, where PIP-4 appended to Mrs Vane and Dame
+  Winifred), `q_mer5` (Map 51, Mr Gammage and Mrs Pardew), `q_ald5` (Maps 50
+  and 57), `q_mer1` (Map 54, E7's chapel), `q_wre4` (Map 57, PIP-4's three)
+  and `q_ald6` (Map 8, the Fair in E11).
+* **Not rerun, and why**: the rest of Map 8's scenarios walk the world map
+  past two events whose new pages need Aldric or Corvin and their quest's
+  own switches, which no other scenario sets; and every old page on every
+  map was compared byte for byte at each step.
+
+**All fourteen passed first time**, with no check changed: `weeping_bottom`
+101, `fenmarch` 76, `sable_hart` 45, `hamlets` 72, `nomap` 44,
+`supplied_faces` 6, `placeholder_doors` 12, `q_ald1` 40, `q_mer5` 74,
+`q_ald5` 50, `q_mer1` 52, `q_wre4` 24, `q_ald6` 15, `q_hob1` 81. Every
+reaction-shot assertion still holds because every new page waits on a second
+look, a quest switch, or both. Nothing is owed.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **the rerun for E7-E12**
-(0.1), then step E13, PIP-1 The Authorised Version. E1-E12 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
-asked for E7-E12 in one session, with the part's rerun at the end of E12.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E13, PIP-1 The
+Authorised Version**. E1-E12 are done with their reruns (E1-E6 on 2 Oct
+2026, E7-E12 on 3 Oct). One step per session again (0.1) unless Mike asks
+for more.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
 B1 on, once, at the start; then **Piper's** section of `COMPANIONS.md`, and
 no other companion's. Read what the step needs by dumping its maps' events
 and their text, not by opening a module. Crop anything a step touches with
 `propsheet.py` before judging, and screenshot before and after anything
-changed (0.1). Weeping Bottom (Maps 54-55) and Coldbarrow (Map 48) were
-swept in E2 and E4.
+changed (0.1). Prophecy Hall (Map 3) is Thistlewick's, swept on 30 Sep;
+every place Part E has touched so far has been swept.
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
@@ -2915,7 +2946,7 @@ byte: every existing page identical, only appended pages and new events
 (and, on a widened map, every tile inside the old bounds). `validate.py`,
 and `apidigest.py . --write` (new `db` constants change `build/API.md`).
 Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_ald2.json`, run in the background, one browser at a time.
+`build/scenarios/q_pip1.json`, run in the background, one browser at a time.
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
@@ -2927,10 +2958,10 @@ shield, armour 47, E7). **The E7-E12 rerun will need `weeping_bottom`**: its
 companion pass asserts Sir Hamo says nothing of a vigil, and ALD-2 starts on
 his second look. Merribell has had her gear (the Pamphlet, armour 45).
 
-What the rerun will need: `weeping_bottom`, `fenmarch`, `sable_hart`,
-`hamlets`, `nomap` and `supplied_faces` (the site scenarios of every map
-E7-E12 appended to), and `q_ald1`, `q_mer5`, `q_ald5`, `q_mer1`, `q_wre4` and
-`q_ald6` (step scenarios whose maps a later step changed). One at a time.
+What E13 will need: Prophecy Hall (Map 3) and Ambrosine Quill, Piper's
+aunt, who needs a face (generate it: `build/characters/`, a cell in
+`Gen_People14` from 1, `art.py` in the background). Read PIP-5's and PIP-2's
+Done paragraphs for what Prophecy Hall already carries.
 
 Things learned that will bite again:
 
