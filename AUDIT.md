@@ -912,7 +912,7 @@ step moves the row into the table above. Spare's two are not provisional.
 | **Spare** (F1) | F | a side-view battler, `img/sv_actors/`, 576x384, 9x6 cells of 64x64 - `SPARE.md` 6. **Blocks F1**: `validate.py` fails a side-view actor without one | the lad on `SF_People1` 0: blue-black hair, brown eyes, blue jacket over a pale blue shirt | an adult |
 | **Mrs Cotterill** (F1) | F | an enemy image, `img/sv_enemies/` and `img/enemies/`, facing left - `SPARE.md` 6 | `SF_People1` 5: long dark green-black side braid, mustard cardigan, expecting in the spring, unmovable | anger |
 | **The Duck** (C3, C4) | F | the row above, if it speaks as a reviewer or a Fellow | | |
-| **The Wrong Dragon, lit** (E8) | F | the row above says so already | | |
+| **The Wrong Dragon, lit** (E8) | F | **answered, 2 Oct 2026: no new image.** ALD-6 lights the lamp and the narration shows the books, a blanket with ducks on it and a pair of spectacles the size of cartwheels, and declines the rest; its face stays the silhouette (`Supplied` 2), so what it is stays closed | | |
 | **Enemy art** (C4, E7, E18) | F | eleven type specimens, the vigil, Roland's thing - stock monster art first; a generated person gets `art.py`'s stand-in and a row in the table above, as B3's two rival acts have (its hecklers are the stock `Sailor`) | | |
 
 ### 5. The Collegium's roofs, and other visual contradictions

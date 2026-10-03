@@ -1,0 +1,220 @@
+{
+ "query": "?map=8&x=110&y=113&frames=90",
+ "comment": "QUESTS.md E8, ALD-6 The Wrong Dragon. The published first stop with Aldric, word for word; the cave's second look with him - Press on, then the visit with ALD-4 undone and done (Horace was the horse); the lamp and the report; afterwards with and without him.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._cave = () => $gameMap.event($dataMap.events.find(e => e && e.name === 'Wrong Dragon').id); window._has = s => window._lines.some(l => l.includes(s))"
+  },
+  {
+   "eval": "$gameParty.addActor(6); $gameParty.addActor(2)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "window._cave().findProperPageIndex()",
+   "expect": 0,
+   "label": "the cave, never called at"
+  },
+  {
+   "comment": "The first stop with Aldric is the published scene, walked onto.",
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    110,
+    114
+   ]
+  },
+  {
+   "check": "[window._has('Very correct.'), window._has('Odes'), window._has('Hello? I came')]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "the published first stop, word for word, and nothing of ALD-6"
+  },
+  {
+   "check": "window._cave().findProperPageIndex()",
+   "expect": 2,
+   "label": "the second look, with Aldric"
+  },
+  {
+   "eval": "$gameParty.removeActor(6)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "window._cave().findProperPageIndex()",
+   "expect": 1,
+   "label": "without him, the cave's own second page"
+  },
+  {
+   "eval": "$gameParty.addActor(6); window._mark(); window._pick = 1"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._cave().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('turns a'), window._has('Hello? I came'), $gameSwitches.value(185)]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "Press on: nothing"
+  },
+  {
+   "comment": "Call in, ALD-4 not done: Horse is lost.",
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "eval": "window._cave().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has('Hello? I came'), window._has('Slain Wyvern.'), window._has('I lost her'), window._has('haulage'), window._has('Horace is a poet'), window._has('oats.'), window._has('READ TO. P-G.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true
+   ],
+   "label": "the visit: the Wyvern, Horace was the horse, the lamp, the report"
+  },
+  {
+   "check": "[$gameSwitches.value(185), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameSwitches.value(105), $gameVariables.value(15) - window._stories]",
+   "expect": [
+    true,
+    1,
+    0,
+    true,
+    1
+   ],
+   "label": "done; one trope (the dragon), no blush; his story"
+  },
+  {
+   "check": "[$gameScreen.tone().join(), $gameMap.isEventRunning()]",
+   "expect": [
+    "0,0,0,0",
+    false
+   ],
+   "label": "the lamp's tint put back"
+  },
+  {
+   "comment": "And with ALD-4 done: she's a partner.",
+   "eval": "$gameSwitches.setValue(185, false); $gameSwitches.setValue(145, true); window._mark(); window._pick = 0"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._cave().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has('haulage'), window._has('I lost her'), $gameSwitches.value(185)]",
+   "expect": [
+    true,
+    false,
+    true
+   ]
+  },
+  {
+   "comment": "Afterwards.",
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "check": "window._cave().findProperPageIndex()",
+   "expect": 3,
+   "label": "afterwards, with Aldric"
+  },
+  {
+   "eval": "window._cave().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('lamp lit in it'), window._has('first time'), window._has('keep the lamp lit')]",
+   "expect": [
+    true,
+    true,
+    false
+   ]
+  },
+  {
+   "eval": "$gameParty.removeActor(6); window._mark(); window._pick = 0"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "window._cave().findProperPageIndex()",
+   "expect": 3,
+   "label": "and for everybody"
+  },
+  {
+   "eval": "window._cave().start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('lamp lit in it'), window._has('first time'), window._has('keep the lamp lit')]",
+   "expect": [
+    true,
+    false,
+    true
+   ]
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  }
+ ]
+}

@@ -35,6 +35,7 @@ no `build()` and nothing in `MAP_NAMES`.
 import rmmzdata as R
 
 import places
+import q_aldric
 import q_corvin
 import q_wren
 import q_zephyrine
@@ -300,7 +301,14 @@ def _wrong_dragon():
     again_stop = S.say("Somebody Large", [
         "Come in, dear. I've just got",
         "to the good bit. You can have it after me."])
-    return _site(WRONG_DRAGON, stop, first, again, again_stop)
+    site = _site(WRONG_DRAGON, stop, first, again, again_stop)
+
+    def build(base_id, cells):          # ALD-6's two pages, appended
+        evs = site(base_id, cells)
+        for ev in evs:
+            ev["pages"] += q_aldric.dragon_pages(ev["pages"][-1])
+        return evs
+    return build
 
 
 # ================================================================= the Fair ==

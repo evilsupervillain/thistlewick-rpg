@@ -2561,17 +2561,77 @@ chapel); the fight in `db.build_vigil`; `build/scenarios/q_ald2.json`.
 * `TIMELINE.md`: 1970, the shield over the door and the first wrong chapel;
   Aldric's age, forty-six.
 
+
+**E8, ALD-6 The Wrong Dragon - done.** ALD-6's section at the bottom of
+`q_aldric.py`, hooked from `nomap.py` (the cave, in a wrapper like the
+lake's); `build/scenarios/q_ald6.json`.
+
+* **The start is the cave's second look with Aldric** (Map 8 event 53, page
+  3: its A and Aldric), with the site's own "Call in / Press on". The
+  published first stop says "a young knight, oh, eight years ago. Very
+  correct." with Aldric standing in the cave or not, and stays the first
+  visit word for word - which is a better joke than anything a reaction
+  shot could add, and the scenario asserts it.
+* **Decided: Horace was the horse.** He only ever called her Horse (ALD-4),
+  so eight years ago one of them talked about a grey mare for four hours and
+  the other about the Odes, and both had a lovely time. "And how is
+  Horace?" - with ALD-4 done, "She's a partner in a haulage firm, at Great
+  Dunnage. Not Tuesdays"; without, "I lost her, I'm afraid" - "...Horace is
+  a poet, dear. Roman. The Odes." / "I thought we were talking about my
+  horse." / "For four hours?" / "She's a very good horse." / "I did wonder
+  why the Odes had so much in them about oats."
+* **The right dragon was slain by somebody else, offstage**, as
+  `COMPANIONS.md` has it - "He drinks in the Slain Wyvern. He's insufferable
+  about it, I hear." Nobody new was drawn for him: the Wyvern is full, and a
+  bore is funnier described than met. So the commission, out of the tabard
+  (DRAGON, ONE. TO BE SLAIN.), has nothing left to slay: "You've a dragon. In
+  the sense that the map says so." / "I couldn't. You lent me a book." - which
+  he has not finished, because he keeps losing his place.
+* **The scene in the light keeps the subject closed** - decided against
+  asking Mike for a lit image. It wants reading to ("My eyes aren't what they
+  were. It's why I talk so much."); Aldric lights the lamp (a warm tint, put
+  back after); the light shows books to the roof, a blanket with ducks on it
+  and reading spectacles the size of cartwheels, "and the rest of it, which
+  you look at for a long moment, and decide you will not describe to
+  anybody. Sir Aldric does not describe it either." `SITES.md` and
+  `NORTH.md` 1.3 closed what it is, and a picture would open it; its face
+  stays Mike's silhouette. `AUDIT.md`'s "Wrong Dragon, lit" row is answered
+  so. The Odes are not about oats. **His report**, on the back of the
+  commission, the first in eight years: DRAGON: FOUND. NOT SLAIN. READ TO.
+  P-G. "Come again, dear. Bring the horse." **One trope** (the dragon). No
+  item: `COMPANIONS.md` gives "the game's only dragon, uneaten", and that is
+  the reward.
+* **Afterwards for everybody**: the cave with a lamp lit in it now; "It's
+  the Odes. A young knight reads them to me, when he can find the way" -
+  "He usually can't. I keep the lamp lit."; with Aldric, he finds the way,
+  first time, and takes the book down, and nobody remarks on it.
+* **Ids taken:** switch **185** `SW_ALD6_DONE`. No faces, no items, no new
+  events.
+* One trope, no blush. Running tally: **tropes +34 fixed and 2-9 from PIP-2;
+  blushes +13 fixed and 0-1 from PIP-2.**
+* `SW_STORY[ALDRIC]` (on already after any other of his).
+* **Candidate ending line** (G1; read `SW_ALD6_DONE`): "Somewhere in the
+  rocks above the water there is the only dragon in the valley, uneaten. A
+  knight reads it the Odes, when he can find the way."
+* **The rooms (0.1):** the cave is a world-map cell (Cave B, open from the
+  north) and nothing was drawn.
+* **Scenario** `q_ald6`: passes (15 checks), first run - walked onto the
+  cell for the published first stop with Aldric, Press on, the visit with
+  ALD-4 undone and then done (the switch put back between), the tint put
+  back, and afterwards with and without him.
+* `TIMELINE.md`: 1993, the right dragon slain by somebody else.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E8, ALD-6 The
-Wrong Dragon**. E1-E7 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E9, WRE-4 The
+Cabinet**. E1-E8 are done, E1-E6 with their rerun, 2 Oct 2026; Mike
 asked for E7-E12 in one session, with the part's rerun at the end of E12.
 
 Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Aldric's** section of `COMPANIONS.md`, and
+B1 on, once, at the start; then **Wren's** section of `COMPANIONS.md`, and
 no other companion's. Read what the step needs by dumping its maps' events
 and their text, not by opening a module. Crop anything a step touches with
 `propsheet.py` before judging, and screenshot before and after anything
@@ -2588,19 +2648,19 @@ Screenshots of anything drawn, looked at. The step's own scenario,
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +33 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 185, variable 26, item 69, weapon 42,
+Where things stand: tropes +34 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 186, variable 26, item 69, weapon 42,
 armour 48, armour type 14, class 12, common event 4, state 42, enemy 59,
 troop 54, skill 183, map 67, `Gen_People14` 1. Aldric has had his gear (the
 shield, armour 47, E7). **The E7-E12 rerun will need `weeping_bottom`**: its
 companion pass asserts Sir Hamo says nothing of a vigil, and ALD-2 starts on
 his second look. Merribell has had her gear (the Pamphlet, armour 45).
 
-What E8 will need: the Wrong Dragon's cave, Map 8 event 53, two pages (the
-`nomap._site` pair); "Somebody Large" speaks with Mike's silhouette
-(`Supplied` 2), and what it is stays a closed subject (`SITES.md`, `NORTH.md`
-1.3). He only ever called his horse "Horse" (ALD-4), and they "talked about
-Horace until it got dark".
+What E9 will need: Fenmarch's gallery, Map 57 - Mrs Puddifoot (event 3),
+Mr Ottershaw (4), the thirty-two cases (15-46; every one is two animals,
+`fenmarch.SEWN`, and the Marsh Bear's case has Wren's "Not unless I'm
+asked."). The Fourth (2) already has ALD-5's afterwards page: avoid him as
+an owner. Fenmarch was swept in E6.
 
 Things learned that will bite again:
 

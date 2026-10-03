@@ -939,3 +939,145 @@ def chapel_pages(page0):
     return [_like(page0, after, {"switch1Valid": True,
                                  "switch1Id": db.SW_ALD2_DONE})]
 
+
+# ======================================================================
+# ALD-6, The Wrong Dragon (`QUESTS.md` E8)
+# ----------------------------------------------------------------------
+# He was sent, eight years ago, to slay a dragon, and arrived at a different
+# one, who is elderly, well read and delightful, and not a dragon in the
+# sense the commission meant. They talked about Horace until it got dark.
+#
+# * **It is the cave's second look with Aldric** (Map 8 event 53, below its
+#   one-self-switch ladder): the published first stop says "a young knight,
+#   very correct" with or without him, and stays the first visit.
+# * **Horace was the horse.** He has only ever called her Horse (ALD-4), so
+#   for four hours eight years ago one of them talked about a mare and the
+#   other about the Odes, and both had a lovely time. The joke is told both
+#   ways round: with ALD-4 done she is a partner in a haulage firm.
+# * **The right dragon was slain by somebody else**, who drinks in the Slain
+#   Wyvern and is insufferable about it - offstage, as `COMPANIONS.md` has
+#   it. So the commission has nothing left to slay, and he reports on it
+#   instead, on its back: found, not slain, read to.
+# * **The scene in the light keeps the subject closed.** It wants reading
+#   to; Aldric lights the lamp; what the light shows is the books, the
+#   blanket and a pair of spectacles, and the narrator declines the rest -
+#   `NORTH.md` 1.3's fifth mechanism, as `SITES.md` decided for the cave. Its
+#   face stays Mike's silhouette, and no new image is asked for.
+# * **Afterwards for everybody**: the lamp stays lit.
+def _ald6_horse():
+    """The Horace exchange: what he says of her depends on ALD-4."""
+    found = S.say("Aldric", ["Oh, she's very well! She's",
+                             "a partner in a haulage firm, at",
+                             "Great Dunnage. Not Tuesdays."])
+    lost = S.say("Aldric", ["I lost her, I'm afraid. I",
+                            "tied her up outside a village with",
+                            "a sign, and went to find the gate."])
+    c = S.say("Somebody Large", ["And how is Horace?"])
+    c += R.if_then(R.condition_switch(db.SW_ALD4_DONE), found, lost)
+    c += [R.wait(30)]
+    c += S.say("Somebody Large", ["...Horace is a poet,",
+                                  "dear. Roman. The Odes."])
+    c += S.say("Aldric", ["Is he? I thought we were",
+                          "talking about my horse."])
+    c += S.say("Somebody Large", ["For four hours?"])
+    c += S.say("Aldric", ["She's a very good horse."])
+    c += S.say("Somebody Large", ["I did wonder why the",
+                                  "Odes had so much in them about",
+                                  "oats."])
+    return c
+
+
+def _ald6_visit():
+    c = S.narrate([
+        "Sir Aldric stops at the mouth of the cave, and takes his",
+        "helmet off, and holds it in front of him."])
+    c += S.say("Aldric", ["Hello? I came about the",
+                          "dragon. Eight years ago."])
+    c += S.say("Somebody Large", ["...The young knight!",
+                                  "Very correct! Come in, come in.",
+                                  "Mind the books."])
+    c += S.say("Somebody Large", ["Did you find your",
+                                  "dragon, dear? I have so wanted",
+                                  "to know."])
+    c += S.say("Aldric", ["No. I never found anything.",
+                          "I've been in Thistlewick, mostly.",
+                          "I couldn't find the gate."])
+    c += S.say("Somebody Large", ["Oh, I know where yours",
+                                  "went. Somebody did it in, a year",
+                                  "or two after you. He drinks in",
+                                  "the Slain Wyvern."])
+    c += S.say("Somebody Large", ["He's insufferable about",
+                                  "it, I hear."])
+    c += S.narrate([
+        "Sir Aldric takes another paper out of his tabard and",
+        "unfolds it: DRAGON, ONE. TO BE SLAIN. A seal, and a date",
+        "eight years old."])
+    c += S.say("Aldric", ["Then I've a commission, and",
+                          "no dragon."])
+    c += S.say("Somebody Large", ["You've a dragon. In",
+                                  "the sense that the map says so."])
+    c += S.say("Aldric", ["I couldn't. You lent me a",
+                          "book."])
+    c += S.say("Somebody Large", ["I did! Did you like",
+                                  "it?"])
+    c += S.say("Aldric", ["I haven't finished it. I",
+                          "keep losing my place."])
+    c += _ald6_horse()
+    c += S.say("Somebody Large", ["Would you read to me?",
+                                  "My eyes aren't what they were.",
+                                  "It's why I talk so much."])
+    c += S.say("Aldric", ["I should be honoured. Is",
+                          "there a lamp?"])
+    c += [R.play_se("Fire1", 60), R.tint_screen([40, 20, -20, 0], 60)]
+    c += S.narrate([
+        "There is. He lights it, and for the first time you see",
+        "the cave in the light: books to the roof, a blanket with",
+        "ducks on it, and a pair of reading spectacles the size",
+        "of cartwheels."])
+    c += S.narrate([
+        "And the rest of it, which you look at for a long moment,",
+        "and decide you will not describe to anybody. Sir Aldric",
+        "does not describe it either. He sits down, and reads."])
+    c += S.narrate([
+        "The Odes. It turns out they are not about oats. It is",
+        "dark when he stops, and nobody minded."])
+    c += [R.tint_screen([0, 0, 0, 0], 60)]
+    c += S.narrate([
+        "On the back of the commission, before he goes, he writes",
+        "his report, the first in eight years:",
+        "   DRAGON: FOUND. NOT SLAIN. READ TO. P-G."])
+    c += S.say("Somebody Large", ["Come again, dear.",
+                                  "Bring the horse."])
+    c += [S.trope(), R.control_switch(db.SW_ALD6_DONE, True)]
+    c += S.companion_story(db.ALDRIC)
+    return c
+
+
+def dragon_pages(last):
+    """Pages 3-4 of the Wrong Dragon's cave (Map 8, event 53), in its second
+    page's dress: with Aldric, the cave and then the visit, below the site's
+    ladder; afterwards, the cave with its lamp lit, for everybody."""
+    known = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    cave = S.narrate([
+        "The Wrong Dragon's cave. Somebody inside turns a",
+        "page."])
+    visit = cave + R.choice_block(["Call in", "Press on"],
+                                  [_ald6_visit(), []])
+    lit = S.narrate([
+        "The Wrong Dragon's cave. There is a lamp lit in it now,",
+        "and somebody inside turns a page."])
+    read = S.say("Somebody Large", ["Come in, dear. It's",
+                                    "the Odes. A young knight reads",
+                                    "them to me, when he can find",
+                                    "the way."])
+    read += R.if_then(R.condition_actor_in_party(db.ALDRIC), S.narrate([
+        "Sir Aldric finds the way, first time, and takes the book",
+        "down off the shelf. Nobody remarks on it."]),
+        S.say("Somebody Large", ["He usually can't. I",
+                                 "keep the lamp lit."]))
+    after = lit + R.choice_block(["Call in", "Press on"], [read, []])
+    return [
+        _like(last, visit, dict(known, actorValid=True, actorId=db.ALDRIC)),
+        _like(last, after,
+              dict(known, switch1Valid=True, switch1Id=db.SW_ALD6_DONE)),
+    ]

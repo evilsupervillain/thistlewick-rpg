@@ -423,6 +423,8 @@ EN_DAMP, EN_SMALL_HOURS, EN_TEMPTATION, EN_LIGHT = 55, 56, 57, 58
 TR_VIGIL = 53
 SK_SEEPS_IN, SK_SIT_DOWN, SK_HOW_LATE, SK_THIS_WAY = 179, 180, 181, 182
 VIGIL_DAWN = 5                  # the turn at whose end it is light
+# ALD-6, The Wrong Dragon (QUESTS.md E8, q_aldric.py)
+SW_ALD6_DONE = 185              # the cave lit; read to; the commission reported
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161

@@ -664,7 +664,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-531 constants.
+532 constants.
 
 ```
 BRAM                         1
@@ -1150,6 +1150,7 @@ SK_SIT_DOWN                  180
 SK_HOW_LATE                  181
 SK_THIS_WAY                  182
 VIGIL_DAWN                   5
+SW_ALD6_DONE                 185
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32
