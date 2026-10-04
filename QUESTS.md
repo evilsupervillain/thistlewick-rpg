@@ -3250,7 +3250,7 @@ Lay-By's) and `journey.py` (the Fen Road's sign, after WRE-1's specimens);
 * **The rooms (0.1):** the Fen is a world-map cell (the `Trail` stamp) and
   nothing was drawn on it; the sign is the stock `WB_SIGN`, screenshotted by
   the gate.
-* **Scenario** `q_zeph4`: passes (21 checks), first run - walked onto the
+* **Scenario** `q_zeph4`: passes (19 checks), first run - walked onto the
   Fen for the published first stop with Zephyrine, the site's own second page
   without her, Press on, the burning (the Collegium's way, ZEPH-5 undone), the
   tint put back, the certificate and no gold, afterwards with and without her,
@@ -3331,7 +3331,7 @@ and `journey.py` (the tower door's page, and her event beside it);
   question is not in it.
 * **The rooms (0.1):** the Bell was swept in B1 and is unchanged; Maud was
   screenshotted at the snug and beside the tower door.
-* **Scenario** `q_rol5`: passes (27 checks), first run - nobody before ROL-1,
+* **Scenario** `q_rol5`: passes (26 checks), first run - nobody before ROL-1,
   waiting without Roland, walked to and met, a dismissed Roland's errand
   waiting, the telling (never answered), Mrs Dewhirst with and without him,
   and the tower door walked onto: he leaves as published, her scene once, the
@@ -3441,23 +3441,54 @@ records in `db.build_worm`; `build/scenarios/q_rol2.json`.
 * `TIMELINE.md`: the 1978 row gains Fellow Blunt's quarterly look from the
   gate and the Worm ended in 2000.
 
+**Rerun for E16-E18** (0.1): parsing every scenario's `query` and `goto` map
+ids and grepping for the places' names finds the usual near-whole suite for
+Map 8, so the rerun was chosen by what each change can reach:
+* **Map 65, the Bell** (Mrs Dewhirst's afterwards page on `SW_ROL5_DONE`;
+  Maud at (4,9) and the card on the snug table, both blank and through until
+  `SW_ROL1_DONE`): every scenario that walks it - `dunnage` (the Bell's site
+  scenario), `dunnage_company`, `q_pip3`, `wall_ring`, and `q_rol1`, the one
+  that sets `SW_ROL1_DONE` and so walks the Bell with Maud standing in it.
+* **The world-map sites whose pages this part appended to**: the Cinder Fen
+  (`nomap`, which walks onto it) and the Tower Door, whose three new pages
+  need `SW_ROL5_DONE` or `SW_ROL2_DONE` and carry splices inside Roland's
+  departure - `guest_leaves` and `q_rol4` (the departure, walked, and the
+  sword it leaves), `tower_door`; and `q_rol5`, which ran before E18 added
+  the door's pages 3-4 and the snug card.
+* **Not rerun, and why**: Map 8's events 81-83 (the Fen Road sign, Maud by the
+  door, the cave in Carn Drey) are a blank first page, through and below
+  characters, until switches only this part's scenarios set; `q_zeph4` and
+  `q_rol2` ran on the maps' final state; `journey`, `airship_lands`,
+  `nix_door` and the rest of Map 8's walk past the tower door on its page 1,
+  which is byte for byte what it was. Map 67 is new and only `q_rol2` enters it.
+
+**All ten passed first time**, with no check changed: `nomap` 44, `q_rol1`
+31, `q_rol5` 26, `q_pip3` 38, `wall_ring` 35, `guest_leaves` 7, `q_rol4` 31,
+`tower_door` 6, `dunnage_company` 54, `dunnage` 153. Nothing is owed. **Part E
+is done.**
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step E18, ROL-2 Roland's
-Own Quest**. E1-E17 are done (reruns for E1-E6 on 2 Oct 2026, E7-E15 on 3
-Oct; E16-E18's rerun is owed at the end of E18, which ends Part E). One step per session again (0.1) unless
-Mike asks for more.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step F1, Spare joins**
+(`SPARE.md`, `q_spare.py`). **Parts A-E are done** (E16-E18 and their rerun
+on 3 Oct 2026). One step per session again (0.1) unless Mike asks for more.
 
-Read section 0, the Part E table in section 2 and the Done paragraphs from
-B1 on, once, at the start; then **Roland's** section of `COMPANIONS.md`, and
-no other companion's. Read what the step needs by dumping its maps' events
-and their text, not by opening a module. Crop anything a step touches with
-`propsheet.py` before judging, and screenshot before and after anything
-changed (0.1). Thistlewick and Nether Sopping were swept on 30 Sep;
-every place Part E has touched so far has been swept.
+**F1 is blocked on art, and the first thing to do is ask for it**: Spare's
+side-view battler and Mrs Cotterill's enemy image (section 1; `SPARE.md` 6).
+Both are stock-face characters (`SF_People1`), so the generator cannot draw a
+match, and `validate.py` fails a side-view actor with no battler. Build
+everything else and ask Mike for the two images when the step is reached,
+not at the end.
+
+Read section 0, the Part F entry in section 2 and the newest Done paragraphs
+(E16-E18 and the rerun after them), once, at the start; then `SPARE.md`
+whole, with its switches renumbered to 89-92 first (0.3, 0.6). Read what the
+step needs by dumping its maps' events and their text, not by opening a
+module. Crop anything a step touches with `propsheet.py` before judging, and
+screenshot before and after anything changed (0.1).
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
@@ -3465,23 +3496,19 @@ byte: every existing page identical, only appended pages and new events
 (and, on a widened map, every tile inside the old bounds). `validate.py`,
 and `apidigest.py . --write` (new `db` constants change `build/API.md`).
 Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_rol2.json`, run in the background, one browser at a time.
+`build/scenarios/q_spa*.json`, run in the background, one browser at a time.
 Then the Done paragraph, a commit, and this prompt moved on. Nothing is
 pushed. No full suite until G1.
 
-Where things stand: tropes +43 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 205, variable 28, item 73, weapon 43,
-armour 49, armour type 14, class 12, common event 4, state 42, enemy 59,
-troop 54, skill 183, map 67, `Gen_People14` 4. Aldric has had his gear (the
-shield, armour 47, E7). Merribell has had her gear (the Pamphlet, armour 45).
-
-What E18 will need: a small dungeon in no place (Map 67, drawn in
-`q_roland.py`, registered in `build_game.MAP_NAMES` like COR-2's Map 66), the
-thing (stock monster art), and the better sword he leaves at the door - Roland's
-gear (0.5): `journey.roland_departure` hands over `WP_FAIRWEATHER`, and the
-tower door now has two pages (ROL-5's), so a new sword must reach both. Read
-ROL-4's (A5) Done paragraph: the refit reads `WP_FAIRWEATHER`. Map 8's last
-event is now 82.
+Where things stand: tropes +44 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 208, variable 28, item 73, weapon 44,
+armour 49, armour type 14, class 12, common event 4, state 42, enemy 60,
+troop 55, skill 185, map 68, `Gen_People14` 4. Spare keeps his reserved ids
+(0.6): switches 89-92 and 110, items 33-34, weapon 34, armour 27, skills
+146-155, enemy 28, troop 29. **Every companion has had their gear** (0.5);
+Spare's is `SPARE.md`'s. Map 8's last event is now 83 (ROL-2's cave); the
+tower door has four pages (E17, E18), and anything appended to it must carry
+both splices or come after them.
 
 Things learned that will bite again:
 
@@ -3535,6 +3562,18 @@ Things learned that will bite again:
   stand in that room.
 * **`$gameParty.numArmors` is not an engine method**; `numItems` takes an
   armour or a weapon too (E14).
+* **A splice inside somebody else's command list is found by a line, and
+  asserts the line is there**: `q_roland._rol2_sword_at` finds Roland's "Take
+  it up there" and puts the drawn sword before it, at that command's indent
+  (`R.shift`). A page that needs two such additions on two switches is two
+  more pages, one per switch and one for both (E17, E18).
+* **A fight in a scenario needs a long `advance`**: at headless battle speed
+  sixty presses ran out while the battle was still up, and every check after
+  it cascaded. Kill the troop at about frame 60 and give `advance` 250 (E18).
+* **A room shrunk after it was drawn can lose its doorway**: the corridor was
+  a fixed range and the smaller room left a row of rock across it;
+  `validate.py` said the Worm could not be reached. Derive a corridor from the
+  rooms it joins (E18).
 * **The end-of-part rerun by map id is the whole suite** once Maps 1, 8, 13
   or 14 are touched. Choose by what each change can reach and write the
   reasoning down (the E1-E6 rerun paragraph).
