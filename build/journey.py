@@ -1233,12 +1233,12 @@ def finale_event(event_id, x, y):
         S.narrate([
             "Bryd Ollerenshaw has been down the hill to",
             "the house that does a pale more times this",
-            "year than in the twenty before it, and not",
-            "once on his own."]) +
+            "year than in the twenty before it, and every",
+            "time with Hob, arguing about rivets."]) +
         S.narrate([
-            "Half of Upper Clanging watches them go.",
-            "The other half is told about it inside the",
-            "hour."]))
+            "Half of Upper Clanging has money on which of",
+            "them will admit the other is the better smith.",
+            "Nobody has collected."]))
     # The thresholds are set against the number of `story.trope()` sites in
     # the build, which the south roughly doubled. A completionist can reach
     # about sixty; a player who goes straight north will see twenty.
@@ -1309,8 +1309,13 @@ def finale_event(event_id, x, y):
     # twenty-five above; then the sites' nine - Penultima 1, Restwell 2,
     # Hithermost 1, Fairholme 1, Olde Evermore 1, Frostwick 2, Great Dunnage 1.
     # Four fifths of thirty-four is 27.2.
+    #
+    # **Thirty-two, and the tier is twenty-six** - re-cut in October 2026,
+    # when Hob and Bryd were rewritten as old rivals rather than as a blush:
+    # the meeting (one of `clanging_cast`'s eight) and the spar afternoon no
+    # longer count. Four fifths of thirty-two is 25.6.
     c += R.if_then(
-        R.condition_variable(db.VAR_BLUSHES, 27, 1),
+        R.condition_variable(db.VAR_BLUSHES, 26, 1),
         S.narrate([
             "Very nearly all of them, which means he was",
             "in the room for very nearly all of them,",

@@ -178,14 +178,14 @@
     {"eval": "$gameParty.addActor(3)"},
     {"eval": "$gameMap.event(2).start()"},
     {"advance": 40},
-    {"check": "$gameVariables.value(7)", "expect": 8,
-     "label": "Hob walks in and twenty years resumes exactly where it left off"},
+    {"check": "$gameVariables.value(7)", "expect": 7,
+     "label": "Hob walks in and twenty years of rivalry resumes exactly where it left off, which is not a blush"},
     {"shot": "clanging_hob_bryd.png"},
 
     {"eval": "$gameMap.event(2).start()"},
     {"advance": 40},
-    {"check": "$gameVariables.value(7)", "expect": 8,
-     "label": "once, and then they have not moved"},
+    {"check": "$gameVariables.value(7)", "expect": 7,
+     "label": "and then they have not moved"},
 
     {"check": "$gameVariables.value(2)", "expect": 0,
      "label": "and the town has not touched the cliche counter"}

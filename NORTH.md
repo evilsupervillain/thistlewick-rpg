@@ -128,6 +128,26 @@ These were considered and rejected. They must not drift back in:
 * Nobody is diminished by their own punchline. Especially not Ysolde, Merrow,
   Ambrose or Ott, who are carrying the emotional weight of two expansions.
 
+**Mike's audit of every blush, October 2026**, added three rules that hold for
+every line in the game, not only the counted ones:
+
+* **Nothing unsuitable for children, read either way.** A line whose second
+  reading is anatomy - a groin, a polished sword, a finger in a hole that is
+  "tight all the way round", "nobody's had that out in years" - is out, however
+  deniable the first reading is. Embarrassment is the register; innuendo that
+  a parent would have to talk over is not.
+* **A couple in a joke is a married couple, and the game says so.** Happy
+  married couples doing what happy married couples do is the joke this game
+  makes (the Cotterills, the Staggs, the Ashburys). Nobody unmarried is
+  implied to be at it: the travellers in room four wear wedding rings, the
+  register at the Eight Hours says Mr & Mrs Tolley, and Gerald proposed.
+* **No gay jokes, and no same-sex romantic subtext played as a blush.** Hob
+  and Bryd were written as two men who could not say something to each other;
+  they are now two old rival smiths who will not admit the other is the better
+  one, and neither their meeting nor the spar is counted. Merribell's
+  examination is a knee reflex, not a hernia check, and Tobias's paladin set a
+  wrist.
+
 ---
 
 ### 1.7 The additive rule
@@ -673,15 +693,8 @@ authenticity is the defence.
      and this is a Tuesday.)
     (Bram has found something to look at.)
 
-    Ott: Get on the stuffing box with the packing,
-         and do not be shy with it.
-    Bram: ...
-    Ott: It is a box. You stuff it.
-         That is what it is called.
-
-    Ott: Nipples want doing every forty hours.
-         There are thirty-one of them.
-         You will want the small can.
+    (October 2026: the stuffing box and the grease points are now jokes about
+     Ott's and Nib's parents' marriages, not winks - see 1.6.)
 
     Ott: That is a male thread, that is a female,
          and they do not go together.

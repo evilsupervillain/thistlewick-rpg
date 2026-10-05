@@ -472,7 +472,7 @@ def eight_hours_events():
     book += S.narrate([
         "  Party of six. Up 12.02. Down 12.09.",
         "  Slept: eight hours. Remarks: lovely.",
-        "  Party of two. Up 12.11. Down 12.19.",
+        "  Mr & Mrs Tolley. Up 12.11. Down 12.19.",
         "  Slept: eight hours. Remarks: LOVELY."])
     book += S.narrate([
         "Every entry on the page says eight hours.",

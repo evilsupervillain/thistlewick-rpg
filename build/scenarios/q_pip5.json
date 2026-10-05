@@ -318,7 +318,7 @@
    "expect": true
   },
   {
-   "check": "window._lines.some(l => l.includes(\"he trimmed it every Tuesday, through\"))",
+   "check": "window._lines.some(l => l.includes(\"the Elder climbed to fetch her - at\"))",
    "expect": true
   },
   {

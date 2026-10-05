@@ -251,8 +251,9 @@ right, and let the player do the rest.
 He has made a great many things and owns almost none of them, because his
 pricing model is "take it" and his invoicing is a shelf. He is an enormous man
 who is frightened of exactly two things: getting a thing wrong in a way that
-someone else has to live with, and Bryd Ollerenshaw's forearms - the second of
-which the game has already established and must continue never to say.
+someone else has to live with, and Bryd Ollerenshaw's opinion of his welds - the
+second of which neither of them will ever say out loud. They are old rivals,
+apprenticed together; nothing more (NORTH.md 1.6).
 
 ### Quests
 

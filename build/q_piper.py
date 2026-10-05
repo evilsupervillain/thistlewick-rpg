@@ -262,7 +262,7 @@ def turnip_pages(img):
 # * **What is in the box is never printed.** The player sees the count, which
 #   is `VAR_BLUSHES` read back - the number the game has been keeping all
 #   along - and Piper's face, and one verse: forty-one, which is about a
-#   hedge, and is entirely innocent, and was struck anyway.
+#   cat, and is entirely innocent, and was struck anyway.
 # * **The ask is the fete minutes'** (Map 3, event 8), below their terminal
 #   self switch A. The form is in the Committee Records (event 7); the
 #   Councillor on the wording countersigns it (event 4); and Councillor Fenn
@@ -275,10 +275,10 @@ def turnip_pages(img):
 #   drawn by `village.py`. The "curtain" is `Middle Window B`, a curtained
 #   window on the north wall; drawn back, it is a door marked STRUCK.
 VERSE_41 = [
-    "  'The Elder's hedge, one summer, grew",
-    "  much higher than the chapel wall;",
-    "  he trimmed it every Tuesday, through",
-    "  to autumn, and he trimmed it all.'",
+    "  'The Elder's cat, one April, sat",
+    "  upon the chapel roof till June;",
+    "  the Elder climbed to fetch her - at",
+    "  which point she jumped, and came down soon.'",
 ]
 
 
@@ -445,7 +445,7 @@ def _pip5_box():
     c += S.say("Piper", ["...That's about right."])
     c += S.narrate([
         "She holds up one slip, so that you can read it, and",
-        "only that one. Verse forty-one. It is about a hedge."])
+        "only that one. Verse forty-one. It is about a cat."])
     c += S.narrate(VERSE_41)
     c += [S.blush()]
     c += S.say("Piper", ["It scans."])

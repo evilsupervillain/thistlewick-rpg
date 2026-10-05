@@ -808,6 +808,11 @@ def wyvern_events():
         "They are holding hands.",
         "They have been holding hands the entire time.",
     ])
+    trav_four += S.narrate([
+        "Under the peasant crowns, both of them are wearing",
+        "a new gold wedding ring, and both of them keep",
+        "looking at it.",
+    ])
     trav_four += travellers_count()
     trav_four += [R.self_switch("B", True)]
     trav_four_again = S.say("Traveller", [
@@ -836,8 +841,9 @@ def wyvern_events():
     trav2_four = S.say("Also A Traveller", [
         "We are unacquainted.",
         "Do not read anything into the hand.",
+        "Or the ring.",
     ])
-    trav2_four += S.narrate(["You had not read anything into the hand."])
+    trav2_four += S.narrate(["You had not read anything into the ring."])
     trav2_four += S.say("Also A Traveller", ["Well. Don't start."])
     trav2_four += S.say("Traveller", ["We met on the road. Yesterday."])
     trav2_four += S.say("Also A Traveller", ["Yesterday."])
@@ -1015,6 +1021,10 @@ def dorcas_event(event_id, x, y):
         "Perpetua Small.",
     ])
     gerald += S.say("Dorcas", ["There was a Gerald."])
+    gerald += S.say("Dorcas", [
+        "Proposed to her every Sunday for a",
+        "year. In here. On one knee. At lunch.",
+    ])
     gerald += S.narrate([
         "Behind you, the entire tavern is looking very",
         "hard at the ceiling.",
@@ -1065,7 +1075,7 @@ def dorcas_board(event_id, x, y):
     ])
     board += S.say("Dorcas", [
         "I leave the tray on the mat.",
-        "Lovely to see young people happy.",
+        "Lovely to see newlyweds happy.",
     ])
     board += [S.blush(), R.control_switch(db.SW_ROOM_FOUR, True),
               R.self_switch("A", True)]

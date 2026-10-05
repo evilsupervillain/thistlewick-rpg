@@ -985,8 +985,14 @@ def ott_the_two_hundred():
     # flatness of the second window is the whole defence: she has not noticed,
     # because there is nothing to notice, because it is a box and you stuff it.
     stuffing = S.say("Ott", [
-        "Get on the stuffing box with the packing,",
-        "and do not be shy with it.",
+        "Get on the stuffing box with the packing.",
+        "Nib's father did it for thirty years.",
+    ]) + S.say("Ott", [
+        "Nib's mother married him for it. She",
+        "said a man who is careful with a gland",
+        "is careful with everything.",
+    ]) + S.narrate([
+        "Nib does not look up. Nib's ears have gone red.",
     ]) + S.say("Ott", [
         "Then the swarf tray.",
         "Then you may have a cup of tea.",
@@ -1137,8 +1143,13 @@ def ott_the_two_hundred():
         "She is yours now, so you had better",
         "know what she wants.",
     ]) + S.say("Ott", [
-        "Nipples want doing every forty hours.",
-        "There are thirty-one of them.",
+        "Grease every forty hours. There are",
+        "thirty-one points.",
+    ]) + S.say("Ott", [
+        "Mother said that to Father, the morning",
+        "she handed him the works. He wrote it",
+        "down. He wrote the wedding down in the",
+        "same book, under maintenance.",
     ]) + S.say("Ott", [
         "You will want the small can.",
     ]) + S.narrate([
@@ -1801,7 +1812,8 @@ def forge_events():
     ]) + S.narrate([
         "Neither of them says anything else.",
     ]) + S.narrate([
-        "The forge is very warm.",
+        "Each of them looks at the other's anvil and",
+        "finds something wrong with it.",
     ]) + S.narrate([
         "Somewhere behind you a child says 'they do",
         "this every time', and is removed.",
@@ -1814,7 +1826,7 @@ def forge_events():
     ]) + S.narrate([
         "That appears to be the whole of it.",
         "They are both entirely satisfied.",
-    ]) + [S.blush()]
+    ])
     hob_again = S.narrate([
         "They have not moved.",
     ]) + S.say("Bryd", [
@@ -1925,8 +1937,9 @@ def bryd_and_the_spar(img, meeting, plain):
     together = S.say("Bryd", [
         "Miss Hoyle's spar.",
     ]) + S.say("Bryd", [
-        "It wants two.",
-        "It has always wanted two.",
+        "It wants two smiths. I have waited",
+        "twenty years for the other one",
+        "to admit it.",
     ]) + S.narrate([
         "Hob Grumnir takes his coat off without being",
         "asked and without saying anything at all.",
@@ -1947,10 +1960,10 @@ def bryd_and_the_spar(img, meeting, plain):
     ]) + S.say("Hob", [
         "Aye.",
     ]) + S.narrate([
-        "They go.",
-        "Half of Upper Clanging watches them go and the",
+        "They go, already arguing about who is buying.",
+        "Half of Upper Clanging has money on it, and the",
         "other half is told about it within the hour.",
-    ]) + [S.blush(), R.control_switch(db.SW_HOB_BRYD, True),
+    ]) + [R.control_switch(db.SW_HOB_BRYD, True),
           R.control_switch(db.SW_SPAR_DONE, True), R.play_me("Fanfare1")]
 
     alone = S.say("Bryd", [

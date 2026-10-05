@@ -199,7 +199,7 @@
    "expect": true
   },
   {
-   "check": "window._lines.some(l => l.includes(\"It's the only way they know how.\"))",
+   "check": "window._lines.some(l => l.includes(\"Nobody got up to anything.\"))",
    "expect": true
   },
   {

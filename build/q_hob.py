@@ -107,10 +107,10 @@ def _told():
         "Bryd looks at Hob. Hob looks at the anvil."])
     told += [R.wait(40)]
     told += S.narrate([
-        "Nobody says anything. Nobody needs to. It is,",
-        "plainly, the best afternoon either of them has",
-        "had in twenty years, and neither of them is going",
-        "to be so careless as to mention it."])
+        "Nobody says anything. It is, plainly, the",
+        "best afternoon either of them has had in twenty",
+        "years, and neither of them is going to give the",
+        "other the satisfaction of saying so."])
     told += [R.self_switch("D", True)]
     hob_again = S.say("Bryd", ["Aye."])
     hob_again += S.say("Hob", ["Aye."])
@@ -171,10 +171,9 @@ def ott_pages(img):
     c += S.narrate(["You say Grommet went in."])
     c += S.say("Ott", ["Good lad."])
     c += S.narrate([
-        "She tries each hole with her little finger, all",
+        "She tries each hole with a gauge pin, all",
         "forty-one of them, and nods at every one."])
-    c += S.say("Ott", ["Tight. All the way round."])
-    c += [S.blush()]
+    c += S.say("Ott", ["True. Every one."])
     c += S.say("Ott", ["That will do."])
     c += S.narrate([
         "In the Hoyle Works, you are given to understand,",

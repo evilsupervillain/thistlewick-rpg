@@ -286,9 +286,9 @@
    "check": "[$gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
    "expect": [
     0,
-    1
+    0
    ],
-   "label": "one blush, no trope"
+   "label": "no blush and no trope: a gauge pin, not a finger"
   },
   {
    "eval": "window._mark()"

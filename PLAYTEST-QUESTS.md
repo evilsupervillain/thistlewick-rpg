@@ -171,7 +171,7 @@ Sump (78,102); Ashcombe (102,55); Weeping Bottom (58,99); Fenmarch Hall
   1. The forging - nobody finishes a sentence. You get the tube plate (item
      44).
   2. Carry it up to **Ott** at the works (Map 22) - anybody can. She tries each
-     hole with her little finger (a blush).
+     hole with a gauge pin (no blush).
   3. Back to **Bryd** for the telling.
 * **Switches:** 120 forged, 121 done. Scenario `q_hob5`.
 

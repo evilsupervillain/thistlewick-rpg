@@ -29,7 +29,7 @@ now do it. Properly.
   nor Merribell, into `VAR_MER2_WITNESS` - and **the witness is the joke**:
   one branch per companion, each reacting to the same line of dictation.
 * **Register A carries the middle, and not one line of it is improper.**
-  Three blushes, each once, because the form is spent: the chest, the cough,
+  Three blushes, each once, because the form is spent: the chest, the knees,
   and the witness writing down what they were told to.
 
 MER-4, The Man Who Cannot Stay Down (`QUESTS.md` A7) is below it: pages
@@ -152,7 +152,7 @@ def _witnesses():
     w[db.HOB] = S.narrate([
         "Hob writes it down in capitals, slowly, with his",
         "tongue out."])
-    w[db.HOB] += S.say("Hob", ["How's inguinal spelled?"])
+    w[db.HOB] += S.say("Hob", ["How's patellar spelled?"])
     w[db.HOB] += S.narrate(["Merribell spells it."])
     w[db.HOB] += S.say("Hob", [
         "Spell it again. It's going on a",
@@ -170,8 +170,8 @@ def _witnesses():
         "Nix writes it in the ledger first, from habit, and",
         "then on the form."])
     w[db.NIX] += S.say("Nix", [
-        "Item: inguinal, clear. Item: the",
-        "other, also clear. Provenance:",
+        "Item: left knee, brisk. Item: the",
+        "other, also brisk. Provenance:",
         "Bram. Dated."])
 
     # COMPANIONS.md: "Sir Aldric's is the funniest thing in this document."
@@ -200,9 +200,9 @@ def _witnesses():
         "round. It is the neatest signature on it."])
 
     w[db.PIPER] = S.say("Piper", [
-        "'And lo, the medic bade him",
-        "cough, and the Chosen One",
-        "coughed, and -'"])
+        "'And lo, the medic smote his",
+        "knee, and the Chosen One kicked",
+        "a halibut, and -'"])
     w[db.PIPER] += S.say("Merribell", ["Piper."])
     w[db.PIPER] += S.say("Piper", ["It scans."])
     w[db.PIPER] += S.narrate([
@@ -214,7 +214,7 @@ def _witnesses():
         "last words."])
     w[db.CORVIN] += S.say("Corvin", [
         "If he does not come back, I will",
-        "remember this. Both sides. Clear."])
+        "remember this. Both sides. Brisk."])
     w[db.CORVIN] += S.narrate([
         "You would very much prefer that he did not."])
 
@@ -224,11 +224,11 @@ def _witnesses():
         "good condition. Entirely typical",
         "of the type. I've added a scale."])
     w[db.WREN] += S.narrate([
-        "There is a small scale bar drawn in the margin. You",
-        "do not ask what of."])
+        "There is a small drawing in the margin of you kicking",
+        "a cod. The cod is to scale. You are not."])
 
     w[db.ROLAND] = S.say("Roland", [
-        "Clear, both sides. Genuinely",
+        "Brisk, both sides. Genuinely",
         "well done, Bram. You should be",
         "proud of that."])
     w[db.ROLAND] += S.narrate([
@@ -287,13 +287,19 @@ def _the_examination():
     c += [S.blush()]
 
     c += S.say("Merribell", [
-        "Nearly done. Last bit. Turn your",
-        "head, and cough."])
+        "Nearly done. Last bit. Sit on the",
+        "edge of that and let your legs hang."])
     c += [R.wait(20)]
     c += S.narrate([
-        "You turn your head. You cough. Nobody anywhere in",
-        "the world says anything at all, for some time."])
-    c += S.say("Merribell", ["Inguinal: clear. Both sides."])
+        "She taps your knee with a little hammer. Your foot",
+        "goes up of its own accord and kicks the halibut",
+        "weight clean off the fishmonger's scales."])
+    c += [R.play_se("Blow1", volume=60), R.wait(20)]
+    c += S.narrate([
+        "She does the other one. It does it again. Nobody",
+        "anywhere in the world says anything at all, for",
+        "some time."])
+    c += S.say("Merribell", ["Reflexes: brisk. Both sides."])
     c += [S.blush()]
     c += S.say("Merribell", [
         "Witness, write that down.",
@@ -384,9 +390,14 @@ def _tobias_told():
         "and is counting."])
     c += S.say("Merribell", ["Pulse, good. Colour, good.",
                              "Collarbone, set four times."])
-    c += S.say("Merribell", ["Coccyx, set twice, by a paladin.",
+    c += S.say("Merribell", ["Wrist, set twice, by a paladin.",
                              "Beautifully, I'll give him that."])
-    c += S.say("Tobias", ["He was ever so gentle about it."])
+    c += S.say("Tobias", ["Didn't charge, either."])
+    c += S.narrate([
+        "Merribell, without letting go of the wrist, looks",
+        "at the way you are standing."])
+    c += S.say("Merribell", ["And you came off a ladder in",
+                             "the spring, and told nobody."])
     c += S.narrate([
         "Bram looks at the ceiling. There is a hatch in it,",
         "and a ladder up to it, and he looks away from that",

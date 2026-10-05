@@ -480,8 +480,12 @@ def _nix5_ask():
                             "the case, and that's the reed, and",
                             "that's that."])
     c += S.narrate(["You ask whether it is heavy."])
-    c += S.say("Bagshawe", ["Eight feet of tube. Folded.",
-                            "Nobody has ever complained."])
+    c += S.say("Bagshawe", ["Eight feet of tube. Folded."])
+    c += S.say("Bagshawe", ["Mrs Bagshawe says I carry it",
+                            "more carefully than I carried her",
+                            "over the doorstep. She says it",
+                            "every anniversary. She's right."])
+    c += S.narrate(["He has gone a little pink."])
     c += S.narrate(["Nix looks at the trees for a while."])
     c += [S.blush()]
     c += S.say("Nix", ["I halve them. Encounters. It's a",

@@ -259,7 +259,7 @@
     1,
     1
    ],
-   "label": "the vending machine trope and the coccyx"
+   "label": "the vending machine trope and the ladder"
   },
   {
    "check": "[$gameSwitches.value(123), $gameSwitches.value(124), $gameSwitches.value(101)]",

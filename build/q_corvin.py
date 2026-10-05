@@ -128,9 +128,9 @@ def _cor5_appraisal():
     c += S.narrate([
         "She has the handle off it in a trice. Corvin looks at",
         "the ceiling while she does, which has nothing on it."])
-    c += S.say("Miss Fettle", ["Oh, look at that. Nobody's",
-                               "had that out in years. Oh, the",
-                               "TANG."])
+    c += S.say("Miss Fettle", ["Oh, look at that. Oh, the",
+                               "TANG. Somebody loved this,",
+                               "once."])
     c += [S.blush()]
     c += S.narrate(["She is some minutes with the tang."])
     c += S.say("Corvin", ["The curse."])

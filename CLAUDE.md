@@ -137,7 +137,9 @@ one, the founder's stone, Fenmarch Hall one, the portraits whose eyes follow
 you, the Collegium Arcanum one, REFERATUR, and Great Dunnage one, the watchman
 who has never heard of you.)
 
-`VAR_BLUSHES` is **27**, four fifths of **thirty-four** reachable, and the 34 is
+`VAR_BLUSHES` is **26**, four fifths of **thirty-two** reachable - thirty-four
+until October 2026, when Hob and Bryd's meeting and spar afternoon stopped
+being blushes (`NORTH.md` 1.6). The 34 was
 proven by scenarios, each of which walks a moment and then asks again:
 `blushes` 11, `clanging_cast` 8, `two_hundred` 5 and `hob_and_bryd`'s spar
 afternoon 1, which are the twenty-five of August 2026; then Dorothy Markup in

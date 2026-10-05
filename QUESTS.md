@@ -537,8 +537,8 @@ line; `build/scenarios/q_wre5.json`. What is worth carrying forward:
   rationale ("statistically indefensible"), then touched anyway, because it
   is accurate.
 * **One trope** (the honour that is an insult), at "In print". **One blush**:
-  "Breeds March to October, and is enthusiastic about it", written down under
-  Bram's name. Running tally for the effort: **tropes +2, blushes +1**.
+  "Distinguishing features: none. Goes pink when it is looked at", written
+  down under Bram's name (rewritten October 2026, NORTH.md 1.6). Running tally for the effort: **tropes +2, blushes +1**.
 * **Candidate ending line** (G1 chooses; read `SW_WRE5_NAMED`):
   "The Prophecy does not read journals. It has read one." /
   "Bramus agricola: statistically indefensible."
@@ -696,9 +696,9 @@ carrying forward:
 * **Ids taken:** switches **120** `SW_HOB5_FORGED`, **121** `SW_HOB5_DONE`;
   item **44** `IT_TUBE_PLATE`. Next free: switch 122, variable 17, item 45,
   weapon 41, common event 4.
-* **No trope** (the quest has no cliche, like ROL-4). **One blush**: Ott
-  tries each of the forty-one holes with her little finger - "Tight. All the
-  way round." Running tally for the effort: **tropes +3 fixed and 2-9 from
+* **No trope** (the quest has no cliche, like ROL-4). **No blush** since
+  October 2026 (NORTH.md 1.6): Ott tries each of the forty-one holes with a
+  gauge pin - "True. Every one." Running tally for the effort: **tropes +3 fixed and 2-9 from
   PIP-2; blushes +5 fixed and 0-1 from PIP-2.**
 * `SW_STORY[HOB]` goes on at Ott's approval - his first.
 * **Candidate ending line** (G1; read `SW_HOB5_DONE`): "The Two Hundred's
@@ -955,7 +955,8 @@ hooked from `journey.py` in five places; `build/scenarios/q_nix5.json`.
   killed this week was in the middle of courting"), and a Thing "difficult
   to say how much of it there is". It was never one thing: nine crested
   grass snakes, knotted, in season, seen at dusk. "It's nine of them.
-  Courting." / "...All at once?" / "It's the only way they know how."
+  Courting." / "...Forty years. With lanterns. We've been chaperoning snakes." / "Very
+  conscientiously. Nobody got up to anything."
   **One blush.**
 * **The Gloamwood Society** - nine members, The Sighting four times a year
   since 1960, a walk once a year - meets in the **Gilded Turnip** (Map 4,
@@ -1295,7 +1296,7 @@ the fight in `db.build_contest`; `build/scenarios/q_pip3.json`.
   ladder, with Corvin). Both her own pages eye the black sword and are told
   "No."; this is the page where he lays it on her bench "the way a man lays
   down a confession" and says yes. She has the handle off in a trice - "Oh,
-  the TANG" - and Corvin looks at the ceiling (**one blush**). **No curse**:
+  the TANG. Somebody loved this, once." - and Corvin looks at the ceiling (**one blush**). **No curse**:
   a very good sword in very poor condition, he has been sitting in corners
   with it, and there is a name on the tang in letters nobody has used for a
   while, which she would not like to try aloud (COR-2 keeps the real name,

@@ -366,16 +366,17 @@ def shoppe_events():
         "He is in the window again.",
         "He is always in the window."])
     first += S.narrate([
-        "You say that the sword is very well kept."])
+        "You say that the window is very well kept."])
     first += S.say("Dorothy", [
-        "He polishes it every morning.",
+        "He brings me my tea every morning,",
+        "and then he does the window.",
         "Thirty-one years, and never once",
         "has he had to be asked."])
     first += S.narrate([
         "She writes a line in the ledger and rules",
         "it off, and does not look up."])
     first += S.say("Dorothy", [
-        "Mind you, he has never sold it either."])
+        "Mind you, he has never sold the sword."])
     first += [S.blush(), R.self_switch("A", True)]
     later = S.say("Dorothy", [
         "A boot came in this morning.",

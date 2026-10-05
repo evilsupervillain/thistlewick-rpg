@@ -342,9 +342,8 @@ def bramus(event_id, x, y):
         "accurately before. It turns out to be exactly the",
         "same feeling as being deeply touched."])
     look += S.say("Wren", [
-        "Breeds March to October, and is",
-        "enthusiastic about it. With its",
-        "record, it can afford to be."])
+        "Distinguishing features: none.",
+        "Goes pink when it is looked at."])
     look += [S.blush()]
     look += S.narrate([
         "She writes that down, under your name. You would",
@@ -506,8 +505,10 @@ def _wre3_proof():
     c += S.say("Wren", ["It isn't a Thing.",
                         "It's nine of them. Courting."])
     c += [R.wait(30)]
-    c += S.say("Mrs Lumb", ["...All at once?"])
-    c += S.say("Wren", ["It's the only way they know how."])
+    c += S.say("Mrs Lumb", ["...Forty years. With lanterns.",
+                            "We've been chaperoning snakes."])
+    c += S.say("Wren", ["Very conscientiously.",
+                        "Nobody got up to anything."])
     c += [S.blush()]
     c += S.narrate(["Then the Gloamwood Society, as one, cheers."])
     c += [R.play_se("Applause1", volume=70)]
