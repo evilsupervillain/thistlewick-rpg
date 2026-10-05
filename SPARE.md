@@ -450,7 +450,7 @@ in `img/sv_actors/` is a **hard validation failure**, not a cosmetic one.
   the wrong person.
 * **Mrs Cotterill needs `img/sv_enemies/<name>.png`** (and conventionally the
   same file in `img/enemies/`). No grid, no fixed size - stock enemies run from
-  146 x 218 to 192 x 192 - transparent PNG, standing, drawn facing left. She is
+  146 x 218 to 192 x 192 - transparent PNG, standing, drawn facing right. She is
   `SF_People1` index 5 in conversation: dark green-black hair in a long side
   braid, mustard cardigan, entirely unbothered, and **expecting her tenth in the
   spring**. She should look like somebody who is not going to move rather than
