@@ -54,6 +54,7 @@ import rmmzdata as R
 import db
 import story as S
 from places import MAP_WORLD, MAP_PREMISES, PREMISES_STEP
+import q_spare
 
 # The name `worldmap.json`'s door events carry.
 SITE = "The Former Premises"
@@ -370,6 +371,7 @@ def hall_events():
         "and underlined it twice."])
     evs.append(R.event(11, "This Quarter's Report", *DESK,
                        [R.page(report, **page)]))
+    evs.append(q_spare.courier("premises", 8, 11))                 # SPA-1
     return evs
 
 

@@ -498,6 +498,13 @@ ST_NEVER_HIT, ST_BRUSHED = 42, 43
 EN_MAM = 28
 TR_MAM = 29                     # A Discussion With Mam
 CE_TANTRUM = 4                  # what Temper Tantrum costs him
+# SPA-1, The Letters (QUESTS.md F2, q_spare.py)
+SW_SPA1_DONE = 208              # read out at the dinner hour; no dragon
+SW_SPA1_DINNER = 209            # the dinner hour, while it is on
+VAR_SPA1_POSTED = 28            # letters posted, of eight
+VAR_SPA1_ORDER = 29             # digit i: which letter went from town i
+IT_SPA1_COPIES = 73             # his copies, in pencil
+CE_SPA1_COPIES = 5              # reading them, from the menu
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
@@ -3183,7 +3190,21 @@ def build_spare():
                     "Out of Shim's tin. Not the bearing. Flat the whole time, "
                     "which is why it is a good one.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=145))
+    # SPA-1's copies: used from the menu, they read every letter he has
+    # posted, in the order they went (q_spare.copies).
+    upsert(it, item(IT_SPA1_COPIES, "Spare's Copies",
+                    "Everything he has posted home, copied out in pencil "
+                    "first, in case. None of it is true.",
+                    itype=2, consumable=False, scope=0, occasion=2, icon=192,
+                    effects=[effect(44, CE_SPA1_COPIES)]))
     save("Items.json", it)
+    import q_spare                  # it imports this module
+    ce = R.load("CommonEvents.json")
+    upsert(ce, {"id": CE_SPA1_COPIES, "name": "Spare's Copies (SPA-1)",
+                "switchId": 1, "trigger": 0,
+                "list": q_spare.copies() +
+                [{"code": 0, "indent": 0, "parameters": []}]})
+    save("CommonEvents.json", ce)
 
     wp = R.load("Weapons.json")
     upsert(wp, weapon(WP_BAG, "A Bag, Packed",

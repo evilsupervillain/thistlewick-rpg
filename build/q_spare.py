@@ -29,11 +29,36 @@ his mother, who is right.
   aborts at a quarter, and the party is put back **after** the branches, so
   it happens on every path. He is set up only here, and only until he has
   won, so `setup()` never runs on anybody who has been in the party.
+
+F2, SPA-1 The Letters (`QUESTS.md` F2)
+--------------------------------------
+His mother's third term was "you write". There is no period post box on any
+sheet, so the post is **the courier**: one man, red coat and flat cap, already
+standing in each of eight towns when the party gets there - the Former
+Premises on its rock included - and never explaining. He is there only while
+Spare is in the party (he writes them); without him the event is an empty
+page, and the town is today's town.
+
+* **A letter is two halves.** The first two lines are the town's, the last
+  two are `SAGA`'s, chosen by **how many he has posted so far** - so whatever
+  order the player goes round in, the letters get less true one at a time and
+  the dragon arrives on the third. `VAR_SPA1_POSTED` counts them; which town
+  each went from is `VAR_SPA1_ORDER`, one decimal digit per town (digit *i*
+  is the place in the order of `TOWNS[i]`), which is what lets the copies be
+  read back in the order they went.
+* **The copies** are item 73, given with the first letter, used from the
+  menu: common event 5, `copies()`, one window per letter and Next.
+* **The dinner hour** is Mrs Cotterill's, Map 21 event 11, on pages below her
+  one self switch: a page while he is still writing, and with all eight
+  posted she takes the party up to the works, where `dinner_hour` (Map 22) is
+  an autorun on `SW_SPA1_DINNER` and she reads the last one out to the shift.
 """
 import db
 import rmmzdata as R
 import story as S
-from places import MAP_CLANGING, MAP_WORKS, MAP_VALVE, MAP_FORGE, MAP_PARISH
+from places import (MAP_CLANGING, MAP_WORKS, MAP_VALVE, MAP_FORGE, MAP_PARISH,
+                    MAP_SOPPING, MAP_RESTWELL, MAP_EVERMORE, MAP_GLADHOLLOW,
+                    MAP_PREMISES, MAP_FROSTWICK, MAP_ASHCOMBE, MAP_COLLEGIUM)
 
 SPARE_EVENT = 13                # Map 21
 # SPARE.md 1 B, as it listed them: the doorstep, and the four indoors. Each
@@ -426,3 +451,299 @@ def spare_pages(img):
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_SPARE_JOINED}),
     ]
+
+
+# ======================================================= SPA-1, The Letters ==
+COURIER = "Courier"
+
+# The eight towns: key, map, the courier's event id there (appended by that
+# town's own module, after everything it had), the town's half of the letter,
+# and anything the town adds to finding him there.
+TOWNS = [
+    ("sopping", MAP_SOPPING, 20, [
+        "Dear Mam, I am at the seaside. The sea is right there.",
+        "I have checked. It goes out and then it comes back.",
+    ], []),
+    ("restwell", MAP_RESTWELL, 11, [
+        "Dear Mam, Restwell has nineteen inns and one street.",
+        "You are not allowed to sleep in the road. I asked.",
+    ], []),
+    ("evermore", MAP_EVERMORE, 8, [
+        "Dear Mam, the elves have no way in. You jump off a ledge",
+        "into some leaves. A man rakes them. It is his whole job.",
+    ], []),
+    ("gladhollow", MAP_GLADHOLLOW, 16, [
+        "Dear Mam, here they pay a boy a copper and a half to say",
+        "goodbye to you. There is a vacancy. I have applied.",
+    ], []),
+    ("premises", MAP_PREMISES, 12, [
+        "Dear Mam, I am on a rock in the sky. There is a throne",
+        "and a waiting area. I waited. Only the post came.",
+    ], [
+        "There is no road up here. There is nothing up here",
+        "at all, except sky, and a lift, and now him.",
+    ]),
+    ("frostwick", MAP_FROSTWICK, 13, [
+        "Dear Mam, it snows here because they pay it to. There is",
+        "a schedule. I have made a snowman. He is under contract.",
+    ], []),
+    ("ashcombe", MAP_ASHCOMBE, 12, [
+        "Dear Mam, Ashcombe has a post office. The window says ALL",
+        "LETTERS ANSWERED. I did not risk it. I gave it to the man.",
+    ], []),
+    ("collegium", MAP_COLLEGIUM, 13, [
+        "Dear Mam, I am at a college for wizards. I have been made",
+        "a Fellow. There is a duck who is a Fellow too. We get on.",
+    ], []),
+]
+TOWN = {key: i for i, (key, *_rest) in enumerate(TOWNS)}
+
+# The second half, by how many have gone before it - so the first letter is
+# nearly true wherever it is posted, and the eighth is never true anywhere.
+SAGA = [
+    ["I have my jumper on and I did not go in first. Nobody",
+     "has hit me. There is no dragon. Love, Spare."],
+    ["There is probably no dragon. Bram says there is not.",
+     "I am keeping an eye out anyway. Love, Spare."],
+    ["There is a dragon. It is only small. It has followed us",
+     "since breakfast. I have called it Ferrule. Love, Spare."],
+    ["The dragon is the size of the Two Hundred now. Bram has",
+     "asked it to stop following us. It said no. Love, Spare."],
+    ["I have spoken to the dragon. It knows where we live.",
+     "It says hello to the shift. Say hello back. Love, Spare."],
+    ["Me and the dragon have had a fight. I won. I did not go in",
+     "first. It went in first. It said sorry. Love, Spare."],
+    ["The dragon would like a job at the works. I said ask Ott.",
+     "It is practising its chalk line. Love, Spare."],
+    ["The dragon is coming home with us for its tea. Please do",
+     "more potatoes. It has never had a potato. Love, Spare."],
+]
+LETTERS = len(SAGA)
+assert len(TOWNS) == LETTERS
+
+# Finding him there, by how many have gone before: he is always already here.
+ARRIVES = [
+    ["A man in a red coat and a flat cap, with a satchel on",
+     "a strap, is standing here as if he has been here all",
+     "morning."],
+    ["The man in the red coat is here. You left him in another",
+     "town entirely. He does not look as if he hurried."],
+    ["The man in the red coat. He got here first.",
+     "His boots are dry."],
+    ["The courier is here. Nobody asks him how any more."],
+    ["The courier is here. He touches his cap to Spare,",
+     "and not to you."],
+    ["The courier is here. You did not pass him on the road.",
+     "There was only the one road."],
+    ["The courier is here, eating an apple.",
+     "He has nearly finished it."],
+    ["The courier is here. Of course he is here."],
+]
+
+
+def letter(town, k):
+    """The four lines that went from `TOWNS[town]` as letter `k` (from 0)."""
+    return TOWNS[town][3] + SAGA[k]
+
+
+def _digit(town):
+    return ("Math.floor($gameVariables.value(%d) / %d) %% 10"
+            % (db.VAR_SPA1_ORDER, 10 ** town))
+
+
+def check_couriers():
+    """The ids in `TOWNS` are the towns' own appended events: say so loudly if
+    a town gains an event in front of its courier."""
+    for key, m, e, _, _ in TOWNS:
+        ev = R.load("Map%03d.json" % m)["events"][e]
+        assert ev and ev["name"] == "The Courier", (key, m, e, ev and ev["name"])
+
+
+def _post(town):
+    """Spare writes one, on his knee, and hands it over."""
+    _, _, _, _, extra = TOWNS[town]
+    c = []
+    for k in range(LETTERS):
+        c += R.if_then(R.condition_variable(db.VAR_SPA1_POSTED, k),
+                       S.narrate(ARRIVES[k]))
+    if extra:
+        c += S.narrate(extra)
+    c += S.say(COURIER, ["Post?"])
+    c += S.say("Spare", ["One for Upper Clanging.",
+                         "Mrs Cotterill. It is quite urgent."])
+    c += S.narrate(["He writes it on his knee, with his tongue out,",
+                    "and lets you read it first."])
+    for k in range(LETTERS):
+        c += R.if_then(R.condition_variable(db.VAR_SPA1_POSTED, k),
+                       S.narrate(letter(town, k)))
+    c += R.script([
+        "const v = $gameVariables;",
+        "v.setValue(%d, v.value(%d) + (v.value(%d) + 1) * %d);"
+        % (db.VAR_SPA1_ORDER, db.VAR_SPA1_ORDER, db.VAR_SPA1_POSTED,
+           10 ** town),
+    ])
+    c += [R.control_variable_add(db.VAR_SPA1_POSTED, 1), R.self_switch("A")]
+    c += S.narrate(["He licks it shut and hands it over."])
+    c += S.say(COURIER, ["Upper Clanging. Dinner hour."])
+    # The first one: the copies, and the cliche, which is that there will be
+    # one of these in every town.
+    c += R.if_then(R.condition_variable(db.VAR_SPA1_POSTED, 1), S.narrate([
+        "Spare has kept a copy, in pencil, in case.",
+    ]) + [R.gain_item(db.IT_SPA1_COPIES, 1)] + S.got([
+        "Got \\I[192]\\C[3]Spare's Copies\\C[0]."]) + S.narrate([
+        "You have a feeling there is going to be one of these",
+        "in every town, and that you will be asked to find",
+        "all of them.",
+    ]) + [S.trope()])
+    c += R.if_then(R.condition_variable(db.VAR_SPA1_POSTED, LETTERS), S.narrate([
+        "That is eight. Spare puts the pencil away.",
+    ]) + S.say("Spare", ["That is all of it.",
+                         "I have told her everything."]) + S.narrate([
+        "Somewhere up the valley, it is nearly the dinner hour.",
+    ]))
+    return c
+
+
+def courier(key, x, y):
+    """The courier in one of `TOWNS`, for that town's module to append: an
+    empty page, and himself only while Spare is in the party."""
+    town = TOWN[key]
+    _, _, event_id, _, _ = TOWNS[town]
+    img = R.image(*S.FACES[COURIER], direction=2)
+    spare = {"actorValid": True, "actorId": db.SPARE}
+    rounds = S.say(COURIER, ["On my rounds."]) + S.narrate([
+        "He does not say whose."])
+    return R.event(event_id, "The Courier", x, y, [
+        R.page([], img=R.image(""), trigger=0, priority=0),
+        R.page(_post(town), img=img, trigger=0, priority=1, conditions=spare),
+        R.page(rounds, img=img, trigger=0, priority=1,
+               conditions=dict(spare, selfSwitchValid=True, selfSwitchCh="A")),
+    ])
+
+
+def copies():
+    """Common event 5, from the menu: every letter posted, in the order it
+    went, one window each, with Next."""
+    c = S.narrate(["Spare's copies, in pencil, in the order they went.",
+                   "He keeps one of everything, in case."])
+    c += R.script(["$gameTemp._spaLetter = 1;"])
+    c += [R.label("letter")]
+    for k in range(1, LETTERS + 1):
+        body = []
+        for town in range(LETTERS):
+            body += R.if_then(R.condition_script("%s === %d" % (_digit(town), k)),
+                              S.narrate(letter(town, k - 1)))
+        body += R.if_then(
+            R.condition_variable(db.VAR_SPA1_POSTED, k, 3),
+            R.choice_block(["Next", "Put them away"], [
+                R.script(["$gameTemp._spaLetter = %d;" % (k + 1)])
+                + [R.jump_to_label("letter")], []], cancel=1))
+        c += R.if_then(R.condition_script("$gameTemp._spaLetter === %d" % k),
+                       body)
+    return c
+
+
+def mam_pages(img):
+    """Pages 3-5 for Mrs Cotterill (Map 21, event 11), below her one self
+    switch: while he is writing, the dinner hour once all eight are in, and
+    afterwards her own last page plus a line."""
+    writing = S.say("Mrs Cotterill", [
+        "You have been writing.",
+    ]) + S.say("Spare", ["It does not have to be true."]) + S.say(
+        "Mrs Cotterill", ["It does not."]) + S.say("Mrs Cotterill", [
+            "Keep them coming, love.",
+        ])
+    dinner = S.say("Mrs Cotterill", [
+        "That is the eighth. It came this",
+        "morning, with the milk.",
+    ]) + S.say("Mrs Cotterill", [
+        "It is the dinner hour.",
+        "I am wanted up at the works.",
+    ]) + S.say("Spare", ["What for?"]) + S.say("Mrs Cotterill", [
+        "Come and see.",
+    ]) + [R.control_switch(db.SW_SPA1_DINNER, True),
+          # Indoors, so it stops raining: north.door's dry(), which this
+          # module cannot import.
+          R.set_weather("none", duration=1),
+          R.transfer(MAP_WORKS, 12, 16, direction=8)]
+    after = S.say("Mrs Cotterill", [
+        "Ten in the spring.",
+        "Mr Cotterill is very pleased.",
+    ]) + S.say("Mrs Cotterill", [
+        "There was no dragon. I have kept",
+        "them all anyway.",
+    ])
+    look = dict(img=img, trigger=0, priority=1)
+    spare = {"actorValid": True, "actorId": db.SPARE,
+             "selfSwitchValid": True, "selfSwitchCh": "A",
+             "variableValid": True, "variableId": db.VAR_SPA1_POSTED}
+    return [
+        R.page(writing, conditions=dict(spare, variableValue=1), **look),
+        R.page(dinner, conditions=dict(spare, variableValue=LETTERS), **look),
+        R.page(after, conditions={"selfSwitchValid": True, "selfSwitchCh": "A",
+                                  "switch1Valid": True,
+                                  "switch1Id": db.SW_SPA1_DONE}, **look),
+    ]
+
+
+def _reading():
+    """`COMPANIONS.md`'s payoff: the whole shift knows about the dragon."""
+    c = S.narrate([
+        "It is the dinner hour at the Hoyle Works. The shift has",
+        "its tins out: Ott, and Nib, and Tappet, which at the",
+        "Hoyle Works is all of it.",
+    ]) + S.narrate([
+        "Mrs Cotterill has a bundle of letters tied up in",
+        "string, and her reading glasses on.",
+    ]) + S.say("Tappet", ["Is it the dragon one?"]) + S.say("Mrs Cotterill", [
+        "It is the last one.",
+    ]) + S.say("Nib", ["Read the dragon one."]) + S.narrate([
+        "She reads it out, all four lines, the way she has read",
+        "out the other seven: slowly, with the punctuation in.",
+    ]) + S.say("Mrs Cotterill", [
+        "'The dragon is coming home",
+        "with us for its tea. Please do more",
+        "potatoes. It has never had a potato.'",
+    ]) + S.narrate([
+        "There is a silence along the gantry.",
+    ]) + S.say("Ott", ["It'll want the big table."]) + S.say("Nib", [
+        "We've had a sweep on it all month.",
+        "I had Thursday.",
+    ]) + S.say("Spare", ["There is not a dragon."]) + S.narrate([
+        "Everybody looks at him.",
+    ]) + S.say("Spare", [
+        "There was never a dragon. I made it",
+        "up. Mam said it did not have to be",
+        "true.",
+    ]) + S.say("Mrs Cotterill", ["I know, love."]) + S.say("Mrs Cotterill", [
+        "I did more potatoes anyway.",
+    ]) + S.say("Tappet", [
+        "I had 'there is no dragon'.",
+    ]) + S.narrate([
+        "Nib pays her. He is not happy about it.",
+    ]) + S.say("Mrs Cotterill", [
+        "Right. Back to work,",
+        "the lot of you.",
+    ]) + S.say("Mrs Cotterill", ["And you. Same terms."]) + S.say("Spare", [
+        "Jumper on. Do not go in first.",
+        "Write.",
+    ]) + S.say("Mrs Cotterill", [
+        "It does not have to be long.",
+    ])
+    c += [R.fadeout_screen(), R.control_switch(db.SW_SPA1_DINNER, False),
+          R.control_switch(db.SW_SPA1_DONE, True)]
+    c += S.companion_story(db.SPARE)
+    c += [R.wait(30), R.fadein_screen()]
+    return c
+
+
+def dinner_hour(event_id, x, y):
+    """Map 22: Mrs Cotterill in the works, only for the dinner hour - an empty
+    page, and an autorun on `SW_SPA1_DINNER` that ends by turning it off."""
+    img = R.image(*S.FACES["Mrs Cotterill"], direction=2)
+    return R.event(event_id, "The Dinner Hour", x, y, [
+        R.page([], img=R.image(""), trigger=0, priority=0),
+        R.page(_reading(), img=img, trigger=3, priority=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_SPA1_DINNER}),
+    ])

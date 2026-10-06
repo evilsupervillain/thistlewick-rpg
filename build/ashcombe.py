@@ -47,6 +47,7 @@ import db
 import story as S
 import q_corvin
 import q_hob
+import q_spare
 from places import MAP_WORLD, MAP_ASHCOMBE, MAP_ASHCOMBE_IN, ASHCOMBE_STEP
 from places import STUDY, STUDY_DESK
 
@@ -371,6 +372,7 @@ def ashcombe_events():
     evs.append(q_hob.owned("dimmock", _person(                     # HOB-1
         11, "Mrs Dimmock", DIMMOCK,
         R.image(*S.FACES["Mrs Dimmock"], direction=2), *dimmock_pages())))
+    evs.append(q_spare.courier("ashcombe", 23, 22))                # SPA-1
     return evs
 
 

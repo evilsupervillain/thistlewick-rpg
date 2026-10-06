@@ -56,6 +56,7 @@ import rmmzdata as R
 
 import story as S
 from places import MAP_WORLD, MAP_EVERMORE, MAP_ARCHIVE, EVERMORE_STEP
+import q_spare
 
 # The name `worldmap.json`'s door event carries.
 SITE = "Olde Evermore"
@@ -248,6 +249,7 @@ def evermore_events():
                          again, img=img, trigger=0, priority=1,
                          conditions={"selfSwitchValid": True,
                                      "selfSwitchCh": "A"})]))
+    evs.append(q_spare.courier("evermore", 14, 8))                  # SPA-1
     return evs
 
 

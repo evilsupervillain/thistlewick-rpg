@@ -38,6 +38,7 @@ import rmmzdata as R
 import db
 import story as S
 import q_hob
+import q_spare
 from places import (MAP_WORLD, MAP_FROSTWICK, MAP_ELEVEN_DAYS,
                     MAP_WORKING_GROUP, MAP_COLD_ROOM, FROSTWICK_STEP)
 
@@ -323,6 +324,7 @@ def frostwick_events():
     evs.append(R.event(12, "The Snowman", *SNOWMAN_AT, [R.page(
         man, img=R.image(""), trigger=0, priority=1, through=True,
         direction_fix=True)]))
+    evs.append(q_spare.courier("frostwick", 27, 15))               # SPA-1
     return evs
 
 

@@ -434,7 +434,9 @@ def build_system():
             (db.SW_ROL5_DONE, "ROL-5: told; she is at the tower door"),
             (db.SW_ROL2_ON, "ROL-2: gone to see, under Carn Drey"),
             (db.SW_ROL2_DRAWN, "ROL-2: the sword out of the stone"),
-            (db.SW_ROL2_DONE, "ROL-2: the Worm ended; discharged")]:
+            (db.SW_ROL2_DONE, "ROL-2: the Worm ended; discharged"),
+            (db.SW_SPA1_DONE, "SPA-1: read out at the dinner hour"),
+            (db.SW_SPA1_DINNER, "SPA-1: the dinner hour (scene)")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -465,6 +467,8 @@ def build_system():
     variables[db.VAR_MER1_POINTS] = "MER-1: Whatever Works' points"
     variables[db.VAR_PIP4_HEARD] = "PIP-4: accounts of Abel Thrush, of eleven"
     variables[db.VAR_NIX3_LOCATED] = "NIX-3: located with receipts, of three"
+    variables[db.VAR_SPA1_POSTED] = "SPA-1: letters posted, of eight"
+    variables[db.VAR_SPA1_ORDER] = "SPA-1: which went from where (digits)"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
@@ -538,6 +542,7 @@ def main():
     dunnage.build()
     q_corvin.build()                    # COR-2's drowned street
     q_roland.build()                    # ROL-2's dungeon under Carn Drey
+    q_spare.check_couriers()            # F2's courier ids are the towns'
     shape_wall_tops()
     build_map_infos()
     build_tilesets()

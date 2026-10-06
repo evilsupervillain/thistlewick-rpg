@@ -63,6 +63,7 @@ import rmmzdata as R
 
 import story as S
 from places import MAP_WORLD, MAP_GLADHOLLOW, MAP_MAYORS, GLADHOLLOW_STEP
+import q_spare
 
 # The name `worldmap.json`'s door events carry.
 SITE = "Gladhollow"
@@ -493,6 +494,7 @@ def gladhollow_events():
         R.page(well, **page),
         R.page(drink, conditions={"selfSwitchValid": True,
                                   "selfSwitchCh": "A"}, **page)]))
+    evs.append(q_spare.courier("gladhollow", 6, 12))                # SPA-1
     return evs
 
 

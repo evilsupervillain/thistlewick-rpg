@@ -288,7 +288,12 @@ Append instead.
   **Armor 27** A Washer, Off Shim, **Items 33-34** Form P-9 and the washer,
   **Common Event 4** what Temper Tantrum costs him, **weapon type 13** Bag,
   **armour type 14** Washer, **element 10** Temper - his tantrum's, which his
-  mother alone is immune to |
+  mother alone is immune to. **SPA-1** (`QUESTS.md` F2): **Item 73** Spare's
+  Copies and **Common Event 5** that reads them, **switches 208-209** done and
+  the dinner hour, **variables 28-29** letters posted and which town each went
+  from (one decimal digit per town); the courier is `Gen_People14` 6 and is
+  the last event on each of Maps 13, 31, 38, 40, 42, 44, 52 and 58, and the
+  dinner hour is Map 22 event 10 |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |

@@ -1,0 +1,513 @@
+{
+  "query": "?map=21&x=12&y=41&frames=90",
+  "comment": "QUESTS.md F2, SPA-1 The Letters. The courier is an empty page without Spare and himself with him; eight letters posted out of TOWNS order, one walked to, each with its town's half and the saga line for its place in the order; the copies (item 73) and the trope on the first; Mrs Cotterill's writing page; the order variable; the copies read back from the menu in posting order; the dinner hour at the works, with a screenshot; Spare's story switch; her afterwards page with and without him.",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s));"
+    },
+    {
+      "comment": "Without Spare the courier is an empty page, and Mrs Cotterill is on her own last page."
+    },
+    {
+      "eval": "$gameSelfSwitches.setValue([21, 11, 'A'], true); $gameMap.requestRefresh()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "$gameMap.event(11).findProperPageIndex()",
+      "expect": 1,
+      "label": "Mrs Cotterill, no Spare: her own page"
+    },
+    {
+      "goto": [
+        42,
+        9,
+        11
+      ]
+    },
+    {
+      "check": "[$gameMap.event(12).findProperPageIndex(), $gameMap.event(12).characterName()]",
+      "expect": [
+        0,
+        ""
+      ],
+      "label": "the Premises courier, no Spare: an empty page"
+    },
+    {
+      "eval": "$gameParty.addActor(11); $gameSwitches.setValue(90, true); $gameMap.requestRefresh()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "[$gameMap.event(12).findProperPageIndex(), $gameMap.event(12).characterName(), $gameMap.event(12).characterIndex()]",
+      "expect": [
+        1,
+        "Gen_People14",
+        6
+      ],
+      "label": "with Spare: the courier, Gen_People14 6"
+    },
+    {
+      "comment": "Letter 1, from premises."
+    },
+    {
+      "goto": [
+        42,
+        9,
+        11
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(12).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameVariables.value(28), window._has('I am on a rock in the sky'), window._has('There is no dragon. Love, Spare.'), $gameMap.event(12).findProperPageIndex(), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataItems[73])]",
+      "expect": [
+        1,
+        true,
+        true,
+        2,
+        1,
+        1
+      ],
+      "label": "letter 1 from premises: its town, saga line 1, rounds page, the copies and the trope"
+    },
+    {
+      "goto": [
+        21,
+        12,
+        41
+      ]
+    },
+    {
+      "check": "$gameMap.event(11).findProperPageIndex()",
+      "expect": 2,
+      "label": "Mrs Cotterill with Spare, one letter in: writing page"
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(11).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "window._has('Keep them coming, love.')",
+      "expect": true,
+      "label": "keep them coming"
+    },
+    {
+      "comment": "Letter 2, from frostwick."
+    },
+    {
+      "goto": [
+        44,
+        27,
+        16
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameVariables.value(28), window._has('it snows here because they pay'), window._has('There is probably no dragon.'), $gameMap.event(13).findProperPageIndex(), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataItems[73])]",
+      "expect": [
+        2,
+        true,
+        true,
+        2,
+        0,
+        1
+      ],
+      "label": "letter 2 from frostwick: its town, saga line 2, rounds page"
+    },
+    {
+      "comment": "Letter 3, from sopping."
+    },
+    {
+      "goto": [
+        13,
+        21,
+        6
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(20).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameVariables.value(28), window._has('I am at the seaside'), window._has('I have called it Ferrule'), $gameMap.event(20).findProperPageIndex(), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataItems[73])]",
+      "expect": [
+        3,
+        true,
+        true,
+        2,
+        0,
+        1
+      ],
+      "label": "letter 3 from sopping: its town, saga line 3, rounds page"
+    },
+    {
+      "comment": "Letter 4, from collegium."
+    },
+    {
+      "goto": [
+        58,
+        13,
+        21
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameVariables.value(28), window._has('a college for wizards'), window._has('the size of the Two Hundred'), $gameMap.event(13).findProperPageIndex(), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataItems[73])]",
+      "expect": [
+        4,
+        true,
+        true,
+        2,
+        0,
+        1
+      ],
+      "label": "letter 4 from collegium: its town, saga line 4, rounds page"
+    },
+    {
+      "comment": "Letter 5, from restwell."
+    },
+    {
+      "goto": [
+        31,
+        5,
+        14
+      ]
+    },
+    {
+      "key": "ArrowUp",
+      "gap": 30
+    },
+    {
+      "key": "ArrowUp",
+      "gap": 30
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+      "expect": [
+        5,
+        13,
+        8
+      ],
+      "label": "walked up to the Restwell courier"
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameVariables.value(28), window._has('nineteen inns and one street'), window._has('It knows where we live'), $gameMap.event(11).findProperPageIndex(), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataItems[73])]",
+      "expect": [
+        5,
+        true,
+        true,
+        2,
+        0,
+        1
+      ],
+      "label": "letter 5 from restwell: its town, saga line 5, rounds page"
+    },
+    {
+      "comment": "Letter 6, from ashcombe."
+    },
+    {
+      "goto": [
+        52,
+        23,
+        23
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(12).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameVariables.value(28), window._has('Ashcombe has a post office'), window._has('It went in first'), $gameMap.event(12).findProperPageIndex(), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataItems[73])]",
+      "expect": [
+        6,
+        true,
+        true,
+        2,
+        0,
+        1
+      ],
+      "label": "letter 6 from ashcombe: its town, saga line 6, rounds page"
+    },
+    {
+      "comment": "Letter 7, from evermore."
+    },
+    {
+      "goto": [
+        38,
+        14,
+        9
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(8).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameVariables.value(28), window._has('the elves have no way in'), window._has('practising its chalk line'), $gameMap.event(8).findProperPageIndex(), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataItems[73])]",
+      "expect": [
+        7,
+        true,
+        true,
+        2,
+        0,
+        1
+      ],
+      "label": "letter 7 from evermore: its town, saga line 7, rounds page"
+    },
+    {
+      "comment": "Letter 8, from gladhollow."
+    },
+    {
+      "goto": [
+        40,
+        6,
+        13
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(16).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameVariables.value(28), window._has('a copper and a half'), window._has('never had a potato'), $gameMap.event(16).findProperPageIndex(), $gameVariables.value(2) - window._tropes, $gameParty.numItems($dataItems[73])]",
+      "expect": [
+        8,
+        true,
+        true,
+        2,
+        0,
+        1
+      ],
+      "label": "letter 8 from gladhollow: its town, saga line 8, rounds page"
+    },
+    {
+      "check": "window._has('Somewhere up the valley, it is nearly the dinner hour.')",
+      "expect": true,
+      "label": "the eighth says so"
+    },
+    {
+      "check": "$gameVariables.value(29)",
+      "expect": 46218753,
+      "label": "the order, one digit per town"
+    },
+    {
+      "comment": "The copies, from the menu, in the order they went."
+    },
+    {
+      "eval": "window._mark(); $gameTemp.reserveCommonEvent(5)"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 80
+    },
+    {
+      "check": "(() => { const at = [\"I am on a rock in the sky\", \"it snows here because they pay\", \"I am at the seaside\", \"a college for wizards\", \"nineteen inns and one street\", \"Ashcombe has a post office\", \"the elves have no way in\", \"a copper and a half\"].map(s => window._lines.findIndex(l => l.includes(s))); return at.every((a, i) => a >= 0 && (i === 0 || a > at[i - 1])); })()",
+      "expect": true,
+      "label": "all eight copies read back, in posting order"
+    },
+    {
+      "check": "(() => { const at = [\"There is no dragon. Love, Spare.\", \"There is probably no dragon.\", \"I have called it Ferrule\", \"the size of the Two Hundred\", \"It knows where we live\", \"It went in first\", \"practising its chalk line\", \"never had a potato\"].map(s => window._lines.findIndex(l => l.includes(s))); return at.every((a, i) => a >= 0 && (i === 0 || a > at[i - 1])); })()",
+      "expect": true,
+      "label": "each with its own place in the saga"
+    },
+    {
+      "comment": "The dinner hour."
+    },
+    {
+      "goto": [
+        21,
+        12,
+        41
+      ]
+    },
+    {
+      "check": "$gameMap.event(11).findProperPageIndex()",
+      "expect": 3,
+      "label": "Mrs Cotterill with all eight: the dinner hour"
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(11).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 8
+    },
+    {
+      "frames": 120
+    },
+    {
+      "check": "[$gameMap.mapId(), $gameSwitches.value(209), $gameMap.event(10).findProperPageIndex(), $gameScreen.weatherType()]",
+      "expect": [
+        22,
+        true,
+        1,
+        "none"
+      ],
+      "label": "up at the works, the dinner hour on, and dry indoors"
+    },
+    {
+      "shot": "spa1_dinner.png"
+    },
+    {
+      "advance": 120
+    },
+    {
+      "frames": 90
+    },
+    {
+      "check": "[$gameMap.mapId(), $gameSwitches.value(208), $gameSwitches.value(209), $gameSwitches.value(110), $gameVariables.value(15) - window._stories, $gameMap.event(10).findProperPageIndex(), $gameMap.isEventRunning()]",
+      "expect": [
+        22,
+        true,
+        false,
+        true,
+        1,
+        0,
+        false
+      ],
+      "label": "read out; done; Spare's story; the scene over"
+    },
+    {
+      "check": "[window._has('I did more potatoes anyway.'), window._has('Nib pays her.'), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
+      "expect": [
+        true,
+        true,
+        0,
+        0
+      ],
+      "label": "potatoes; the sweep; no further trope or blush"
+    },
+    {
+      "check": "SceneManager._scene.constructor.name",
+      "expect": "Scene_Map"
+    },
+    {
+      "goto": [
+        21,
+        12,
+        41
+      ]
+    },
+    {
+      "check": "$gameMap.event(11).findProperPageIndex()",
+      "expect": 4,
+      "label": "Mrs Cotterill afterwards"
+    },
+    {
+      "eval": "$gameParty.removeActor(11); $gameMap.requestRefresh()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "$gameMap.event(11).findProperPageIndex()",
+      "expect": 4,
+      "label": "and without him too"
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(11).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "window._has('There was no dragon. I have kept')",
+      "expect": true,
+      "label": "her own last line plus one"
+    }
+  ]
+}

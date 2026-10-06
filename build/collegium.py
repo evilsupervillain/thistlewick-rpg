@@ -42,6 +42,7 @@ import rmmzdata as R
 import db
 import q_wren
 import q_zephyrine
+import q_spare
 import story as S
 from places import (MAP_WORLD, MAP_COLLEGIUM, MAP_COLLEGIUM_LIBRARY,
                     MAP_COLLEGIUM_HALL, COLLEGIUM_STEP)
@@ -345,6 +346,7 @@ def court_events():
     first, later = founder_pages()
     evs.append(R.event(12, "The Founder", *FOUNDER, [
         R.page(first, **PAGE), R.page(later, conditions=LATER, **PAGE)]))
+    evs.append(q_spare.courier("collegium", 12, 21))               # SPA-1
     return evs
 
 

@@ -438,6 +438,8 @@ FACES = {
     "Miss Fettle": ("Gen_People6", 4),
     # Cotter, generated: SF_Actor2 7 read as a woman.
     "Cotter": ("Gen_People14", 5),
+    # SPA-1's courier (QUESTS.md F2), generated: red coat, flat cap.
+    "Courier": ("Gen_People14", 6),
 }
 
 

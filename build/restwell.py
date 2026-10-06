@@ -40,6 +40,7 @@ import rmmzdata as R
 
 import story as S
 from places import (MAP_WORLD, MAP_RESTWELL, MAP_EIGHT_HOURS, RESTWELL_STEP)
+import q_spare
 
 # The name `worldmap.json`'s door events carry for this site. See the module
 # docstring and `journey.world_map`; a re-stamp that moves Restwell moves its
@@ -284,6 +285,7 @@ def restwell_events():
     guest += [S.trope()]
     evs.append(S.npc(10, "A Satisfied Guest", 12, 12, guest,
                      "People2", 4, direction=2))
+    evs.append(q_spare.courier("restwell", 5, 12))                 # SPA-1
     return evs
 
 

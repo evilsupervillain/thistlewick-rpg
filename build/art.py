@@ -314,6 +314,10 @@ SHEETS = {
         # woman; he is Rivet's brown hair and white work jacket, older.
         (4, "spare-cotterill.json"),    # F1: aged nine, a bag packed
         (5, "cotter-cotterill.json"),   # the Iron Company's gate, Saturdays
+        # SPA-1: the post, the same man every time, already there. Red coat,
+        # grey flat cap (male AccB p07, the bandana, reads as one in the
+        # sprite); no part in the generator is a satchel.
+        (6, "the-courier.json"),        # F2: on his rounds
     ],
 }
 

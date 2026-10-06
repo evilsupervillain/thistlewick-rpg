@@ -488,7 +488,7 @@ somehow already standing in every town Spare writes from, including the ones
 only the airship reaches. He never explains; he is on his rounds. Spare hands
 him a letter per town, four lines each, increasingly untrue; the set is
 readable from the menu; the payoff is `COMPANIONS.md`'s, at the works, at the
-dinner hour, with the dragon.
+dinner hour, with the dragon. **Done, 6 Oct 2026** (section 3).
 
 **F3. SPA-4 The Pen Pal - Village 1.** Village 1, (60,61)-(61,61), deferred by
 `SITES.md` step 9 and section 4 for exactly this. A nice village with people to
@@ -3600,29 +3600,89 @@ byte what it was; the data diff is Spare's ids and nothing else.
   without updating the check. Its expectation and label are corrected, and
   `face_spare.png` shows the new face.
 
+
+**F2, SPA-1 The Letters - done** (6 Oct 2026). `q_spare.py` (the second
+quest in it), hooked from the eight towns' own modules and `north.py` (one
+line each); `build/scenarios/q_spa1_letters.json`. Every page that existed is
+byte for byte what it was: the data diff is a new last event on each of Maps
+13, 31, 38, 40, 42, 44, 52 and 58, three pages appended to Mrs Cotterill
+(Map 21 event 11), a new Map 22 event 10, item 73, common event 5 and four
+switch and variable names.
+
+* **The courier** is `Gen_People14` 6 (`build/characters/the-courier.json`,
+  `FACES["Courier"]`): red coat (male clothing p25), grey flat cap (male AccB
+  p07, the bandana, which reads as a cap in the sprite and a little less so
+  in the portrait). **No generator part is a satchel**; the narration carries
+  it. He is the last event in eight towns - **Nether Sopping, Restwell, Olde
+  Evermore, Gladhollow, the Former Premises (the airship's rock, in the
+  waiting area by the sofa, "There is no road up here"), Frostwick, Ashcombe
+  (beside the post office, whose window says ALL LETTERS ANSWERED) and the
+  Collegium** - Great Dunnage left out on purpose, as F4's and Cotter's.
+  Page 1 is empty and below characters, so **without Spare the town is
+  today's town**; page 2 on actor 11 is him; page 3 on A is "On my rounds."
+  Spare writes them, so posting needs Spare.
+* **A letter is two halves**: two lines for the town (`TOWNS`), two for the
+  saga (`SAGA`), chosen by **how many have gone before** - so in any order
+  the first letter is nearly true ("There is no dragon"), the dragon arrives
+  on the third, is called Ferrule, grows to the size of the Two Hundred,
+  asks for a job at the works, and on the eighth is coming home for its tea
+  ("Please do more potatoes. It has never had a potato."). `ARRIVES` is the
+  same by order: he is always already there, and on the eighth "Of course he
+  is here." He only ever says "Post?" and "Upper Clanging. Dinner hour."
+* **State is global**: `VAR_SPA1_POSTED` (28) counts; `VAR_SPA1_ORDER` (29)
+  holds one decimal digit per town, its place in the order, which is how
+  **Spare's Copies** (item 73, given with the first letter, used from the
+  menu) read back through common event 5 in posting order, one window each
+  with Next. The courier's own A is only "posted here".
+* **Mrs Cotterill**, below her one self switch: page 3 on actor 11 and one
+  letter ("It does not have to be true." "It does not."); page 4 on all
+  eight, the dinner hour - she dries the weather (the town door's `dry()`; the
+  first screenshot had it raining indoors) and takes the party up to the
+  works, where `dinner_hour` (Map 22 event 10, autorun on `SW_SPA1_DINNER`,
+  209) reads the last one out to the shift - which at the Hoyle Works is
+  Ott, Nib and Tappet. Nib had Thursday in the sweep; Tappet had "there is
+  no dragon". "I did more potatoes anyway." Then `SW_SPA1_DONE` (208) and
+  `companion_story(SPARE)`. Page 5 on 208 is her own last page plus "There was
+  no dragon. I have kept them all anyway."
+* **Tropes +1** (the collectible, at the first letter: "one of these in every
+  town"): running tally **+47 fixed**, and 2-9 from PIP-2. **Blushes +0**: +13
+  fixed. **Candidate ending line**: "Spare Cotterill wrote home from eight
+  towns. There was no dragon. His mother did more potatoes anyway." No date
+  is new, so `TIMELINE.md` is unchanged; nothing settles the baby (her
+  "Ten in the spring" is her own published line, repeated).
+* **The works, looked at** (0.1): `propsheet.py` over Map 22 - `Machine C` has
+  a small blue readout in the corner of a brass machine; it is the north's
+  steam look on purpose, used in the forge too, and was kept.
+* **Scenarios**: `q_spa1_letters` 27 checks, all pass - posted out of
+  `TOWNS` order, Restwell's walked to, the copies read back in order, the
+  dinner hour with a screenshot (`spa1_dinner.png`) and dry indoors.
+  **Rerun**: only `q_spa0_joins` and `q_spa0_argument`, because they are the
+  only scenarios that ever put Spare in the party, and without him every
+  courier is an empty below-characters page that blocks nothing and Mrs
+  Cotterill's new pages need him or switch 208. The twenty scenarios that
+  stand on the touched maps (parsed from `query` and `goto`) can see no
+  difference, and were not rerun.
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step F2, SPA-1 The
-Letters** (`COMPANIONS.md`'s Spare section as amended, `QUESTS.md` F2,
-`q_spare.py`). **Parts A-E and F1 are done** (F1, Spare joins, 5 Oct 2026).
-One step per session (0.1) unless Mike asks for more.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step F3, SPA-4 The Pen
+Pal** (`COMPANIONS.md`'s Spare section as amended, `QUESTS.md` F3,
+`q_spare.py`). **Parts A-E, F1 and F2 are done** (F2, The Letters, 6 Oct
+2026). One step per session (0.1) unless Mike asks for more.
 
-F2 is **the courier: the same man every time**, one generated character
-(cap, satchel, red coat; the next free cell is `Gen_People14` 6, check
-`art.py`) already standing in every town Spare writes from - the airship's
-rocks included - and never explaining. Spare hands him a letter per town,
-four lines each and increasingly untrue; the set readable from the menu; the
-payoff at the works at the dinner hour, where Mrs Cotterill reads them out
-and the whole shift knows about the dragon. Pages there go **below Mrs
-Cotterill's one self switch**, on `SW_SPARE_JOINED`. Decide which towns, and
-whether a town's letter needs Spare in the party when it is posted (it does:
-he writes them). Then F3 (Village 1, the pen pal), F4 (Cotter, the lock
-gate), G1.
+F3 is **Village 1**, (60,61)-(61,61) on the world map, the last placeholder
+door (`placeholder_doors` changes with it): a nice village with people to
+talk to and funny things to walk into, and a girl of about Spare's age who
+has been his pen pal and whom he finally meets. **The courier from F2 has
+carried their letters for years** - he should be standing there too, the
+same `q_spare.courier` look (`FACES["Courier"]`, `Gen_People14` 6) though
+not a ninth posting town - so she has had every untrue letter Spare wrote,
+dragon and all (`q_spare.SAGA`), and hers back were exactly as untrue. New
+faces are generated. Then F4 (Cotter, the lock gate), G1.
 
-Read section 0, Part F in section 2, and the F1 Done paragraph, once, at the
+Read section 0, Part F in section 2, and the F2 Done paragraph, once, at the
 start. Read what the step needs by dumping its maps' events and their text,
 not by opening a module. Crop anything a step touches with `propsheet.py`
 before judging, and screenshot before and after anything changed (0.1).
@@ -3631,18 +3691,18 @@ Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
 byte: every existing page identical, only appended pages and new events.
 `validate.py`, and `apidigest.py . --write`. Screenshots of anything drawn,
-looked at. The step's own scenario, `build/scenarios/q_spa1*.json`, run in
+looked at. The step's own scenario, `build/scenarios/q_spa4*.json`, run in
 the background, one browser at a time. Then the Done paragraph, a commit, and
 this prompt moved on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +46 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 208, variable 28, item 73, weapon 44,
+Where things stand: tropes +47 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 210, variable 30, item 74, weapon 44,
 armour 49, armour type 15, weapon type 14, element 11, class 13, common event
-5, state 44, enemy 60, troop 55, skill 185, map 68, `Gen_People14` 6. Spare
-is actor 11; his story switch is 110 (`db.SW_STORY[db.SPARE]`, so
-`story.companion_story(db.SPARE)` works). Map 8's last event is 83; the tower
-door has four pages (E17, E18), and anything appended to it must carry both
-splices or come after them.
+6, state 44, enemy 60, troop 55, skill 185, map 68, `Gen_People14` 7. Spare
+is actor 11; his story switch is 110 (`db.SW_STORY[db.SPARE]`) and is on
+after F2. Map 8's last event is 83; the tower door has four pages (E17, E18),
+and anything appended to it must carry both splices or come after them. Mrs
+Cotterill (Map 21 event 11) has five pages now; Map 22's last event is 10.
 
 Things learned that will bite again:
 
@@ -3718,3 +3778,10 @@ Things learned that will bite again:
 * **The end-of-part rerun by map id is the whole suite** once Maps 1, 8, 13
   or 14 are touched. Choose by what each change can reach and write the
   reasoning down (the E1-E6 rerun paragraph).
+* **A `pgrep -f` waiter matches its own command line**, every time the
+  pattern is in it - and a log from an earlier run already says "all checks
+  passed". Wait on the background task's own notification, or on a log you
+  truncated first (F2).
+* **A transfer out of Upper Clanging by an event, not a door, keeps the
+  rain**: weather lives on `$gameScreen`. Dry it before the transfer, the way
+  `north.door` does (F2).

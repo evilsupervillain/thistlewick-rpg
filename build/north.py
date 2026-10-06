@@ -481,7 +481,9 @@ def clanging_events():
             "Ten in the spring.",
             "Mr Cotterill is very pleased.",
         ]),
-        extra=[R.control_switch(db.SW_COTTERILL, True)], direction=4))
+        extra=[R.control_switch(db.SW_COTTERILL, True)], direction=4,
+        pages=q_spare.mam_pages(R.image(*S.FACES["Mrs Cotterill"],      # F2
+                                        direction=4))))
 
     # Mr Cotterill is the reaction shot and deliberately does **not** bump the
     # counter: it is one joke, told three times by three people, and counting
@@ -1513,6 +1515,7 @@ def works_events():
                                   "switch1Id": db.SW_AIRSHIP,
                                   "selfSwitchValid": True,
                                   "selfSwitchCh": "A"})]))
+    evs.append(q_spare.dinner_hour(10, 12, 13))                    # F2
     return evs
 
 

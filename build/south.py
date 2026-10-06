@@ -25,6 +25,7 @@ import q_merribell
 import q_nix
 import q_roland
 import q_wren
+import q_spare
 from places import (WYVERN_BACK, WYVERN_BACK_TABLE,
                     MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
@@ -233,6 +234,7 @@ def sopping_map():
     m["data"] = g.data
     m["events"] = [None] + q_aldric.with_follower(sopping_events(), MAP_SOPPING)  # ALD-5
     m["events"].append(q_nix.lorrimer_front(19, *LORRIMER_FRONT))     # NIX-3
+    m["events"].append(q_spare.courier("sopping", 21, 5))             # SPA-1
     return m
 
 
