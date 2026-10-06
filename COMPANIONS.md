@@ -887,7 +887,7 @@ him.
 
 ---
 
-## Spare Cotterill - the Ninth *(see `SPARE.md` - not yet built)*
+## Spare Cotterill - the Ninth *(see `SPARE.md`; being built, `QUESTS.md` part F)*
 
 The tenth companion and the only secret one, aged nine, with a bag packed for
 two years. `SPARE.md` is his specification and is not superseded by anything
@@ -902,6 +902,10 @@ every one and has been reading them out at the dinner hour, and the entire
 shift knows about the dragon, and there was no dragon. *Needs:* a post box in
 each town; one appended page on Mrs Cotterill. *Gives:* the whole set, readable
 from the menu, and a very short line in the ending.
+*Amended 5 Oct 2026 (Mike):* no post box - there is no period one in any sheet.
+The post is **a courier, the same man every time**, already standing in every
+town Spare writes from, the airship's rocks included, and never explaining.
+`QUESTS.md` F2.
 
 **SPA-2. Ninety Tubes.** *(cliche: the solo section)* Somewhere only he fits.
 A jammed lock gate on the Dunnage cut, or a flue, or the sunken street at
@@ -910,6 +914,10 @@ the dark for four minutes. `SPARE.md` section 3 already documents the party-swap
 that makes this trivial to build. He is not frightened of the dark. He has said
 what he is frightened of and it is not this. *Needs:* one confined map; the
 swap. *Gives:* the best use of an established mechanic in the document.
+*Amended 5 Oct 2026 (Mike):* the place is the jammed lock gate on the Dunnage
+cut, and the way in is **Cotter**, his eldest brother, at the Iron Company's
+gate in Great Dunnage - who knows Spare at once and has a job a man does not
+fit. `QUESTS.md` F4.
 
 **SPA-3. The Tenth.** *(cliche: the deadline)* It arrives in the spring, and
 he would like to be there, and the tower does not care what month it is. A soft
@@ -918,6 +926,19 @@ the entire quest is him asking the party every few maps whether it is spring
 yet, and the answer being no, and then one day being yes. *Needs:* one switch,
 one appended page on Map 21. *Gives:* a tenth Cotterill, unnamed, because Clevis
 is still running the book.
+*Amended 5 Oct 2026 (Mike):* **not in this effort.** Spring comes after the
+Prophecy is beaten, in the extension past the current ending, and the party
+takes him home for it. Nothing before then settles the baby.
+
+**SPA-4. The Pen Pal.** *(cliche: the childhood friend)* Added 5 Oct 2026 at
+Mike's word, for **Village 1** at (60,61), which `SITES.md` held back for
+something of Spare's. A nice village with people to talk to and funny things
+to walk into, and a girl about his age who has been his pen pal and whom he
+finally meets. The same courier has carried their letters for years, so she
+has had every untrue thing he ever wrote - she knows about the dragon - and
+what she wrote back was exactly as untrue. *Needs:* Village 1 built (a map or
+two, new faces). *Gives:* a friend, and the last placeholder door on the
+world map. `QUESTS.md` F3.
 
 ---
 

@@ -452,12 +452,57 @@ Order within E is cheapest first; reorder freely.
 
 ### Part F - Spare (`SPARE.md`, `q_spare.py`)
 
+Re-planned with Mike, 5 Oct 2026: four steps, not three. SPA-3 leaves this
+effort (see "Owed"), a new quest takes Village 1, and SPA-2 is reached through
+Cotter. `COMPANIONS.md`'s Spare section has the same changes.
+
 **F1. Spare joins.** `SPARE.md` whole, with its switches renumbered to 89-92
-first. **Blocked on art** (section 1): his side-view battler and Mrs
-Cotterill's enemy image. Build everything else, and ask Mike for the two
-images when this step is reached rather than at the very end, because
-`validate.py` fails without the battler. **Unblocked, 5 Oct 2026.** At Mike's word Spare was redrawn whole with the generator, `Gen_People14` 4 (`build/characters/spare-cotterill.json`): face, sprite and battler `Gen_People14_5` all match, and `FACES["Spare"]` points there. Mike supplied `img/sv_enemies/Mrs_Cotterill.png`. Both images are in. **F2. SPA-1 The Letters**, **F3.
-SPA-3 The Tenth**, **F4. SPA-2 Ninety Tubes** (a confined map, 66+).
+first. **Unblocked, 5 Oct 2026.** At Mike's word Spare was redrawn whole with
+the generator, `Gen_People14` 4 (`build/characters/spare-cotterill.json`):
+face, sprite and battler `Gen_People14_5` all match, and `FACES["Spare"]`
+points there. Mike supplied `img/sv_enemies/Mrs_Cotterill.png`. Both images
+are in. Decided before it was built, keeping to `SPARE.md` wherever the game
+still allows:
+* *The gate* is `SPARE.md`'s A + B + C + D. B is `SPARE.md`'s own list of the
+  family - Mr and Mrs Cotterill, Ferrule, Clevis, Shim and Bessie on the
+  street, Rivet, Gudgeon, Tappet and Grommet indoors - and **not Cotter**, who
+  was drawn later in Great Dunnage and is F4's way in. C is
+  `SW_TWO_HUNDRED_FLEW` (68), the "or better, has flown somewhere real" of
+  `SPARE.md`; `SW_AIRSHIP` (53) is the one-line fallback if it plays too late.
+  A, B and C are script reads inside Gudgeon's page (a page condition names
+  two switches at most).
+* *Class 12*, not 11 - WRE-1 took 11. *Weapon type 13 "Bag"* and *armour type
+  14 "Washer"*, his alone. *States 42-43*: They Never Hit Me, and Ninety
+  Tubes' DEF break. Every other id is `SPARE.md`'s.
+* *The bag is the joke*: every skill's battle message is a thing he takes out
+  of it, and all but Temper Tantrum (he puts the bag down) need it equipped.
+* *The ending block is G1's*, with everybody else's.
+
+**F2. SPA-1 The Letters - the courier.** There is no period post box in any
+sheet (`SF_Outside_C`'s `Postal Box` has a lit button panel and is on a
+tileset no town uses), so the post is a **courier: the same man, every time**,
+one generated character with one look - cap, satchel, red coat - who is
+somehow already standing in every town Spare writes from, including the ones
+only the airship reaches. He never explains; he is on his rounds. Spare hands
+him a letter per town, four lines each, increasingly untrue; the set is
+readable from the menu; the payoff is `COMPANIONS.md`'s, at the works, at the
+dinner hour, with the dragon.
+
+**F3. SPA-4 The Pen Pal - Village 1.** Village 1, (60,61)-(61,61), deferred by
+`SITES.md` step 9 and section 4 for exactly this. A nice village with people to
+talk to and funny things to walk into, and **a girl of about Spare's age who
+has been his pen pal**, whom he finally meets. The courier has been carrying
+their letters for years, so she has had every untrue letter he ever wrote -
+she knows about the dragon - and hers back were exactly as untrue. After F2,
+so the letters exist. It retires the last placeholder door, so
+`placeholder_doors` changes with it; new faces are generated.
+
+**F4. SPA-2 Ninety Tubes - through Cotter.** Cotter works the Iron Company's
+gate in Great Dunnage (`dunnage.py`). With Spare in the party he knows his
+brother, and he has a job a man does not fit: the jammed lock gate on the
+Dunnage cut. The party waits outside and Spare goes in alone, with
+`SPARE.md` 3's party swap, on a confined map (68+). Cotter's published scene
+stays as it is; the new page requires his ladder's terminal.
 
 ### Part G - the ending, last
 
@@ -473,6 +518,11 @@ hours, in the background. Then Mike plays it. Then, and only then, `live-rpg`.
 
 `COMPANIONS.md` 8's hook - **the Door into the Mountain**, the lamp from Sir
 Dunstable at a quarter past four - is not a companion quest. It stays owed.
+
+**SPA-3 The Tenth** moves to the extension past the current ending (Mike, 5 Oct
+2026): spring comes *after* the Prophecy is beaten, and the party takes Spare
+home for it. Nothing in this effort may settle the baby - G1's line for Spare
+included.
 
 ---
 
