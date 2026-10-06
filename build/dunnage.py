@@ -545,7 +545,7 @@ def town_events():
     # 12: Cotter, at the Iron Company's gate.
     evs.append(q_hob.owned("cotter", _person(                      # HOB-1
         12, "Cotter", COTTER,
-        R.image("SF_Actor2", 7, direction=2), *cotter_pages())))
+        R.image(*S.FACES["Cotter"], direction=2), *cotter_pages())))
     # 13: Mrs Poskitt, on the square.
     evs.append(_person(13, "Mrs Poskitt", POSKITT,
                        R.image(*S.FACES["Mrs Poskitt"], direction=2), *poskitt_pages()))

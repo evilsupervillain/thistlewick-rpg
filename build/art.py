@@ -307,6 +307,13 @@ SHEETS = {
         (1, "ambrosine-quill.json"),    # PIP-1: the Authorised Version
         (2, "cobb-lorrimer.json"),      # NIX-3: steals things, and says so
         (3, "maud-penhallow.json"),     # ROL-5: the understudy, sixteen
+        # Two Cotterills off the stock sheets, at Mike's request. Spare's
+        # `SF_People1` 0 has no side-view battler and F1 needs one, so he is
+        # redrawn whole - the same lad, blue-black hair, pale blue - and his
+        # face, sprite and battler match. Cotter's `SF_Actor2` 7 read as a
+        # woman; he is Rivet's brown hair and white work jacket, older.
+        (4, "spare-cotterill.json"),    # F1: aged nine, a bag packed
+        (5, "cotter-cotterill.json"),   # the Iron Company's gate, Saturdays
     ],
 }
 

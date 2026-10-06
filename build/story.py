@@ -102,7 +102,7 @@ FACES = {
     "Mrs Tunnicliffe": ("SF_People1", 7),      # white hair, spectacles, scarf
     "Mrs Cotterill": ("SF_People1", 5),        # dark braid, unbothered
     "Mr Cotterill": ("SF_People1", 4),         # moustache, work jacket
-    "Spare": ("SF_People1", 0),                # a lad of nine, blue shirt
+    "Spare": ("Gen_People14", 4),              # a lad of nine, blue shirt
     "Sowerby": ("SF_People1", 6),              # knit cap, white beard
     "Nib": ("SF_People1", 1),                  # ponytail, red cardigan
     "Mr Kell": ("SF_People1", 2),              # black hair, blue jacket
@@ -400,9 +400,10 @@ FACES = {
     # the Bell's other two judges and the Company's other Warden speak with no
     # portrait. **"Mr Tibbs" is not "Tibb"** (Nether Sopping's, `People1` 0),
     # which a prefix grep finds first, and nobody else in the game speaks as
-    # "The Mayor". Cotter Cotterill shares `SF_Actor2` 7, which
-    # nothing had used: brown hair and a white work jacket, which is his
-    # brother Rivet's look (`SF_Actor1` 0) four years on, and meant to be.
+    # "The Mayor". Cotter Cotterill was `SF_Actor2` 7, which read as a
+    # woman; he is generated now, `Gen_People14` 5 below: brown hair and a
+    # white work jacket, his brother Rivet's look (`SF_Actor1` 0) four years
+    # on, and meant to be.
     "The Mayor": ("Gen_People6", 0),
     "Prime Warden": ("Gen_People6", 1),
     "Mr Tibbs": ("Gen_People6", 2),
@@ -435,7 +436,8 @@ FACES = {
     # ROL-5's understudy (QUESTS.md E17), sixteen, generated.
     "Maud": ("Gen_People14", 3),
     "Miss Fettle": ("Gen_People6", 4),
-    "Cotter": ("SF_Actor2", 7),
+    # Cotter, generated: SF_Actor2 7 read as a woman.
+    "Cotter": ("Gen_People14", 5),
 }
 
 

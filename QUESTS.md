@@ -456,7 +456,7 @@ Order within E is cheapest first; reorder freely.
 first. **Blocked on art** (section 1): his side-view battler and Mrs
 Cotterill's enemy image. Build everything else, and ask Mike for the two
 images when this step is reached rather than at the very end, because
-`validate.py` fails without the battler. **F2. SPA-1 The Letters**, **F3.
+`validate.py` fails without the battler. **Unblocked, 5 Oct 2026.** At Mike's word Spare was redrawn whole with the generator, `Gen_People14` 4 (`build/characters/spare-cotterill.json`): face, sprite and battler `Gen_People14_5` all match, and `FACES["Spare"]` points there. Mike supplied `img/sv_enemies/Mrs_Cotterill.png`. Both images are in. **F2. SPA-1 The Letters**, **F3.
 SPA-3 The Tenth**, **F4. SPA-2 Ninety Tubes** (a confined map, 66+).
 
 ### Part G - the ending, last
@@ -3483,6 +3483,11 @@ Both are stock-face characters (`SF_People1`), so the generator cannot draw a
 match, and `validate.py` fails a side-view actor with no battler. Build
 everything else and ask Mike for the two images when the step is reached,
 not at the end.
+
+**Unblocked, 5 Oct 2026.** At Mike's word Spare was redrawn whole with the
+generator, `Gen_People14` 4 (`build/characters/spare-cotterill.json`): face,
+sprite and battler `Gen_People14_5` all match, and `FACES["Spare"]` points
+there. Mike supplied `img/sv_enemies/Mrs_Cotterill.png`. Both images are in.
 
 Read section 0, the Part F entry in section 2 and the newest Done paragraphs
 (E16-E18 and the rerun after them), once, at the start; then `SPARE.md`

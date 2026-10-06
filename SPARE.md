@@ -437,6 +437,12 @@ tuned two expansions ago. Run `balance.py` before a stat is committed.
 
 ## 6. The art, and it is a blocker
 
+**Unblocked, 5 Oct 2026.** At Mike's word he was redrawn whole with the
+generator, `Gen_People14` 4 (`build/characters/spare-cotterill.json`): face,
+sprite and battler `Gen_People14_5` all match, and `FACES["Spare"]` points
+there. Mike supplied `img/sv_enemies/Mrs_Cotterill.png`. Both images are in.
+
+
 `validate.py` line 86: a side-view game with an actor whose `battlerName` is not
 in `img/sv_actors/` is a **hard validation failure**, not a cosmetic one.
 
