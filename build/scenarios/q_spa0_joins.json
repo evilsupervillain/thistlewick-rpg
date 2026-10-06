@@ -1,6 +1,6 @@
 {
   "query": "?map=21&x=14&y=42&frames=90",
-  "comment": "QUESTS.md F1, Spare joins - the gate. Spare's three beats played (the first is his application); Shim's washer, carried, and her afterwards; Gudgeon's form page reading out the three sections of Form P-9 one at a time - Spare heard in full, the family met (not Cotter), the Two Hundred set down by the tower (flying is not enough) - then the form issued; Spare's whole conversation with 'Not yet'; the short ask with no room; and the Eighty-Four window. Faces read off the live message window. The argument is q_spa0_argument.",
+  "comment": "QUESTS.md F1, Spare joins - the gate. Spare's three beats played (the first is his application); Shim's washer, carried, and her afterwards; Gudgeon's form page reading out the three sections of Form P-9 one at a time - Spare heard in full, the family met (not Cotter), the airship (SW_AIRSHIP) - then the form issued; Spare's whole conversation with 'Not yet'; the short ask with no room; and the Eighty-Four window. Faces read off the live message window. The argument is q_spa0_argument.",
   "steps": [
     {
       "eval": "$gameSystem.disableEncounter()"
@@ -217,30 +217,10 @@
         true,
         false
       ],
-      "label": "section three: the Two Hundred never set down by the tower"
+      "label": "section three: no airship"
     },
     {
       "eval": "window._mark(); $gameSwitches.setValue(53, true)"
-    },
-    {
-      "eval": "$gameMap.event(4).start()"
-    },
-    {
-      "frames": 30
-    },
-    {
-      "advance": 60
-    },
-    {
-      "check": "[window._has('He is nine. He is not walking to'), $gameSwitches.value(89)]",
-      "expect": [
-        true,
-        false
-      ],
-      "label": "the airship flying is not enough: switch 68, set down by the tower, as SPARE.md preferred"
-    },
-    {
-      "eval": "window._mark(); $gameSwitches.setValue(68, true)"
     },
     {
       "eval": "$gameMap.event(4).start()"

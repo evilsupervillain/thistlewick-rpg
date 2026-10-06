@@ -1349,7 +1349,7 @@ is stated per type; append, never renumber.
 
 | range | what |
 | --- | --- |
-| Actors / Classes | **none.** Ten is already more than a four-slot party can use, and the north's contribution is a vehicle and a town, not another body. Ott stays an NPC. **Amended 5 Oct 2026 (`QUESTS.md` F1): reversed, deliberately.** `SPARE.md` proposed Spare Cotterill as a secret tenth companion and Mike chose to build him: **Actor 11**, Spare, on **Class 12**, The Ninth (11 was taken by WRE-1's published Cataloguer). The reason above was right for the north as a vehicle and a town; it is overturned for one nine-year-old, who is the north's last reward and joins only after the Two Hundred has set down by the tower. Ott still stays an NPC. |
+| Actors / Classes | **none.** Ten is already more than a four-slot party can use, and the north's contribution is a vehicle and a town, not another body. Ott stays an NPC. **Amended 5 Oct 2026 (`QUESTS.md` F1): reversed, deliberately.** `SPARE.md` proposed Spare Cotterill as a secret tenth companion and Mike chose to build him: **Actor 11**, Spare, on **Class 12**, The Ninth (11 was taken by WRE-1's published Cataloguer). The reason above was right for the north as a vehicle and a town; it is overturned for one nine-year-old, who is the north's last reward and joins only once the Two Hundred flies. Ott still stays an NPC. |
 | Skills 140-149 | northern enemy and boss skills (137-139 left as a gap) |
 | Items 13-19 | northern consumables |
 | **Items 30-36** | northern key items. **The 20-29 key-item block is full** (max item id is 29); key items continue at 30. **30** Forty Bolts of Oilskin, **31** Number-Plate 112, **32** ITEM 1; 33-36 free. |

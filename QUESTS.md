@@ -466,9 +466,11 @@ still allows:
 * *The gate* is `SPARE.md`'s A + B + C + D. B is `SPARE.md`'s own list of the
   family - Mr and Mrs Cotterill, Ferrule, Clevis, Shim and Bessie on the
   street, Rivet, Gudgeon, Tappet and Grommet indoors - and **not Cotter**, who
-  was drawn later in Great Dunnage and is F4's way in. C is
-  `SW_TWO_HUNDRED_FLEW` (68), the "or better, has flown somewhere real" of
-  `SPARE.md`; `SW_AIRSHIP` (53) is the one-line fallback if it plays too late.
+  was drawn later in Great Dunnage and is F4's way in. C is `SW_AIRSHIP`
+  (53), the day Ott hands the Two Hundred over. (F1 first built it on
+  `SW_TWO_HUNDRED_FLEW`, 68, taking `SPARE.md`'s "has flown somewhere real"
+  at the switch it named - but 68 means *set down beside the tower*, a
+  narrow and arbitrary thing to require; Mike, 6 Oct 2026.)
   A, B and C are script reads inside Gudgeon's page (a page condition names
   two switches at most).
 * *Class 12*, not 11 - WRE-1 took 11. *Weapon type 13 "Bag"* and *armour type
@@ -3531,8 +3533,9 @@ byte what it was; the data diff is Spare's ids and nothing else.
   the family met, all of it ("It is a long section. Mam has the list. So do
   I."), which is `q_spare.FAMILY`, `SPARE.md`'s ten - **not Cotter**;
   *three*, means of travel ("He is nine. He is not walking to a tower through
-  the Gloamwood"), which is `SW_TWO_HUNDRED_FLEW` - the airship merely flying
-  is not enough, proved. Then the third drawer, one sheet, blown on: the form
+  the Gloamwood"), which is `SW_AIRSHIP` - having the Two Hundred at all.
+  (Built first on `SW_TWO_HUNDRED_FLEW`, set down by the tower, which
+  `SPARE.md` never asked for; changed at Mike's word, 6 Oct 2026.) Then the third drawer, one sheet, blown on: the form
   (item 33, `SW_SPARE_FORM`), "Good luck." Afterwards: her own last line,
   and "And Mam signs it, or nobody does." `q_spare.check_family`, called from
   `build_game`, fails the build if north.py's event ids ever move under it.
@@ -3563,7 +3566,7 @@ byte what it was; the data diff is Spare's ids and nothing else.
   slot; the first run of `q_spa0_argument` caught exactly that). Every skill
   but one is something out of the bag and needs it: Small Enough (a candle
   end, `a.agi * 2`), I Have A Bag (plasters, a hanky and a boiled sweet each),
-  They Never Hit Me (the jumper, state 42), Ninety Tubes (a flue brush longer
+  They Never Hit Me (the jumper, state 42; icon 135, a pullover - 154 is a dress), Ninety Tubes (a flue brush longer
   than the bag; state 43, DEF to 60% for the fight), The Drawing (scope 13:
   revives, heals, ATK and AGI up, full TP; costs 100). **Temper Tantrum** is
   the one where he puts the bag down: 20 TP, `a.agi * 4.5 - b.def`, common
@@ -3587,7 +3590,7 @@ byte what it was; the data diff is Spare's ids and nothing else.
   wrote." Nothing may settle the baby (SPA-3 is the extension's).
 * `NORTH.md` 9's "Actors / Classes: none" is amended, not deleted; enemy 28 is
   written into its table. `TIMELINE.md` has his six and his two years.
-* **Scenarios**: `q_spa0_joins` 21 checks, `q_spa0_argument` 17 checks - all
+* **Scenarios**: `q_spa0_joins` 19 checks, `q_spa0_argument` 17 checks - all
   pass, the argument fought for real on auto-battle, a loss and then a win,
   with a screenshot of the fight (`spa0_argument.png`). **Rerun**, because they stand on Maps 21
   or 25 (found by parsing every scenario's `query` and `goto`): `clanging_cast`

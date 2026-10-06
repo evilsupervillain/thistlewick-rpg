@@ -883,8 +883,7 @@ makes eight passes over it cost less than the single pass did before.
   else's |
 | `q_spa0_joins` | `QUESTS.md` F1, Spare's gate: his beats played, Shim's
   washer, **Gudgeon reading the three sections of Form P-9 one at a time** -
-  heard in full, the family met (not Cotter), the Two Hundred set down by the
-  tower (flying is not enough) - the form, the whole conversation with "Not
+  heard in full, the family met (not Cotter), the airship - the form, the whole conversation with "Not
   yet", no room in his voice, and the Eighty-Four window; faces off the live
   window |
 | `q_spa0_argument` | `QUESTS.md` F1, the argument fought for real with **Spare

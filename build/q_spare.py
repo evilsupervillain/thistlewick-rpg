@@ -16,8 +16,8 @@ his mother, who is right.
   she checks the rest out loud, one section of the form at a time: Spare
   heard in full (his own last self switch), the family met (`FAMILY`, every
   one of them a `talker` whose self switch A is the meeting - **not Cotter**,
-  who lives in Great Dunnage and is F4's), and the Two Hundred set down by
-  the tower (`SW_TWO_HUNDRED_FLEW`) - he is nine, and he is not walking.
+  who lives in Great Dunnage and is F4's), and the airship (`SW_AIRSHIP`,
+  the day Ott hands it over) - he is nine, and he is not walking.
 * **Shim's washer** is carried, never required: a page below her one self
   switch on `SW_SPARE_ASKED`. After he has joined it is his to wear at once.
 * **The scene is Spare's**, Map 21 event 13, two pages below his ladder's
@@ -83,9 +83,8 @@ def _sections():
         "a tower through the Gloamwood.",
     ]) + S.say("Gudgeon", [
         "If somebody had a way of getting",
-        "there that was not walking, and had",
-        "gone and set it down by the tower and",
-        "come back, it would be different.",
+        "there that was not walking, it would",
+        "be different.",
     ])
     issue = S.narrate([
         "She gets up. She goes to the third drawer of the",
@@ -107,7 +106,7 @@ def _sections():
         R.control_switch(db.SW_SPARE_FORM, True)]
     return R.if_then(R.condition_script(HEARD), R.if_then(
         R.condition_script(MET), R.if_then(
-            R.condition_switch(db.SW_TWO_HUNDRED_FLEW), issue, no_airship),
+            R.condition_switch(db.SW_AIRSHIP), issue, no_airship),
         no_family), no_hearing)
 
 

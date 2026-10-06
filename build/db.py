@@ -3084,7 +3084,7 @@ def build_spare():
 
     st = R.load("States.json")
     upsert(st, state(
-        ST_NEVER_HIT, "They Never Hit Me", 154, traits=[trait(23, 0, 0)],
+        ST_NEVER_HIT, "They Never Hit Me", 135, traits=[trait(23, 0, 0)],
         auto_removal=2, max_turns=3, min_turns=3,
         message1="%1 is wearing the jumper his mam knitted.",
         message4="%1 has taken the jumper off. It was warm."))
@@ -3122,7 +3122,7 @@ def build_spare():
     bag.append(skill(
         SK_NEVER_HIT_ME, "They Never Hit Me",
         "Three turns in which nobody can make themselves swing at him.",
-        "0", dmg_type=0, scope=11, tp=25, icon=154, animation=52,
+        "0", dmg_type=0, scope=11, tp=25, icon=135, animation=52,
         hit_type=0, effects=[effect(21, ST_NEVER_HIT, 1.0)],
         message="%1 takes out the jumper, and puts it on."))
     bag.append(skill(
