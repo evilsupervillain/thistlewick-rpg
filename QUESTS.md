@@ -3518,53 +3518,128 @@ Map 8, so the rerun was chosen by what each change can reach:
 `tower_door` 6, `dunnage_company` 54, `dunnage` 153. Nothing is owed. **Part E
 is done.**
 
+**F1, Spare joins - done** (5 Oct 2026). `q_spare.py` (new), hooked from
+`north.py` (Spare, Shim, Gudgeon: one line each); his records in
+`db.build_spare`; `build/scenarios/q_spa0_joins.json` and
+`q_spa0_argument.json`. Every page on Maps 21 and 25 that existed is byte for
+byte what it was; the data diff is Spare's ids and nothing else.
+
+* **The gate is `SPARE.md`'s A + B + C + D**, read out by **Gudgeon** (Map 25
+  event 4, pages 3-4 below her one self switch on `SW_SPARE_ASKED`): she knows
+  where Form P-9 is and does not get up, and reads the first unmet section of
+  it - *one*, the applicant heard in full (Spare's own self switch C); *two*,
+  the family met, all of it ("It is a long section. Mam has the list. So do
+  I."), which is `q_spare.FAMILY`, `SPARE.md`'s ten - **not Cotter**;
+  *three*, means of travel ("He is nine. He is not walking to a tower through
+  the Gloamwood"), which is `SW_TWO_HUNDRED_FLEW` - the airship merely flying
+  is not enough, proved. Then the third drawer, one sheet, blown on: the form
+  (item 33, `SW_SPARE_FORM`), "Good luck." Afterwards: her own last line,
+  and "And Mam signs it, or nobody does." `q_spare.check_family`, called from
+  `build_game`, fails the build if north.py's event ids ever move under it.
+* **Shim** (Map 21 event 16, pages 3-4 below her self switch on
+  `SW_SPARE_ASKED`): "I said he can have a washer." She does not offer the
+  bearing. Not the bearing. Carried as item 34 - or, if he has already
+  joined, straight onto him (armour 27).
+* **Spare** (Map 21 event 13, pages 5-7, below his ladder's terminal C):
+  page 5 on the form is `SPARE.md` 2 whole, the Eighty-Four window inside it
+  on `SW_84_REBUILT`; page 6 on self switch **D** is the short ask, which "Not
+  yet", no room and a lost argument all set - "The bag is down already", or,
+  after a loss, "I have been thinking about Mam."; page 7 on
+  `SW_SPARE_JOINED` is blank and walk-through. No room is his line: "You have
+  got three already. I will wait. I am extremely good at it."
+* **The argument** is fought by Spare alone, exactly as `SPARE.md` 3 says: the
+  party array to `$gameTemp`, `setup(11)` at level 12, troop 29, can lose and
+  cannot escape, a troop page that says "Mrs Cotterill stops." and aborts at a
+  quarter, and the party put back after all three branches. Lost: "Tea is at
+  six. Wash your hands." (`SW_SPARE_REFUSED`); the retry's Mam is short
+  ("On who?" "Shim."). Won: the concession, word for word, then he joins -
+  levelled to the party's highest, rested, Shim's washer on him if it was
+  carried, **The Drawing learned** because it is what she found in the bag,
+  the form handed over, `SW_SPARE_JOINED`, `SW_SPARE_KNOWN`, `VAR_COMPANIONS`.
+* **The records** (`db.build_spare`): Actor 11 on **Class 12**, The Ninth -
+  tgr 0.45, evasion 0.25, double gold, special skills only, AGI the best in
+  the game and HP, DEF and ATK the worst. **Weapon type 13, Bag**, his alone,
+  locked in his hand (Lock Equip, 53 - *not* Seal Equip, 54, which deletes the
+  slot; the first run of `q_spa0_argument` caught exactly that). Every skill
+  but one is something out of the bag and needs it: Small Enough (a candle
+  end, `a.agi * 2`), I Have A Bag (plasters, a hanky and a boiled sweet each),
+  They Never Hit Me (the jumper, state 42), Ninety Tubes (a flue brush longer
+  than the bag; state 43, DEF to 60% for the fight), The Drawing (scope 13:
+  revives, heals, ATK and AGI up, full TP; costs 100). **Temper Tantrum** is
+  the one where he puts the bag down: 20 TP, `a.agi * 4.5 - b.def`, common
+  event 4 takes a fifth of his HP (never the last point), and its element is
+  **10, Temper**, which Mrs Cotterill alone is immune to - it has never once
+  worked on her. **Armour type 14, Washer.** Mrs Cotterill is enemy 28 on
+  Mike's art: You Are Nine (a third of his HP, her opener), Ask Your Father
+  (a heal; "Mr Cotterill looks at the sky."), That Is Not The Point (every
+  buff and the jumper off him; "He was doing so well."), I Have Said No
+  (below half: less damage, all his TP; "It is not louder. It is quieter.").
+  Tuned by simulation at level 12: about six in seven for a player who heals
+  and spends TP well, eleven turns or so; 2,600 HP. `balance.py` at 14: his
+  best hit 555 against Hob's 760 and Nix's 276, no sweep, 559 HP.
+* **Not in `story.COMPANIONS`**, so no form desk can strike him off; he is in
+  `SW_RECRUIT`, `SW_KNOWN` and `SW_STORY` (110) for their names and for
+  `companion_story`. He does not leave at the tower door.
+* **Tropes +2** (the fight starting, once; the secret companion, at the
+  join): running tally **+46 fixed**, and 2-9 from PIP-2. **Blushes +0**:
+  +13 fixed. Ending block: G1's, as decided - candidate line for Spare,
+  "Spare Cotterill, aged nine, Form P-9, countersigned by his mother. He
+  wrote." Nothing may settle the baby (SPA-3 is the extension's).
+* `NORTH.md` 9's "Actors / Classes: none" is amended, not deleted; enemy 28 is
+  written into its table. `TIMELINE.md` has his six and his two years.
+* **Scenarios**: `q_spa0_joins` 21 checks, `q_spa0_argument` 17 checks - all
+  pass, the argument fought for real on auto-battle, a loss and then a win,
+  with a screenshot of the fight (`spa0_argument.png`). **Rerun**, because they stand on Maps 21
+  or 25 (found by parsing every scenario's `query` and `goto`): `clanging_cast`
+  38, `q_mer2` 52, `q_nix4` 60 - all passed - and `clanging_faces` 18 after
+  one fix that was **not** F1's: it still expected Spare's stock face,
+  `SF_People1` 0, which the redraw (a0cf092) replaced with `Gen_People14` 4
+  without updating the check. Its expectation and label are corrected, and
+  `face_spare.png` shows the new face.
+
 ---
 
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step F1, Spare joins**
-(`SPARE.md`, `q_spare.py`). **Parts A-E are done** (E16-E18 and their rerun
-on 3 Oct 2026). One step per session again (0.1) unless Mike asks for more.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step F2, SPA-1 The
+Letters** (`COMPANIONS.md`'s Spare section as amended, `QUESTS.md` F2,
+`q_spare.py`). **Parts A-E and F1 are done** (F1, Spare joins, 5 Oct 2026).
+One step per session (0.1) unless Mike asks for more.
 
-**F1 is blocked on art, and the first thing to do is ask for it**: Spare's
-side-view battler and Mrs Cotterill's enemy image (section 1; `SPARE.md` 6).
-Both are stock-face characters (`SF_People1`), so the generator cannot draw a
-match, and `validate.py` fails a side-view actor with no battler. Build
-everything else and ask Mike for the two images when the step is reached,
-not at the end.
+F2 is **the courier: the same man every time**, one generated character
+(cap, satchel, red coat; the next free cell is `Gen_People14` 6, check
+`art.py`) already standing in every town Spare writes from - the airship's
+rocks included - and never explaining. Spare hands him a letter per town,
+four lines each and increasingly untrue; the set readable from the menu; the
+payoff at the works at the dinner hour, where Mrs Cotterill reads them out
+and the whole shift knows about the dragon. Pages there go **below Mrs
+Cotterill's one self switch**, on `SW_SPARE_JOINED`. Decide which towns, and
+whether a town's letter needs Spare in the party when it is posted (it does:
+he writes them). Then F3 (Village 1, the pen pal), F4 (Cotter, the lock
+gate), G1.
 
-**Unblocked, 5 Oct 2026.** At Mike's word Spare was redrawn whole with the
-generator, `Gen_People14` 4 (`build/characters/spare-cotterill.json`): face,
-sprite and battler `Gen_People14_5` all match, and `FACES["Spare"]` points
-there. Mike supplied `img/sv_enemies/Mrs_Cotterill.png`. Both images are in.
-
-Read section 0, the Part F entry in section 2 and the newest Done paragraphs
-(E16-E18 and the rerun after them), once, at the start; then `SPARE.md`
-whole, with its switches renumbered to 89-92 first (0.3, 0.6). Read what the
-step needs by dumping its maps' events and their text, not by opening a
-module. Crop anything a step touches with `propsheet.py` before judging, and
-screenshot before and after anything changed (0.1).
+Read section 0, Part F in section 2, and the F1 Done paragraph, once, at the
+start. Read what the step needs by dumping its maps' events and their text,
+not by opening a module. Crop anything a step touches with `propsheet.py`
+before judging, and screenshot before and after anything changed (0.1).
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
-byte: every existing page identical, only appended pages and new events
-(and, on a widened map, every tile inside the old bounds). `validate.py`,
-and `apidigest.py . --write` (new `db` constants change `build/API.md`).
-Screenshots of anything drawn, looked at. The step's own scenario,
-`build/scenarios/q_spa*.json`, run in the background, one browser at a time.
-Then the Done paragraph, a commit, and this prompt moved on. Nothing is
-pushed. No full suite until G1.
+byte: every existing page identical, only appended pages and new events.
+`validate.py`, and `apidigest.py . --write`. Screenshots of anything drawn,
+looked at. The step's own scenario, `build/scenarios/q_spa1*.json`, run in
+the background, one browser at a time. Then the Done paragraph, a commit, and
+this prompt moved on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +44 fixed and 2-9 from PIP-2; blushes +13 fixed
+Where things stand: tropes +46 fixed and 2-9 from PIP-2; blushes +13 fixed
 and 0-1 from PIP-2. Next free: switch 208, variable 28, item 73, weapon 44,
-armour 49, armour type 14, class 12, common event 4, state 42, enemy 60,
-troop 55, skill 185, map 68, `Gen_People14` 4. Spare keeps his reserved ids
-(0.6): switches 89-92 and 110, items 33-34, weapon 34, armour 27, skills
-146-155, enemy 28, troop 29. **Every companion has had their gear** (0.5);
-Spare's is `SPARE.md`'s. Map 8's last event is now 83 (ROL-2's cave); the
-tower door has four pages (E17, E18), and anything appended to it must carry
-both splices or come after them.
+armour 49, armour type 15, weapon type 14, element 11, class 13, common event
+5, state 44, enemy 60, troop 55, skill 185, map 68, `Gen_People14` 6. Spare
+is actor 11; his story switch is 110 (`db.SW_STORY[db.SPARE]`, so
+`story.companion_story(db.SPARE)` works). Map 8's last event is 83; the tower
+door has four pages (E17, E18), and anything appended to it must carry both
+splices or come after them.
 
 Things learned that will bite again:
 
@@ -3630,6 +3705,13 @@ Things learned that will bite again:
   a fixed range and the smaller room left a row of rock across it;
   `validate.py` said the Worm could not be reached. Derive a corridor from the
   rooms it joins (E18).
+* **Seal Equip (trait 54) is not "cannot be changed"; Lock Equip (53) is.**
+  Seal takes the slot away, so `setup()` silently drops the weapon and every
+  skill with a required weapon type goes dark - the actor fights bare-handed
+  and nothing says so. Assert the kit at the start of a scripted fight (F1).
+* **`BattleManager.abort()` only sets a phase**: with a message window open
+  in the battle, it waits. A scenario that ends a battle it started itself
+  should clear the message and call `processAbort()` (F1).
 * **The end-of-part rerun by map id is the whole suite** once Maps 1, 8, 13
   or 14 are touched. Choose by what each change can reach and write the
   reasoning down (the E1-E6 rerun paragraph).

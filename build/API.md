@@ -673,7 +673,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-568 constants.
+597 constants.
 
 ```
 BRAM                         1
@@ -1196,6 +1196,34 @@ EN_WORM                      59
 TR_WORM                      54
 SK_COILS                     183
 SK_LOOKS_AT_HIM              184
+SPARE                        11
+SW_SPARE_FORM                89
+SW_SPARE_JOINED              90
+SW_SPARE_REFUSED             91
+SW_SPARE_KNOWN               92
+SW_SPARE_STORY               110
+IT_FORM_P9                   33
+IT_WASHER                    34
+WP_BAG                       34
+AR_WASHER                    27
+WT_BAG                       13
+AT_WASHER                    14
+SK_YOU_ARE_NINE              146
+SK_ASK_YOUR_FATHER           147
+SK_NOT_THE_POINT             148
+SK_SAID_NO                   149
+SK_SMALL_ENOUGH              150
+SK_TANTRUM                   151
+SK_HAVE_A_BAG                152
+SK_NEVER_HIT_ME              153
+SK_NINETY_TUBES              154
+SK_THE_DRAWING               155
+ST_NEVER_HIT                 42
+ST_BRUSHED                   43
+EN_MAM                       28
+TR_MAM                       29
+CE_TANTRUM                   4
+SPARE_ARGUING_LEVEL          12
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31
 AR_CERTIFICATE               32
@@ -1212,6 +1240,7 @@ EL_EARTH                     6
 EL_WIND                      7
 EL_LIGHT                     8
 EL_DARK                      9
+EL_TEMPER                    10
 STYPE_MAGIC                  1
 STYPE_SPECIAL                2
 ET_WEAPON                    1

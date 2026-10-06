@@ -26,8 +26,9 @@ the Inevitable does not want to be the Dark Lord; he is four thousand eight hund
 years into a renewable engagement he cannot get out of. Beat him and the Prophecy itself
 unrolls to enforce clause twelve, and *that* is the real last boss.
 
-Bram can take up to three of nine companions. Each is a different answer to the
-same fight, so who you pick changes how combat plays:
+Bram can take up to three of nine companions - ten, counting the secret one.
+Each is a different answer to the same fight, so who you pick changes how
+combat plays:
 
 | who | class | good at | bad at |
 | --- | --- | --- | --- |
@@ -41,6 +42,7 @@ same fight, so who you pick changes how combat plays:
 | Corvin Ash | Doomed Rival | dark damage, and more of it the worse things get | DEF, luck, being told the school is very good |
 | Wren Halloway | Cataloguer | multi-hit range, poison, armour-shredding, double drops | raw damage |
 | Roland Fairweather | Guest Star | everything, genuinely | being there at the end |
+| Spare Cotterill | The Ninth | getting in anywhere: AGI, no DEF term, not being hit, a full-party revive, double gold | HP, DEF, ATK, and getting past his mother |
 
 The last three are found in a tavern in the south, and the last of them
 **leaves at the door of the Obligatory Tower**, which is deliberate. See
@@ -278,6 +280,15 @@ Append instead.
 | --- | --- |
 | Actors 1-10 | Bram, Merribell, Hob, Zephyrine, Nix, Aldric, Piper, Corvin, Wren, Roland |
 | Classes 1-10 | one per actor, same order |
+| Class 11 | Cataloguer (Published), Wren's upgrade from WRE-1, by Change Class |
+| **Spare** | `SPARE.md`, `QUESTS.md` F1, `q_spare.py`, `db.build_spare`: **Actor 11**
+  Spare, **Class 12** The Ninth, **Skills 150-155** his and **146-149** his
+  mother's, **States 42-43** They Never Hit Me and Brushed Through, **Enemy 28**
+  Mrs Cotterill, **Troop 29** A Discussion With Mam, **Weapon 34** A Bag, Packed,
+  **Armor 27** A Washer, Off Shim, **Items 33-34** Form P-9 and the washer,
+  **Common Event 4** what Temper Tantrum costs him, **weapon type 13** Bag,
+  **armour type 14** Washer, **element 10** Temper - his tantrum's, which his
+  mother alone is immune to |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -490,9 +501,11 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
   book. Set on Map 42 and read by a page on Grimspite on Map 12, which is why
   it is a global - a page condition cannot name another event's self switch.
   The first new switch of the world-map sites |
-| 89-92 | **Spare**, reserved (`QUESTS.md` 0.6): 89 `SW_SPARE_FORM`, 90 his recruit
-  switch (`SPARE.md`'s `SW_SPARE_JOINED`), 91 `SW_SPARE_REFUSED`, 92 his
-  `SW_KNOWN`. `SPARE.md` says 72-74, which are `SW_KNOWN`'s |
+| 89-92 | **Spare** (`QUESTS.md` F1): 89 `SW_SPARE_FORM` Gudgeon has issued Form
+  P-9, 90 `SW_SPARE_JOINED` (also `SW_RECRUIT[SPARE]`), 91 `SW_SPARE_REFUSED`
+  the argument lost at least once, 92 `SW_SPARE_KNOWN` (also `SW_KNOWN[SPARE]`).
+  `SPARE.md` says 72-74, which are `SW_KNOWN`'s. He is in those dicts and
+  **not** in `story.COMPANIONS`: no form desk can strike him off |
 | 93-100 | unallocated |
 | 101-109 | `SW_<NAME>_STORY`: Merribell, Hob, Zephyrine, Nix, Aldric, Piper,
   Corvin, Wren, Roland have had a companion quest of their own finished - same
@@ -868,6 +881,17 @@ makes eight passes over it cost less than the single pass did before.
   once; then after the door, the sword **equipped on Bram**, the refit turned
   down and then done: the sword gone off his hands, the axe Hob's and nobody
   else's |
+| `q_spa0_joins` | `QUESTS.md` F1, Spare's gate: his beats played, Shim's
+  washer, **Gudgeon reading the three sections of Form P-9 one at a time** -
+  heard in full, the family met (not Cotter), the Two Hundred set down by the
+  tower (flying is not enough) - the form, the whole conversation with "Not
+  yet", no room in his voice, and the Eighty-Four window; faces off the live
+  window |
+| `q_spa0_argument` | `QUESTS.md` F1, the argument fought for real with **Spare
+  alone** on auto-battle: lost - no Game Over, the party put back, the trope
+  once - then she stops at a quarter, she concedes and he joins, levelled to
+  the party with The Drawing and the washer on him; the same face, sprite and
+  battler as the doorstep; the bag sealed in his hand; a shot of the fight |
 
 | `firstfield` | Firstfield Meadow walked with the arrow keys: in off the rainbow,
   Fizz in front of you before a step and in front of the sign you try to read,

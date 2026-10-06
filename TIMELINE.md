@@ -190,6 +190,7 @@ when it does, in a round year.
 | Maud Penhallow | sixteen (in the yard since nine) | `q_roland` (ROL-5) |
 | Corvin Ash | thirty (nineteen, and eleven years in the corner) | `south` |
 | the Cotterills | Cotter 24, Rivet 22, Gudgeon 20, Tappet 18, Ferrule 16, Grommet 15, Clevis 13, Shim 11, Spare 9, and one due in the spring | `north` (Gudgeon's register) |
+| Spare Cotterill | nine; brushing the boiler's ninety tubes since six (1997); the bag packed two years (1998); out of a boiler nine times, by his mother's count | `q_spare` (F1) |
 | Pemberton-Gore IV | nineteen; found the gate at ten | `fenmarch` |
 | Toby Wendle | ten | `gladhollow` |
 | Clem Blagg | seven | `frostwick` |

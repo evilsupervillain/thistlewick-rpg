@@ -1,0 +1,270 @@
+{
+  "query": "?map=21&x=14&y=42&frames=90",
+  "comment": "QUESTS.md F1, Spare joins - the argument (SPARE.md 3-4), fought for real on auto-battle with Spare alone: lost first - no Game Over, the party put back, the form and washer kept, the trope counted - then the short ask, she stops at a quarter, the concession, and the join: levelled to the party, The Drawing learned, the washer on him, the same face, sprite and battler as the doorstep. Shim's washer straight onto him afterwards. A screenshot of the fight.",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "eval": "window._lines = []; window._faces = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; const sf = Game_Message.prototype.setFaceImage; Game_Message.prototype.setFaceImage = function (n, i) { if (n) window._faces.push(n + ':' + i); return sf.call(this, n, i); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._lines = []; window._faces = []; window._troops = []; window._members = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._has = s => window._lines.some(l => l.includes(s)); window._auto = false; const ab = Game_BattlerBase.prototype.isAutoBattle; Game_BattlerBase.prototype.isAutoBattle = function () { return (window._auto && this.isActor()) || ab.call(this); }; window._mode = ''; const ss = Scene_Battle.prototype.start; Scene_Battle.prototype.start = function () { ss.call(this); this._bf = 0; window._troops.push($gameTroop._troopId); window._members.push($gameParty.battleMembers().map(a => a.actorId())); window._level = $gameActors.actor(11).level; window._kit = [$gameActors.actor(11).weapons().map(w => w.id), [150, 152, 153, 154].map(i => $gameActors.actor(11).isSkillWtypeOk($dataSkills[i]))]; }; const su = Scene_Battle.prototype.update; Scene_Battle.prototype.update = function () { su.call(this); this._bf++; const s = $gameActors.actor(11); const m = $gameTroop.members()[0]; if (window._mode === 'win' && s.isAlive()) s.setHp(s.mhp); if (window._mode === 'win' && this._bf === 150) m.setHp(Math.floor(m.mhp * 0.2)); if (window._mode === 'lose' && this._bf === 150) { s.addState(1); s.setHp(0); } }; const go = Scene_Gameover.prototype.start; Scene_Gameover.prototype.start = function () { window._gameover = true; return go.call(this); };"
+    },
+    {
+      "eval": "$gameSwitches.setValue(63, true); $gameSwitches.setValue(89, true); $gameSelfSwitches.setValue([21, 13, 'A'], true); $gameSelfSwitches.setValue([21, 13, 'B'], true); $gameSelfSwitches.setValue([21, 13, 'C'], true); $gameParty.gainItem($dataItems[33], 1); $gameParty.gainItem($dataItems[34], 1); $gameParty.addActor(2); $gameActors.actor(1).changeLevel(15, false); $gameActors.actor(2).changeLevel(14, false); $gameMap.refresh()"
+    },
+    {
+      "frames": 5
+    },
+    {
+      "check": "$gameMap.event(13).findProperPageIndex()",
+      "expect": 4,
+      "label": "the form in hand: the whole conversation"
+    },
+    {
+      "comment": "Come with me - and he loses. No Game Over, nothing lost but the argument."
+    },
+    {
+      "eval": "window._mark(); window._pick = 0; window._auto = true; window._mode = 'lose'"
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 250
+    },
+    {
+      "check": "SceneManager._scene.constructor.name",
+      "expect": "Scene_Map"
+    },
+    {
+      "check": "[window._troops, window._members, window._level, !!window._gameover, window._kit]",
+      "expect": [
+        [
+          29
+        ],
+        [
+          [
+            11
+          ]
+        ],
+        12,
+        false,
+        [
+          [
+            34
+          ],
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ]
+      ],
+      "label": "troop 29, Spare alone at level 12 with the bag in hand and his bag skills usable, and no Game Over"
+    },
+    {
+      "check": "[window._has('Mrs Cotterill has been standing behind you.'), window._has('I would not be there.'), window._has('Then I will have to change your mind.'), window._has('Tea is at six. Wash your hands.'), window._has('Bring him back.')]",
+      "expect": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "label": "Mam whole, the fight, and 'She does not'"
+    },
+    {
+      "check": "[$gameSwitches.value(91), $gameSwitches.value(90), $gameParty.allMembers().map(a => a.actorId()), $gameVariables.value(2) - window._tropes, $gamePlayer.characterName()]",
+      "expect": [
+        true,
+        false,
+        [
+          1,
+          2
+        ],
+        1,
+        "Actor1"
+      ],
+      "label": "refused; the party put back as it was; one trope, the fight starting; Bram walking again"
+    },
+    {
+      "check": "[$gameParty.numItems($dataItems[33]), $gameParty.numItems($dataItems[34]), $gameMap.event(13).findProperPageIndex()]",
+      "expect": [
+        1,
+        1,
+        5
+      ],
+      "label": "form and washer still carried; the short ask next time"
+    },
+    {
+      "comment": "Again, the next day - and this time she stops at a quarter."
+    },
+    {
+      "eval": "window._mark(); window._pick = 0; window._mode = 'win'"
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 250
+    },
+    {
+      "check": "SceneManager._scene.constructor.name",
+      "expect": "Scene_Map"
+    },
+    {
+      "check": "[window._troops, window._members, window._has('I have been thinking about Mam.'), window._has('On who?'), window._has('Mrs Cotterill stops.'), window._has('I do not know where you get it.'), window._has('Bring him back.'), window._has('joined the party!')]",
+      "expect": [
+        [
+          29
+        ],
+        [
+          [
+            11
+          ]
+        ],
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "label": "the short ask, the short Mam, she stops, she concedes, he joins"
+    },
+    {
+      "check": "[$gameSwitches.value(90), $gameSwitches.value(92), $gameParty.allMembers().map(a => a.actorId()), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
+      "expect": [
+        true,
+        true,
+        [
+          1,
+          2,
+          11
+        ],
+        1,
+        0
+      ],
+      "label": "joined and known; Bram, Merribell and Spare; one trope (the secret companion), no blush"
+    },
+    {
+      "check": "(() => { const s = $gameActors.actor(11); return [s.level, s.hp === s.mhp, s.hasSkill(155), s.weapons().map(w => w.id), s.armors().map(a => a.id), $gameParty.numItems($dataItems[33]), $gameParty.numItems($dataItems[34])]; })()",
+      "expect": [
+        15,
+        true,
+        true,
+        [
+          34
+        ],
+        [
+          27
+        ],
+        0,
+        0
+      ],
+      "label": "levelled to the party, rested, The Drawing learned, the bag in hand, Shim's washer on him, the form handed over"
+    },
+    {
+      "check": "(() => { const s = $gameActors.actor(11); const e = $dataMap.events[13].pages[0]; return [s.faceName(), s.faceIndex(), s.characterName(), s.characterIndex(), e.image.characterName, e.image.characterIndex, s.battlerName()]; })()",
+      "expect": [
+        "Gen_People14",
+        4,
+        "Gen_People14",
+        4,
+        "Gen_People14",
+        4,
+        "Gen_People14_5"
+      ],
+      "label": "the lad in the party is the lad on the doorstep: face, sprite and battler"
+    },
+    {
+      "check": "[$gameMap.event(13).findProperPageIndex(), $gameMap.event(13).isThrough(), $gameMap.event(13).characterName()]",
+      "expect": [
+        6,
+        true,
+        ""
+      ],
+      "label": "gone from the doorstep"
+    },
+    {
+      "check": "$gameActors.actor(11).canEquip($dataWeapons[2]) || $gameActors.actor(1).canEquip($dataWeapons[34]) || $gameActors.actor(1).canEquip($dataArmors[27])",
+      "expect": false,
+      "label": "the bag and the washer are his alone, and nobody else's are his"
+    },
+    {
+      "check": "$gameActors.actor(11).isEquipChangeOk(0)",
+      "expect": false,
+      "label": "the bag does not come out of his hand"
+    },
+    {
+      "comment": "Shim, after: if he is with you, he puts it straight on."
+    },
+    {
+      "eval": "const s = $gameActors.actor(11); s.changeEquipById(5, 0); $gameParty.loseItem($dataArmors[27], 1); $gameSelfSwitches.setValue([21, 16, 'A'], true); $gameSelfSwitches.setValue([21, 16, 'B'], false); window._mark(); $gameMap.refresh()"
+    },
+    {
+      "frames": 5
+    },
+    {
+      "eval": "$gameMap.event(16).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('Spare puts it on a bootlace'), $gameActors.actor(11).armors().map(a => a.id), $gameParty.numItems($dataItems[34])]",
+      "expect": [
+        true,
+        [
+          27
+        ],
+        0
+      ],
+      "label": "Shim's washer, straight onto him"
+    },
+    {
+      "comment": "And a look at him fighting her: the battle with Spare alone, aborted after the shot."
+    },
+    {
+      "eval": "$gameTemp._p = $gameParty._actors.slice(); $gameParty._actors = [11]; BattleManager.setup(29, false, true); SceneManager.push(Scene_Battle)"
+    },
+    {
+      "frames": 150
+    },
+    {
+      "shot": "spa0_argument.png"
+    },
+    {
+      "eval": "$gameMessage.clear(); BattleManager.processAbort()"
+    },
+    {
+      "frames": 120
+    },
+    {
+      "eval": "$gameParty._actors = $gameTemp._p; $gamePlayer.refresh()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "check": "[SceneManager._scene.constructor.name, $gameParty.allMembers().map(a => a.actorId())]",
+      "expect": [
+        "Scene_Map",
+        [
+          1,
+          2,
+          11
+        ]
+      ]
+    }
+  ]
+}

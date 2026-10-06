@@ -471,6 +471,35 @@ EN_WORM = 59
 TR_WORM = 54
 SK_COILS, SK_LOOKS_AT_HIM = 183, 184
 
+# --------------------------------------------------------------- Spare ----
+# The tenth companion and the secret one (SPARE.md; QUESTS.md F1, q_spare.py,
+# db.build_spare). His ids are the ones SPARE.md reserved, except the class -
+# WRE-1 took 11 - and the switches, which SW_KNOWN took (QUESTS.md 0.3).
+SPARE = 11
+CLASSES[SPARE] = 12             # The Ninth
+SW_SPARE_FORM = 89              # Gudgeon has issued Form P-9
+SW_SPARE_JOINED = SW_RECRUIT[SPARE] = 90        # he is coming
+SW_SPARE_REFUSED = 91           # the argument has been lost at least once
+SW_SPARE_KNOWN = SW_KNOWN[SPARE] = 92           # never goes off
+SW_SPARE_STORY = SW_STORY[SPARE] = 110          # story.companion_story's
+# He is in those three tables for their names and for companion_story, and
+# deliberately **not** in story.COMPANIONS: no form desk can strike him off,
+# because he was never on the roster (SPARE.md 7).
+IT_FORM_P9, IT_WASHER = 33, 34
+WP_BAG = 34                     # A Bag, Packed
+AR_WASHER = 27                  # A Washer, Off Shim, once he is wearing it
+WT_BAG = 13                     # a weapon type of his own
+AT_WASHER = 14                  # an armour type of his own, as AT_BADGE is
+SK_YOU_ARE_NINE, SK_ASK_YOUR_FATHER, SK_NOT_THE_POINT, SK_SAID_NO = (
+    146, 147, 148, 149)
+SK_SMALL_ENOUGH, SK_TANTRUM, SK_HAVE_A_BAG = 150, 151, 152
+SK_NEVER_HIT_ME, SK_NINETY_TUBES, SK_THE_DRAWING = 153, 154, 155
+ST_NEVER_HIT, ST_BRUSHED = 42, 43
+EN_MAM = 28
+TR_MAM = 29                     # A Discussion With Mam
+CE_TANTRUM = 4                  # what Temper Tantrum costs him
+SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
+
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
 SK_TELEGRAPH, SK_ENORMOUS_SWING = 160, 161
 EN_NORBERT = 40
@@ -479,6 +508,7 @@ TR_NORBERT = 40
 # element ids, from System.json
 EL_PHYSICAL, EL_FIRE, EL_ICE, EL_THUNDER, EL_WATER = 1, 2, 3, 4, 5
 EL_EARTH, EL_WIND, EL_LIGHT, EL_DARK = 6, 7, 8, 9
+EL_TEMPER = 10                  # Spare's tantrum; his mother is immune
 
 # skill types / equip types / armor types, also from System.json
 STYPE_MAGIC, STYPE_SPECIAL = 1, 2
@@ -2612,6 +2642,7 @@ def build():
     build_monograph()
     build_vigil()
     build_worm()
+    build_spare()
 
 
 # ================================================= the companion quests ======
@@ -2986,4 +3017,216 @@ def build_worm():
     tr = R.load("Troops.json")
     upsert(tr, troop(TR_WORM, "The Worm of Carn Drey",
                      [(EN_WORM, 408, 300)]))
+    save("Troops.json", tr)
+
+
+def build_spare():
+    """Spare Cotterill, aged nine, and his mother (SPARE.md 3-5; QUESTS.md F1).
+
+    * **The best skill list in the party on the worst stat line in it**:
+      about half Bram's HP, the lowest DEF and an ATK that is a joke, the
+      highest AGI, and every one of his skills runs off AGI with no DEF term
+      at all. He is the only one who fits.
+    * **The bag is the joke.** Every skill but one is a thing he takes out of
+      it, so all but one need it in his hand - and it is sealed there. The
+      exception is Temper Tantrum, for which he puts it down. It hurts him
+      (a common event, so the formula stays one `balance.py` can read), and
+      it is of an element his mother is immune to: it has never once worked
+      on her. Fighting her with his real skills is SPARE.md 3's point - every
+      one of them is a thing he tried on her first.
+    * **The Drawing is not learned at a level.** The scene gives it him,
+      because it is what she found in the bag.
+    * **She is not a damage race.** A share of his HP when she says he is
+      nine, a heal when she defers, every buff and guard he put up taken off
+      in one sentence, and below half the quiet one, which costs him his TP.
+      Tuned with a simulation at level 12: a player who heals when low and
+      spends TP on Ninety Tubes wins about six in seven, in eleven turns or
+      so; one who tries Temper Tantrum on her loses rather more often.
+      The troop aborts at a quarter, which Battle Processing reports as an
+      escape and the scene reads as "she stopped" (SPARE.md 4). She never
+      reaches 0; collapse type 3 says she would not fall over if she did."""
+    cl = R.load("Classes.json")
+    hit = lambda v: trait(22, 0, v)
+    eva = lambda v: trait(22, 1, v)
+    crit = lambda v: trait(22, 2, v)
+    upsert(cl, {
+        "id": CLASSES[SPARE], "name": "The Ninth", "note": "",
+        "expParams": [25, 18, 30, 30],
+        "params": params((210, 24), (40, 4.5), (8, 1.2), (6, 1.0), (8, 1.2),
+                         (12, 2.2), (34, 6.2), (30, 4.2)),
+        "learnings": [{"level": lv, "skillId": s, "note": ""} for lv, s in
+                      [(1, SK_SMALL_ENOUGH), (1, SK_TANTRUM),
+                       (3, SK_HAVE_A_BAG), (5, SK_NEVER_HIT_ME),
+                       (8, SK_NINETY_TUBES)]],
+        "traits": [trait(23, 0, 0.45),      # nobody can quite bring themselves
+                   hit(0.95), eva(0.25), crit(0.08),
+                   trait(64, 4, 1),         # party ability: double gold
+                   trait(41, STYPE_SPECIAL, 1),
+                   trait(51, WT_BAG, 1), trait(52, AT_GENERAL, 1)]})
+    R.save_list("Classes.json", cl)
+
+    ac = R.load("Actors.json")
+    upsert(ac, {
+        "id": SPARE, "name": "Spare", "nickname": "Aged Nine", "note": "",
+        "profile": "The ninth Cotterill, and nine in a useful way: the only "
+                   "person in Upper Clanging small enough to get inside a "
+                   "boiler. Has had a bag packed for two years.",
+        "classId": CLASSES[SPARE], "initialLevel": SPARE_ARGUING_LEVEL,
+        "maxLevel": 99, "characterName": "Gen_People14", "characterIndex": 4,
+        "faceName": "Gen_People14", "faceIndex": 4,
+        "battlerName": "Gen_People14_5",
+        "equips": [WP_BAG, 0, 0, 0, 0],
+        # The washer is his alone, and the bag does not come out of his hand:
+        # Lock Equip (53). Not Seal Equip (54), which takes the slot away, so
+        # `setup()` drops the bag and every skill that needs it goes dark.
+        "traits": [trait(52, AT_WASHER, 1), trait(53, ET_WEAPON, 1)]})
+    R.save_list("Actors.json", ac)
+
+    st = R.load("States.json")
+    upsert(st, state(
+        ST_NEVER_HIT, "They Never Hit Me", 154, traits=[trait(23, 0, 0)],
+        auto_removal=2, max_turns=3, min_turns=3,
+        message1="%1 is wearing the jumper his mam knitted.",
+        message4="%1 has taken the jumper off. It was warm."))
+    upsert(st, state(
+        ST_BRUSHED, "Brushed Through", 224, traits=[trait(21, 3, 0.6)],
+        auto_removal=0, max_turns=1, min_turns=1,
+        message1="%1 has been gone through with a brush."))
+    save("States.json", st)
+
+    sk = R.load("Skills.json")
+    bag = []
+    bag.append(skill(
+        SK_SMALL_ENOUGH, "Small Enough",
+        "There is a way in. There is always a way in, and he is the only "
+        "one who fits. Ignores defence.",
+        "a.agi * 2", mp=6, icon=214, animation=11,
+        message="%1 takes out a candle end, and finds the way in."))
+    upsert(sk, skill(
+        SK_TANTRUM, "Temper Tantrum",
+        "Enormous, and it hurts him too. It has never once worked on his "
+        "mother.",
+        "a.agi * 4.5 - b.def", tp=20, icon=218, animation=26,
+        element=EL_TEMPER,
+        effects=[effect(44, CE_TANTRUM)],
+        message="%1 puts the bag down."))
+    sk[SK_TANTRUM]["message2"] = "It is a very thorough tantrum."
+    bag.append(skill(
+        SK_HAVE_A_BAG, "I Have A Bag",
+        "It has been packed for two years. There is something in it for "
+        "everything. Heals the party; clears every ailment.",
+        "a.agi + 80", dmg_type=3, scope=8, mp=14, icon=208, animation=41,
+        hit_type=0, effects=[effect(22, s, 1.0)
+                             for s in (4, 5, 6, 7, 8, 9, 10, 12, 13)],
+        message="%1 takes out plasters, a hanky and a boiled sweet each."))
+    bag.append(skill(
+        SK_NEVER_HIT_ME, "They Never Hit Me",
+        "Three turns in which nobody can make themselves swing at him.",
+        "0", dmg_type=0, scope=11, tp=25, icon=154, animation=52,
+        hit_type=0, effects=[effect(21, ST_NEVER_HIT, 1.0)],
+        message="%1 takes out the jumper, and puts it on."))
+    bag.append(skill(
+        SK_NINETY_TUBES, "Ninety Tubes",
+        "Ignores defence, and leaves it lower for good. He has done worse, "
+        "in the dark, for buns.",
+        "a.agi * 3", tp=40, icon=224, animation=16,
+        effects=[effect(21, ST_BRUSHED, 1.0)],
+        message="%1 takes out a flue brush. It is longer than the bag."))
+    bag.append(skill(
+        SK_THE_DRAWING, "The Drawing",
+        "Revives and heals everybody, and raises attack and agility. He "
+        "does not show it to just anybody.",
+        "a.agi * 3 + 200", dmg_type=3, scope=13, tp=100, icon=196,
+        animation=45, hit_type=0,
+        effects=[effect(22, ST_DEAD, 1.0), effect(31, 2, 0, 4),
+                 effect(31, 6, 0, 4), effect(13, 0, 100)],
+        message="%1 takes out the drawing, and shows everybody."))
+    for s in bag:
+        s["requiredWtypeId1"] = WT_BAG
+        upsert(sk, s)
+
+    # Mrs Cotterill's four. Mothers do not miss: every one is a certain hit.
+    upsert(sk, skill(SK_YOU_ARE_NINE, "You Are Nine", "", "b.mhp * 0.34",
+                     hit_type=0, animation=0, message='%1 says, "You are nine."'))
+    upsert(sk, skill(SK_ASK_YOUR_FATHER, "Ask Your Father", "", "a.mhp * 0.06",
+                     dmg_type=3, scope=11, hit_type=0, animation=0,
+                     message='%1 says, "Ask your father."'))
+    sk[SK_ASK_YOUR_FATHER]["message2"] = "Mr Cotterill looks at the sky."
+    upsert(sk, skill(SK_NOT_THE_POINT, "That Is Not The Point", "", "0",
+                     dmg_type=0, hit_type=0, animation=0,
+                     effects=[effect(33, p) for p in range(2, 8)] +
+                     [effect(22, ST_NEVER_HIT, 1.0)],
+                     message='%1 says, "That is not the point."'))
+    sk[SK_NOT_THE_POINT]["message2"] = "He was doing so well."
+    upsert(sk, skill(SK_SAID_NO, "I Have Said No", "", "b.mhp * 0.18",
+                     hit_type=0, animation=0, effects=[effect(13, 0, -100)],
+                     message='%1 says, "I have said no."'))
+    sk[SK_SAID_NO]["message2"] = "It is not louder. It is quieter."
+    save("Skills.json", sk)
+
+    ce = R.load("CommonEvents.json")
+    upsert(ce, {"id": CE_TANTRUM, "name": "Temper Tantrum (Spare)",
+                "switchId": 1, "trigger": 0,
+                "list": R.script([
+                    "const s = $gameActors.actor(%d);" % SPARE,
+                    "const d = Math.min(Math.floor(s.mhp / 5), s.hp - 1);",
+                    "if (d > 0) { s.gainHp(-d); s.startDamagePopup(); }",
+                ]) + [{"code": 0, "indent": 0, "parameters": []}]})
+    save("CommonEvents.json", ce)
+
+    it = R.load("Items.json")
+    upsert(it, item(IT_FORM_P9, "Form P-9",
+                    "Application by a Minor to Accompany a Chosen One (Parish "
+                    "of Upper Clanging). Wants a parent's signature.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=193))
+    upsert(it, item(IT_WASHER, "A Washer, Off Shim",
+                    "Out of Shim's tin. Not the bearing. Flat the whole time, "
+                    "which is why it is a good one.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=145))
+    save("Items.json", it)
+
+    wp = R.load("Weapons.json")
+    upsert(wp, weapon(WP_BAG, "A Bag, Packed",
+                      "[Bag] Packed two years ago. Contents: yes.",
+                      WT_BAG, 0, [0, 0, 6, 0, 0, 0, 10, 10], icon=209,
+                      animation=1))
+    save("Weapons.json", wp)
+
+    ar = R.load("Armors.json")
+    upsert(ar, armor(AR_WASHER, "A Washer, Off Shim",
+                     "[Accessory] Shim's second-best. Flat the whole time. "
+                     "He wears it on a bootlace.",
+                     ET_ACCESSORY, AT_WASHER, 0, [0, 0, 0, 0, 0, 4, 4, 12],
+                     icon=145))
+    save("Armors.json", ar)
+
+    en = R.load("Enemies.json")
+    upsert(en, enemy(
+        EN_MAM, "Mrs Cotterill", "Mrs_Cotterill", 0,
+        [2600, 0, 55, 30, 30, 30, 40, 30], 0, 0,
+        [action(SK_YOU_ARE_NINE, 9, condition=1, p1=0, p2=0),
+         action(SK_YOU_ARE_NINE, 4), action(SK_ATTACK, 5),
+         action(SK_ASK_YOUR_FATHER, 4, condition=2, p1=0, p2=0.75),
+         action(SK_NOT_THE_POINT, 4),
+         action(SK_SAID_NO, 6, condition=2, p1=0, p2=0.5)],
+        traits=[trait(63, 3, 0), trait(11, EL_TEMPER, 0)],
+        note="SPARE.md 3. She is right. She loses to the one thing she cannot "
+             "argue with, which is that he is exactly like her."))
+    save("Enemies.json", en)
+
+    end = {"code": 0, "indent": 0, "parameters": []}
+    folds = R.text(["Mrs Cotterill folds her arms.",
+                    "Mr Cotterill finds somewhere else to stand."])
+    stops = R.text(["Mrs Cotterill stops."]) + [
+        {"code": 340, "indent": 0, "parameters": []}]
+    pages = [
+        {"conditions": dict(BLANK_TROOP_CONDITIONS, turnValid=True),
+         "list": folds + [end], "span": 0},
+        {"conditions": dict(BLANK_TROOP_CONDITIONS, enemyValid=True,
+                            enemyIndex=0, enemyHp=25),
+         "list": stops + [end], "span": 0},
+    ]
+    tr = R.load("Troops.json")
+    upsert(tr, troop(TR_MAM, "A Discussion With Mam", [(EN_MAM, 408, 380)],
+                     pages=pages))
     save("Troops.json", tr)

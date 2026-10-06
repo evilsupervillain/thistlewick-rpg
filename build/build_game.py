@@ -45,6 +45,7 @@ import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import places  # noqa: E402
 import q_corvin  # noqa: E402  draws COR-2's drowned street, Map 66
 import q_roland  # noqa: E402  draws ROL-2's dungeon, Map 67
+import q_spare  # noqa: E402  checks F1's gate against the built town
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -326,7 +327,9 @@ def build_system():
             (db.SW_FF_CHEST, "Firstfield: opened the chest"),
             (db.SW_FF_NORBERT, "Firstfield: Norbert has lost"),
             (db.SW_FF_GRADUATED, "Firstfield: tutorial completed"),
-            (db.SW_VISITORS_BOOK, "Hollowell wants the visitors' book signed")]:
+            (db.SW_VISITORS_BOOK, "Hollowell wants the visitors' book signed"),
+            (db.SW_SPARE_FORM, "Gudgeon has issued Form P-9"),
+            (db.SW_SPARE_REFUSED, "Spare has lost the argument at least once")]:
         switches[sid] = name
     for actor_id, sid in db.SW_RECRUIT.items():
         switches[sid] = "recruited actor %d" % actor_id
@@ -474,7 +477,11 @@ def build_system():
         "optAutosave": False, "optDrawTitle": True,
         "switches": switches, "variables": variables,
         # WRE-3's badge is Wren's alone: a type of its own (QUESTS.md 0.5).
-        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe", "Scarf", "Pamphlet", "Escutcheon"],
+        "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe", "Scarf", "Pamphlet", "Escutcheon", "Washer"],
+        # Spare's bag is a weapon type of its own, and his tantrum an element
+        # his mother is immune to (QUESTS.md F1).
+        "weaponTypes": system["weaponTypes"][:db.WT_BAG] + ["Bag"],
+        "elements": system["elements"][:db.EL_TEMPER] + ["Temper"],
         # The blank project ships all three vehicles parked on map 1 at
         # coordinates from a tutorial map that is not in this game - the
         # airship at (154, 70), which is a hundred tiles off the east edge of
@@ -509,6 +516,7 @@ def main():
     south.build()
     wilds.build()
     north.build()
+    q_spare.check_family()             # F1's gate names north.py's ids
     field.build()
     meadow.build()
     penultima.build()

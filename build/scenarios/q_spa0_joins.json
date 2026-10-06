@@ -1,0 +1,403 @@
+{
+  "query": "?map=21&x=14&y=42&frames=90",
+  "comment": "QUESTS.md F1, Spare joins - the gate. Spare's three beats played (the first is his application); Shim's washer, carried, and her afterwards; Gudgeon's form page reading out the three sections of Form P-9 one at a time - Spare heard in full, the family met (not Cotter), the Two Hundred set down by the tower (flying is not enough) - then the form issued; Spare's whole conversation with 'Not yet'; the short ask with no room; and the Eighty-Four window. Faces read off the live message window. The argument is q_spa0_argument.",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "eval": "window._lines = []; window._faces = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; const sf = Game_Message.prototype.setFaceImage; Game_Message.prototype.setFaceImage = function (n, i) { if (n) window._faces.push(n + ':' + i); return sf.call(this, n, i); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._lines = []; window._faces = []; window._troops = []; window._members = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._has = s => window._lines.some(l => l.includes(s));"
+    },
+    {
+      "check": "[$gameMap.event(13).findProperPageIndex(), $gameMap.event(16).findProperPageIndex()]",
+      "expect": [
+        0,
+        0
+      ],
+      "label": "Spare and Shim on their first pages"
+    },
+    {
+      "comment": "Spare's four beats, played: the first is his application."
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameSwitches.value(63), $gameMap.event(13).findProperPageIndex(), window._faces.every(f => f === 'Gen_People14:4')]",
+      "expect": [
+        true,
+        3,
+        true
+      ],
+      "label": "applied, heard in full (page 4, 'Can I come yet?'), and every window his own face"
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(16).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "$gameMap.event(16).findProperPageIndex()",
+      "expect": 2,
+      "label": "Shim, met, once he has applied: the washer"
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(16).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('It has been flat the whole time.'), $gameParty.numItems($dataItems[34]), $gameMap.event(16).findProperPageIndex()]",
+      "expect": [
+        true,
+        1,
+        3
+      ],
+      "label": "the washer off Shim, carried; then her afterwards"
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(16).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('She has counted.'), $gameParty.numItems($dataItems[34])]",
+      "expect": [
+        true,
+        1
+      ]
+    },
+    {
+      "check": "$gameMap.event(13).findProperPageIndex()",
+      "expect": 3,
+      "label": "no form yet: Spare is still on 'Can I come yet?'"
+    },
+    {
+      "comment": "The Parish Rooms: Gudgeon, then the three sections of Form P-9 one at a time."
+    },
+    {
+      "goto": [
+        25,
+        11,
+        8
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(4).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('Everybody goes quiet just there.'), $gameMap.event(4).findProperPageIndex()]",
+      "expect": [
+        true,
+        2
+      ],
+      "label": "her published first page, then the form page"
+    },
+    {
+      "eval": "window._mark(); $gameSelfSwitches.setValue([21, 13, 'C'], false)"
+    },
+    {
+      "eval": "$gameMap.event(4).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('heard in full.'), window._has('long section'), $gameSwitches.value(89)]",
+      "expect": [
+        true,
+        false,
+        false
+      ],
+      "label": "section one: Spare not heard in full"
+    },
+    {
+      "eval": "window._mark(); $gameSelfSwitches.setValue([21, 13, 'C'], true)"
+    },
+    {
+      "eval": "$gameMap.event(4).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('heard in full.'), window._has('It is a long section.'), $gameSwitches.value(89)]",
+      "expect": [
+        false,
+        true,
+        false
+      ],
+      "label": "section two: the family not all met (Mr and Mrs Cotterill, four more on the street, Rivet, Tappet and Grommet)"
+    },
+    {
+      "eval": "window._mark(); $gameSelfSwitches.setValue([21, 11, 'A'], true); $gameSelfSwitches.setValue([21, 12, 'A'], true); $gameSelfSwitches.setValue([21, 14, 'A'], true); $gameSelfSwitches.setValue([21, 15, 'A'], true); $gameSelfSwitches.setValue([21, 16, 'A'], true); $gameSelfSwitches.setValue([21, 17, 'A'], true); $gameSelfSwitches.setValue([23, 5, 'A'], true); $gameSelfSwitches.setValue([25, 4, 'A'], true); $gameSelfSwitches.setValue([22, 9, 'A'], true); $gameSelfSwitches.setValue([24, 4, 'A'], true)"
+    },
+    {
+      "eval": "$gameMap.event(4).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('It is a long section.'), window._has('He is nine. He is not walking to'), $gameSwitches.value(89)]",
+      "expect": [
+        false,
+        true,
+        false
+      ],
+      "label": "section three: the Two Hundred never set down by the tower"
+    },
+    {
+      "eval": "window._mark(); $gameSwitches.setValue(53, true)"
+    },
+    {
+      "eval": "$gameMap.event(4).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('He is nine. He is not walking to'), $gameSwitches.value(89)]",
+      "expect": [
+        true,
+        false
+      ],
+      "label": "the airship flying is not enough: switch 68, set down by the tower, as SPARE.md preferred"
+    },
+    {
+      "eval": "window._mark(); $gameSwitches.setValue(68, true)"
+    },
+    {
+      "eval": "$gameMap.event(4).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('Form P-9. Application by a Minor to'), window._has('Got'), $gameSwitches.value(89), $gameParty.numItems($dataItems[33]), $gameMap.event(4).findProperPageIndex(), window._faces.every(f => f === 'SF_Actor1:7')]",
+      "expect": [
+        true,
+        true,
+        true,
+        1,
+        3,
+        true
+      ],
+      "label": "all three: Form P-9 issued, and her afterwards page"
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "eval": "$gameMap.event(4).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "window._has('And Mam signs it, or nobody does.')",
+      "expect": true
+    },
+    {
+      "check": "$gameVariables.value(2) - window._tropes",
+      "expect": 0,
+      "label": "Gudgeon counts no trope"
+    },
+    {
+      "goto": [
+        21,
+        14,
+        42
+      ]
+    },
+    {
+      "check": "$gameMap.event(13).findProperPageIndex()",
+      "expect": 4,
+      "label": "Spare, with the form: the whole conversation"
+    },
+    {
+      "comment": "Not yet: the pitch, no Eighty-Four window, and the bag picked back up."
+    },
+    {
+      "eval": "window._mark(); window._pick = 1"
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 80
+    },
+    {
+      "check": "[window._has('He puts the bag down.'), window._has('I fit.'), window._has('With me on it.'), window._has('Right.'), window._has('You mended the one in the field.'), window._has('Mrs Cotterill has been standing'), window._troops]",
+      "expect": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        []
+      ],
+      "label": "the pitch whole, 'Not yet', no Mam, no fight"
+    },
+    {
+      "check": "[window._faces.every(f => f === 'Gen_People14:4'), $gameMap.event(13).findProperPageIndex(), $gameVariables.value(2) - window._tropes]",
+      "expect": [
+        true,
+        5,
+        0
+      ],
+      "label": "his own face throughout; the short ask next time; no trope"
+    },
+    {
+      "comment": "No room: Bram and three."
+    },
+    {
+      "eval": "[2, 3, 5].forEach(id => $gameParty.addActor(id)); window._mark(); window._pick = 0"
+    },
+    {
+      "frames": 5
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('The bag is down already.'), window._has('You have got three already.'), window._has('extremely good at it.'), window._has('Mrs Cotterill'), $gameSwitches.value(90)]",
+      "expect": [
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "label": "the short ask; three already, in his voice; no Mam"
+    },
+    {
+      "eval": "[2, 3, 5].forEach(id => $gameParty.removeActor(id))"
+    },
+    {
+      "comment": "The Eighty-Four window, on the full page, for a player who rebuilt her."
+    },
+    {
+      "eval": "window._mark(); window._pick = 1; $gameSwitches.setValue(57, true); $gameSelfSwitches.setValue([21, 13, 'D'], false)"
+    },
+    {
+      "frames": 5
+    },
+    {
+      "eval": "$gameMap.event(13).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 80
+    },
+    {
+      "check": "[window._has('You mended the one in the field.'), window._lines.indexOf('You did not say scrap her.') < window._lines.findIndex(l => l.includes('You ask what is in the bag.'))]",
+      "expect": [
+        true,
+        true
+      ],
+      "label": "Eighty-Four rebuilt: one more window, before the bag"
+    },
+    {
+      "check": "[$gameSwitches.value(90), $gameSwitches.value(91), $gameParty.size()]",
+      "expect": [
+        false,
+        false,
+        1
+      ]
+    }
+  ]
+}

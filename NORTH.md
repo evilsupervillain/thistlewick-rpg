@@ -1349,14 +1349,14 @@ is stated per type; append, never renumber.
 
 | range | what |
 | --- | --- |
-| Actors / Classes | **none.** Ten is already more than a four-slot party can use, and the north's contribution is a vehicle and a town, not another body. Ott stays an NPC. |
+| Actors / Classes | **none.** Ten is already more than a four-slot party can use, and the north's contribution is a vehicle and a town, not another body. Ott stays an NPC. **Amended 5 Oct 2026 (`QUESTS.md` F1): reversed, deliberately.** `SPARE.md` proposed Spare Cotterill as a secret tenth companion and Mike chose to build him: **Actor 11**, Spare, on **Class 12**, The Ninth (11 was taken by WRE-1's published Cataloguer). The reason above was right for the north as a vehicle and a town; it is overturned for one nine-year-old, who is the north's last reward and joins only after the Two Hundred has set down by the tower. Ott still stays an NPC. |
 | Skills 140-149 | northern enemy and boss skills (137-139 left as a gap) |
 | Items 13-19 | northern consumables |
 | **Items 30-36** | northern key items. **The 20-29 key-item block is full** (max item id is 29); key items continue at 30. **30** Forty Bolts of Oilskin, **31** Number-Plate 112, **32** ITEM 1; 33-36 free. |
 | Weapons 32-36 | northern weapons. **32** Stillson Wrench, **33** Number One (ITEM 1, rendered down); 34-36 free. |
 | Armors 23-28 | northern armour. **23** Sensible Trousers, **24** Works Cap, **25** The Fuse (Removed), **26** Governor; 27-28 free. |
 | **Enemies 30-35** | northern encounters. **The 1-19 ordinary block is full** (only 19 free); ordinary enemies continue at 30. **30** Loose Pressure, **31** Attempt (Unnumbered), **32** Ambulant Salvage; 33-35 free. |
-| Enemies 27-29 | northern bosses - the last of the 20-29 boss block. **27** Attempt Eighty-Four; 28-29 free. |
+| Enemies 27-29 | northern bosses - the last of the 20-29 boss block. **27** Attempt Eighty-Four, **28** Mrs Cotterill (Spare's argument, 5 Oct 2026); 29 free. |
 | **Troops 30-33** | northern encounter groups. **The 1-19 block is full** (18-19 free only); encounter groups continue at 30. **30** Loose Pressure*3, **31** Attempt (Unnumbered)*2, **32** Salvage + Pressure, **33** Salvage + Attempt*2. |
 | Troops 28-29 | northern set-pieces - the last of the 20-29 block. **28** Attempt Eighty-Four; 29 free. |
 | Skills 140-149 | northern enemy and boss skills. **140** Let Go, **141** Still Trying, **142** Take A Part Off, **143** Overpressure, **144** Due North, **145** Make Good; 146-149 free. |

@@ -35,6 +35,7 @@ import mapkit as K
 import q_hob
 import q_merribell
 import q_nix
+import q_spare
 import rmmzdata as R
 import story as S
 from places import (MAP_CLANGING, MAP_WORKS, MAP_VALVE, MAP_FORGE, MAP_PARISH,
@@ -552,7 +553,8 @@ def clanging_events():
         ]) + S.narrate([
             "The bag is still packed.",
         ]),
-    ], direction=8))
+    ], direction=8,
+        pages=q_spare.spare_pages(R.image(*S.FACES["Spare"], direction=8))))  # F1
 
     # -- 14-17: the rest of the doorstep ------------------------------------
     #
@@ -644,7 +646,9 @@ def clanging_events():
         ]),
         S.say("Shim", [
             "You can hold the bearing if you like.",
-        ]), direction=2, move_type=1))
+        ]), direction=2, move_type=1,
+        pages=q_spare.shim_pages(R.image(*S.FACES["Shim"], direction=2),
+                                 move_type=1)))        # F1
 
     # Bessie is the eldest son's wife and does four jobs in one event: she is
     # where Cotter is, she is the Marsden marriage, she is the reason Winnie
@@ -2210,7 +2214,9 @@ def parish_events():
         S.say("Gudgeon", [
             "Two t's and two l's.",
             "Everybody gets it wrong.",
-        ]), direction=6))
+        ]), direction=6,
+        pages=q_spare.gudgeon_pages(
+            R.image(*S.FACES["Gudgeon"], direction=6))))     # F1
     return evs
 
 
