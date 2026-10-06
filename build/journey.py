@@ -44,6 +44,7 @@ import weeping_bottom as WB
 import fenmarch as FEN
 import collegium as COL
 import dunnage as DUN
+import pottering as POT
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
@@ -162,7 +163,8 @@ def world_map():
               CB.SITE: CB.world_doors, HART.SITE: HART.world_doors,
               **NOMAP.SITES, **HAM.SITES, ASH.SITE: ASH.world_doors,
               WB.SITE: WB.world_doors, FEN.SITE: FEN.world_doors,
-              COL.SITE: COL.world_doors, DUN.SITE: DUN.world_doors}
+              COL.SITE: COL.world_doors, DUN.SITE: DUN.world_doors,
+              POT.SITE: POT.world_doors}
     cells = {}
     for e in doors:
         if "-site" in (e.get("note") or ""):

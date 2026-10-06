@@ -398,3 +398,12 @@ FOURTH_FOLLOWS = {
 }
 ASHCOMBE_LAKE = (104, 54)
 LAKE_SHORE_STEP = (104, 55)
+
+# SPA-4 (QUESTS.md F3): Much Pottering, which was worldgen's "Village 1" -
+# the last placeholder on the world map, held back by SITES.md step 9 for
+# something of Spare's. Drawn by `pottering.py`, with the pen pal's pages
+# from `q_spare.py`. Its world-map door is the two cells worldgen stamped,
+# (60,61) and (61,61); the step is the top of the road south of the western
+# one, which is how the placeholder scenario always walked up to it.
+MAP_POTTERING, MAP_POTTERING_IN = 68, 69
+POTTERING_STEP = (60, 62)

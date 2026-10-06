@@ -1,0 +1,699 @@
+{
+  "query": "?map=8&x=60&y=62&frames=90",
+  "comment": "QUESTS.md F3, SPA-4 The Pen Pal, and Much Pottering, which was the world map's last placeholder (Village 1). In by the world-map door; the village without Spare - Effie at her gate, nobody on the tour, the plaque's trope once, the four things you walk into; then Spare (as F1 and F2 leave him): the courier, the meeting and its trope, a dismissal mid-tour that she waits through, the volcano, the sea serpent, the post, done; the afterwards pages; the cottage; and out by the road.",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s));"
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 8
+    },
+    {
+      "check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).length",
+      "expect": 0,
+      "label": "no placeholder door is left on the world map: Village 1 was the last"
+    },
+    {
+      "check": "$dataMap.events.filter(e => e && e.name === 'Much Pottering').map(e => [e.id, e.x, e.y, e.pages[0].trigger, e.pages[0].priorityType])",
+      "expect": [
+        [
+          68,
+          60,
+          61,
+          1,
+          0
+        ],
+        [
+          69,
+          61,
+          61,
+          1,
+          0
+        ]
+      ],
+      "label": "Much Pottering's two doors, on the placeholders' cells and at their ids, player-touch below characters"
+    },
+    {
+      "comment": "One north onto the western door cell.",
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        60,
+        61
+      ],
+      "label": "standing on Much Pottering's door"
+    },
+    {
+      "check": "$gameMap._interpreter.isRunning()",
+      "expect": true,
+      "label": "THE POINT: this door does something now"
+    },
+    {
+      "advance": 12
+    },
+    {
+      "frames": 120
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        68,
+        19,
+        26
+      ],
+      "label": "in Much Pottering, at the bottom of the road in"
+    },
+    {
+      "comment": "Without Spare: Effie at her gate, the tour's three Effies empty, the courier on his round."
+    },
+    {
+      "check": "[$gameMap.event(4).findProperPageIndex(), $gameMap.event(5).findProperPageIndex(), $gameMap.event(6).findProperPageIndex(), $gameMap.event(7).findProperPageIndex()]",
+      "expect": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "check": "[5, 6, 7].map(i => $gameMap.event(i).characterName())",
+      "expect": [
+        "",
+        "",
+        ""
+      ],
+      "label": "nobody at the volcano, the pond or the post"
+    },
+    {
+      "check": "[$gameMap.event(4).characterName(), $gameMap.event(4).characterIndex(), $gameMap.event(8).findProperPageIndex()]",
+      "expect": [
+        "Gen_People14",
+        7,
+        0
+      ],
+      "label": "Effie is Gen_People14 7, and the courier is on page 1"
+    },
+    {
+      "goto": [
+        68,
+        7,
+        14
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has(\"Don't tell him.\"), window._has('quite big'), $gameSelfSwitches.value([68, 4, 'A'])]",
+      "expect": [
+        true,
+        false,
+        true
+      ],
+      "label": "Effie, no Spare and no letters posted: the volcano is a secret, no dragon yet"
+    },
+    {
+      "comment": "The plaque, and the site's trope."
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(12).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._has('BURNED DOWN, OVERRUN'), $gameVariables.value(2) - window._tropes]",
+      "expect": [
+        true,
+        1
+      ],
+      "label": "the plaque: never burned down, and a trope"
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(12).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "$gameVariables.value(2) - window._tropes",
+      "expect": 0,
+      "label": "and not twice"
+    },
+    {
+      "comment": "Things to walk into. Walking into each is what starts it."
+    },
+    {
+      "goto": [
+        68,
+        13,
+        14
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 30
+    },
+    {
+      "check": "$gameMap._interpreter.isRunning()",
+      "expect": true,
+      "label": "walking into the fence starts it"
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[window._has('WET PAINT'), window._has(\"That's four today.\"), $gamePlayer.y]",
+      "expect": [
+        true,
+        true,
+        14
+      ],
+      "label": "wet paint, and the fence stops you"
+    },
+    {
+      "goto": [
+        68,
+        35,
+        15
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowRight",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[window._has('PIG HAS RIGHT OF WAY'), $gamePlayer.x]",
+      "expect": [
+        true,
+        35
+      ],
+      "label": "the pig has right of way"
+    },
+    {
+      "goto": [
+        68,
+        18,
+        24
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "window._has('MIND THE BRANCH')",
+      "expect": true,
+      "label": "the oak by the road in"
+    },
+    {
+      "goto": [
+        68,
+        25,
+        22
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[window._has('A PROPER ONE. E.G.'), window._has('S.C.')]",
+      "expect": [
+        true,
+        false
+      ],
+      "label": "the well: one wish"
+    },
+    {
+      "comment": "Spare joins (as F1 leaves him), with all eight letters posted (as F2 leaves them)."
+    },
+    {
+      "eval": "$gameParty.addActor(11); $gameSwitches.setValue(90, true); $gameVariables.setValue(28, 8); $gameSwitches.setValue(208, true); $gameSwitches.setValue(110, true); $gameMap.requestRefresh()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "[$gameMap.event(4).findProperPageIndex(), $gameMap.event(8).findProperPageIndex()]",
+      "expect": [
+        2,
+        1
+      ],
+      "label": "with Spare: the meeting page, and the courier's 'Post?'"
+    },
+    {
+      "goto": [
+        68,
+        18,
+        18
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "window._has('She is right there.')",
+      "expect": true,
+      "label": "the courier: not today, she is right there"
+    },
+    {
+      "goto": [
+        68,
+        7,
+        14
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 80
+    },
+    {
+      "check": "[window._has(\"You're not six foot.\"), window._has(\"And where's the dragon?\"), $gameVariables.value(30), $gameVariables.value(2) - window._tropes]",
+      "expect": [
+        true,
+        true,
+        1,
+        1
+      ],
+      "label": "the meeting: not six foot, the dragon is out, the tour begins, and the childhood friend is a trope"
+    },
+    {
+      "check": "[$gameMap.event(4).characterName(), $gameMap.event(5).findProperPageIndex(), $gameMap.event(5).characterName()]",
+      "expect": [
+        "",
+        2,
+        "Gen_People14"
+      ],
+      "label": "she has gone from the gate to the volcano"
+    },
+    {
+      "comment": "A dismissed Spare's errand waits: she waits at the volcano."
+    },
+    {
+      "eval": "$gameParty.removeActor(11); $gameMap.requestRefresh()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "$gameMap.event(5).findProperPageIndex()",
+      "expect": 1,
+      "label": "without him, Effie waits at the volcano"
+    },
+    {
+      "eval": "$gameParty.addActor(11); $gameMap.requestRefresh()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "$gameMap.event(5).findProperPageIndex()",
+      "expect": 2,
+      "label": "with him back, the tour goes on"
+    },
+    {
+      "goto": [
+        68,
+        31,
+        20
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowRight",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has(\"That's the volcano.\"), window._has('It has ninety tubes. I brush them.'), $gameVariables.value(30)]",
+      "expect": [
+        true,
+        true,
+        2
+      ],
+      "label": "the volcano is a bonfire; ninety tubes; on to the pond"
+    },
+    {
+      "check": "[$gameMap.event(5).characterName(), $gameMap.event(6).characterName()]",
+      "expect": [
+        "",
+        "Gen_People14"
+      ]
+    },
+    {
+      "goto": [
+        68,
+        12,
+        17
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowDown",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('Old Tom. Carp.'), window._has('...Thirty years.'), $gameVariables.value(30)]",
+      "expect": [
+        true,
+        true,
+        3
+      ],
+      "label": "the sea serpent is a carp, and quite big; on to the post"
+    },
+    {
+      "goto": [
+        68,
+        17,
+        18
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "shot": "spa4_post.png"
+    },
+    {
+      "advance": 120
+    },
+    {
+      "check": "[window._has(\"And there's no dragon.\"), window._has('Much Pottering.'), window._has('Upper Clanging.'), $gameVariables.value(30), $gameSwitches.value(210), $gameSwitches.value(110), $gameVariables.value(15) - window._stories]",
+      "expect": [
+        true,
+        true,
+        true,
+        4,
+        true,
+        true,
+        0
+      ],
+      "label": "the truth both ways, a letter each by hand, done; Spare's story switch already on, so the count does not move"
+    },
+    {
+      "check": "[4, 5, 6, 7].map(i => $gameMap.event(i).findProperPageIndex())",
+      "expect": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "label": "Effie is back at her gate on her afterwards page, and the tour's three stops are empty"
+    },
+    {
+      "check": "$gameVariables.value(7) - window._blushes",
+      "expect": 0,
+      "label": "no blush"
+    },
+    {
+      "goto": [
+        68,
+        7,
+        14
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._has('Still not the post.'), window._has(\"The dragon's learned to swim.\")]",
+      "expect": [
+        true,
+        true
+      ],
+      "label": "afterwards: her own last page plus a line"
+    },
+    {
+      "goto": [
+        68,
+        25,
+        22
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[window._has('A PROPER ONE. E.G.'), window._has('A DRAGON. S.C.')]",
+      "expect": [
+        true,
+        true
+      ],
+      "label": "the well: two wishes"
+    },
+    {
+      "comment": "The cottage: in by the door, the letters on the cabinet, out again."
+    },
+    {
+      "goto": [
+        68,
+        6,
+        12
+      ]
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 150
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        69,
+        5,
+        9
+      ],
+      "label": "in the Gotobeds' cottage"
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(3).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "window._has('has a dragon')",
+      "expect": true,
+      "label": "the box of letters: a dragon on the top one"
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(2).start()"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "window._has(\"I've never had the heart.\")",
+      "expect": true,
+      "label": "Mrs Gotobed"
+    },
+    {
+      "key": "ArrowDown",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 90
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        68,
+        6,
+        12
+      ],
+      "label": "out of the front door"
+    },
+    {
+      "goto": [
+        68,
+        19,
+        26
+      ]
+    },
+    {
+      "key": "ArrowDown",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 90
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        8,
+        60,
+        62
+      ],
+      "label": "and out by the road, onto the world map"
+    }
+  ]
+}

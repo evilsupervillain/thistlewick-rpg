@@ -318,6 +318,15 @@ SHEETS = {
         # grey flat cap (male AccB p07, the bandana, reads as one in the
         # sprite); no part in the generator is a satchel.
         (6, "the-courier.json"),        # F2: on his rounds
+        # SPA-4, Much Pottering: the pen pal, ginger plaits and a plaster.
+        (7, "effie-gotobed.json"),      # F3: nine, and a volcano
+    ],
+    "Gen_People15": [
+        # SPA-4: the rest of Much Pottering that speaks.
+        (0, "mrs-gotobed.json"),        # Effie's mother
+        (1, "mr-dibble.json"),          # wet paint, and the bonfire
+        (2, "mrs-throssell.json"),      # chair of the parish council
+        (3, "mr-cobley.json"),          # thirty years after one carp
     ],
 }
 

@@ -938,7 +938,8 @@ finally meets. The same courier has carried their letters for years, so she
 has had every untrue thing he ever wrote - she knows about the dragon - and
 what she wrote back was exactly as untrue. *Needs:* Village 1 built (a map or
 two, new faces). *Gives:* a friend, and the last placeholder door on the
-world map. `QUESTS.md` F3.
+world map. `QUESTS.md` F3. *Built 6 Oct 2026:* **Much Pottering**, and Effie
+Gotobed, whose volcano is a bonfire and whose sea serpent is a carp.
 
 ---
 

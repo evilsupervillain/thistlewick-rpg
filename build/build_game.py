@@ -41,6 +41,7 @@ import weeping_bottom  # noqa: E402
 import fenmarch  # noqa: E402
 import collegium  # noqa: E402
 import dunnage  # noqa: E402
+import pottering  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import places  # noqa: E402
 import q_corvin  # noqa: E402  draws COR-2's drowned street, Map 66
@@ -125,6 +126,8 @@ MAP_NAMES = [
     (dunnage.MAP_BELL, "The Bell", dunnage.MAP_DUNNAGE),
     (places.MAP_DROWNED_STREET, "Old Ashcombe", journey.MAP_WORLD),
     (places.MAP_CARN_DREY, "Under Carn Drey", journey.MAP_WORLD),
+    (places.MAP_POTTERING, "Much Pottering", journey.MAP_WORLD),
+    (places.MAP_POTTERING_IN, "The Gotobeds' Cottage", places.MAP_POTTERING),
 ]
 
 
@@ -436,7 +439,8 @@ def build_system():
             (db.SW_ROL2_DRAWN, "ROL-2: the sword out of the stone"),
             (db.SW_ROL2_DONE, "ROL-2: the Worm ended; discharged"),
             (db.SW_SPA1_DONE, "SPA-1: read out at the dinner hour"),
-            (db.SW_SPA1_DINNER, "SPA-1: the dinner hour (scene)")]:
+            (db.SW_SPA1_DINNER, "SPA-1: the dinner hour (scene)"),
+            (db.SW_SPA4_DONE, "SPA-4: met, and written to by hand")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -469,6 +473,7 @@ def build_system():
     variables[db.VAR_NIX3_LOCATED] = "NIX-3: located with receipts, of three"
     variables[db.VAR_SPA1_POSTED] = "SPA-1: letters posted, of eight"
     variables[db.VAR_SPA1_ORDER] = "SPA-1: which went from where (digits)"
+    variables[db.VAR_SPA4_TOUR] = "SPA-4: Effie's tour (4 is done)"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
@@ -542,6 +547,7 @@ def main():
     dunnage.build()
     q_corvin.build()                    # COR-2's drowned street
     q_roland.build()                    # ROL-2's dungeon under Carn Drey
+    pottering.build()                   # SPA-4's village, Maps 68-69
     q_spare.check_couriers()            # F2's courier ids are the towns'
     shape_wall_tops()
     build_map_infos()

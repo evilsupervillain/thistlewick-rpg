@@ -1554,6 +1554,10 @@ so it has to be run where his key is loaded. What is worth carrying forward:
   later, after the companion quests, and it is neither named nor removed. Its
   two doors, events 68 and 69 at (60,61)-(61,61), stay inert; item 6's warning
   about publishing them was put to him at the push.
+  **Decided, 6 Oct 2026**: it is **Much Pottering**, Spare's pen pal's
+  village, built in `QUESTS.md` F3 (SPA-4) as Maps 68-69 by `pottering.py`.
+  Events 68 and 69 are its real doors now, on the same cells, and
+  `placeholder_doors` asserts that none are left.
 * **The walkable wall ring: diagnosed, and the next thing to fix** - before
   any push, which waits for everything (item 7 above). The cause is not the tile but its *shape*: `interior()`
   writes the ring as `A(98)`, which is the A4 wall-top autotile in shape 0,

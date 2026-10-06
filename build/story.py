@@ -440,6 +440,13 @@ FACES = {
     "Cotter": ("Gen_People14", 5),
     # SPA-1's courier (QUESTS.md F2), generated: red coat, flat cap.
     "Courier": ("Gen_People14", 6),
+    # SPA-4, Much Pottering (QUESTS.md F3), all generated: Spare's pen pal,
+    # her mother, and the three of the village who are in her letters.
+    "Effie": ("Gen_People14", 7),
+    "Mrs Gotobed": ("Gen_People15", 0),
+    "Mr Dibble": ("Gen_People15", 1),
+    "Mrs Throssell": ("Gen_People15", 2),
+    "Mr Cobley": ("Gen_People15", 3),
 }
 
 

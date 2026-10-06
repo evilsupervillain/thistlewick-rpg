@@ -450,7 +450,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (207)
+### `FACES` — who already has a face (212)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -506,7 +506,8 @@ Mr Dray               Miss Moon             The Convenor          Fellow Grice
 Fellow Amory          Fellow Blunt          Mr Pennock            Professor Mott
 Dr Furze              Mother Grizel         Dr Hobday             Nan Gilly
 Mr Spence             Ambrosine             Lorrimer              Maud
-Miss Fettle           Cotter                Courier
+Miss Fettle           Cotter                Courier               Effie
+Mrs Gotobed           Mr Dibble             Mrs Throssell         Mr Cobley
 ```
 
 
@@ -514,7 +515,7 @@ Miss Fettle           Cotter                Courier
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-149 constants.
+152 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -666,6 +667,9 @@ COLDBARROW_MAP_AT_LARGE      'Coldbarrow_Map_AtLarge'
 FOURTH_FOLLOWS               ...
 ASHCOMBE_LAKE                (104, 54)
 LAKE_SHORE_STEP              (104, 55)
+MAP_POTTERING                68
+MAP_POTTERING_IN             69
+POTTERING_STEP               (60, 62)
 ```
 
 
@@ -673,7 +677,7 @@ LAKE_SHORE_STEP              (104, 55)
 
 The whole database of The Obligatory Quest.
 
-603 constants.
+605 constants.
 
 ```
 BRAM                         1
@@ -1229,6 +1233,8 @@ VAR_SPA1_POSTED              28
 VAR_SPA1_ORDER               29
 IT_SPA1_COPIES               73
 CE_SPA1_COPIES               5
+SW_SPA4_DONE                 210
+VAR_SPA4_TOUR                30
 SPARE_ARGUING_LEVEL          12
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31

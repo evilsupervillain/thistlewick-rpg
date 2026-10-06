@@ -497,7 +497,8 @@ has been his pen pal**, whom he finally meets. The courier has been carrying
 their letters for years, so she has had every untrue letter he ever wrote -
 she knows about the dragon - and hers back were exactly as untrue. After F2,
 so the letters exist. It retires the last placeholder door, so
-`placeholder_doors` changes with it; new faces are generated.
+`placeholder_doors` changes with it; new faces are generated. **Done, 6 Oct
+2026** (section 3): Much Pottering, Maps 68-69.
 
 **F4. SPA-2 Ninety Tubes - through Cotter.** Cotter works the Iron Company's
 gate in Great Dunnage (`dunnage.py`). With Spare in the party he knows his
@@ -3664,25 +3665,87 @@ switch and variable names.
   difference, and were not rerun.
 ---
 
+**F3, SPA-4 The Pen Pal - done** (6 Oct 2026). Village 1 is **Much
+Pottering**, Maps 68-69, drawn by a place module of its own, `pottering.py`,
+with the quest's pages from `q_spare.py` hooked one line each - not drawn in
+the quest module as 0.4 says for "a map in no place", because it is a place:
+a site on the world map with five residents, like Ashcombe, which nobody needs
+Spare to visit. `build/scenarios/q_spa4_penpal.json`. The data diff is Map 8
+events 68 and 69 (the placeholders, now its doors, on the same cells, at the
+same ids, every tile unchanged), Maps 68-69, switch 210 and variable 30.
+
+* **The place.** The village where nothing has happened: a stone on the green
+  says it has never been burned down, overrun, foretold, cursed or chosen -
+  the starting village that is on fire by chapter one, turned round, **one
+  trope**. Twinned with Upper Clanging, which Mrs Throssell chose off the map
+  as the most different place she could find; neither has visited. Four
+  things to walk into, player-touch at "same as characters": Mr Dibble's
+  fence (WET PAINT, "That's four today"), a pig asleep across the street (PIG
+  HAS RIGHT OF WAY), the oak by the road in (MIND THE BRANCH, read while
+  walking into it) and the wishing well (I WISH FOR A VOLCANO. A PROPER ONE.
+  E.G.). A hedge maze of two rows - the hedge is the knee-high overlay you can
+  wade through, which is what its sign asks you not to do - with only Mr
+  Dibble's name in its visitors' book. The Gotobeds' cottage: Mrs Gotobed,
+  the box of Spare's letters on the cabinet (`Small Box C`, which is
+  envelopes), and a mountain over the fire with crayon smoke on the glass.
+* **New faces**, all generated: Effie `Gen_People14` 7 (ginger plaits, a
+  sticking plaster), and `Gen_People15` opened for Mrs Gotobed 0, Mr Dibble 1,
+  Mrs Throssell 2 (bonnet and spectacles) and Mr Cobley 3 (the angler's hat).
+* **The quest.** Effie at her gate, without Spare: waiting for the post; her
+  pen pal is six foot and drives the Two Hundred, and has a dragon once three
+  letters are posted (the courier brings her his letters home as well);
+  "Don't tell him" about the volcano. **With Spare**: "You're not six foot."
+  "You're not a princess." - "nearly", and the **childhood-friend trope**
+  ("They knew each other at once. They are both furious about it."). Then her
+  tour, `VAR_SPA4_TOUR` (30): the volcano (Mr Dibble's bonfire, lit in
+  November, never out - and Spare's first true thing, the ninety tubes), the
+  sea serpent (Mr Cobley's carp, Old Tom, who turns over once and launches
+  the duck), and the post, where both confess and each writes one on the spot
+  and **the courier carries them four steps**. `SW_SPA4_DONE` (210) and
+  `companion_story(SPARE)` (already on after F2, so the count does not move).
+  Each stop is an Effie event of its own; a dismissed Spare's tour waits.
+* **The courier** is here for anybody, because her letters come here, and is
+  **not** a ninth posting town: with Spare he asks "Post?" and Spare says
+  "Not today. She is right there."
+* **Afterwards**: Effie's own last page plus "The dragon's learned to swim.
+  It's in our pond. Mr Cobley's furious." The well gains A DRAGON. S.C.
+* **Tropes +2** (the plaque, the childhood friend): running tally **+49
+  fixed**, and 2-9 from PIP-2. **Blushes +0**: +13 fixed. **Candidate ending
+  line**: "Spare Cotterill met his pen pal at last, in Much Pottering. There
+  was no volcano either. They are still writing." `TIMELINE.md`: 1970 Mr
+  Cobley and Old Tom, 1997 the twinning and the pen pals, Effie nine. Nothing
+  settles the baby.
+* **Looked at** (0.1): `propsheet.py` over Maps 68-69, 71 tiles, all period and
+  all what the text calls them. The first draw had a plus-shaped pond, a
+  hedge in black (an A2 overlay drawn on layer 0) and a maze whose one
+  corridor was walled across, so the centre could not be reached -
+  `validate.py` was clean, because the centre is read from beside. Found by
+  screenshot and a flood, fixed, shot again.
+* **`placeholder_doors`** now asserts none are left, and nothing is called
+  Village 1, and keeps its six `<aironly>` checks; the walk moved to
+  `q_spa4_penpal`.
+* **Scenarios**: `q_spa4_penpal` 36 checks, all pass, and
+  `placeholder_doors`. **Rerun**: nothing else. No other scenario stands on
+  (60,61)-(61,61) or names Map 8's events 68-69 (grepped), and the
+  village is new.
+
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step F3, SPA-4 The Pen
-Pal** (`COMPANIONS.md`'s Spare section as amended, `QUESTS.md` F3,
-`q_spare.py`). **Parts A-E, F1 and F2 are done** (F2, The Letters, 6 Oct
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step F4, SPA-2 Ninety
+Tubes** (`COMPANIONS.md`'s Spare section as amended, `QUESTS.md` F4,
+`q_spare.py`). **Parts A-E and F1-F3 are done** (F3, The Pen Pal, 6 Oct
 2026). One step per session (0.1) unless Mike asks for more.
 
-F3 is **Village 1**, (60,61)-(61,61) on the world map, the last placeholder
-door (`placeholder_doors` changes with it): a nice village with people to
-talk to and funny things to walk into, and a girl of about Spare's age who
-has been his pen pal and whom he finally meets. **The courier from F2 has
-carried their letters for years** - he should be standing there too, the
-same `q_spare.courier` look (`FACES["Courier"]`, `Gen_People14` 6) though
-not a ninth posting town - so she has had every untrue letter Spare wrote,
-dragon and all (`q_spare.SAGA`), and hers back were exactly as untrue. New
-faces are generated. Then F4 (Cotter, the lock gate), G1.
+F4 is **through Cotter**, at the Iron Company's gate in Great Dunnage
+(`dunnage.py`, Map 61): with Spare in the party he knows his brother, and has
+a job a man does not fit - the jammed lock gate on the Dunnage cut. The party
+waits outside and Spare goes in alone, with `SPARE.md` 3's party swap (F1's
+`_argument` already does it), on a confined map of his own, **Map 70**.
+Cotter's published scene stays as it is; the new page requires his ladder's
+terminal. He is not frightened of the dark. Then G1.
 
-Read section 0, Part F in section 2, and the F2 Done paragraph, once, at the
+Read section 0, Part F in section 2, and the F3 Done paragraph, once, at the
 start. Read what the step needs by dumping its maps' events and their text,
 not by opening a module. Crop anything a step touches with `propsheet.py`
 before judging, and screenshot before and after anything changed (0.1).
@@ -3691,17 +3754,20 @@ Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
 byte: every existing page identical, only appended pages and new events.
 `validate.py`, and `apidigest.py . --write`. Screenshots of anything drawn,
-looked at. The step's own scenario, `build/scenarios/q_spa4*.json`, run in
+looked at. The step's own scenario, `build/scenarios/q_spa2*.json`, run in
 the background, one browser at a time. Then the Done paragraph, a commit, and
 this prompt moved on. Nothing is pushed. No full suite until G1.
 
-Where things stand: tropes +47 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 210, variable 30, item 74, weapon 44,
+Where things stand: tropes +49 fixed and 2-9 from PIP-2; blushes +13 fixed
+and 0-1 from PIP-2. Next free: switch 211, variable 31, item 74, weapon 44,
 armour 49, armour type 15, weapon type 14, element 11, class 13, common event
-6, state 44, enemy 60, troop 55, skill 185, map 68, `Gen_People14` 7. Spare
-is actor 11; his story switch is 110 (`db.SW_STORY[db.SPARE]`) and is on
-after F2. Map 8's last event is 83; the tower door has four pages (E17, E18),
-and anything appended to it must carry both splices or come after them. Mrs
+6, state 44, enemy 60, troop 55, skill 185, map 70, `Gen_People15` 4.
+`build_game.py` sizes the variable list at 32, so **31 is the last
+variable it has room for**; a step that needs two grows it. Spare is actor
+11; his story switch is 110 (`db.SW_STORY[db.SPARE]`) and is on after F2.
+Much Pottering is Maps 68-69, `pottering.py`. Map 8's last event is 83; the
+tower door has four pages (E17, E18), and anything appended to it must carry
+both splices or come after them. Mrs
 Cotterill (Map 21 event 11) has five pages now; Map 22's last event is 10.
 
 Things learned that will bite again:
@@ -3785,3 +3851,12 @@ Things learned that will bite again:
 * **A transfer out of Upper Clanging by an event, not a door, keeps the
   rain**: weather lives on `$gameScreen`. Dry it before the transfer, the way
   `north.door` does (F2).
+* **`validate.py` cannot see a sealed corner whose event is read from
+  beside**: F3's maze had its only corridor walled across, and the stump at
+  its centre - an action-button event on a blocked tile - checked clean.
+  Flood from the arrival and ask about the cells you stand on to read things.
+* **`K.HEDGE` is an overlay** (A2 `Bush`, flags `0xe40`): on layer 0 it draws
+  with black round it, and it is wadeable, not a wall. Put it on layer 1 over
+  grass (F3).
+* **Two presses to leave an interior is one too many**: the second lands
+  on the street after the transfer and walks a step (F3's scenario).

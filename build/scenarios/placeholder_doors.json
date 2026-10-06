@@ -1,48 +1,42 @@
 {
   "query": "?map=8&x=61&y=62&frames=90",
-  "comment": "WORLDMAP.md 6.7. The world map carries 2 placeholder door events on the 1 of its 29 sites that have nothing behind them yet, and they are deliberately INERT: a page whose command list is just the terminator, so Game_Event.start never runs it. This asserts that in the engine rather than in the data, because the day somebody wires the first real transfer is the day this stops being true for one of them and nothing else would say so. Village 1's two cells, (61,61) and (60,61), are the two walked onto here: it is the only site left, deferred by SITES.md step 9 to section 4 and there deferred again by Mike, who expects to use it later: it stays standing and inert until it is named, and this walk moves or goes then. The Former Premises was the one placeholder that could only be reached by air, and it has been built, so every placeholder left is on the ground and walking onto two of them is the whole test.",
+  "comment": "WORLDMAP.md 6.7. The world map arrived with 41 placeholder door events on its 29 sites, deliberately INERT, and every one of them has since been wired to something real: Village 1's two, the last, became Much Pottering in QUESTS.md F3 (SPA-4), whose own scenario walks onto them. What is left here is that the count is nought, and the air-only assertions, which were always here and are unrelated to the walk this scenario used to make.",
   "steps": [
-    {"eval": "$gameSystem.disableEncounter()"},
-    {"check": "$gameMap.mapId()", "expect": 8,
-     "label": "the world map is 120x120 and installed"},
-    {"check": "[$dataMap.width, $dataMap.height]", "expect": [120, 120]},
-
-    {"check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).length",
-     "expect": 2,
-     "label": "2 placeholder doors left. It was 41 on 29 sites; Penultima's two, Restwell's two, the Hithermost cluster's four - Village A is two cells, and the chapel and the Door into the Mountain one each - Fairholme's three - Castle A is two cells, and Mrs Emberthwaite's lair one - Olde Evermore's one, Village C - Gladhollow's two, Village B is two cells - the Former Premises' two, Floating Continent (Castle) is two cells - and the seven world-map-only sites' seven, one cell each and no map behind any of them - and Tobias Frayne's one, House (Town) - and Frostwick's two, Town B (Snow) is two cells - and Coldbarrow's one, Temple A (Snow) - and the Sable Hart's one, House (Town) - and Little Gore's and Sump's, House (Village) and House (Desert), one cell each - and Ashcombe's two, Village A is two cells - and Weeping Bottom's one, Temple B - and Fenmarch Hall's two, Large Mansion is two cells - and the Collegium Arcanum's two, School of Magic is two cells - and Great Dunnage's two, Fortress City is two cells - are real doors now and are in this game's own block of events, which is what wiring a site does - see WORLDMAP.md 7.6. This number goes down by the width of a stamp every time somebody builds a room, and that is the check"},
-    {"check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).every(e => e.pages.every(p => p.list.every(c => c.code === 0)))",
-     "expect": true,
-     "label": "and every page of every one of them has no commands at all"},
-    {"check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).every(e => (e.note||'').indexOf('placeholder, no destination yet') >= 0)",
-     "expect": true,
-     "label": "with what the page used to say moved into the note, where the editor shows it and nothing runs it"},
-
-    {"comment": "Village 1's eastern door cell is one square north. Walking onto it must start nothing.",
-     "key": "ArrowUp", "times": 1, "gap": 30},
-    {"frames": 60},
-    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [61, 61],
-     "label": "standing on Village 1's eastern door"},
-    {"check": "$gameMap.eventsXy(61, 61).length", "expect": 1,
-     "label": "there is an event on this square"},
-    {"check": "$gameMap._interpreter.isRunning()", "expect": false,
-     "label": "THE POINT: walking onto it starts nothing - no chime, no window, no transfer to a room that does not exist"},
-    {"shot": "placeholder_village_1.png"},
-
-    {"comment": "And its western one, which WORLDMAP.md section 8 keeps deliberately surplus and unnamed along with the other.",
-     "goto": [8, 60, 62]},
-    {"key": "ArrowUp", "times": 1, "gap": 30},
-    {"frames": 60},
-    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [60, 61],
-     "label": "and onto Village 1's western door, which has no backstory and no room either"},
-    {"check": "$gameMap._interpreter.isRunning()", "expect": false,
-     "label": "which also does nothing"},
-
-    {"comment": "The air-only events, asserted off the data: validate.py proves none of them can be walked to. The Former Premises' two are real doors now and not placeholders, and they still carry the note - drop it from a real door and validate.py silently stops making that assertion, which is SITES.md section 1's first trap.",
-     "check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('<aironly>') >= 0).length",
-     "expect": 6,
-     "label": "six <aironly> events: the Isle's two, Attempt 112, the Middle Distance, and the Former Premises' two real doors"},
-    {"check": "$dataMap.events.filter(e => e && e.name === 'The Former Premises' && (e.note||'').indexOf('<aironly>') >= 0 && (e.note||'').indexOf('-site') < 0 && e.pages[0].list.length > 1).length",
-     "expect": 2,
-     "label": "and those two are the real doors, with commands, and not placeholders"}
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 8,
+      "label": "the world map is 120x120 and installed"
+    },
+    {
+      "check": "[$dataMap.width, $dataMap.height]",
+      "expect": [
+        120,
+        120
+      ]
+    },
+    {
+      "check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('-site') >= 0).length",
+      "expect": 0,
+      "label": "no placeholder doors left. It was 41 on 29 sites; the last two, Village 1's, became Much Pottering's doors in QUESTS.md F3 (SPA-4), and q_spa4_penpal walks onto them. This is the check that the number reached nought and stays there"
+    },
+    {
+      "check": "$dataMap.events.filter(e => e && e.name === 'Village 1').length",
+      "expect": 0,
+      "label": "and nothing is still called Village 1"
+    },
+    {
+      "comment": "The air-only events, asserted off the data: validate.py proves none of them can be walked to. The Former Premises' two are real doors now and not placeholders, and they still carry the note - drop it from a real door and validate.py silently stops making that assertion, which is SITES.md section 1's first trap.",
+      "check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('<aironly>') >= 0).length",
+      "expect": 6,
+      "label": "six <aironly> events: the Isle's two, Attempt 112, the Middle Distance, and the Former Premises' two real doors"
+    },
+    {
+      "check": "$dataMap.events.filter(e => e && e.name === 'The Former Premises' && (e.note||'').indexOf('<aironly>') >= 0 && (e.note||'').indexOf('-site') < 0 && e.pages[0].list.length > 1).length",
+      "expect": 2,
+      "label": "and those two are the real doors, with commands, and not placeholders"
+    }
   ]
 }

@@ -293,7 +293,10 @@ Append instead.
   the dinner hour, **variables 28-29** letters posted and which town each went
   from (one decimal digit per town); the courier is `Gen_People14` 6 and is
   the last event on each of Maps 13, 31, 38, 40, 42, 44, 52 and 58, and the
-  dinner hour is Map 22 event 10 |
+  dinner hour is Map 22 event 10. **SPA-4** (`QUESTS.md` F3): **switch 210**
+  done and **variable 30** Effie's tour (1 the volcano, 2 the pond, 3 the
+  post, 4 done), on **Maps 68-69**, Much Pottering; Effie is `Gen_People14` 7
+  and the rest of the village `Gen_People15` 0-3 |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -424,6 +427,12 @@ Append instead.
   `q_roland.py`; `places.MAP_CARN_DREY`. In from the cave event at
   `places.CARN_DREY`, there once the party has gone to see; out to
   `places.CARN_DREY_STEP` |
+| Maps 68-69 | Much Pottering and the Gotobeds' cottage, which was worldgen's
+  Village 1 - the last placeholder on the world map (SPA-4). A place, so drawn
+  by its own module, `pottering.py`, with Effie's tour and the courier from
+  `q_spare.py`; `places.MAP_POTTERING`, `MAP_POTTERING_IN`. In from the two
+  stamped cells (60,61)-(61,61), events 68-69 on Map 8, where the placeholders
+  were; out to `places.POTTERING_STEP` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -840,15 +849,10 @@ makes eight passes over it cost less than the single pass did before.
   Mordaunt again, Mordaunt with Sir Aldric in the party - the reaction shot,
   asserted to offer nobody a promotion - the desk, the files, the committee's
   table, and back out onto `places.COLDBARROW_STEP` |
-| `placeholder_doors` | that the world map's **remaining site doors do nothing**.
-  It was 41 on 29 sites and is **2** now: every site but Village 1 has become
-  a real door. Every page of the two left has no commands, which is how an
-  event says "this exists and is not finished" - and it is asserted out of the
-  live game rather than off the data, because the day somebody wires the first
-  real transfer is the day it stops being true for one of them. It walks onto
-  both of Village 1's cells, (61,61) and (60,61), and checks the interpreter
-  does not start. `SITES.md` section 4 decides Village 1, and this walk moves
-  or goes with it |
+| `placeholder_doors` | that the world map has **no placeholder doors left**.
+  It was 41 on 29 sites; the last two, Village 1's, became Much Pottering in
+  `QUESTS.md` F3, and the walk onto them moved to `q_spa4_penpal`. What is left
+  is the count at nought, and the six `<aironly>` assertions |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -896,6 +900,13 @@ makes eight passes over it cost less than the single pass did before.
   once - then she stops at a quarter, she concedes and he joins, levelled to
   the party with The Drawing and the washer on him; the same face, sprite and
   battler as the doorstep; the bag sealed in his hand; a shot of the fight |
+| `q_spa4_penpal` | `QUESTS.md` F3, Much Pottering and SPA-4: in by the world
+  door that was Village 1; without Spare, Effie at her gate and nobody on the
+  tour, the plaque's trope once, and the four things you walk into (the wet
+  fence, the pig, the oak, the well); with Spare, the courier's "she is right
+  there", the meeting and its trope, a dismissal mid-tour that she waits
+  through, the volcano, the sea serpent and the post, done; the afterwards
+  pages, the second wish, the cottage, and out by the road |
 
 | `firstfield` | Firstfield Meadow walked with the arrow keys: in off the rainbow,
   Fizz in front of you before a step and in front of the sign you try to read,

@@ -156,6 +156,7 @@ when it does, in a round year.
 | 1970 | Tobias Frayne's first revival of eleven, "in thirty years" | `frayne` | F |
 | 1970 | Aldric, sixteen, is due to keep his vigil: the Order hangs his shield, a knight rampant regardant, over the door of its chapel for the west at Weeping Bottom, and he keeps the vigil somewhere else - the first of eleven wrong chapels in thirty years, two of them Coldbarrow's Chapter House and one a barn with a weathercock. Confirmed at the twelfth, in 2000, with Sir Hamo as sponsor (ALD-2) | `q_aldric` (ALD-2) | F |
 | 1970 | Mr Tinder, the parish's last fire person, retires; the Cinder Fen is not burnt again, and the causeway to Great Dunnage goes a foot under. Zephyrine burns it, sanctioned, in triplicate, "thirty years" later (ZEPH-4) | `q_zephyrine` (ZEPH-4) | F |
+| 1970 | Mr Cobley starts fishing Much Pottering's duck pond for Old Tom, the biggest carp in the county, whom nobody has ever seen ("thirty years"). Old Tom turns over once, in 2000, in front of Spare (SPA-4) | `pottering`, `q_spare` (SPA-4) | F |
 | 1971 | Edith Pellow sees the Thing, and counts nine heads; The Sighting, issue forty-four | `q_wren` (WRE-3) | F |
 | 1974 | Walt Ashbury, twenty-six years at the Eight Hours | `restwell` | F |
 | 1977 | Roland Fairweather, eleven, page to Dame Florence Ickworth: the Wyrm of Ickworth, the first of his eleven parties ("since I was eleven", and thirty-four now) | `q_roland` (ROL-3) | P |
@@ -173,6 +174,7 @@ when it does, in a round year.
 | 1993 | Maud Penhallow, nine, goes into Fellow Blunt's yard as Roland's understudy - sword, horse, lineage, "in case" - and is told the prophecy is nearly ready (ROL-5) | `q_roland` (ROL-5) | F |
 | 1994 | Aldric reaches Thistlewick and cannot find the north gate; Perpetua Small wakes on the beach. That winter his horse walks into Plummer's yard at Great Dunnage on her own, saddled ("six years", ALD-4) | `db.build_actors`, `village`; `dunnage.plummer_pages`, `q_aldric` | P |
 | 1996 | Mr Pilbeam rescues Rosamund from the eagle. Merribell leaves the Sisterhouse at twenty-two, because it has begun holding symposia (MER-1) | `fairholme`, `q_merribell` | F |
+| 1997 | Much Pottering twins with Upper Clanging - Mrs Throssell chose it off the map as the most different place she could find, and neither village has ever visited the other - and the twinning pairs one child of six from each as pen pals: Effie Gotobed and Spare Cotterill. They write ever since, untruthfully, and meet in 2000 (SPA-4) | `pottering`, `q_spare` (SPA-4) | F |
 
 ## 5. Ages stated
 
@@ -191,6 +193,7 @@ when it does, in a round year.
 | Corvin Ash | thirty (nineteen, and eleven years in the corner) | `south` |
 | the Cotterills | Cotter 24, Rivet 22, Gudgeon 20, Tappet 18, Ferrule 16, Grommet 15, Clevis 13, Shim 11, Spare 9, and one due in the spring | `north` (Gudgeon's register) |
 | Spare Cotterill | nine; brushing the boiler's ninety tubes since six (1997); the bag packed two years (1998); out of a boiler nine times, by his mother's count | `q_spare` (F1) |
+| Effie Gotobed | nine (a pen pal since six, 1997) | `pottering`, `q_spare` (SPA-4) |
 | Pemberton-Gore IV | nineteen; found the gate at ten | `fenmarch` |
 | Toby Wendle | ten | `gladhollow` |
 | Clem Blagg | seven | `frostwick` |

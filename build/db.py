@@ -505,6 +505,9 @@ VAR_SPA1_POSTED = 28            # letters posted, of eight
 VAR_SPA1_ORDER = 29             # digit i: which letter went from town i
 IT_SPA1_COPIES = 73             # his copies, in pencil
 CE_SPA1_COPIES = 5              # reading them, from the menu
+# SPA-4, The Pen Pal (QUESTS.md F3, q_spare.py; the village is pottering.py)
+SW_SPA4_DONE = 210              # met, shown round, and written to by hand
+VAR_SPA4_TOUR = 30              # Effie's tour: 1 volcano, 2 serpent, 3 post
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
