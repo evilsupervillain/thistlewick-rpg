@@ -510,6 +510,120 @@ stays as it is; the new page requires his ladder's terminal. **Done, 6 Oct
 
 ### Part G - the ending, last
 
+**Before G: the playtest round** (Mike, 7 Oct 2026). Mike's first
+playthrough of the earlier content turned up the list below, and it goes
+in before the ending, in this order. One step per session, as before.
+
+* **P1. Playtest fixes.**
+  * **NIX-5's escort is luck, not care.** The Gloamwood rolls an encounter
+    about every 26 steps, Nix's half-encounters makes that about 52, and the
+    walk through Maps 9-10 is long against that. An accessory cannot help:
+    Encounter Half does not stack with Nix's, and Encounter None trivialises
+    the quest. Add a cheap consumable sold in shops that pushes the next
+    encounter back a fixed number of steps (a Repel), which stacks with Nix
+    and is useful anywhere, and have Bagshawe mention it at the mouth.
+    Measure the walk first, so the odds come out at "a careful player
+    usually makes it".
+  * **PIP-3's contest is Piper alone.** She is the one performing, so the
+    party watches from the floor. Use `SPARE.md` 3's swap, as Spare's
+    argument and the culvert do, and retune troop 41 for one performer with
+    `balance.py`. Losing costs nothing: she finishes anyway, and the scores
+    are fixed.
+* **P2. The early maps** (fix-on-sight; "additive only" protects the
+  storyline, not bugs). The changes that touch every map go first:
+  * A dark doorway tile under every town door event, so an opened door
+    leaves a hole, not a wall.
+  * Shadows in building interiors.
+  * The forest ring that alternates whole trees with four quarter-trees.
+  * A `validate.py` check for events that block without being drawn, then
+    every one it finds: the Obligatory Tower and elsewhere.
+  * The Adventurers' Guild (Provisional): the invisible door mat, a
+    scattered layout, and a shield standing in for a sign.
+  * A sword on the mantel in Bram's house that is gone once he has it.
+  * The Door into the Mountain and the floating island: Mike draws them in
+    the editor, commits the edited `data/` maps without rebuilding, and the
+    step diffs his tiles into the build script.
+* **P3. Olde Evermore** needs more elves about doing things.
+* **P4. The post-game.** The Prophecy's defeat stops being the end: the
+  finale's tally plays, then the party is back in the world, open, with
+  unfinished quests still finishable. It starts as a short design doc agreed
+  with Mike: the tower's state; Thistlewick's lines; whether the pension and
+  the place in Nether Sopping still happen; whether the Prophecy is really
+  over; and whether an ending tally still makes sense when the game goes on.
+  **The Door into the Mountain is post-ending content** (Mike, 7 Oct 2026):
+  Sir Dunstable's lamp at a quarter past four, and what is behind the door.
+  G1's ending lines are written in the same pass, because they live in the
+  finale event that now hands back to the world.
+* **The quest log (G0)** has no dependency on P1-P4. The plugin (Q0-Q7) can
+  be built in a parallel session at any time, and adoption follows it.
+  Post-game quests are added to `quests.py` when they are built.
+* **Then G1's counter re-cuts, the one full suite, Mike's playthrough, and
+  the push**, in that order. The re-cuts come last because P4 adds tropes.
+
+**G0. The quest log** (added 7 Oct 2026). Install the workspace's generic
+quest-log plugin (`../QUESTLOG.md`) once its milestones Q0-Q6 are done. It goes
+**before G1** so that G1's one full suite and Mike's playtest cover it too;
+putting it after the release would mean a second suite, a second playtest and
+a second push. The plugin is generic. Everything below is this game's side of
+it, and none of it belongs in `tools/questlog/`.
+
+* **Inventory.** Every quest this game has, with its start, done and fail
+  state: the main line (switches 1-5), the side quests in `CLAUDE.md`'s
+  switch table (the Feud, the Guild, bounties, lighthouse, the Pit, the
+  Barrow, the bench, Hosea's history), the north (47-71, `NORTH.md` 10),
+  Firstfield Meadow (81-87), the world-map sites (`SITES.md`), and the
+  companion quests (111-250, each step's Done paragraph). Most are already
+  ask/done switch pairs, so a binding is two constants from `db.py`.
+  Anything kept in a **self switch** or only in a counter variable gets
+  listed, because those are the bindings `check.py` cannot fully check.
+* **Bind to the quest's own switches, never to `SW_RECRUIT` (11-19)**,
+  which go off when a form desk strikes somebody off. The plugin latches
+  completion, but a quest bound to a recruit switch would still drop out of
+  Active mid-quest. `SW_KNOWN` (72-80) and `SW_<NAME>_STORY` (101-110) are
+  safe.
+* **`build/quests.py`** writes `data/Quests.json` through `questlog.py` and
+  is called from `build_game.py`, which also calls `questlog.install()`. No
+  database ids are spent, and no existing event changes: the log reads
+  state that is already set. Nothing in this step needs a plugin command.
+* **Text.** Titles and objectives are plain and short, because they are
+  instructions. Descriptions can carry the game's voice, but they are new
+  writing and get Mike's eye, the way every published line does. A quest
+  that is finished gets a closing description, keyed on its done switch.
+* **Spoilers.** An objective that names a twist is `"hidden": "omit"` until
+  its `visible` switch is on. SPA-3 is past the ending and does not appear.
+* **The menu entry is there from the start** (Mike, 7 Oct 2026): Bram has
+  the log from the first screen, so no `menuSwitch`. There are no spoilers,
+  because a quest is not listed until it is started. The only care needed is
+  in the objective text of a quest that has already started.
+* **Fizz's line stays, and gets an answer** (Mike, 7 Oct 2026). This is a
+  splice inside Dilys's published "Yes" branch (`meadow.dilys_event`),
+  agreed because nothing is lost and it is only improved. After "...We
+  haven't got a quest log. / Just remember it! Really hard!":
+  `You point out that you do have a quest log, and that this quest has just
+  appeared in it.`, then Fizz with Mike's choice of option b - "...Oh." /
+  "Remember it anyway. Really hard. Just in case." - optionally preceded by
+  "...WHO GAVE YOU THAT?" / "Nobody tells ME anything." He was happy with
+  either. `SW_FF_SHEEP_ASKED` moves up to just before the narration, so the
+  quest really is in the log when the line says so. If the plugin only
+  shows a banner when the screen is idle, the timing is adjusted so the
+  banner and the line agree.
+* **Two Firstfield quests**: the sheep (which are pigs), started on
+  `SW_FF_SHEEP_ASKED` and done on `SW_FF_SHEEP_DONE`; and **"We haven't got
+  a quest log."**, started and done on `SW_FF_SHEEP_ASKED`, so it arrives
+  Completed. Its description is "Check your quest log so that you don't have
+  to remember really hard." Old saves past the meadow file both under
+  Completed, silently.
+* **Old saves.** `live-rpg` players have saves from before the log. The
+  plugin's silent first snapshot (`QUESTLOG.md` 2.5) is the whole answer, and
+  a scenario asserts it: load a mid-game state, delete `_questLog`, and assert
+  that nothing is announced and the finished quests are under Completed.
+* **Checks.** `validate.py` (which runs `check.py`), one scenario
+  `ql_log.json` sampling one quest per part through each status with
+  screenshots of the scene, and the old-save scenario. The full suite is
+  G1's.
+* **Done paragraph** names the quest count, every self-switch binding, and
+  what Mike decided for the menu switch and Fizz's line.
+
 **G1.** One `if_then` block per companion on `SW_<NAME>_STORY` (and Spare's),
 each choosing one line from its quests' candidates, and one closing line on
 `VAR_COMPANION_STORIES` (1.4), appended to `journey.finale_event`'s tally
@@ -3812,6 +3926,16 @@ three switch and one variable names.
 ---
 
 ## Restart prompt
+
+**Start with P1** (Part G, "Before G: the playtest round", 7 Oct 2026),
+not G1. Mike's playtest list goes in first, in the order written there: P1
+the NIX-5 Repel and PIP-3 solo, P2 the early maps, P3 Olde Evermore's elves,
+P4 the post-game with the Door into the Mountain and G1's ending lines. G0,
+the quest log, follows its plugin (`../QUESTLOG.md` Q0-Q7, a parallel effort
+in `trial-chamber`). Last come G1's counter re-cuts, the one full suite,
+Mike's playthrough, and the push. Read Part G's playtest round and the step's
+own bullet; the paragraph below is still the plan for G1's ending lines,
+which are written in P4.
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick` with **step G1, the ending**
