@@ -1,6 +1,6 @@
 {
  "query": "?map=8&x=52&y=64&frames=90",
- "comment": "QUESTS.md A10, NIX-5 Half An Encounter. Encounters are left on. The mouth without Nix is unchanged; with Nix and the wood cleared, Enoch Bagshawe and his reed, one blush. Night one: in at night with the battle count stored, and back out of the south end, abandoned. Night two: a forced battle, and the parallel reed event fails it the moment the battle ends. Night three: through to the north exit - the far-end check passes, the fee, one trope, Nix's story. Afterwards the mouth is the mouth. P1: Bagshawe mentions the mothballs both nights; night three uses one, walks four steps on an encounter count of one without a fight, and watches it wear off.",
+ "comment": "QUESTS.md A10, NIX-5 Half An Encounter. Encounters are left on. The mouth without Nix is unchanged; with Nix and the wood cleared, Enoch Bagshawe and his reed, one blush. Night one: in at night with the battle count stored, and back out of the south end, abandoned. Night two: a forced battle, and the parallel reed event fails it the moment the battle ends. Night three: through to the north exit - the far-end check passes, the fee, one trope, Nix's story. Afterwards the mouth is the mouth. P1: Bagshawe mentions the mothballs both nights; night three uses one as the menu does, has a second given back while it works, walks four steps on an encounter count of one without a fight, and watches it wear off. Then the airing: refused at 74 steps after, taken at 75.",
  "steps": [
   {
    "comment": "Encounters stay on: this is the one scenario that wants them.",
@@ -242,10 +242,10 @@
    "expect": true
   },
   {
-   "comment": "P1, the Repel: a twist of mothballs at the south end. Encounter None while it lasts, so the count does not move, and Nix's half after."
+   "comment": "P1, the Repel: a twist of mothballs at the south end, used the way the menu uses it (Game_Battler.useItem, then applyGlobal reserves common event 6). Encounter None while it lasts, so the count does not move, and Nix's half after; then 25 steps of airing before another."
   },
   {
-   "eval": "$gameParty.gainItem($dataItems[74], 2); window._mb = t => { const a = new Game_Action(t); a.setItemObject($dataItems[74]); return a; }"
+   "eval": "$gameParty.gainItem($dataItems[74], 2); window._lines = []"
   },
   {
    "check": "[$dataItems[74].name, $dataItems[74].price, $dataStates[44].stepsToRemove]",
@@ -256,20 +256,53 @@
    ]
   },
   {
-   "check": "(() => { const t = $gameParty.leader(); const a = window._mb(t); if (!a.testApply(t)) return 'refused'; $gameParty.consumeItem($dataItems[74]); a.apply(t); return [t.isStateAffected(44), t._stateSteps[44], $gameParty.hasEncounterNone(), $gameParty.hasEncounterHalf(), $gameParty.numItems($dataItems[74])]; })()",
+   "check": "(() => { const u = $gameParty.leader(); const it = $dataItems[74]; if (!u.canUse(it)) return 'cannot'; const a = new Game_Action(u); a.setItemObject(it); u.useItem(it); a.applyGlobal(); return $gameTemp.isCommonEventReserved(); })()",
+   "expect": true,
+   "label": "usable from the menu; it runs the common event"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "(() => { const t = $gameParty.leader(); return [t.isStateAffected(44), t._stateSteps[44], $gameParty.hasEncounterNone(), $gameParty.hasEncounterHalf(), $gameParty.numItems($dataItems[74]), $gameVariables.value(32) === $gameParty.steps()]; })()",
    "expect": [
     true,
     50,
     true,
     true,
-    1
+    1,
+    true
    ],
-   "label": "warded for fifty steps, Nix's half still there"
+   "label": "warded for fifty steps, Nix's half still there, the step stamped"
   },
   {
-   "check": "window._mb($gameParty.leader()).testApply($gameParty.leader())",
-   "expect": false,
-   "label": "a second twist on the same person is not wasted"
+   "check": "window._lines.some(l => l.includes(\"The smell is extraordinary.\"))",
+   "expect": true
+  },
+  {
+   "eval": "window._lines = []; window._stamp = $gameVariables.value(32)"
+  },
+  {
+   "check": "(() => { const u = $gameParty.leader(); const it = $dataItems[74]; if (!u.canUse(it)) return 'cannot'; const a = new Game_Action(u); a.setItemObject(it); u.useItem(it); a.applyGlobal(); return $gameTemp.isCommonEventReserved(); })()",
+   "expect": true
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "[window._lines.some(l => l.includes(\"still airing\")), $gameParty.numItems($dataItems[74]), $gameVariables.value(32) === window._stamp]",
+   "expect": [
+    true,
+    1,
+    true
+   ],
+   "label": "a second straight away goes back in the bag"
   },
   {
    "eval": "$gamePlayer._encounterCount = 1; window._steps = $gameParty.steps()"
@@ -325,6 +358,52 @@
     39.5
    ],
    "label": "worn off, and that step already counts at Nix's half"
+  },
+  {
+   "comment": "Airing: the next twist is refused until 75 party steps after the last (50 worn, 25 airing)."
+  },
+  {
+   "eval": "$gameParty._steps += 200; $gameVariables.setValue(32, $gameParty.steps() - 74); window._lines = []"
+  },
+  {
+   "check": "(() => { const u = $gameParty.leader(); const it = $dataItems[74]; if (!u.canUse(it)) return 'cannot'; const a = new Game_Action(u); a.setItemObject(it); u.useItem(it); a.applyGlobal(); return $gameTemp.isCommonEventReserved(); })()",
+   "expect": true
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "[window._lines.some(l => l.includes(\"still airing\")), $gameParty.numItems($dataItems[74])]",
+   "expect": [
+    true,
+    1
+   ],
+   "label": "seventy-four steps on: still airing"
+  },
+  {
+   "eval": "$gameVariables.setValue(32, $gameParty.steps() - 75); window._lines = []"
+  },
+  {
+   "check": "(() => { const u = $gameParty.leader(); const it = $dataItems[74]; if (!u.canUse(it)) return 'cannot'; const a = new Game_Action(u); a.setItemObject(it); u.useItem(it); a.applyGlobal(); return $gameTemp.isCommonEventReserved(); })()",
+   "expect": true
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "[window._lines.some(l => l.includes(\"The smell is extraordinary.\")), $gameParty.numItems($dataItems[74]), $gameParty.hasEncounterNone()]",
+   "expect": [
+    true,
+    0,
+    true
+   ],
+   "label": "seventy-five: the next twist"
   },
   {
    "eval": "$gamePlayer._encounterCount = 60"

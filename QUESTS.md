@@ -3926,7 +3926,8 @@ three switch and one variable names.
 **P1, the playtest fixes - done** (Part G, "Before G"): NIX-5's Repel and
 PIP-3 fought by Piper alone. `db.build_mothballs` (new), `q_nix._nix5_mothballs`
 (new), `q_piper._pip3_battle`, `db.build_contest`, and one goods line in each
-of four shops.
+of four shops. Built in two commits: the first had no cooldown, and Mike
+asked the right question of it (below, "And then it wants airing").
 
 * **The walk, measured** (a shortest path over Maps 9-10 with the engine's
   own passage rules and the first-page blockers): **92 steps on Map 9 and 28
@@ -3943,29 +3944,38 @@ of four shops.
   mothballs."). While it is on the count does not move, so the next encounter
   is pushed back exactly that far, and Nix's half applies to every step after:
   the two stack, which an Encounter Half trait would not. It survives the
-  transfer, and the inn (Recover All) takes it off. A second twist on someone
-  already warded is refused by the engine (`testItemEffect` on Add State), so
-  it is never wasted.
-* **Item 74, Mothballs**: 30 gold, menu only, one ally, icon 208 (the tied
-  pouch). "A twist of paper, very strong. Nothing will come near you for 50
-  steps. Nothing." Sold at **Nix's Emporium** (Map 7), **the Chandler's**
+  transfer, and the inn (Recover All) takes it off.
+* **And then it wants airing** (Mike, 7 Oct 2026: "does that not negate the
+  need for Nix?"). It did: a twist used every time the last wore off covered
+  any walk, with Nix or without. So the item runs **Common Event 6**, which
+  stamps `$gameParty.steps()` into **variable 32** (`build_game.py`'s list
+  grown to 33): inside 75 steps of the last twist - 50 worn, 25 airing - the
+  new one goes back in the bag, "The last lot is still airing. Give it a
+  while.", and nothing is spent; otherwise the state goes on the first
+  living battle member, "The smell is extraordinary." Party steps, so
+  another member's coat is no way round it. The cost is that it closes the
+  menu, as Spare's Copies does.
+* **Item 74, Mothballs**: 30 gold, menu only, no target (the common event
+  picks), icon 208 (the tied pouch). "A twist of paper, very strong. Nothing
+  will come near you for 50 steps. Then it wants airing." Sold at **Nix's Emporium** (Map 7), **the Chandler's**
   (Map 13), **Wick & Barrow** (Map 16, both of Mrs Barrow's pages) and **the
   Parish Rooms** (Map 25, `PARISH_STOCK`), after each one's last consumable.
   Not at Gideon's (his list is his own joke) or the market stalls.
-* **The odds, per night** (exact, over both draws): one twist at the mouth,
-  **56%**; two, the second when the first wears off, **90%** - 82% for a
-  party that wanders a tenth further than the shortest line; three, **every
-  time**. A twist covers 49 steps outright, because the fiftieth walks it off
-  in `onPlayerWalk` before `updateEncounterCount` counts it at Nix's half.
-  So a careful player usually makes it on two and always on three, and three
-  is ninety gold against a fee of three hundred. Encounter None as an
-  accessory is still not in the game.
+* **The odds, per night** (exact, over both draws): a twist covers 49 steps
+  outright, because the fiftieth walks it off in `onPlayerWalk` before
+  `updateEncounterCount` counts it at Nix's half. One twist at the mouth,
+  **56%**. Twisted at the mouth and again the moment the airing allows -
+  which leaves 26 steps of Map 9 bare - **87% with Nix** (85% for a party
+  that wanders a tenth further) and **48% without**. So a careful player
+  usually makes it, and Nix is what makes it usually. A longer airing was
+  costed and rejected: 40 steps is 69% / 8%, 50 is 65% / 5%.
 * **Bagshawe mentions it** at the mouth, every night - a new block after
   either telling and before "Take him through / Not tonight", so nothing he
   said is changed: "Mothballs, mind. The Band keeps the uniforms in them, and
   nothing has come near the Band in years." / "Any shop has them. Fifty steps
-  a twist, and then you want another twist." / Nix: "Halved and mothballed.
-  Belt and braces." (`_nix5_mothballs` asserts `MOTHBALL_STEPS == 50`,
+  a twist, and then you want another twist - not straight off. They want
+  airing." / Nix: "Halved and mothballed. Belt and braces." (The second box
+  was reworded in the airing commit; it had never been played.) (`_nix5_mothballs` asserts `MOTHBALL_STEPS == 50`,
   because he says fifty.)
 * **PIP-3 is Piper alone.** `_pip3_battle` sets the party aside in
   `$gameTemp` (safe: nothing can be saved while an event runs, as in
@@ -4009,12 +4019,15 @@ of four shops.
 * **Looked at**: nothing drawn changed. The solo battle's screenshot
   (`q_pip3_battle.png`) and the night shot (`q_nix5_night.png`) from the
   scenarios.
-* **Scenarios**: `q_nix5` **35 checks, all pass**: Bagshawe's new lines
+* **Scenarios**: `q_nix5` **42 checks, all pass**: Bagshawe's new lines
   both nights (the first night's `advance` had to go from 30 to 45 presses
-  for them), and on night three a twist used, fifty steps on the state, a
-  second refused, four steps walked on an encounter count of one with no
-  fight, the wear-off message, and the step it wore off on counted at Nix's
-  half (40 to 39.5); then through as before. `q_pip3` **48, all pass**:
+  for them), and on night three a twist used the way the menu uses it
+  (`useItem`, then `applyGlobal` reserving common event 6) - fifty steps on
+  the state, the step stamped; a second straight away given back, still
+  airing; four steps walked on an encounter count of one with no fight; the
+  wear-off message, and the step it wore off on counted at Nix's half (40 to
+  39.5); refused at 74 steps after the stamp and taken at 75; then through
+  as before. `q_pip3` **48, all pass**:
   troop 41 fought by `[7]` alone, rested from 1 HP, sized exactly as the
   script says, the bench line, the party back; then a **second contest lost
   on purpose** - she finishes anyway, the same scores, the party back, her on
@@ -4023,7 +4036,7 @@ of four shops.
   `BattleManager.checkBattleEnd()` after it.) **Rerun because a shop's
   stock count is asserted**: `audit_fixes` (the Chandler's, 4 to 5),
   `lighthouse` (Wick & Barrow, 15 to 16), `clanging_cast` (the Parish Rooms,
-  9 to 10) - all pass. **Not rerun**: `q_mer2` and `two_hundred` open
+  9 to 10) - all pass; the airing commit changed no shop. **Not rerun**: `q_mer2` and `two_hundred` open
   Mrs Barrow's shop and close it without counting; `journey`, `q_cor1`,
   `q_wre1` and `q_zeph4` pass the mouth without both Nix and switch 3, so
   they see the page they always did; `blushes` and `q_wre3` are in the wood
@@ -4078,9 +4091,9 @@ then the suite.
 
 Where things stand: tropes **+50 fixed** and 2-9 from PIP-2; blushes **+13
 fixed** and 0-1 from PIP-2 - the totals G1 re-cuts against. Next free: switch
-214, variable 32 (`build_game.py` sizes the list at 32, so **the next
+214, variable 33 (`build_game.py` sizes the list at 33, so **the next
 variable needs it grown**), item 75, weapon 44, armour 49, armour type 15,
-weapon type 14, element 11, class 13, common event 6, state 45 (past the
+weapon type 14, element 11, class 13, common event 7, state 45 (past the
 40-44 block, which P1 filled), enemy 60,
 troop 55, skill 185, map 71, `Gen_People15` 4. Spare is actor 11; his story
 switch is 110 and is on after F2. Cotter (Map 61 event 12) has six pages now;

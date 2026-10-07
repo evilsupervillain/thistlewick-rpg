@@ -514,7 +514,8 @@ def _nix5_mothballs():
                            "uniforms in them, and nothing has come",
                            "near the Band in years."])
     c += S.say("Bagshawe", ["Any shop has them. Fifty steps a",
-                            "twist, and then you want another twist."])
+                            "twist, and then you want another twist -",
+                            "not straight off. They want airing."])
     c += S.say("Nix", ["Halved and mothballed. Belt and braces."])
     return c
 

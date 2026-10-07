@@ -456,7 +456,9 @@ Append instead.
 | **Mothballs** | the playtest round's P1 (`QUESTS.md` Part G), `db.build_mothballs`:
   **Item 74** Mothballs, 30 gold, at the Emporium, the Chandler's, Wick &
   Barrow and the Parish Rooms; **State 44** Mothballs, Encounter None until
-  it is walked off after 50 steps. A Repel: it is a state because a transfer
+  it is walked off after 50 steps; **Common Event 6** using one, and
+  **variable 32** when one was last used - 25 steps of airing after it wears
+  off before another will take. A Repel: it is a state because a transfer
   re-rolls the encounter count, and it stacks with Nix's half |
 
 Icon indices in `db.py` and in the `\I[n]` codes in dialogue were re-checked
@@ -584,6 +586,9 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
      `SW_<NAME>_STORY` switches are on. Bumped only by `story.companion_story`,
      the first time each one goes on; the ending's closing line reads it |
 | 16-30 | companion quests, reserved, taken in `QUESTS.md` order |
+| 31 | SPA-2: the party, set aside while Spare is in the culvert |
+| 32 | **`$gameParty.steps()` when a twist of Mothballs was last used** - the
+     airing: another is given back until 75 steps after (`db.build_mothballs`) |
 
 ## Verifying
 

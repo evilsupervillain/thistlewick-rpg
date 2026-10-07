@@ -516,7 +516,10 @@ VAR_SPA2_PARTY = 31             # the party, set aside while he is in alone
 # P1, the playtest round (QUESTS.md Part G): NIX-5's escort is care, not luck
 IT_MOTHBALLS = 74               # a twist of them; sold in shops
 ST_MOTHBALLS = 44               # Encounter None, for so many steps
+CE_MOTHBALLS = 6                # using one: the state, or still airing
+VAR_MOTHBALLS = 32              # $gameParty.steps() when one was last used
 MOTHBALL_STEPS = 50             # see build_mothballs for the arithmetic
+MOTHBALL_AIRING = 25            # steps after it wears off before another
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
@@ -3288,14 +3291,20 @@ def build_mothballs():
     number of steps, and Nix's half applies to every step after it - the two
     stack, which an Encounter Half trait would not.
 
+    **And then it wants airing** (Mike, 7 Oct 2026): without a cooldown, a
+    twist used every time the last wore off covered any walk, and Nix's half
+    did nothing. So using one runs a common event, which goes by the party's
+    step count in `VAR_MOTHBALLS`: inside 50 + 25 steps of the last twist the
+    new one goes back in the bag with a line, and nothing is spent. Party
+    steps, so another member's coat is no way round it.
+
     The walk through the Gloamwood is 92 steps on Map 9 and 28 on Map 10 at
     the shortest, all of it in the encounter region. With Nix alone it is got
     through about one night in fifty. A twist covers 49 steps outright (the
-    fiftieth, which walks it off, already counts at Nix's half): one at the
-    mouth, 56%; two, the second when the first wears off, 90% (82% for a
-    party that wanders a tenth further); three, every time. Using one on
-    somebody already warded costs nothing - the engine will not use an item
-    that would have no effect."""
+    fiftieth, which walks it off, already counts at Nix's half), and the
+    next can be had 25 steps after: twisted at the mouth and again the moment
+    it may be, 87% with Nix (85% for a party that wanders a tenth further)
+    and 48% without - which is what Nix is for. One twist alone, 56%."""
     st = R.load("States.json")
     upsert(st, dict(state(
         ST_MOTHBALLS, "Mothballs", 208, traits=[trait(64, 1, 0)],
@@ -3306,8 +3315,26 @@ def build_mothballs():
     it = R.load("Items.json")
     upsert(it, item(IT_MOTHBALLS, "Mothballs",
                     "A twist of paper, very strong. Nothing will come near "
-                    "you for %d steps. Nothing." %
+                    "you for %d steps. Then it wants airing." %
                     MOTHBALL_STEPS,
-                    price=30, icon=208, occasion=2, animation=0,
-                    effects=[effect(21, ST_MOTHBALLS, 1.0)]))
+                    price=30, icon=208, scope=0, occasion=2, animation=0,
+                    effects=[effect(44, CE_MOTHBALLS)]))
     save("Items.json", it)
+    since = "$gameParty.steps() - $gameVariables.value(%d)" % VAR_MOTHBALLS
+    airing = R.if_then(
+        R.condition_script("$gameVariables.value(%d) > 0 && %s < %d" % (
+            VAR_MOTHBALLS, since, MOTHBALL_STEPS + MOTHBALL_AIRING)),
+        [R.gain_item(IT_MOTHBALLS, 1)] +
+        R.text(["The last lot is still airing. Give it a while."]),
+        R.script([
+            "$gameVariables.setValue(%d, Math.max(1, $gameParty.steps()));"
+            % VAR_MOTHBALLS,
+            "const a = $gameParty.battleMembers().find(m => m.isAlive());",
+            "if (a) a.addState(%d);" % ST_MOTHBALLS,
+        ]) + [R.play_se("Equip1", 60)] +
+        R.text(["The smell is extraordinary."]))
+    ce = R.load("CommonEvents.json")
+    upsert(ce, {"id": CE_MOTHBALLS, "name": "Mothballs (P1)",
+                "switchId": 1, "trigger": 0,
+                "list": airing + [{"code": 0, "indent": 0, "parameters": []}]})
+    save("CommonEvents.json", ce)

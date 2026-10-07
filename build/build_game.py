@@ -447,7 +447,7 @@ def build_system():
             (db.SW_SPA2_DONE, "SPA-2: out, and everybody there")]:
         switches[sid] = name
 
-    variables = [""] * 32
+    variables = [""] * 33
     variables[db.VAR_COMPANIONS] = "companions recruited"
     variables[db.VAR_TROPES] = "tropes encountered"
     variables[db.VAR_TURNIPS] = "turnips eaten"
@@ -479,6 +479,7 @@ def build_system():
     variables[db.VAR_SPA1_ORDER] = "SPA-1: which went from where (digits)"
     variables[db.VAR_SPA4_TOUR] = "SPA-4: Effie's tour (4 is done)"
     variables[db.VAR_SPA2_PARTY] = "SPA-2: the party, set aside"
+    variables[db.VAR_MOTHBALLS] = "P1: party steps when mothballs last used"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
