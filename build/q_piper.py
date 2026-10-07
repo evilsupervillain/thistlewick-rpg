@@ -504,7 +504,9 @@ def archive_events(base_id, box_at, door_at, back, box_tile):
 # * **The contest is Mrs Harbottle's next page**, with Piper and the switch:
 #   three acts are scored, then Piper's set is a fight - troop 41, the two
 #   rival acts and the back table, whose hit points are the room's patience
-#   (`db.build_contest`). It can be lost; she finishes anyway. Either way the
+#   (`db.build_contest`), and she fights it alone - the rest of the party
+#   is shown to the bench by the door (P1, `QUESTS.md` Part G; the swap in
+#   `_pip3_battle`). It can be lost; she finishes anyway. Either way the
 #   scores are the scores: eighteen against Mr Tweddle's nineteen, by one
 #   point, Miss Quayle's - the thrush got a three.
 # * **Her gear is the rosette** (`QUESTS.md` 0.5): armour 41, an accessory of
@@ -518,13 +520,29 @@ ROSETTE_ICON = 149
 
 
 def _pip3_battle(won, lost):
-    """Battle Processing with If Win and If Lose bodies, and no escape."""
-    out = [R.battle(db.TR_CONTEST, can_escape=False, can_lose=True)]
+    """Battle Processing with If Win and If Lose bodies, and no escape -
+    fought by Piper alone (P1, `QUESTS.md` Part G), with `SPARE.md` 3's swap:
+    the party into `$gameTemp`, which is safe because nothing can be saved
+    while an event runs, and back after both branches. She goes on rested."""
+    out = R.script([
+        "$gameTemp._pip3Party = $gameParty._actors.slice();",
+        "$gameParty._actors = [%d];" % db.PIPER,
+        "$gameActors.actor(%d).recoverAll();" % db.PIPER,
+        "$gamePlayer.refresh();",
+        "$gameMap.requestRefresh();",
+    ])
+    out += [R.battle(db.TR_CONTEST, can_escape=False, can_lose=True)]
     for code, body in [(601, won), (603, lost)]:
         out += [{"code": code, "indent": 0, "parameters": []}]
         out += R.shift(body, 1)
         out += [{"code": 0, "indent": 1, "parameters": []}]
     out += [{"code": 604, "indent": 0, "parameters": []}]
+    out += R.script([
+        "$gameParty._actors = $gameTemp._pip3Party;",
+        "$gameTemp._pip3Party = null;",
+        "$gamePlayer.refresh();",
+        "$gameMap.requestRefresh();",
+    ])
     return out
 
 
@@ -609,6 +627,9 @@ def _pip3_contest():
     c += S.say("Piper", ["Piper Quill takes the stage. Piper",
                          "Quill is not nervous. Piper Quill has",
                          "done this on tables."])
+    c += S.narrate([
+        "The rest of you are shown to the bench by the door,",
+        "and told, kindly, that it is Piper's set."])
     c += S.narrate([
         "The back table has views. So, from the floor, do the",
         "other two acts."])

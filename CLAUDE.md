@@ -453,6 +453,11 @@ Append instead.
   enemies'), **States 40-44**, **Common Events 3-10**. A skill a quest teaches
   goes in the free end of that companion's own block. Spare keeps `SPARE.md`'s
   Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34 and Skills 146-155 |
+| **Mothballs** | the playtest round's P1 (`QUESTS.md` Part G), `db.build_mothballs`:
+  **Item 74** Mothballs, 30 gold, at the Emporium, the Chandler's, Wick &
+  Barrow and the Parish Rooms; **State 44** Mothballs, Encounter None until
+  it is walked off after 50 steps. A Repel: it is a state because a transfer
+  re-rolls the encounter count, and it stacks with Nix's half |
 
 Icon indices in `db.py` and in the `\I[n]` codes in dialogue were re-checked
 against `img/system/IconSet.png` cell by cell when the south was added; several

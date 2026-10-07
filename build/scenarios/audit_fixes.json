@@ -33,7 +33,7 @@
     {"frames": 90},
     {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Shop", "label": "and the Chandler's opens as a shop"},
     {"key": "Enter", "gap": 20},
-    {"check": "SceneManager._scene._buyWindow.maxItems()", "expect": 4, "label": "four things on the shelf"},
+    {"check": "SceneManager._scene._buyWindow.maxItems()", "expect": 5, "label": "five things on the shelf (mothballs, P1)"},
     {"check": "SceneManager._scene._buyWindow.item().name", "expect": "Lamp Oil", "label": "the first of them lamp oil"},
     {"key": "Escape", "gap": 20},
     {"key": "Escape", "gap": 30},

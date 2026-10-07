@@ -1,6 +1,6 @@
 {
  "query": "?map=65&x=10&y=9&frames=90",
- "comment": "QUESTS.md B3, PIP-3 The Contest at the Sign of the Bell. Mrs Harbottle's set piece first; with Piper, the entry - Ballad (Not Sad), one trope - and the two rival acts come in. Without Piper the contest waits. The contest: three acts scored, then Piper's set, which is a fight (troop 41) whose damage type is heckling; the thrush gets a three from Miss Quayle and wins by one point. Second place, the rosette only Piper can wear, her story. Afterwards for everybody; the rivals gone home.",
+ "comment": "QUESTS.md B3, PIP-3 The Contest at the Sign of the Bell. Mrs Harbottle's set piece first; with Piper, the entry - Ballad (Not Sad), one trope - and the two rival acts come in. Without Piper the contest waits. The contest: three acts scored, then Piper's set, which is a fight (troop 41) whose damage type is heckling; the thrush gets a three from Miss Quayle and wins by one point. Second place, the rosette only Piper can wear, her story. Afterwards for everybody; the rivals gone home. P1: Piper's set is fought by Piper alone - the party to the bench by the door and back after both branches, troop 41 sized off her - and a second contest is lost on purpose to prove the lose branch.",
  "steps": [
   {
    "eval": "$gameSystem.disableEncounter()"
@@ -201,11 +201,11 @@
    "label": "the contest"
   },
   {
-   "comment": "The fight wins itself four seconds in, once the troop has been read.",
-   "eval": "window._autowin = 0; const su = Scene_Battle.prototype.update; Scene_Battle.prototype.update = function () { su.call(this); if (window._autowin !== undefined && ++window._autowin === 240) { window._troop = [$gameTroop._troopId, $gameTroop.members().map(e => e.enemyId()), $gameParty.battleMembers().length]; $gameTroop.members().forEach(e => e.addState(1)); } }"
+   "comment": "The fight wins itself four seconds in, once the troop has been read (or, with window._autowin_lose, loses itself).",
+   "eval": "window._autowin = 0; const su = Scene_Battle.prototype.update; Scene_Battle.prototype.update = function () { su.call(this); if (window._autowin !== undefined && ++window._autowin === 240) { const p = $gameParty.battleMembers()[0]; window._troop = [$gameTroop._troopId, $gameTroop.members().map(e => e.enemyId()), $gameParty.battleMembers().map(a => a.actorId())]; window._sized = { p: [p.mhp, p.mmp, p.mat, p.agi, p.mdf], hp: p.hp === p.mhp, e: $gameTroop.members().map(e => [e.mhp, e.atk, e.mat]) }; if (window._autowin_lose) { $gameParty.members().forEach(a => { a.addState(1); a.setHp(0); }); BattleManager.checkBattleEnd(); } else $gameTroop.members().forEach(e => e.addState(1)); } }"
   },
   {
-   "eval": "window._mark(); $gameMap.event(3).start()"
+   "eval": "window._mark(); window._party = $gameParty._actors.slice(); $gameActors.actor(7).setHp(1); $gameMap.event(3).start()"
   },
   {
    "frames": 30
@@ -222,9 +222,38 @@
      41,
      42
     ],
-    2
+    [
+     7
+    ]
    ],
-   "label": "Piper's set was troop 41: Dray, Moon and the back table"
+   "label": "Piper's set was troop 41, Dray, Moon and the back table, and Piper alone (P1)"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"that it is Piper's set.\"))",
+   "expect": true,
+   "label": "the rest of you are on the bench by the door"
+  },
+  {
+   "check": "window._sized.hp",
+   "expect": true,
+   "label": "she went on rested"
+  },
+  {
+   "check": "(() => { const [mhp, mmp, mat, agi, mdf] = window._sized.p; const ef = 4 * mat + 2 * agi; const h = Math.ceil((0.14 * mhp + mdf) / 2); const [t, dr, mo] = window._sized.e; return [t[0] === Math.floor(3.5 * ef), dr[0] === Math.floor(4 * ef), mo[0] === Math.floor(3.5 * ef), t[1] === h, dr[2] === h, mo[2] === Math.max(1, Math.ceil(0.06 * mmp / 2))]; })()",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "sized to her: patience in Epic Finales, heckling a share of her"
+  },
+  {
+   "check": "JSON.stringify($gameParty._actors) === JSON.stringify(window._party) && $gameTemp._pip3Party === null",
+   "expect": true,
+   "label": "the party is back"
   },
   {
    "check": "window._lines.some(l => l.includes(\"Instrumental (Other\"))",
@@ -377,7 +406,7 @@
   },
   {
    "comment": "A look at the fight itself, for the record.",
-   "eval": "window._autowin = undefined; BattleManager.setup(41, false, true); SceneManager.push(Scene_Battle)"
+   "eval": "window._autowin = undefined; window._party = $gameParty._actors.slice(); $gameParty._actors = [7]; BattleManager.setup(41, false, true); SceneManager.push(Scene_Battle)"
   },
   {
    "frames": 240
@@ -397,6 +426,65 @@
   {
    "check": "SceneManager._scene.constructor.name",
    "expect": "Scene_Map"
+  },
+  {
+   "eval": "$gameParty._actors = window._party; $gamePlayer.refresh()"
+  },
+  {
+   "comment": "P1: the lose branch also puts the party back. The contest again, with the switches set back, lost on purpose: she finishes anyway, rested, the same scores.",
+   "eval": "$gameSwitches.setValue(147, false); $gameSwitches.setValue(146, true); window._autowin = 0; window._autowin_lose = true; $gameParty.addActor(7)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3
+  },
+  {
+   "eval": "window._mark(); window._party = $gameParty._actors.slice(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 200
+  },
+  {
+   "check": "window._troop[2]",
+   "expect": [
+    7
+   ],
+   "label": "alone again"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"it is, technically, heard.\"))",
+   "expect": true,
+   "label": "lost: she finishes anyway"
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Second place, by one\"))",
+   "expect": true,
+   "label": "and the scores are the scores"
+  },
+  {
+   "check": "[JSON.stringify($gameParty._actors) === JSON.stringify(window._party), $gameTemp._pip3Party, $gameActors.actor(7).isDead(), $gameActors.actor(7).hp === $gameActors.actor(7).mhp, $gameActors.actor(1).isDead()]",
+   "expect": [
+    true,
+    null,
+    false,
+    true,
+    false
+   ],
+   "label": "the party is back, she is on her feet, and nobody else was in it"
+  },
+  {
+   "check": "[$gameSwitches.value(146), $gameSwitches.value(147), SceneManager._scene.constructor.name]",
+   "expect": [
+    false,
+    true,
+    "Scene_Map"
+   ]
   }
  ]
 }

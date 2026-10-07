@@ -3923,13 +3923,126 @@ three switch and one variable names.
   the new pages need actor 11 or switch 213, which nothing else sets; no
   other scenario stands on Map 70 or (33,20).
 
+**P1, the playtest fixes - done** (Part G, "Before G"): NIX-5's Repel and
+PIP-3 fought by Piper alone. `db.build_mothballs` (new), `q_nix._nix5_mothballs`
+(new), `q_piper._pip3_battle`, `db.build_contest`, and one goods line in each
+of four shops.
+
+* **The walk, measured** (a shortest path over Maps 9-10 with the engine's
+  own passage rules and the first-page blockers): **92 steps on Map 9 and 28
+  on Map 10**, every one of them in region 1, which is the only region the
+  wood's encounters are listed for, and none on a bush. The count is
+  `randomInt(26) + randomInt(26) + 1`, halved per step by Nix, and **re-rolled
+  on every transfer** (`Game_Player.locate`), so the two maps are two
+  independent draws: with Nix alone the escort gets through about **one night
+  in fifty** (1.9%). Mike's "luck" was generous.
+* **That last fact decided the mechanism.** A Repel that adds to
+  `_encounterCount` would be thrown away at the map change. So the Repel is a
+  **state**: **State 44, Mothballs** - Party Ability Encounter None, removed
+  by walking after **50 steps**, with a message ("Bram no longer smells of
+  mothballs."). While it is on the count does not move, so the next encounter
+  is pushed back exactly that far, and Nix's half applies to every step after:
+  the two stack, which an Encounter Half trait would not. It survives the
+  transfer, and the inn (Recover All) takes it off. A second twist on someone
+  already warded is refused by the engine (`testItemEffect` on Add State), so
+  it is never wasted.
+* **Item 74, Mothballs**: 30 gold, menu only, one ally, icon 208 (the tied
+  pouch). "A twist of paper, very strong. Nothing will come near you for 50
+  steps. Nothing." Sold at **Nix's Emporium** (Map 7), **the Chandler's**
+  (Map 13), **Wick & Barrow** (Map 16, both of Mrs Barrow's pages) and **the
+  Parish Rooms** (Map 25, `PARISH_STOCK`), after each one's last consumable.
+  Not at Gideon's (his list is his own joke) or the market stalls.
+* **The odds, per night** (exact, over both draws): one twist at the mouth,
+  **56%**; two, the second when the first wears off, **90%** - 82% for a
+  party that wanders a tenth further than the shortest line; three, **every
+  time**. A twist covers 49 steps outright, because the fiftieth walks it off
+  in `onPlayerWalk` before `updateEncounterCount` counts it at Nix's half.
+  So a careful player usually makes it on two and always on three, and three
+  is ninety gold against a fee of three hundred. Encounter None as an
+  accessory is still not in the game.
+* **Bagshawe mentions it** at the mouth, every night - a new block after
+  either telling and before "Take him through / Not tonight", so nothing he
+  said is changed: "Mothballs, mind. The Band keeps the uniforms in them, and
+  nothing has come near the Band in years." / "Any shop has them. Fifty steps
+  a twist, and then you want another twist." / Nix: "Halved and mothballed.
+  Belt and braces." (`_nix5_mothballs` asserts `MOTHBALL_STEPS == 50`,
+  because he says fifty.)
+* **PIP-3 is Piper alone.** `_pip3_battle` sets the party aside in
+  `$gameTemp` (safe: nothing can be saved while an event runs, as in
+  `q_spare._argument`), makes it `[PIPER]`, rests her, fights, and puts the
+  party back **after the 604**, so both branches restore it. The lose
+  branch's `Recover All` now recovers only her, which is all it needs to.
+  One new narrated line before her set, a continuation: "The rest of you are
+  shown to the bench by the door, / and told, kindly, that it is Piper's
+  set." Scores, lines and the rosette are untouched.
+* **Troop 41, retuned for one performer.** Everything is read off Piper at
+  the start of the battle, in the troop's turn-0 script that already sized
+  the room's patience, so it is the same fight at any level or kit: patience
+  is **3.5 Epic Finales** each for the back table and Miss Moon and **4** for
+  Mr Dray (`4 * mat + 2 * agi`); the back table's ATK and Mr Dray's MAT are
+  set so a Heckle or a Serpent Solo is **14% of her HP**; Miss Moon's MAT so
+  a Sad Verse takes **6% of her MP**. No skill or enemy record changed.
+  `balance.py` showed the old numbers doing nothing to her at all (Heckle
+  `48 - 87`, zero, at level 15) and its four-person ceiling is the wrong
+  question for one, so the tune is a Monte Carlo of the engine's rules
+  (speed order, variance, Encore below half, the MAT debuff, MP damage, TP
+  by damage): **never heals, 61-90%** from level 9 to 15 in about seven
+  turns; **a potion or two at a third of her HP, 93-99%** in nine or ten.
+  Epic Finale's flat 30 MP is why a higher-level Piper finds it easier.
+  Losing still costs nothing.
+* **Found, not fixed - Mike's call.** Every buff and debuff in `db.py` is
+  written `effect(31 or 32, param, 0 or a rate, turns)`, but the engine
+  reads a buff's **turns from value1** (`itemEffectAddBuff`), not value2. A
+  0-turn buff is removed at the end of its holder's next action
+  (`onAllActionsEnd` -> `removeBuffsAuto`), so it never reaches the caster's
+  next action at all, and lasts an ally one action - Piper's Ballad of
+  Adequacy and Foreshadowing do nothing for her alone. A debuff with 0.6 or
+  0.5 in value1 (Portentous Shriek and Doom Monologue) goes negative at
+  the first turn end, is never "expired", and lasts the battle. Talks
+  Through It (`effect(32, 4, 3)`) is the only one written the engine's way.
+  It is game-wide - fixing it moves every fight - so it is not in this step;
+  PIP-3 was tuned with the buffs doing nothing, and would get a little
+  easier.
+* Tropes **+0**, blushes **+0**: still **+50 fixed** and 2-9 from PIP-2,
+  **+13 fixed** and 0-1. Nothing dated; `TIMELINE.md` unchanged. No ending
+  line: these are mechanics.
+* **Looked at**: nothing drawn changed. The solo battle's screenshot
+  (`q_pip3_battle.png`) and the night shot (`q_nix5_night.png`) from the
+  scenarios.
+* **Scenarios**: `q_nix5` **35 checks, all pass**: Bagshawe's new lines
+  both nights (the first night's `advance` had to go from 30 to 45 presses
+  for them), and on night three a twist used, fifty steps on the state, a
+  second refused, four steps walked on an encounter count of one with no
+  fight, the wear-off message, and the step it wore off on counted at Nix's
+  half (40 to 39.5); then through as before. `q_pip3` **48, all pass**:
+  troop 41 fought by `[7]` alone, rested from 1 HP, sized exactly as the
+  script says, the bench line, the party back; then a **second contest lost
+  on purpose** - she finishes anyway, the same scores, the party back, her on
+  her feet, Bram never in it. (Killing the only actor while her command
+  window is open does not end a battle; the scenario calls
+  `BattleManager.checkBattleEnd()` after it.) **Rerun because a shop's
+  stock count is asserted**: `audit_fixes` (the Chandler's, 4 to 5),
+  `lighthouse` (Wick & Barrow, 15 to 16), `clanging_cast` (the Parish Rooms,
+  9 to 10) - all pass. **Not rerun**: `q_mer2` and `two_hundred` open
+  Mrs Barrow's shop and close it without counting; `journey`, `q_cor1`,
+  `q_wre1` and `q_zeph4` pass the mouth without both Nix and switch 3, so
+  they see the page they always did; `blushes` and `q_wre3` are in the wood
+  but never at the mouth or with the escort on; the `q_rol*`, `wall_ring` and
+  `dunnage` runs stand in the Bell but never start Mrs Harbottle's contest
+  page, which needs `SW_PIP3_ON`; troop 41 is fought nowhere else.
+
 ---
 
 ## Restart prompt
 
-**Start with P1** (Part G, "Before G: the playtest round", 7 Oct 2026),
-not G1. Mike's playtest list goes in first, in the order written there: P1
-the NIX-5 Repel and PIP-3 solo, P2 the early maps, P3 Olde Evermore's elves,
+**Start with P2, the early maps** (Part G, "Before G: the playtest round",
+7 Oct 2026), not G1. **P1 is done** (the NIX-5 Mothballs and PIP-3 solo,
+7 Oct; its Done paragraph is the last in section 3, and it found a
+game-wide buff bug that waits on Mike's word, not on P2). Mike's playtest
+list goes in first, in the order written there: P1, P2 the early maps - the
+door holes, interior shadows, the forest ring, the blocking-invisible-event
+check, the Guild, Bram's sword, and Mike's own Door and island tiles - P3
+Olde Evermore's elves,
 P4 the post-game with the Door into the Mountain and G1's ending lines. G0,
 the quest log, follows its plugin (`../QUESTLOG.md` Q0-Q7, a parallel effort
 in `trial-chamber`). Last come G1's counter re-cuts, the one full suite,
@@ -3966,8 +4079,9 @@ then the suite.
 Where things stand: tropes **+50 fixed** and 2-9 from PIP-2; blushes **+13
 fixed** and 0-1 from PIP-2 - the totals G1 re-cuts against. Next free: switch
 214, variable 32 (`build_game.py` sizes the list at 32, so **the next
-variable needs it grown**), item 74, weapon 44, armour 49, armour type 15,
-weapon type 14, element 11, class 13, common event 6, state 44, enemy 60,
+variable needs it grown**), item 75, weapon 44, armour 49, armour type 15,
+weapon type 14, element 11, class 13, common event 6, state 45 (past the
+40-44 block, which P1 filled), enemy 60,
 troop 55, skill 185, map 71, `Gen_People15` 4. Spare is actor 11; his story
 switch is 110 and is on after F2. Cotter (Map 61 event 12) has six pages now;
 Map 70 is the culvert.
@@ -4065,6 +4179,14 @@ Things learned that will bite again:
 * **A party set aside across a transfer belongs in a variable, not
   `$gameTemp`**: `$gameTemp` is not saved, and a map the player walks about
   on has a menu with Save in it. A variable holds the array and is (F4).
+* **A transfer re-rolls the encounter count** (`Game_Player.locate`), so
+  anything that adds to `_encounterCount` is gone at the next map. P1's
+  Repel is a state with Encounter None, walked off (P1).
+* **Three scenarios count a shop's stock** - `lighthouse` (Wick & Barrow),
+  `audit_fixes` (the Chandler's), `clanging_cast` (the Parish Rooms). A
+  goods line added to one of those shops is a count to change (P1).
+* **A new box before an old choice outruns old `advance` budgets**: q_nix5's
+  first night needed 45 presses once Bagshawe mentioned the mothballs (P1).
 * **To reach a choice in a scenario, set `window._pick`** (the hook in the
   setup eval wraps `setChoices`' default) and `advance` through: no counting
   presses to the choice window (F1's idiom, F4).

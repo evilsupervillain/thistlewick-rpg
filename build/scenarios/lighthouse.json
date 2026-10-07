@@ -14,7 +14,7 @@
     {"frames": 60},
     {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Shop", "label": "and the action button opens her shop"},
     {"key": "Enter", "gap": 20},
-    {"check": "SceneManager._scene._buyWindow.maxItems()", "expect": 15, "label": "the shop has fifteen things on the shelf"},
+    {"check": "SceneManager._scene._buyWindow.maxItems()", "expect": 16, "label": "the shop has sixteen things on the shelf (mothballs, P1)"},
     {"key": "ArrowDown", "times": 6},
     {"check": "SceneManager._scene._buyWindow.item().name", "expect": "Lamp Oil", "label": "one of which is Lamp Oil"},
     {"check": "SceneManager._scene._buyWindow.isCurrentItemEnabled()", "expect": true, "label": "and it is affordable"},

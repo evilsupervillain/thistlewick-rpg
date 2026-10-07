@@ -506,6 +506,19 @@ def _nix5_go(transfer):
     return c
 
 
+def _nix5_mothballs():
+    """P1 (`QUESTS.md` Part G): the Repel, mentioned every night - a new
+    line after either telling, so nothing he said before is changed."""
+    assert db.MOTHBALL_STEPS == 50, "he says fifty"
+    c = S.say("Bagshawe", ["Mothballs, mind. The Band keeps the",
+                           "uniforms in them, and nothing has come",
+                           "near the Band in years."])
+    c += S.say("Bagshawe", ["Any shop has them. Fifty steps a",
+                            "twist, and then you want another twist."])
+    c += S.say("Nix", ["Halved and mothballed. Belt and braces."])
+    return c
+
+
 def mouth(ev):
     """NIX-5's page on the Gloamwood's mouth (the world map's event 2), and
     hand the event back. `ev`'s own page is the rest of ours."""
@@ -518,7 +531,7 @@ def mouth(ev):
     again += S.say("Nix", ["Still halving."])
     ask = R.if_then(R.condition_self_switch("A"), again,
                     _nix5_ask() + [R.self_switch("A", True)])
-    offer = ask + R.choice_block(
+    offer = ask + _nix5_mothballs() + R.choice_block(
         ["Take him through", "Not tonight"],
         [go, S.say("Bagshawe", ["Another night, then.",
                                 "They'll start without me. They always",

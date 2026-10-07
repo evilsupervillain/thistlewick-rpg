@@ -156,8 +156,8 @@
     {"frames": 150},
     {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Shop",
      "label": "the second option is the counter, and it is a real shop"},
-    {"check": "SceneManager._scene._goods.length", "expect": 9,
-     "label": "nine lines of stock"},
+    {"check": "SceneManager._scene._goods.length", "expect": 10,
+     "label": "ten lines of stock (mothballs, P1)"},
     {"shot": "clanging_shop.png"},
 
     {"comment": "One Escape, not two - the second would land on the map and open the menu, which is how this check passed while the shop was not opening at all."},

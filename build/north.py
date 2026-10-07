@@ -2092,7 +2092,7 @@ def parish_map():
 PARISH_STOCK = [
     (0, db.IT_POTION, 0, 0), (0, db.IT_HI_POTION, 0, 0),
     (0, db.IT_DRIPPING, 0, 0), (0, db.IT_STEWED_TEA, 0, 0),
-    (0, db.IT_LINIMENT, 0, 0),
+    (0, db.IT_LINIMENT, 0, 0), (0, db.IT_MOTHBALLS, 0, 0),
     (2, db.AR_TROUSERS, 0, 0), (2, db.AR_WORKS_CAP, 0, 0),
     (2, db.AR_OILSKIN, 0, 0),
     (1, db.WP_WRENCH, 0, 0),

@@ -513,6 +513,10 @@ SW_SPA2_ASKED = 211             # Cotter has asked; the short ask from now on
 SW_SPA2_CLEARED = 212           # the paddle is clear; out by the ladder
 SW_SPA2_DONE = 213              # out, and everybody was there
 VAR_SPA2_PARTY = 31             # the party, set aside while he is in alone
+# P1, the playtest round (QUESTS.md Part G): NIX-5's escort is care, not luck
+IT_MOTHBALLS = 74               # a twist of them; sold in shops
+ST_MOTHBALLS = 44               # Encounter None, for so many steps
+MOTHBALL_STEPS = 50             # see build_mothballs for the arithmetic
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
@@ -2658,6 +2662,7 @@ def build():
     build_vigil()
     build_worm()
     build_spare()
+    build_mothballs()
 
 
 # ================================================= the companion quests ======
@@ -2665,9 +2670,9 @@ def build_contest():
     """PIP-3, the Contest at the Sign of the Bell (QUESTS.md B3): a fight in
     which the damage type is heckling. Two rival acts and the back table, and
     Piper's buffs and debuffs are the whole of her kit - which they already
-    were. Their hit points are the room's patience with them, sized to the
-    party that turned up, as Norbert's are; and it is started with "can lose"
-    on, because losing the room is a thing that happens to a bard."""
+    were. Their hit points are the room's patience with them; and it is
+    started with "can lose" on, because losing the room is a thing that
+    happens to a bard. Piper fights it alone (P1): the party is the floor."""
     sk = R.load("Skills.json")
     upsert(sk, skill(SK_HECKLE, "Heckle", "", "a.atk * 2 - b.mdf",
                      hit_type=2, animation=0,
@@ -2745,13 +2750,26 @@ def build_contest():
     tr = R.load("Troops.json")
     harbottle = lambda lines: R.text(lines, face_name="Gen_People6",
                                      face_index=3)
-    # Sized to the party, as Norbert is: about three turns of it each.
+    # Sized to one performer (P1, QUESTS.md Part G): Piper fights it alone,
+    # so everything is read off her at the start and it is the same fight at
+    # any level. The room's patience is so many of her Epic Finales (`ef`,
+    # its formula less the defence); a heckle or a serpent solo is about 14%
+    # of her HP; a sad verse about 6% of her MP. Simulated over levels 9-15:
+    # a player who never heals wins 61-90% in about seven turns, and one who
+    # drinks a potion or two at a third of her HP wins 93-99% in nine or ten.
     size_them = R.script([
+        "const p = $gameParty.battleMembers()[0];",
+        "const ef = 4 * p.mat + 2 * p.agi;",
+        "const heckle = Math.ceil((0.14 * p.mhp + p.mdf) / 2);",
         "for (const e of $gameTroop.members()) {",
-        "  const want = 40 * $gameParty.highestLevel() *",
-        "    $gameParty.battleMembers().length;",
-        "  e.addParam(0, Math.max(0, want - e.mhp));",
+        "  const id = e.enemyId();",
+        "  const k = id === %d ? 4 : 3.5;" % EN_DRAY,
+        "  e.addParam(0, Math.floor(k * ef) - e.mhp);",
         "  e.setHp(e.mhp);",
+        "  if (id === %d) e.addParam(2, heckle - e.atk);" % EN_BACK_TABLE,
+        "  if (id === %d) e.addParam(4, heckle - e.mat);" % EN_DRAY,
+        "  if (id === %d) e.addParam(4, Math.ceil(0.06 * p.mmp / 2) - e.mat);"
+        % EN_MOON,
         "}",
     ])
     turn0 = size_them + harbottle([
@@ -3259,3 +3277,37 @@ def build_spare():
     upsert(tr, troop(TR_MAM, "A Discussion With Mam", [(EN_MAM, 408, 380)],
                      pages=pages))
     save("Troops.json", tr)
+
+
+def build_mothballs():
+    """P1 (QUESTS.md Part G): a Repel, for NIX-5 and anywhere else. The engine
+    rolls a fresh encounter count on every transfer (`Game_Player.locate`), so
+    adding to the count would be lost at the Gloamwood's map change. A state
+    is not: Encounter None while it lasts freezes the count, and it is removed
+    by walking, with a message. So the next encounter is pushed back a fixed
+    number of steps, and Nix's half applies to every step after it - the two
+    stack, which an Encounter Half trait would not.
+
+    The walk through the Gloamwood is 92 steps on Map 9 and 28 on Map 10 at
+    the shortest, all of it in the encounter region. With Nix alone it is got
+    through about one night in fifty. A twist covers 49 steps outright (the
+    fiftieth, which walks it off, already counts at Nix's half): one at the
+    mouth, 56%; two, the second when the first wears off, 90% (82% for a
+    party that wanders a tenth further); three, every time. Using one on
+    somebody already warded costs nothing - the engine will not use an item
+    that would have no effect."""
+    st = R.load("States.json")
+    upsert(st, dict(state(
+        ST_MOTHBALLS, "Mothballs", 208, traits=[trait(64, 1, 0)],
+        auto_removal=0, max_turns=1, min_turns=1, remove_at_battle_end=False,
+        message4="%1 no longer smells of mothballs.", priority=10),
+        removeByWalking=True, stepsToRemove=MOTHBALL_STEPS))
+    save("States.json", st)
+    it = R.load("Items.json")
+    upsert(it, item(IT_MOTHBALLS, "Mothballs",
+                    "A twist of paper, very strong. Nothing will come near "
+                    "you for %d steps. Nothing." %
+                    MOTHBALL_STEPS,
+                    price=30, icon=208, occasion=2, animation=0,
+                    effects=[effect(21, ST_MOTHBALLS, 1.0)]))
+    save("Items.json", it)

@@ -679,7 +679,7 @@ CULVERT_STEP                 (33, 20)
 
 The whole database of The Obligatory Quest.
 
-609 constants.
+612 constants.
 
 ```
 BRAM                         1
@@ -1241,6 +1241,9 @@ SW_SPA2_ASKED                211
 SW_SPA2_CLEARED              212
 SW_SPA2_DONE                 213
 VAR_SPA2_PARTY               31
+IT_MOTHBALLS                 74
+ST_MOTHBALLS                 44
+MOTHBALL_STEPS               50
 SPARE_ARGUING_LEVEL          12
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31

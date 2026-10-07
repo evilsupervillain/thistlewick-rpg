@@ -413,7 +413,8 @@ def sopping_events():
         "Inside, everything has been dusted since spring. Twice."])
     open_ += R.shop([(0, db.IT_LAMP_OIL, 0, 0), (0, db.IT_BISCUIT, 0, 0),
                      (0, db.IT_ANTIDOTE, 0, 0),
-                     (0, db.IT_SMELLING_SALTS, 0, 0)])
+                     (0, db.IT_SMELLING_SALTS, 0, 0),
+                     (0, db.IT_MOTHBALLS, 0, 0)])
     evs[-1]["pages"].append(R.page(
         open_, img=R.image(""), trigger=0, priority=1, direction_fix=True,
         through=True,
@@ -2021,6 +2022,7 @@ def outfit_events():
         (0, db.IT_BISCUIT, 0, 0), (0, db.IT_CHOWDER, 0, 0),
         (0, db.IT_PALE, 0, 0), (0, db.IT_ANTIDOTE, 0, 0),
         (0, db.IT_LAMP_OIL, 0, 0), (0, db.IT_BENCH, 0, 0),
+        (0, db.IT_MOTHBALLS, 0, 0),
         (1, db.WP_GRUDGE, 0, 0), (1, db.WP_CROSSBOW, 0, 0),
         (1, db.WP_RECURVE, 0, 0),
         (2, db.AR_A_HAT, 0, 0), (2, db.AR_OILSKIN, 0, 0),

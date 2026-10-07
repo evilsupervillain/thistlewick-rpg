@@ -1597,7 +1597,7 @@ def store_events():
         (0, db.IT_POTION, 0, 0), (0, db.IT_HI_POTION, 0, 0),
         (0, db.IT_TONIC, 0, 0), (0, db.IT_ETHER, 0, 0),
         (0, db.IT_FEATHER, 0, 0), (0, db.IT_ANTIDOTE, 0, 0),
-        (0, db.IT_SMELLING_SALTS, 0, 0),
+        (0, db.IT_SMELLING_SALTS, 0, 0), (0, db.IT_MOTHBALLS, 0, 0),
         (2, db.AR_BOOTS, 0, 0), (2, db.AR_RING_LUCK, 0, 0),
         (2, db.AR_RING_SPEED, 0, 0), (2, db.AR_AMULET, 0, 0),
         (2, db.AR_CIRCLET, 0, 0),

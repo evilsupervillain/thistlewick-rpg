@@ -1,6 +1,6 @@
 {
  "query": "?map=8&x=52&y=64&frames=90",
- "comment": "QUESTS.md A10, NIX-5 Half An Encounter. Encounters are left on. The mouth without Nix is unchanged; with Nix and the wood cleared, Enoch Bagshawe and his reed, one blush. Night one: in at night with the battle count stored, and back out of the south end, abandoned. Night two: a forced battle, and the parallel reed event fails it the moment the battle ends. Night three: through to the north exit - the far-end check passes, the fee, one trope, Nix's story. Afterwards the mouth is the mouth.",
+ "comment": "QUESTS.md A10, NIX-5 Half An Encounter. Encounters are left on. The mouth without Nix is unchanged; with Nix and the wood cleared, Enoch Bagshawe and his reed, one blush. Night one: in at night with the battle count stored, and back out of the south end, abandoned. Night two: a forced battle, and the parallel reed event fails it the moment the battle ends. Night three: through to the north exit - the far-end check passes, the fee, one trope, Nix's story. Afterwards the mouth is the mouth. P1: Bagshawe mentions the mothballs both nights; night three uses one, walks four steps on an encounter count of one without a fight, and watches it wear off.",
  "steps": [
   {
    "comment": "Encounters stay on: this is the one scenario that wants them.",
@@ -43,7 +43,7 @@
    "frames": 30
   },
   {
-   "advance": 30
+   "advance": 45
   },
   {
    "check": "window._lines.some(l => l.includes(\"Enoch Bagshawe. First bassoon.\"))",
@@ -52,6 +52,11 @@
   {
    "check": "window._lines.some(l => l.includes(\"Still an encounter.\"))",
    "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Halved and mothballed. Belt and braces.\"))",
+   "expect": true,
+   "label": "P1: the mothballs, mentioned"
   },
   {
    "check": "[$gameMap.mapId(), $gameSwitches.value(129), $gameVariables.value(18) === $gameSystem.battleCount(), $gameScreen.tone().map(Math.round)]",
@@ -132,7 +137,7 @@
    "frames": 30
   },
   {
-   "advance": 30
+   "advance": 40
   },
   {
    "check": "[$gameMap.mapId(), $gameSwitches.value(129)]",
@@ -149,6 +154,11 @@
   {
    "check": "window._lines.some(l => l.includes(\"Same reed.\"))",
    "expect": true
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"Any shop has them. Fifty steps a\"))",
+   "expect": true,
+   "label": "and again on the short version"
   },
   {
    "eval": "window._mark(); $gameMap._interpreter.setup([{code:301,indent:0,parameters:[0,2,true,false]},{code:0,indent:0,parameters:[]}], 0)"
@@ -225,11 +235,99 @@
    "frames": 30
   },
   {
-   "advance": 30
+   "advance": 40
   },
   {
    "check": "$gameSwitches.value(129)",
    "expect": true
+  },
+  {
+   "comment": "P1, the Repel: a twist of mothballs at the south end. Encounter None while it lasts, so the count does not move, and Nix's half after."
+  },
+  {
+   "eval": "$gameParty.gainItem($dataItems[74], 2); window._mb = t => { const a = new Game_Action(t); a.setItemObject($dataItems[74]); return a; }"
+  },
+  {
+   "check": "[$dataItems[74].name, $dataItems[74].price, $dataStates[44].stepsToRemove]",
+   "expect": [
+    "Mothballs",
+    30,
+    50
+   ]
+  },
+  {
+   "check": "(() => { const t = $gameParty.leader(); const a = window._mb(t); if (!a.testApply(t)) return 'refused'; $gameParty.consumeItem($dataItems[74]); a.apply(t); return [t.isStateAffected(44), t._stateSteps[44], $gameParty.hasEncounterNone(), $gameParty.hasEncounterHalf(), $gameParty.numItems($dataItems[74])]; })()",
+   "expect": [
+    true,
+    50,
+    true,
+    true,
+    1
+   ],
+   "label": "warded for fifty steps, Nix's half still there"
+  },
+  {
+   "check": "window._mb($gameParty.leader()).testApply($gameParty.leader())",
+   "expect": false,
+   "label": "a second twist on the same person is not wasted"
+  },
+  {
+   "eval": "$gamePlayer._encounterCount = 1; window._steps = $gameParty.steps()"
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 3,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[$gameParty.steps() - window._steps, $gamePlayer._encounterCount, SceneManager._scene.constructor.name, $gameParty.leader()._stateSteps[44], $gameSwitches.value(129)]",
+   "expect": [
+    4,
+    1,
+    "Scene_Map",
+    46,
+    true
+   ],
+   "label": "four steps on a count of one, and no fight"
+  },
+  {
+   "eval": "$gameParty.leader()._stateSteps[44] = 1; $gamePlayer._encounterCount = 40; window._lines = []"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "window._lines.some(l => l.includes(\"no longer smells of mothballs.\"))",
+   "expect": true,
+   "label": "it says when it wears off"
+  },
+  {
+   "advance": 5
+  },
+  {
+   "check": "[$gameParty.leader().isStateAffected(44), $gameParty.hasEncounterNone(), $gamePlayer._encounterCount]",
+   "expect": [
+    false,
+    false,
+    39.5
+   ],
+   "label": "worn off, and that step already counts at Nix's half"
+  },
+  {
+   "eval": "$gamePlayer._encounterCount = 60"
   },
   {
    "goto": [
@@ -270,7 +368,7 @@
    "shot": "q_nix5_through.png"
   },
   {
-   "advance": 30
+   "advance": 40
   },
   {
    "check": "window._lines.some(l => l.includes(\"Didn't see a thing. That's the knack.\"))",
