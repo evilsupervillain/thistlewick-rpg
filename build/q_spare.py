@@ -68,15 +68,35 @@ about a volcano and a sea serpent; he told her he drives the Two Hundred.
   four steps.
 * **She has had his letters home too** (the courier's doing), so the dragon is
   in the conversation once three have been posted, and not before.
+
+F4, SPA-2 Ninety Tubes (`QUESTS.md` F4)
+---------------------------------------
+Cotter, the eldest, at the Iron Company's gate in Great Dunnage, has a job a
+man does not fit: something is on the paddle of the bottom lock, and the
+Canal Company's smallest man went in at eleven and has not come out. Spare
+goes down alone, which is `SPARE.md` 3's swap again, and comes up to find
+everybody there.
+
+* **Cotter's pages** are appended below his terminal, A, by `cotter`, which
+  `dunnage.py` wraps round his event; HOB-1's two pages are already there, so
+  both new ones play HOB-1's page instead whenever it is the one that would
+  have shown.
+* **The culvert** is Map 70, drawn here, in the dark (a tint, and the drips):
+  a crown, the counting, Mr Pocock - a voice, with no face and no sprite -
+  and the Mayor's scissors across the paddle bars. The party is set aside in
+  `VAR_SPA2_PARTY` rather than `$gameTemp`, because the culvert can be saved
+  in, and comes back at the ladder whether or not the paddle is clear.
 """
 import copy
 
 import db
+import mapkit as K
 import rmmzdata as R
 import story as S
 from places import (MAP_CLANGING, MAP_WORKS, MAP_VALVE, MAP_FORGE, MAP_PARISH,
                     MAP_SOPPING, MAP_RESTWELL, MAP_EVERMORE, MAP_GLADHOLLOW,
-                    MAP_PREMISES, MAP_FROSTWICK, MAP_ASHCOMBE, MAP_COLLEGIUM)
+                    MAP_PREMISES, MAP_FROSTWICK, MAP_ASHCOMBE, MAP_COLLEGIUM,
+                    MAP_DUNNAGE, MAP_CULVERT, CULVERT_STEP)
 
 SPARE_EVENT = 13                # Map 21
 # SPARE.md 1 B, as it listed them: the doorstep, and the four indoors. Each
@@ -1029,3 +1049,379 @@ def well_pages(page):
         "A DRAGON. S.C.",
     ]), img=page["image"], trigger=1, priority=1, direction_fix=True,
         conditions={"switch1Valid": True, "switch1Id": db.SW_SPA4_DONE})]
+
+
+# ===================================================== SPA-2, Ninety Tubes ==
+# Cotter (Map 61 event 12) is `dunnage.py`'s, and hands his event in: two
+# pages are appended below his ladder's terminal, A. HOB-1 has already put two
+# of its own there (Hob and the heel-irons on 2, its afterwards on B), so each
+# new page plays HOB-1's quest page instead whenever that is the one that
+# would have shown, and the afterwards page carries whichever of his own last
+# pages would have.
+#
+# * **The quest page** is on Spare and A: Cotter looks down and knows him, and
+#   asks; `SW_SPA2_ASKED` makes it the short ask from then on. Yes walks the
+#   party to the bottom lock, at the south end of the basin, and Spare goes
+#   down alone - `SPARE.md` 3's swap, with the party set aside in
+#   `VAR_SPA2_PARTY` rather than `$gameTemp`, because the menu is open down
+#   there and a save made in the culvert has to come back up with it.
+# * **The culvert** is Map 70, drawn here: a brick tunnel under the gate, one
+#   man wide and less, a ladder at one end and the paddle at the other. Mr
+#   Pocock of the Canal Company, their smallest man, went in first, at eleven,
+#   and is stuck half way: a voice in the dark, with no face and no sprite.
+#   Behind him, across the paddle bars, the Mayor's scissors.
+# * **The ladder** takes him up at any time. Before the paddle is clear the
+#   party is put back and the errand waits on Cotter's short ask; after, it is
+#   the end: everybody is there, the boats go down, `SW_SPA2_DONE`.
+SPA2_W, SPA2_H = 26, 15
+SPA2_ARRIVE = (3, 4)            # under the ladder
+SPA2_LADDER = (3, 3)            # on the face above it, read from below
+SPA2_CROWN = (7, 10)            # the end of the dead end
+SPA2_COUNT = (11, 7)            # half way down the first drop
+SPA2_POCOCK = (15, 10)          # the narrow bit
+SPA2_PADDLE = (22, 4)           # the bars, on the face above the far end
+# The floor, as runs: (x1, y1, x2, y2).
+SPA2_RUNS = [(3, 4, 11, 4), (11, 4, 11, 10), (7, 10, 18, 10),
+             (18, 5, 18, 10), (18, 5, 22, 5), (10, 11, 11, 11)]
+SPA2_DARK = [-119, -119, -102, 119]   # darker than Carn Drey; it is a drain
+SPA2_SPARE = {"actorValid": True, "actorId": db.SPARE}
+
+
+def _spa2_bgs(name, volume=60):
+    """Play BGS (245); an empty name stops it."""
+    return [{"code": 245, "indent": 0, "parameters": [
+        {"name": name, "volume": volume, "pitch": 100, "pan": 0}]}]
+
+
+def _spa2_swap():
+    """`SPARE.md` 3: everybody but Spare set aside. Kept in a variable, which
+    is saved, so the culvert can be saved in; never overwritten if a party
+    is already set aside."""
+    return R.script([
+        "if (!Array.isArray($gameVariables.value(%d)))" % db.VAR_SPA2_PARTY,
+        "  $gameVariables.setValue(%d, $gameParty._actors.slice());"
+        % db.VAR_SPA2_PARTY,
+        "$gameParty._actors = [%d];" % db.SPARE,
+        "$gamePlayer.refresh();",
+        "$gameMap.requestRefresh();",
+    ])
+
+
+def _spa2_restore():
+    return R.script([
+        "const p = $gameVariables.value(%d);" % db.VAR_SPA2_PARTY,
+        "if (Array.isArray(p)) $gameParty._actors = p;",
+        "$gameVariables.setValue(%d, 0);" % db.VAR_SPA2_PARTY,
+        "$gamePlayer.refresh();",
+        "$gameMap.requestRefresh();",
+    ])
+
+
+def _spa2_meeting():
+    """Cotter, the first time with Spare there. He has been talking over his
+    brother's head."""
+    c = S.narrate([
+        "Cotter looks down. Then he looks down properly."])
+    c += S.say("Cotter", ["...Spare?"])
+    c += S.say("Spare", ["Hello, Cotter."])
+    c += S.say("Cotter", ["Does Mam know?"])
+    c += S.say("Spare", ["Mam gave me terms. Jumper on.",
+                         "I do not go in first. I write."])
+    c += S.say("Cotter", ["She gave me them. When I came",
+                          "down here. Have you written?"])
+    c += S.say("Spare", ["From every town."])
+    c += S.say("Cotter", ["Is any of it true?"])
+    c += S.say("Spare", ["No."])
+    c += S.say("Cotter", ["Good lad."])
+    c += S.narrate([
+        "Then he looks at the rest of you, and at his brother, and",
+        "at the end of the basin, and you can watch him think of it."])
+    c += S.say("Cotter", ["The bottom lock's jammed.",
+                          "Since this morning. There's thirty",
+                          "of the Company's boats sat on the cut."])
+    c += S.say("Cotter", ["Something's on the paddle, down in",
+                          "the culvert. Canal Company sent a man",
+                          "in at eleven. Their smallest."])
+    c += S.say("Cotter", ["He's not come out."])
+    c += S.say("Spare", ["A man does not fit."])
+    c += S.say("Cotter", ["No."])
+    c += S.say("Spare", ["I fit."])
+    c += S.say("Cotter", ["I'd not ask. Mam would say -"])
+    c += S.say("Spare", ["Mam would say do not go in first.",
+                         "I would not be first. The man is",
+                         "first."])
+    c += S.narrate(["Cotter opens his mouth, and shuts it again."])
+    return c + [R.control_switch(db.SW_SPA2_ASKED, True)]
+
+
+def _spa2_again():
+    return S.say("Cotter", ["The bottom lock's still jammed,",
+                            "and the boats are still sat. Are you",
+                            "going back down?"])
+
+
+def _spa2_in():
+    """To the lock with everybody, then down with nobody."""
+    c = [R.fadeout_screen(),
+         R.transfer(MAP_DUNNAGE, *CULVERT_STEP, 8, fade=2),
+         R.wait(20), R.fadein_screen()]
+    c += S.narrate([
+        "The bottom lock is at the end of the basin, where the cut",
+        "goes out under the road. It has been drained. In the",
+        "brickwork at the bottom of the gate is a square black hole,",
+        "with a ladder going down into it, about the size of a",
+        "nine-year-old."])
+    c += S.narrate([
+        "Spare checks that his jumper is on, because those are the",
+        "terms. Then he gives you the bag to hold."])
+    c += S.say("Spare", ["You will be here?"])
+    c += S.narrate(["You say that you will be here."])
+    c += S.say("Spare", ["Right."])
+    c += [R.fadeout_bgm(2), R.fadeout_screen()] + _spa2_swap()
+    c += [R.tint_screen(SPA2_DARK, 1, False),
+          R.transfer(MAP_CULVERT, *SPA2_ARRIVE, 6, fade=2)]
+    c += _spa2_bgs("Drips") + [R.wait(30), R.fadein_screen()]
+    c += S.narrate([
+        "It is very dark at the bottom of the ladder.",
+        "He is not frightened of it."])
+    return c
+
+
+def _spa2_ask(opening):
+    go = _spa2_in()
+    stay = S.say("Cotter", ["No. Right. It'll keep."])
+    stay += S.narrate(["He looks at the basin. The boats do not."])
+    return opening + R.choice_block(["Down he goes", "Not now"], [go, stay])
+
+
+def _spa2_out(done):
+    """Up the ladder: the party back, the town back, and the scene."""
+    c = [R.fadeout_screen()] + _spa2_restore() + [
+         R.tint_screen([0, 0, 0, 0], 1, False),
+         {"code": 246, "indent": 0, "parameters": [1]},
+         R.transfer(MAP_DUNNAGE, *CULVERT_STEP, 8, fade=2),
+         R.wait(30), R.fadein_screen()]
+    if not done:
+        return c + S.narrate([
+            "Spare comes back up the ladder. You are there."]) + S.say(
+            "Spare", ["It is not done. I will go back", "down. Not now."])
+    c += S.narrate([
+        "Spare comes up the ladder with something long and brass",
+        "under one arm. It is very bright up here, and he stops at",
+        "the top and looks round, the way you look for a thing you",
+        "have been told will be there."])
+    c += S.narrate(["You are there. Everybody is there."])
+    c += S.say("Spare", ["There is always somebody there."])
+    c += S.narrate([
+        "He takes the bag back, and puts it on, and only then",
+        "holds the brass thing up: a pair of scissors a yard long,",
+        "with a red ribbon tied on one handle."])
+    c += S.narrate([
+        "Cotter comes down from the gate at a run, which nobody on",
+        "the big furnace does."])
+    c += S.say("Cotter", ["The Mayor's scissors. He's been",
+                          "looking for them since Tuesday. He's",
+                          "had to open two things with a knife."])
+    c += S.say("Spare", ["Is Mr Pocock all right?"])
+    c += S.say("Cotter", ["Gone home for a lie down. He says",
+                          "you're to have his job."])
+    c += S.say("Spare", ["I have got a job."])
+    c += [R.play_se("Open3", 80, 70), R.wait(20)]
+    c += S.narrate([
+        "Behind you the bottom gates swing, and the first of the",
+        "Iron Company's boats goes down the cut. The man at its",
+        "tiller lifts his hat to Spare. So does the next one, and",
+        "the next, for thirty boats."])
+    c += S.narrate(["The Canal Company's fee is Mr Pocock's. He says he",
+                    "did not earn it."])
+    c += [R.gain_gold(SPA2_FEE), R.play_me("Item")]
+    c += R.text(["Got \\C[3]%d\\G\\C[0]." % SPA2_FEE])
+    c += S.say("Cotter", ["And there's a bun. That's from me."])
+    c += S.say("Cotter", ["I'll tell Mam on Saturday."])
+    c += S.say("Spare", ["Tell her I did not go in first."])
+    c += S.say("Cotter", ["Did you?"])
+    c += S.say("Spare", ["Mr Pocock went in first."])
+    c += S.narrate([
+        "Cotter laughs, and goes back up to the gate, because the",
+        "shift bell has gone. He takes the scissors with him. He",
+        "holds them up a little, all the way."])
+    c += [S.trope(), R.control_switch(db.SW_SPA2_DONE, True)]
+    c += S.companion_story(db.SPARE)
+    return c
+
+
+SPA2_FEE = 300                  # crowns, the Canal Company's, via Pocock
+
+
+def _spa2_ladder():
+    """The way up, read from the foot of it."""
+    up = S.narrate(["The ladder, and a square of daylight a long way up."])
+    return R.if_then(R.condition_switch(db.SW_SPA2_CLEARED), _spa2_out(True),
+                     up + R.choice_block(["Go back up", "Stay down here"], [
+                         _spa2_out(False), []]))
+
+
+def _spa2_pocock():
+    c = S.narrate([
+        "Something is in the culvert ahead, filling it from wall",
+        "to wall. It is breathing."])
+    c += S.say("A Voice", ["Hello? Is somebody there? Is it the Company?"])
+    c += S.say("Spare", ["It is Spare Cotterill.",
+                         "I have come about the paddle."])
+    c += S.say("A Voice", ["Pocock. Canal Company. I'm their smallest man.",
+                           "I've been in since eleven. I've got as far as",
+                           "here."])
+    c += S.say("Spare", ["You are stuck."])
+    c += S.say("Mr Pocock", ["I'm resting."])
+    c += S.narrate(["Spare waits."])
+    c += S.say("Mr Pocock", ["...I'm stuck. It's very dark, isn't it?",
+                             "Is it dark where you are?"])
+    c += S.say("Spare", ["Yes."])
+    c += S.say("Mr Pocock", ["Doesn't it bother you?"])
+    c += S.say("Spare", ["No. I have been frightened.",
+                         "Not of the dark."])
+    c += S.say("Mr Pocock", ["What of, then?"])
+    c += S.say("Spare", ["Of coming out and nobody",
+                         "being there."])
+    c += S.narrate(["There is quite a long pause in the dark."])
+    c += S.say("Mr Pocock", ["Well. Is there? Somebody?"])
+    c += S.say("Spare", ["Yes. They said."])
+    c += S.narrate([
+        "Spare tells Mr Pocock to breathe out, and keep breathing",
+        "out, and come backwards, and Mr Pocock does, an inch at a",
+        "time and then all at once, with Spare pulling on his boots."])
+    c += [R.play_se("Push", 80, 80)]
+    c += S.narrate([
+        "He edges past at the corner, where there is room for that,",
+        "and goes off towards the ladder on his hands and knees,",
+        "saying thank you all the way to the top."])
+    c += S.say("Spare", ["Right."])
+    return c + [R.self_switch("A", True)]
+
+
+def _spa2_paddle():
+    c = S.narrate([
+        "The end of the culvert: the paddle bars, and behind them",
+        "the sluice, and behind that the whole of the cut, leaning",
+        "on it."])
+    c += S.narrate([
+        "Something long is jammed across the bars, wedged into the",
+        "brickwork at both ends. Spare feels along it in the dark.",
+        "Two handles. Two blades, a yard long. A ribbon."])
+    c += S.say("Spare", ["Scissors."])
+    c += S.narrate([
+        "He is the only person in Great Dunnage who could get an",
+        "arm in behind them, so he gets an arm in behind them, and",
+        "works them up, and round, and out, the way you get a brush",
+        "back out of a tube with a bend in it."])
+    c += [R.play_se("Hammer", 80, 70), R.shake_screen(3, 5, 20),
+          R.play_se("Water1", 70, 80)]
+    c += _spa2_bgs("River", 50)
+    c += S.narrate([
+        "Behind the bars the cut moves, slowly, the way a crowd",
+        "moves when somebody at the front has finally got the door",
+        "open."])
+    c += S.say("Spare", ["Ninety-one."])
+    return c + [R.control_switch(db.SW_SPA2_CLEARED, True)]
+
+
+def culvert_map():
+    """The culvert under the bottom lock: brick, one man wide and less. In
+    at the ladder, east, down the first drop, along past the narrow bit and
+    a dead end, up again, and the paddle bars on the face at the far end."""
+    g = K.Canvas(SPA2_W, SPA2_H)
+    top, face = K.A(97), K.A(105)                   # Wall J (Brick)
+    g.fill(0, 0, SPA2_W - 1, SPA2_H - 1, 0, top)
+    for run in SPA2_RUNS:
+        g.fill(*run, 0, K.a5(20))                    # Cobblestones A
+    g.dungeon_walls(top, face)
+    # Solid brick reads as a brick yard from above; past one ring of it the
+    # ground is the black every stock interior stands in.
+    near = {(x + dx, y + dy) for x in range(SPA2_W) for y in range(SPA2_H)
+            if g.get(x, y, 0) != top for dx in (-1, 0, 1) for dy in (-1, 0, 1)}
+    for x in range(SPA2_W):
+        for y in range(SPA2_H):
+            if g.get(x, y, 0) == top and (x, y) not in near:
+                g.set(x, y, 0, K.a5(0))                      # Darkness
+    g.autotile(0, kinds=[R.autotile_kind(top), R.autotile_kind(face)])
+    d = lambda name, i=0: K.sf_tile("Dungeon_B", name, i)
+    ladder = K.sf_block("Dungeon_B", "Metal Ladder")
+    g.column(SPA2_LADDER[0], SPA2_LADDER[1] - len(ladder) + 1, 3, ladder)
+    g.set(*SPA2_PADDLE, 3, d("Jail Bars"))
+    m = K.new_map(SPA2_W, SPA2_H, K.TS_DUNGEON, name="The Bottom Lock",
+                  bgm="")
+    m["autoplayBgs"] = True
+    m["bgs"] = {"name": "Drips", "pan": 0, "pitch": 100, "volume": 60}
+    m["data"] = g.data
+    m["events"] = [None] + culvert_events()
+    return m
+
+
+def culvert_events():
+    """The ladder, a crown, the counting, Mr Pocock and the paddle."""
+    none = R.image("")
+    cleared = {"switch1Valid": True, "switch1Id": db.SW_SPA2_CLEARED}
+    spent = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    floor = dict(img=none, trigger=1, priority=0, through=True)
+    gone = R.page([], img=none, priority=0, through=True, conditions=spent)
+    crown = S.narrate([
+        "At the end of the dead end, down between two bricks, a",
+        "crown, black with the cut."]) + [R.gain_gold(1)] + S.say(
+        "Spare", ["There is always something down the",
+                  "back of something."]) + [R.self_switch("A", True)]
+    count = S.narrate([
+        "Spare counts the bricks with one hand on the wall, out",
+        "loud, the way he counts tubes. At four hundred he stops,",
+        "because they do not end, and starts on his steps instead."
+    ]) + [R.self_switch("A", True)]
+    return [
+        R.event(1, "The Ladder", *SPA2_LADDER, [
+            R.page(_spa2_ladder(), img=none)]),
+        R.event(2, "A Crown", *SPA2_CROWN, [R.page(crown, **floor), gone]),
+        R.event(3, "Counting", *SPA2_COUNT, [R.page(count, **floor), gone]),
+        R.event(4, "Mr Pocock", *SPA2_POCOCK, [
+            R.page(_spa2_pocock(), img=none, trigger=1, priority=1), gone]),
+        R.event(5, "The Paddle", *SPA2_PADDLE, [
+            R.page(_spa2_paddle(), img=none),
+            R.page(S.narrate([
+                "The paddle bars, clear. Behind them the cut is going",
+                "about its business."]), img=none, conditions=cleared)]),
+    ]
+
+
+def cotter(ev):
+    """Cotter (Map 61 event 12), once HOB-1 has had him: the quest page on
+    Spare, and afterwards for everybody - each playing HOB-1's quest page
+    instead whenever that is the page that would have shown."""
+    from q_piper import _pip4_test as holds   # the engine's page choice
+    pages = ev["pages"]
+    first, later, hob, hob_after = pages
+    assert later["conditions"]["selfSwitchCh"] == "A"
+    assert hob["conditions"]["actorId"] == db.HOB
+    assert hob_after["conditions"]["selfSwitchCh"] == "B"
+    hob_shows = R.condition_script("(%s) && !(%s)" % (
+        holds(hob["conditions"]), holds(hob_after["conditions"])))
+    terminal = {"selfSwitchValid": True, "selfSwitchCh": "A"}
+    quest = R.if_then(hob_shows, copy.deepcopy(hob["list"][:-1]),
+                      R.if_then(R.condition_switch(db.SW_SPA2_ASKED),
+                                _spa2_ask(_spa2_again()),
+                                _spa2_ask(_spa2_meeting())))
+    own = R.if_then(R.condition_self_switch("B"),
+                    copy.deepcopy(hob_after["list"][:-1]),
+                    copy.deepcopy(later["list"][:-1]))
+    after = R.if_then(hob_shows, copy.deepcopy(hob["list"][:-1]),
+                      own + S.say("Cotter", [
+                          "Thirty boats down, and the Mayor's",
+                          "had his scissors back. He's cut the",
+                          "ribbon again."]))
+    look = dict(img=later["image"], trigger=0, priority=1)
+    ev["pages"] = pages + [
+        R.page(quest, conditions=dict(terminal, **SPA2_SPARE), **look),
+        R.page(after, conditions=dict(terminal, switch1Valid=True,
+                                      switch1Id=db.SW_SPA2_DONE), **look),
+    ]
+    return ev
+
+
+def build():
+    R.save_map(MAP_CULVERT, culvert_map())

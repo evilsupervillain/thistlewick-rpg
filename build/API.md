@@ -515,7 +515,7 @@ Mrs Gotobed           Mr Dibble             Mrs Throssell         Mr Cobley
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-152 constants.
+154 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -670,6 +670,8 @@ LAKE_SHORE_STEP              (104, 55)
 MAP_POTTERING                68
 MAP_POTTERING_IN             69
 POTTERING_STEP               (60, 62)
+MAP_CULVERT                  70
+CULVERT_STEP                 (33, 20)
 ```
 
 
@@ -677,7 +679,7 @@ POTTERING_STEP               (60, 62)
 
 The whole database of The Obligatory Quest.
 
-605 constants.
+609 constants.
 
 ```
 BRAM                         1
@@ -1235,6 +1237,10 @@ IT_SPA1_COPIES               73
 CE_SPA1_COPIES               5
 SW_SPA4_DONE                 210
 VAR_SPA4_TOUR                30
+SW_SPA2_ASKED                211
+SW_SPA2_CLEARED              212
+SW_SPA2_DONE                 213
+VAR_SPA2_PARTY               31
 SPARE_ARGUING_LEVEL          12
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31

@@ -505,7 +505,8 @@ gate in Great Dunnage (`dunnage.py`). With Spare in the party he knows his
 brother, and he has a job a man does not fit: the jammed lock gate on the
 Dunnage cut. The party waits outside and Spare goes in alone, with
 `SPARE.md` 3's party swap, on a confined map (68+). Cotter's published scene
-stays as it is; the new page requires his ladder's terminal.
+stays as it is; the new page requires his ladder's terminal. **Done, 6 Oct
+2026** (section 3): the bottom lock, Map 70.
 
 ### Part G - the ending, last
 
@@ -3729,46 +3730,123 @@ same ids, every tile unchanged), Maps 68-69, switch 210 and variable 30.
   (60,61)-(61,61) or names Map 8's events 68-69 (grepped), and the
   village is new.
 
+---
+
+**F4, SPA-2 Ninety Tubes - done** (6 Oct 2026). `q_spare.py` (the fourth
+quest in it), with Cotter's pages hooked by wrapping his event in
+`dunnage.py` (`q_spare.cotter(q_hob.owned(...))`, one hook, three lines) and
+Map 70 drawn in the quest module (`build()`, called from `build_game.py`, a
+map in no place, child of Great Dunnage in the map tree);
+`build/scenarios/q_spa2_tubes.json`. The data diff is Cotter's two appended
+pages (his four pages byte for byte what they were), Map 70, MapInfos, and
+three switch and one variable names.
+
+* **Cotter, Map 61 event 12**, pages 5-6, below his terminal A. HOB-1 had
+  already put a quest page (Hob, A, switch 142) and an afterwards page (B)
+  there, so both new pages **play HOB-1's quest page instead** whenever it
+  is the one the engine would have shown (`q_piper._pip4_test`, imported:
+  its page's conditions and not B's), and the afterwards page carries his
+  B page or his A page by B. Without Spare and before `SW_SPA2_DONE`, the
+  town is today's town.
+* **The quest page**, on Spare: Cotter looks down, properly - he has just
+  introduced himself to the party over his brother's head, which is the
+  published first page kept as the reaction shot. "Does Mam know?" Mam's
+  terms were his too, at sixteen; "Is any of it true?" "No." "Good lad."
+  The bottom lock is jammed, thirty of the Company's boats are sat on the
+  cut, and the Canal Company's smallest man went in at eleven and has not
+  come out. "A man does not fit." "I fit." And Mam's second term, kept to
+  the letter: **"I would not be first. The man is first."** Not now sets
+  `SW_SPA2_ASKED` (211) and the short ask from then on.
+* **Down**: the party walks to the south end of the basin
+  (`places.CULVERT_STEP`, (33,20), open), Spare checks his jumper is on,
+  gives you the bag, and asks "You will be here?" Then `SPARE.md` 3's swap -
+  **into `VAR_SPA2_PARTY` (31), not `$gameTemp`**, because the menu is open
+  in the culvert and a save made there has to come back up with the party;
+  it never overwrites a party already set aside. The town's BGM fades, the
+  screen is tinted `[-119,-119,-102,119]` (darker than Carn Drey's), and Map
+  70 autoplays the Drips BGS.
+* **Map 70, The Bottom Lock**: a brick culvert (Dungeon `Wall J (Brick)`,
+  `Cobblestones A`), one man wide, standing in A5 `Darkness` past one ring
+  of wall top - solid brick read as a brick yard from above. The ladder
+  (`Metal Ladder`) on the face over the arrival, read from below; a drop
+  where he counts the bricks out loud "the way he counts tubes"; a dead end
+  with a crown in it ("There is always something down the back of
+  something", 1 crown); **Mr Pocock**, stuck at the narrow bit - a voice
+  in the dark, **no face and no sprite**, which is why "A Voice" becomes
+  "Mr Pocock" in the speaker name. He is frightened of the dark; Spare says
+  what he *is* frightened of, `SPARE.md` 2's line, to the one person in the
+  game who needed to hear it, and talks him out backwards by the boots. Then
+  the paddle (`Jail Bars` on the face): the Mayor's ceremonial scissors, a
+  yard long, ribbon on, jammed across the bars since the lock was opened -
+  worked out "the way you get a brush back out of a tube with a bend in it".
+  "Ninety-one." `SW_SPA2_CLEARED` (212); the BGS turns to River.
+* **The ladder** takes him up at any time: before the paddle, the party is put
+  back and the errand waits on Cotter's short ask. After it: **everybody is
+  there.** "There is always somebody there." Cotter comes down at a run; the
+  Mayor has had to open two things with a knife; Mr Pocock has gone home for
+  a lie down and says Spare is to have his job ("I have got a job."); thirty
+  boats go down the cut and every steersman lifts his hat; the Canal
+  Company's fee (`SPA2_FEE`, 300 crowns) and a bun from Cotter; "Tell her I
+  did not go in first." "Did you?" "Mr Pocock went in first."
+  `SW_SPA2_DONE` (213) and `companion_story(SPARE)` (already on).
+* **Afterwards**, for everybody: his own last page plus "Thirty boats down,
+  and the Mayor's had his scissors back. He's cut the ribbon again."
+* **Tropes +1** (the solo section): running tally **+50 fixed**, and 2-9
+  from PIP-2. **Blushes +0**: +13 fixed. **Candidate ending line**: "Spare
+  Cotterill went into the Dunnage bottom lock alone, in the dark. Somebody
+  was there when he came out." No date is new, so `TIMELINE.md` is
+  unchanged; nothing settles the baby.
+* **Looked at** (0.1): `propsheet.py` over Map 70 - the three cells of the
+  `Metal Ladder` and `Jail Bars`, all what the text calls them. The first draw
+  had brick to the map edge and `Wall Moss`, which is a green fern and read
+  as a bush in a drain; both gone. Shots: undarkened (layout), the dark
+  (`spa2_dark.png` - readable, Spare alone), the paddle, and out at the
+  basin in daylight (`spa2_out.png`). Cotter's corner of the town was not
+  touched and needed nothing.
+* **Scenarios**: `q_spa2_tubes` 35 checks, all pass - walked by key presses
+  from the ladder to the paddle and back, with the early climb-out. **Rerun**:
+  nothing. `dunnage` and `q_hob1` talk to Cotter, but never with Spare, and
+  the new pages need actor 11 or switch 213, which nothing else sets; no
+  other scenario stands on Map 70 or (33,20).
+
+---
+
 ## Restart prompt
 
 Continue Thistlewick's **companion quests** in
-`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step F4, SPA-2 Ninety
-Tubes** (`COMPANIONS.md`'s Spare section as amended, `QUESTS.md` F4,
-`q_spare.py`). **Parts A-E and F1-F3 are done** (F3, The Pen Pal, 6 Oct
-2026). One step per session (0.1) unless Mike asks for more.
+`/home/mike/Projects/rpgmaker-mz/thistlewick` with **step G1, the ending**
+(`QUESTS.md` Part G). **Parts A-F are done** (F4, SPA-2 Ninety Tubes, 6 Oct
+2026): every companion quest in this effort is built.
 
-F4 is **through Cotter**, at the Iron Company's gate in Great Dunnage
-(`dunnage.py`, Map 61): with Spare in the party he knows his brother, and has
-a job a man does not fit - the jammed lock gate on the Dunnage cut. The party
-waits outside and Spare goes in alone, with `SPARE.md` 3's party swap (F1's
-`_argument` already does it), on a confined map of his own, **Map 70**.
-Cotter's published scene stays as it is; the new page requires his ladder's
-terminal. He is not frightened of the dark. Then G1.
+G1 is one `if_then` block per companion on `SW_<NAME>_STORY` (and Spare's,
+110) in `journey.finale_event`'s tally before THE END, each choosing **one**
+line from that companion's candidate ending lines - every step's Done
+paragraph in section 3 names its candidates - and one closing line on
+`VAR_COMPANION_STORIES`; `finale_ending` extended to assert them. Then both
+counters re-cut against the finished totals (below), the comments above both
+branches updated, and `CLAUDE.md` "The ending" amended. Nothing may settle
+Spare's baby (SPA-3 is owed, past the ending). **Then the full suite, once**,
+`../tools/scenarios.sh .` in the background, budgeted at eight hours. Then
+Mike plays it; nothing is pushed until he has.
 
-Read section 0, Part F in section 2, and the F3 Done paragraph, once, at the
-start. Read what the step needs by dumping its maps' events and their text,
-not by opening a module. Crop anything a step touches with `propsheet.py`
-before judging, and screenshot before and after anything changed (0.1).
+Read section 0, Part G, and **only the candidate-line bullets** of the Done
+paragraphs (grep "Candidate ending line"), once, at the start. Read
+`journey.finale_event` by dumping the finale's event, not by opening the
+module first.
 
 Per step, exactly as before: `build_game.py`, then a `git diff --stat data/`
 that touches only what the step meant to - and compare old pages byte for
-byte: every existing page identical, only appended pages and new events.
-`validate.py`, and `apidigest.py . --write`. Screenshots of anything drawn,
-looked at. The step's own scenario, `build/scenarios/q_spa2*.json`, run in
-the background, one browser at a time. Then the Done paragraph, a commit, and
-this prompt moved on. Nothing is pushed. No full suite until G1.
+byte. `validate.py`, and `apidigest.py . --write`. The finale's own scenario,
+then the suite.
 
-Where things stand: tropes +49 fixed and 2-9 from PIP-2; blushes +13 fixed
-and 0-1 from PIP-2. Next free: switch 211, variable 31, item 74, weapon 44,
-armour 49, armour type 15, weapon type 14, element 11, class 13, common event
-6, state 44, enemy 60, troop 55, skill 185, map 70, `Gen_People15` 4.
-`build_game.py` sizes the variable list at 32, so **31 is the last
-variable it has room for**; a step that needs two grows it. Spare is actor
-11; his story switch is 110 (`db.SW_STORY[db.SPARE]`) and is on after F2.
-Much Pottering is Maps 68-69, `pottering.py`. Map 8's last event is 83; the
-tower door has four pages (E17, E18), and anything appended to it must carry
-both splices or come after them. Mrs
-Cotterill (Map 21 event 11) has five pages now; Map 22's last event is 10.
+Where things stand: tropes **+50 fixed** and 2-9 from PIP-2; blushes **+13
+fixed** and 0-1 from PIP-2 - the totals G1 re-cuts against. Next free: switch
+214, variable 32 (`build_game.py` sizes the list at 32, so **the next
+variable needs it grown**), item 74, weapon 44, armour 49, armour type 15,
+weapon type 14, element 11, class 13, common event 6, state 44, enemy 60,
+troop 55, skill 185, map 71, `Gen_People15` 4. Spare is actor 11; his story
+switch is 110 and is on after F2. Cotter (Map 61 event 12) has six pages now;
+Map 70 is the culvert.
 
 Things learned that will bite again:
 
@@ -3860,3 +3938,9 @@ Things learned that will bite again:
   grass (F3).
 * **Two presses to leave an interior is one too many**: the second lands
   on the street after the transfer and walks a step (F3's scenario).
+* **A party set aside across a transfer belongs in a variable, not
+  `$gameTemp`**: `$gameTemp` is not saved, and a map the player walks about
+  on has a menu with Save in it. A variable holds the array and is (F4).
+* **To reach a choice in a scenario, set `window._pick`** (the hook in the
+  setup eval wraps `setChoices`' default) and `advance` through: no counting
+  presses to the choice window (F1's idiom, F4).

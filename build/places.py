@@ -407,3 +407,11 @@ LAKE_SHORE_STEP = (104, 55)
 # one, which is how the placeholder scenario always walked up to it.
 MAP_POTTERING, MAP_POTTERING_IN = 68, 69
 POTTERING_STEP = (60, 62)
+
+# SPA-2 (QUESTS.md F4): the culvert under the bottom lock of the Dunnage cut,
+# which Spare goes into alone. A map in no place, drawn by `q_spare.py`, its
+# way in Cotter's page (Map 61 event 12) and its way out the ladder it
+# arrives under. The party waits at the south end of the basin, on the
+# paving facing the water: (33,20), open four ways in the built town.
+MAP_CULVERT = 70
+CULVERT_STEP = (33, 20)

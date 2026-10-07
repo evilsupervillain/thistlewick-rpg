@@ -296,7 +296,10 @@ Append instead.
   dinner hour is Map 22 event 10. **SPA-4** (`QUESTS.md` F3): **switch 210**
   done and **variable 30** Effie's tour (1 the volcano, 2 the pond, 3 the
   post, 4 done), on **Maps 68-69**, Much Pottering; Effie is `Gen_People14` 7
-  and the rest of the village `Gen_People15` 0-3 |
+  and the rest of the village `Gen_People15` 0-3. **SPA-2** (`QUESTS.md` F4):
+  **switches 211-213** Cotter has asked, the paddle clear, done, and
+  **variable 31** the party set aside while Spare is in the culvert alone
+  (an array; 0 otherwise), on **Map 70**; Cotter's pages 5-6 (Map 61 event 12) |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -433,6 +436,11 @@ Append instead.
   `q_spare.py`; `places.MAP_POTTERING`, `MAP_POTTERING_IN`. In from the two
   stamped cells (60,61)-(61,61), events 68-69 on Map 8, where the placeholders
   were; out to `places.POTTERING_STEP` |
+| Map 70 | The Bottom Lock: the brick culvert under the bottom gate of the
+  Dunnage cut, which Spare goes into alone (SPA-2). A map in no place, drawn by
+  `q_spare.py`; `places.MAP_CULVERT`. In from Cotter's page, by way of the
+  basin's south end, `places.CULVERT_STEP` on Map 61, where the party waits;
+  out by the ladder it arrives under, to the same cell |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -907,6 +915,12 @@ makes eight passes over it cost less than the single pass did before.
   there", the meeting and its trope, a dismissal mid-tour that she waits
   through, the volcano, the sea serpent and the post, done; the afterwards
   pages, the second wish, the cottage, and out by the road |
+| `q_spa2_tubes` | `QUESTS.md` F4, SPA-2 Ninety Tubes: Cotter without Spare
+  is today's pages; with Spare and Hob, HOB-1's heel-irons carried first; the
+  meeting and not now; the short ask and down, `SPARE.md` 3's swap into Map
+  70, the dark and the drips; up early with the party put back; down again and
+  walked by key presses - the counting, a crown, Mr Pocock, the paddle; out,
+  everybody there, the trope and the fee; afterwards with and without him |
 
 | `firstfield` | Firstfield Meadow walked with the arrow keys: in off the rainbow,
   Fizz in front of you before a step and in front of the sign you try to read,

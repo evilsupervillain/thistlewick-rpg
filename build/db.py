@@ -508,6 +508,11 @@ CE_SPA1_COPIES = 5              # reading them, from the menu
 # SPA-4, The Pen Pal (QUESTS.md F3, q_spare.py; the village is pottering.py)
 SW_SPA4_DONE = 210              # met, shown round, and written to by hand
 VAR_SPA4_TOUR = 30              # Effie's tour: 1 volcano, 2 serpent, 3 post
+# SPA-2, Ninety Tubes (QUESTS.md F4, q_spare.py; Cotter is dunnage.py's)
+SW_SPA2_ASKED = 211             # Cotter has asked; the short ask from now on
+SW_SPA2_CLEARED = 212           # the paddle is clear; out by the ladder
+SW_SPA2_DONE = 213              # out, and everybody was there
+VAR_SPA2_PARTY = 31             # the party, set aside while he is in alone
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32

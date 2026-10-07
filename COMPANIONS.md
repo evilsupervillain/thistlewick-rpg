@@ -917,7 +917,9 @@ swap. *Gives:* the best use of an established mechanic in the document.
 *Amended 5 Oct 2026 (Mike):* the place is the jammed lock gate on the Dunnage
 cut, and the way in is **Cotter**, his eldest brother, at the Iron Company's
 gate in Great Dunnage - who knows Spare at once and has a job a man does not
-fit. `QUESTS.md` F4.
+fit. `QUESTS.md` F4. *Built 6 Oct 2026:* **the Bottom Lock**, Map 70, where
+the Canal Company's smallest man went in first and the Mayor's scissors are
+across the paddle.
 
 **SPA-3. The Tenth.** *(cliche: the deadline)* It arrives in the spring, and
 he would like to be there, and the tower does not care what month it is. A soft

@@ -128,6 +128,7 @@ MAP_NAMES = [
     (places.MAP_CARN_DREY, "Under Carn Drey", journey.MAP_WORLD),
     (places.MAP_POTTERING, "Much Pottering", journey.MAP_WORLD),
     (places.MAP_POTTERING_IN, "The Gotobeds' Cottage", places.MAP_POTTERING),
+    (places.MAP_CULVERT, "The Bottom Lock", dunnage.MAP_DUNNAGE),
 ]
 
 
@@ -440,7 +441,10 @@ def build_system():
             (db.SW_ROL2_DONE, "ROL-2: the Worm ended; discharged"),
             (db.SW_SPA1_DONE, "SPA-1: read out at the dinner hour"),
             (db.SW_SPA1_DINNER, "SPA-1: the dinner hour (scene)"),
-            (db.SW_SPA4_DONE, "SPA-4: met, and written to by hand")]:
+            (db.SW_SPA4_DONE, "SPA-4: met, and written to by hand"),
+            (db.SW_SPA2_ASKED, "SPA-2: Cotter has asked"),
+            (db.SW_SPA2_CLEARED, "SPA-2: the paddle is clear"),
+            (db.SW_SPA2_DONE, "SPA-2: out, and everybody there")]:
         switches[sid] = name
 
     variables = [""] * 32
@@ -474,6 +478,7 @@ def build_system():
     variables[db.VAR_SPA1_POSTED] = "SPA-1: letters posted, of eight"
     variables[db.VAR_SPA1_ORDER] = "SPA-1: which went from where (digits)"
     variables[db.VAR_SPA4_TOUR] = "SPA-4: Effie's tour (4 is done)"
+    variables[db.VAR_SPA2_PARTY] = "SPA-2: the party, set aside"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
@@ -548,6 +553,7 @@ def main():
     q_corvin.build()                    # COR-2's drowned street
     q_roland.build()                    # ROL-2's dungeon under Carn Drey
     pottering.build()                   # SPA-4's village, Maps 68-69
+    q_spare.build()                     # SPA-2's culvert, Map 70
     q_spare.check_couriers()            # F2's courier ids are the towns'
     shape_wall_tops()
     build_map_infos()

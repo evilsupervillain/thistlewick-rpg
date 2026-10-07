@@ -1,0 +1,621 @@
+{
+  "query": "?map=61&x=5&y=8&frames=90",
+  "comment": "QUESTS.md F4, SPA-2 Ninety Tubes. Cotter at the Iron Company's gate, Map 61 event 12: without Spare today's pages; with Spare and Hob, HOB-1's page carried first; the meeting, not now; the short ask and down; SPARE.md 3's swap into the culvert, Map 70, in the dark; up again early and the party restored; down again and walked: the counting, a crown, Mr Pocock, the paddle; out, everybody there, done; and afterwards, with and without him.",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._stories = $gameVariables.value(15); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._has = s => window._lines.some(l => l.includes(s)); window._cot = () => $gameMap.event(12);"
+    },
+    {
+      "check": "$gameMap.mapId()",
+      "expect": 61
+    },
+    {
+      "comment": "Without Spare: Cotter's published scene, then his terminal page - and nothing about a lock."
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('Eldest of'), window._has('jammed'), window._cot().findProperPageIndex()]",
+      "expect": [
+        true,
+        false,
+        1
+      ],
+      "label": "the published first meeting, word for word, and then page 2"
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[window._has('Eleven miles'), window._has('jammed')]",
+      "expect": [
+        true,
+        false
+      ],
+      "label": "his last page, without Spare: today's game"
+    },
+    {
+      "comment": "Spare (as F1 leaves him) and Hob, on HOB-1's tour: the quest page plays Hob's heel-irons first, because that is the page that would have shown."
+    },
+    {
+      "eval": "$gameParty.addActor(3); $gameParty.addActor(11); $gameSwitches.setValue(90, true); $gameSwitches.setValue(92, true); $gameSwitches.setValue(142, true); $gameMap.requestRefresh(); window._mark()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "window._cot().findProperPageIndex()",
+      "expect": 4,
+      "label": "the quest page, on Spare and A"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('heel-irons'), window._has('Does Mam know'), $gameSelfSwitches.value([61, 12, 'B']), $gameSwitches.value(211)]",
+      "expect": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "label": "HOB-1's page carried, and only it"
+    },
+    {
+      "comment": "Now Spare's: Cotter knows him. Not now."
+    },
+    {
+      "eval": "window._mark(); window._pick = 1"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('...Spare?'), window._has('The man is'), window._has('It\\'ll keep'), $gameSwitches.value(211), $gameMap.mapId(), $gameParty._actors.length]",
+      "expect": [
+        true,
+        true,
+        true,
+        true,
+        61,
+        3
+      ],
+      "label": "the meeting, the ask, not now; asked, and nobody has gone anywhere"
+    },
+    {
+      "comment": "The short ask, and down he goes."
+    },
+    {
+      "eval": "window._mark(); window._pick = 0"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('still jammed'), window._has('You will be here?'), window._has('not frightened of it')]",
+      "expect": [
+        true,
+        true,
+        true
+      ],
+      "label": "the short ask, the lock, and the dark"
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y].concat([$gamePlayer.direction()])",
+      "expect": [
+        70,
+        3,
+        4,
+        6
+      ],
+      "label": "in the culvert, at the foot of the ladder"
+    },
+    {
+      "check": "[$gameParty._actors, $gameVariables.value(31), $gameParty.members().length]",
+      "expect": [
+        [
+          11
+        ],
+        [
+          1,
+          3,
+          11
+        ],
+        1
+      ],
+      "label": "SPARE.md 3's swap: Spare alone, the party set aside in variable 31"
+    },
+    {
+      "check": "[$gameScreen.tone().slice(), AudioManager._currentBgs && AudioManager._currentBgs.name]",
+      "expect": [
+        [
+          -119,
+          -119,
+          -102,
+          119
+        ],
+        "Drips"
+      ],
+      "label": "the dark, and the drips"
+    },
+    {
+      "shot": "spa2_dark.png"
+    },
+    {
+      "comment": "Up the ladder before it is done: everybody back, the errand waits."
+    },
+    {
+      "eval": "window._mark(); window._pick = 0"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        61,
+        33,
+        20
+      ],
+      "label": "back up, at the basin"
+    },
+    {
+      "check": "[$gameParty._actors, $gameVariables.value(31), $gameScreen.tone().slice(), !!(AudioManager._currentBgs && AudioManager._currentBgs.name)]",
+      "expect": [
+        [
+          1,
+          3,
+          11
+        ],
+        0,
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        false
+      ],
+      "label": "the party restored, the tint and the drips gone"
+    },
+    {
+      "check": "[window._has('It is not done'), $gameSwitches.value(212), $gameSwitches.value(213)]",
+      "expect": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "comment": "Back to Cotter, and down again. Walk the culvert with key presses."
+    },
+    {
+      "goto": [
+        61,
+        5,
+        8
+      ]
+    },
+    {
+      "eval": "window._mark(); window._pick = 0"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        3,
+        4
+      ]
+    },
+    {
+      "key": "ArrowRight",
+      "times": 8,
+      "gap": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        11,
+        4
+      ]
+    },
+    {
+      "key": "ArrowDown",
+      "times": 3,
+      "gap": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[$gamePlayer.y, window._has('four hundred'), $gameSelfSwitches.value([70, 3, 'A'])]",
+      "expect": [
+        7,
+        true,
+        true
+      ],
+      "label": "counting, half way down the first drop"
+    },
+    {
+      "key": "ArrowDown",
+      "times": 3,
+      "gap": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        11,
+        10
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 4,
+      "gap": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[$gamePlayer.x, $gameParty.gold() - window._gold, window._has('down the')]",
+      "expect": [
+        7,
+        1,
+        true
+      ],
+      "label": "a crown at the end of the dead end"
+    },
+    {
+      "key": "ArrowRight",
+      "times": 7,
+      "gap": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        14,
+        10
+      ]
+    },
+    {
+      "comment": "Walk into Mr Pocock."
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowRight",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 60
+    },
+    {
+      "check": "[window._has('smallest man'), window._has('Not of the dark.'), window._has('nobody'), $gameSelfSwitches.value([70, 4, 'A']), $gamePlayer.x]",
+      "expect": [
+        true,
+        true,
+        true,
+        true,
+        14
+      ],
+      "label": "Mr Pocock, stuck, and talked out backwards"
+    },
+    {
+      "key": "ArrowRight",
+      "times": 4,
+      "gap": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        18,
+        10
+      ],
+      "label": "through the narrow bit, where he was"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 5,
+      "gap": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        18,
+        5
+      ]
+    },
+    {
+      "key": "ArrowRight",
+      "times": 4,
+      "gap": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        22,
+        5
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('Scissors.'), window._has('Ninety-one.'), $gameSwitches.value(212), AudioManager._currentBgs && AudioManager._currentBgs.name]",
+      "expect": [
+        true,
+        true,
+        true,
+        "River"
+      ],
+      "label": "the paddle cleared: the Mayor's scissors"
+    },
+    {
+      "shot": "spa2_paddle.png"
+    },
+    {
+      "comment": "All the way back to the ladder."
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 4,
+      "gap": 30
+    },
+    {
+      "key": "ArrowDown",
+      "times": 5,
+      "gap": 30
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 7,
+      "gap": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        11,
+        10
+      ]
+    },
+    {
+      "key": "ArrowUp",
+      "times": 6,
+      "gap": 30
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 8,
+      "gap": 30
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        70,
+        3,
+        4
+      ],
+      "label": "back at the foot of the ladder"
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 80
+    },
+    {
+      "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        61,
+        33,
+        20
+      ],
+      "label": "out, at the basin"
+    },
+    {
+      "check": "[$gameParty._actors, $gameVariables.value(31), $gameScreen.tone().slice()]",
+      "expect": [
+        [
+          1,
+          3,
+          11
+        ],
+        0,
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "label": "everybody back"
+    },
+    {
+      "check": "[window._has('There is always somebody there.'), window._has('thirty boats'), window._has('went in first')]",
+      "expect": [
+        true,
+        true,
+        true
+      ],
+      "label": "everybody is there; the boats go down"
+    },
+    {
+      "check": "[$gameSwitches.value(213), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes, $gameParty.gold() - window._gold, $gameSwitches.value(110)]",
+      "expect": [
+        true,
+        1,
+        0,
+        300,
+        true
+      ],
+      "label": "done: one trope (the solo section), no blush, the fee, and his story switch"
+    },
+    {
+      "check": "$gameMap.isEventRunning()",
+      "expect": false
+    },
+    {
+      "shot": "spa2_out.png"
+    },
+    {
+      "comment": "Afterwards: Cotter's own last page (HOB-1's, since B is on) and one line, for everybody."
+    },
+    {
+      "goto": [
+        61,
+        5,
+        8
+      ]
+    },
+    {
+      "eval": "window._mark()"
+    },
+    {
+      "check": "window._cot().findProperPageIndex()",
+      "expect": 5
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[window._has('worn bright'), window._has('ribbon again'), window._has('jammed')]",
+      "expect": [
+        true,
+        true,
+        false
+      ],
+      "label": "his last page, carried, and the scissors"
+    },
+    {
+      "eval": "$gameParty.removeActor(11); $gameParty.removeActor(3); $gameMap.requestRefresh(); window._mark()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[window._cot().findProperPageIndex(), window._has('ribbon again')]",
+      "expect": [
+        5,
+        true
+      ],
+      "label": "and without Spare"
+    },
+    {
+      "check": "SceneManager._scene.constructor.name",
+      "expect": "Scene_Map"
+    }
+  ]
+}
