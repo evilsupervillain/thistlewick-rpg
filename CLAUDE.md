@@ -112,6 +112,33 @@ nested in the higher's else), `SW_HISTORY_DONE`, `SW_LAMP_LIT`,
 `SW_FF_GRADUATED` and `SW_MET_QUY`. Every one is additive: a new line here is a new block, and
 nothing that is already in the tally comes out or gets re-voiced.
 
+**The finale is not the end of the game any more** (`POSTGAME.md`, P4a,
+October 2026). Three things in `build/postgame.py` hang off it, each by one
+line in `journey.finale_event`:
+
+* **G1's companion lines**, `postgame.companion_lines()`, go after Firstfield's
+  block and before "Thistlewick struck clause twelve". There are ten
+  `if/else` chains, one per companion, each over that companion's quest
+  switches with the best line first, so that exactly one line per companion
+  prints. Then comes the count on `VAR_COMPANION_STORIES`: one / N / all
+  ten. `postgame.rol5_line()` sits inside the `SW_ROLAND_GONE` branch, after
+  "who thinks about this one".
+* **After THE END comes `postgame.hand_back()`**, not Return to Title: "The
+  next morning there are still turnips.", recover all, and a transfer to
+  Bram's house at the new-game start (Map 2, 8,8) with no fade, because the
+  screen is already black. Then the screen fades in. The map interpreter
+  carries on across the transfer.
+* **Page 6, `postgame.grimspite_afterwards()`**, on `SW_WON`, is Grimspite in
+  his chair with a kettle. It is appended after the empty page 5 and beats
+  it, so the finale cannot come back on the throne, and the empty pages 2 and 5
+  are byte for byte what they were. The cup sets `SW_GRIMSPITE_TEA` (214),
+  which P4c's Quy reads. A page added to Grimspite after this goes *after*
+  page 6, or it has to carry it.
+
+Anything that runs the finale's list directly must skip code **201** as well
+as 354, or the run lands in Bram's house. Both harnesses (`finale_ending`'s
+`SKIP_SLOW` and `premises`') do.
+
 **Two counter thresholds are cut against totals, and were last re-cut in
 September 2026** (`SITES.md` section 4), once every site on that list was built
 and the totals had stopped moving. Anything that adds a `story.trope()` or a
@@ -299,7 +326,9 @@ Append instead.
   and the rest of the village `Gen_People15` 0-3. **SPA-2** (`QUESTS.md` F4):
   **switches 211-213** Cotter has asked, the paddle clear, done, and
   **variable 31** the party set aside while Spare is in the culvert alone
-  (an array; 0 otherwise), on **Map 70**; Cotter's pages 5-6 (Map 61 event 12) |
+  (an array; 0 otherwise), on **Map 70**; Cotter's pages 5-6 (Map 61 event 12).
+  **The post-game** (`POSTGAME.md`): **switch 214** `SW_GRIMSPITE_TEA`, Bram
+  had the cup at the top (P4a); Grimspite's page 6 (Map 12 event 2) |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |

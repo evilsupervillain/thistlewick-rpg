@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
 import mapkit as K
 import rmmzdata as R
+import postgame as PG
 import q_nix
 import q_roland
 import q_wren
@@ -1146,7 +1147,7 @@ def finale_event(event_id, x, y):
             "He came back with all of them but one, who",
             "had somewhere to be, and who is at this",
             "moment being marvellous in somebody else's",
-            "story, and who thinks about this one."]),
+            "story, and who thinks about this one."]) + PG.rol5_line(),
         S.narrate(["He came back with all of them."]))
     c += S.narrate([
         "Along the way he walked into \\C[3]\\V[2]\\C[0] well-worn",
@@ -1336,6 +1337,8 @@ def finale_event(event_id, x, y):
             "completed, the first on record. Fizz has",
             "applied for Boss Warning Sprite, First Class,",
             "and has put Bram down as a reference."]))
+    # G1 (POSTGAME.md 7): one line per companion with a story, and the count.
+    c += PG.companion_lines()
     tally = len(c)
     c += S.narrate([
         "Thistlewick struck clause twelve from the",
@@ -1355,7 +1358,8 @@ def finale_event(event_id, x, y):
             "in order, including the part about the tea.",
             "It took most of an afternoon."]))
     c += S.narrate(["\\}\\C[6]THE END\\C[0]"])
-    c += [R.wait(90), R.return_to_title()]
+    # P4a: not the end of the game any more. The next morning.
+    c += [R.wait(90)] + PG.hand_back()
 
     return R.event(event_id, "Grimspite", x, y, [
         R.page(c, img=R.image("Evil", 6, direction=2), trigger=0, priority=1,
@@ -1369,7 +1373,10 @@ def finale_event(event_id, x, y):
                conditions={"itemValid": True, "itemId": db.IT_ITEM_ONE}),
         R.page([], img=R.image(""), trigger=0, priority=0, through=True,
                conditions={"switch1Valid": True, "switch1Id": db.SW_WON}),
-    ] + visitors_book_pages(c, sig, split, tally))
+    ] + visitors_book_pages(c, sig, split, tally)
+      # P4a: page 6, afterwards. Last page wins, so it beats every empty
+      # SW_WON page above it.
+      + [PG.grimspite_afterwards()])
 
 
 def visitors_book_pages(c, sig, split, tally):

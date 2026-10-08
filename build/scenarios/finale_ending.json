@@ -12,8 +12,8 @@
       "eval": "$gameVariables.setValue(1, 3); $gameVariables.setValue(2, 12); $gameVariables.setValue(3, 4)"
     },
     {
-      "comment": "The harness, and the reason this file was rewritten. The finale's optional content - clause seven, the materials question, the bounty tiers, the stores-book line - is *made of* Show Text inside Conditional Branch, and the previous version of this scenario tested the finale by deleting every Show Text before running it. Everything it asserted was true and none of it was about a branch, so four shipped endings had nothing standing behind them at all.\n\nSo instead of removing the messages, take the blocking out of them: `Game_Message.add` records the line rather than queueing it, and `isBusy` always answers false, so the interpreter runs the whole list start to finish without a key press and without ever opening a window - `hasText()` is false, so `Window_Message` never even tries. What comes back is every line the player would have read, in order, in an array that can be asserted against. The choice fork gets a shim that answers it immediately with `window._pick`, because a choice left unanswered takes *neither* branch: `command402` compares against a `_branch` entry that nothing ever wrote, so both halves are skipped and the run quietly loses a hundred lines.",
-      "eval": "(function () { window._lines = []; window._pick = 0; Game_Message.prototype.add = function (text) { window._lines.push(text); }; Game_Message.prototype.isBusy = function () { return false; }; const setupChoices = Game_Interpreter.prototype.setupChoices; Game_Interpreter.prototype.setupChoices = function (params) {   setupChoices.call(this, params);   $gameMessage.onChoice(window._pick); }; window.SKIP_SLOW = [301, 354, 230, 221, 222, 223, 225]; window.runFinale = function (skips) {   const skip = new Set(skips);   window._lines = [];   $gameMap._interpreter.setup(     $dataMap.events[2].pages[0].list.filter(c => !skip.has(c.code)), 2); }; window.saw = function (s) { return window._lines.join('\\n').indexOf(s) >= 0; }; window.at = function (s) { return window._lines.join('\\n').indexOf(s); };})()"
+      "comment": "The harness, and the reason this file was rewritten. The finale's optional content - clause seven, the materials question, the bounty tiers, the stores-book line - is *made of* Show Text inside Conditional Branch, and the previous version of this scenario tested the finale by deleting every Show Text before running it. Everything it asserted was true and none of it was about a branch, so four shipped endings had nothing standing behind them at all.\n\nSo instead of removing the messages, take the blocking out of them: `Game_Message.add` records the line rather than queueing it, and `isBusy` always answers false, so the interpreter runs the whole list start to finish without a key press and without ever opening a window - `hasText()` is false, so `Window_Message` never even tries. What comes back is every line the player would have read, in order, in an array that can be asserted against. The choice fork gets a shim that answers it immediately with `window._pick`, because a choice left unanswered takes *neither* branch: `command402` compares against a `_branch` entry that nothing ever wrote, so both halves are skipped and the run quietly loses a hundred lines. (P4a: 201 is in the skip list too, because the finale now ends in a transfer to Bram's house, and a fast pass that took it would leave every pass after it on Map 2.)",
+      "eval": "(function () { window._lines = []; window._pick = 0; Game_Message.prototype.add = function (text) { window._lines.push(text); }; Game_Message.prototype.isBusy = function () { return false; }; const setupChoices = Game_Interpreter.prototype.setupChoices; Game_Interpreter.prototype.setupChoices = function (params) {   setupChoices.call(this, params);   $gameMessage.onChoice(window._pick); }; window.SKIP_SLOW = [301, 354, 201, 230, 221, 222, 223, 225]; window.runFinale = function (skips) {   const skip = new Set(skips);   window._lines = [];   $gameMap._interpreter.setup(     $dataMap.events[2].pages[0].list.filter(c => !skip.has(c.code)), 2); }; window.saw = function (s) { return window._lines.join('\\n').indexOf(s) >= 0; }; window.at = function (s) { return window._lines.join('\\n').indexOf(s); };})()"
     },
     {
       "comment": "Pass A: the plain ending, and the control for all seven that follow. The slow-command skip list is the other half of the trick - with 230, the screen tints and the shakes gone the whole finale executes inside a single frame, because `Game_Interpreter.update` will run a hundred thousand commands before it decides it has frozen. That is what makes eight passes affordable where the old one pass cost twelve hundred frames.",
@@ -47,7 +47,16 @@
       "expect": false,
       "label": "and the stores book still has no line through ITEM 1"
     },
-    {"check": "window.saw('Firstfield Meadow reports one tutorial')", "expect": false, "label": "and nobody finished the tutorial, so Firstfield Meadow has nothing to report"},
+    {
+      "check": "window.saw('Firstfield Meadow reports one tutorial')",
+      "expect": false,
+      "label": "and nobody finished the tutorial, so Firstfield Meadow has nothing to report"
+    },
+    {
+      "check": "window.saw('got something out of it as well')",
+      "expect": false,
+      "label": "P4a: nobody has a companion story, so the count line is absent"
+    },
     {
       "comment": "Pass B. The two questions Ott can send you up here with are independent switches on independent branches, and the pair of passes that follow exist to prove that they are - a single `if_then` written at the wrong indent would make one of them carry the other, which reads on screen as Grimspite answering a question nobody put to him.",
       "eval": "$gameSwitches.setValue(65, true); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
@@ -174,7 +183,101 @@
       "expect": true,
       "label": "and she asks whether it worked, and does not ask a second question"
     },
-    {"check": "window.saw('Firstfield Meadow reports one tutorial')", "expect": true, "label": "the same pass has graduated from Firstfield Meadow, and the ending says it was the first on record"},
+    {
+      "check": "window.saw('Firstfield Meadow reports one tutorial')",
+      "expect": true,
+      "label": "the same pass has graduated from Firstfield Meadow, and the ending says it was the first on record"
+    },
+    {
+      "comment": "Pass I (P4a, POSTGAME.md 7): G1's companion lines. Each companion's block is an if/else chain over their quests, best line first, so exactly one line per companion prints. Merribell has MER-4 and MER-1 done, so the higher-ranked MER-1 line prints and MER-4's does not. Piper has only the fixed ending of PIP-1, so that line prints and the very-good one does not. Hob has nothing, so he gets no line. Roland left at the door and Maud told him, so her line follows his. Two stories in all.",
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); [101,102,103,104,105,106,107,108,109,110,124,178,197,196,195,21,204,207,213,210,208].forEach(s => $gameSwitches.setValue(s, false)); $gameSwitches.setValue(124, true); $gameSwitches.setValue(178, true); $gameSwitches.setValue(196, true); $gameSwitches.setValue(197, true); $gameSwitches.setValue(21, true); $gameSwitches.setValue(204, true); $gameVariables.setValue(15, 2); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('The Order of Whatever Works won the Sisterhouse')",
+      "expect": true,
+      "label": "Merribell's headline, MER-1"
+    },
+    {
+      "check": "window.saw('Tobias Frayne has not died since.')",
+      "expect": false,
+      "label": "and only one Merribell line: MER-4 is in MER-1's else"
+    },
+    {
+      "check": "window.saw('A. and P. Quill. It is true')",
+      "expect": true,
+      "label": "Piper's fixed ending of PIP-1"
+    },
+    {
+      "check": "window.saw('Ambrosine Quill, and it is very good')",
+      "expect": false,
+      "label": "and not the very-good one, which she did not get"
+    },
+    {
+      "check": "window.saw('Worshipful Company') || window.saw('Sky Anvil has a gate') || window.saw('churchyard has a new gate')",
+      "expect": false,
+      "label": "Hob did nothing, so Hob has no line"
+    },
+    {
+      "check": "window.at('thinks about this one') >= 0 && window.at('thinks about this one') < window.at('Somebody saw the end of this one')",
+      "expect": true,
+      "label": "Maud's line, after Roland's"
+    },
+    {
+      "check": "window.saw('of them got something out of it as well') && !window.saw('All ten of them') && !window.saw('One of them got')",
+      "expect": true,
+      "label": "two stories: the number, not the one or the ten"
+    },
+    {
+      "check": "window.at('Firstfield Meadow reports') < window.at('The Order of Whatever Works') || !window.saw('Firstfield Meadow reports')",
+      "expect": true,
+      "label": "the companion lines come after Firstfield"
+    },
+    {
+      "check": "window.at('The Order of Whatever Works') < window.at('Thistlewick struck clause twelve')",
+      "expect": true,
+      "label": "and before clause twelve is struck, which stays the last word"
+    },
+    {
+      "check": "window.at('of them got something out of it') > window.at('A. and P. Quill') && window.at('of them got something out of it') < window.at('Thistlewick struck clause twelve')",
+      "expect": true,
+      "label": "the count closes the companions"
+    },
+    {
+      "comment": "Pass J: the two ends of the count, and Maud's line without the gone branch, which can't happen because it is inside it.",
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); [101,102,103,104,105,106,107,108,109,110,124,178,197,196,195,21,204,207,213,210,208].forEach(s => $gameSwitches.setValue(s, false)); $gameSwitches.setValue(204, true); $gameVariables.setValue(15, 10); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('All ten of them got something out of it as well.')",
+      "expect": true,
+      "label": "ten stories: all ten"
+    },
+    {
+      "check": "window.saw('Somebody saw the end of this one')",
+      "expect": false,
+      "label": "Maud's line is only read after Roland's departure"
+    },
+    {
+      "eval": "$gameSwitches.setValue(65, false); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); [101,102,103,104,105,106,107,108,109,110,124,178,197,196,195,21,204,207,213,210,208].forEach(s => $gameSwitches.setValue(s, false)); $gameVariables.setValue(15, 1); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('One of them got something out of it as well.')",
+      "expect": true,
+      "label": "one story: one of them"
+    },
+    {
+      "check": "window.saw('All ten of them')",
+      "expect": false,
+      "label": "and not the ten"
+    },
     {
       "comment": "Pass H is the original scenario, unchanged in what it asserts and now run last. Only the battles come out of the list this time: the waits, the tints, the shake and the return to the title screen all run at their real length, so this is the pass that says the finale gets to the end of itself rather than the pass that says what it printed on the way. Two boss phases would cost an hour of software-rendered animation here and would only re-test what battle_mook and balance.py already cover. It also throws away the receipts the seven fast passes each gained on their way past, because a check that reads 8 is not asserting that Grimspite signs one over, it is counting how many times this file has run the scene.",
       "eval": "$gameParty.loseItem($dataItems[22], 99); $gameSwitches.setValue(65, true); $gameSwitches.setValue(70, true); window.runFinale([301])"
@@ -202,8 +305,99 @@
     },
     {
       "check": "SceneManager._scene.constructor.name",
-      "expect": "Scene_Title",
-      "label": "and the game returns to the title"
+      "expect": "Scene_Map",
+      "label": "P4a: the game does not return to the title"
+    },
+    {
+      "check": "window.saw('The next morning there are still turnips.')",
+      "expect": true,
+      "label": "the next morning"
+    },
+    {
+      "check": "$gameMap.mapId() === 2 && $gamePlayer.x === 8 && $gamePlayer.y === 8",
+      "expect": true,
+      "label": "in Bram's house, where the game began"
+    },
+    {
+      "check": "$gameScreen.brightness()",
+      "expect": 255,
+      "label": "and the house has faded in"
+    },
+    {
+      "check": "$gameParty.members().every(a => a.hp === a.mhp)",
+      "expect": true,
+      "label": "rested: it is the next morning"
+    },
+    {
+      "check": "$gameSwitches.value(5)",
+      "expect": true,
+      "label": "still won, which is what every post-game page keys on"
+    },
+    {
+      "comment": "Grimspite afterwards: page 6, on SW_WON, beats the two empty SW_WON pages. The message stub is still on, so the choice is answered by window._pick: 0 is the cup.",
+      "goto": [
+        12,
+        12,
+        12
+      ]
+    },
+    {
+      "check": "$gameMap.event(2).findProperPageIndex()",
+      "expect": 6,
+      "label": "the throne shows page 6 after the ending"
+    },
+    {
+      "eval": "window._lines = []; window._pick = 0; $gameMap.event(2).start()"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('There is room for a forty-eighth.')",
+      "expect": true,
+      "label": "the wall, forty-seven carvings"
+    },
+    {
+      "check": "window.saw('Now somebody has.')",
+      "expect": true,
+      "label": "Bram has the cup Halbert Quy turned down"
+    },
+    {
+      "check": "$gameSwitches.value(214)",
+      "expect": true,
+      "label": "and the tea is remembered, for Quy"
+    },
+    {
+      "eval": "window._lines = []; $gameMap.event(2).start()"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "window.saw('still just tea') && !window.saw('There is room for a forty-eighth.')",
+      "expect": true,
+      "label": "a second visit is the short one"
+    },
+    {
+      "comment": "Maud has gone from the tower door once the ending is past, even with ROL-5 done.",
+      "eval": "$gameSwitches.setValue(204, true)"
+    },
+    {
+      "goto": [
+        8,
+        65,
+        44
+      ]
+    },
+    {
+      "check": "$gameMap.event(82).findProperPageIndex()",
+      "expect": 2,
+      "label": "Maud's door event is the empty SW_WON page"
+    },
+    {
+      "check": "$gameMap.event(82).characterName()",
+      "expect": "",
+      "label": "and nobody is drawn there"
     }
   ]
 }

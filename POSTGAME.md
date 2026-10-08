@@ -21,7 +21,7 @@ This is a design that the steps in section 9 read once each, the same split
 ## 1. What does not move
 
 * **No published line changes.** The finale keeps every word it has. The one
-  command that has to go is the last one, **`GAMEOVER`** after THE END. That
+  command that has to go is the last one, **Return to Title** (command 354) after THE END. That
   is a command, not a line, and it is the whole of what "stops being the
   end" means.
 * **THE END stays on screen.** It is still the end of *the Prophecy's* story.
@@ -43,7 +43,7 @@ This is a design that the steps in section 9 read once each, the same split
 
 ## 2. The hand-back
 
-After THE END and its wait, in place of `GAMEOVER`:
+After THE END and its wait, in place of Return to Title:
 
 > *(fade)* The next morning there are still turnips.
 
@@ -205,7 +205,7 @@ line per companion ever appears. The headline picks:
 | Corvin | COR-1, COR-2, COR-4, COR-3, COR-5 | ...a scarf in the wrong colour, and he wears it. |
 | Wren | WRE-1, WRE-5, WRE-3, WRE-4 | ...three reviewers, one of them a duck. Page four hundred says goose. |
 | Roland | ROL-2, ROL-4, ROL-3, ROL-1 | ...He asked to be surprised. Everybody was. |
-| Spare | SPA-2, SPA-1 | ...Somebody was there when he came out. |
+| Spare | SPA-2, SPA-4, SPA-1 | ...Somebody was there when he came out. |
 
 The full texts are the Done paragraphs' "Candidate ending line" bullets, used
 as written.
@@ -341,11 +341,12 @@ Each step follows `QUESTS.md` 0.1: build, `git diff --stat data/`, old pages
 compared byte for byte, `validate.py`, `apidigest.py`, screenshots, and only
 the scenarios the step reaches.
 
-* **P4a - the hand-back and G1's lines.** Pages 0, 1, 3 and 4: the companion
+* **P4a - the hand-back and G1's lines** (**done**, 8 Oct 2026; `QUESTS.md`
+  section 3). Pages 0, 1, 3 and 4: the companion
   chains, the closing count, the ROL-5 splice, and "The next morning..." with
-  the transfer in place of `GAMEOVER`. Then page 6, Grimspite and the kettle,
+  the transfer in place of Return to Title. Then page 6, Grimspite and the kettle,
   and Maud's guard. Scenarios: `finale_ending` (extended to assert each chain
-  and the hand-back) and `premises`. Their old endings assert the Game Over
+  and the hand-back) and `premises`. Their old endings assert the title
   scene and will change. The new tropes are counted here, and the counter
   re-cut stays in G1.
 * **P4b - Thistlewick and the pension.** The letter, the villagers' pages, the

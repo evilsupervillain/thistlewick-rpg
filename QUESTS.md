@@ -4250,25 +4250,96 @@ and the one tile change is the copyist's desk.
   `q_spa1_letters` (26), whose courier stands at (14,8) in the village.
   Nothing else goes to Maps 38-39.
 
+**P4a, the hand-back and G1's ending lines, done** (8 Oct 2026). The design
+is `POSTGAME.md`, agreed with Mike the same day. This is its first build step.
+The Prophecy's defeat is no longer the end of the game. Not one published line
+changed: every old command on Grimspite's four finale pages is still there, in
+order, and the only one taken out is Return to Title (354). Pages 2 and 5 are
+byte for byte what they were.
+
+* **`build/postgame.py`** is new. It holds the post-game's parts, imports no
+  place module, and is called by one line per hook (`journey.finale_event`
+  three, `q_roland.understudy_at_door` one).
+* **G1's lines.** `postgame.CHAINS`: ten `if/else` chains, one per companion,
+  best line first, so one line prints for each companion with a story. The
+  order is `POSTGAME.md` 7's table, plus **SPA-4's** pen-pal line, which that
+  table had missed: Spare's chain is SPA-2, SPA-4, SPA-1. Then the count on
+  `VAR_COMPANION_STORIES`: nothing at 0, "One of them..." at 1, "\V[15] of
+  them..." at 2-9, "All ten of them..." at 10. They sit after Firstfield and
+  before "Thistlewick struck clause twelve", so Hollowell's line, clause twelve
+  and the walk to Quy follow them. **ROL-5's line** is inside the
+  `SW_ROLAND_GONE` branch, after "who thinks about this one". Every line is
+  its Done paragraph's candidate, broken by hand. Three are not quite as
+  written. **WRE-5's** two candidates are stitched into one box ("The thing in
+  the turnips is in W. Halloway's journal: Bramus agricola, statistically
+  indefensible. The Prophecy does not read journals. It has read one.").
+  **SPA-4** loses "either", which leaned on SPA-1's dragon. **MER-2** had no
+  written candidate, only a note, so its line is new: "Sister Merribell
+  certified the party fit to travel, which makes this the first properly
+  documented attempt in four thousand years." That is contract years, said by
+  the tally, which is the Prophecy's side. **Mike: these three are new
+  wording.**
+* **The hand-back.** After THE END and its wait: the music fades, "The next
+  morning there are still turnips.", recover all, and a transfer with no fade
+  (the screen is already black) to Bram's house at the new-game start, Map 2
+  (8,8). The house's own music takes over, and the screen fades in.
+* **Grimspite afterwards**, page 6 on `SW_WON`: in his chair with the book.
+  The wall has "room for a forty-eighth. Nobody is going to need it." The
+  kettle comes with a choice, and the cup is **switch 214 `SW_GRIMSPITE_TEA`**
+  ("There. Now somebody has.") for P4c's Quy. "Not just now" gets "Halbert
+  said no as well." A second visit gets the short line.
+* **Maud's door event** (Map 8 event 82) has a third page on `SW_WON`, empty
+  and walk-through: after the ending she has gone to tell him.
+* **`CLAUDE.md`**: "The ending" has a paragraph on all three, and the rule
+  that anything running the finale's list directly must skip 201. The ids
+  list has switch 214.
+* **Tally**: tropes **+51 fixed**, none new; blushes **+13 fixed**, none.
+  `TIMELINE.md` is unchanged: no new date ("the year 2000", "thirty years"
+  and "eleven years" are the candidates' own, already in it).
+* **Scenarios**, chosen by what the change reaches. Grimspite's event is run
+  directly by `finale_ending` and `premises`. `finale` and `item_one_throne`
+  run only the part before the tally, which is unchanged. `q_rol5` reads
+  Maud's door event with `SW_WON` off. Firstfield's "Maud" is a pig.
+  * **`finale_ending`, 55 checks, passes.** Pass A asserts there is no count
+    line. New passes I and J cover the chains: MER-1 over MER-4, PIP-1 fixed
+    and not good, no Hob line, Maud's line after Roland's, the count's three
+    forms, and its place after Firstfield and before clause twelve. Pass H now
+    ends in `Scene_Map` on Map 2 at (8,8), faded in and rested, instead of on
+    the title. Then page 6 at the throne, with the cup and the second visit,
+    and Maud gone from the door. `SKIP_SLOW` gains 201.
+  * **`premises`, 38 checks, passes.** Seven pages. With `SW_WON` on, page 6
+    wins, where page 5 did before. Its skip list gains 201, and page 3 hands
+    back after THE END too.
+  * **`q_rol5`, 26 checks, passes**, rerun because Maud's event gained a
+    page.
+* **Looked at**: the throne with page 6, the kettle's choice box beside his
+  face, "It is just tea.", and the tower door with nobody beside it.
+
 ---
 
 ## Restart prompt
 
-**Start with P4a** (`POSTGAME.md` section 10). **P4's design is agreed** (Mike,
-8 Oct 2026, `POSTGAME.md`, recommendation taken on every question). Read
-`POSTGAME.md` whole, once, then `CLAUDE.md`'s "The ending", and dump the finale
-(Map 12 event 2, pages 0, 1, 3 and 4) before opening `journey.py`. P4a is the
-hand-back in place of `GAMEOVER`, G1's per-companion chains and closing
-count, the ROL-5 splice, Grimspite's page 6 and Maud's guard. Its scenarios
-are `finale_ending` and `premises`, both extended. Then P4b-P4e, one per
-session. G0, the quest log, follows its plugin (`../QUESTLOG.md` Q0-Q7, a
-parallel effort in `trial-chamber`). Last come G1's counter re-cuts, the one
-full suite, Mike's playthrough, and the push. Still open for Mike, and not part
-of P4 unless he says so: every buff and debuff in `db.py` puts its turns in
-value2 and the engine reads value1 (P1); and whether P2's "shield standing in
-for a sign" meant the crest sign outside the Guild (one line in `south.py`).
-Next free: switch 214, variable 33, item 75, common event 7, map 71, state 45,
-`Gen_People16` 2.
+**Start with P4b** (`POSTGAME.md` section 10). **P4a is done** (the last Done
+paragraph in section 3): the finale hands back to Bram's house the next
+morning, G1's companion lines and count are in the tally, and Grimspite has a
+kettle. P4b is Thistlewick and the pension: the letter on the mat, about six
+villagers' `SW_WON` pages (only on ladders with a terminal switch,
+`QUESTS.md` 0.2), the empty frame on the Wall of the Forty-Seven, the minute
+book's SEE BRAM, Ambrose Fitch's cottage (map 71) behind Nether Sopping's
+shut "A Front Door" (south.py shut door 15), and Ysolde's line. **And
+Roland**: re-hireable after the ending (Mike, `POSTGAME.md` 3a), with a guard
+so he does not leave at the tower door twice. Read `POSTGAME.md` 3a-5 once.
+Three tally lines are new wording for Mike to look at (WRE-5, SPA-4, MER-2;
+P4a's Done paragraph). Then P4c-P4e, one per session. G0, the quest log,
+follows its plugin (`../QUESTLOG.md` Q0-Q7, a parallel effort in
+`trial-chamber`). Last come G1's counter re-cuts, the one full suite, Mike's
+playthrough, and the push. Still open for Mike, and not part of P4 unless he
+says so: every buff and debuff in `db.py` puts its turns in value2 and the
+engine reads value1 (P1); and whether P2's "shield standing in for a sign"
+meant the crest sign outside the Guild (one line in `south.py`). Next free:
+switch 215, variable 33, item 75, common event 7, map 71, state 45,
+`Gen_People16` 2. Anything that runs the finale's list directly must skip 201
+as well as 354.
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick` with **step G1, the ending**

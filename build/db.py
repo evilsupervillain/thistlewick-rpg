@@ -520,6 +520,8 @@ CE_MOTHBALLS = 6                # using one: the state, or still airing
 VAR_MOTHBALLS = 32              # $gameParty.steps() when one was last used
 MOTHBALL_STEPS = 50             # see build_mothballs for the arithmetic
 MOTHBALL_AIRING = 25            # steps after it wears off before another
+# P4, the post-game (POSTGAME.md)
+SW_GRIMSPITE_TEA = 214          # P4a: Bram had the cup Halbert Quy turned down
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32

@@ -757,6 +757,9 @@ def understudy_at_door(event_id):
                img=R.image(*S.FACES["Maud"], direction=2),
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_ROL5_DONE}),
+        # P4a: after the ending she has gone to tell him how it ends.
+        R.page([], img=R.image(""), priority=0, through=True,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_WON}),
     ])
 
 

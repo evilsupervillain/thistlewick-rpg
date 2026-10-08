@@ -540,7 +540,8 @@ def build_system():
             (db.SW_SPA4_DONE, "SPA-4: met, and written to by hand"),
             (db.SW_SPA2_ASKED, "SPA-2: Cotter has asked"),
             (db.SW_SPA2_CLEARED, "SPA-2: the paddle is clear"),
-            (db.SW_SPA2_DONE, "SPA-2: out, and everybody there")]:
+            (db.SW_SPA2_DONE, "SPA-2: out, and everybody there"),
+            (db.SW_GRIMSPITE_TEA, "P4: had the tea at the top")]:
         switches[sid] = name
 
     variables = [""] * 33

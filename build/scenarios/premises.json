@@ -89,22 +89,23 @@
     {"check": "$gamePlayer.isInAirship()", "expect": true, "label": "so the way home is the action button, the only way there is"},
 
     {"comment": "The signature. Last page wins, and it is Grimspite's page list that has to be right: the book alone, the book with the crate, and SW_WON's empty page appended again last so that neither of them can put the finale back on the throne after the Prophecy has gone.", "goto": [12, 12, 12]},
-    {"check": "$dataMap.events[2].pages.length", "expect": 6},
+    {"check": "$dataMap.events[2].pages.length", "expect": 7, "label": "P4a: six, and Grimspite afterwards"},
     {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 3, "label": "with the slip, the signing page"},
     {"eval": "$gameParty.gainItem($dataItems[32], 1)"},
     {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 4, "label": "with the slip and the crate, the page that has both"},
     {"eval": "$gameSwitches.setValue(88, false)"},
     {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 1, "label": "the crate alone is still the crate's own page, as it was"},
     {"eval": "$gameParty.loseItem($dataItems[32], 1); $gameSwitches.setValue(88, true); $gameSwitches.setValue(5, true)"},
-    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 5, "label": "and once the Prophecy is annulled, the empty page wins over all of them"},
+    {"check": "$gameMap.event(2).findProperPageIndex()", "expect": 6, "label": "and once the Prophecy is annulled, Grimspite afterwards (P4a, page 6) wins over all of them, the empty SW_WON pages included"},
     {"eval": "$gameSwitches.setValue(5, false)"},
 
-    {"comment": "finale_ending's harness, run over page 3 instead of page 0.", "eval": "(function () { window._lines = []; window._pick = 0; Game_Message.prototype.add = function (text) { window._lines.push(text); }; Game_Message.prototype.isBusy = function () { return false; }; const setupChoices = Game_Interpreter.prototype.setupChoices; Game_Interpreter.prototype.setupChoices = function (params) {   setupChoices.call(this, params);   $gameMessage.onChoice(window._pick); }; const skip = new Set([301, 354, 230, 221, 222, 223, 225]); $gameMap._interpreter.setup($dataMap.events[2].pages[3].list.filter(c => !skip.has(c.code)), 2); window.saw = function (s) { return window._lines.join('\\n').indexOf(s) >= 0; }; window.at = function (s) { return window._lines.join('\\n').indexOf(s); };})()"},
+    {"comment": "finale_ending's harness, run over page 3 instead of page 0.", "eval": "(function () { window._lines = []; window._pick = 0; Game_Message.prototype.add = function (text) { window._lines.push(text); }; Game_Message.prototype.isBusy = function () { return false; }; const setupChoices = Game_Interpreter.prototype.setupChoices; Game_Interpreter.prototype.setupChoices = function (params) {   setupChoices.call(this, params);   $gameMessage.onChoice(window._pick); }; const skip = new Set([301, 354, 201, 230, 221, 222, 223, 225]); $gameMap._interpreter.setup($dataMap.events[2].pages[3].list.filter(c => !skip.has(c.code)), 2); window.saw = function (s) { return window._lines.join('\\n').indexOf(s) >= 0; }; window.at = function (s) { return window._lines.join('\\n').indexOf(s); };})()"},
     {"frames": 60},
     {"check": "window.saw('Forty-eight. Right on time.') && window.saw('THE END')", "expect": true, "label": "the whole finale ran"},
     {"check": "window.saw('about the lift.')", "expect": true, "label": "he signs it: never been, heard marvellous things about the lift"},
     {"check": "window.at('about the lift.') < window.at('Whatever you were going to say')", "expect": true, "label": "before the fight, while he is still the incumbent he is being asked as"},
     {"check": "window.saw('It runs to forty pages.')", "expect": true, "label": "and the tally says the book has its first name in it"},
-    {"check": "window.at('It runs to forty pages.') < window.at('SEE BRAM')", "expect": true, "label": "read back before clause twelve is struck"}
+    {"check": "window.at('It runs to forty pages.') < window.at('SEE BRAM')", "expect": true, "label": "read back before clause twelve is struck"},
+    {"check": "window.at('THE END') < window.at('The next morning there are still turnips.')", "expect": true, "label": "P4a: page 3 hands back to the world too, after THE END"}
   ]
 }
