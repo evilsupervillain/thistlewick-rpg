@@ -24,15 +24,50 @@ sys.path.insert(0, os.path.join(ROOT, 'tools'))
 sys.path.insert(0, ROOT)
 
 import finish as F                                             # noqa: E402
+import rmmzdata as R                                           # noqa: E402
 
 GENERATED = os.path.join(HERE, 'generated.json')
 OUT = os.path.join(HERE, 'worldmap.json')
 
-# The Former Premises: two cells of cloud under the castle and one left bare
-# for the airship. Named up here because `sink_islets` has to be told to spare
-# it - three walkable cells nobody can walk to is precisely what that pass is
-# for drowning, and it would take the floating continent with the sandbars.
-PREMISES = [(79, 88), (80, 88), (81, 88)]
+# The Former Premises: the castle row of Mike's floating island, the two cells
+# an airship sets down on. Named up here because `sink_islets` has to be told
+# to spare it - walkable cells nobody can walk to are precisely what that pass
+# is for drowning. (81,88) was the old landing pad, beside two cells of cloud.
+PREMISES = [(79, 88), (80, 88)]
+OLD_PAD = (81, 88)
+
+# Mike's floating island (P2, 7 Oct 2026), drawn in the editor and diffed in
+# here: `Floating Continent (Castle)`, `Floating Continent` and its `(Shadow)`,
+# 2 wide and 3 deep, on layer 1 over open sea. The castle row is made open
+# ground on tileset 8 (`build_game.build_tilesets`); the other two rows stay
+# star tiles, so the sea under them decides and they are not land.
+ISLAND = {(79, 88): 240, (80, 88): 241, (79, 89): 242, (80, 89): 243,
+          (79, 90): 250, (80, 90): 251}
+
+# Mike's mountain behind the Door into the Mountain (P2, 7 Oct 2026), drawn in
+# the editor and diffed in here: two `Rock Mountain` stamps (202 203 / 210
+# 211) overlapping behind the `Tunnel`, the massif (A2 kind 22) carried across
+# to x=31, and the road (kind 29) moved one cell east to x=32 to go round it.
+# Layers 1, 2 and 3 for every cell of the block; `A(k)` is an autotile kind,
+# shaped when the map is saved.
+def A(kind):
+    return R.make_autotile(kind, 0)
+
+
+MOUNTAIN_DOOR = {
+    (29, 18): (A(29), 0, 0), (30, 18): (A(29), 0, 0),
+    (31, 18): (A(29), 0, 0), (32, 18): (A(29), 0, 0),
+    (29, 19): (0, 0, 0), (30, 19): (0, 0, 0),
+    (31, 19): (0, 0, 0), (32, 19): (A(29), 0, 0),
+    (29, 20): (A(22), 202, 0), (30, 20): (A(22), 203, 202),
+    (31, 20): (A(22), 0, 203), (32, 20): (A(29), 0, 0),
+    (29, 21): (A(22), 210, 0), (30, 21): (210, 211, 20),
+    (31, 21): (211, 0, 0), (32, 21): (A(29), 0, 0),
+    (29, 22): (0, 0, 0), (30, 22): (0, 0, 95),
+    (31, 22): (0, 0, 0), (32, 22): (A(29), 0, 0),
+    (29, 23): (0, 0, 0), (30, 23): (0, 0, 116),
+    (31, 23): (0, 0, 117), (32, 23): (A(29), 0, 0),
+}
 
 
 def main(argv):
@@ -266,6 +301,9 @@ def main(argv):
         w, (30, 21), 'World_B/Tunnel', 'The Door into the Mountain', 'tunnel'))
     print("Chapel of Continuance: %s" % F.add_site(
         w, (30, 22), 'World_B/Temple C', 'Chapel of Continuance', 'chapel'))
+    for (x, y), tiles in MOUNTAIN_DOOR.items():
+        for z, t in zip((1, 2, 3), tiles):
+            w.g.set(x, y, z, t)
 
     # Restwell is "a crossroads town of one street and nineteen inns", and the
     # road merely arrived at it from the north-west and stopped. So: road on all
@@ -314,21 +352,31 @@ def main(argv):
     # complaint moot four hundred years late, which is the whole joke and lands
     # the moment the player sets down on it.
     #
-    # `Floating Continent (Castle)` is two **star** tiles, so the stamp decides
-    # nothing about passage and the ground under it decides everything - which
-    # is why this is three cells of `Clouds` out in the middle of the southern
-    # sea rather than a stamp on the water. Clouds are open (0x600), so the
-    # party can stand up there; six cells of open water on every side is what
-    # makes it read as *out there* rather than as an offshore rock. Two cells
-    # carry the castle and its doors and the third is left bare, because
-    # `Game_Vehicle.isLandOk` refuses a square with an event on it - so a
-    # castle with a door on every cell is a castle with no way in.
-    for c in PREMISES:
-        w.put_land(*c, biome='cloud')
-    print("Former Premises: doors at %s   airship pad %s" % (
-        F.add_site(w, PREMISES[0], 'World_B/Floating Continent (Castle)',
-                   'The Former Premises', 'castle',
-                   note='<worldmap-site castle> <aironly>'), PREMISES[2]))
+    # It was three cells of `Clouds` with the castle stamp on two and a bare
+    # pad for the airship on the third. Mike redrew it in the editor as a
+    # floating island over open sea (`ISLAND`), and the castle row is the land:
+    # open ground on tileset 8, which is where the airship sets down.
+    #
+    # **Nothing may stand on the castle row**, because `Game_Vehicle.isLandOk`
+    # refuses a square with an event on it - a door on each cell was a castle
+    # with no way in. So the site's two events go on the row *under* it, which
+    # is sea under a star tile and nobody's square, and `premises.world_doors`
+    # makes one of them a watcher: land on either cell and it asks.
+    for c in PREMISES + [OLD_PAD]:
+        w.put_sea(*c)
+    for (x, y), t in ISLAND.items():
+        w.g.set(x, y, 1, t)
+    events = w.map.setdefault("events", [None])
+    for x, y in [(79, 89), (80, 89)]:
+        events.append(R.event(
+            len(events), 'The Former Premises', x, y,
+            [R.page(R.comment(["hand-placed site 'The Former Premises'",
+                               "castle, Mike's floating island; the events",
+                               "sit under the castle row, which is the land"])
+                    + [R.play_se("Move1")], trigger=1, priority=0)],
+            note='<worldmap-site castle> <aironly>'))
+    print("Former Premises: events at (79,89) (80,89)   lands on %s"
+          % (PREMISES,))
 
     # --- the decoration the middle redraw ate -------------------------------
     # Thirteen layer-3 cells the 50x50 drew by hand and the generated map has
@@ -358,7 +406,10 @@ def main(argv):
     # --- the tidy-up --------------------------------------------------------
     # Scraps of beach the coast mend left standing go back to sea, except the
     # three rocks only the airship can reach.
-    rocks = [o(21, 48), o(3, 5), o(47, 31), PREMISES[1]]
+    # The floating island's shadow row reads as two cells of land here, on
+    # tileset 1's flags; it is a star on the world map's own tileset 8, where
+    # the sea decides. Spared, or it is drowned as a two-cell islet.
+    rocks = [o(21, 48), o(3, 5), o(47, 31), PREMISES[1], (79, 90)]
     flags = F._openness(w)
     start, main_land = o(24, 45), None
     main_land, q = {start}, collections.deque([start])
@@ -411,7 +462,7 @@ def main(argv):
     quiet = ([(55 + i, 83) for i in range(4)]            # the Isle
              + [(37 + i, 40) for i in range(3)]          # Attempt 112's stack
              + [(82 + dx, 65 + dy) for dy in range(3) for dx in range(2)]
-             + PREMISES)                                 # and the castle in the sky
+             + sorted(ISLAND))                           # and the castle in the sky
     counts = F.paint_regions(w, spine, quiet=quiet)
     print("regions painted: %s" % ", ".join(
         "%s %d" % (n, counts.get(r, 0)) for n, r in

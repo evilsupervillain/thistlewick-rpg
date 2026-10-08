@@ -515,7 +515,7 @@ Mrs Gotobed           Mr Dibble             Mrs Throssell         Mr Cobley
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-154 constants.
+155 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -606,7 +606,8 @@ MAP_GLADHOLLOW               40
 MAP_MAYORS                   41
 GLADHOLLOW_STEP              (33, 112)
 MAP_PREMISES                 42
-PREMISES_STEP                (81, 88)
+PREMISES_LAND                ((79, 88), (80, 88))
+PREMISES_STEP                PREMISES_LAND[1]
 MAP_FRAYNE                   43
 FRAYNE_STEP                  (66, 83)
 MAP_FROSTWICK                44

@@ -12,17 +12,20 @@ One site and one module, so it exports `SITE` and `world_doors` the way
 `world_doors` gets both and makes a door on each.
 
 * **It is air-only, and three engine rules follow from that**, all in the
-  workspace `CLAUDE.md`'s bullet on vehicles. The doors are player-touch and
-  below characters, because the action button offers the airship before any
-  event; nothing is put on (81,88), because `Game_Vehicle.isLandOk` refuses a
-  square with an event on it and that is the only square she can land on; and
-  both doors keep **`<aironly>`** in their note, so `validate.py` goes on
-  asserting that nobody can walk here.
-* **The way out carries `<airreturn>`.** It puts the party back on (81,88),
-  where the airship is, and without the note `validate.py` would seed its
-  on-foot flood from there, walk straight onto the doors and report them.
-  The note makes it check instead that the square is one an airship can be
-  standing on.
+  workspace `CLAUDE.md`'s bullet on vehicles. The action button offers the
+  airship before any event, and `Game_Vehicle.isLandOk` refuses a square with
+  an event on it - so **nothing stands on the island's land** (Mike redrew it
+  as a floating island, P2, 7 Oct 2026; `places.PREMISES_LAND` is its castle
+  row). The airship sets down on either cell, and a parallel event on the row
+  underneath, which is sea, asks "Go in / Not yet" once the party is standing
+  there - and asks again only after they have been back in the airship, so
+  "Not yet" is not asked every frame. Both site events keep **`<aironly>`**,
+  so `validate.py` goes on asserting that nobody can walk here.
+* **The way out carries `<airreturn>`.** It puts the party back on the cell
+  the airship is standing on, beside her or under her, with the question
+  already answered for this landing; without the note `validate.py` would
+  seed its on-foot flood from there. The note makes it check instead that
+  each square is one an airship can be standing on.
 * **One man and a great deal of paperwork.** Mr Prosper Hollowell, Caretaker
   (Retained), and the rule for writing him is 7.4's: *every single thing he
   says is good news.* He is not bitter and he is not mad. Filling the hall
@@ -53,7 +56,7 @@ import rmmzdata as R
 
 import db
 import story as S
-from places import MAP_WORLD, MAP_PREMISES, PREMISES_STEP
+from places import MAP_WORLD, MAP_PREMISES, PREMISES_LAND, PREMISES_STEP
 import q_spare
 
 # The name `worldmap.json`'s door events carry.
@@ -233,9 +236,23 @@ def hollowell_pages():
 def hall_events():
     w, h, x1, y1, x2, y2, door_x = ROOM
 
-    # 1: the way out, onto the one square the airship can be standing on.
+    # 1: the way out, onto the island cell the airship is standing on, with
+    # this landing's question already answered (`world_doors`).
     out = S.exit_tile(1, "The Door", door_x, y2 + 2, MAP_WORLD,
                       *PREMISES_STEP)
+    (x0, y0), _ = PREMISES_LAND
+    out["pages"][0]["list"] = [
+        R.play_se("Move1"),
+        R.script(["$gamePlayer._premisesAsked = true;"])[0]] + R.if_then(
+        # x and y, not `pos()`: a vehicle's `pos` is false off its own
+        # map, and the party is in the hall when this is asked.
+        R.condition_script("$gameMap.airship()._mapId === %d && "
+                           "$gameMap.airship().x === %d && "
+                           "$gameMap.airship().y === %d"
+                           % (MAP_WORLD, x0, y0)),
+        [R.transfer(MAP_WORLD, x0, y0, 2, 0)],
+        [R.transfer(MAP_WORLD, *PREMISES_STEP, 2, 0)]) + [
+        {"code": 0, "indent": 0, "parameters": []}]
     out["note"] = "<airreturn>"
     evs = [out]
 
@@ -377,26 +394,41 @@ def hall_events():
 
 # ================================================================ the door ==
 def world_doors(base_id, cells):
-    """The real doors on Map 8, one on each cell of the stamp. Air only, so
-    player-touch and below characters, and each keeps `<aironly>`."""
-    evs = []
-    for i, (x, y) in enumerate(sorted(cells)):
-        arrive = S.narrate([
-            "A castle on a cloud, four thousand feet up, with",
-            "nothing under it but the sea."])
-        arrive += S.narrate([
-            "The front door is open and the step has been",
-            "swept. The mat says WELCOME. It has never been",
-            "stood on."])
-        arrive += R.choice_block(
-            ["Go in", "Not yet"],
-            [[R.play_se("Open1"),
-              R.transfer(MAP_PREMISES, ROOM[6], ROOM[5], 8, 0)],
-             []])
-        evs.append(R.event(base_id + i, SITE, x, y, [R.page(
-            arrive, img=R.image(""), trigger=1, priority=0, through=True)],
-            note="<aironly>"))
-    return evs
+    """The site's two events on Map 8, on the row under the castle - sea under
+    a star tile, which nobody stands on - because the castle row itself has to
+    stay bare for the airship. The first is the door: a parallel event that
+    asks once the party is standing on the island, and again only after they
+    have been back in the airship (`$gamePlayer._premisesAsked`, which the
+    save keeps). The second does nothing and keeps the id the second door
+    had, so that no event after it on Map 8 moves."""
+    (door, spare) = sorted(cells)
+    on_island = " || ".join("$gamePlayer.pos(%d, %d)" % c
+                            for c in PREMISES_LAND)
+    arrive = R.script(["$gamePlayer._premisesAsked = true;"])
+    arrive += S.narrate([
+        "A castle on a cloud, four thousand feet up, with",
+        "nothing under it but the sea."])
+    arrive += S.narrate([
+        "The front door is open and the step has been",
+        "swept. The mat says WELCOME. It has never been",
+        "stood on."])
+    arrive += R.choice_block(
+        ["Go in", "Not yet"],
+        [[R.play_se("Open1"),
+          R.transfer(MAP_PREMISES, ROOM[6], ROOM[5], 8, 0)],
+         []])
+    watch = R.script([
+        "if ($gamePlayer.isInAirship()) $gamePlayer._premisesAsked = false;"])
+    watch += R.if_then(R.condition_script(
+        "$gamePlayer.isNormal() && !$gamePlayer.isMoving() && "
+        "!$gamePlayer._premisesAsked && (%s)" % on_island), arrive)
+    return [
+        R.event(base_id, SITE, *door, [R.page(
+            watch, img=R.image(""), trigger=4, priority=0, through=True)],
+            note="<aironly>"),
+        R.event(base_id + 1, SITE + " (the second door, retired)", *spare,
+                [R.page([], img=R.image(""), trigger=0, priority=0,
+                        through=True)], note="<aironly>")]
 
 
 def build():

@@ -4044,6 +4044,63 @@ asked the right question of it (below, "And then it wants airing").
   `dunnage` runs stand in the Bell but never start Mrs Harbottle's contest
   page, which needs `SW_PIP3_ON`; troop 41 is fought nowhere else.
 
+**P2, part one - Mike's Door and island, done first** (7 Oct 2026). Mike drew
+P2's last item in the editor before the step began, so it went in first:
+the mountain behind the Door into the Mountain, and the Former Premises as a
+floating island. **P2's other six items are still to do.**
+
+* **His edits, carried into the build.** The editor saved ten files; the
+  real changes were Map 8's tiles, two flags on tileset 8, and
+  `package.json`'s name (the editor's own "rmmz-game", put back). The rest
+  was `2.0` written as `2`, and event 44's name mangled to "¿"; the build
+  writes those as they were. Map 8 is `worldmap.json`, written only by
+  `build/worldmap/run_finish.py`, which was checked to reproduce it byte for
+  byte before it was touched. His tiles are two literal tables there:
+  `MOUNTAIN_DOOR` (two overlapping `Rock Mountain` stamps behind the
+  `Tunnel`, the massif carried to x=31, the road moved east to x=32) and
+  `ISLAND` (`Floating Continent (Castle)`, `Floating Continent` and its
+  `(Shadow)`, 2x3 on layer 1 over open sea). The built Map 8 equals his
+  file on every tile layer; the region layer differs on three cells that
+  are mountain now and on the island, which is region 0 as before.
+* **The flags** are set in `build_game.build_tilesets` after tileset 1 is
+  copied to 8, or every build would undo them: the castle row (240-241)
+  loses its star, as Mike did, so it is ground; **the shadow row (250-251)
+  gains one** - stock, it is open and not a star, which made two cells of
+  sea a party could land on and walk about. The middle row is a star
+  already, so the sea decides. In `run_finish`, which reads tileset 1, the
+  shadow reads as land, so `sink_islets` is told to spare it.
+* **Getting in** (Mike chose "land, then prompt"): nothing may stand on the
+  castle row, because `Game_Vehicle.isLandOk` refuses a square with an
+  event on it - with a door on each cell there was no way in at all. So the
+  site's two events moved to the row underneath: **Map 8 event 43** is a
+  parallel watcher, which asks "Go in / Not yet" (the old door's text,
+  unchanged) once the party is standing on either cell, and asks again
+  only after they have been back in the airship -
+  `$gamePlayer._premisesAsked`, which a save keeps; **event 44** is empty
+  and keeps its id, so nothing after it moves. The airship lands on either
+  cell; "Not yet" leaves the party standing there and the action button
+  takes off, as it always does out there.
+* **Getting out**: Map 42's door marks the question answered and puts the
+  party on whichever castle cell the airship is on (`places.PREMISES_LAND`;
+  `PREMISES_STEP` is the east cell, if she is somehow on neither). Both
+  destinations carry `<airreturn>` and `validate.py` asserts each is
+  airship-landable. **`Game_Vehicle.pos()` is false off the vehicle's own
+  map**, so from the hall the check compares `x` and `y`; the first draft
+  used `pos` and always put the party on the east cell.
+* **The mountain door** is reached from outside only across the chapel's
+  door now, choosing "Press on" (Mike: that, or from inside Hithermost), as
+  (31,21) is mountain.
+* **Looked at**: the island with the question up (`premises_door.png`) and
+  after coming out (`premises_out.png`) - the parked airship is under the
+  party, which is how the engine draws it.
+* **Scenarios**: `premises` rewritten for the island - both cells landable
+  and nothing round them; land east, asked, the hall as before, out east
+  and not asked; off, land west, asked, Not yet and not asked again, off
+  and down again, asked, in, and out west - 37 checks, all pass. `hithermost`'s
+  last leg walks onto the chapel's door, presses on, and steps up onto the
+  mountain door: all pass. Nothing else lands at the Premises or walks the
+  pass (`q_spa1_letters` goes straight to Map 42 by `goto`).
+
 ---
 
 ## Restart prompt
@@ -4054,7 +4111,8 @@ asked the right question of it (below, "And then it wants airing").
 game-wide buff bug that waits on Mike's word, not on P2). Mike's playtest
 list goes in first, in the order written there: P1, P2 the early maps - the
 door holes, interior shadows, the forest ring, the blocking-invisible-event
-check, the Guild, Bram's sword, and Mike's own Door and island tiles - P3
+check, the Guild, Bram's sword (Mike's Door and island are **done**, P2 part
+one, the last Done paragraph) - P3
 Olde Evermore's elves,
 P4 the post-game with the Door into the Mountain and G1's ending lines. G0,
 the quest log, follows its plugin (`../QUESTLOG.md` Q0-Q7, a parallel effort
@@ -4200,6 +4258,11 @@ Things learned that will bite again:
   goods line added to one of those shops is a count to change (P1).
 * **A new box before an old choice outruns old `advance` budgets**: q_nix5's
   first night needed 45 presses once Bagshawe mentioned the mothballs (P1).
+* **`Game_Vehicle.pos()` is false off the vehicle's own map**: ask an
+  airship where she is from an interior with `.x`, `.y` and `._mapId` (P2).
+* **A choice that opens the moment something lands** has its default fixed
+  when it opens, so `window._pick` goes on *before* the landing, not after
+  (P2's `premises`).
 * **To reach a choice in a scenario, set `window._pick`** (the hook in the
   setup eval wraps `setChoices`' default) and `advance` through: no counting
   presses to the choice window (F1's idiom, F4).

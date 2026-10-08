@@ -208,14 +208,17 @@ MAP_GLADHOLLOW, MAP_MAYORS = 40, 41
 GLADHOLLOW_STEP = (33, 112)
 
 MAP_PREMISES = 42
-# The Former Premises: the hall with the lift, on the floating continent. Air
-# only, so this is not "one south of the door": it is the one square of the
-# three `Clouds` cells with no door on it, east of the two, checked open four
-# ways and airship-landable (0x600, the 0x800 bit clear) against the finished
-# `data/Map008.json`, with sea (0x80f) on every other side. It is where the
-# airship is standing, because it is the only place she can have landed.
-# `MAP_PREMISES`, not `MAP_HALL` - that is Prophecy Hall, Map 3.
-PREMISES_STEP = (81, 88)
+# The Former Premises: the hall with the lift, on the floating island Mike drew
+# (P2, 7 Oct 2026; `worldmap/run_finish.ISLAND`). Air only, so the way back
+# out is not "one south of the door": it is the castle row, the island's only
+# land, two cells checked open four ways and airship-landable (0x600, the
+# 0x800 bit clear) against the finished `data/Map008.json`, with sea (0x80f)
+# or a star tile over sea on every other side. Nothing stands on either,
+# because an airship will not land on an event. The way out puts the party on
+# whichever of the two the airship is on, and on `PREMISES_STEP` if she is
+# on neither. `MAP_PREMISES`, not `MAP_HALL` - that is Prophecy Hall, Map 3.
+PREMISES_LAND = ((79, 88), (80, 88))
+PREMISES_STEP = PREMISES_LAND[1]
 
 MAP_FRAYNE = 43
 # Tobias Frayne's cottage on the coast road, `../SITES.md` step 8. One south

@@ -257,6 +257,17 @@ def build_tilesets():
         ts.update(id=tid, name=name)
         ts["tilesetNames"][slot] = sheet
         tilesets[tid:tid + 1] = [ts]
+    # Mike's floating island (P2; `worldmap/run_finish.ISLAND`), on the world
+    # map's own copy only, so after the copy. The castle row, 240-241, is
+    # ground: open and not a star, so the party stands on it and an airship
+    # lands on it. The shadow row, 250-251, is drawn on the sea and was open
+    # and not a star on the stock sheet - two cells of water a party could
+    # set down on and walk about - so it becomes a star, and the sea decides.
+    flags = tilesets[mapkit.TS_OVERWORLD]["flags"]
+    for tile_id in (240, 241):
+        flags[tile_id] &= ~0x10
+    for tile_id in (250, 251):
+        flags[tile_id] |= 0x10
     R.save_list("Tilesets.json", tilesets)
 
 
