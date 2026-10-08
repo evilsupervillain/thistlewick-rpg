@@ -457,6 +457,7 @@ def pit_map():
     g.scatter([(9, 20), (16, 20)], 3, K.DGB_BARRICADE)
     g.column(4, 5, 3, K.DGB_PILLAR)
     g.column(21, 5, 3, K.DGB_PILLAR)
+    g.set(17, 9, 3, K.DGE_HAMPER)       # A Hamper's; it was bare floor
     K.paint_regions(g, K.TS_DUNGEON, 1)
 
     m = K.new_map(PIT_W, PIT_H, K.TS_DUNGEON, name="The Bottomless Pit",

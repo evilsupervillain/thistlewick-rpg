@@ -1380,7 +1380,8 @@ def culvert_events():
         R.event(2, "A Crown", *SPA2_CROWN, [R.page(crown, **floor), gone]),
         R.event(3, "Counting", *SPA2_COUNT, [R.page(count, **floor), gone]),
         R.event(4, "Mr Pocock", *SPA2_POCOCK, [
-            R.page(_spa2_pocock(), img=none, trigger=1, priority=1), gone]),
+            R.page(_spa2_pocock(), img=none, trigger=1, priority=1), gone],
+            note="<unseen>"),   # a voice in the dark, met by walking into him
         R.event(5, "The Paddle", *SPA2_PADDLE, [
             R.page(_spa2_paddle(), img=none),
             R.page(S.narrate([

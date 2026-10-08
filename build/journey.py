@@ -726,6 +726,7 @@ def tower_map():
     g.column(29, 8, 3, K.DGB_STATUE_DEMON)
     g.column(15, 12, 3, K.DGB_OBELISK)
     g.scatter([(17, 20), (15, 23)], 3, K.DGB_ROCK)
+    g.set(16, 16, 3, K.DGE_BASIN)       # the Basin event's; it was bare floor
 
     K.paint_regions(g, K.TS_DUNGEON, 1)
 

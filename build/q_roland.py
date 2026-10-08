@@ -1001,7 +1001,7 @@ def carn_drey_events():
         R.page(_rol2_worm(), img=R.image(""), conditions=dict(drawn, **roland)),
         R.page([], img=R.image(""), priority=0, through=True,
                conditions=done),
-    ])
+    ], note="<unseen>")     # never drawn: the room is its body (validate.py)
     out = R.event(1, "Way Out", *CARN_WAY_OUT, [R.page(
         [R.play_se("Move1"), R.tint_screen([0, 0, 0, 0], 1, False),
          R.transfer(places.MAP_WORLD, *places.CARN_DREY_STEP, 6)],

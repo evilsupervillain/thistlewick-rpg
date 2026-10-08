@@ -2224,7 +2224,8 @@ def lighthouse_events():
     evs.append(bother_event(2, 6, 17))
     evs.append(the_lamp(3, 6, 5))
 
-    evs.append(S.prop(4, "The Ships Book", 8, 17, [
+    # On the book, on the desk; it was the bare floor in front of them (P2).
+    evs.append(S.prop(4, "The Ships Book", 8, 18, [
         "A ledger of every ship that has passed the",
         "point. The last entry is ninety-one years old.",
         "Under it, in the same hand, again and again",

@@ -316,14 +316,17 @@ def build_tilesets():
     # drawn; `mapkit.borrowed` names a tile on them.
     # Outside (tileset 2) takes `Inside_C` into its E slot the same way, for
     # the smithy's anvil out on the grass (HOB-3), so an `Inside_C` tile has
-    # the same E id on both and `mapkit.borrowed` serves either. This runs
+    # the same E id on both and `mapkit.borrowed` serves either. Dungeon
+    # (tileset 4) takes it too, for the Obligatory Tower's basin and the
+    # Pit's hamper, which had text and no tile (P2). This runs
     # before the copies below, so the Collegium's copy of 2 has it too, on
     # the first build as on every other.
     inside = tilesets[mapkit.TS_INSIDE]
     for tid, slot, sheet, src, dst in (
             (mapkit.TS_CLANGING_IN, 7, "Inside_B", R.TILE_ID_B, R.TILE_ID_D),
             (mapkit.TS_CLANGING_IN, 8, "Inside_C", R.TILE_ID_C, R.TILE_ID_E),
-            (mapkit.TS_OUTSIDE, 8, "Inside_C", R.TILE_ID_C, R.TILE_ID_E)):
+            (mapkit.TS_OUTSIDE, 8, "Inside_C", R.TILE_ID_C, R.TILE_ID_E),
+            (mapkit.TS_DUNGEON, 8, "Inside_C", R.TILE_ID_C, R.TILE_ID_E)):
         tilesets[tid]["tilesetNames"][slot] = sheet
         tilesets[tid]["flags"][dst:dst + 256] = inside["flags"][src:src + 256]
     # Two copies of stock tilesets with one sheet swapped for a recoloured
@@ -618,6 +621,9 @@ def build_system():
 
 
 def main():
+    # First, because `mapkit.paint_regions` reads passage off the tileset
+    # flags on disk: run last, a change to them took two builds to settle.
+    build_tilesets()
     db.build()
     village.build()
     journey.build()
@@ -653,7 +659,6 @@ def main():
     door_holes()
     cast_shadows()
     build_map_infos()
-    build_tilesets()
     build_system()
 
     print("built The Obligatory Quest")

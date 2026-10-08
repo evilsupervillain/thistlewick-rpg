@@ -562,10 +562,18 @@ _BORROWED_SLOTS = {"Inside_B": R.TILE_ID_D, "Inside_C": R.TILE_ID_E}
 def borrowed(sheet, name):
     """Every tile of a stock Inside_B/Inside_C prop, by name, as it is
     numbered where it is borrowed (above) - one id for a 1x1 prop, a tuple
-    for a column. Inside_B is on SF Inside only."""
+    for a column. Inside_B is on SF Inside only; Inside_C is on SF Inside,
+    Outside and Dungeon."""
     base = _BORROWED_SLOTS[sheet]
     ids = tuple(base + t for t in sorted(tile_names(sheet)[name]))
     return ids[0] if len(ids) == 1 else ids
+
+
+# The Dungeon tileset has Inside_C in its E slot too (`build_game.build_tilesets`,
+# QUESTS.md P2): two things the Obligatory Tower and the Bottomless Pit have in
+# their text that the Dungeon sheets do not have at all.
+DGE_BASIN = borrowed("Inside_C", "Large Basin")    # a tub of clear water
+DGE_HAMPER = borrowed("Inside_C", "Basket A")      # cloth-lined, a picnic's
 
 
 # -- Inside furniture, by name ------------------------------------------------

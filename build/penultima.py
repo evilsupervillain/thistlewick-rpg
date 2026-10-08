@@ -215,8 +215,9 @@ def penultima_events():
         rival, img=R.image(""), trigger=0, priority=1, through=True,
         direction_fix=True)]))
 
-    # 6: the notice a town like this puts up about itself.
-    evs.append(S.prop(6, "The Parish Notice", 15, 13, [
+    # 6: the notice a town like this puts up about itself, on the barrel at
+    # (15, 14) it says it is pinned to - it was on the grass above it (P2).
+    evs.append(S.prop(6, "The Parish Notice", 15, 14, [
         "Pinned to a barrel, under glass:",
         "'PENULTIMA IS TWINNED WITH NOWHERE. THERE",
         "IS NOTHING TO BE TWINNED WITH. WE HAVE",
