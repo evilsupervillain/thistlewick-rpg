@@ -276,14 +276,41 @@ stop." The proposal:
 * **Dunstable's chalk marks.** Down the walls run "D." marks, each one a little
   further down than the last, a hundred-odd of them. The deepest is
   **"D. 212"**. Past it, nobody has been.
-* **Continuance, mechanically.** If the party falls in the mountain, there is
+* **Continuance, mechanically** (agreed with Mike, 8 Oct 2026: allowed
+  because the plot expects it). If the party falls in the mountain, there is
   no Game Over. They come back in through the chapel porch, with the Book open,
   and Brother Quillon says nothing with enormous tact. That is the chapel's
   name, the Book's purpose and Dunstable's whole story, done to the player.
   It still settles nothing about Dunstable, because the player also "comes
-  back" and the game never says the player died. *Engineering:* a small
-  plugin override of the defeat path, on a switch that is on only in the
-  mountain maps. Scenario-tested both ways, because it touches every battle.
+  back" and the game never says the player died.
+  * **Why only here.** The world ties this to one place. The chapel stands
+    beside the only door into the mountain, and the people who come back in
+    through its porch are the people who went through that door. Nowhere else
+    in the game makes that promise, so a defeat anywhere else is still Game
+    Over.
+  * **Only for a party that has signed the Book.** The Book is signed "in case
+    of misfortune", so coming back is what signing it is *for*. Choosing to
+    write a name sets a new switch, even if the save screen is then cancelled.
+    A party that never signed gets an ordinary Game Over in the mountain too.
+    Dunstable's lamp page ends with the reminder ("Signed the Book? Just in
+    case."), so nobody is caught out without warning. *This rule is my
+    addition. Mike may drop it.*
+  * **What it costs.** The party comes back fully restored, as at the Vigil and
+    the Worm, and keeps the lamp, its items and its gold. The price is the walk
+    back down. Quillon's reaction is his published "Again? Of course." page,
+    reused unchanged, plus at most one new silent beat. Nothing about it
+    explains.
+  * **Scripted fights** in the mountain, the bottom included, use the pattern
+    the game already has: "can lose" on, and a lose branch that sends the
+    party back through the porch. That is the same as the Vigil, the Worm and
+    Norbert, and needs no engine change.
+  * **Random encounters** have no event to put a lose branch in, so they need
+    a small plugin override of the defeat path, active only while a switch is
+    on, and the switch is on only in the mountain maps (and only for a party
+    that signed). It is the first random encounter anywhere in the game that
+    does not end in Game Over. A scenario tests it both ways: a defeat on the
+    stair comes back through the porch, and a defeat on the world map is still
+    Game Over.
 * **At the bottom, the dark stops.** That is the punchline the line has always
   had. **What is there is the decision for Mike.** Three options:
   * **(a) Something Unscheduled** - *my recommendation.* The only monster in the
@@ -350,7 +377,8 @@ recommendation:
 4. **The G1 chains** in section 7, as tabled.
 5. **Hollowell's page** is in.
 6. **The bottom of the Stair** is (a), Something Unscheduled.
-7. **Continuance replaces Game Over** in the mountain.
+7. **Continuance replaces Game Over** in the mountain, because the plot
+   expects it, and only for a party that has signed the Book (section 9).
 8. **This file** stays `POSTGAME.md`, and `QUESTS.md` P4 points here.
 
 Still open from before and not part of P4 unless Mike says so: the value1/value2
