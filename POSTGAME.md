@@ -7,7 +7,8 @@ ending lines into the same pass (they live in the event that now hands back),
 and designs the one piece of new content Mike has already placed after the
 ending: **the Door into the Mountain**.
 
-**Status: a draft for Mike (8 Oct 2026). Nothing is built until he agrees it.**
+**Status: agreed by Mike, 8 Oct 2026**, with the recommendation taken on every
+open question (section 11). Building starts at P4a (section 10).
 Quoted lines are drafts of the *idea*. Wording is Mike's to change, and every
 line gets measured against the 47/60 widths when it is built.
 
@@ -336,18 +337,21 @@ the scenarios the step reaches.
 maps from 71, common event 7 (the continuance hand-back, if it is one). No new
 variable is needed, so `build_game.py`'s list stays at 33.
 
-## 11. For Mike to decide
+## 11. Decided (Mike, 8 Oct 2026)
 
-1. **Agree the shape** (sections 2-6), or change it.
-2. ~~Roland stays gone?~~ **Decided** (8 Oct): gone at the door, and can be
-   hired again after the tower (section 3a). His first post-game line is still
-   a draft.
-3. **ROL-5's line**: keep it as a second Roland line, or drop it?
-4. **The G1 headline picks** in section 7. Change any you like.
-5. **Hollowell's page**: in or out?
-6. **The bottom of the Stair**: (a), (b), or something else?
-7. **Continuance instead of Game Over** in the mountain: yes?
-8. **This file**: keep `POSTGAME.md` as its own file, or fold it into `QUESTS.md`?
+Mike agreed the draft as written, so each question below took the
+recommendation:
+
+1. **The shape** in sections 2-6, as written.
+2. **Roland** leaves at the door and can be hired again after the tower
+   (section 3a). Mike asked for this. His first post-game line is a draft.
+3. **ROL-5's line** stays, as a second Roland line, spliced into the
+   `SW_ROLAND_GONE` block.
+4. **The G1 chains** in section 7, as tabled.
+5. **Hollowell's page** is in.
+6. **The bottom of the Stair** is (a), Something Unscheduled.
+7. **Continuance replaces Game Over** in the mountain.
+8. **This file** stays `POSTGAME.md`, and `QUESTS.md` P4 points here.
 
 Still open from before and not part of P4 unless Mike says so: the value1/value2
 turn count on every buff and debuff in `db.py`, and whether P2's "shield

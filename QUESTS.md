@@ -544,7 +544,8 @@ in before the ending, in this order. One step per session, as before.
     the editor, commits the edited `data/` maps without rebuilding, and the
     step diffs his tiles into the build script.
 * **P3. Olde Evermore** needs more elves about doing things.
-* **P4. The post-game.** The Prophecy's defeat stops being the end: the
+* **P4. The post-game** - **designed and agreed in `POSTGAME.md`** (Mike, 8
+  Oct 2026), built in its steps P4a-P4e. The Prophecy's defeat stops being the end: the
   finale's tally plays, then the party is back in the world, open, with
   unfinished quests still finishable. It starts as a short design doc agreed
   with Mike: the tower's state; Thistlewick's lines; whether the pension and
@@ -4253,26 +4254,21 @@ and the one tile change is the copyist's desk.
 
 ## Restart prompt
 
-**Start with P4, the post-game** (Part G, "Before G: the playtest round",
-7 Oct 2026), not G1. **P1-P3 are done**: P1 the NIX-5 Mothballs and PIP-3
-solo; P2 the early maps in two parts; P3 Olde Evermore's six elves (the last
-Done paragraph in section 3). **P4 starts as a short design doc agreed with
-Mike, before any code**: the tower's state after the Prophecy's defeat;
-Thistlewick's lines; whether the pension and the place in Nether Sopping
-still happen; whether the Prophecy is really over; whether an ending tally
-still makes sense when the game goes on; and the Door into the Mountain
-(Sir Dunstable's lamp at a quarter past four, and what is behind the door),
-which is post-ending content. G1's ending lines are written in the same pass,
-because they live in the finale event that now hands back to the world -
-so read the paragraph below for G1's plan, and `CLAUDE.md`'s "The ending"
-before touching `journey.finale_event`. Write the doc, put it to Mike, and
-stop there until he agrees it. G0, the quest log, follows its plugin
-(`../QUESTLOG.md` Q0-Q7, a parallel effort in `trial-chamber`). Last come
-G1's counter re-cuts, the one full suite, Mike's playthrough, and the push.
-Still open for Mike, not for P4 unless he says: every buff and debuff in
-`db.py` puts its turns in value2 and the engine reads value1 (P1); and
-whether P2's "shield standing in for a sign" meant the crest sign outside
-the Guild (one line in `south.py`). Next free art: `Gen_People16` 2.
+**Start with P4a** (`POSTGAME.md` section 10). **P4's design is agreed** (Mike,
+8 Oct 2026, `POSTGAME.md`, recommendation taken on every question). Read
+`POSTGAME.md` whole, once, then `CLAUDE.md`'s "The ending", and dump the finale
+(Map 12 event 2, pages 0, 1, 3 and 4) before opening `journey.py`. P4a is the
+hand-back in place of `GAMEOVER`, G1's per-companion chains and closing
+count, the ROL-5 splice, Grimspite's page 6 and Maud's guard. Its scenarios
+are `finale_ending` and `premises`, both extended. Then P4b-P4e, one per
+session. G0, the quest log, follows its plugin (`../QUESTLOG.md` Q0-Q7, a
+parallel effort in `trial-chamber`). Last come G1's counter re-cuts, the one
+full suite, Mike's playthrough, and the push. Still open for Mike, and not part
+of P4 unless he says so: every buff and debuff in `db.py` puts its turns in
+value2 and the engine reads value1 (P1); and whether P2's "shield standing in
+for a sign" meant the crest sign outside the Guild (one line in `south.py`).
+Next free: switch 214, variable 33, item 75, common event 7, map 71, state 45,
+`Gen_People16` 2.
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick` with **step G1, the ending**
