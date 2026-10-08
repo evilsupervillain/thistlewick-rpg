@@ -33,11 +33,12 @@ This is a design that the steps in section 9 read once each, the same split
   post-game is the same season, a few days on. **It never reaches spring**, so
   SPA-3 and Spare's baby stay unsettled. Mrs Cotterill's "Ten in the spring"
   is still the last word on it.
-* **Roland stays gone.** `journey.guest_leaves` says why: "a guest star you
-  can re-hire after he has made his exit is not a guest star." His quests had
-  to be reachable before the tower door, and any the player left undone stay
-  undone. **This is the one quest family the post-game does not reopen. Mike:
-  agree, or say if he should come back.**
+* **Roland leaves at the tower door, and comes back after the ending** (Mike,
+  8 Oct 2026). Before the tower he cannot be hired again, as `journey.
+  guest_leaves` says: "a guest star you can re-hire after he has made his
+  exit is not a guest star." Once the tower is done, the show is over and he
+  is between engagements, so he can be hired again and **his unfinished quests
+  can be finished**. Section 3a has the details.
 
 ## 2. The hand-back
 
@@ -80,6 +81,35 @@ them.
 **Maud** (ROL-5) said she would wait at the door and then "go and tell him how
 it ends". In the post-game she has gone, so her splice at the tower door gets
 a `SW_WON` guard and the door shows nothing.
+
+## 3a. Roland, between engagements
+
+He is back at his table in the Slain Wyvern. A new top page on `SW_WON` sits
+above the "gone" page and leaves it as it is. His recruit pitch is new, because
+the published one is about being asked a twelfth time:
+
+> **Roland:** Finished? Marvellous. I've never been
+> in the bit after. Is it nice?
+
+If ROL-5 is done, he has heard how it ends from Maud, and her question still
+goes unanswered.
+
+* **The recruit is the same `story.recruit` shape, keyed on `SW_KNOWN`**, so
+  there is no second initialise. He comes back at the level he left at.
+  `guest_leaves` handed his gear to the party at the door, so **he rejoins
+  carrying whatever he had on when he was removed**. The build checks what that
+  is. If it is nothing, his page puts his armour back on by script, and the
+  swords stay with whoever has them now.
+* **`SW_ROLAND_GONE` stays on.** The tally reads it, and so does Hob's ROL-4
+  refit page. The switch records that he left at the door, not that he is
+  away now. Before building, every Roland quest page is checked for anything
+  that assumes "gone" means "not in the party". Those pages already gate on
+  `actorValid`, so most will simply work.
+* **His departure scene cannot run again.** It is gated on him being in the
+  party at the tower door, and `SW_ROLAND_GONE` is already on. The build adds
+  a guard on that switch, so that walking back up the tower with him rehired
+  does not make him leave a second time.
+* The roster desks can strike him off and take him back like anybody else.
 
 ## 4. Thistlewick's lines
 
@@ -288,7 +318,9 @@ the scenarios the step reaches.
   re-cut stays in G1.
 * **P4b - Thistlewick and the pension.** The letter, the villagers' pages, the
   empty frame, the minute book, the cottage (map 71) and Fitch's door, and
-  Ysolde's line. Scenarios: whatever already walks Maps 1-7 and 13,
+  Ysolde's line. Roland's page in the Slain Wyvern and the guard on his
+  departure (section 3a), with a new `pg_roland` that rehires him, walks him
+  up the tower, and starts one of his undone quests. Scenarios: whatever already walks Maps 1-7 and 13,
   chosen as `QUESTS.md` 0.1 says, plus a new `pg_home`.
 * **P4c - the amended account, Quy and Hollowell.** The lectern in Prophecy
   Hall, built from the tally's function. Quy's afternoon and Hollowell's notice.
@@ -307,7 +339,9 @@ variable is needed, so `build_game.py`'s list stays at 33.
 ## 11. For Mike to decide
 
 1. **Agree the shape** (sections 2-6), or change it.
-2. **Roland stays gone** after the tower door, and his undone quests stay undone?
+2. ~~Roland stays gone?~~ **Decided** (8 Oct): gone at the door, and can be
+   hired again after the tower (section 3a). His first post-game line is still
+   a draft.
 3. **ROL-5's line**: keep it as a second Roland line, or drop it?
 4. **The G1 headline picks** in section 7. Change any you like.
 5. **Hollowell's page**: in or out?
