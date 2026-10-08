@@ -288,16 +288,21 @@ stop." The proposal:
     through its porch are the people who went through that door. Nowhere else
     in the game makes that promise, so a defeat anywhere else is still Game
     Over.
-  * **Only for a party that has signed the Book.** The Book is signed "in case
-    of misfortune", so coming back is what signing it is *for*. Choosing to
-    write a name sets a new switch, even if the save screen is then cancelled.
-    A party that never signed gets an ordinary Game Over in the mountain too.
-    Dunstable's lamp page ends with the reminder ("Signed the Book? Just in
-    case."), so nobody is caught out without warning. *This rule is my
-    addition. Mike may drop it.*
+  * **Whether or not the party signed the Book** (Mike, 8 Oct 2026, on the
+    fence and for now). The promise belongs to the door and the porch, not to
+    the signature. If only people who signed came back, the Book would be the
+    mechanism, and the game would have explained what it was careful to leave
+    open: the bio only says that people sign "in case of misfortune" and
+    "quite often" come back. It would also hide a Game Over behind an
+    optional save point. Dunstable's "Signed the Book? Just in case." stays,
+    as character and not as a rule. A party that never signed comes in
+    through the porch to Quillon's first-visit page, and he does not react to
+    them arriving from the wrong side. Requiring the signature was considered
+    and set aside. To change it later, put a switch on the Book's "write"
+    choice and test it in the override.
   * **What it costs.** The party comes back fully restored, as at the Vigil and
     the Worm, and keeps the lamp, its items and its gold. The price is the walk
-    back down. Quillon's reaction is his published "Again? Of course." page,
+    back down. Quillon's reaction is whichever of his published pages is due,
     reused unchanged, plus at most one new silent beat. Nothing about it
     explains.
   * **Scripted fights** in the mountain, the bottom included, use the pattern
@@ -306,8 +311,7 @@ stop." The proposal:
     Norbert, and needs no engine change.
   * **Random encounters** have no event to put a lose branch in, so they need
     a small plugin override of the defeat path, active only while a switch is
-    on, and the switch is on only in the mountain maps (and only for a party
-    that signed). It is the first random encounter anywhere in the game that
+    on, and the switch is on only in the mountain maps. It is the first random encounter anywhere in the game that
     does not end in Game Over. A scenario tests it both ways: a defeat on the
     stair comes back through the porch, and a defeat on the world map is still
     Game Over.
@@ -378,7 +382,7 @@ recommendation:
 5. **Hollowell's page** is in.
 6. **The bottom of the Stair** is (a), Something Unscheduled.
 7. **Continuance replaces Game Over** in the mountain, because the plot
-   expects it, and only for a party that has signed the Book (section 9).
+   expects it, whether or not the party signed the Book (section 9).
 8. **This file** stays `POSTGAME.md`, and `QUESTS.md` P4 points here.
 
 Still open from before and not part of P4 unless Mike says so: the value1/value2
