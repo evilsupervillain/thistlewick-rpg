@@ -4191,26 +4191,88 @@ part one, in the order given, one commit each. **P2 is finished.**
   asserted it on the wall, gone as it comes off, in Bram's hands, and taken
   down again by the watcher when its switch was cleared.
 
+**P3, Olde Evermore's elves about doing things, done** (8 Oct 2026). The
+village had four people in it and read as empty. It has six more now,
+each with a job in the raker's idiom - it is somebody's whole job - and
+nothing published changed: the old events on Maps 38-39 are byte for byte,
+and the one tile change is the copyist's desk.
+
+* **The six** (`evermore.elves`, Map 38 events 9-13; Map 39 event 8), each
+  with a first page on self switch A and a short second page:
+  * **Thalion**, at (16,7) beside the raker, judges every arrival off the
+    ledge out of six, "since the First Age": five point eight, and the
+    Forty-Seventh got five point nine because he landed on his feet
+    (Faelan's line). He was at (16,8) first, which is the Archive roof's
+    top row: the screenshot showed only his hair.
+  * **Aelwen**, at the well, `stepAnime`, sings the Lay of the Chosen, a
+    verse per Chosen One off the ledge, three days long. She is on the
+    Forty-Sixth, who never came (`TIMELINE.md` 1980), so his verse is a
+    four-bar rest, "the best bit"; and the second page is the rest.
+    **The trope** - the elven song that takes days - counted once.
+  * **Elowen**, at the door of the south-east house, knits a tea cosy with
+    two little sleeves. A branch on Map 39 event 2's self switch C (Mirabel
+    has told the secret) changes what she says: Lirien is her daughter,
+    she and Faelan "have been married since the Second Age. I had stopped
+    knitting", and the cosy has a large B on it - "B for Bryony. Or
+    Bronwen. It is not for anything else." **This is the first line in
+    the game that says Lirien and Faelan are married**, which `NORTH.md`
+    1.6 wants of any couple in a blush, and the blush was already there.
+    Not a blush itself, and not counted.
+  * **Calder**, at the pond, has been after its one fish since the Second
+    Age, caught him twice and put him back, and will not tell you his
+    name: "He'd be insufferable."
+  * **Ninian** sweeps the path out, which nobody has ever come in by - a
+    custom route, x 6 to 10 along row 13, skippable, speed 2, a second's
+    pause at each end. Off every scenario's walk.
+  * **The copyist**, in the Archive behind a new desk (`Table D` with
+    `Open Book A (H)` and `Pen A`, cropped) at (6,10), was told to copy
+    everything and is copying the catalogue of what he has copied. Asked
+    whether everything means everything: "It means the margins too." That
+    is the copy's own narration said back, and **nothing more about the
+    horse** - the spine is where it was.
+* **Art**: six drawn (`art.py`, `build/characters/evermore-*.json`),
+  `Gen_People15` 4-7 and a new `Gen_People16` 0-1. **`Gen_People11` 3-7
+  were not free** - HOB-3, NIX-5 and WRE-3 took them - and the game's
+  `CLAUDE.md` table still said they were; it is corrected and runs to
+  `Gen_People16`. Male front hair p03 hides the ear tip in the portrait;
+  p02, p05 and p12 show it, and the robe (male clothing p08) goes near
+  black under most recolours - drawn green, or blue 2.
+* **`TIMELINE.md`**: a First Age row (Thalion), a Second Age row (the
+  marriage, the fish), and `evermore` as a source on 1980 and 1990.
+* **Tally**: tropes **+51 fixed** (Aelwen); blushes **+13 fixed**, none.
+* **Scenarios.** The new `p3_evermore_elves` (28 checks) walks to five of
+  the six and talks to each twice, faces asserted off `setFaceImage`;
+  Ninian is asserted to move and to stay on row 13 between 6 and 10, then
+  started by hand; Elowen is run before and after the secret. Reruns,
+  chosen by what the change reaches: `evermore` (42), which walks the
+  leaves, column 14 and the Archive's row 8, all beside the new elves; and
+  `q_spa1_letters` (26), whose courier stands at (14,8) in the village.
+  Nothing else goes to Maps 38-39.
+
 ---
 
 ## Restart prompt
 
-**Start with P3, Olde Evermore's elves** (Part G, "Before G: the playtest
-round", 7 Oct 2026), not G1. **P1 and P2 are done**: P1 the NIX-5 Mothballs
-and PIP-3 solo; P2 the early maps in two parts - Mike's Door and island,
-then the door holes, interior shadows, the forest rings, `validate.py`'s
-invisible-wall check and the four props it found, the Guild relaid, and
-Bram's sword on the wall (the last two Done paragraphs in section 3). P1
-found a game-wide buff bug that waits on Mike's word. What is left of Mike's
-playtest list, in order: P3 Olde Evermore needs more elves about doing
-things (Maps 38-39, `evermore.py` - read `SITES.md` step 4's Done paragraph
-and `evermore.py`'s docstring, which says what it may not contradict);
-then P4 the post-game with the Door into the Mountain and G1's ending
-lines. G0, the quest log, follows its plugin (`../QUESTLOG.md` Q0-Q7, a
-parallel effort in `trial-chamber`). Last come G1's counter re-cuts, the
-one full suite, Mike's playthrough, and the push. Read Part G's playtest
-round and the step's own bullet; the paragraph below is still the plan for
-G1's ending lines, which are written in P4.
+**Start with P4, the post-game** (Part G, "Before G: the playtest round",
+7 Oct 2026), not G1. **P1-P3 are done**: P1 the NIX-5 Mothballs and PIP-3
+solo; P2 the early maps in two parts; P3 Olde Evermore's six elves (the last
+Done paragraph in section 3). **P4 starts as a short design doc agreed with
+Mike, before any code**: the tower's state after the Prophecy's defeat;
+Thistlewick's lines; whether the pension and the place in Nether Sopping
+still happen; whether the Prophecy is really over; whether an ending tally
+still makes sense when the game goes on; and the Door into the Mountain
+(Sir Dunstable's lamp at a quarter past four, and what is behind the door),
+which is post-ending content. G1's ending lines are written in the same pass,
+because they live in the finale event that now hands back to the world -
+so read the paragraph below for G1's plan, and `CLAUDE.md`'s "The ending"
+before touching `journey.finale_event`. Write the doc, put it to Mike, and
+stop there until he agrees it. G0, the quest log, follows its plugin
+(`../QUESTLOG.md` Q0-Q7, a parallel effort in `trial-chamber`). Last come
+G1's counter re-cuts, the one full suite, Mike's playthrough, and the push.
+Still open for Mike, not for P4 unless he says: every buff and debuff in
+`db.py` puts its turns in value2 and the engine reads value1 (P1); and
+whether P2's "shield standing in for a sign" meant the crest sign outside
+the Guild (one line in `south.py`). Next free art: `Gen_People16` 2.
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick` with **step G1, the ending**
@@ -4238,13 +4300,13 @@ that touches only what the step meant to - and compare old pages byte for
 byte. `validate.py`, and `apidigest.py . --write`. The finale's own scenario,
 then the suite.
 
-Where things stand: tropes **+50 fixed** and 2-9 from PIP-2; blushes **+13
+Where things stand: tropes **+51 fixed** and 2-9 from PIP-2; blushes **+13
 fixed** and 0-1 from PIP-2 - the totals G1 re-cuts against. Next free: switch
 214, variable 33 (`build_game.py` sizes the list at 33, so **the next
 variable needs it grown**), item 75, weapon 44, armour 49, armour type 15,
 weapon type 14, element 11, class 13, common event 7, state 45 (past the
 40-44 block, which P1 filled), enemy 60,
-troop 55, skill 185, map 71, `Gen_People15` 4. Spare is actor 11; his story
+troop 55, skill 185, map 71, `Gen_People16` 2. Spare is actor 11; his story
 switch is 110 and is on after F2. Cotter (Map 61 event 12) has six pages now;
 Map 70 is the culvert.
 

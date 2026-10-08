@@ -447,6 +447,15 @@ FACES = {
     "Mr Dibble": ("Gen_People15", 1),
     "Mrs Throssell": ("Gen_People15", 2),
     "Mr Cobley": ("Gen_People15", 3),
+    # P3, Olde Evermore's elves about doing things (QUESTS.md), all drawn
+    # with the ears showing: the judge of arrivals, the bard, Lirien's
+    # mother, the fisherman, the sweeper of the path out, and the copyist.
+    "Thalion": ("Gen_People15", 4),
+    "Aelwen": ("Gen_People15", 5),
+    "Elowen": ("Gen_People15", 6),
+    "Calder": ("Gen_People15", 7),
+    "Ninian": ("Gen_People16", 0),
+    "The Copyist": ("Gen_People16", 1),
 }
 
 

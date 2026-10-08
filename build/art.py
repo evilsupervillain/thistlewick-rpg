@@ -327,6 +327,21 @@ SHEETS = {
         (1, "mr-dibble.json"),          # wet paint, and the bonfire
         (2, "mrs-throssell.json"),      # chair of the parish council
         (3, "mr-cobley.json"),          # thirty years after one carp
+        # P3, Olde Evermore's elves about doing things (`QUESTS.md`): the
+        # pointed ears showing in the portrait as well as the sprite - male
+        # front hair p03 hides them under a hat or a bandana, p02/p05/p12
+        # do not. Thalion green robe and spectacles; Aelwen the travelling
+        # cloak over the cream dress; Elowen silver, older, Lirien's mother.
+        (4, "evermore-judge.json"),     # five point eight
+        (5, "evermore-bard.json"),      # the Lay, three days long
+        (6, "evermore-knitter.json"),   # a tea cosy
+        (7, "evermore-fisher.json"),    # one fish, since the Second Age
+    ],
+    "Gen_People16": [
+        # P3, continued. Ninian ginger under a bandana, in a teal coat; the
+        # copyist bearded, in a scribe's blue.
+        (0, "evermore-sweeper.json"),   # the path nobody comes in by
+        (1, "evermore-copyist.json"),   # told to copy everything
     ],
 }
 

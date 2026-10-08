@@ -114,8 +114,8 @@ Thistlewick claims. The published text agrees:
 | 1959 | Wick goes north "forty-one years ago this spring" - a year ahead of the Chosen One; everybody goes north, and not all of them together | `south.outfit_events` |
 | 1960 | **#44 Ambrose Fitch**, home and "ignored for forty years"; Ysolde's forty years of field medicine; Beatrice Grumnir makes the sword that becomes Fairweather's Own, at the Thistlewick forge, and sells it to a man going south ("forty years back, near enough", `q_roland`, ROL-4); Perce Stagg, walking north with everybody else, breaks Frostwick's winter "forty years ago this spring"; the Guild founded, provisionally | `wilds.forty_fourth`, `south.ysolde_event`, `frostwick.frostwick_events`, `south` (the Charter) |
 | 1970 | **#45 Halbert Quy** declines Grimspite's tea, "thirty years" ago; he is in his seventies now | `south.quy_event`, `journey.finale_event` |
-| 1980 | **#46** stops in the Gloamwood and says the woods are enough; his party write monthly. He is the one who did not go "up that road" - Ott counts forty-six | `journey.gloamwood_events`, `south`, `north` |
-| 1990 | **#47**, the Old Man's boy; the last name in the wayshrine book | `village.village_events`, `journey.world_events` |
+| 1980 | **#46** stops in the Gloamwood and says the woods are enough; his party write monthly. He is the one who did not go "up that road" - Ott counts forty-six - and never comes off Olde Evermore's ledge, so his verse in Aelwen's Lay is a four-bar rest (P3) | `journey.gloamwood_events`, `south`, `north`, `evermore.elves` |
+| 1990 | **#47**, the Old Man's boy; the last name in the wayshrine book. Comes off Olde Evermore's ledge and lands on his feet (Faelan); Thalion gives him five point nine, the best score since the First Age (P3) | `village.village_events`, `journey.world_events`, `evermore` |
 | ~1999 | Ambrose Fitch dies; the masons come within a fortnight | `wilds.forty_fourth` |
 | **2000** | **#48 Bram Thistle** | |
 
@@ -127,7 +127,9 @@ when it does, in a round year.
 
 | year | what | where | P/F |
 | --- | --- | --- | --- |
+| First Age | Olde Evermore is there (the village sign), and Thalion has judged every arrival off the ledge since, out of six (P3) | `evermore.evermore_events`, `evermore.elves` | F |
 | Second Age, ~2,113 before year 1 | Mirabel born; 4,112 now | `evermore.mirabel_pages` | F |
+| Second Age | Elder Lirien and Elder Faelan marry - the first time the game says so is Lirien's mother, Elowen, once Mirabel has told the secret. Calder starts after the one fish in the pond (P3) | `evermore.elves` | F |
 | 1400 | the Collegium Arcanum founded, by the Founder, in one afternoon ("six hundred years") | `collegium.arms_pages` | F |
 | 1500 | the First Dean's portrait hung, pending the Hanging Committee ("five hundred years") | `collegium.portrait_pages` | F |
 | 1702 | Weeping Bottom founded by Mother Ursula Pym, for the sea air. Her Rule of Life, four lines, one about socks, is the Order's founding pamphlet (MER-5 adopts it at Sump as a by-law) | `weeping_bottom.stone_pages`, `q_merribell` | F |

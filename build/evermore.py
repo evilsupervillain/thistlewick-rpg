@@ -50,6 +50,19 @@ One site and one module, so it exports `SITE` and `world_doors` the way
   on a `Table D`; the bed is `Bed`, in the corner. The village's cliffs are
   `Ledge A (Meadow)` over `Meadow` and `Dirt (Meadow)`, one family, and the
   landing is `Outside_B`'s `Fallen Leaves`, which is open.
+* **Elves about doing things** (`../QUESTS.md` P3, Mike's playtest): a
+  village of four people read as empty. Six more, each with a job, in the
+  raker's idiom that it is somebody's whole job: Thalion judges arrivals
+  out of six, Aelwen sings the Lay of the Chosen at the well, Elowen
+  knits, Calder has been after one fish since the Second Age, Ninian
+  sweeps the path out, and in the Archive the copyist who copied
+  everything is still copying. They keep off the scenario's walk, and none
+  of them says anything about the Prophecy's horse that the copy does not:
+  the copyist confirms "everything" includes the margins, no more. The
+  Forty-Sixth never came, and his verse is a rest - `../TIMELINE.md`'s
+  1980 row. Elowen is Lirien's mother, and once Mirabel has told the
+  secret she says what the game had not: Lirien and Faelan are married,
+  and have been since the Second Age.
 """
 import mapkit as K
 import rmmzdata as R
@@ -86,6 +99,14 @@ RAKER_AT = (15, 6)
 
 LEAVES = K.sf_tile("Outside_B", "Fallen Leaves")
 
+# P3's elves, each where their job is and off the scenario's walk, which
+# uses the leaves, column 14 down to the Archive and column 13 out.
+JUDGE_AT = (16, 7)              # watching the leaves, clear of the roof
+BARD_AT = (9, 15)               # singing to the well
+KNITTER_AT = (18, 21)           # at her own door
+FISHER_AT = (20, 17)            # at the pond
+SWEEP = (6, 10, 13)             # the west path, x 6 to 10 along row 13
+
 # ------------------------------------------------------------ the archive ---
 #            w   h  x1  y1  x2  y2  door_x
 ROOM = (19, 15, 3, 4, 15, 11, 9)
@@ -105,6 +126,9 @@ SCROLLS = K.sf_tile("Inside_C", "Scrolls B")
 SCROLLS2 = K.sf_tile("Inside_C", "Scrolls A")
 CRYSTAL = K.sf_tile("Inside_C", "Crystal Ball")
 BOOKS = K.sf_tile("Inside_C", "Closed Books C")
+OPEN_BOOK = K.sf_tile("Inside_C", "Open Book A (H)")
+PEN = K.sf_tile("Inside_C", "Pen A")
+DESK = (6, 10)                  # the copyist's, two cells; he is above it
 
 
 # ============================================================== the village ==
@@ -250,6 +274,165 @@ def evermore_events():
                          conditions={"selfSwitchValid": True,
                                      "selfSwitchCh": "A"})]))
     evs.append(q_spare.courier("evermore", 14, 8))                  # SPA-1
+    evs += elves()
+    return evs
+
+
+def _again(ch="A"):
+    return {"selfSwitchValid": True, "selfSwitchCh": ch}
+
+
+def elves():
+    """Events 9-13: P3's five, out in the village doing things."""
+    evs = []
+
+    # 9: the judge of arrivals, facing the leaves.
+    judge = S.say("Thalion", ["Five point eight."])
+    judge += S.narrate(["He makes a note in a little book."])
+    judge += S.say("Thalion", [
+        "The arms were lovely. You lost it",
+        "on the landing. Everybody loses it",
+        "on the landing."])
+    judge += S.narrate(["You ask whether anybody has ever got a six."])
+    judge += S.say("Thalion", [
+        "The Forty-Seventh got five point nine.",
+        "Landed on his feet. I was very moved."])
+    judge += S.narrate(["You ask who else is on the panel."])
+    judge += S.say("Thalion", [
+        "Just me. Since the First Age.",
+        "The scores have been very consistent."])
+    judge += [R.self_switch("A", True)]
+    again = S.say("Thalion", [
+        "Five point eight. It's in the book.",
+        "There is no appeal. I am the panel."])
+    img = R.image(*S.FACES["Thalion"], direction=4)
+    evs.append(S.npc(9, "Thalion, Judge of Arrivals", *JUDGE_AT, judge,
+                     *S.FACES["Thalion"], direction=4, pages=[R.page(
+                         again, img=img, conditions=_again())]))
+
+    # 10: the bard, singing to the well. The trope is the elven song that
+    # takes three days; the Forty-Sixth's verse is a rest, because he never
+    # came - he stopped in the Gloamwood (TIMELINE.md, 1980).
+    bard = S.narrate([
+        "An elf is singing to the well in the Old Tongue.",
+        "It is very beautiful. It shows no sign of being",
+        "nearly over."])
+    bard += S.say("Aelwen", [
+        "The Lay of the Chosen. A verse for",
+        "every Chosen One who has come off",
+        "the ledge."])
+    bard += S.narrate(["You ask how long it is."])
+    bard += S.say("Aelwen", [
+        "Three days, sung properly. Nobody",
+        "has ever heard the end. I keep",
+        "having to add verses."])
+    bard += S.narrate(["You ask which verse she is on."])
+    bard += S.say("Aelwen", [
+        "The Forty-Sixth. He never came at",
+        "all, so his verse is a rest. Four",
+        "bars long. It's the best bit."])
+    bard += S.say("Aelwen", [
+        "Yours I'll write when I've seen",
+        "how it ends."])
+    bard += [S.trope(), R.self_switch("A", True)]
+    again = S.say("Aelwen", ["Four bars' rest. Shh.",
+                             "This is the best bit."])
+    img = R.image(*S.FACES["Aelwen"], direction=2)
+    evs.append(S.npc(10, "Aelwen, Who Sings", *BARD_AT, bard,
+                     *S.FACES["Aelwen"], step_anime=True, pages=[R.page(
+                         again, img=img, step_anime=True,
+                         conditions=_again())]))
+
+    # 11: Lirien's mother, knitting. Until Mirabel has told the secret
+    # (Map 39 event 2's self switch C) it is a tea cosy. Afterwards it is
+    # still a tea cosy, with a B on it - and the game says, for the first
+    # time, that Lirien and Faelan are married.
+    told = "$gameSelfSwitches.value([%d, 2, 'C'])" % MAP_ARCHIVE
+    knit = S.narrate([
+        "An old elf at her front door is knitting something",
+        "very small, very fast."])
+    cosy = S.narrate(["You ask what it is."])
+    cosy += S.say("Elowen", ["A tea cosy."])
+    cosy += S.narrate(["You point out that it has two little sleeves."])
+    cosy += S.say("Elowen", [
+        "It's for a very small teapot.",
+        "They get cold."])
+    known = S.say("Elowen", [
+        "...She's told you. Of course she has.",
+        "She told the whole breakfast table."])
+    known += S.say("Elowen", [
+        "Lirien is my daughter. She and Faelan",
+        "have been married since the Second",
+        "Age. I had stopped knitting."])
+    known += S.narrate([
+        "She holds it up. It is a tea cosy with two little",
+        "sleeves, and on the front of it, a large B."])
+    known += S.say("Elowen", [
+        "B for Bryony. Or Bronwen.",
+        "It is not for anything else."])
+    known += [R.self_switch("A", True)]
+    knit += R.if_then(R.condition_script(told), known, cosy)
+    again = S.say("Elowen", ["Bryony. Or Bronwen.",
+                             "Knit one, purl one."])
+    img = R.image(*S.FACES["Elowen"], direction=2)
+    evs.append(S.npc(11, "Elowen, Who Knits", *KNITTER_AT, knit,
+                     *S.FACES["Elowen"], pages=[R.page(
+                         again, img=img, conditions=_again())]))
+
+    # 12: the fisherman, facing the pond.
+    fish = S.narrate([
+        "An elf stands at the edge of the pond, looking into",
+        "it with enormous patience."])
+    fish += S.say("Calder", [
+        "There's one fish in this pond. I've",
+        "been after him since the Second Age."])
+    fish += S.narrate(["You ask whether he has ever caught him."])
+    fish += S.say("Calder", [
+        "Twice. I put him back both times.",
+        "Then what would I do all day?"])
+    fish += S.narrate(["You ask whether the fish has a name."])
+    fish += S.say("Calder", [
+        "He has. I'm not telling you it.",
+        "He'd be insufferable."])
+    fish += [R.self_switch("A", True)]
+    again = S.say("Calder", ["Shh. He's thinking about it."])
+    img = R.image(*S.FACES["Calder"], direction=6)
+    evs.append(S.npc(12, "Calder, Who Fishes", *FISHER_AT, fish,
+                     *S.FACES["Calder"], direction=6, pages=[R.page(
+                         again, img=img, conditions=_again())]))
+
+    # 13: the sweeper of the path out, up and down the west path. A custom
+    # route, skippable, so a player in his way only holds him up.
+    sweep = S.say("Ninian", [
+        "Sweeping the path out. Nobody's",
+        "ever come in by it, so it's always",
+        "very clean."])
+    sweep += S.narrate(["You ask why he sweeps it, then."])
+    sweep += S.say("Ninian", [
+        "Somebody might go out by it one day.",
+        "You'd want it nice for them."])
+    sweep += S.narrate(["You mention that you will be going out by it."])
+    sweep += S.say("Ninian", ["Will you!"])
+    sweep += S.narrate(["He looks delighted, and sweeps a little faster."])
+    sweep += [R.self_switch("A", True)]
+    again = S.say("Ninian", ["Mind how you go out.",
+                             "It's just been done."])
+    x0, x1, y = SWEEP
+    n = x1 - x0
+    route = {"list": [{"code": 3, "parameters": []}] * n
+             + [{"code": 15, "parameters": [60]}]
+             + [{"code": 2, "parameters": []}] * n
+             + [{"code": 15, "parameters": [60]},
+                {"code": 0, "parameters": []}],
+             "repeat": True, "skippable": True, "wait": False}
+    img = R.image(*S.FACES["Ninian"], direction=6)
+    pages = [R.page(sweep, img=img, move_type=3, move_speed=2,
+                    move_frequency=3),
+             R.page(again, img=img, move_type=3, move_speed=2,
+                    move_frequency=3, conditions=_again())]
+    for pg in pages:
+        pg["moveRoute"] = route
+    evs.append(R.event(13, "Ninian, Who Sweeps", x0, y, pages))
     return evs
 
 
@@ -289,6 +472,12 @@ def archive_map():
     g.set(13, 8, 3, CRYSTAL)
     g.set(14, 8, 2, TABLE_D)
     g.set(14, 8, 3, BOOKS)
+
+    # The copyist's desk (P3): an open book and a pen.
+    g.set(DESK[0], DESK[1], 2, TABLE_D)
+    g.set(DESK[0], DESK[1], 3, OPEN_BOOK)
+    g.set(DESK[0] + 1, DESK[1], 2, TABLE_D)
+    g.set(DESK[0] + 1, DESK[1], 3, PEN)
 
     # Her bed, in the corner, turned down.
     g.column(BED[0], BED[1], 3, BEDSTEAD)
@@ -535,6 +724,31 @@ def archive_events():
     bed += S.say("Elder Lirien", ["\"Not tired.\""])
     evs.append(R.event(7, "Mirabel's Bed", BED[0], BED[1] + 1,
                        [R.page(bed, **page)]))
+
+    # 8: the copyist (P3), behind his desk. Told to copy everything at the
+    # signing, and still at it. He says nothing about the horse that the
+    # copy on the reading table does not: everything means the margins too.
+    copyist = S.narrate([
+        "Behind a desk, an old elf is copying out a book",
+        "in a beautiful hand, very slowly."])
+    copyist += S.say("The Copyist", [
+        "I was told to copy everything.",
+        "So I copy everything."])
+    copyist += S.narrate(["You ask what he is copying now."])
+    copyist += S.say("The Copyist", [
+        "The catalogue of everything I",
+        "have copied. It is very nearly",
+        "up to date."])
+    copyist += S.narrate(["You ask whether everything means everything."])
+    copyist += S.say("The Copyist", ["It means the margins too."])
+    copyist += [R.self_switch("A", True)]
+    again = S.say("The Copyist", [
+        "Nobody has told me to stop.",
+        "I have been listening very carefully."])
+    img = R.image(*S.FACES["The Copyist"], direction=2)
+    evs.append(S.npc(8, "The Copyist", DESK[0], DESK[1] - 1, copyist,
+                     *S.FACES["The Copyist"], pages=[R.page(
+                         again, img=img, conditions=_again())]))
     return evs
 
 
