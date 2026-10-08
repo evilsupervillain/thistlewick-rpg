@@ -159,7 +159,9 @@ def sopping_map():
     g.set(OUTFIT_DOOR[0] - 2, OUTFIT_DOOR[1], 3, K.SIGN_ARMOR)
     g.set(OUTFIT_DOOR[0] + 2, OUTFIT_DOOR[1], 3, K.SIGN_POTION)
     g.set(GUILD_DOOR[0] - 2, GUILD_DOOR[1], 3, K.SIGN_BLADE)
-    g.set(GUILD_DOOR[0] + 2, GUILD_DOOR[1], 3, K.SIGN_PLATE)
+    # A crest, not the eatery's plate it had: the Guild sells nobody dinner.
+    g.set(GUILD_DOOR[0] + 2, GUILD_DOOR[1], 3,
+          K.sf_tile("Outside_B", "Shop Sign (Crest)"))
     g.set(COTTAGE_DOOR[0] - 2, COTTAGE_DOOR[1], 3, K.WINDOW)
     # The four sheds get a shut door, two tiles tall, standing on the bottom
     # wall row. A bare black tile there is the inside of an opening with no
@@ -1645,20 +1647,54 @@ def roland_event(event_id, x, y):
 
 
 # ================================================================== the Guild ==
+# Where the Guild's things are (P2). A registry office: Pell behind a counter
+# across the middle, the bounty board and the files on the back wall, a
+# bench for the queue, and the charter by the door. It was a scatter round
+# the walls - the "files" a shield, the "board" a pair of crossed swords over
+# one notice, the "cabinet" a bread shelf - and the mat was not drawn at all.
+GUILD_PELL = (9, 5)                 # behind the counter, talked to across it
+GUILD_COUNTER = range(7, 12)        # x, on row 6
+GUILD_BOARD = (4, 3)                # notices on the wall, read from below
+GUILD_FILING = (13, 4)              # the foot of the files
+GUILD_CHARTER = (8, 11)             # a stone, beside you as you come in
+GUILD_MAT = (9, 12)                 # in the doorway
+
+
 def guild_map():
     g = room(MAP_GUILD, floor=K.IN_COBBLE,
              wall_top=K.IN_WALL_TOP_STONE, wall_face=K.IN_WALL_FACE_STONE)
-    g.column(4, 3, 2, K.IN_NOTICE_BOARD)
-    g.column(6, 3, 2, K.IN_BOOKCASE)
-    g.column(13, 3, 2, K.IN_SWORD_RACK)
-    g.column(15, 3, 2, K.IN_CABINET)
-    g.set(8, 6, 2, K.IN_TABLE_WOOD)
-    g.set(10, 6, 2, K.IN_TABLE_WOOD)
+    notice = K.sf_tile("Inside_B", "Posted Notice")
+    g.set(GUILD_BOARD[0], GUILD_BOARD[1], 3, notice)
+    g.set(GUILD_BOARD[0] + 1, GUILD_BOARD[1], 3, notice)
+    g.set(GUILD_BOARD[0] + 1, GUILD_BOARD[1] - 1, 3, notice)
+    # The files: a long bookcase and a tall one, and the drawers they spill
+    # into, along the north-east wall.
+    g.blit(12, 3, 2, K.sf_grid("Inside_B", "Bookshelf B", 2))
+    g.column(14, 3, 2, K.sf_block("Inside_B", "Bookshelf A"))
+    g.column(15, 3, 2, K.sf_block("Inside_B", "Chest of Drawers"))
+    # The counter, with the register open on it, and the map behind Pell of
+    # everywhere a registered adventurer may go.
+    for x in GUILD_COUNTER:
+        g.set(x, 6, 2, K.IN_TABLE_WOOD)
     g.set(8, 6, 3, K.INC_SCROLL)
     g.set(10, 6, 3, K.INC_BOOK2)
-    g.scatter([(3, 10), (15, 10)], 2, K.IN_CRATE)
-    g.scatter([(3, 5), (15, 6)], 2, K.INC_PLANT)
-    g.set(13, 9, 2, K.IN_BARREL)
+    g.blit(8, 3, 3, (K.sf_block("Inside_B", "World Map"),))
+    g.set(3, 4, 2, K.INC_PLANT)
+    # The queue's bench, on the west wall facing the counter.
+    for y in (7, 8, 9):
+        g.set(3, y, 2, K.IN_STOOL_SQUARE)
+    # A table to fill the forms in at, with the forms on it.
+    for x in (11, 12):
+        g.set(x, 9, 2, K.IN_TABLE_WOOD)
+        g.set(x, 10, 2, K.IN_STOOL_SQUARE)
+    g.set(11, 9, 3, K.INC_SCROLLS)
+    g.set(12, 9, 3, K.INC_SCROLL)
+    g.set(*GUILD_CHARTER, 2, K.sf_tile("Inside_B", "Stone Tablet"))
+    g.set(15, 11, 2, K.sf_tile("Inside_C", "Sword Rack A"))
+    g.set(15, 10, 2, K.IN_BARREL_WOOD)
+    # The doormat, on the floor-art layer as the sample lays rugs.
+    g.set(*GUILD_MAT, 1, K.IN_RED_RUG)
+    g.autotile(1, kinds={R.autotile_kind(K.IN_RED_RUG)})
     return finish(MAP_GUILD, g, "The Adventurers' Guild (Provisional)",
                   bgm="Scene3", battleback=("Stone1", "Room1"),
                   events=guild_events())
@@ -1673,18 +1709,18 @@ LORRIMER_FRONT = (26, 19)
 def guild_events():
     evs = [S.exit_tile(1, "Guild Door", *threshold(MAP_GUILD), MAP_SOPPING,
                        *OUT[MAP_GUILD])]
-    evs.append(pell_event(2, 9, 6))
-    evs.append(bounty_board(3, 4, 4))
-    evs.append(guild_mat(4, 8, 10))
+    evs.append(pell_event(2, *GUILD_PELL))
+    evs.append(bounty_board(3, *GUILD_BOARD))
+    evs.append(guild_mat(4, *GUILD_MAT))
 
-    evs.append(S.sign(5, "The Charter", 6, 4, [
+    evs.append(S.sign(5, "The Charter", *GUILD_CHARTER, [
         "\\C[6]THE ADVENTURERS' GUILD (PROVISIONAL)\\C[0]",
         "Founded forty years ago, provisionally,",
         "pending a review.",
         "The review is scheduled.",
         "The review has been scheduled for forty years."]))
 
-    evs.append(S.prop(6, "The Filing", 13, 4, [
+    evs.append(S.prop(6, "The Filing", *GUILD_FILING, [
         "Every party that ever went north, filed by",
         "surname of the least important member,",
         "because that was the rule when the rule was",
@@ -1853,14 +1889,17 @@ def guild_mat(event_id, x, y):
     found = S.narrate(["The mat, with nothing under it any more.",
                        "It looks smaller."])
 
+    # Below characters, so it lies in the doorway and is searched by standing
+    # on it; at "same as characters" with nothing drawn it was an invisible
+    # wall in the middle of the floor (P2).
     return R.event(event_id, "The Mat", x, y, [
-        R.page(plain, img=R.image(""), trigger=0, priority=1,
+        R.page(plain, img=R.image(""), trigger=0, priority=0,
                direction_fix=True),
-        R.page(search, img=R.image(""), trigger=0, priority=1,
+        R.page(search, img=R.image(""), trigger=0, priority=0,
                direction_fix=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_GUILD_ASKED}),
-        R.page(found, img=R.image(""), trigger=0, priority=1,
+        R.page(found, img=R.image(""), trigger=0, priority=0,
                direction_fix=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_GUILD_FORM}),

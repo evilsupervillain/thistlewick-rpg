@@ -4101,25 +4101,108 @@ floating island. **P2's other six items are still to do.**
   mountain door: all pass. Nothing else lands at the Premises or walks the
   pass (`q_spa1_letters` goes straight to Map 42 by `goto`).
 
+**P2, part two - the early maps, done** (7 Oct 2026). The six items left after
+part one, in the order given, one commit each. **P2 is finished.**
+
+* **Door holes** (`build_game.door_holes`, a pass after every module like
+  `shape_wall_tops`). A `!Door1` sprite's open frames are see-through, so an
+  opened door showed the wall it was painted on. Every door sprite set in an
+  A3 wall now has the sheet's doorway under it on layer 3, as the sample lays
+  it under all of its own: Outside_B 132 (`mapkit.DOORWAY_DARK`) and
+  SF_Outside_B's `Entrance A`. The Safety Valve's canopy already has layer 3,
+  so its doorway is on 2, under the star. 36 doors on 15 maps, one cell each;
+  the Churchyard Gate, in a fence, is left opening onto grass. The doorway is
+  open ground, so the player's step forward after the door opens now really
+  steps into it before the transfer - one more step, the same destination.
+* **Shadows** (`build_game.cast_shadows`): there were none in the game. The
+  sample's rule, `ROOMGEN2-CORPUS.md` 1.20 - the left half of a cell whose
+  west and north-west neighbours are A4 wall - which reproduces 83 of its 99
+  interiors exactly. Layer 4 only, on all 47 maps on tilesets 3, 4 and 6.
+* **The forest rings.** `TREE_DARK` is not a darker tree but the sheet's
+  forest canopy, a block that only tiles with itself; alternated with `TREE`
+  it was a whole tree, then four quarter-trees cut off square. Six towns had
+  it (Thistlewick, Nether Sopping, Firstfield, Penultima, Restwell, Little
+  Gore); they are all `TREE` now, as Gladhollow already was. The Gloamwood's
+  outer wood mixed the two over the whole map and is all canopy now, like
+  its Deep. The sample never lays the canopy on Outside at all; `mapkit.py`
+  says so at the constant. A whole tree's crown is a star, so the ring's
+  crown cells are walkable behind the leaves, as Gladhollow's always were;
+  Map 9's region layer loses the 232 crown cells the canopy now covers.
+* **Invisible walls** - a new `validate.py` check (the workspace's): a page
+  at "same as characters", not through, with no picture, on open ground the
+  flood reaches, with nothing on layers 1-3 and no other event drawn on the
+  cell. BasicSample: none. Here it found four props and the Guild's mat:
+  the **Obligatory Tower's basin** and the **Pit's hamper** were text on bare
+  floor - the Dungeon sheets have neither, so tileset 4 borrows Inside_C into
+  its empty E slot (tileset 3's flags, as SF Inside and Outside already do)
+  for `Large Basin` and `Basket A` (`mapkit.DGE_BASIN`, `DGE_HAMPER`); the
+  **lighthouse's ledger** and **Penultima's parish notice** were each one
+  cell above the desk and the barrel they describe, and moved onto them.
+  The Worm (decided in ROL-2: never drawn) and Mr Pocock (a voice in the
+  dark) are meant, and say `<unseen>` in their notes. Thistlewick's anvil
+  is one event and Beatrice another on the same cell, which is why a
+  picture on any event on the cell counts. **`build_tilesets` now runs
+  first**: `paint_regions` reads the flags on disk, and run last, a
+  tileset change took two builds to settle.
+* **The Guild** (Map 15), relaid as a registry office: Pell behind a
+  five-table counter (he is at (9,5) now and talked to across it), the
+  register and a scroll on it and the world map behind him; the bounty
+  board three posted notices on the wall where it was one under crossed
+  swords; the Filing a long bookcase, a tall one and a chest of drawers,
+  where it was a **shield** - which is what "a shield standing in for a
+  sign" was taken to mean, the thing you read being a shield - and the
+  "cabinet" beside it was a bread shelf; a bench for the queue; a table for
+  filling the forms in at; the Charter a stone tablet by the door; a sword
+  rack and a barrel in the corner. **The mat is drawn** - a one-cell rug on
+  the floor-art layer, in the doorway - and is "below characters", searched
+  by standing on it, where it was an invisible wall at (8,10). Outside, the
+  Guild's second sign was the **eatery's plate**; it is `Shop Sign (Crest)`.
+  Positions are `south.GUILD_*`. Cropped with `propsheet.py` after: twenty
+  tiles, each what it is named. **If Mike meant the shield as something
+  else** - the crest sign outside is a shield-like badge too - it is one line.
+* **Bram's sword** was never drawn: event 4 sits on the hearth because
+  nobody can stand next to the wall. **Map 2 event 7** is the picture, Inside_C
+  `Sword A` on the wall above the mantel at (10,2). Event 4's take page
+  switches it off as its first command, so the sword leaves the wall as "The
+  sword comes off the wall" appears - one non-dialogue command added to that
+  page, no line changed - and event 7's parallel page watches event 4's
+  switch A for a save made after the sword was taken, then retires.
+* **Not touched**: `TREE_DARK` elsewhere (only the Deep and the Gloamwood use
+  it now), and the buff/debuff `value1`/`value2` question from P1, which is
+  Mike's.
+* **Scenarios**, chosen by what each change reaches. Shadows are layer 4
+  and change nothing a walk can meet. The door holes add a step into the
+  doorway after any town door opens; the rings change what is walkable at a
+  town's edge and inside the Gloamwood; the Guild and Bram's house changed
+  under two scenarios each. So: everything that walks Maps 1, 2, 13, 15, 28
+  or 31 by key (`reachable_home`, `reachable_village`, `q_hob2`, `q_hob3`,
+  `q_wre5`, `reachable_sopping`, `q_mer2`, `guild`, `firstfield_graduation`,
+  `q_spa1_letters`), `opening` and `q_nix3` for the sword and the Guild, and
+  the door walks of `reachable_clanging` (the canopy door), `restwell`,
+  `hamlets`, and `ashcombe` and `dunnage_company` for the two doors that
+  refuse. Nothing walks Map 9 by key. `guild` now walks onto the mat and
+  presses Enter instead of starting the event. RESULTS
+
 ---
 
 ## Restart prompt
 
-**Start with P2, the early maps** (Part G, "Before G: the playtest round",
-7 Oct 2026), not G1. **P1 is done** (the NIX-5 Mothballs and PIP-3 solo,
-7 Oct; its Done paragraph is the last in section 3, and it found a
-game-wide buff bug that waits on Mike's word, not on P2). Mike's playtest
-list goes in first, in the order written there: P1, P2 the early maps - the
-door holes, interior shadows, the forest ring, the blocking-invisible-event
-check, the Guild, Bram's sword (Mike's Door and island are **done**, P2 part
-one, the last Done paragraph) - P3
-Olde Evermore's elves,
-P4 the post-game with the Door into the Mountain and G1's ending lines. G0,
-the quest log, follows its plugin (`../QUESTLOG.md` Q0-Q7, a parallel effort
-in `trial-chamber`). Last come G1's counter re-cuts, the one full suite,
-Mike's playthrough, and the push. Read Part G's playtest round and the step's
-own bullet; the paragraph below is still the plan for G1's ending lines,
-which are written in P4.
+**Start with P3, Olde Evermore's elves** (Part G, "Before G: the playtest
+round", 7 Oct 2026), not G1. **P1 and P2 are done**: P1 the NIX-5 Mothballs
+and PIP-3 solo; P2 the early maps in two parts - Mike's Door and island,
+then the door holes, interior shadows, the forest rings, `validate.py`'s
+invisible-wall check and the four props it found, the Guild relaid, and
+Bram's sword on the wall (the last two Done paragraphs in section 3). P1
+found a game-wide buff bug that waits on Mike's word. What is left of Mike's
+playtest list, in order: P3 Olde Evermore needs more elves about doing
+things (Maps 38-39, `evermore.py` - read `SITES.md` step 4's Done paragraph
+and `evermore.py`'s docstring, which says what it may not contradict);
+then P4 the post-game with the Door into the Mountain and G1's ending
+lines. G0, the quest log, follows its plugin (`../QUESTLOG.md` Q0-Q7, a
+parallel effort in `trial-chamber`). Last come G1's counter re-cuts, the
+one full suite, Mike's playthrough, and the push. Read Part G's playtest
+round and the step's own bullet; the paragraph below is still the plan for
+G1's ending lines, which are written in P4.
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick` with **step G1, the ending**
@@ -4266,3 +4349,15 @@ Things learned that will bite again:
 * **To reach a choice in a scenario, set `window._pick`** (the hook in the
   setup eval wraps `setChoices`' default) and `advance` through: no counting
   presses to the choice window (F1's idiom, F4).
+* **A tileset change took two builds to settle**: `paint_regions` reads
+  `Tilesets.json` off disk, and `build_tilesets` ran last. It runs first now;
+  after any flag or slot change, build twice and `cmp` anyway (P2).
+* **A searchable thing with no picture is an invisible wall** unless a tile
+  draws it on its own cell - and twice the tile was one cell away.
+  `validate.py` reports it now; `<unseen>` in the note says it is meant (P2).
+* **`TREE_DARK` is forest canopy**, only for a solid wood; a ring of trees is
+  all `TREE` (P2).
+* **An event can be a picture with a parallel watcher** when the thing taken
+  is on a cell nobody can stand beside: the take page switches the picture's
+  self switch, and the watcher covers saves from before the picture (Bram's
+  sword, P2).

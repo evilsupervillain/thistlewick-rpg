@@ -584,7 +584,10 @@ def home_events():
         3, "Mother", 10, 8, intro, "People1", 5, direction=8)))
 
     # The sword over the fireplace: available once the Elder has said the words.
-    take = S.narrate([
+    # Its picture is event 7, which goes as the sword comes off the wall (P2).
+    take = R.script(["$gameSelfSwitches.setValue([this._mapId, %d, 'A'], true);"
+                     % HOME_SWORD_PICTURE])
+    take += S.narrate([
         "The sword comes off the wall with a sound",
         "you can only describe as smug."])
     take += [R.play_me("Item"), R.gain_weapon(db.WP_SWORD, 1)]
@@ -616,7 +619,25 @@ def home_events():
         "turnips.",
         "Not one of them is holding a sword.",
         "You are going to be the odd one out."]))
+
+    # The sword itself, on the wall above the mantel (P2: there was nothing
+    # there to take). Event 4 is where it is taken from, on the hearth below,
+    # because nobody can stand next to the wall; this is only the picture.
+    # The take page switches it off; the watcher is for a save made after the
+    # sword was taken and before the picture existed, and then retires.
+    watch = R.script([
+        "if ($gameSelfSwitches.value([this._mapId, 4, 'A']))",
+        "  $gameSelfSwitches.setValue([this._mapId, this._eventId, 'A'], true);"])
+    evs.append(R.event(HOME_SWORD_PICTURE, "The Sword (on the wall)", 10, 2, [
+        R.page(watch, img=R.image(tile_id=K.sf_tile("Inside_C", "Sword A")),
+               trigger=4, priority=0, direction_fix=True, through=True),
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True,
+               conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
+    ]))
     return evs
+
+
+HOME_SWORD_PICTURE = 7
 
 
 def hall_map():

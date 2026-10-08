@@ -16,7 +16,25 @@
       "label": "Pell has explained Form A-1"
     },
     {
-      "eval": "$gamePlayer.locate(9, 10); $gameMap.event(4).start()"
+      "eval": "$gamePlayer.locate(9, 11); $gamePlayer.setDirection(2)"
+    },
+    {
+      "frames": 30
+    },
+    {
+      "key": "ArrowDown",
+      "gap": 30
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [
+        9,
+        12
+      ],
+      "label": "the mat is in the doorway, and walked onto (P2)"
+    },
+    {
+      "key": "Enter"
     },
     {
       "advance": 30

@@ -251,6 +251,8 @@ TS_CLANGING                  5
 TS_CLANGING_IN               6
 SF_CLOCK_TOWER               (12, 3)
 SF_ROOF                      (13, 12)
+DGE_BASIN                    borrowed('Inside_C', 'Large Basin')
+DGE_HAMPER                   borrowed('Inside_C', 'Basket A')
 IN_TABLE_WOOD                sf_tile('Inside_B', 'Table D')
 IN_STOOL_SQUARE              sf_tile('Inside_B', 'Stool C')
 IN_BARREL_WOOD               sf_tile('Inside_B', 'Barrel')
