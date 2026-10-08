@@ -219,6 +219,41 @@ def shape_wall_tops():
             R.save_map(map_id, m)
 
 
+# The shadow layer's value for the left half of a cell: quarter bits 1 2 / 4 8.
+SHADOW_LEFT = 1 | 4
+
+
+def cast_shadows():
+    """Shadows every interior the way the sample's are: the left half of a
+    cell whose west and north-west neighbours are both wall, if it is not wall
+    itself. A wall is drawn seen from in front, so it darkens the floor below
+    and to the right of it, and the top course casts nothing - which is why
+    north-west is asked as well as west. That rule reproduces 83 of the
+    sample's 99 interiors cell for cell (`../ROOMGEN2-CORPUS.md` 1.20); the
+    rest are an author's hand. Runs after every module, like
+    `shape_wall_tops`. Wall is any A4 tile on layer 0, top or face."""
+    def is_wall(t):
+        return R.TILE_ID_A4 <= t < R.TILE_ID_MAX
+    for map_id, _, _ in MAP_NAMES:
+        m = R.load_map(map_id)
+        if m["tilesetId"] not in INTERIOR_TILESETS:
+            continue
+        w, h = m["width"], m["height"]
+        data = list(m["data"])
+
+        def wall(x, y):
+            return 0 <= x < w and 0 <= y < h and is_wall(data[y * w + x])
+        for y in range(h):
+            for x in range(w):
+                cell = 4 * w * h + y * w + x
+                if (data[cell] == 0 and not wall(x, y)
+                        and wall(x - 1, y) and wall(x - 1, y - 1)):
+                    data[cell] = SHADOW_LEFT
+        if data != m["data"]:
+            m["data"] = data
+            R.save_map(map_id, m)
+
+
 # The black opening a town door swings away from, by tileset. A `!Door1`
 # sprite's open frames are see-through, so with nothing under it an opened
 # door showed the wall it was painted on. The Outside sheet's is the tile the
@@ -616,6 +651,7 @@ def main():
     q_spare.check_couriers()            # F2's courier ids are the towns'
     shape_wall_tops()
     door_holes()
+    cast_shadows()
     build_map_infos()
     build_tilesets()
     build_system()
