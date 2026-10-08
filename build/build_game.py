@@ -219,6 +219,53 @@ def shape_wall_tops():
             R.save_map(map_id, m)
 
 
+# The black opening a town door swings away from, by tileset. A `!Door1`
+# sprite's open frames are see-through, so with nothing under it an opened
+# door showed the wall it was painted on. The Outside sheet's is the tile the
+# sample lays on layer 3 under every one of its `!Door1` events; SF Outside
+# has its own.
+DOORWAY = {
+    mapkit.TS_OUTSIDE: mapkit.DOORWAY_DARK,
+    mapkit.TS_COLLEGIUM: mapkit.DOORWAY_DARK,
+    mapkit.TS_CLANGING: mapkit.sf_tile("SF_Outside_B", "Entrance A"),
+}
+
+
+def door_holes():
+    """Puts a dark doorway under every door sprite set in a town wall. Runs
+    after every module, like `shape_wall_tops`, so a door added anywhere gets
+    one.
+
+    Only doors in an A3 wall: a gate in a fence opens onto grass, which is
+    right. The doorway goes on layer 3, as the sample's do, or on the highest
+    layer still free - the Safety Valve has a canopy over its door on 3, and a
+    star tile draws over the doorway whichever layer that is on. The tile is
+    open (`0x600`), so the step through the opened door now really is a step
+    into the doorway; the closed door still blocks the cell, being an event at
+    "same as characters"."""
+    for map_id, _, _ in MAP_NAMES:
+        m = R.load_map(map_id)
+        hole = DOORWAY.get(m["tilesetId"])
+        if hole is None:
+            continue
+        w, h = m["width"], m["height"]
+        data = list(m["data"])
+        for ev in m["events"]:
+            if not ev or not ev["pages"][0]["image"]["characterName"].startswith("!Door"):
+                continue
+            cell = ev["y"] * w + ev["x"]
+            if not R.TILE_ID_A3 <= data[cell] < R.TILE_ID_A4:
+                continue
+            free = [z for z in (3, 2, 1) if data[z * w * h + cell] == 0]
+            if not free:
+                raise ValueError("Map%03d %s: no free layer for a doorway"
+                                 % (map_id, ev["name"]))
+            data[free[0] * w * h + cell] = hole
+        if data != m["data"]:
+            m["data"] = data
+            R.save_map(map_id, m)
+
+
 def build_tilesets():
     """`Tilesets.json` is the one data file this game inherits rather than
     authors, so the edits it needs are written here, by id, and OR-ed in - the
@@ -568,6 +615,7 @@ def main():
     q_spare.build()                     # SPA-2's culvert, Map 70
     q_spare.check_couriers()            # F2's courier ids are the towns'
     shape_wall_tops()
+    door_holes()
     build_map_infos()
     build_tilesets()
     build_system()
