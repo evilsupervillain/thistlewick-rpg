@@ -135,6 +135,25 @@ line in `journey.finale_event`:
   which P4c's Quy reads. A page added to Grimspite after this goes *after*
   page 6, or it has to carry it.
 
+**P4b put Thistlewick, the pension and Roland after it**, all in
+`postgame.py` again and hooked by one line each from `village.py`,
+`south.py`, `dunnage.py` and `q_roland.py`. Two things in it are patterns:
+
+* **`postgame._owing`** is how a post-game page goes on top of a ladder whose
+  terminal switch the post-game cannot wait on (NIX-4's owners, NIX-3's door,
+  Ysolde). The page is appended, so it wins; it asks, with the engine's own
+  `meetsConditions`, which page the ladder below would have shown, and if
+  that page still owes the player a beat it plays it word for word instead.
+  Nothing is shadowed, and nothing is reordered.
+* **Roland comes back through `story.recruit`'s own returning page**, on
+  `SW_WON` and `SW_ROLAND_GONE`, with a "with you" page on `SW_RECRUIT` and
+  `SW_ROLAND_BACK` after it. `SW_ROLAND_GONE` stays on for good; the tower
+  door's last page is keyed on it and is the door without the departure, so
+  he never leaves twice. Before the ending that page is the same door.
+  `hand_back` clears `SW_ROL5_ON` for anyone who told Maud, so that her
+  telling after the ending (on `SW_ROL5_ON` and `SW_WON`) is shown only while
+  it is owed.
+
 Anything that runs the finale's list directly must skip code **201** as well
 as 354, or the run lands in Bram's house. Both harnesses (`finale_ending`'s
 `SKIP_SLOW` and `premises`') do.
@@ -328,7 +347,11 @@ Append instead.
   **variable 31** the party set aside while Spare is in the culvert alone
   (an array; 0 otherwise), on **Map 70**; Cotter's pages 5-6 (Map 61 event 12).
   **The post-game** (`POSTGAME.md`): **switch 214** `SW_GRIMSPITE_TEA`, Bram
-  had the cup at the top (P4a); Grimspite's page 6 (Map 12 event 2) |
+  had the cup at the top (P4a); Grimspite's page 6 (Map 12 event 2). P4b:
+  **switches 215-218** been in Fitch's cottage, Roland rehired after the
+  ending, ROL-5 told after it, the sword out of Carn Drey handed on; **item
+  76** A Key, Labelled (75 is P4d's lamp, still free); **Map 71**; the
+  letter is Map 2 event 8, the frame and the minute book Map 3 events 13-14 |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -470,6 +493,10 @@ Append instead.
   `q_spare.py`; `places.MAP_CULVERT`. In from Cotter's page, by way of the
   basin's south end, `places.CULVERT_STEP` on Map 61, where the party waits;
   out by the ladder it arrives under, to the same cell |
+| Map 71 | Ambrose Fitch's cottage in Nether Sopping, behind the shut "A Front
+  Door" (Map 13 event 15), which clause nineteen's key opens after the ending
+  (P4b). Drawn by `south.fitch_map`, its events from `postgame.py`;
+  `places.MAP_FITCH`. Out to `places.FITCH_STEP` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -906,6 +933,18 @@ makes eight passes over it cost less than the single pass did before.
   It was 41 on 29 sites; the last two, Village 1's, became Much Pottering in
   `QUESTS.md` F3, and the walk onto them moved to `q_spa4_penpal`. What is left
   is the count at nought, and the six `<aironly>` assertions |
+| `pg_home` | `POSTGAME.md` P4b, the morning after: the letter on the mat
+  walked onto and read (the pension once, the key), Mother before and after
+  it, the five villagers, Elder Wispel, the forty-eighth frame and the Wall
+  walked to, the minute book's SEE BRAM, the Regular, the front door into
+  Ambrose Fitch's cottage and everything in it walked to, and Ysolde - with
+  NIX-4's, NIX-3's and Ysolde's owed beats each asserted to play first |
+| `pg_roland` | `POSTGAME.md` P4b, Roland: he leaves at the door with nothing
+  on and the door is then its own page; after the ending, rehired at his
+  table in his own shield and shirt, struck off and back, up the tower and
+  not called away, the drawn sword kept at the door, ROL-3 started, ROL-5
+  told after the ending, his pitch with Maud's news, and ROL-4's mark with
+  the sword handed back |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the
@@ -1090,6 +1129,12 @@ which is the one deliberate thing in it.
   character has nothing left owing" - for Ott, `SW_OTT_MATERIALS`, the last
   thing the flying chain sets - and require it on every appended page.
   Reordering is not a fix; it only chooses which ladder dies.
+* **A tile picture on an event is a tile for passage.** `Game_Map.allTiles`
+  counts the tile of every event whose picture is a tile, through or not and
+  whatever its priority, so a "below characters" letter drawn as `Envelope`
+  (flagged blocked) sealed Bram's doormat. Something meant to be walked onto
+  is a character sprite (`postgame.draw_art` cuts one from the tile).
+  `validate.py` does not see it on a page that only exists later.
 * Dialogue lives in `village.py` / `journey.py` next to the event that says it,
   not in a strings table - it is read far more often than it is reused.
 * Colour codes in text: `\C[6]` for a speaker's name, `\C[3]` for a thing you

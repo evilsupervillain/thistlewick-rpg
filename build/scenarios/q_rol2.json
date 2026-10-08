@@ -530,7 +530,7 @@
    "label": "strictly better than Fairweather's Own"
   },
   {
-   "eval": "$gameSwitches.setValue(204, true)"
+   "eval": "$gameSwitches.setValue(204, true); $gameSwitches.setValue(21, false)"
   },
   {
    "frames": 5
@@ -538,7 +538,7 @@
   {
    "check": "$gameMap.event(4).findProperPageIndex()",
    "expect": 3,
-   "label": "with ROL-5 done as well: both, on two switches"
+   "label": "with ROL-5 done as well, and before he has gone: both, on two switches"
   },
   {
    "check": "SceneManager._scene.constructor.name",

@@ -23,6 +23,10 @@ P4a (this step) is the hand-back and G1's ending lines:
   with a kettle, and offers the tea Halbert Quy turned down.
 """
 
+import copy
+import os
+import sys
+
 import db
 import places
 import rmmzdata as R
@@ -330,6 +334,10 @@ def hand_back():
     takes over on arrival."""
     c = [R.fadeout_bgm(2), R.wait(60)]
     c += S.narrate(["The next morning there are still turnips."])
+    # P4b: Maud's "to tell her?" is settled for anyone who told her, so
+    # her page for a telling after the ending (`q_roland`) can key on it.
+    c += R.if_then(R.condition_switch(db.SW_ROL5_DONE),
+                   [R.control_switch(db.SW_ROL5_ON, False)])
     c += [R.recover_all(),
           R.transfer(places.MAP_HOME, HOME_X, HOME_Y, direction=2, fade=2),
           R.wait(30), R.fadein_screen()]
@@ -372,3 +380,469 @@ def grimspite_afterwards():
     return R.page(c, img=R.image("Evil", 6, direction=2), trigger=0,
                   priority=1, direction_fix=True,
                   conditions={"switch1Valid": True, "switch1Id": db.SW_WON})
+
+
+# ===================================================================== P4b ==
+# Thistlewick, the pension, and Roland (POSTGAME.md 3a-5). Thistlewick is
+# delighted, proud, and very keen that Bram should enjoy the coast, and
+# never notices the calendar (TIMELINE.md 1).
+WON = {"switch1Valid": True, "switch1Id": db.SW_WON}
+
+
+def _like(dress, cmds, conditions):
+    """A page in exactly another page's dress, with its own commands and
+    conditions."""
+    shaped = R.page(cmds, conditions=conditions)
+    page = copy.deepcopy(dress)
+    page["list"] = shaped["list"]
+    page["conditions"] = shaped["conditions"]
+    return page
+
+
+def _shows(n, i):
+    """A script condition: of this event's first `n` pages, the ladder would
+    show page `i`. Found the way `Game_Event.refresh` finds it - the last
+    page whose conditions hold - so a page appended above a ladder can still
+    hand over to a page under it that owes the player a beat."""
+    return ("(e => { const p = e.event().pages; for (let i = %d; i >= 0; i--)"
+            " if (e.meetsConditions(p[i])) return i; return -1; })"
+            "($gameMap.event(this._eventId)) === %d" % (n - 1, i))
+
+
+def _owing(ev, owed, body):
+    """`body`, unless the ladder below would show one of the `owed` pages,
+    which then runs instead, word for word. `owed` is (index, extra js or
+    None) pairs; the js narrows when a page still owes its beat.
+
+    This is how a post-game page goes on somebody whose ladder ends in a
+    switch the post-game cannot wait on (`QUESTS.md` 0.2): NIX-4's owners,
+    NIX-3's door, Ysolde. The page does not shadow the beat it sits on top
+    of; it plays it."""
+    n = len(ev["pages"])
+    c = list(body)
+    for i, js in reversed(owed):
+        test = _shows(n, i) + (" && " + js if js else "")
+        c = R.if_then(R.condition_script(test), ev["pages"][i]["list"][:-1],
+                      c)
+    return c
+
+
+# ------------------------------------------------------- the letter, Map 2 --
+def letter_event(event_id, x, y):
+    """The letter on the mat, just inside Bram's front door (Map 2): nothing
+    before the ending; the Committee's envelope after it; and nothing once
+    it has been picked up. Below characters, on a square the player stands
+    on, so it is read from the mat.
+
+    The envelope is a character sprite (`LETTER_SHEET`), **not** a tile
+    picture: `Game_Map.allTiles` counts the tile of every tile-picture event
+    on a square, through or not, and `Envelope` is flagged blocked, so as a
+    tile it sealed the mat and the doorway with it."""
+    read = S.narrate([
+        "A letter on the mat, in the Committee's envelope, with",
+        "the Committee's seal. Somebody has polished the seal."])
+    read += S.narrate([
+        "\\C[6]PROPHECY OF THISTLEWICK - CLAUSE NINETEEN\\C[0]",
+        "With the Committee's congratulations on your return.",
+        "Enclosed: your pension, and the key to a cottage at",
+        "Nether Sopping, at such distance as is mutually agreeable."])
+    read += S.narrate(["We trust Friday will suit."])
+    read += [R.gain_gold(db.PENSION), R.gain_item(db.IT_COTTAGE_KEY, 1),
+             R.play_me("Item")]
+    read += S.got(["Got %d\\G and \\I[195]\\C[3]A Key, Labelled\\C[0]."
+                   % db.PENSION])
+    read += S.narrate(["The pension is one quarter, in advance.",
+                       "There is no mention of the next one."])
+    read += [R.self_switch("A", True)]
+    blank = dict(img=R.image(""), trigger=0, priority=0, through=True)
+    return R.event(event_id, "The Letter on the Mat", x, y, [
+        R.page([], **blank),
+        R.page(read, img=R.image(LETTER_SHEET, 0, direction=2), trigger=0,
+               priority=0, direction_fix=True, conditions=WON),
+        R.page([], conditions=dict(WON, selfSwitchValid=True,
+                                   selfSwitchCh="A"), **blank),
+    ])
+
+
+def mother(ev):
+    """Mother (Map 2, event 3), afterwards. Her ladder ends in NIX-4's self
+    switch, so NIX-4's page plays when it is still owed (`_owing`)."""
+    before = S.say("Mother", [
+        "Morning, love. There's a letter come.",
+        "It's on the mat. It's from the Committee.",
+        "I haven't opened it. I've looked at it."])
+    after = S.say("Mother", [
+        "A cottage! By the sea!"])
+    after += S.narrate(["She is very proud. She has her hands together."])
+    after += S.say("Mother", [
+        "You'll want your good shirt.",
+        "I ironed it Tuesday."])
+    body = R.if_then(R.condition_item(db.IT_COTTAGE_KEY), after, before)
+    ev["pages"].append(_like(ev["pages"][0], _owing(ev, [(1, None)], body),
+                             WON))
+    return ev
+
+
+# ------------------------------------------------------- Thistlewick, Map 1 --
+def old_man(ev):
+    """The Old Man (Map 1, event 13), whose boy was the Forty-Seventh: short,
+    and the one villager not in on the coast (Mike, 8 Oct 2026). NIX-4's
+    page plays when it is still owed."""
+    body = S.say("Old Man", ["You came back."])
+    body += S.narrate(["He takes your hand, and holds on to it for a while."])
+    body += S.say("Old Man", ["Good lad. That's all. Good lad."])
+    ev["pages"].append(_like(ev["pages"][0], _owing(ev, [(1, None)], body),
+                             WON))
+    return ev
+
+
+def child_page(dress):
+    """The child who heard about the dungeon (Map 1, event 12), on the
+    terminal self switch A: the news, at volume, again."""
+    c = S.say("Child", ["Have you HEARD?",
+                        "You're going to the SEASIDE!"])
+    c += S.say("Child", ["My mum says it's LOVELY and you'll",
+                         "NEVER want to come BACK!"])
+    c += S.narrate(["You have heard.",
+                    "You will hear again."])
+    return _like(dress, c, dict(WON, selfSwitchValid=True, selfSwitchCh="A"))
+
+
+def board_page(dress):
+    """The notice board (Map 1, event 11), on its terminal self switch A."""
+    c = S.narrate([
+        "\\C[6]THISTLEWICK NOTICE BOARD\\C[0]",
+        "- FAREWELL TEA for B. Thistle, the Forty-Eighth.",
+        "  Friday. Bring a plate.",
+        "- LOST: one goat. Answers to Councillor. Still."])
+    return _like(dress, c, dict(WON, selfSwitchValid=True, selfSwitchCh="A"))
+
+
+def interpreter_page(dress):
+    """The man who speaks for the dog (Map 1, event 15): one page, no ladder."""
+    c = S.say("Neighbour", [
+        "He says well done.",
+        "He says the coast is very windy and",
+        "you should take a coat."])
+    c += S.narrate(["The dog has not made a sound."])
+    c += S.say("Neighbour", ["He says it again. Louder."])
+    return _like(dress, c, WON)
+
+
+# ------------------------------------------------------ Prophecy Hall, Map 3 --
+def wispel_page(dress):
+    """Elder Wispel (Map 3, event 2), who chairs the Committee, on his
+    terminal `SW_QUEST`: the hero back, the Receipt, and the sea air."""
+    c = S.say("Elder Wispel", ["Bram Thistle! The Forty-Eighth!",
+                               "Back!"])
+    c += S.narrate(["He shakes your hand with both of his."])
+    c += S.say("Elder Wispel", ["And that's the receipt? May I?"])
+    c += S.narrate(["He holds the Receipt up to the window, the way you",
+                    "would a banknote."])
+    c += S.say("Elder Wispel", ["Renewable. What a lovely hand."])
+    c += R.if_then(
+        R.condition_item(db.IT_COTTAGE_KEY),
+        S.say("Elder Wispel", [
+            "You'll have had the letter.",
+            "Clause nineteen. Sea air, Bram. Sea air",
+            "is the thing. You've earned it. It's a",
+            "long way, and you've earned that as well."]),
+        S.say("Elder Wispel", [
+            "There's a letter at home for you.",
+            "Clause nineteen. Sea air, Bram. Sea air",
+            "is the thing."]))
+    return _like(dress, c, dict(WON, switch2Valid=True,
+                                switch2Id=db.SW_QUEST))
+
+
+def frame_event(event_id, x, y, pip1_done):
+    """The forty-eighth frame on the Wall of the Forty-Seven (Map 3): a bare
+    space under the forty-seventh until the ending, then an empty frame with
+    a card in it. PIP-1's card was pinned in the space; it is still there."""
+    c = S.narrate([
+        "At the end of the forty-seven, a forty-eighth frame,",
+        "new, and empty. A card is pinned in it:",
+        "PORTRAIT TO FOLLOW. SITTER AT THE COAST."])
+    c += R.if_then(R.condition_switch(pip1_done), S.narrate([
+        "The Quills' card is tucked into the corner of the",
+        "frame, to make room."]))
+    return R.event(event_id, "The Forty-Eighth Frame", x, y, [
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True),
+        R.page(c, img=R.image(FRAME_SHEET, 0, direction=2), trigger=0,
+               priority=1, direction_fix=True, conditions=WON),
+    ])
+
+
+def minute_book(event_id, x, y, book_tile):
+    """The Committee's minute book (Map 3), open on the table by the door
+    once the ending has been minuted. Clause twelve's note, as the tally
+    has it; clause nineteen, which still applies."""
+    c = S.narrate(["The Committee's minute book, open at this week."])
+    c += S.narrate([
+        "ITEM 3. Clause twelve. Struck, nem. con. In its",
+        "place, a note: SEE BRAM.",
+        "ITEM 4. Clause nineteen. Applies. Letter sent,",
+        "cottage aired. Friday suggested."])
+    c += S.narrate([
+        "ITEM 5. Councillor Fenn wished it minuted that he",
+        "had been saying so. Minuted."])
+    return R.event(event_id, "The Minute Book", x, y, [
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True),
+        R.page(c, img=R.image(tile_id=book_tile), trigger=0, priority=1,
+               direction_fix=True, conditions=WON),
+    ])
+
+
+# ------------------------------------------------------ the Gilded Turnip --
+def regular_page(dress):
+    """The Regular (Map 4, event 5), whose cousin was the Thirty-Ninth: one
+    page, no ladder. He drinks, as before."""
+    c = S.say("Regular", ["Here he is! The Forty-Eighth!"])
+    c += S.narrate(["He drinks."])
+    c += S.say("Regular", ["Coast, is it? Sea air."])
+    c += S.narrate(["He drinks again."])
+    c += S.say("Regular", ["Lovely coast, apparently."])
+    return _like(dress, c, WON)
+
+
+# --------------------------------------------- Nether Sopping and the cottage --
+# Not "next door": next door, to the west, is Number Forty-Five's.
+FITCH_NEIGHBOUR = "MRS PIMM, WHO HAS THE OTHER KEY"
+
+
+def fitch_door(ev, arrive):
+    """Nether Sopping's shut "A Front Door" (Map 13, event 15) with the key.
+    The published page stays first. NIX-3's page plays when Nix still owes
+    it the pot (its self switch A is the pot located)."""
+    first = S.narrate([
+        "The Committee's key goes into somebody's front door, and",
+        "turns, after some thought."])
+    first += [R.control_switch(db.SW_COTTAGE_SEEN, True)]
+    go = R.if_then(R.condition_switch(db.SW_COTTAGE_SEEN, False), first)
+    go += [R.play_se("Open1"), R.play_se("Move1"),
+           R.transfer(places.MAP_FITCH, *arrive, 8, 0)]
+    owed = [(1, "!$gameSelfSwitches.value([this._mapId, this._eventId,"
+                " 'A'])")]
+    ev["pages"].append(_like(ev["pages"][0], _owing(ev, owed, go),
+                             {"itemValid": True,
+                              "itemId": db.IT_COTTAGE_KEY}))
+    return ev
+
+
+def fitch_events(threshold, bed, chair, pot, note, cupboard):
+    """Ambrose Fitch's cottage, Map 71: one room. A bed that rests the party
+    for nothing, his chair turned to the window, a dead thing in a pot, and
+    a note from the neighbour who has kept the key since he died. The
+    neighbour is the old woman NIX-3 met at this door (Mike, 8 Oct 2026);
+    she never appears."""
+    evs = [S.exit_tile(1, "Front Door", *threshold, places.MAP_SOPPING,
+                       *places.FITCH_STEP)]
+
+    sleep = S.narrate(["A bed, made up, with the covers turned down.",
+                       "Somebody has aired it."])
+    sleep += R.choice_block(
+        ["Sleep", "Not now"],
+        [[R.fadeout_screen(), R.play_me("Inn1"), R.recover_all(),
+          R.wait(60), R.fadein_screen()] +
+         S.narrate(["You wake up. You can hear the sea."]),
+         []], cancel=1)
+    evs.append(R.event(2, "The Bed", *bed, [R.page(
+        sleep, img=R.image(""), trigger=0, priority=1, direction_fix=True,
+        through=True)]))
+
+    sat = S.narrate([
+        "Ambrose Fitch's chair, turned to face the window.",
+        "From it you can see the sea."])
+    sat += S.narrate(["Nobody has sat in it since. You don't either."])
+    evs.append(R.event(3, "Fitch's Chair", *chair, [R.page(
+        sat, img=R.image(CHAIR_SHEET, 0, direction=2), trigger=0,
+        priority=1, direction_fix=True)]))
+
+    water = [R.play_se("Water1", 70), R.wait(40)]
+    water += S.narrate(["You water it. It goes on being dead, but it has",
+                        "been watered."])
+    look = S.narrate(["A pot by the window, with a dead thing in it."])
+    look += R.choice_block(["Water it", "Leave it"], [water, []], cancel=1)
+    evs.append(R.event(4, "The Pot by the Window", *pot, [R.page(
+        look, img=R.image(""), trigger=0, priority=1, direction_fix=True,
+        through=True)]))
+
+    evs.append(S.sign(5, "A Note on the Table", *note, [
+        "A note on the table, in pencil, in a careful hand:",
+        "AIRED TUESDAYS. KETTLE IN THE CUPBOARD.",
+        "PLEASE DON'T MOVE HIS CHAIR.",
+        "- " + FITCH_NEIGHBOUR]))
+    evs.append(S.sign(6, "The Cupboard", *cupboard, [
+        "A kettle, a caddy of tea, and one cup."]))
+    return evs
+
+
+def ysolde(ev):
+    """Ysolde Marrow (Map 14, event 4) once Bram has been in the cottage:
+    whichever of her pages is due, and then the pot. Her tale (page 0) and
+    the bench (page 2) still owe the player their beat, so they play
+    instead, and the line waits for the next time."""
+    pot = S.narrate(["You tell her you have been in Ambrose's cottage."])
+    pot += S.say("Ysolde", ["Did you water that thing in the pot?"])
+    pot += S.say("Ysolde", ["He watered it every morning for forty",
+                            "years. It was dead when he bought it.",
+                            "He said it was the principle."])
+    pages = ev["pages"]
+    body = R.if_then(R.condition_script(_shows(len(pages), 3)),
+                     pages[3]["list"][:-1] + pot,
+                     pages[1]["list"][:-1] + pot)
+    pages.append(_like(pages[0], _owing(ev, [(0, None), (2, None)], body),
+                       {"switch1Valid": True,
+                        "switch1Id": db.SW_COTTAGE_SEEN}))
+    return ev
+
+
+# ------------------------------------------------- Roland, the Slain Wyvern --
+def roland_pages(sheet, index):
+    """Roland at his table after the ending (Map 14, event 13), between
+    engagements: two pages after `story.recruit`'s three (POSTGAME.md 3a).
+
+    * **At his table**, on `SW_WON` and `SW_ROLAND_GONE`: his departure left
+      `SW_RECRUIT` on to keep the "gone" page showing, so this has to come
+      after it. It is `story.recruit`'s own returning page - the same join,
+      on `SW_KNOWN`, with no second initialise - with a new pitch.
+    * **With you**, on `SW_RECRUIT` and `SW_ROLAND_BACK`: walk-through and
+      empty, as `recruit`'s own. A roster desk turns `SW_RECRUIT` off and
+      he is back at his table.
+
+    He comes back with nothing on: the departure cleared his equipment onto
+    the grass. So the join puts his own shield and shirt back on him, from
+    the bag if the party has them and new if it has not, into any slot he
+    has empty; the swords stay with whoever has them now, and he says so.
+    The first rehire also notes whether the sword out of Carn Drey was
+    already handed over at the door (`q_roland._after_the_door`)."""
+    first = S.narrate([
+        "Roland is at his table by the fire, in his shirtsleeves,",
+        "with nothing to polish."])
+    first += S.say("Roland", ["Finished? Marvellous.",
+                              "I've never been in the bit after.",
+                              "Is it nice?"])
+    first += R.if_then(R.condition_switch(db.SW_ROL5_DONE),
+                       S.say("Roland", [
+                           "Miss Penhallow walked all this way",
+                           "to tell me how it ends. She told me",
+                           "all of it, in order."]) +
+                       S.say("Roland", ["Then she asked me again whose",
+                                        "prophecy it was."]) +
+                       S.narrate(["He still does not know."]))
+    first += S.say("Roland", ["If you're going on, I'd come.",
+                              "I'll want a sword. I left both of",
+                              "mine with you, if you remember."])
+    again = S.say("Roland", ["Back again? Marvellous.",
+                             "Still between engagements.",
+                             "I'm no good at it."])
+    pitch = R.if_then(R.condition_switch(db.SW_ROLAND_BACK), again, first)
+    accept = S.say("Roland", ["Splendid. I'll fetch the armour."])
+    accept += S.narrate(["It is still polished."])
+    decline = S.say("Roland", ["Quite right. I'll be here,",
+                               "between engagements. I'm told",
+                               "it's restful."])
+    full = S.say("Roland", ["Full! Good. I'll be here,",
+                            "between engagements."])
+    dress = [
+        "const a = $gameActors.actor(%d);" % db.ROLAND,
+        "for (const id of [%d, %d]) {" % (db.AR_KITE_SHIELD, db.AR_CHAIN),
+        "  const it = $dataArmors[id], s = a.equipSlots().indexOf(it.etypeId);",
+        "  if (s < 0 || a.equips()[s]) continue;",
+        "  if ($gameParty.hasItem(it)) a.changeEquip(s, it);",
+        "  else a.forceChangeEquip(s, it);",
+        "}"]
+    after = R.if_then(R.condition_switch(db.SW_ROLAND_BACK, False),
+                      R.if_then(R.condition_switch(db.SW_ROL2_DONE),
+                                [R.control_switch(db.SW_DRAWN_LEFT, True)]))
+    after += R.script(dress)
+    after += [R.control_switch(db.SW_ROLAND_BACK, True)]
+    built = S.recruit(0, db.ROLAND, "Roland", 0, 0, sheet, index,
+                      pitch=[], accept=[], decline=[], full=[], after=after,
+                      again=dict(pitch=pitch, accept=accept, decline=decline,
+                                 full=full))
+    table = built["pages"][1]
+    table["conditions"] = R.page([], conditions=dict(
+        WON, switch2Valid=True, switch2Id=db.SW_ROLAND_GONE))["conditions"]
+    with_you = R.page([], img=R.image(""), trigger=0, priority=1,
+                      through=True,
+                      conditions={"switch1Valid": True,
+                                  "switch1Id": db.SW_RECRUIT[db.ROLAND],
+                                  "switch2Valid": True,
+                                  "switch2Id": db.SW_ROLAND_BACK})
+    return [table, with_you]
+
+
+# =================================================================== art ==
+# The two character sheets `draw_art()` writes. `!$`: an object, one to a
+# sheet, so the frame can be any size.
+FRAME_SHEET = "!$Hall_Frame"        # 48x48: the forty-eighth frame, empty
+LETTER_SHEET = "!$Mat_Letter"       # 48x48: `Inside_C`'s Envelope, on the mat
+CHAIR_SHEET = "!$Fitch_Chair"       # 48x96: a chair, from behind
+PORTRAIT_B = 133                    # `Inside_B`'s gilt frame
+CHAIR_A = (101, 109)                # `Inside_B`'s `Chair A (Wood)`, 1x2
+ENVELOPE = 81                       # `Inside_C`'s `Envelope`
+
+
+def draw_art():
+    """Writes `FRAME_SHEET`, `CHAIR_SHEET` and `LETTER_SHEET`. Not part of the data build,
+    like `fenmarch.draw_art()`: run this module to redraw them.
+
+    * The frame is `Portrait B`'s gilt frame with nothing in it - the
+      canvas painted out to plain board - and a small white card.
+    * The letter is `Inside_C`'s `Envelope`, as it is: a sprite, so that it
+      does not lend the mat its blocked passage (`letter_event`).
+    * The stock `Chair A` only faces south. Seen from behind, a high-backed
+      chair is its back all the way down to the seat rail and then four
+      legs, so the planks are carried down over the seat, the front's
+      handle slot is painted out, and the whole is put in its own shadow."""
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..",
+                                    "tools", "chargen"))
+    import numpy as np
+    import png
+    game = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+    sheet = png.read(os.path.join(game, "img", "tilesets", "Inside_B.png"))
+    sheet_c = png.read(os.path.join(game, "img", "tilesets", "Inside_C.png"))
+
+    def tile(tid, sheet=sheet):
+        x = ((tid // 128) % 2 * 8 + tid % 8) * 48
+        y = ((tid % 256) // 8 % 16) * 48
+        return sheet[y:y + 48, x:x + 48].astype(float)
+
+    frame = tile(PORTRAIT_B)
+    frame[9:40, 11:37] = (108, 92, 70, 255)          # bare board
+    frame[9:11, 11:37] = (84, 70, 52, 255)           # the frame's shadow on it
+    frame[26:35, 17:31] = (240, 236, 222, 255)       # the card
+    frame[28, 19:29] = (90, 84, 76, 255)
+    frame[31, 19:27] = (90, 84, 76, 255)
+
+    front = np.concatenate([tile(CHAIR_A[0]), tile(CHAIR_A[1])])
+    chair = np.zeros_like(front)
+    chair[0:22] = front[0:22]                   # the crest and the posts
+    chair[13:18, 14:34] = front[11, 14:34]      # no handle slot at the back
+    chair[22:56] = front[22:56]                 # the planks, carried down
+    chair[56:70] = front[36:50]                 # over where the seat was
+    chair[70:76] = front[56:62]                 # to the seat rail
+    for x0, x1 in [(0, 7), (41, 48)]:           # and then only the legs
+        chair[76:88, x0:x1] = front[62:74, x0:x1]
+    lit = chair[..., 3] > 0
+    chair[lit, :3] *= 0.82
+
+    def one(f, fw, fh):
+        out = np.zeros((fh * 4, fw * 3, 4))
+        for r in range(4):
+            for c in range(3):
+                out[r * fh:(r + 1) * fh, c * fw:(c + 1) * fw] = f
+        return np.clip(out, 0, 255).round().astype(np.uint8)
+
+    letter = tile(ENVELOPE, sheet_c)
+    for name, img in [(FRAME_SHEET, one(frame, 48, 48)),
+                      (LETTER_SHEET, one(letter, 48, 48)),
+                      (CHAIR_SHEET, one(chair, 48, 96))]:
+        path = os.path.join(game, "img", "characters", name + ".png")
+        png.write(path, img)
+        print("wrote", os.path.normpath(path))
+
+
+if __name__ == "__main__":
+    draw_art()

@@ -1,0 +1,899 @@
+{
+ "query": "?map=2&x=8&y=8&frames=90",
+ "comment": "POSTGAME.md P4b, Thistlewick and the pension. The morning after the ending: the letter on the mat, walked onto and read - clause nineteen, Friday, the pension once and the key; Mother before and after it, and NIX-4's pie dish still owed under her post-game page; the Old Man (short, not in on the coast) with his chair still owed; the child, the notice board and the dog man, each after their first page; Elder Wispel; the forty-eighth frame and the Wall walked to, the minute book's SEE BRAM; the Regular; Nether Sopping's front door, NIX-3's pot still owed at it, then the key into Ambrose Fitch's cottage - the bed for nothing, his chair, the pot watered, Mrs Pimm's note, one cup, and out; and Ysolde's line about the pot, after her tale and the bench.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }"
+  },
+  {
+   "check": "[$gameMap.event(8).event().name, $gameMap.event(8).findProperPageIndex(), $gameMap.event(8).characterName()]",
+   "expect": [
+    "The Letter on the Mat",
+    0,
+    ""
+   ],
+   "label": "before the ending: no letter on the mat"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 0,
+   "label": "and Mother is on her first page"
+  },
+  {
+   "eval": "$gameSwitches.setValue(1, true); $gameSwitches.setValue(5, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(8).findProperPageIndex(), $gameMap.event(8).characterName() === '!$Mat_Letter', $gameMap.event(3).findProperPageIndex()]",
+   "expect": [
+    1,
+    true,
+    3
+   ],
+   "label": "the morning after: the letter is on the mat, and Mother has a page on top of NIX-4's"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has(\"There's a letter come.\"), window._has(\"I ironed it Tuesday.\")]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "Mother, before it is read: there's a letter come"
+  },
+  {
+   "goto": [
+    2,
+    8,
+    9
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    8,
+    10
+   ],
+   "label": "walked onto the mat"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 8,
+   "label": "the action button on the mat reads the letter"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('CLAUSE NINETEEN'), window._has('We trust Friday will suit.'), window._has('There is no mention of the next one.'), $gameParty.gold() - window._gold, $gameParty.hasItem($dataItems[76])]",
+   "expect": [
+    true,
+    true,
+    true,
+    1000,
+    true
+   ],
+   "label": "the letter: clause nineteen, Friday, the pension paid once, and the key"
+  },
+  {
+   "check": "[$gameMap.event(8).findProperPageIndex(), $gameMap.event(8).characterName()]",
+   "expect": [
+    2,
+    ""
+   ],
+   "label": "the letter is off the mat"
+  },
+  {
+   "shot": "pg_home_mat.png"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('A cottage! By the sea!'), window._has('I ironed it Tuesday.')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "Mother, after it: a cottage by the sea, and the good shirt"
+  },
+  {
+   "eval": "$gameParty.addActor(5); $gameParty.gainItem($dataItems[46], 1)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 3,
+   "label": "with Nix and the goods, the post-game page still wins"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('One pie dish.'), window._has('A cottage!'), $gameSelfSwitches.value([2, 3, 'B'])]",
+   "expect": [
+    true,
+    false,
+    true
+   ],
+   "label": "and plays NIX-4's pie dish, which is still owed, instead of itself"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('A cottage! By the sea!'), window._has('One pie dish.')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "once returned, Mother is back on the coast"
+  },
+  {
+   "eval": "$gameParty.removeActor(5); $gameParty.loseItem($dataItems[46], 9)"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  },
+  {
+   "goto": [
+    1,
+    11,
+    18
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('You came back.'), window._has('Good lad. That') , window._has('Forty-seven was my boy.')]",
+   "expect": [
+    true,
+    true,
+    false
+   ],
+   "label": "the Old Man: you came back, and nothing about the coast"
+  },
+  {
+   "check": "window._lines.some(l => /coast|sea|Friday/i.test(l))",
+   "expect": false,
+   "label": "the Old Man is not in on the coast"
+  },
+  {
+   "eval": "$gameParty.addActor(5); $gameParty.gainItem($dataItems[46], 1)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('One chair.'), window._has('You came back.')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "the Old Man's chair is still owed, and plays"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._has('You came back.')",
+   "expect": true,
+   "label": "and then he is glad to see you"
+  },
+  {
+   "eval": "$gameParty.removeActor(5); $gameParty.loseItem($dataItems[46], 9)"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('DUNGEON'), window._has('SEASIDE')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "the child's first page is still owed: the dungeon, first"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(12).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('SEASIDE'), window._has('NEVER want to come BACK!')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "then the seaside, at volume"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('MISSING: Sir A.'), window._has('FAREWELL TEA')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "the notice board's first reading is still owed"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(11).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('FAREWELL TEA'), window._has('Bring a plate.')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "then the farewell tea, Friday"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(15).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('the coast is very windy'), window._has('The dog has not made a sound.')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "the dog says take a coat to the coast"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  },
+  {
+   "goto": [
+    3,
+    10,
+    7
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Back!'), window._has('Renewable. What a lovely hand.'), window._has(\"You'll have had the letter.\"), window._has('Sea air, Bram.')]",
+   "expect": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "Elder Wispel: the hero back, the Receipt, the letter, sea air"
+  },
+  {
+   "goto": [
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gameMap.isEventRunning() && $gameMap._interpreter.eventId()]",
+   "expect": [
+    4,
+    4,
+    13
+   ],
+   "label": "walked up under the forty-seventh: the forty-eighth frame answers"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('PORTRAIT TO FOLLOW. SITTER AT THE COAST.'), window._has(\"The Quills' card\")]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "an empty frame, and the card"
+  },
+  {
+   "eval": "$gameSwitches.setValue(197, true)"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._has(\"The Quills' card is tucked\")",
+   "expect": true,
+   "label": "with PIP-1 settled, the Quills' card is in the corner of it"
+  },
+  {
+   "eval": "$gameSwitches.setValue(197, false)"
+  },
+  {
+   "goto": [
+    3,
+    3,
+    5
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "the Wall of the Forty-Seven, from under its first portrait"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._has('Forty-seven portraits.')",
+   "expect": true,
+   "label": "the Wall, word for word"
+  },
+  {
+   "shot": "pg_home_wall.png"
+  },
+  {
+   "goto": [
+    3,
+    14,
+    13
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 14,
+   "label": "the minute book on the east table, from below"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('SEE BRAM.'), window._has('Clause nineteen. Applies.')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "the minute book: SEE BRAM, and clause nineteen"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  },
+  {
+   "goto": [
+    4,
+    6,
+    11
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(5).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Lovely coast, apparently.'), window._has('Number thirty-nine.')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "the Regular: lovely coast, apparently"
+  },
+  {
+   "goto": [
+    13,
+    14,
+    9
+   ]
+  },
+  {
+   "eval": "$gameSwitches.setValue(198, true); $gameParty.addActor(5); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[$gameMap.mapId(), window._has('Nix knocks'), $gameSwitches.value(215)]",
+   "expect": [
+    13,
+    true,
+    false
+   ],
+   "label": "with Nix and Lorrimer's list, the pot is still owed at the door, and plays first"
+  },
+  {
+   "eval": "$gameSwitches.setValue(198, false); $gameParty.removeActor(5); window._mark()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 10
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, window._has('turns, after some thought'), $gameSwitches.value(215)]",
+   "expect": [
+    71,
+    6,
+    9,
+    true,
+    true
+   ],
+   "label": "the key opens it: Ambrose Fitch's cottage"
+  },
+  {
+   "shot": "pg_home_cottage.png"
+  },
+  {
+   "eval": "$gameActors.actor(1).setHp(1); window._mark(); window._pick = 0"
+  },
+  {
+   "goto": [
+    71,
+    3,
+    6
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 2,
+   "label": "the bed, from its foot"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gameActors.actor(1).hp === $gameActors.actor(1).mhp, $gameParty.gold() === window._gold, window._has('You can hear the sea.')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "a night in it, for nothing"
+  },
+  {
+   "goto": [
+    71,
+    6,
+    6
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 3,
+   "label": "his chair, from behind it"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('turned to face the window'), window._has(\"You don't either.\"), $gameMap.event(3).characterName()]",
+   "expect": [
+    true,
+    true,
+    "!$Fitch_Chair"
+   ],
+   "label": "Fitch's chair, facing the window"
+  },
+  {
+   "goto": [
+    71,
+    7,
+    5
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 4,
+   "label": "the pot under the sill"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[window._has('a dead thing in it'), window._has('It goes on being dead, but it has')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "watered; nothing grows"
+  },
+  {
+   "goto": [
+    71,
+    7,
+    7
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowRight",
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "the note on the table"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('AIRED TUESDAYS. KETTLE IN THE CUPBOARD.'), window._has('THE OTHER KEY')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "Mrs Pimm's note"
+  },
+  {
+   "goto": [
+    71,
+    9,
+    5
+   ]
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 6,
+   "label": "the cupboard"
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "window._has('and one cup.')",
+   "expect": true,
+   "label": "one cup"
+  },
+  {
+   "goto": [
+    71,
+    6,
+    9
+   ]
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    13,
+    14,
+    9
+   ],
+   "label": "out of the front door, onto the step"
+  },
+  {
+   "goto": [
+    14,
+    5,
+    12
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Ysolde Marrow. I kept'), window._has('water that thing')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "never met: her tale is still owed, and comes first"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Ambrose Fitch. The Forty-Fourth.'), window._has('water that thing in the pot?'), window._has('It was dead when he bought it.')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "then her usual line, and the pot"
+  },
+  {
+   "eval": "$gameSwitches.setValue(40, true)"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has(\"You've been out to the mound.\"), window._has('water that thing')]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "the bench is still owed, and plays instead"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Mind that kit.'), window._has('water that thing in the pot?')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "then her last page, and the pot"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}

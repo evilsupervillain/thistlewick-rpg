@@ -4315,31 +4315,139 @@ byte for byte what they were.
 * **Looked at**: the throne with page 6, the kettle's choice box beside his
   face, "It is just tea.", and the tower door with nobody beside it.
 
+**P4b, Thistlewick, the pension and Roland, done** (8 Oct 2026). `POSTGAME.md`
+3a-5. No published line changed: every old page on Maps 1-4, 6, 8, 13, 14 and
+65 is byte for byte what it was, with new pages appended after it, and the
+finale's four pages differ only by one new branch in `hand_back` (below).
+
+* **The letter on the mat** (Map 2 event 8, on a new doormat at (8,10), the
+  arrival square): the Committee's envelope after the ending, clause
+  nineteen as `POSTGAME.md` 4 drafts it, "We trust Friday will suit.", then
+  `db.PENSION` (1,000 crowns, once) and **item 76, A Key, Labelled**. "The
+  pension is one quarter, in advance. There is no mention of the next one."
+* **Villagers on `SW_WON`.** Elder Wispel, who chairs the Committee, on his
+  terminal `SW_QUEST`: back, the Receipt held up to the window, sea air, "a
+  long way, and you've earned that as well". The child (terminal self switch
+  A): the SEASIDE, at volume. The notice board (A): a FAREWELL TEA, Friday,
+  bring a plate. The dog man and the Regular, one-page ladders: "the coast is
+  very windy", "Lovely coast, apparently." Mother: the letter on the mat, and
+  then "I ironed it Tuesday." The Old Man, short and not in on the coast, as
+  Mike approved: "You came back." / "Good lad. That's all. Good lad."
+* **`postgame._owing`, for the ladders that cannot be waited on.** Mother and
+  the Old Man end in NIX-4's self switch, the front door in NIX-3's, Ysolde
+  in the bench's. Each new page asks, with the engine's own `meetsConditions`,
+  which page the ladder below would show, and plays it word for word when it
+  still owes a beat; `CLAUDE.md` "The ending" has the pattern.
+* **Prophecy Hall, and the room fixed.** The Wall of the Forty-Seven was
+  `IN_NOTICE_BOARD`, crossed swords over a posted notice, under text about
+  forty-seven portraits. It is now three portraits on the west corner's wall
+  face, and its event moved from (4,4) to (3,3), read from below the first.
+  The forty-eighth frame (event 13) hangs in the space under the forty-seventh
+  at (4,3) after the ending: an empty gilt frame with a card, "PORTRAIT TO
+  FOLLOW. SITTER AT THE COAST.", and the Quills' card tucked in its corner if
+  PIP-1 is settled. The minute book (event 14) is on the east paperwork table
+  at (14,12): the scrolls there are its first page's picture now, and after
+  the ending it is the open book with SEE BRAM and "Clause nineteen. Applies.
+  Letter sent, cottage aired. Friday suggested." `reachable_village` walks to
+  the Wall from (3,5) now.
+* **Ambrose Fitch's cottage, Map 71**, drawn by `south.fitch_map`: the bed
+  (rests for nothing), his chair from behind turned to the window, a pot with
+  a dead thing in it that can be watered ("It goes on being dead, but it has
+  been watered."), a dish cabinet with one cup, and a note. **Mike decided
+  NIX-3's old woman** (who already answers that door) is **Mrs Pimm, who has
+  the other key**. She airs the place, she never appears, and her note says
+  so. Not "next door", which is Number Forty-Five's. The door (Map 13 event
+  15) takes the key on a new page, and NIX-3's pot is still owed through it.
+  Entering sets **switch 215 `SW_COTTAGE_SEEN`**. **Ysolde** then adds: "He
+  watered it every morning for forty years. It was dead when he bought it."
+  That span is new in `TIMELINE.md`. The chair and the frame are character
+  sheets that `postgame.draw_art()` writes (`!$Fitch_Chair`, `!$Hall_Frame`).
+  They are drawn by running the module, not by the build.
+* **Roland, between engagements.** He comes back with nothing on, because the
+  departure clears his equipment onto the grass. His post-game page is
+  `story.recruit`'s own returning page (on `SW_KNOWN`, no second initialise)
+  on `SW_WON` + `SW_ROLAND_GONE`, with a new pitch: "Finished? Marvellous.
+  I've never been in the bit after. Is it nice?", Maud's news if ROL-5 is
+  done, and "I'll want a sword. I left both of mine with you." The join puts
+  his own kite shield and chain shirt back on him, out of the bag if the
+  party has them and new if not, into empty slots only. The swords stay where
+  they are. **Switch 216 `SW_ROLAND_BACK`** keys the "with you" page after it.
+  `SW_ROLAND_GONE` stays on.
+* **The audit of his quests**, for "gone" meaning "not in the party":
+  * **The tower door** gets a last page on `SW_ROLAND_GONE`: the door's own
+    lines without the departure, so he never leaves twice. Before the ending
+    it is the same door. With him after the ending, once: "So this is the bit
+    after. It's very quiet."
+  * **ROL-2** done after he left: he said he would keep the sword till the
+    door, so at the door he keeps it and wears it (**switch 218
+    `SW_DRAWN_LEFT`**, stamped at the first rehire for anyone whose sword was
+    already handed over).
+  * **ROL-4**: he no longer carries Fairweather's Own, so Beatrice's new last
+    page has the party hand it back for the look and him hand it on
+    (`MARK_LATE_*`). It plays Hob's refit page and HOB-3's floor page when
+    those are due.
+  * **ROL-5**: "I leave at the door" is wrong once the tower is done. Maud's
+    new page (on `SW_ROL5_ON` + `SW_WON` + Roland) is a telling after the
+    ending: it has already ended, the party tell her how, and Roland hears the
+    end of one for the first time. The question is still not picked up. It
+    sets **switch 217 `SW_ROL5_LATE`** and the tower door's self switch A,
+    so her splice never plays to an empty door, and Mrs Dewhirst gets a line
+    on it. `hand_back` now clears `SW_ROL5_ON` for anyone already told, which
+    is what keeps that page from coming back.
+  * ROL-1 and ROL-3 needed nothing.
+* **For P4c**: the tally's ROL-5 line ("she waited at the door") is wrong for
+  `SW_ROL5_LATE`, and the amended account needs a line for it. Quy lives next
+  door to Fitch's cottage.
+* **Tally**: tropes **+51 fixed** for the finale, unchanged. One new trope
+  site, ROL-5's telling after the ending, which is the other branch of ROL-5's
+  own and counts only in the amended account. Blushes **+13 fixed**, none
+  new. `TIMELINE.md`: Fitch's forty years in the cottage, and Mrs Pimm.
+* **Scenarios**, chosen by what the change reaches. With `SW_WON` off, every
+  new page is inert, so most scenarios that walk Maps 1-7, 13 and 14 cannot
+  see it. The things that are live before the ending are Map 3's tiles and
+  the Wall's cell, Map 2's mat and its blank letter event, and the tower
+  door's `SW_ROLAND_GONE` page. The hand-back's new branch is the other.
+  * **Rerun, all pass**: `reachable_village` (6; it walks to the Wall from
+    (3,5) now), `village` (12), `reachable_home` (9), `opening` (12), `q_pip1`
+    (24, the Wall's pages), `q_pip5` (33, Map 3), `q_rol4` (31), `guest_leaves`
+    (7), `q_rol5` (26), `finale_ending` (55) and `premises` (38).
+  * **`q_rol2` (31) passes after one edit.** It asserted page 3 at the tower
+    door after Roland had gone, and that is the new page 4 now. The two-switch
+    page is asserted with `SW_ROLAND_GONE` cleared, which is before he goes.
+  * **`pg_roland`, new, 34 checks, passes.**
+  * **`pg_home`, new, 51 checks, passes.** Its first run found a real bug: the
+    letter was a tile picture, and an event's tile counts for passage
+    (`Game_Map.allTiles`), so the blocked `Envelope` sealed the doormat. It
+    is a sprite now, and the lesson is in `CLAUDE.md`'s Conventions.
+* **Looked at**: the Hall before and after (portraits, the frame, the book),
+  the letter on its mat, the front door, and the cottage.
+
 ---
 
 ## Restart prompt
 
-**Start with P4b** (`POSTGAME.md` section 10). **P4a is done** (the last Done
-paragraph in section 3): the finale hands back to Bram's house the next
-morning, G1's companion lines and count are in the tally, and Grimspite has a
-kettle. P4b is Thistlewick and the pension: the letter on the mat, about six
-villagers' `SW_WON` pages (only on ladders with a terminal switch,
-`QUESTS.md` 0.2), the empty frame on the Wall of the Forty-Seven, the minute
-book's SEE BRAM, Ambrose Fitch's cottage (map 71) behind Nether Sopping's
-shut "A Front Door" (south.py shut door 15), and Ysolde's line. **And
-Roland**: re-hireable after the ending (Mike, `POSTGAME.md` 3a), with a guard
-so he does not leave at the tower door twice. Read `POSTGAME.md` 3a-5 once.
-Three tally lines are new wording for Mike to look at (WRE-5, SPA-4, MER-2;
-P4a's Done paragraph). Then P4c-P4e, one per session. G0, the quest log,
-follows its plugin (`../QUESTLOG.md` Q0-Q7, a parallel effort in
-`trial-chamber`). Last come G1's counter re-cuts, the one full suite, Mike's
-playthrough, and the push. Still open for Mike, and not part of P4 unless he
-says so: every buff and debuff in `db.py` puts its turns in value2 and the
-engine reads value1 (P1); and whether P2's "shield standing in for a sign"
+**Start with P4c** (`POSTGAME.md` section 10): the amended account, Quy and
+Hollowell. **P4a and P4b are done** (the last two Done paragraphs in section
+3). The finale hands back to Bram's house; the letter, the pension, the key,
+Thistlewick's lines, the frame and the minute book, Ambrose Fitch's cottage
+(Map 71) and Roland, rehireable after the ending, are built. P4c is the
+lectern in Prophecy Hall with "THE OBLIGATORY QUEST, as amended", built by the
+same Python function as the finale's tally so the two cannot drift; Quy's
+afternoon on `SW_MET_QUY` and `SW_WON`, which must agree word for word with the
+tally, with "What was it like?" on `SW_GRIMSPITE_TEA`; and Hollowell's notice.
+Read `POSTGAME.md` 6 and 8 once. P4b left two notes for it: the tally's ROL-5
+line is wrong for `SW_ROL5_LATE` (Maud told after the ending), and Quy lives
+next door to Fitch's cottage. Then P4d-P4e, the Mountain. G0, the quest log,
+follows its plugin (`../QUESTLOG.md` Q0-Q7). Last come G1's counter re-cuts,
+the one full suite, Mike's playthrough, and the push. Still open for Mike, and
+not part of P4 unless he says so: three P4a tally lines are new wording (WRE-5,
+SPA-4, MER-2); every buff and debuff in `db.py` puts its turns in value2 and
+the engine reads value1 (P1); and whether P2's "shield standing in for a sign"
 meant the crest sign outside the Guild (one line in `south.py`). Next free:
-switch 215, variable 33, item 75, common event 7, map 71, state 45,
-`Gen_People16` 2. Anything that runs the finale's list directly must skip 201
-as well as 354.
+switch 219, variable 33, item 75 (the lamp), weapon 44, armour 49, common event
+7, map 72, state 45, `Gen_People16` 2. Anything that runs the finale's list
+directly must skip 201 as well as 354. A post-game page on a ladder that
+cannot be waited on goes through `postgame._owing`.
 
 Continue Thistlewick's **companion quests** in
 `/home/mike/Projects/rpgmaker-mz/thistlewick` with **step G1, the ending**

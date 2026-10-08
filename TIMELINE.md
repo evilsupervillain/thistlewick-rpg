@@ -116,7 +116,8 @@ Thistlewick claims. The published text agrees:
 | 1970 | **#45 Halbert Quy** declines Grimspite's tea, "thirty years" ago; he is in his seventies now | `south.quy_event`, `journey.finale_event` |
 | 1980 | **#46** stops in the Gloamwood and says the woods are enough; his party write monthly. He is the one who did not go "up that road" - Ott counts forty-six - and never comes off Olde Evermore's ledge, so his verse in Aelwen's Lay is a four-bar rest (P3) | `journey.gloamwood_events`, `south`, `north`, `evermore.elves` |
 | 1990 | **#47**, the Old Man's boy; the last name in the wayshrine book. Comes off Olde Evermore's ledge and lands on his feet (Faelan); Thalion gives him five point nine, the best score since the First Age (P3) | `village.village_events`, `journey.world_events`, `evermore` |
-| ~1999 | Ambrose Fitch dies; the masons come within a fortnight | `wilds.forty_fourth` |
+| 1960-~1999 | Ambrose Fitch in the cottage at Nether Sopping that clause nineteen gave him, watering a pot with a dead thing in it "every morning for forty years" (Ysolde, P4b). Number Forty-Five's is next door | `postgame.ysolde`, `postgame.fitch_events` |
+| ~1999 | Ambrose Fitch dies; the masons come within a fortnight. Mrs Pimm, who has the other key, airs the cottage on Tuesdays from then on | `wilds.forty_fourth`, `postgame.fitch_events` |
 | **2000** | **#48 Bram Thistle** | |
 
 Only #41, #44, #45, #46 and #47 are pinned by a line, and only by a span back

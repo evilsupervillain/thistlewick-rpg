@@ -1286,6 +1286,7 @@ def bell_events():
                        *dewhirst_pages())
     dewhirst["pages"].append(q_roland.dewhirst_page(dewhirst["pages"][-1]))  # ROL-1
     dewhirst["pages"].append(q_roland.dewhirst_after(dewhirst["pages"][1]))  # ROL-5
+    dewhirst["pages"].append(q_roland.dewhirst_late(dewhirst["pages"][1]))   # P4b
     evs.append(dewhirst)
     harbottle = _person(3, "Mrs Harbottle", HARBOTTLE,
                         R.image("Gen_People6", 3, direction=6),

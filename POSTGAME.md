@@ -159,6 +159,12 @@ now it simply applies.
   (map 71), with a bed that rests the party for free, Fitch's chair facing the
   window, and the dead thing in the pot, which Bram can water. Nothing grows.
   Nothing says it will. Ysolde can get one appended line once Bram has been in.
+* **The old woman behind that door** (Mike, 8 Oct 2026). NIX-3 already has her
+  open it an inch and give Nix the pot ("Keep the dead thing an' all"). She is
+  **Mrs Pimm, who has the other key**: she has aired Fitch's place since he
+  died and was in it when Nix knocked. The cottage is empty; she never
+  appears; her note on the table says so. Not "next door": the house to the
+  west is Number Forty-Five's, Halbert Quy's.
 * **Bram does not have to live there.** His own house is still his, and the
   letter says "mutually". The cottage is a free inn in the south and a door
   the town finally opens. It is not a relocation.
@@ -349,7 +355,8 @@ the scenarios the step reaches.
   and the hand-back) and `premises`. Their old endings assert the title
   scene and will change. The new tropes are counted here, and the counter
   re-cut stays in G1.
-* **P4b - Thistlewick and the pension.** The letter, the villagers' pages, the
+* **P4b - Thistlewick and the pension** (**done**, 8 Oct 2026; `QUESTS.md`
+  section 3). The letter, the villagers' pages, the
   empty frame, the minute book, the cottage (map 71) and Fitch's door, and
   Ysolde's line. Roland's page in the Slain Wyvern and the guard on his
   departure (section 3a), with a new `pg_roland` that rehires him, walks him

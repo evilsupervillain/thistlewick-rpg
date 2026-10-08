@@ -51,7 +51,7 @@ from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
                     WORLD_SIGN_SOUTH, WORLD_SIGN_NORTH,
                     REG_SOUTH, REG_NORTH, REG_COAST, REG_CLANG,
-                    REG_SNOW, REG_DESERT)
+                    REG_SNOW, REG_DESERT, TOWER_DOOR_EVENT)
 
 # The finished world map. `build/worldmap/run_finish.py` writes it, and it is
 # the one thing on this map nobody edits by hand - see ../WORLDMAP.md 7.6.
@@ -276,7 +276,8 @@ def world_events():
     # drawn on carries 0x0800 so that the engine agrees - see NORTH.md 5.2 and
     # `build_game.TILESET_FLAGS`. Not one of Roland's or the door's own lines
     # is touched by it.
-    evs.append(R.event(4, "Tower Door", TOWER_DOOR[0], TOWER_DOOR[1],
+    evs.append(R.event(TOWER_DOOR_EVENT, "Tower Door",
+                       TOWER_DOOR[0], TOWER_DOOR[1],
                        [R.page(door, img=R.image(""), trigger=1, priority=0,
                                through=True)]
                        + q_roland.door_pages(door, split),           # ROL-5

@@ -1,0 +1,652 @@
+{
+ "query": "?map=8&x=66&y=45&frames=90",
+ "comment": "POSTGAME.md P4b, Roland between engagements. He leaves at the tower door as published, with nothing on, and the door is then its own page without the departure; after the ending he is back at his table, walked up to, with a new pitch, and rejoins on SW_KNOWN at his own level, in his own shield and shirt out of the bag and with no sword; struck off and back; at the tower door nobody calls him - once - and he goes up with you to Grimspite's kettle; the sword out of Carn Drey drawn after he left is kept at the door and worn; ROL-3's card started with him; ROL-5 told after the ending - it has ended, he hears how, and the question stays open - with Mrs Dewhirst after; his pitch had Maud told him first; and ROL-4's mark with the sword handed back, Hob's refit, and HOB-3's hammer on the floor.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._gold = $gameParty.gold(); window._lines = []; }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._pick = undefined; const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { return sc.call(this, c, window._pick === undefined ? d : window._pick, k); }; window._kit = () => $gameActors.actor(10).equips().map(e => e ? e.id : 0); window._in = () => $gameParty.members().some(a => a.actorId() === 10)"
+  },
+  {
+   "eval": "$gameParty.addActor(10); $gameSwitches.setValue(19, true); $gameSwitches.setValue(80, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "window._kit()",
+   "expect": [
+    29,
+    8,
+    0,
+    3,
+    0
+   ],
+   "label": "Roland's own kit: the practice sword, the kite shield, the chain shirt"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    45
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[$gameSwitches.value(21), window._in(), window._has('I have to be somewhere.'), $gameMap.mapId()]",
+   "expect": [
+    true,
+    false,
+    true,
+    8
+   ],
+   "label": "at the tower door he leaves, as published"
+  },
+  {
+   "check": "[window._kit(), $gameParty.numItems($dataArmors[8]), $gameParty.numItems($dataArmors[3]), $gameParty.numItems($dataWeapons[30])]",
+   "expect": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    1,
+    1,
+    1
+   ],
+   "label": "with nothing on: his kit is in the party's bag, with Fairweather's Own"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 4,
+   "label": "the door's own page now, without the departure"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    45
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[window._has('The Obligatory Tower.'), window._has('I have to be somewhere.'), window._has('stops walking, out of')]",
+   "expect": [
+    true,
+    false,
+    false
+   ],
+   "label": "and the door is the door, before the ending as after"
+  },
+  {
+   "eval": "$gameSwitches.setValue(4, true); $gameSwitches.setValue(5, true)"
+  },
+  {
+   "goto": [
+    14,
+    18,
+    10
+   ]
+  },
+  {
+   "check": "[$gameMap.event(13).findProperPageIndex(), $gameMap.event(13).characterName()]",
+   "expect": [
+    3,
+    "Actor2"
+   ],
+   "label": "after the ending he is back at his table"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 13,
+   "label": "walked up to his table"
+  },
+  {
+   "advance": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[window._has('Finished? Marvellous.'), window._has('Is it nice?'), window._has('I left both of'), window._has('Miss Penhallow'), window._has('rejoined the party!')]",
+   "expect": [
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "label": "the new pitch, and he rejoins"
+  },
+  {
+   "check": "[window._in(), $gameActors.actor(10).level >= 9, window._kit(), $gameParty.numItems($dataArmors[8]), $gameParty.numItems($dataArmors[3])]",
+   "expect": [
+    true,
+    true,
+    [
+     0,
+     8,
+     0,
+     3,
+     0
+    ],
+    0,
+    0
+   ],
+   "label": "at his own level, wearing his own shield and shirt out of the bag, and no sword"
+  },
+  {
+   "check": "[$gameSwitches.value(216), $gameSwitches.value(21), $gameSwitches.value(218), $gameMap.event(13).findProperPageIndex()]",
+   "expect": [
+    true,
+    true,
+    false,
+    4
+   ],
+   "label": "SW_ROLAND_BACK on, SW_ROLAND_GONE still on, and his chair empty"
+  },
+  {
+   "eval": "$gameSwitches.setValue(80, true); $gameParty.removeActor(10); $gameSwitches.setValue(19, false); $gameVariables.setValue(1, $gameVariables.value(1) - 1)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(13).findProperPageIndex()",
+   "expect": 3,
+   "label": "struck off: back at his table"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0; $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Back again? Marvellous.'), window._has('Finished?'), window._in(), window._kit()]",
+   "expect": [
+    true,
+    false,
+    true,
+    [
+     0,
+     8,
+     0,
+     3,
+     0
+    ]
+   ],
+   "label": "and back again, still dressed"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    45
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[window._in(), $gameSwitches.value(21), window._has('stops walking, out of'), window._has('So this is the bit after.'), window._has('I have to be somewhere.'), $gameSelfSwitches.value([8, 4, 'B'])]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "label": "at the door nobody calls him: he stops out of habit, and stays"
+  },
+  {
+   "shot": "pg_roland_door.png"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    45
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = 0"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[$gameMap.mapId(), window._in(), window._has('stops walking, out of')]",
+   "expect": [
+    11,
+    true,
+    false
+   ],
+   "label": "and goes in with you, once only surprised"
+  },
+  {
+   "goto": [
+    12,
+    12,
+    10
+   ]
+  },
+  {
+   "check": "[window._in(), $gameMap.event(2).findProperPageIndex()]",
+   "expect": [
+    true,
+    6
+   ],
+   "label": "at the top, with Grimspite in his chair"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has(\"There's a kettle on\"), window._in()]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "the kettle, and Roland still with you"
+  },
+  {
+   "eval": "$gameSwitches.setValue(207, true)"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    45
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[window._has(\"I'll keep it, then.\"), window._kit()[0], $gameSwitches.value(218), window._has('stops walking, out of')]",
+   "expect": [
+    true,
+    43,
+    true,
+    false
+   ],
+   "label": "ROL-2 done after the ending: he keeps the drawn sword, and wears it"
+  },
+  {
+   "goto": [
+    8,
+    66,
+    45
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = 1"
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "window._has(\"I'll keep it\")",
+   "expect": false,
+   "label": "once"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  },
+  {
+   "goto": [
+    14,
+    7,
+    5
+   ]
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([14, 19, 'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(19).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('THE FAIRWEATHER ALUMNI.'), $gameSwitches.value(140)]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "ROL-3: the alumni dinner card, with him"
+  },
+  {
+   "eval": "$gameSwitches.setValue(140, false)"
+  },
+  {
+   "eval": "$gameSwitches.setValue(154, true); $gameSwitches.setValue(203, true); $gameParty.gainItem($dataItems[52], 1); $gameSelfSwitches.setValue([8, 4, 'A'], false)"
+  },
+  {
+   "goto": [
+    65,
+    4,
+    10
+   ]
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 6,
+   "label": "Maud, still owed her telling, after the ending"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(15).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has(\"It's ended. At a tower, in the north.\"), window._has('the first time anybody has told him'), window._has(\"Then I'll be at the door.\"), window._has('Whose prophecy is it?')]",
+   "expect": [
+    true,
+    true,
+    false,
+    true
+   ],
+   "label": "told after the ending: it has already ended, and he hears how, and the question stays where it is"
+  },
+  {
+   "check": "[$gameSwitches.value(204), $gameSwitches.value(217), $gameSwitches.value(203), $gameSelfSwitches.value([8, 4, 'A']), $gameSwitches.value(109)]",
+   "expect": [
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   "label": "done, late, settled, the door's splice spent, and his story counted"
+  },
+  {
+   "check": "$gameMap.event(15).findProperPageIndex()",
+   "expect": 5,
+   "label": "and she has gone"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([65, 2, 'A'], true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 4,
+   "label": "Mrs Dewhirst afterwards"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('handed in her wooden'), window._has(\"she'd be at the door\")]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "Miss Penhallow has gone to see the bit after"
+  },
+  {
+   "eval": "$gameSwitches.setValue(216, false); $gameParty.removeActor(10); $gameSwitches.setValue(19, false)"
+  },
+  {
+   "goto": [
+    14,
+    18,
+    10
+   ]
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('Miss Penhallow walked all this way'), window._has('He still does not know.')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "if ROL-5 is done, she has told him how it ends, and the question is still open"
+  },
+  {
+   "eval": "window._mark(); window._pick = 0; $gameMap.event(13).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._in()",
+   "expect": true,
+   "label": "and he comes back"
+  },
+  {
+   "eval": "$gameParty.addActor(3); $gameSwitches.setValue(118, false)"
+  },
+  {
+   "goto": [
+    6,
+    10,
+    7
+   ]
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 4,
+   "label": "Beatrice: his post-game page, last"
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('He asks for the sword he left at the tower door'), window._has(\"That's my aunt's.\"), window._has('He unbuckles the sword he carries'), window._has('hilt first'), $gameSwitches.value(118), $gameParty.numItems($dataWeapons[30])]",
+   "expect": [
+    true,
+    true,
+    false,
+    true,
+    true,
+    1
+   ],
+   "label": "the mark, with the sword out of the bag and back in it"
+  },
+  {
+   "eval": "window._mark(); window._pick = 1; $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has(\"He said take it up there.\"), window._has('Fair enough.')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "then Hob's refit, word for word, turned down"
+  },
+  {
+   "eval": "$gameSwitches.setValue(125, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); window._pick = undefined; $gameMap.event(4).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._has('lying on the floor where the anvil was')",
+   "expect": true,
+   "label": "and while the anvil is out on the grass, HOB-3's hammer on the floor"
+  },
+  {
+   "eval": "$gameSwitches.setValue(125, false)"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}

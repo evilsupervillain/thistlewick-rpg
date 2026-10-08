@@ -522,6 +522,13 @@ MOTHBALL_STEPS = 50             # see build_mothballs for the arithmetic
 MOTHBALL_AIRING = 25            # steps after it wears off before another
 # P4, the post-game (POSTGAME.md)
 SW_GRIMSPITE_TEA = 214          # P4a: Bram had the cup Halbert Quy turned down
+# P4b: Thistlewick, the pension, and Roland (postgame.py)
+SW_COTTAGE_SEEN = 215           # Bram has been inside Ambrose Fitch's cottage
+SW_ROLAND_BACK = 216            # Roland rehired after the ending, at least once
+SW_ROL5_LATE = 217              # ROL-5 told after the ending; nobody at the door
+SW_DRAWN_LEFT = 218             # the sword out of Carn Drey has been handed on
+IT_COTTAGE_KEY = 76             # clause nineteen's key; 75 is P4d's lamp
+PENSION = 1000                  # one quarter, in advance, paid once
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
@@ -1759,6 +1766,10 @@ def build_items():
                     "Heavier than it looks. Stencilled, on all six faces, "
                     "ITEM 1. Ott would like it out of a field.",
                     itype=2, consumable=False, scope=0, occasion=3, icon=218))
+    upsert(it, item(IT_COTTAGE_KEY, "A Key, Labelled",
+                    "On a Committee label: CLAUSE NINETEEN. NETHER SOPPING. "
+                    "AT SUCH DISTANCE AS IS MUTUALLY AGREEABLE.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=195))
     save("Items.json", it)
 
 

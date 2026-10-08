@@ -26,9 +26,11 @@ import q_nix
 import q_roland
 import q_wren
 import q_spare
+import postgame as PG
 from places import (WYVERN_BACK, WYVERN_BACK_TABLE,
                     MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
+                    MAP_FITCH, FITCH_DOOR_EVENT,
                     WORLD_SOPPING_STEP, WORLD_LIGHTHOUSE_STEP)
 
 TOWN_W, TOWN_H = 40, 34
@@ -422,6 +424,10 @@ def sopping_events():
         through=True,
         conditions={"switch1Valid": True, "switch1Id": db.SW_LAMP_LIT}))
 
+    # P4b: the front door opens to clause nineteen's key. Ambrose Fitch's.
+    PG.fitch_door(next(e for e in evs if e["id"] == FITCH_DOOR_EVENT),
+                  arrival(MAP_FITCH))
+
     # -- 17: the other child. Event 9 says two children are playing, and for a
     # while there was only one of them on the map, which makes the narration
     # read like a bug rather than a scene.
@@ -447,6 +453,7 @@ ROOMS = {
     MAP_OUTFIT:     (17, 16, 3, 4, 13, 10, 8),
     MAP_COTTAGE:    (17, 16, 3, 4, 13, 10, 8),
     MAP_LIGHTHOUSE: (13, 25, 3, 4, 9, 19, 6),
+    MAP_FITCH:      (13, 13, 3, 4, 9, 9, 6),
 }
 
 
@@ -592,7 +599,7 @@ def wyvern_events():
     evs.append(hosea_event(3, 9, 6))
 
     # -- the six tales ---------------------------------------------------------
-    evs.append(ysolde_event(4, 5, 11))
+    evs.append(PG.ysolde(ysolde_event(4, 5, 11)))                 # P4b
 
     hulda = S.narrate([
         "A woman with a ledger and a stub of pencil is",
@@ -1641,9 +1648,12 @@ def roland_event(event_id, x, y):
             "beats three and a rumour and me."]),
     )
 
-    return S.recruit(event_id, db.ROLAND, "Roland", x, y, "Actor2", 2,
-                     pitch=pitch, accept=accept, decline=decline, full=full,
-                     again=again)
+    ev = S.recruit(event_id, db.ROLAND, "Roland", x, y, "Actor2", 2,
+                   pitch=pitch, accept=accept, decline=decline, full=full,
+                   again=again)
+    # P4b: between engagements, after the ending (POSTGAME.md 3a).
+    ev["pages"] += PG.roland_pages("Actor2", 2)
+    return ev
 
 
 # ================================================================== the Guild ==
@@ -2149,6 +2159,37 @@ def cottage_events():
     return evs
 
 
+# =========================================== Ambrose Fitch's cottage (P4b) ==
+# One room behind the shut "A Front Door", which clause nineteen's key opens
+# after the ending (POSTGAME.md 5). The events are `postgame.py`'s.
+FITCH_BED = (3, 5)                  # the bed's lower cell
+FITCH_WINDOW = 6
+FITCH_CHAIR = (6, 5)                # its back to you, facing the window
+FITCH_POT = (7, 4)                  # on the floor under the sill
+FITCH_NOTE = (8, 7)
+FITCH_CUPBOARD = (9, 4)             # the dish cabinet's foot
+
+
+def fitch_map():
+    g = room(MAP_FITCH, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
+    g.column(FITCH_BED[0], FITCH_BED[1] - 1, 2, K.IN_BED)
+    g.column(FITCH_WINDOW, 2, 2, K.IN_WINDOW)
+    g.set(*FITCH_POT, 3, K.sf_tile("Inside_B", "Pot A"))
+    g.column(FITCH_CUPBOARD[0], FITCH_CUPBOARD[1] - 1, 2,
+             K.sf_block("Inside_B", "Dish Cabinet"))
+    g.set(*FITCH_NOTE, 2, K.IN_TABLE_WOOD)
+    g.set(*FITCH_NOTE, 3, K.sf_tile("Inside_C", "Note A (H)"))
+    g.set(FITCH_NOTE[0], FITCH_NOTE[1] + 1, 2, K.IN_STOOL)
+    # A rug in front of his chair, on the floor-art layer.
+    g.fill(4, 6, 7, 8, 1, K.IN_GREEN_RUG)
+    g.autotile(1, kinds={R.autotile_kind(K.IN_GREEN_RUG)})
+    return finish(MAP_FITCH, g, "Ambrose Fitch's Cottage", bgm="Theme2",
+                  battleback=("Wood1", "Room1"),
+                  events=PG.fitch_events(threshold(MAP_FITCH), FITCH_BED,
+                                         FITCH_CHAIR, FITCH_POT, FITCH_NOTE,
+                                         FITCH_CUPBOARD))
+
+
 def quy_event(event_id, x, y):
     """Chosen One #45, and the single most load-bearing conversation in the
     expansion: it changes what Grimspite says at the top of the tower."""
@@ -2398,3 +2439,4 @@ def build():
     R.save_map(MAP_OUTFIT, outfit_map())
     R.save_map(MAP_COTTAGE, cottage_map())
     R.save_map(MAP_LIGHTHOUSE, lighthouse_map())
+    R.save_map(MAP_FITCH, fitch_map())

@@ -129,6 +129,7 @@ MAP_NAMES = [
     (places.MAP_POTTERING, "Much Pottering", journey.MAP_WORLD),
     (places.MAP_POTTERING_IN, "The Gotobeds' Cottage", places.MAP_POTTERING),
     (places.MAP_CULVERT, "The Bottom Lock", dunnage.MAP_DUNNAGE),
+    (places.MAP_FITCH, "Ambrose Fitch's Cottage", south.MAP_SOPPING),
 ]
 
 
@@ -541,7 +542,11 @@ def build_system():
             (db.SW_SPA2_ASKED, "SPA-2: Cotter has asked"),
             (db.SW_SPA2_CLEARED, "SPA-2: the paddle is clear"),
             (db.SW_SPA2_DONE, "SPA-2: out, and everybody there"),
-            (db.SW_GRIMSPITE_TEA, "P4: had the tea at the top")]:
+            (db.SW_GRIMSPITE_TEA, "P4: had the tea at the top"),
+            (db.SW_COTTAGE_SEEN, "P4: been in Ambrose Fitch's cottage"),
+            (db.SW_ROLAND_BACK, "P4: Roland rehired after the ending"),
+            (db.SW_ROL5_LATE, "ROL-5: told after the ending"),
+            (db.SW_DRAWN_LEFT, "ROL-2: the drawn sword handed on")]:
         switches[sid] = name
 
     variables = [""] * 33

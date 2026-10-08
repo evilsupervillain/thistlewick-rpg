@@ -22,6 +22,7 @@ import q_zephyrine
 import rmmzdata as R
 import story as S
 import q_aldric
+import postgame as PG
 from places import (MAP_VILLAGE, MAP_HOME, MAP_HALL, MAP_INN, MAP_CHAPEL,
                     MAP_SMITHY, MAP_STORE, MAP_WORLD, VILLAGE_GATE,
                     WORLD_VILLAGE_STEP)
@@ -262,7 +263,7 @@ def village_events():
         "  If found, point him at the north gate.",
         "  He will not go. Point anyway."])
     board += [R.self_switch("A", True)] + [S.trope()]
-    add(R.event(11, "Notice Board", 14, 11, [
+    notices = add(R.event(11, "Notice Board", 14, 11, [
         R.page(board, img=R.image(""), trigger=0, priority=1,
                direction_fix=True, through=True),
         R.page(S.narrate(["Nothing new. There is never anything new."]),
@@ -270,6 +271,7 @@ def village_events():
                direction_fix=True, through=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
+    notices["pages"].append(PG.board_page(notices["pages"][-1]))   # P4b
 
     # -- 12: the child who has heard about the dungeon -------------------------
     kid = S.say("Child", ["Have you HEARD? There's a DUNGEON!",
@@ -277,7 +279,7 @@ def village_events():
     kid += S.narrate(["You have heard.",
                       "You will hear again."])
     kid += [S.trope(), R.self_switch("A", True)]
-    add(R.event(12, "Child (dungeon rumour)", 21, 17, [
+    child = add(R.event(12, "Child (dungeon rumour)", 21, 17, [
         R.page(kid, img=R.image("People2", 2, direction=2), trigger=0,
                priority=1, move_type=1, move_speed=5, move_frequency=5),
         R.page(S.say("Child", ["There's a DUNGEON! To the NORTH!"]),
@@ -285,6 +287,7 @@ def village_events():
                move_type=1, move_speed=5, move_frequency=5,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
+    child["pages"].append(PG.child_page(child["pages"][-1]))         # P4b
 
     # -- 13: the father of Chosen One #47 --------------------------------------
     old = S.say("Old Man", ["Forty-seven was my boy."])
@@ -294,8 +297,8 @@ def village_events():
         "Nobody tells you it's a rota.",
         "Come back, lad. That's all. Come back."])
     old += [S.trope()]
-    add(q_nix.returned("old_man", S.npc(                         # NIX-4
-        13, "Old Man", 11, 17, old, "People4", 4)))
+    add(PG.old_man(q_nix.returned("old_man", S.npc(              # NIX-4, P4b
+        13, "Old Man", 11, 17, old, "People4", 4))))
 
     # -- 14/15: the dog, and the man who speaks for him ------------------------
     add(S.npc(14, "Dog", 8, 27,
@@ -306,7 +309,8 @@ def village_events():
         "and you should take a coat."])
     interp += S.narrate(["The dog has not made a sound."])
     interp += S.say("Neighbour", ["He says it again. Louder."])
-    add(S.npc(15, "Dog Interpreter", 9, 27, interp, "People1", 1))
+    dog = add(S.npc(15, "Dog Interpreter", 9, 27, interp, "People1", 1))
+    dog["pages"].append(PG.interpreter_page(dog["pages"][0]))        # P4b
 
     # -- 16: the farmer, who is Bram's actual boss -----------------------------
     farmer = S.say("Farmer", [
@@ -544,6 +548,10 @@ def home_map():
     g.set(11, 6, 2, K.IN_TABLE_WOOD)
     g.set(11, 6, 3, K.INC_MEAL)
     g.set(11, 7, 2, K.IN_STOOL)
+    # The mat inside the door, which the letter comes through onto (P4b), on
+    # the floor-art layer as the sample lays rugs.
+    g.set(*HOME_MAT, 1, K.IN_RED_RUG)
+    g.autotile(1, kinds={R.autotile_kind(K.IN_RED_RUG)})
     return finish(MAP_HOME, g, "Bram's House", bgm="Town2",
                   battleback=("Wood1", "Room1"), events=home_events())
 def home_events():
@@ -580,8 +588,8 @@ def home_events():
         "off the wall. It's been up there a hundred",
         "years waiting for exactly this, and frankly",
         "it has been unbearable about it."])
-    evs.append(q_nix.returned("mother", S.npc(                    # NIX-4
-        3, "Mother", 10, 8, intro, "People1", 5, direction=8)))
+    evs.append(PG.mother(q_nix.returned("mother", S.npc(          # NIX-4, P4b
+        3, "Mother", 10, 8, intro, "People1", 5, direction=8))))
 
     # The sword over the fireplace: available once the Elder has said the words.
     # Its picture is event 7, which goes as the sword comes off the wall (P2).
@@ -634,10 +642,15 @@ def home_events():
         R.page([], img=R.image(""), trigger=0, priority=0, through=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
+
+    # P4b: the letter on the mat, the morning after the ending. The mat is
+    # the arrival square inside the door (POSTGAME.md 4).
+    evs.append(PG.letter_event(8, *HOME_MAT))
     return evs
 
 
 HOME_SWORD_PICTURE = 7
+HOME_MAT = (8, 10)                  # just inside the front door
 
 
 def hall_map():
@@ -653,7 +666,12 @@ def hall_map():
     g.column(10, 2, 2, K.IN_STAINED_GLASS)
     g.column(7, 3, 2, K.IN_BOOKCASE)
     g.column(13, 3, 2, K.IN_BOOKCASE2)
-    g.column(4, 3, 2, K.IN_NOTICE_BOARD)
+    # The Wall of the Forty-Seven, in the corner: portraits on the wall face,
+    # and a space under the forty-seventh. It was `IN_NOTICE_BOARD` until P4b,
+    # which is crossed swords over a posted notice, and the wall's own text
+    # has always said forty-seven portraits.
+    for xy, name in WALL_PORTRAITS:
+        g.set(*xy, 2, K.sf_tile("Inside_B", name))
     # A second board, next to the old one, for NORTH.md 3.3. The parish keeps
     # its minutes on the wall where anybody can read them, which is the whole
     # of the joke and the reason it is a document and not a conversation.
@@ -667,7 +685,9 @@ def hall_map():
     # on the floor.
     for x in (6, 14):
         g.set(x, 12, 2, K.IN_TABLE_WOOD)
-        g.set(x, 12, 3, K.INC_SCROLLS)
+    # The east table's scrolls are the minute book's first page (P4b), so
+    # they can give way to the open book.
+    g.set(6, 12, 3, K.INC_SCROLLS)
     g.scatter([(4, 13), (16, 13)], 2, K.INC_PLANT)
     archive_room(g)
     return finish(MAP_HALL, g, "Prophecy Hall", bgm="Scene2",
@@ -799,7 +819,7 @@ def hall_events():
     fenn["pages"] += q_piper.fenn_pages(fenn["pages"][0])           # PIP-5
     evs.append(fenn)
 
-    wall = S.sign(6, "The Wall of the Forty-Seven", 4, 4, [
+    wall = S.sign(6, "The Wall of the Forty-Seven", *WALL, [
         "Forty-seven portraits.",
         "Forty-six of them are looking at the viewer.",
         "One of them is looking at the door."])
@@ -824,7 +844,26 @@ def hall_events():
                                   (MAP_HALL, CURTAIN[0], CURTAIN[1] + 1),
                                   K.INC_CASE)
     evs.append(q_piper.ambrosine_event(12, *AMBROSINE))             # PIP-1
+
+    # P4b: the empty forty-eighth frame, in the space under the forty-seventh,
+    # and the minute book on the east table, where the scrolls are before it.
+    evs.append(PG.frame_event(13, *FRAME, db.SW_PIP1_DONE))
+    book = PG.minute_book(14, *MINUTE_BOOK, K.INC_OPEN_BOOK)
+    book["pages"][0]["image"] = R.image(tile_id=K.INC_SCROLLS)
+    evs.append(book)
+    evs[1]["pages"].append(PG.wispel_page(evs[1]["pages"][-1]))     # P4b
     return evs
+
+
+# The Wall of the Forty-Seven (P4b): three portraits for forty-seven in the
+# hall's west corner, two rows of wall face, read in order, so the space
+# under the forty-seventh is (4, 3). The wall is read from the floor below
+# its first portrait, and the frame from below the space.
+WALL_PORTRAITS = [((3, 2), "Portrait B"), ((4, 2), "Portrait A"),
+                  ((3, 3), "Portrait A")]
+WALL = (3, 3)
+FRAME = (4, 3)
+MINUTE_BOOK = (14, 12)
 
 
 # PIP-5's archive: a room in the black east of Prophecy Hall, reached only
@@ -1006,7 +1045,9 @@ def inn_events():
     drunk += S.say("Regular", ["Number thirty-nine."])
     drunk += S.narrate(["He drinks again."])
     drunk += S.say("Regular", ["Lovely tower, apparently."])
-    evs.append(S.npc(5, "Regular", 6, 10, drunk, "People4", 6, direction=8))
+    regular = S.npc(5, "Regular", 6, 10, drunk, "People4", 6, direction=8)
+    regular["pages"].append(PG.regular_page(regular["pages"][0]))    # P4b
+    evs.append(regular)
 
     # The turnip is drawn: `draw_art()`. Until AUDIT.md item 5 the plinth
     # was bare, and the text has always said otherwise (NORTH.md 8.1d).
@@ -1515,6 +1556,8 @@ def smithy_events():
     # ROL-4: the mark on Roland's sword, and the refit (q_roland.py).
     beatrice["pages"] += q_roland.anvil_pages(beatrice["pages"][0])
     beatrice["pages"] += q_hob.beatrice_pages(beatrice["pages"][0])  # HOB-3
+    beatrice["pages"].append(q_roland.anvil_after_door(             # P4b
+        beatrice["pages"][0], beatrice["pages"][2], beatrice["pages"][3]))
     evs.append(beatrice)
     evs.append(q_hob.anvil_event(5, *SMITHY_ANVIL, ANVIL))
     forge = q_hob.forge_event(6, *SMITHY_FORGE)               # HOB-2

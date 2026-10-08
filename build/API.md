@@ -519,7 +519,7 @@ Ninian                The Copyist
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-155 constants.
+159 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -662,6 +662,7 @@ STUDY_DESK                   (31, 6)
 STUDY_MARKS                  (30, 3)
 MAP_DROWNED_STREET           66
 MAP_CARN_DREY                67
+TOWER_DOOR_EVENT             4
 CARN_DREY                    (39, 55)
 CARN_DREY_STEP               (40, 55)
 SNUG_CARD                    (4, 8)
@@ -677,6 +678,9 @@ MAP_POTTERING_IN             69
 POTTERING_STEP               (60, 62)
 MAP_CULVERT                  70
 CULVERT_STEP                 (33, 20)
+MAP_FITCH                    71
+FITCH_DOOR_EVENT             15
+FITCH_STEP                   (14, 9)
 ```
 
 
@@ -684,7 +688,7 @@ CULVERT_STEP                 (33, 20)
 
 The whole database of The Obligatory Quest.
 
-616 constants.
+622 constants.
 
 ```
 BRAM                         1
@@ -1253,6 +1257,12 @@ VAR_MOTHBALLS                32
 MOTHBALL_STEPS               50
 MOTHBALL_AIRING              25
 SW_GRIMSPITE_TEA             214
+SW_COTTAGE_SEEN              215
+SW_ROLAND_BACK               216
+SW_ROL5_LATE                 217
+SW_DRAWN_LEFT                218
+IT_COTTAGE_KEY               76
+PENSION                      1000
 SPARE_ARGUING_LEVEL          12
 AR_STICK                     30
 AR_STRAIGHTER_STICK          31

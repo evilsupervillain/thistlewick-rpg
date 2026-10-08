@@ -372,6 +372,9 @@ MAP_DROWNED_STREET = 66
 # is on. Both checked open four ways; the cell south of the cave is not.
 # The card is on the Bell's snug table, Map 65, read from beside.
 MAP_CARN_DREY = 67
+# The Obligatory Tower's door on the world map, Map 8: `journey` builds it,
+# and ROL-5's telling after the ending sets its self switch A by script.
+TOWER_DOOR_EVENT = 4
 CARN_DREY = (39, 55)
 CARN_DREY_STEP = (40, 55)
 SNUG_CARD = (4, 8)
@@ -418,3 +421,11 @@ POTTERING_STEP = (60, 62)
 # paving facing the water: (33,20), open four ways in the built town.
 MAP_CULVERT = 70
 CULVERT_STEP = (33, 20)
+
+# P4b (POSTGAME.md 5): Ambrose Fitch's cottage, behind Nether Sopping's shut
+# "A Front Door" (`south.py`, event 15, on the bottom tile of the door at
+# (14, 7)). Drawn by `south.fitch_map`, with its events from `postgame.py`.
+# The way back out lands on the step the door is tried from.
+MAP_FITCH = 71
+FITCH_DOOR_EVENT = 15
+FITCH_STEP = (14, 9)

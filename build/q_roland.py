@@ -47,18 +47,29 @@ def _like(page0, cmds, conditions):
     return page
 
 
-def _the_mark():
-    """Roland and Hob at the anvil. The whole of ROL-4 that matters."""
+# How the sword reaches the anvil, and where it goes after, before the door.
+MARK_OPENING = [
+    "He unbuckles the sword he carries and never uses -",
+    "not the one on his hip, the other one - and lays it",
+    "across the anvil."]
+MARK_CLOSING = [
+    "Roland buckles the sword on again, carefully, the",
+    "way you would carry a thing back to where it lives."]
+
+
+def _the_mark(opening=MARK_OPENING, closing=MARK_CLOSING):
+    """Roland and Hob at the anvil. The whole of ROL-4 that matters.
+
+    After the ending he has left the sword with the party, so the post-game
+    page asks for it back and hands it on again (`MARK_LATE`); the rest is
+    the same scene, word for word."""
     c = S.narrate([
         "Roland stops at the anvil. He has been quiet since",
         "you came in."])
     c += S.say("Roland", [
         "Hob. Would you look at something",
         "for me? Professionally."])
-    c += S.narrate([
-        "He unbuckles the sword he carries and never uses -",
-        "not the one on his hip, the other one - and lays it",
-        "across the anvil."])
+    c += S.narrate(opening)
     c += S.say("Roland", [
         "I leave it at a door. Every time.",
         "And every time, somehow, it finds",
@@ -89,9 +100,7 @@ def _the_mark():
     c += S.narrate([
         "Beatrice, on the anvil, for once, says nothing at",
         "all."])
-    c += S.narrate([
-        "Roland buckles the sword on again, carefully, the",
-        "way you would carry a thing back to where it lives."])
+    c += S.narrate(closing)
     c += [R.control_switch(db.SW_ROL4_SEEN, True)]
     c += S.companion_story(db.ROLAND)
     return c
@@ -166,6 +175,46 @@ def anvil_pages(page0):
                            "switch2Valid": True,
                            "switch2Id": db.SW_ROL4_SEEN}),
     ]
+
+
+def anvil_after_door(page0, hob_page, floor):
+    """Beatrice's last page (Map 6, event 4): Roland after the ending
+    (POSTGAME.md 3a), rehired. He left Fairweather's Own at the tower door,
+    so he has nothing to unbuckle: the party hands it back for the look, and
+    he hands it on again.
+
+    It is last, so it would take two pages above it that can be due with him
+    standing there, and it plays each of them instead, word for word: Hob's
+    refit (`hob_page`), once the mark has been seen, and HOB-3's hammer on
+    the floor (`floor`) for as long as the anvil is out on the grass."""
+    looked = page0["list"][:-1]
+    late_alone = looked + S.narrate([
+        "Roland looks at the anvil for a moment, the way a",
+        "swordsman looks at any forge he is standing in, and",
+        "his hand goes to his belt, where the other sword",
+        "used to hang."])
+    late_mark = _the_mark(MARK_LATE_OPENING, MARK_LATE_CLOSING)
+    late = R.if_then(
+        R.condition_actor_in_party(db.HOB),
+        R.if_then(R.condition_switch(db.SW_ROL4_SEEN), hob_page["list"][:-1],
+                  R.if_then(R.condition_script(HAS_SWORD), late_mark,
+                            late_alone)),
+        late_alone)
+    gone = floor["conditions"]
+    assert gone["switch1Valid"] and not gone["switch2Valid"], gone
+    late = R.if_then(R.condition_switch(gone["switch1Id"]),
+                     floor["list"][:-1], late)
+    return _like(page0, late, {"actorValid": True, "actorId": db.ROLAND,
+                               "switch1Valid": True,
+                               "switch1Id": db.SW_ROLAND_GONE})
+
+
+MARK_LATE_OPENING = [
+    "He asks for the sword he left at the tower door, and",
+    "you give it to him, and he lays it across the anvil."]
+MARK_LATE_CLOSING = [
+    "Roland gives it back to you, hilt first, carefully,",
+    "the way you would hand a thing back to where it lives."]
 
 
 # ======================================================================
@@ -593,7 +642,9 @@ def _rol5_meet():
     return c
 
 
-def _rol5_tell():
+def _rol5_told():
+    """The telling, as far as the question nobody picks up. Shared by the
+    tell before the tower and the one after the ending."""
     c = S.narrate([
         "Maud is at the snug table again, with a new pie, which",
         "she is guarding."])
@@ -631,6 +682,11 @@ def _rol5_tell():
         "Mrs Dewhirst comes over to ask whether anybody wants",
         "pudding, and the question stays where it is, on the table",
         "among the plates, and nobody picks it up."])
+    return c
+
+
+def _rol5_tell():
+    c = _rol5_told()
     c += S.say("Maud", ["Then I'm not waiting either."])
     c += S.say("Maud", ["You've never seen the end of one.",
                         "Eleven doors, you said. Where does",
@@ -645,6 +701,43 @@ def _rol5_tell():
         "Bell has heard him do. Then he gives you back the minutes."])
     c += S.say("Roland", ["...Yes. All right. Do."])
     c += [S.trope(), R.control_switch(db.SW_ROL5_DONE, True)]
+    c += S.companion_story(db.ROLAND)
+    return c
+
+
+def _rol5_tell_late():
+    """ROL-5 after the ending (POSTGAME.md 3a): the tower is done, so nobody
+    waits at its door. She asks where this one ends and it already has; the
+    party were there, and tell her, and Roland hears the end of one for the
+    first time. The door's self switch A goes on, so its splice for her
+    (`_rol5_at_door`) never plays to an empty door."""
+    c = _rol5_told()
+    c += S.say("Maud", ["Then I'm not waiting either."])
+    c += S.say("Maud", ["You've never seen the end of one.",
+                        "Eleven doors, you said. Where does",
+                        "this one end?"])
+    c += S.say("Roland", ["It's ended. At a tower, in the north.",
+                          "I left at the door. I always do."])
+    c += S.narrate(["Maud looks at you, and at the rest of the party."])
+    c += S.say("Maud", ["Then you were there.",
+                        "How does it end?"])
+    c += S.narrate([
+        "You tell her. It takes the rest of the pie. Roland listens",
+        "to all of it with his chin on his hand, and does not say",
+        "a word, because it is the first time anybody has told him",
+        "the end of one."])
+    c += S.say("Maud", ["...Oh. So that's how they end."])
+    c += S.narrate([
+        "Roland laughs - properly, out loud, which nobody at the",
+        "Bell has heard him do. Then he gives you back the minutes."])
+    c += S.say("Maud", ["I'm going to go and see one for",
+                        "myself. Not the end. The bit after."])
+    c += S.say("Roland", ["...Yes. All right. Do."])
+    c += R.script(["$gameSelfSwitches.setValue([%d, %d, 'A'], true);"
+                   % (places.MAP_WORLD, places.TOWER_DOOR_EVENT)])
+    c += [S.trope(), R.control_switch(db.SW_ROL5_ON, False),
+          R.control_switch(db.SW_ROL5_LATE, True),
+          R.control_switch(db.SW_ROL5_DONE, True)]
     c += S.companion_story(db.ROLAND)
     return c
 
@@ -677,6 +770,12 @@ def understudy_event(event_id):
                conditions=dict(on, **roland)),
         R.page([], conditions={"switch1Valid": True,
                                "switch1Id": db.SW_ROL5_DONE}, **blank),
+        # P4b: told after the ending. `SW_ROL5_ON` is cleared at the
+        # hand-back for anyone already told, and by this page once it has
+        # run, so it is on here only while the telling is still owed.
+        R.page(_rol5_tell_late(), img=img, direction_fix=True,
+               conditions=dict(on, switch2Valid=True, switch2Id=db.SW_WON,
+                               **roland)),
     ])
 
 
@@ -692,6 +791,23 @@ def dewhirst_after(own):
     page["conditions"] = R.page([], conditions={
         "selfSwitchValid": True, "selfSwitchCh": "A",
         "switch1Valid": True, "switch1Id": db.SW_ROL5_DONE})["conditions"]
+    return page
+
+
+def dewhirst_late(own):
+    """Mrs Dewhirst (Map 65, event 2) after a telling after the ending: her
+    own last page and a line about the snug. Last, on her terminal self
+    switch A, so it beats the line that says Maud went to the door."""
+    page = copy.deepcopy(own)
+    page["list"] = own["list"][:-1] + S.say("Mrs Dewhirst", [
+        "Snug's empty, love. Miss",
+        "Penhallow's handed in her wooden",
+        "sword. Said she's off to see the",
+        "bit after."])
+    page["list"] += R.page([])["list"][-1:]
+    page["conditions"] = R.page([], conditions={
+        "selfSwitchValid": True, "selfSwitchCh": "A",
+        "switch1Valid": True, "switch1Id": db.SW_ROL5_LATE})["conditions"]
     return page
 
 
@@ -744,7 +860,55 @@ def door_pages(door, split):
         R.page(sworded[:split2] + _rol5_at_door() + sworded[split2:],
                conditions=dict(rol2, switch2Valid=True,
                                switch2Id=db.SW_ROL5_DONE), **touch),
+        # P4b: once he has gone, he does not go twice. Last, so it beats the
+        # three above for good: the door's own lines without the departure,
+        # and Roland, rehired after the ending, finding nobody calls him.
+        # Before the ending this is the same door: he cannot be in the party
+        # once he has left, and anyone who saw Maud's splice has the door's
+        # self switch A on already.
+        R.page(_after_the_door() + door[split:],
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_ROLAND_GONE}, **touch),
     ]
+
+
+def _after_the_door():
+    """At the tower door with Roland, after the ending (POSTGAME.md 3a).
+
+    Once: he stops out of habit and nothing happens. And the sword out of
+    Carn Drey, if he drew it after he had left: he said he would keep it
+    till the door, and the door does not ask for it, so he wears it.
+    `SW_DRAWN_LEFT` is on for anyone whose sword was handed over in the
+    departure (`postgame.roland_pages` sets it at the first rehire)."""
+    habit = S.narrate([
+        "At the foot of the tower, Roland stops walking, out of",
+        "habit, and waits."])
+    habit += [R.wait(60)]
+    habit += S.narrate([
+        "Nothing happens. He waits a little longer, to be sure.",
+        "Nothing goes on happening."])
+    habit += S.say("Roland", ["Huh."])
+    habit += S.say("Roland", ["So this is the bit after.",
+                              "It's very quiet."])
+    habit += [R.self_switch("B", True)]
+    keep = S.narrate([
+        "He unbuckles the sword out of Carn Drey, out of habit",
+        "as well, and goes to lay it on the grass. Then he",
+        "looks at the door, which is not asking him for it."])
+    keep += S.say("Roland", ["I said I'd keep it till the door.",
+                             "I'll keep it, then."])
+    keep += R.script([
+        "const a = $gameActors.actor(%d), w = $dataWeapons[%d];"
+        % (db.ROLAND, db.WP_DRAWN),
+        "$gameParty.gainItem(w, 1);",
+        "if (a.canEquip(w)) a.changeEquip(0, w);"])
+    keep += [R.play_me("Item"), R.control_switch(db.SW_DRAWN_LEFT, True)]
+    keep += S.got(["Roland wears \\I[120]\\C[3]The Drawn Sword\\C[0]."])
+    c = R.if_then(R.condition_self_switch("B", False), habit)
+    c += R.if_then(R.condition_switch(db.SW_ROL2_DONE),
+                   R.if_then(R.condition_switch(db.SW_DRAWN_LEFT, False),
+                             keep))
+    return R.if_then(R.condition_actor_in_party(db.ROLAND), c)
 
 
 def understudy_at_door(event_id):
