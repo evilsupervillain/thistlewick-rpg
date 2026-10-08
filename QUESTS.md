@@ -4181,7 +4181,15 @@ part one, in the order given, one commit each. **P2 is finished.**
   the door walks of `reachable_clanging` (the canopy door), `restwell`,
   `hamlets`, and `ashcombe` and `dunnage_company` for the two doors that
   refuse. Nothing walks Map 9 by key. `guild` now walks onto the mat and
-  presses Enter instead of starting the event. RESULTS
+  presses Enter instead of starting the event. **All pass**: `guild` 8
+  checks, then sixteen through `scenarios.sh` in 139 minutes - `q_nix3` 22,
+  `reachable_home` 9, `opening` 12, `reachable_village` 6, `q_hob2` 46,
+  `q_hob3` 30, `q_wre5` 26, `reachable_sopping` 7, `firstfield_graduation`
+  17, `q_spa1_letters` 26, `reachable_clanging` 23, `restwell` 47, `hamlets`
+  72, `ashcombe` 97, `dunnage_company` 54, `q_mer2` 52. A scratch check of
+  the sword (not kept: `opening` and `reachable_home` cover the take)
+  asserted it on the wall, gone as it comes off, in Bram's hands, and taken
+  down again by the watcher when its switch was cleared.
 
 ---
 
