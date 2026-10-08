@@ -121,12 +121,12 @@ def penultima_map():
     # Trees round three sides. The western side is left open: that is the road
     # in, and the gate is the gap.
     for x in range(0, w - 1, 2):
-        g.blit(x, 0, 3, K.TREE_DARK if x % 4 else K.TREE)
-        g.blit(x, h - 2, 3, K.TREE if x % 4 else K.TREE_DARK)
+        g.blit(x, 0, 3, K.TREE)
+        g.blit(x, h - 2, 3, K.TREE)
     for y in range(2, h - 2, 2):
         if not (STREET_Y - 2 <= y <= STREET_Y):
             g.blit(0, y, 3, K.TREE)
-        g.blit(w - 2, y, 3, K.TREE_DARK if y % 4 else K.TREE)
+        g.blit(w - 2, y, 3, K.TREE)
 
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Penultima", bgm="Town2")
     m["data"] = g.data

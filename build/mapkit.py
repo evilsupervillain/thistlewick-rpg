@@ -110,6 +110,11 @@ TOWER_WHITE = (10, 6)
 
 # ------------------------------------------------------ Outside_B scenery ----
 TREE = ((b_tile(8, 6), b_tile(9, 6)), (b_tile(8, 7), b_tile(9, 7)))
+# TREE_DARK is not a darker tree: it is the sheet's forest canopy, a block
+# that tiles with itself into one unbroken wood (the Gloamwood's Deep). Beside
+# a whole TREE, or on its own on grass, it reads as four quarter-trees cut off
+# square - so a ring of trees round a town is all TREE, and a solid wood is all
+# TREE_DARK. The sample never lays it on Outside at all.
 TREE_DARK = ((b_tile(10, 6), b_tile(11, 6)), (b_tile(10, 7), b_tile(11, 7)))
 STALL = ((b_tile(12, 6), b_tile(13, 6)), (b_tile(12, 7), b_tile(13, 7)))
 STALL_FRUIT = ((b_tile(14, 6), b_tile(15, 6)), (b_tile(14, 7), b_tile(15, 7)))

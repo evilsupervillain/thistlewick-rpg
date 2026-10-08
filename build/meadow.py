@@ -189,10 +189,10 @@ def meadow_map():
     for x in range(0, MW, 2):
         g.blit(x, 0, 3, K.TREE)
         if x != EXITS[0][0]:
-            g.blit(x, MH - 2, 3, K.TREE_DARK if x % 4 else K.TREE)
+            g.blit(x, MH - 2, 3, K.TREE)
     for y in range(2, MH - 2, 2):
-        g.blit(0, y, 3, K.TREE if y % 4 else K.TREE_DARK)
-        g.blit(MW - 2, y, 3, K.TREE_DARK if y % 4 else K.TREE)
+        g.blit(0, y, 3, K.TREE)
+        g.blit(MW - 2, y, 3, K.TREE)
     for x, y in [(26, 2), (2, 2), (26, 5)]:
         g.blit(x, y, 3, K.TREE)
 

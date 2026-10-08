@@ -130,7 +130,7 @@ def gore_map():
 
     # The wood all round, with a gap at the bottom for the road.
     for x in range(0, w, 2):
-        g.blit(x, 0, 3, K.TREE if x % 4 else K.TREE_DARK)
+        g.blit(x, 0, 3, K.TREE)
         if not (ROAD_X - 1 <= x <= ROAD_X + 2):
             g.blit(x, h - 2, 3, K.TREE)
     for y in range(2, h - 2, 2):

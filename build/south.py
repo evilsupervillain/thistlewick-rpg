@@ -221,11 +221,11 @@ def sopping_map():
     # -- trees along the landward sides, and a gap for the road
     for x in range(0, TOWN_W - 1, 2):
         if not (SOPPING_GATE[0] - 1 <= x <= SOPPING_GATE[0]):
-            g.blit(x, 0, 3, K.TREE_DARK if x % 4 else K.TREE)
+            g.blit(x, 0, 3, K.TREE)
     for y in range(2, 18, 2):
-        g.blit(0, y, 3, K.TREE if y % 4 else K.TREE_DARK)
+        g.blit(0, y, 3, K.TREE)
         if not 10 <= y <= 14:        # the boat shed stands in the eastern trees
-            g.blit(TOWN_W - 2, y, 3, K.TREE_DARK if y % 4 else K.TREE)
+            g.blit(TOWN_W - 2, y, 3, K.TREE)
     for x, y in [(2, 8), (37, 4), (24, 3), (10, 2)]:
         g.blit(x, y, 3, K.TREE)
 

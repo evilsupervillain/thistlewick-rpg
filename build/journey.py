@@ -420,8 +420,10 @@ def gloamwood_map():
             block = {(x, y), (x + 1, y), (x, y + 1), (x + 1, y + 1)}
             if block & open_ground:
                 continue
-            # Vary the trees so the wood does not read as wallpaper.
-            g.blit(x, y, 3, K.TREE if (x * 5 + y * 3) % 7 < 3 else K.TREE_DARK)
+            # One unbroken canopy, as in the Deep. It used to be whole trees
+            # scattered through it, which made a patchwork: each one is a tree
+            # on grass, and the canopy beside it is cut off square.
+            g.blit(x, y, 3, K.TREE_DARK)
 
     # Undergrowth along the path and in the clearings.
     for n, (x, y) in enumerate(path):

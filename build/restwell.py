@@ -173,8 +173,8 @@ def restwell_map():
     # four road ends. The gaps are the gates.
     for x in range(0, w - 1, 2):
         if not (CROSS_X - 1 <= x <= CROSS_X + 1):
-            g.blit(x, 0, 3, K.TREE_DARK if x % 4 else K.TREE)
-            g.blit(x, h - 2, 3, K.TREE if x % 4 else K.TREE_DARK)
+            g.blit(x, 0, 3, K.TREE)
+            g.blit(x, h - 2, 3, K.TREE)
     for y in range(2, h - 3, 2):
         if not (STREET_Y - 2 <= y <= STREET_Y):
             g.blit(0, y, 3, K.TREE)
@@ -183,7 +183,7 @@ def restwell_map():
             # refuses the overlap rather than drawing a tree on a roof, which
             # is how this was found.
             if not (INN_N[1] - 1 <= y <= INN_N[1] + INN_N[3]):
-                g.blit(w - 2, y, 3, K.TREE_DARK if y % 4 else K.TREE)
+                g.blit(w - 2, y, 3, K.TREE)
 
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Restwell", bgm="Town1")
     m["data"] = g.data

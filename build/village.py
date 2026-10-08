@@ -160,13 +160,15 @@ def village_map():
     g.set(18, 24, 3, K.SIGNPOST)                  # the scarecrow's pole
 
     # -- trees. Two rows deep all the way round, with one gap for the gate.
+    # All `TREE`: alternated with `TREE_DARK` it was a whole tree, then four
+    # quarter-trees, all the way round (QUESTS.md P2).
     for x in range(0, VW - 1, 2):
         if not (GATE[0] - 1 <= x <= GATE[0]):
             g.blit(x, 0, 3, K.TREE)
-        g.blit(x, VH - 2, 3, K.TREE_DARK if x % 4 else K.TREE)
+        g.blit(x, VH - 2, 3, K.TREE)
     for y in range(2, VH - 2, 2):
-        g.blit(0, y, 3, K.TREE if y % 4 else K.TREE_DARK)
-        g.blit(VW - 2, y, 3, K.TREE_DARK if y % 4 else K.TREE)
+        g.blit(0, y, 3, K.TREE)
+        g.blit(VW - 2, y, 3, K.TREE)
     # a couple of trees inside the village, so it is not all lawn
     for x, y in [(21, 3), (2, 11), (36, 11), (21, 22), (11, 33), (31, 33)]:
         g.blit(x, y, 3, K.TREE)
