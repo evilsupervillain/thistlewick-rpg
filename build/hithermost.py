@@ -298,10 +298,11 @@ def chapel_map():
     g.set(LECTERN[0] + 1, LECTERN[1], 3, CUP)
 
     # The Record: every Book before this one, which is forty years of it.
-    g.column(x1, 6, 3, K.IN_BOOKCASE)
-    g.column(x1, 8, 3, K.IN_BOOKCASE2)
-    g.column(x2, 6, 3, K.IN_BOOKCASE)
-    g.column(x2, 8, 3, K.IN_BOOKCASE2)
+    # Two one-wide shelves down each side wall. They were the two halves of
+    # one `Bookshelf B`, stood one above the other.
+    for x in (x1, x2):
+        g.column(x, 6, 3, K.IN_BOOKSHELF)
+        g.column(x, 8, 3, K.IN_BOOKSHELF)
     g.set(4, 7, 2, TABLE_D)
     g.set(4, 7, 3, RECORDS)
 

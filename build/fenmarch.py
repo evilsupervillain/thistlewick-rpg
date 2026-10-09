@@ -286,7 +286,7 @@ def gallery_map():
 
     # The west end: the fire, the table, the clock.
     g.blit(FIRE_X, y1 - 1, 2, K.IN_FIREPLACE)
-    g.column(HOME_X2 - 1, y1 - 1, 2, CLOCK)
+    g.column(HOME_X2 - 1, y1 - 2, 2, CLOCK)   # hung on the wall, not stood
     for x, y in FAMILY_TABLE:
         g.set(x, y, 2, TABLE_C)
     g.set(*FAMILY_TABLE[0], 3, SOUP)

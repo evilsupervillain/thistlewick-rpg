@@ -381,10 +381,19 @@ SNUG_CARD = (4, 8)
 # MER-3 (QUESTS.md E3): the Slain Wyvern's back room, in Map 14's black east,
 # where the Healers' Table meets once a year. Drawn by `south.back_room`; its
 # events are `q_merribell.py`'s. Its door is on the bar's north wall face,
-# between the bookcase and the red curtain, and appears only for the Table.
+# behind the red curtain, which is drawn back only for the Table.
 WYVERN_BACK = (28, 4, 34, 9, 31)        # x1, y1, x2, y2, door_x
 WYVERN_BACK_DOOR = (15, 3)              # on the north wall face of the bar
-WYVERN_BACK_TABLE = (29, 6, 33)         # Table D from x 29 to 33, row 6
+WYVERN_BACK_TABLE = (29, 6, 33)         # the long table, x 29 to 33, row 6
+WYVERN_CURTAIN = (15, 2)                # its top-left; two wide, two tall
+# The Slain Wyvern's long table, on the red rug, and the twelve stools round
+# it: ROL-3's eleven sit at it while the dinner is on (`q_roland.ALUMNI`), and
+# nobody does otherwise. (x, y, facing), top row facing down at the table,
+# bottom row facing up, and the head of the table at the fire end.
+WYVERN_LONG_TABLE = (9, 9, 5, 2)        # x, y, w, h
+WYVERN_DINNER = ([(x, 8, 2) for x in range(9, 14)] +
+                 [(x, 11, 8) for x in range(9, 14)] +
+                 [(14, 9, 4), (14, 10, 4)])
 # ALD-3 (QUESTS.md E4): the Chapter House's great map once the pin goes with
 # the knight - `coldbarrow.draw_map` writes it beside Coldbarrow_Map, with no
 # red pins in it, and `q_aldric` shows it.

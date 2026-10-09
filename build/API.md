@@ -135,7 +135,7 @@ choice_block(options, branches, cancel=None, default=0, position=2, background=0
 
 Tile vocabulary and drawing helpers for The Obligatory Quest.
 
-**Tile constants (356)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
+**Tile constants (358)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
 
 ```
 GRASS                   PATH                    COBBLE                  PAVING
@@ -218,15 +218,16 @@ SF_BROKEN_PILLAR_MACHINE  SF_BROKEN_PILLAR_BRICK  SF_IRON_FENCE_A         SF_IRO
 SF_METAL_FENCE          SF_SPHERE_MACHINERY     SF_WATER_TANK           SF_ROUND_CLOCK
 SF_SIGN_POST            SF_WARNING_PLATE        SF_CANOPY               SF_PUMP
 SF_POSTBOX              SF_BENCH                SF_BENCH_B              SF_DUMPSTER
-SF_WEEDS                SF_WEEDS_B              SF_RUBBLE               SF_RAILING
-SF_RAILING_PIER         SF_GATE_LEAF            SF_IN_WALL_CONCRETE     SF_IN_FACE_CONCRETE
-SF_IN_WALL_HOUSE        SF_IN_FACE_HOUSE        SF_IN_WALL_METAL        SF_IN_FACE_METAL
-SF_IN_WALL_RUST         SF_IN_FACE_RUST         SF_IN_WALL_BARRACKS     SF_IN_FACE_BARRACKS
-SF_IN_WALL_FACTORY      SF_IN_FACE_FACTORY      SF_IN_WALL_FACTORY_B    SF_IN_FACE_FACTORY_B
-SF_IN_WALL_PATTERN      SF_IN_FACE_PATTERN      SF_IN_WALL_PATTERN_B    SF_IN_FACE_PATTERN_B
-SF_IN_WALL_BRICK        SF_IN_FACE_BRICK        SF_IN_WALL_WOOD         SF_IN_FACE_WOOD
-SF_FLOOR_RESIN          SF_FLOOR_TILE           SF_FLOOR_DECO           SF_FLOOR_WOOD
-SF_FLOOR_CARPET         SF_FLOOR_MARBLE         SF_FLOOR_LINO           SF_THRESHOLD
+SF_WEEDS                SF_WEEDS_B              SF_RUBBLE               IN_TABLE_TOP
+IN_BOOKCASE_WIDE        SF_RAILING              SF_RAILING_PIER         SF_GATE_LEAF
+SF_IN_WALL_CONCRETE     SF_IN_FACE_CONCRETE     SF_IN_WALL_HOUSE        SF_IN_FACE_HOUSE
+SF_IN_WALL_METAL        SF_IN_FACE_METAL        SF_IN_WALL_RUST         SF_IN_FACE_RUST
+SF_IN_WALL_BARRACKS     SF_IN_FACE_BARRACKS     SF_IN_WALL_FACTORY      SF_IN_FACE_FACTORY
+SF_IN_WALL_FACTORY_B    SF_IN_FACE_FACTORY_B    SF_IN_WALL_PATTERN      SF_IN_FACE_PATTERN
+SF_IN_WALL_PATTERN_B    SF_IN_FACE_PATTERN_B    SF_IN_WALL_BRICK        SF_IN_FACE_BRICK
+SF_IN_WALL_WOOD         SF_IN_FACE_WOOD         SF_FLOOR_RESIN          SF_FLOOR_TILE
+SF_FLOOR_DECO           SF_FLOOR_WOOD           SF_FLOOR_CARPET         SF_FLOOR_MARBLE
+SF_FLOOR_LINO           SF_THRESHOLD
 ```
 
 **Everything else.**
@@ -260,6 +261,20 @@ IN_STONE_PILLAR              sf_block('Inside_B', 'Stone Pillar A')
 IN_LONGCASE_CLOCK            sf_block('Inside_B', 'Clock')
 IN_PIANO_WHOLE               _rows(sf_block('Inside_B', 'Piano'), 3)
 IN_PIPE_ORGAN                _rows(sf_block('Inside_B', 'Pipe Organ'), 3)
+TABLE_KINDS                  {R.autotile_kind(IN_TABLE_TOP)}
+INC_DINNER_BELOW             sf_tile('Inside_C', 'Dinner Set A (Bottom)')
+INC_DINNER_ABOVE             sf_tile('Inside_C', 'Dinner Set B (Top)')
+INC_DINNER_LEFT              sf_tile('Inside_C', 'Dinner Set C (Left)')
+INC_DINNER_RIGHT             sf_tile('Inside_C', 'Dinner Set D (Right)')
+INC_ROAST                    sf_tile('Inside_C', 'Roast Chicken')
+INC_PINT                     sf_tile('Inside_C', 'Pint Mug C')
+INC_PINTS                    sf_tile('Inside_C', 'Pint Mug A (Lower Left)')
+INC_ENVELOPE                 sf_tile('Inside_C', 'Envelope')
+INC_LEDGER                   sf_tile('Inside_C', 'Open Book A (H)')
+INC_MEDICINE                 sf_tile('Inside_C', 'Medicine Bottles B')
+INC_MEDICINE_ONE             sf_tile('Inside_C', 'Medicine Bottle A')
+INC_KEG                      sf_tile('Inside_C', 'Beer Barrel A')
+IN_WINDOW_GREEN              _rows(sf_block('Inside_B', 'Middle Window B'), 2)
 INC_SCROLLS                  sf_tile('Inside_C', 'Scrolls A')
 INC_ALTAR                    _rows(sf_block('Inside_C', 'Church Table'), 3)
 INC_ARMOUR_STEEL             sf_tile('Inside_C', 'Armor B (Stand)')
@@ -519,7 +534,7 @@ Ninian                The Copyist
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-159 constants.
+162 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -669,6 +684,9 @@ SNUG_CARD                    (4, 8)
 WYVERN_BACK                  (28, 4, 34, 9, 31)
 WYVERN_BACK_DOOR             (15, 3)
 WYVERN_BACK_TABLE            (29, 6, 33)
+WYVERN_CURTAIN               (15, 2)
+WYVERN_LONG_TABLE            (9, 9, 5, 2)
+WYVERN_DINNER                ...
 COLDBARROW_MAP_AT_LARGE      'Coldbarrow_Map_AtLarge'
 FOURTH_FOLLOWS               ...
 ASHCOMBE_LAKE                (104, 54)

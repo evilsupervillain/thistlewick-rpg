@@ -26,6 +26,8 @@ import q_zephyrine
 import story as S
 import wilds as W
 import field as F
+import handdrawn as HD
+import darkwood as DK
 import meadow as M
 import penultima as P
 import restwell as RW
@@ -82,15 +84,16 @@ WOOD_NORTH = (52, 55)                        # where the wood spits you out
 TOWER_DOOR = WORLD_TOWER
 SHRINE = (63, 50)                            # the wayshrine, `+ (35,35)`
 
-# Gloamwood
+# Gloamwood. Its ways in and out are on the map's edge (Mike, October 2026),
+# and each arrival is the cell inside its exit.
 GW, GH = 34, 40
-GW_IN = (17, 37)                             # arriving from the world map
-GW_OUT = (17, 2)                             # on to the deep wood
+GW_IN = (17, GH - 2)                         # arriving from the world map
+GW_OUT = (17, 1)                             # on to the deep wood
 
-# The deep wood
+# The deep wood. Its ways in and out are on the edge, like the Gloamwood's.
 DW, DH = 30, 30
-DW_IN = (15, 27)
-DW_OUT = (15, 2)
+DW_IN = (15, DH - 2)
+DW_OUT = (15, 1)
 
 # The tower
 TW, TH = 33, 34
@@ -389,53 +392,18 @@ def roland_departure():
 
 # ============================================================== the Gloamwood ==
 def gloamwood_map():
-    """Dark grass, a lot of trees, and one path that only looks like a maze.
+    """A dark wood with a path through it, drawn by hand in the editor.
 
-    The trees are stepped two apart because a tree block is 2x2 and only its
-    lower row blocks - so the whole wood tiles solid with no gaps to slip
-    through, and the path is genuinely the only way across."""
-    g = K.Canvas(GW, GH)
-    g.fill(0, 0, GW - 1, GH - 1, 0, K.DARK_GRASS)
-
-    # A switchback, so crossing the wood takes a minute.
-    path = []
-    path += [(17, y) for y in range(30, 39)]
-    path += [(x, 30) for x in range(6, 18)]
-    path += [(6, y) for y in range(22, 31)]
-    path += [(x, 22) for x in range(6, 27)]
-    path += [(26, y) for y in range(13, 23)]
-    path += [(x, 13) for x in range(9, 27)]
-    path += [(9, y) for y in range(7, 14)]
-    path += [(x, 7) for x in range(9, 18)]
-    path += [(17, y) for y in range(1, 8)]
-
-    # Two clearings off the path, which is where the chest and the mimic sit.
-    clearings = [(x, y) for y in range(11, 16) for x in range(11, 15)]
-    clearings += [(x, y) for y in range(24, 28) for x in range(23, 27)]
-    for x, y in path + clearings:
-        g.set(x, y, 0, K.PATH if (x, y) in set(path) else K.SOIL)
-    g.autotile(0)
-
-    open_ground = set(path) | set(clearings)
-    for y in range(0, GH - 1, 2):
-        for x in range(0, GW - 1, 2):
-            block = {(x, y), (x + 1, y), (x, y + 1), (x + 1, y + 1)}
-            if block & open_ground:
-                continue
-            # One unbroken canopy, as in the Deep. It used to be whole trees
-            # scattered through it, which made a patchwork: each one is a tree
-            # on grass, and the canopy beside it is cut off square.
-            g.blit(x, y, 3, K.TREE_DARK)
-
-    # Undergrowth along the path and in the clearings.
-    for n, (x, y) in enumerate(path):
-        if n % 7 == 0:
-            g.set(x + 1, y, 3, [K.MUSHROOMS, K.BUSH, K.DEAD_BUSH][n % 3])
-        if n % 11 == 0:
-            g.set(x - 1, y, 3, [K.LOGS, K.ROCK, K.DEAD_ROOTS][n % 3])
-    g.scatter([(11, 11), (14, 15), (23, 27), (26, 24)], 3, K.DEAD_TREE)
-    g.scatter([(12, 15), (25, 26)], 3, K.MUSHROOMS)
-
+    Mike redrew it on 8 October 2026: the forest is `Forest A`, the A4 wall
+    autotile, so the wood is a mass of canopy with trunks along every edge it
+    faces you from, and the ground winds through it - a stream with a
+    waterfall and a bridge, a pond, a ledge, the two clearings - rather than
+    running in straight lines between square blocks of trees. A drawing like
+    that is better kept than regenerated, so its tiles are frozen in
+    `build/handdrawn/Map009.json` (`handdrawn.py` says how to change it) and
+    only the events are built here. The regions are repainted over whatever
+    is walkable in the drawing, which is what puts the encounters on it."""
+    g = K.Canvas(GW, GH, HD.load(MAP_GLOAMWOOD, GW, GH, K.TS_OUTSIDE))
     m = K.new_map(GW, GH, K.TS_OUTSIDE, name="The Gloamwood", bgm="Dungeon1",
                   encounter_step=26, battleback=("GrassMaze", "Forest"),
                   encounters=[(db.TR_WISPS, 5, [1]),
@@ -467,7 +435,7 @@ def gloamwood_events():
     # NORTH.md 3.4, one of three. New props in existing dungeons; nobody's
     # existing lines are touched and a party without Wren in it is told
     # nothing at all.
-    evs.append(S.specimen(8, "A Nest", 13, 7, [
+    evs.append(S.specimen(8, "A Nest", 13, 5, [        # in a trunk
         "A nest wedged into the fork of a tree, at",
         "head height. Big, untidy, recently used.",
         "Caught in the rim of it: one long banded",
@@ -550,7 +518,7 @@ def gloamwood_events():
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
 
-    evs.append(S.sign(6, "Carved Tree", 6, 24, [
+    evs.append(S.sign(6, "Carved Tree", 5, 27, [       # a trunk by the path
         "Somebody has carved an arrow into the bark,",
         "pointing north.",
         "Underneath it, in a shakier hand, a second",
@@ -564,33 +532,73 @@ def gloamwood_events():
 
 
 # ======================================================= the deep Gloamwood ==
+# The deep wood, in the Gloamwood's own style (`darkwood.py`): the way north
+# down a narrow ride, the Thing's clearing with a black pool in it, a winding
+# way down to a glade, the hollow log in an alcove off its east end and the
+# chest in a pocket off its west, and the way back south. `#` is forest, `.`
+# meadow, `,` the path, `~` water, `r` reeds, `b` bushes and `m` moss.
+DEEP_PLAN = [
+    #         1111111111222222222
+    #1234567890123456789012345678 9
+    "##############.,.#############",   # 0
+    "##############.,.#############",
+    "#############m.,.b############",
+    "#############m.,bb############",
+    "############bb.,..############",
+    "###########mm..,...m##########",   # 5
+    "########.bb....,....bb########",
+    "#######mm.....,,.....b.#######",
+    "######m......,,,,,......######",
+    "######.~~~..,,,,,,,....m######",
+    "#####b~~~~r.,,,,,,,....m######",   # 10
+    "######r~~~..,,,,,,,...bb######",
+    "#######......,,,,,....########",
+    "##########...,....############",
+    "############.,,.##############",
+    "#####..#####..,.####.bb.######",   # 15
+    "####bbmm####..,.####....######",
+    "###.......###.,,....mm..######",
+    "###............,.........#####",
+    "###m...........,........bb####",
+    "####m.....,,,,,,,,,,,...b.####",   # 20
+    "#####..bb......,....mm..######",
+    "######.....##..,..b###########",
+    "#############..,..############",
+    "#############b.,..############",
+    "############m..,.m############",   # 25
+    "#############..,..############",
+    "##############.,bb############",
+    "##############m,.#############",
+    "##############.,.#############",
+]
+
+
 def deep_map():
-    g = K.Canvas(DW, DH)
-    g.fill(0, 0, DW - 1, DH - 1, 0, K.DARK_GRASS)
+    """The Bit With The Thing, drawn in the Gloamwood's style from
+    `DEEP_PLAN`. The props are by hand: dead trees round the clearing, because
+    of course, and the wood getting older the further in it goes."""
+    g = DK.draw(DEEP_PLAN, seed=10)
 
-    path = []
-    path += [(15, y) for y in range(12, 29)]
-    path += [(x, 20) for x in range(8, 16)]
-    path += [(x, 16) for x in range(15, 23)]
-    path += [(15, y) for y in range(1, 12)]
-    clearing = [(x, y) for y in range(8, 13) for x in range(11, 20)]
-    for x, y in path + clearing:
-        g.set(x, y, 0, K.SOIL)
-    g.autotile(0)
-
-    on_path = set(path) | set(clearing)
-    for y in range(0, DH - 1, 2):
-        for x in range(0, DW - 1, 2):
-            block = {(x, y), (x + 1, y), (x, y + 1), (x + 1, y + 1)}
-            if block & on_path:
-                continue
-            g.blit(x, y, 3, K.TREE_DARK)
-
-    # The clearing itself: dead things in a circle, because of course.
-    for x, y in [(11, 8), (19, 8), (11, 12), (19, 12)]:
-        g.set(x, y, 3, K.DEAD_TREE)
-    g.scatter([(13, 11), (17, 11), (12, 9), (18, 9)], 3, K.MUSHROOMS)
-    g.scatter([(14, 12), (16, 12)], 3, K.DEAD_ROOTS)
+    for x, y in [(10, 8), (20, 8), (10, 13), (20, 12)]:      # the circle
+        DK.tall(g, x, y, DK.DEAD_TREE)
+    g.scatter([(13, 11), (17, 11), (12, 9), (18, 9)], 3, DK.MUSHROOMS)
+    g.scatter([(14, 12), (17, 12)], 3, K.DEAD_ROOTS)
+    g.scatter([(7, 7), (22, 7), (6, 9)], 3, DK.FERN_PLANT)
+    DK.tall(g, 8, 6, DK.TREE)
+    DK.tall(g, 22, 10, DK.TREE)
+    DK.large_tree(g, 4, 18)
+    g.scatter([(9, 17), (24, 21)], 3, DK.STUMP)
+    g.scatter([(6, 21), (19, 19)], 3, DK.LOG)
+    g.scatter([(4, 19), (23, 17)], 3, DK.BOULDER)
+    g.scatter([(16, 2), (13, 24), (17, 26), (12, 19)], 3, DK.GRASS[0])
+    g.scatter([(14, 5), (16, 15), (18, 20)], 3, DK.SUSUKI)
+    g.scatter([(11, 22), (21, 16)], 3, DK.DEAD_SHRUB)
+    g.scatter([(7, 20)], 3, DK.MUSHROOMS_PALE)
+    g.scatter([(13, 27), (17, 23)], 3, DK.MUSHROOMS)
+    DK.tall(g, 18, 22, DK.DEAD_TREE)
+    DK.tall(g, 9, 18, DK.TREE)
+    g.scatter([(5, 18), (21, 19), (11, 17)], 3, DK.GRASS[1])
+    g.set(6, 18, 3, DK.BONES)            # somebody who did not get this far
 
     m = K.new_map(DW, DH, K.TS_OUTSIDE, name="The Gloamwood", bgm="Dungeon1",
                   encounter_step=26, battleback=("GrassMaze", "Forest"),
@@ -622,7 +630,7 @@ def deep_events():
     ])))
 
     # NORTH.md 3.4, two of three.
-    evs.append(S.specimen(6, "A Shed Skin", 19, 13, [
+    evs.append(S.specimen(6, "A Shed Skin", 19, 16, [    # on a trunk
         "A shed skin, whole, hooked over a branch and",
         "left inside out. Four feet of it, and the",
         "head end is still the right way round.",

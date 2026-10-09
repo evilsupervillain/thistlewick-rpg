@@ -449,15 +449,19 @@ def archive_map():
 
     # The north wall is shelves, floor to ceiling, and the ladder up to the
     # top shelf is three cells tall against them. The clock stands between.
-    shelves = [K.IN_BOOKCASE, K.IN_BOOKCASE2, K.IN_BOOKSHELF]
-    for i, x in enumerate([3, 4, 6, 7, 8, 14, 15]):
-        g.column(x, y1 - 1, 3, shelves[i % 3])
+    # Whole two-wide `Bookshelf B`s and one-wide `Bookshelf A`s. Cycling
+    # through the three left half of one at 15, against the east wall.
+    shelves = {3: K.IN_BOOKCASE, 4: K.IN_BOOKCASE2, 6: K.IN_BOOKSHELF,
+               7: K.IN_BOOKCASE, 8: K.IN_BOOKCASE2, 14: K.IN_BOOKCASE,
+               15: K.IN_BOOKCASE2}
+    for x, shelf in shelves.items():
+        g.column(x, y1 - 1, 3, shelf)
     g.column(LADDER_X, y1 - 2, 3, LADDER)
-    g.column(CLOCK_X, y1 - 1, 3, CLOCK)
+    g.column(CLOCK_X, y1 - 2, 3, CLOCK)       # hung on the wall, not stood
     g.column(10, y1 - 2, 3, K.IN_STAINED_GLASS)
 
     # Shelves down the west wall too.
-    g.column(x1, 6, 3, K.IN_BOOKCASE)
+    g.column(x1, 6, 3, K.IN_BOOKSHELF)        # was half of `Bookshelf B`
 
     # The stepstool, under her.
     g.set(STOOL[0], STOOL[1], 2, STEPSTOOL)
@@ -711,7 +715,8 @@ def archive_events():
         "The pendulum is not moving. It has been tied to",
         "the side of the case with a hair ribbon, in a",
         "very neat bow."])
-    evs.append(R.event(6, "The Clock", CLOCK_X, y1, [R.page(clock, **page)]))
+    evs.append(R.event(6, "The Clock", CLOCK_X, y1 - 1,       # its lower cell
+                       [R.page(clock, **page)]))
 
     # 7: her bed. The lower cell, because the bed blocks both.
     bed = S.narrate([

@@ -526,7 +526,7 @@ def parlour_map():
     g.column(x1 + 1, y1 - 1, 2, FIREPLACE)
     g.set(*PAINTING_AT, 3, MOUNTAIN)
     g.column(6, y1 - 2, 3, K.IN_WINDOW)
-    g.column(7, y1 - 1, 2, CLOCK)
+    g.column(7, y1 - 2, 2, CLOCK)             # hung on the wall, not stood
     g.column(8, y1 - 1, 2, DRESSER)
     g.set(*CABINET_AT, 2, CABINET)
     g.set(*CABINET_AT, 3, LETTERS)

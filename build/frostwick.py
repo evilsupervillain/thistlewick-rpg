@@ -494,7 +494,7 @@ def working_group_map():
     g.set(9, TABLE_Y, 3, K.INC_GOBLET)
 
     g.column(REGISTER_X, y1 - 1, 2, K.IN_BOOKSHELF)
-    g.column(REGISTER_X + 1, y1 - 1, 2, K.IN_BOOKCASE)
+    g.column(REGISTER_X + 1, y1 - 1, 2, K.IN_BOOKSHELF)  # was half of one
     g.column(5, y1 - 2, 3, K.IN_WINDOW)
     g.column(9, y1 - 2, 3, K.IN_WINDOW)
 

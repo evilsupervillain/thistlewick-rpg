@@ -508,7 +508,7 @@ def _room(g, x1, y1, x2, y2, floor, top, face):
         g.set(x1 - 1, y, 0, top)
         g.set(x2 + 1, y, 0, top)
     g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, top)
-    g.fill(x1, y2 + 2, x2, y2 + 3, 0, face)
+    g.fill(x1 - 1, y2 + 2, x2 + 1, y2 + 3, 0, face)       # corners too
 
 
 def mayors_map():

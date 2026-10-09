@@ -291,11 +291,7 @@
       "label": "and the towel has been refolded, which is the whole of the second page"
     },
     {
-      "goto": [
-        9,
-        13,
-        8
-      ]
+      "goto": [9, 13, 6]
     },
     {
       "eval": "$gameMap.event(8).start()"
@@ -340,11 +336,7 @@
       "label": "and the nest is where you put it back"
     },
     {
-      "goto": [
-        10,
-        19,
-        14
-      ]
+      "goto": [10, 19, 17]
     },
     {
       "eval": "$gameMap.event(6).start()"

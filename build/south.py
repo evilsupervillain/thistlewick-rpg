@@ -27,7 +27,8 @@ import q_roland
 import q_wren
 import q_spare
 import postgame as PG
-from places import (WYVERN_BACK, WYVERN_BACK_TABLE,
+from places import (WYVERN_BACK, WYVERN_BACK_TABLE, WYVERN_LONG_TABLE,
+                    WYVERN_DINNER,
                     MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
                     MAP_FITCH, FITCH_DOOR_EVENT,
@@ -481,72 +482,156 @@ def finish(map_id, g, name, bgm, battleback, events):
 
 
 # ========================================================= the Slain Wyvern ==
+# Who sits where in the Slain Wyvern: (x, y, facing). Mike's note of October
+# 2026 is the rule - a patron who is not meant to be standing is sat on a stool
+# at a table, with whoever they belong with - and the tables below are laid
+# round these. Dorcas is behind her bar, Roland is stood by the fire because
+# his line says so, Corvin is stood in his corner because his does, and Sops
+# is working. The dinner's eleven are `WYVERN_DINNER`, at the long table.
+WYVERN_SEATS = {
+    "dorcas": (4, 5, 2),        # behind the bar
+    "hosea": (9, 6, 6),         # at his own table, the book on it
+    "ysolde": (7, 9, 4),        # her medicine roll open in front of her
+    "hulda": (3, 9, 6),         # with the ledger
+    "nabb": (6, 11, 2),         # the two of them at one table,
+    "tolly": (5, 11, 2),        # not eating, writing
+    "merrow": (6, 7, 8),        # at the bar, drinking carefully
+    "dree": (21, 8, 4),         # alone, deliberately, against the wall
+    "perpetua": (17, 11, 6),    # at the fire end, where the good chairs are
+    "corvin": (21, 15, 4),      # stood in the corner, hood up
+    "wren": (15, 14, 6),        # at a table she has covered in jars
+    "roland": (20, 5, 4),       # stood by the fire
+    "traveller": (4, 14, 2),    # the two travellers side by side,
+    "traveller2": (5, 14, 2),   # holding hands under the table
+    "sops": (9, 14, 8),         # working
+}
+
+
+def seated(event, facing):
+    """Turn every drawn page of `event` to `facing` - the builders give their
+    people a default, and a patron at a table faces the table."""
+    for page in event["pages"]:
+        if page["image"]["characterName"]:
+            page["image"]["direction"] = facing
+    return event
+
+
+def sit(event, who):
+    """Put `event` on `who`'s seat in `WYVERN_SEATS`, facing their table."""
+    event["x"], event["y"], facing = WYVERN_SEATS[who]
+    return seated(event, facing)
+
+
 def wyvern_map():
     """A long room with a big fire, a bar along the west wall, and eleven
-    people who have all been on a quest."""
+    people who have all been on a quest - sat at tables, on stools, with the
+    people they came with.
+
+    The tables are `IN_TABLE_TOP`, the A2 autotile the sample's bars are
+    built from, which Mike swapped in for `Table D` in October 2026; that
+    rework also put the clock and the two boards up on the wall where they
+    hang, gave the bookcase its one-wide `Bookshelf A`, took the beds out of
+    the bar, and hung the red curtain over the back room's door."""
     g = room(MAP_WYVERN, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
-    g.fill(9, 7, 13, 11, 0, K.IN_RED_RUG)         # the rug everyone stands on
-    g.fill(17, 10, 20, 13, 0, K.IN_GREEN_RUG)     # the fire end, which is
+    lx, ly, lw, lh = WYVERN_LONG_TABLE
+    g.fill(lx - 1, ly - 1, lx + lw, ly + lh, 0, K.IN_RED_RUG)  # the long table
+    g.fill(16, 10, 20, 12, 0, K.IN_GREEN_RUG)    # the fire end, which is
     g.autotile(0)                                 # where the good chairs are
 
     for x, shelf in ((3, K.IN_SHELF_BOTTLES), (4, K.IN_SHELF_JARS),
                      (5, K.IN_SHELF_GOODS), (6, K.IN_SHELF_JARS)):
         # (6 was IN_SHELF_FRUIT - teddy bears and a pink rabbit, at a bar.)
         g.column(x, 3, 2, shelf)
-    # The bar. Inside_B's tables carry the counter flag (0x80), which is what
-    # lets the action button reach the landlady standing behind it - so the
-    # bar is built out of tables and Dorcas stands in the gap. (Every table on
-    # the sheet has the flag; these were `Table A (Ruins)` until September
-    # 2026, which is a table split in two - see mapkit's "Inside furniture,
-    # by name".)
-    for x in range(3, 7):
-        g.set(x, 6, 2, K.IN_TABLE_WOOD)
-    g.set(3, 6, 3, K.INC_BOTTLES)
-    g.set(5, 6, 3, K.INC_GOBLET)
-    g.set(6, 6, 3, K.INC_MEAL2)
 
-    # The east end of the bar, added for NORTH.md 3.1 and 3.2: Dorcas's board
-    # on the wall and the register open on the counter under it. The counter
-    # tile carries the counter flag, so the action button reaches the register
-    # from the customers' side; the board's event goes on the *lower* of its
-    # two tiles, because the upper one is wall and nobody can stand in front
-    # of a wall.
-    g.column(7, 3, 2, K.IN_NOTICE_BOARD)
-    g.set(7, 6, 2, K.IN_TABLE_WOOD)
-    # INC_BOOK2, not INC_BOOK: the sheet's `.txt` calls them Closed Book A
-    # and Open Book A, and this one is described as open on the bar with
-    # forty entries down the page.
-    g.set(7, 6, 3, K.INC_BOOK2)
-
-    # The whole piano (it was the lid alone), which puts the clock - a real
-    # one; `IN_CLOCK` is two tables - one along.
+    # -- along the north wall -----------------------------------------------
+    # The notice boards and the clock hang on the wall's two face rows, as
+    # they do in the sample's bars: one row lower and the notice under the
+    # swords was on the floor. Dorcas's board, at 7, is NORTH.md 3.1's; its
+    # event is on the notice, which the action button reaches from behind
+    # the bar.
+    g.column(7, 2, 2, K.IN_NOTICE_BOARD)
+    g.column(12, 2, 2, K.IN_NOTICE_BOARD)
+    g.column(11, 2, 2, K.IN_LONGCASE_CLOCK)
+    # The whole piano (it was the lid alone).
     g.blit(8, 3, 2, K.IN_PIANO_WHOLE)
-    g.column(12, 3, 2, K.IN_NOTICE_BOARD)
-    g.column(14, 3, 2, K.IN_BOOKCASE)
+    g.column(14, 3, 2, K.IN_BOOKSHELF)
     g.blit(17, 3, 2, K.IN_FIREPLACE)
-    g.column(20, 3, 2, K.IN_BED_ORANGE)
-    g.column(21, 3, 2, K.IN_BED_BROWN)
-    g.column(11, 3, 2, K.IN_LONGCASE_CLOCK)
-    g.column(16, 3, 2, K.IN_CURTAIN_RED)
+    # Where the beds were (Mike took them out: a bed is not a thing a bar
+    # has), a picture, hung on the wall's lower face row like the sample's.
+    g.set(20, 3, 3, K.sf_block("Inside_B", "Painting")[0])
+    g.set(21, 3, 3, K.sf_block("Inside_B", "Painting")[1])
+    # The red curtain at 15-16, over the back room's door, is events
+    # (`q_merribell.curtain_events`), because it is drawn back for the Table.
 
-    for tx, ty in [(8, 8), (8, 11), (11, 8), (11, 12), (15, 7), (19, 8),
-                   (6, 13), (16, 13), (18, 12), (5, 9)]:
-        g.set(tx, ty, 2, K.IN_TABLE_WOOD)
-    g.scatter([(9, 9), (12, 9), (17, 7), (20, 11), (7, 14), (15, 14)],
-              2, K.IN_STOOL)
-    g.set(8, 8, 3, K.INC_GOBLET)
-    g.set(11, 8, 3, K.INC_MEAL2)
-    g.set(8, 11, 3, K.INC_BOTTLE)
-    g.set(15, 7, 3, K.INC_MEAL)
-    g.set(19, 8, 3, K.INC_BOTTLES)
-    g.set(6, 13, 3, K.INC_BOTTLES)
-    g.set(16, 13, 3, K.INC_BOOK)
-    g.set(11, 12, 3, K.INC_GOBLET)
-    g.set(18, 12, 3, K.INC_GOBLET)
-    g.set(5, 9, 3, K.INC_MEAL)
-    g.set(3, 8, 2, K.IN_BARREL)
+    tables = []                       # (x, y, w, h) of every table, for the
+                                      # autotile and the overlap check below
+
+    def table(x, y, w=1, h=1, on=()):
+        """A table, and what is on it: `on` is (dx, dy, tile) on layer 3."""
+        for t in tables:
+            tx, ty, tw, th = t
+            if x - 1 <= tx + tw - 1 and tx <= x + w and \
+                    y - 1 <= ty + th - 1 and ty <= y + h:
+                raise ValueError("table at (%d,%d) touches the one at (%d,%d) "
+                                 "and would join it" % (x, y, tx, ty))
+        tables.append((x, y, w, h))
+        g.fill(x, y, x + w - 1, y + h - 1, 1, K.IN_TABLE_TOP)
+        for dx, dy, tile in on:
+            g.set(x + dx, y + dy, 3, tile)
+
+    def stools(*cells):
+        for x, y in cells:
+            g.set(x, y, 2, K.IN_STOOL)
+
+    # -- the bar --------------------------------------------------------------
+    # One run of table, and Dorcas in the gap behind it: the A2 table keeps
+    # the counter flag, so the action button reaches her across it. The east
+    # end is NORTH.md 3.2's register, open on the counter under the board.
+    table(3, 6, 5, 1, on=[(0, 0, K.INC_BOTTLES), (1, 0, K.INC_KEG),
+                          (2, 0, K.INC_GOBLET),
+                          (3, 0, K.INC_PINT),       # Merrow's, carefully
+                          # INC_BOOK2, not INC_BOOK: the sheet's `.txt` calls
+                          # them Closed Book A and Open Book A, and this one is
+                          # described as open with forty entries down the page.
+                          (4, 0, K.INC_BOOK2)])
+    stools((3, 7), (4, 7), (5, 7), (6, 7))
+
+    # -- the west wall: people with paperwork ------------------------------
+    table(10, 6, on=[(0, 0, K.INC_LEDGER)])        # Hosea's, and his book
+    stools((9, 6))
+    table(4, 9, on=[(0, 0, K.INC_LEDGER)])         # Hulda's ledger
+    stools((3, 9))
+    table(6, 9, on=[(0, 0, K.INC_MEDICINE)])       # Ysolde's canvas roll
+    stools((7, 9))
+    table(5, 12, 2, 1, on=[(0, 0, K.INC_ENVELOPE),  # Nabb and Tolly, writing
+                           (1, 0, K.INC_PINTS)])
+    stools((5, 11), (6, 11))
+    table(4, 15, 2, 1, on=[(0, 0, K.INC_MEAL),     # the travellers: beans
+                           (1, 0, K.INC_GOBLET)])
+    stools((4, 14), (5, 14))
+
+    # -- the long table, which is the dinner's ------------------------------
+    # A place laid at every seat, on the side its diner sits on.
+    places = [(dx, 0, K.INC_DINNER_ABOVE) for dx in range(lw)]
+    places += [(dx, 1, K.INC_DINNER_BELOW) for dx in range(lw)]
+    table(lx, ly, lw, lh, on=places)
+    stools(*[(x, y) for x, y, _ in WYVERN_DINNER])
+
+    # -- the fire end ---------------------------------------------------------
+    table(20, 8, on=[(0, 0, K.INC_GOBLET)])        # Dree's, for one
+    stools((21, 8))
+    table(18, 11, 2, 1, on=[(0, 0, K.INC_MEAL), (1, 0, K.INC_BOTTLE)])
+    stools((17, 11), (20, 11))                     # Perpetua, and a spare
+    table(16, 14, 2, 1, on=[(0, 0, K.INC_MEDICINE_ONE),   # Wren's: jars, all
+                            (1, 0, K.INC_BOTTLES)])       # of it, edge to edge
+    g.set(16, 14, 2, K.INC_MEDICINE)
+    g.set(17, 14, 2, K.INC_BOTTLE)
+    stools((15, 14))
+    g.autotile(1, kinds=K.TABLE_KINDS)
+
     g.set(3, 11, 2, K.IN_BARREL2)
-    g.scatter([(21, 15), (3, 15)], 2, K.IN_CRATE)
+    g.set(3, 12, 2, K.IN_BARREL)
+    g.set(3, 15, 2, K.IN_CRATE)
     g.set(21, 6, 2, K.IN_BARREL_WOOD)
     g.set(13, 15, 2, K.IN_BARREL_WOOD)
     back_room(g)                                                    # MER-3
@@ -575,14 +660,28 @@ def back_room(g):
         g.set(x1 - 1, y, 0, K.IN_WALL_TOP)
         g.set(x2 + 1, y, 0, K.IN_WALL_TOP)
     g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, K.IN_WALL_TOP)
-    g.fill(x1, y2 + 2, x2, y2 + 3, 0, K.IN_WALL_FACE)
+    g.fill(x1 - 1, y2 + 2, x2 + 1, y2 + 3, 0, K.IN_WALL_FACE)  # corners too
     g.set(door_x, y2 + 1, 0, K.IN_DARK_WOOD)
     g.set(door_x, y2 + 2, 0, K.a5(91))
     g.set(door_x, y2 + 3, 0, K.a5(91))
+    # Its faces, shaped: written as `IN_WALL_FACE` they are all shape 0, and
+    # the south face then ran on past both corners with no end to it.
+    face = {R.autotile_kind(K.IN_WALL_FACE)}
+    snap = R.MapGrid(g.width, g.height, list(g.data))
+    snap.autotile(0, kinds=face)
+    for y in range(y1 - 3, y2 + 4):
+        for x in range(x1 - 1, x2 + 2):
+            if R.autotile_kind(g.get(x, y, 0)) in face:
+                g.set(x, y, 0, snap.get(x, y, 0))
 
     tx1, ty, tx2 = WYVERN_BACK_TABLE
-    for x in range(tx1, tx2 + 1):
-        g.set(x, ty, 2, K.IN_TABLE_WOOD)
+    g.fill(tx1, ty, tx2, ty, 1, K.IN_TABLE_TOP)
+    g.autotile(1, kinds=K.TABLE_KINDS)
+    # Ysolde's chair at the west end and the four either side
+    # (`q_merribell._MER3_SEATS`), and one spare at the far end.
+    for x, y in [(tx1 - 1, ty), (tx1 + 1, ty - 1), (tx1 + 3, ty - 1),
+                 (tx1 + 1, ty + 1), (tx1 + 3, ty + 1), (tx2 + 1, ty)]:
+        g.set(x, y, 2, K.IN_STOOL)
     g.set(tx1, ty, 3, K.INC_GOBLET)
     g.set(tx1 + 2, ty, 3, BACK_OPEN_BOOK)
     g.set(tx2, ty, 3, K.INC_BOTTLES)
@@ -595,11 +694,11 @@ def back_room(g):
 def wyvern_events():
     evs = [S.exit_tile(1, "Tavern Door", *threshold(MAP_WYVERN), MAP_SOPPING,
                        *OUT[MAP_WYVERN])]
-    evs.append(dorcas_event(2, 4, 5))
-    evs.append(hosea_event(3, 9, 6))
+    evs.append(dorcas_event(2, 0, 0))
+    evs.append(hosea_event(3, 0, 0))
 
     # -- the six tales ---------------------------------------------------------
-    evs.append(PG.ysolde(ysolde_event(4, 5, 11)))                 # P4b
+    evs.append(PG.ysolde(ysolde_event(4, 0, 0)))                 # P4b
 
     hulda = S.narrate([
         "A woman with a ledger and a stub of pencil is",
@@ -628,7 +727,7 @@ def wyvern_events():
         "If anyone asks you to fetch twelve of",
         "anything, ask what the thirteenth is for."])
     evs.append(q_nix.returned("hulda", tale(                       # NIX-4
-        5, "Hulda Bole (the Fetcher)", 4, 9, "Hulda", hulda, hulda_again,
+        5, "Hulda Bole (the Fetcher)", 0, 0, "Hulda", hulda, hulda_again,
         direction=6)))
 
     nabb = S.narrate([
@@ -657,7 +756,7 @@ def wyvern_events():
     nabb_again = S.say("Nabb", [
         "Post goes out Thursdays. Tolly does",
         "the stamps. It's something to do."])
-    evs.append(tale(6, "Nabb (of the Forty-Sixth)", 7, 11, "Nabb", nabb,
+    evs.append(tale(6, "Nabb (of the Forty-Sixth)", 0, 0, "Nabb", nabb,
                     nabb_again, direction=6))
 
     tolly = S.say("Tolly", [
@@ -670,7 +769,7 @@ def wyvern_events():
         "Two stamps. It's a long way, and",
         "he's worth two stamps."])
     evs.append(q_nix.returned("tolly", talker(                     # NIX-4
-        7, "Tolly (of the Forty-Sixth)", 6, 11, "Tolly", tolly, tolly_again,
+        7, "Tolly (of the Forty-Sixth)", 0, 0, "Tolly", tolly, tolly_again,
         direction=6)))
 
     merrow = S.narrate([
@@ -703,7 +802,7 @@ def wyvern_events():
     merrow_again = S.say("Merrow", [
         "He apologised. Nobody ever believes",
         "me about that part."])
-    evs.append(tale(8, "Merrow Halgate (the Bridge)", 15, 6, "Merrow",
+    evs.append(tale(8, "Merrow Halgate (the Bridge)", 0, 0, "Merrow",
                     merrow, merrow_again))
 
     dree = S.narrate([
@@ -737,7 +836,7 @@ def wyvern_events():
         "If it helps: I am not the Dark Lord.",
         "I have a certificate. I had to get one."])
     evs.append(q_nix.returned("dree", tale(                        # NIX-4
-        9, "Councillor Dree (the Suspect)", 20, 7, "Dree", dree, dree_again,
+        9, "Councillor Dree (the Suspect)", 0, 0, "Dree", dree, dree_again,
         direction=4)))
 
     perp = S.narrate([
@@ -773,14 +872,14 @@ def wyvern_events():
     # One command appended to the end of her list, and not one syllable of it
     # altered: Dorcas has something to say about Perpetua and cannot read
     # another event's self switch to find out whether you have met her.
-    evs.append(tale(10, "Perpetua Small (the Amnesiac)", 17, 11, "Perpetua",
+    evs.append(tale(10, "Perpetua Small (the Amnesiac)", 0, 0, "Perpetua",
                     perp, perp_again, direction=4,
                     extra=[R.control_switch(db.SW_GERALD, True)]))
 
     # -- the three who will come with you -------------------------------------
-    evs.append(corvin_event(11, 20, 14))
-    evs.append(wren_event(12, 14, 13))
-    evs.append(roland_event(13, 18, 9))
+    evs.append(corvin_event(11, 0, 0))
+    evs.append(wren_event(12, 0, 0))
+    evs.append(roland_event(13, 0, 0))
 
     # -- the wyvern ------------------------------------------------------------
     evs.append(the_wyvern(14, 18, 4))
@@ -832,7 +931,7 @@ def wyvern_events():
         "We have been discussing beans.",
     ])
     img_trav = R.image(*S.FACES["Traveller"], direction=6)
-    evs.append(talker(15, "A Very Ordinary Traveller", 4, 14, "Traveller",
+    evs.append(talker(15, "A Very Ordinary Traveller", 0, 0, "Traveller",
                       trav, trav_again, direction=6, pages=[
         R.page(trav_four, img=img_trav, trigger=0, priority=1,
                conditions={"switch1Valid": True,
@@ -863,7 +962,7 @@ def wyvern_events():
     trav2_four += [R.self_switch("B", True)]
     trav2_four_again = S.say("Also A Traveller", ["Beans. Anniversary beans."])
     img_trav2 = R.image(*S.FACES["Also A Traveller"], direction=6)
-    evs.append(talker(16, "Also A Very Ordinary Traveller", 5, 14,
+    evs.append(talker(16, "Also A Very Ordinary Traveller", 0, 0,
                       "Also A Traveller", trav2, trav2_again, direction=6,
                       pages=[
         R.page(trav2_four, img=img_trav2, trigger=0, priority=1,
@@ -910,7 +1009,7 @@ def wyvern_events():
         "I leave it and go.",
     ])
     img_sops = R.image(*S.FACES["Sops"], direction=8)
-    evs.append(talker(17, "Sops the Potboy", 9, 14, "Sops", sops, sops_again,
+    evs.append(talker(17, "Sops the Potboy", 0, 0, "Sops", sops, sops_again,
                       direction=8, move_type=1, pages=[
         R.page(sops_four, img=img_sops, trigger=0, priority=1, move_type=1,
                conditions={"switch1Valid": True,
@@ -925,7 +1024,7 @@ def wyvern_events():
     # -- NORTH.md 3.1 and 3.2. Two new things to click on at the east end of
     # the bar. Both are pattern one - a new event - and neither of them
     # touches a line anybody in this room already had.
-    board = dorcas_board(19, 7, 4)
+    board = dorcas_board(19, 7, 3)      # on the notice, on the wall
     board["pages"] += q_roland.board_pages(board["pages"][-1])   # ROL-3
     evs.append(board)
     evs.append(the_register(20, 7, 6))
@@ -940,6 +1039,17 @@ def wyvern_events():
     evs.append(q_wren.second_plaque(21, 19, 4))
     evs += q_roland.alumni_events(22)       # ROL-3: the dinner, while it is on
     evs += q_merribell.back_room_events(33)  # MER-3: the Table, once a year
+    evs += q_merribell.curtain_events(evs[-1]["id"] + 1)   # and its curtain
+
+    # Everybody to their seat. The builders above take a cell, and are given
+    # (0, 0); the seat, and the way they face, is `WYVERN_SEATS`'s.
+    by_id = {2: "dorcas", 3: "hosea", 4: "ysolde", 5: "hulda", 6: "nabb",
+             7: "tolly", 8: "merrow", 9: "dree", 10: "perpetua",
+             11: "corvin", 12: "wren", 13: "roland", 15: "traveller",
+             16: "traveller2", 17: "sops"}
+    for ev in evs:
+        if ev["id"] in by_id:
+            sit(ev, by_id[ev["id"]])
     return evs
 
 
@@ -1984,7 +2094,7 @@ def outfit_map():
     for x in (3, 4, 5):
         g.column(x, 3, 2, K.IN_SHELF_GOODS)
     g.column(6, 3, 2, K.IN_SHELF_JARS)
-    g.column(10, 3, 2, K.IN_SWORD_RACK)
+    g.column(10, 2, 2, K.IN_SWORD_RACK)       # on the wall, where it hangs
     for x in (11, 12, 13):
         g.column(x, 3, 2, K.IN_SHELF_BOTTLES)
     g.scatter([(3, 9), (4, 9), (13, 9)], 2, K.IN_CRATE2)
@@ -2096,7 +2206,7 @@ def outfit_events():
         "still walking about, and the other one",
         "went north, and both belong on a sign."])
     wick += [S.trope()]
-    evs.append(talker(3, "Wick's Peg", 10, 4, "Mrs Barrow", wick,
+    evs.append(talker(3, "Wick's Peg", 10, 3, "Mrs Barrow", wick,
                       S.narrate(["Wick's peg. Empty, and dusted."]),
                       sheet="", index=0))
 
@@ -2117,8 +2227,9 @@ def cottage_map():
     g.column(3, 3, 2, K.IN_BOOKCASE)
     g.column(4, 3, 2, K.IN_BOOKCASE2)
     g.column(13, 3, 2, K.IN_SHELF_JARS)
-    g.column(6, 3, 2, K.IN_CURTAIN_GREEN)
-    g.blit(3, 8, 2, K.IN_SOFA)
+    g.blit(6, 2, 2, K.IN_WINDOW_GREEN)        # all of it, on the wall
+    # The whole five-wide sofa; `IN_SOFA` is the first four columns of it.
+    g.blit(3, 8, 2, K.sf_grid("Inside_B", "Sofa (Castle)", 5))
     g.set(8, 6, 2, K.IN_TABLE_WOOD)
     g.set(8, 6, 3, K.INC_PLANT2)
     # Supper laid toward the bottom of the table, so the stool is under it.
@@ -2282,7 +2393,7 @@ def lighthouse_map():
     g.column(3, 3, 2, K.IN_SHELF_BOTTLES)
     g.column(9, 3, 2, K.IN_CABINET)
     g.column(3, 16, 2, K.IN_BED_BROWN)
-    g.column(9, 16, 2, K.IN_BOOKCASE)
+    g.column(9, 16, 2, K.IN_BOOKSHELF)        # was half of `Bookshelf B`
     g.set(4, 18, 2, K.IN_TABLE_WOOD)
     g.set(4, 18, 3, K.INC_MEAL)
     g.set(8, 18, 2, K.IN_TABLE_WOOD)

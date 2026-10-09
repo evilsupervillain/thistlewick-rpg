@@ -308,13 +308,9 @@
    "eval": "$gamePlayer._encounterCount = 1; window._steps = $gameParty.steps()"
   },
   {
-   "key": "ArrowLeft",
-   "times": 1,
-   "gap": 30
-  },
-  {
+   "comment": "Four steps up the path from the arrival. It was one left and three up; since Mike's redraw a tree stands at (16,35).",
    "key": "ArrowUp",
-   "times": 3,
+   "times": 4,
    "gap": 30
   },
   {
@@ -409,11 +405,7 @@
    "eval": "$gamePlayer._encounterCount = 60"
   },
   {
-   "goto": [
-    10,
-    15,
-    2
-   ]
+   "goto": [10, 15, 1]
   },
   {
    "check": "[$gameScreen.tone().map(Math.round), $gameMap.event(7).findProperPageIndex(), $gameMap.event(2).findProperPageIndex()]",

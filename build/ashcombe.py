@@ -426,7 +426,7 @@ def _room(g, x1, y1, x2, y2, door_x, floor, top, face):
         g.set(x1 - 1, y, 0, top)
         g.set(x2 + 1, y, 0, top)
     g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, top)
-    g.fill(x1, y2 + 2, x2, y2 + 3, 0, face)
+    g.fill(x1 - 1, y2 + 2, x2 + 1, y2 + 3, 0, face)       # corners too
     g.set(door_x, y2 + 1, 0, floor)
     g.set(door_x, y2 + 2, 0, K.a5(91))
     g.set(door_x, y2 + 3, 0, K.a5(91))
@@ -485,7 +485,7 @@ def indoors_map():
         g.set(x, y1, 2, tile)
     g.set(3, y1 - 1, 3, UTENSILS)
     g.column(7, y1 - 2, 3, K.IN_WINDOW)
-    g.column(8, y1 - 1, 2, CLOCK)
+    g.column(8, y1 - 2, 2, CLOCK)             # hung on the wall, not stood
     g.column(DRESSER_X, y1 - 1, 2, DRESSER)
     g.set(KITCHEN_TABLE[0], KITCHEN_TABLE[1], 2, TABLE_D)
     g.set(KITCHEN_TABLE[0] + 1, KITCHEN_TABLE[1], 2, TABLE_D)

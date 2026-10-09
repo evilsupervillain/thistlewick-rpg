@@ -402,6 +402,13 @@ dresser is `Closet / Sundries Shelf A`.
 | `SF_WEEDS_B` | C 289 | Grass B |
 | `SF_RUBBLE` | C 291 | Small Stones |
 
+## Inside furniture, by name  (tileset 3)
+
+| constant | tiles | what the sheet calls it |
+| --- | --- | --- |
+| `IN_TABLE_TOP` | A2 k23 | Table A (Wood) |
+| `IN_BOOKCASE_WIDE` | B 158, B 159, B 166, B 167 | Bookshelf B |
+
 ## the Long Field  (tileset 5)
 
 | constant | tiles | what the sheet calls it |

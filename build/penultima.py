@@ -244,7 +244,7 @@ def shoppe_map():
     # bio and is **illegible at forty-eight pixels**: the swords lie flat, the
     # cloth is the only thing with any area, and the whole display reads as a
     # red drum. A screenshot is the only thing that finds that.
-    g.column(8, 3, 2, K.IN_SWORD_RACK)
+    g.column(8, 2, 2, K.IN_SWORD_RACK)        # on the wall's face rows
 
     g.column(3, 3, 2, K.IN_SHELF_BOTTLES)
     g.column(4, 3, 2, K.IN_SHELF_BOTTLES)

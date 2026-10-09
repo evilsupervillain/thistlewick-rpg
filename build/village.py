@@ -664,8 +664,10 @@ def hall_map():
         g.column(x, 3, 2, K.IN_STONE_PILLAR)
         g.column(x, 8, 2, K.IN_STONE_PILLAR)
     g.column(10, 2, 2, K.IN_STAINED_GLASS)
-    g.column(7, 3, 2, K.IN_BOOKCASE)
-    g.column(13, 3, 2, K.IN_BOOKCASE2)
+    # One-wide shelves: these were one half each of the two-wide
+    # `Bookshelf B`, left at 7 and right at 13 (Mike, October 2026).
+    g.column(7, 3, 2, K.IN_BOOKSHELF)
+    g.column(13, 3, 2, K.IN_BOOKSHELF)
     # The Wall of the Forty-Seven, in the corner: portraits on the wall face,
     # and a space under the forty-seventh. It was `IN_NOTICE_BOARD` until P4b,
     # which is crossed swords over a posted notice, and the wall's own text
@@ -675,8 +677,10 @@ def hall_map():
     # A second board, next to the old one, for NORTH.md 3.3. The parish keeps
     # its minutes on the wall where anybody can read them, which is the whole
     # of the joke and the reason it is a document and not a conversation.
-    g.column(6, 3, 2, K.IN_NOTICE_BOARD)
-    g.column(16, 3, 2, K.IN_CURTAIN_GREEN)
+    # Both on the wall's two face rows, where they hang: a row lower put the
+    # notice and the window's sill on the floor.
+    g.column(6, 2, 2, K.IN_NOTICE_BOARD)
+    g.blit(16, 2, 2, K.IN_WINDOW_GREEN)      # all of it; it was the left half
     g.set(9, 6, 2, K.IN_TABLE_WOOD)
     g.set(9, 6, 3, K.INC_SCROLL)
     g.set(11, 6, 2, K.IN_TABLE_WOOD)
@@ -867,9 +871,11 @@ MINUTE_BOOK = (14, 12)
 
 
 # PIP-5's archive: a room in the black east of Prophecy Hall, reached only
-# through the door behind the green curtain (its lower cell, on the floor
-# row). One wall's thickness of black between it and the hall.
-CURTAIN = (16, 4)
+# through the door behind the green curtain - its lower cell, which is on
+# the wall's lower face row since the window was hung where windows hang
+# (October 2026); you face it from the floor below. One wall's thickness of
+# black between the archive and the hall.
+CURTAIN = (16, 3)
 ARCHIVE = (23, 5, 27, 8, 25)                # x1, y1, x2, y2, door_x
 ARCHIVE_IN = (25, 8)
 ARCHIVE_DOOR = (25, 9)
@@ -893,7 +899,10 @@ def archive_room(g):
     g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, top)
     g.set(door_x, y2 + 1, 0, K.IN_DARK_WOOD)
     for x in (x1, x1 + 1, x2 - 1, x2):
-        g.column(x, y1 - 1, 2, K.IN_BOOKCASE if x % 2 else K.IN_BOOKCASE2)
+        # Two whole `Bookshelf B`s, a left half then a right half each; the
+        # odd/even test this was put each pair in back to front.
+        g.column(x, y1 - 1, 2,
+                 K.IN_BOOKCASE if x in (x1, x2 - 1) else K.IN_BOOKCASE2)
     for x in (x1, x2):
         g.set(x, y2 - 1, 2, K.IN_TABLE_WOOD)
         g.set(x, y2 - 1, 3, K.INC_SCROLLS)
@@ -1370,7 +1379,7 @@ def chapel_map():
     g.autotile(0)
     g.blit(12, 3, 2, K.IN_PIPE_ORGAN)
     g.column(9, 2, 2, K.IN_STAINED_GLASS)
-    g.column(4, 3, 2, K.IN_BOOKCASE)
+    g.column(4, 3, 2, K.IN_BOOKSHELF)     # was half of `Bookshelf B`
     g.column(14, 7, 2, K.IN_SHELF_JARS)
     # Pews: square stools side by side, which read as benches. They were
     # broken stools, and there were scrolls on top of the organ.

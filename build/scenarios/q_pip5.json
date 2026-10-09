@@ -227,7 +227,7 @@
    "goto": [
     3,
     16,
-    5
+    4
    ]
   },
   {
@@ -352,7 +352,7 @@
    "expect": [
     3,
     16,
-    5
+    4
    ],
    "label": "and out, in front of the curtain"
   },

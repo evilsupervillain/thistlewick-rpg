@@ -599,6 +599,35 @@ IN_STONE_PILLAR = sf_block("Inside_B", "Stone Pillar A")    # capital, shaft
 IN_LONGCASE_CLOCK = sf_block("Inside_B", "Clock")
 IN_PIANO_WHOLE = _rows(sf_block("Inside_B", "Piano"), 3)
 IN_PIPE_ORGAN = _rows(sf_block("Inside_B", "Pipe Organ"), 3)
+# The tavern table Mike put in the Slain Wyvern (October 2026), and the one the
+# sample's bars are built from: Inside_A2's `Table A (Wood)`, an autotile on
+# layer 1, so adjacent cells join into one table of any size and whatever is
+# set on it sits on the top instead of hanging off the edge of `Table D`. It
+# keeps the counter flag, so a bar built of it still lets the action button
+# reach across. Lay it, then `autotile(1, kinds=TABLE_KINDS)`; two tables
+# meant to be separate need a cell between them or they become one.
+IN_TABLE_TOP = A(23)
+TABLE_KINDS = {R.autotile_kind(IN_TABLE_TOP)}
+INC_DINNER_BELOW = sf_tile("Inside_C", "Dinner Set A (Bottom)")  # a place laid
+INC_DINNER_ABOVE = sf_tile("Inside_C", "Dinner Set B (Top)")     # toward the
+INC_DINNER_LEFT = sf_tile("Inside_C", "Dinner Set C (Left)")     # side its
+INC_DINNER_RIGHT = sf_tile("Inside_C", "Dinner Set D (Right)")   # diner sits on
+INC_ROAST = sf_tile("Inside_C", "Roast Chicken")
+INC_PINT = sf_tile("Inside_C", "Pint Mug C")
+INC_PINTS = sf_tile("Inside_C", "Pint Mug A (Lower Left)")
+INC_ENVELOPE = sf_tile("Inside_C", "Envelope")
+INC_LEDGER = sf_tile("Inside_C", "Open Book A (H)")
+INC_MEDICINE = sf_tile("Inside_C", "Medicine Bottles B")
+INC_MEDICINE_ONE = sf_tile("Inside_C", "Medicine Bottle A")
+INC_KEG = sf_tile("Inside_C", "Beer Barrel A")              # stands on a bar
+# `Bookshelf B` is two cells wide, and `IN_BOOKCASE`/`IN_BOOKCASE2` are its
+# left and right halves - one alone is half a bookcase. `IN_BOOKSHELF` is the
+# one-wide `Bookshelf A`.
+IN_BOOKCASE_WIDE = ((IN_BOOKCASE[0], IN_BOOKCASE2[0]),
+                    (IN_BOOKCASE[1], IN_BOOKCASE2[1]))
+# `IN_CURTAIN_GREEN` is the left half of `Middle Window B`, a two-wide window
+# with green curtains; this is all of it. It hangs on the wall's face rows.
+IN_WINDOW_GREEN = _rows(sf_block("Inside_B", "Middle Window B"), 2)
 INC_SCROLLS = sf_tile("Inside_C", "Scrolls A")
 INC_ALTAR = _rows(sf_block("Inside_C", "Church Table"), 3)  # candles each end
 INC_ARMOUR_STEEL = sf_tile("Inside_C", "Armor B (Stand)")
@@ -1480,7 +1509,10 @@ def interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR,
         g.set(x1 - 1, y, 0, wall_top)
         g.set(x2 + 1, y, 0, wall_top)
     g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, wall_top)
-    g.fill(x1, y2 + 2, x2, y2 + 3, 0, wall_face)
+    # Under the corners as well: the ring's corner tops stand over the
+    # street like the rest of the south wall, so they show a face too
+    # (Mike, October 2026 - it was missing at both ends of every room).
+    g.fill(x1 - 1, y2 + 2, x2 + 1, y2 + 3, 0, wall_face)
 
     if door_x is not None:
         g.set(door_x, y2 + 1, 0, floor)

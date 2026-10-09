@@ -238,10 +238,15 @@ MARK_LATE_CLOSING = [
 # * **Each of the eleven counts once** into `VAR_ROL3_HEARD`, on a self switch
 #   of their own; the toast is Dame Florence's, with Roland, once all eleven
 #   have been heard. A Roland sent home leaves the dinner waiting.
+# Where they sit: at the long table (`places.WYVERN_DINNER`), Dame Florence
+# at its head, which is the fire end - except Saul Pennock, who is stood by
+# the tavern door, because Odile's line points at "the man by the door".
+SEAT = [((x, y), d) for x, y, d in places.WYVERN_DINNER]
+BY_THE_DOOR = (11, 15)
 ALUMNI = [
     # (key, event name, speaker, (sheet, index) or None, cell, facing, lines)
     ("florence", "Dame Florence Ickworth (the Wyrm of Ickworth)",
-     "Dame Florence", None, (11, 10), 2, [
+     "Dame Florence", None, *SEAT[10], [
          ["The Wyrm of Ickworth,",
           "'seventy-seven. He was my page. Eleven",
           "years old, and he could already disarm",
@@ -251,28 +256,28 @@ ALUMNI = [
           "ourselves. I organised this. I thought",
           "there might be three of us."]]),
     ("anselm", "Brother Anselm (the Seven Bells)", "Brother Anselm", None,
-     (3, 10), 6, [
+     *SEAT[0], [
          ["The Pilgrimage of the Seven",
           "Bells. He rang the first six with us.",
           "We rang the seventh without him."],
          ["I had thought we were his only",
           "pilgrimage. He has been very discreet."]]),
     ("mags", "Mags Turvey (the Second Siege of Wenlow)", "Mags", None,
-     (6, 5), 2, [
+     *SEAT[1], [
          ["Second Siege of Wenlow. I fed him a",
           "fortnight on the walls. Best appetite I",
           "ever cooked for. Our Roland."],
          ["...That one over there's calling him",
           "'our Roland' and all. Cheek."]]),
     ("pim", "Pim Corrow (the Lost Heir of Corrow)", "Pim", None,
-     (15, 10), 4, [
+     *SEAT[2], [
          ["I'm the Lost Heir of Corrow. He found",
           "me. Then he had to go, and I found",
           "the rest of it myself."],
          ["He said I was the bravest boy he'd",
           "ever met. ...Did he say that to him?"]]),
     ("odile", "Captain Odile Marchbank (the Ninth Lancers)", "Odile", None,
-     (22, 10), 4, [
+     *SEAT[3], [
          ["The Ninth Lancers. He had the left at",
           "Haddow Ford, and drilled us, and went.",
           "We took the Ford without him."],
@@ -280,34 +285,34 @@ ALUMNI = [
           "The man by the door has one exactly",
           "like it."]]),
     ("jory", "Old Jory (the Last Survey)", "Old Jory", None,
-     (5, 12), 6, [
+     *SEAT[4], [
          ["The Cartographers' Last Survey. He",
           "walked every mile of it but the last.",
           "I drew that one in from his say-so."],
          ["I've a map of him going. Eleven of",
           "them, it turns out. Same road."]]),
     ("hettie", "Hettie Brack (the Goblin King's Riddles)", "Hettie",
-     ("People1", 1), (10, 5), 2, [
+     ("People1", 1), *SEAT[5], [
          ["The Goblin King's Riddles. He got",
           "every one bar the last. I got the last.",
           "The answer was 'a door'."]]),
     ("tobin", "Lord Tobin Fairley-Vane (the Usurper of Hask)", "Lord Tobin",
-     ("People3", 2), (22, 5), 4, [
+     ("People3", 2), *SEAT[6], [
          ["He held the gate at Hask. Then a",
           "letter came. We took the throne room",
           "without him. It was very good of us."]]),
     ("ned", "Ned Scarrow (the Drowned Bell)", "Ned", ("People1", 0),
-     (7, 16), 6, [
+     *SEAT[7], [
          ["The Drowned Bell. He dived for it",
           "eleven times. The twelfth was me.",
           "Our Roland, the whole crew calls him."]]),
     ("saul", "Saul Pennock (the Reckoning at Pennock's Cove)", "Saul",
-     ("People2", 4), (17, 16), 4, [
+     ("People2", 4), BY_THE_DOOR, 8, [
          ["He settled the Reckoning at Pennock's",
           "Cove, all but the last of it. Said",
           "he'd never had a better crew. Hm."]]),
     ("royce", "Major Royce (the Glass Fort)", "Major Royce",
-     ("People4", 6), (20, 12), 4, [
+     ("People4", 6), *SEAT[9], [
          ["The Glass Fort. He walked us",
           "up to the last gate, and shook every",
           "hand, and went. We were his best, he",

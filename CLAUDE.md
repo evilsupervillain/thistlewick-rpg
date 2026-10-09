@@ -238,6 +238,18 @@ in each of the four states.
                      table, `INC_ARMOR_STAND` a doll); a room that means a
                      table, stool, barrel, clock, piano, organ or altar uses
                      the "Inside furniture, by name" block instead
+      handdrawn.py   maps drawn by hand in the editor, kept: `freeze <id>`
+                     copies a map's tile layers into `build/handdrawn/`, and
+                     its builder loads them with `handdrawn.load()` and adds
+                     its events as usual. **Map 9, the Gloamwood, is one**
+                     (Mike, October 2026). To change it: edit in the editor,
+                     `python3 build/handdrawn.py freeze 9`, rebuild - a
+                     rebuild without the freeze throws the edit away.
+                     `handdrawn.py check` says whether data still matches
+      darkwood.py    the Gloamwood's dark-forest style as a kit - `Forest A`
+                     as a wall, trunks along every north edge, undergrowth,
+                     dressed trunks - drawn from a character plan. Map 10,
+                     the deep wood, is drawn with it (`journey.DEEP_PLAN`)
       db.py          the whole database
       village.py     Maps 1-7: Thistlewick and its interiors
       journey.py     Maps 8-12: overworld, Gloamwood, the Obligatory Tower.
@@ -247,7 +259,11 @@ in each of the four states.
                      `mapkit.TS_OVERWORLD` - tileset 1 with Fenmarch Hall's
                      stamp recoloured; `worldmap.json` stays on tileset 1
       south.py       Maps 13-18: Nether Sopping, the Slain Wyvern, the Guild,
-                     the outfitters, #45's cottage, the lighthouse
+                     the outfitters, #45's cottage, the lighthouse. **The
+                     Wyvern's patrons sit at tables**: `WYVERN_SEATS` is who
+                     sits where and faces which way, and the tables are laid
+                     round it (`IN_TABLE_TOP`, the A2 table, Mike's choice);
+                     the dinner's eleven use `places.WYVERN_DINNER`
       wilds.py       Maps 19-20: the Bottomless Pit and the Barrow, and the
                      events on the south of Map 8. The four hooks that used to
                      draw that half of the world map are gone

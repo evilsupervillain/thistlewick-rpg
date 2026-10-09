@@ -40,9 +40,10 @@ for Tobias Frayne's cottage (Map 43), handed out to `frayne.py`. Then MER-5
 import copy
 
 import db
+import mapkit as K
 import rmmzdata as R
 import story as S
-from places import (MAP_WYVERN, WYVERN_BACK, WYVERN_BACK_DOOR,
+from places import (MAP_WYVERN, WYVERN_BACK, WYVERN_BACK_DOOR, WYVERN_CURTAIN,
                     WYVERN_BACK_TABLE)
 
 
@@ -1185,8 +1186,8 @@ def queue_events(base_id, cells, people):
 # died on her.
 #
 # * **The back room is new**, in Map 14's black east (`south.back_room`), and
-#   its door is on the bar's north wall face, between the bookcase and the
-#   red curtain. Ysolde's own event ends its ladder on self switch B, behind
+#   its door is on the bar's north wall face, behind the red curtain, which
+#   is drawn back while the door is there (`curtain_events`). Ysolde's own event ends its ladder on self switch B, behind
 #   the bench at the Barrow, so the Table is new events and not pages on her:
 #   the door, the way out, Ysolde in the chair, the four, and a card.
 # * **The door appears for Merribell**: with her in the party it is there,
@@ -1235,9 +1236,9 @@ _MER3_ASIDES = {        # what each says if spoken to while the Table sits
 
 def _mer3_invite():
     c = S.narrate([
-        "There is a door in the wall between the bookcase and the",
-        "curtain that you have never noticed. A card is pinned to",
-        "it: THE TABLE. MEDICS ONLY."])
+        "The red curtain by the fire has been drawn back, and",
+        "behind it is a door you have never noticed. A card is",
+        "pinned to it: THE TABLE. MEDICS ONLY."])
     c += S.say("Ysolde", [
         "Sister! You. Yes, you, with the",
         "flask. You're a medic, aren't you?",
@@ -1320,6 +1321,45 @@ def _mer3_table():
     return c
 
 
+# The curtain over the back room's door, Inside_B's red `Curtains`: shut,
+# both columns are the closed panel; drawn back, the door's column is bare and
+# the other is the panel gathered to the right. (top, bottom) each.
+CURTAIN_SHUT = (K.b_tile(1, 6), K.b_tile(1, 7))
+CURTAIN_DRAWN = (K.b_tile(3, 6), K.b_tile(3, 7))
+
+
+def curtain_events(first_id):
+    """The red curtain over the back room's door, which hides it until the
+    door is there: Mike's answer (October 2026) to a door that appeared out of
+    a bare wall. It is drawn back on exactly the door's own conditions - with
+    Merribell in the party, while the Table sits, and afterwards - so the
+    curtain is open whenever there is a door to see and shut whenever there
+    is not. The door's own event is the lower half of the door's column (its
+    page 1 is the shut curtain); these are the other three cells, appended
+    after everything else so no id moves."""
+    cx, cy = WYVERN_CURTAIN
+    shown = [{"actorValid": True, "actorId": db.MERRI},
+             {"switch1Valid": True, "switch1Id": db.SW_MER3_ON},
+             {"switch1Valid": True, "switch1Id": db.SW_MER3_DONE}]
+
+    def cell(event_id, name, x, y, shut, drawn):
+        pages = [R.page([], img=R.image(tile_id=shut), priority=0,
+                        through=True)]
+        for c in shown:
+            pages.append(R.page([], img=R.image(tile_id=drawn), priority=0,
+                                through=True, conditions=c))
+        return R.event(event_id, name, x, y, pages)
+
+    return [
+        cell(first_id, "The Red Curtain (over the door)", cx, cy,
+             CURTAIN_SHUT[0], 0),
+        cell(first_id + 1, "The Red Curtain (top)", cx + 1, cy,
+             CURTAIN_SHUT[0], CURTAIN_DRAWN[0]),
+        cell(first_id + 2, "The Red Curtain (bottom)", cx + 1, cy + 1,
+             CURTAIN_SHUT[1], CURTAIN_DRAWN[1]),
+    ]
+
+
 def back_room_events(first_id):
     """Events for Map 14, appended after everything else so no id moves:
     the door in the bar, the way back out, Ysolde in the chair, the four,
@@ -1333,11 +1373,12 @@ def back_room_events(first_id):
     evs = []
 
     sitting = R.if_then(R.condition_actor_in_party(db.MERRI), go_in, S.narrate([
-        "The door between the bookcase and the curtain. A card on",
+        "The door behind the curtain. A card on",
         "it says THE TABLE. MEDICS ONLY. Merribell is on the list.",
         "You are not, and somebody inside says so."]))
     evs.append(R.event(first_id, "The Back Room Door", *WYVERN_BACK_DOOR, [
-        copy.deepcopy(blank),
+        R.page([], img=R.image(tile_id=CURTAIN_SHUT[1]), trigger=0,
+               priority=0, through=True),
         R.page(R.if_then(R.condition_switch(db.SW_MER3_ON, False),
                          _mer3_invite()) + go_in,
                img=door_img, trigger=1, priority=1,
