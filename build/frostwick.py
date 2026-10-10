@@ -330,7 +330,10 @@ def frostwick_events():
 
 # ========================================================= The Eleven Days ==
 #            w   h  x1  y1  x2  y2  door_x
-ELEVEN_ROOM = (19, 14, 3, 4, 15, 10, 9)
+ELEVEN_ROOM = (24, 15, 3, 4, 20, 11, 9)
+# The guest room, walled off the bar's north-east corner (`mapkit.guest_room`,
+# Mike's split of the Gilded Turnip): four beds, one each for a full party.
+ELEVEN_BEDROOM = (17, 4, 20, 7, 18)         # x1, y1, x2, y2, door_x
 MARCHPANE = (8, 5)
 VISITORS_BOOK = (5, 5)
 SNOW_MARK = (13, 3)             # the plate, on the wall face, read from below
@@ -364,14 +367,26 @@ def eleven_days_map():
         g.set(tx + 2, ty, 2, K.IN_STOOL)
         g.set(tx, ty, 3, dish)
 
-    # Two beds by the east wall, and a rug in front of the fire.
-    g.column(14, 6, 2, K.IN_BED)
-    g.column(15, 6, 2, K.IN_BED_ORANGE)
+    # The guest room, and its four beds under the window.
+    bx1, by1, bx2, by2, bdoor = ELEVEN_BEDROOM
+    K.guest_room(g, bx1, by1, bx2, by2, bdoor)
+    for x in range(bx1, bx2 + 1):
+        g.column(x, by1, 2, K.IN_BED)
+    g.column(bx1 + 1, by1 - 2, 3, K.IN_WINDOW)
+    g.set(bx2, by2 - 1, 2, K.IN_BARREL)         # "Pot B": a jug
+    g.set(bx2, by2, 2, K.IN_BARREL2)            # and its basin
+    # The windows onto the street, either side of the door as the town's
+    # front has them, and a rug in front of the fire.
+    K.outside_windows(g, (door_x - 2, door_x + 2), y2)
+    g.blit(5, 10, 2, K.IN_TABLE)                # and the extra row has a table
+    g.set(4, 10, 2, K.IN_STOOL)
+    g.set(7, 10, 2, K.IN_STOOL)
+    g.set(6, 10, 3, K.INC_MEAL2)
     for x in range(9, 12):
         g.set(x, 5, 1, K.IN_RED_RUG)
     g.autotile(1)
-    g.set(3, 10, 2, K.IN_CRATE)
-    g.set(15, 10, 2, K.IN_BARREL)
+    g.set(3, 11, 2, K.IN_CRATE)
+    g.set(20, 11, 2, K.IN_CRATE2)
 
     m = K.new_map(w, h, K.TS_INSIDE, name="The Eleven Days", bgm="Town3",
                   battleback=("Wood1", "Room1"))

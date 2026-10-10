@@ -27,7 +27,6 @@ import story as S
 import wilds as W
 import field as F
 import handdrawn as HD
-import darkwood as DK
 import meadow as M
 import penultima as P
 import restwell as RW
@@ -532,74 +531,17 @@ def gloamwood_events():
 
 
 # ======================================================= the deep Gloamwood ==
-# The deep wood, in the Gloamwood's own style (`darkwood.py`): the way north
-# down a narrow ride, the Thing's clearing with a black pool in it, a winding
-# way down to a glade, the hollow log in an alcove off its east end and the
-# chest in a pocket off its west, and the way back south. `#` is forest, `.`
-# meadow, `,` the path, `~` water, `r` reeds, `b` bushes and `m` moss.
-DEEP_PLAN = [
-    #         1111111111222222222
-    #1234567890123456789012345678 9
-    "##############.,.#############",   # 0
-    "##############.,.#############",
-    "#############m.,.b############",
-    "#############m.,bb############",
-    "############bb.,..############",
-    "###########mm..,...m##########",   # 5
-    "########.bb....,....bb########",
-    "#######mm.....,,.....b.#######",
-    "######m......,,,,,......######",
-    "######.~~~..,,,,,,,....m######",
-    "#####b~~~~r.,,,,,,,....m######",   # 10
-    "######r~~~..,,,,,,,...bb######",
-    "#######......,,,,,....########",
-    "##########...,....############",
-    "############.,,.##############",
-    "#####..#####..,.####.bb.######",   # 15
-    "####bbmm####..,.####....######",
-    "###.......###.,,....mm..######",
-    "###............,.........#####",
-    "###m...........,........bb####",
-    "####m.....,,,,,,,,,,,...b.####",   # 20
-    "#####..bb......,....mm..######",
-    "######.....##..,..b###########",
-    "#############..,..############",
-    "#############b.,..############",
-    "############m..,.m############",   # 25
-    "#############..,..############",
-    "##############.,bb############",
-    "##############m,.#############",
-    "##############.,.#############",
-]
-
-
 def deep_map():
-    """The Bit With The Thing, drawn in the Gloamwood's style from
-    `DEEP_PLAN`. The props are by hand: dead trees round the clearing, because
-    of course, and the wood getting older the further in it goes."""
-    g = DK.draw(DEEP_PLAN, seed=10)
+    """The Bit With The Thing: the way north down a narrow ride, the Thing's
+    clearing with a black pool in it, a winding way down to a glade, the
+    hollow log in an alcove off its east end, the chest in a pocket off its
+    west, and the way back south.
 
-    for x, y in [(10, 8), (20, 8), (10, 13), (20, 12)]:      # the circle
-        DK.tall(g, x, y, DK.DEAD_TREE)
-    g.scatter([(13, 11), (17, 11), (12, 9), (18, 9)], 3, DK.MUSHROOMS)
-    g.scatter([(14, 12), (17, 12)], 3, K.DEAD_ROOTS)
-    g.scatter([(7, 7), (22, 7), (6, 9)], 3, DK.FERN_PLANT)
-    DK.tall(g, 8, 6, DK.TREE)
-    DK.tall(g, 22, 10, DK.TREE)
-    DK.large_tree(g, 4, 18)
-    g.scatter([(9, 17), (24, 21)], 3, DK.STUMP)
-    g.scatter([(6, 21), (19, 19)], 3, DK.LOG)
-    g.scatter([(4, 19), (23, 17)], 3, DK.BOULDER)
-    g.scatter([(16, 2), (13, 24), (17, 26), (12, 19)], 3, DK.GRASS[0])
-    g.scatter([(14, 5), (16, 15), (18, 20)], 3, DK.SUSUKI)
-    g.scatter([(11, 22), (21, 16)], 3, DK.DEAD_SHRUB)
-    g.scatter([(7, 20)], 3, DK.MUSHROOMS_PALE)
-    g.scatter([(13, 27), (17, 23)], 3, DK.MUSHROOMS)
-    DK.tall(g, 18, 22, DK.DEAD_TREE)
-    DK.tall(g, 9, 18, DK.TREE)
-    g.scatter([(5, 18), (21, 19), (11, 17)], 3, DK.GRASS[1])
-    g.set(6, 18, 3, DK.BONES)            # somebody who did not get this far
-
+    Drawn in October 2026 with `darkwood.py` in the Gloamwood's style, then
+    finished by hand in the editor - Mike filled in canopy wherever a row of
+    trunks had none over it - so, like the Gloamwood, its tiles are kept by
+    `handdrawn.py` and only the events are built here."""
+    g = K.Canvas(DW, DH, HD.load(MAP_GLOAM_DEEP, DW, DH, K.TS_OUTSIDE))
     m = K.new_map(DW, DH, K.TS_OUTSIDE, name="The Gloamwood", bgm="Dungeon1",
                   encounter_step=26, battleback=("GrassMaze", "Forest"),
                   encounters=[(db.TR_WOOD_MIX, 5, [1]),

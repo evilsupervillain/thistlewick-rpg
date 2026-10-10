@@ -704,7 +704,7 @@ def clanging_events():
 ROOMS = {
     #                w   h  x1  y1  x2  y2  door_x
     MAP_WORKS:      (25, 22, 3, 4, 21, 16, 12),
-    MAP_VALVE:      (21, 18, 3, 4, 17, 12, 10),
+    MAP_VALVE:      (26, 18, 3, 4, 22, 12, 10),
     MAP_FORGE:      (19, 17, 3, 4, 15, 11, 9),
     MAP_PARISH:     (19, 16, 3, 4, 15, 10, 9),
 }
@@ -1567,11 +1567,29 @@ def valve_map():
     g.column(3, 10, 2, K.SF_IN_BOOKSHELF)
     g.set(17, 12, 2, K.SF_IN_LAMP)
     g.set(3, 12, 2, K.SF_IN_LAMP)
+
+    # -- the guest room, walled off the north-east corner the way Mike split
+    # the Gilded Turnip (October 2026): four beds, one for each of a full
+    # party, and "you will be dry" under a window that shuts.
+    bx1, by1, bx2, by2, bdoor = VALVE_BEDROOM
+    K.guest_room(g, bx1, by1, bx2, by2, bdoor, wall_top=K.SF_IN_WALL_WOOD,
+                 wall_face=K.SF_IN_FACE_WOOD)
+    for x in range(bx1, bx2 + 1):
+        g.column(x, by1, 2, K.SF_IN_BED)
+    g.column(bx1 + 1, by1 - 2, 3, K.SF_IN_WINDOW)
+    g.set(bx2, by2, 2, K.SF_IN_LAMP)
+    g.set(22, 12, 2, K.SF_IN_LAMP)
+    # Four windows on the street, where the town's front has them.
+    x2, y2, door_x = ROOMS[MAP_VALVE][4], ROOMS[MAP_VALVE][5], \
+        ROOMS[MAP_VALVE][6]
+    K.outside_windows(g, (door_x - 5, door_x - 2, door_x + 3, door_x + 6),
+                      y2, window=K.SF_IN_WINDOW)
     return finish(MAP_VALVE, g, "The Safety Valve", bgm="Town5",
                   battleback=("Wood1", "Room1"), events=valve_events())
 
 
 BED_PRICE = 30
+VALVE_BEDROOM = (19, 4, 22, 7, 21)          # x1, y1, x2, y2, door_x
 
 
 def valve_events():

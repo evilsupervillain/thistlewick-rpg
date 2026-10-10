@@ -1,8 +1,8 @@
 """The Gloamwood's dark-forest style, as a drawing kit for a map in it.
 
 Mike redrew the Gloamwood by hand in October 2026 (`handdrawn.py`), and this
-is how it is built, read back off his tiles so that a second map can be drawn
-the same way - the deep wood, Map 10, is the first:
+is how it is built, read back off his tiles so that another map can be drawn
+the same way:
 
 * **The forest is a wall, not a scattering of trees.** `Forest A` is an A4
   autotile pair on Outside: kind 114 is the canopy, seen from above, black
@@ -23,6 +23,14 @@ the same way - the deep wood, Map 10, is the first:
   dressed columns side by side, so the trunks still read as trees.
 * **Shadows** fall as they do indoors: the left half of a ground cell whose
   west and north-west neighbours are both forest.
+
+**Every trunk has treetops over it** - Mike's rule, from his pass over the
+deep wood: two rows of forest between one bit of ground and another below it
+are both trunk, and trunks standing in the open look like a fence. `draw()`
+refuses a plan that does it; leave three rows.
+
+The deep wood, Map 10, was drawn with this and then finished by hand, so it is
+kept by `handdrawn.py` now; the kit is for the next wood.
 
 A map is a plan - one string per row, one character per cell - plus props
 placed by hand. `draw()` does the rest, deterministically, from a seed.
@@ -132,6 +140,17 @@ def draw(plan, seed, dress=0.4):
             if under:
                 g.set(x, y, 1, under)
     g.dungeon_walls(CANOPY, TRUNKS)
+    bare = [(x, y) for y in range(1, h) for x in range(w)
+            if R.autotile_kind(g.get(x, y, 0)) == 122
+            and R.autotile_kind(g.get(x, y + 1, 0) if y + 1 < h else 0) == 122
+            and not _forest(g.get(x, y - 1, 0))]
+    if bare:
+        # Mike's rule, from his pass over the deep wood: every trunk has
+        # treetops over it. Ground two rows above other ground leaves the two
+        # rows between as nothing but trunks, standing in the open.
+        raise ValueError("trunks with no canopy over them at %s: leave at "
+                         "least three rows of forest between two bits of "
+                         "ground stacked one above the other" % bare)
     g.autotile(0)
     shape_trunks(g)
     g.autotile(1)

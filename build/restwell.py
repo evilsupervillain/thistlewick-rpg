@@ -86,7 +86,11 @@ NOTICE_AT = (13, 12)
 
 # ------------------------------------------------------- the Eight Hours ---
 #            w   h  x1  y1  x2  y2  door_x
-ROOM = (19, 17, 3, 4, 15, 11, 9)
+ROOM = (24, 17, 3, 4, 20, 11, 9)
+# The ground-floor room with the two beds in it, walled off the bar's
+# north-east corner (`mapkit.guest_room`). Everybody else goes up the stairs.
+BEDROOM = (17, 4, 20, 7, 19)                # x1, y1, x2, y2, door_x
+BEDS = (18, 4)                              # the left of the two
 
 # `Stairs A (Up)`, Inside_B (1,0). Flags 0x600 - open four ways and not a star
 # tile, so it is laid on **layer 1**, the corpus's floor-art layer, over the
@@ -339,10 +343,20 @@ def eight_hours_map():
     g.set(13, 8, 2, K.IN_STOOL)
     g.set(12, 8, 3, K.INC_BOTTLE)
 
-    # Two beds on the ground floor, made up, and the joke about them is on
-    # their event.
-    g.column(3, 9, 2, K.IN_BED)
-    g.column(4, 9, 2, K.IN_BED_ORANGE)
+    # Two beds on the ground floor, made up, in a room of their own off the
+    # bar, and the joke about them is on their event.
+    bx1, by1, bx2, by2, bdoor = BEDROOM
+    K.guest_room(g, bx1, by1, bx2, by2, bdoor)
+    g.column(BEDS[0], BEDS[1], 2, K.IN_BED)
+    g.column(BEDS[0] + 1, BEDS[1], 2, K.IN_BED)
+    g.column(bx2, by1 - 2, 3, K.IN_WINDOW)
+    g.set(bx1, by1, 2, K.IN_TABLE_WOOD)        # a nightstand, and a plant
+    g.set(bx1, by1, 3, K.INC_PLANT2)
+    g.set(bx2, by2, 2, K.IN_BARREL)            # "Pot B", the jug
+    # The windows onto the street, right of the door as the town's front
+    # has them.
+    K.outside_windows(g, (door_x + 2, door_x + 4), y2)
+    g.set(3, 10, 2, K.IN_BARREL_WOOD)
 
     # A third table, because a room the size of this one with two tables in it
     # is a room that has not been filled.
@@ -524,7 +538,7 @@ def eight_hours_events():
     beds_look += S.narrate([
         "They have not been slept in.",
         "They have also, plainly, been slept in."])
-    evs.append(R.event(6, "The Beds", 3, 10, [R.page(
+    evs.append(R.event(6, "The Beds", BEDS[0], BEDS[1] + 1, [R.page(
         beds_look, img=R.image(""), trigger=0, priority=1, through=True,
         direction_fix=True)]))
     return evs

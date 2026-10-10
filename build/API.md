@@ -438,6 +438,8 @@ recolour_sheet(sheet, out, cells, hues, hue, sat, renames=()) Writes `img/tilese
 paint_regions(g, tileset_id, value=1, layer=5)       Region-tag every tile the player can actually stand on.
 new_map(width, height, tileset, name='', bgm='Town1', bgm_volume=70, encounters=(), encounter_step=30, battleback=None, scroll_type=0, parallax='', disable_dashing=False) A map record with everything the editor expects, and nothing surprising.
 interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR, floor_alt=None, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, void=IN_VOID, threshold=None, outside=None, tileset=TS_INSIDE) A room in black space, tiled the way the stock interiors are.
+guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, floor=None) Wall off a room inside an interior that `interior()` has drawn: the
+outside_windows(g, xs, y2, window=None)              Windows on the outside of the south wall - its two face rows below the
 door_animation()                                     Open a door sprite, hold, close it, then make it transparent - the
 ```
 

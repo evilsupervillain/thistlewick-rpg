@@ -15,24 +15,24 @@
   {
    "goto": [
     4,
-    12,
-    7
+    9,
+    9
    ]
   },
   {
    "frames": 5
   },
   {
-   "key": "ArrowUp",
+   "key": "ArrowLeft",
    "times": 1,
    "gap": 30
   },
   {
    "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
    "expect": [
-    12,
-    7,
-    8
+    9,
+    9,
+    4
    ],
    "label": "where she used to sit, facing the table"
   },

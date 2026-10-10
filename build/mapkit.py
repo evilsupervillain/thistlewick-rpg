@@ -1521,6 +1521,47 @@ def interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR,
     return g
 
 
+def guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP,
+               wall_face=IN_WALL_FACE, floor=None):
+    """Wall off a room inside an interior that `interior()` has drawn: the
+    way Mike split the Gilded Turnip (October 2026) into the bar, where
+    everybody is, and a bedroom for the guests - nobody sleeps in the middle
+    of the pub.
+
+    The room is x1..x2, y1..y2 of floor in a corner of the bigger one, sharing
+    its north wall (y1 is the big room's first floor row) and one side wall.
+    A partition goes round its open sides - a wall-top column one cell
+    outside whichever of x1 and x2 is not on the big room's ring, and a
+    wall-top row under y2 - and the partition shows a face to the room below
+    it, two rows, like any south wall seen from the north. `door_x` cuts the
+    doorway through the partition and its face. So the big room needs at
+    least one row of floor below y2 + 3, which is where you walk to the door.
+
+    Shapes are left to the build's `shape_wall_tops`, which turns the joins
+    into T-pieces and trims the faces the editor's way."""
+    west = g.get(x1 - 1, y1, 0) != wall_top     # which side is open
+    side = x1 - 1 if west else x2 + 1
+    xa, xb = (x1 - 1, x2) if west else (x1, x2 + 1)
+    for y in range(y1 - 2, y2 + 2):
+        g.set(side, y, 0, wall_top)
+    for x in range(xa, xb + 1):
+        g.set(x, y2 + 1, 0, wall_top)
+        g.set(x, y2 + 2, 0, wall_face)
+        g.set(x, y2 + 3, 0, wall_face)
+    under = floor if floor is not None else g.get(door_x, y2 + 4, 0)
+    for y in (y2 + 1, y2 + 2, y2 + 3):
+        g.set(door_x, y, 0, under)
+
+
+def outside_windows(g, xs, y2, window=None):
+    """Windows on the outside of the south wall - its two face rows below the
+    ring - at each x in `xs`, where the town map's front has them (Mike,
+    October 2026: the inside and the outside of a building should agree)."""
+    window = window or IN_WINDOW
+    for x in xs:
+        g.column(x, y2 + 2, 3, window)
+
+
 def door_animation():
     """Open a door sprite, hold, close it, then make it transparent - the
     routine the sample uses so a door looks like it was walked through."""

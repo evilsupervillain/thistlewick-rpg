@@ -241,11 +241,13 @@ in each of the four states.
       handdrawn.py   maps drawn by hand in the editor, kept: `freeze <id>`
                      copies a map's tile layers into `build/handdrawn/`, and
                      its builder loads them with `handdrawn.load()` and adds
-                     its events as usual. **Map 9, the Gloamwood, is one**
-                     (Mike, October 2026). To change it: edit in the editor,
-                     `python3 build/handdrawn.py freeze 9`, rebuild - a
-                     rebuild without the freeze throws the edit away.
-                     `handdrawn.py check` says whether data still matches
+                     its events as usual. **Maps 4, 9 and 10 are frozen** -
+                     the Gilded Turnip and both Gloamwood maps (Mike, October
+                     2026). To change one: edit in the editor, `python3
+                     build/handdrawn.py freeze <id>`, rebuild - a rebuild
+                     without the freeze throws the edit away. The build's
+                     post-passes skip frozen maps. `handdrawn.py check` says
+                     whether data still matches
       darkwood.py    the Gloamwood's dark-forest style as a kit - `Forest A`
                      as a wall, trunks along every north edge, undergrowth,
                      dressed trunks - drawn from a character plan. Map 10,
@@ -322,10 +324,15 @@ in each of the four states.
                      world-map coordinate in it was re-cut for the 120x120
                      map**, and its docstring says which ones are not `+ (35,35)`
       story.py       shared dialogue helpers and the endgame
-      build_game.py  runs all of the above, then gives every interior's wall
-                     tops their edge shapes (`shape_wall_tops` - one place,
-                     so no room builder has to), then System.json and
-                     MapInfos
+      build_game.py  runs all of the above, then the post-passes over every
+                     interior: `new_tables` (every `Table D`/`Table A` becomes
+                     the A2 table Mike chose, joined where tables touch;
+                     `KEEP_OLD_TABLES` opts a map out), `shape_wall_tops`
+                     (the tops' edge shapes, and `shape_faces`, the faces'
+                     trim the editor's way), `cast_shadows`; then
+                     System.json and MapInfos. A room that splits off a
+                     bedroom uses `mapkit.guest_room`, and its outside wall's
+                     windows `mapkit.outside_windows`
       scenarios/     scripted playthroughs for `tools/scenario.js`
       balance.py     offline damage report: evaluates the real formulas
       sampler.py     throwaway tile sampler; writes Map099. `build_game.py`

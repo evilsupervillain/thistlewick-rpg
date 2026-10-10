@@ -29,6 +29,14 @@ FROZEN = os.path.join(HERE, "handdrawn")
 LAYERS = 5          # tiles 0-3 and the shadow layer; regions are derived
 
 
+def frozen():
+    """The ids of every frozen map. The build's post-passes leave these
+    alone: their walls and shadows are as they were drawn."""
+    if not os.path.isdir(FROZEN):
+        return set()
+    return {int(n[3:6]) for n in os.listdir(FROZEN) if n.startswith("Map")}
+
+
 def path(map_id):
     return os.path.join(FROZEN, "Map%03d.json" % map_id)
 

@@ -22,6 +22,7 @@ import q_zephyrine
 import rmmzdata as R
 import story as S
 import q_aldric
+import handdrawn as HD
 import postgame as PG
 from places import (MAP_VILLAGE, MAP_HOME, MAP_HALL, MAP_INN, MAP_CHAPEL,
                     MAP_SMITHY, MAP_STORE, MAP_WORLD, VILLAGE_GATE,
@@ -986,66 +987,29 @@ def fete_minutes(event_id, x, y):
 
 def inn_map():
     """The Gilded Turnip. Zephyrine drinks here; Piper performs here, at
-    everyone."""
-    g = room(MAP_INN, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
-    g.blit(12, 3, 2, K.IN_FIREPLACE)
-    g.column(4, 3, 2, K.IN_SHELF_BOTTLES)
-    g.column(5, 3, 2, K.IN_CABINET)
-    # Was IN_SHELF_FRUIT, which is teddy bears and a pink rabbit: behind a bar.
-    g.column(6, 3, 2, K.IN_SHELF_BOTTLES)
-    g.blit(8, 3, 2, K.IN_PIANO_WHOLE)
-    g.column(7, 3, 2, K.IN_SHELF_JARS)
-    # The bar: the bottles stood on the floorboards until tables went under
-    # them.
-    g.scatter([(4, 5), (5, 5)], 2, K.IN_TABLE_WOOD)
-    g.set(4, 5, 3, K.INC_BOTTLES)
-    g.set(5, 5, 3, K.INC_GOBLET)
-    for tx, ty in [(6, 9), (12, 9), (12, 6)]:
-        g.set(tx, ty, 2, K.IN_TABLE_WOOD)
-    g.set(5, 9, 2, K.IN_STOOL)
-    # The meal at (12, 9) is laid on the left of its table, so its stool is
-    # on the left. (13, 9) is the gilded turnip's plinth, and a square stool
-    # is what the landlord would have stood it on.
-    g.set(11, 9, 2, K.IN_STOOL)
-    g.set(13, 9, 2, K.IN_STOOL_SQUARE)
-    g.set(12, 9, 3, K.INC_MEAL2)
-    g.set(12, 6, 3, K.INC_GOBLET)
-    g.set(6, 9, 3, K.INC_BOTTLE)
-    g.column(14, 4, 2, K.IN_BED_ORANGE)
-    g.column(15, 4, 2, K.IN_BED_BROWN)
-    # The washstand, for NORTH.md 3.5. It stands with the beds because that
-    # is where a washstand stands, and its event goes on the lower of its two
-    # tiles so there is a square to stand on in front of it.
-    #
-    # A jug and a basin, and **not** `IN_DRESSER`, which was here first and
-    # was wrong: its lower cell is `Sundries Shelf A`, which has two teddy
-    # bears and a pink rabbit painted on it. At map scale that reads as a
-    # cupboard and the contact sheet says otherwise - which is the whole
-    # argument for cropping every prop a map lays down, and it is a room a
-    # cell crop was never run over because nothing here is new tileset work.
-    #
-    # It stood at (16, 4)-(16, 5) until September 2026, which is not in the
-    # room: x=16 is the east wall's top, and the one square in front of it
-    # was the wall too. It could be used only because the whole ring was
-    # walkable; when `build_game.shape_wall_tops` sealed the ring it was left
-    # with nowhere to stand, so it moved in to the foot of the brown bed,
-    # against the same wall (NORTH.md 8.1f). Not a word of it changed.
-    g.set(15, 6, 2, K.IN_BARREL)        # "Pot B": a cream ewer with a rope
-    g.set(15, 7, 2, K.IN_BARREL2)       # "Basin", which is what it is called
-    g.set(4, 10, 2, K.IN_BARREL)
-    g.set(4, 11, 2, K.IN_BARREL2)
-    # WRE-3: the Gloamwood Society's table, with The Sighting on it.
-    g.set(*q_wren.WRE3_TABLE, 2, K.IN_TABLE_WOOD)
-    g.set(*q_wren.WRE3_TABLE, 3, K.INC_SCROLL)
+    everyone.
+
+    Drawn by hand in the editor (Mike, October 2026) and kept by
+    `handdrawn.py`: two rooms now, the bar where everyone is and a bedroom
+    for guests behind its own door, so nobody sleeps in the middle of the
+    pub; Prudence behind a counter, the turnip on its plinth in an alcove,
+    the Gloamwood Society's table with The Sighting on it, and windows on
+    the outside wall where the town map has them. Only the events are built
+    here."""
+    w, h = ROOMS[MAP_INN][0], ROOMS[MAP_INN][1]
+    g = K.Canvas(w, h, HD.load(MAP_INN, w, h, K.TS_INSIDE),
+                 tileset=K.TS_INSIDE)
     return finish(MAP_INN, g, "The Gilded Turnip", bgm="Town3",
                   battleback=("Wood1", "Room1"), events=inn_events())
+
+
 def inn_events():
     evs = [S.exit_tile(1, "Inn Door", *threshold(MAP_INN), MAP_VILLAGE, *OUT[MAP_INN])]
 
-    evs.append(prudence_event(2, 5, 7))
+    evs.append(prudence_event(2, 9, 5))         # behind the counter
 
-    evs.append(zephyrine_event(3, 12, 7))
-    evs.append(piper_event(4, 9, 6))
+    evs.append(zephyrine_event(3, 9, 9))
+    evs.append(piper_event(4, 6, 6))
 
     drunk = S.say("Regular", [
         "Chosen One, eh?",
@@ -1054,13 +1018,13 @@ def inn_events():
     drunk += S.say("Regular", ["Number thirty-nine."])
     drunk += S.narrate(["He drinks again."])
     drunk += S.say("Regular", ["Lovely tower, apparently."])
-    regular = S.npc(5, "Regular", 6, 10, drunk, "People4", 6, direction=8)
+    regular = S.npc(5, "Regular", 4, 8, drunk, "People4", 6, direction=8)
     regular["pages"].append(PG.regular_page(regular["pages"][0]))    # P4b
     evs.append(regular)
 
     # The turnip is drawn: `draw_art()`. Until AUDIT.md item 5 the plinth
     # was bare, and the text has always said otherwise (NORTH.md 8.1d).
-    turnip = S.prop(6, "The Turnip", 13, 9, [
+    turnip = S.prop(6, "The Turnip", 12, 10, [       # in its alcove
         "A single turnip on a plinth, painted gold.",
         "A small plaque reads: THE GILDED TURNIP.",
         "It is not a metaphor. It is just a turnip",
@@ -1073,7 +1037,7 @@ def inn_events():
     # WRE-3: the Gloamwood Society, at its own table (q_wren.py).
     evs += q_wren.society_events(8)
     # ZEPH-1: the Library's eleventh notice, at her old table (q_zephyrine.py).
-    evs.append(q_zephyrine.letter_event(11, 12, 6))
+    evs.append(q_zephyrine.letter_event(11, 8, 9))
     return evs
 
 

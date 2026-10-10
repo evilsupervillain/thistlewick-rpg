@@ -1,12 +1,12 @@
 {
-  "query": "?map=4&x=13&y=10&frames=90",
+  "query": "?map=4&x=12&y=11&frames=90",
   "comment": "QUESTS.md A3, PIP-2 A Rhyme For Turnip. The gilded turnip without Piper is what it always was; with her before the road it is still that; after the road, her afternoon, put off once with 'Not now'. Then two parties, so every suggestion branch is taken exactly once: Piper with Hob and Wren (a trope each, Bram's parsnip, the payoff - four), SW_PIP2_DONE, SW_STORY[PIPER] and VAR_COMPANION_STORIES, the absent six asserted absent, and the page afterwards. Then the switch put back and the other six at the table - Merribell's blush, Roland's gracious fury - with the story counted once.",
   "steps": [
     {"eval": "$gameSystem.disableEncounter()"},
     {"eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._blushes = $gameVariables.value(7); window._lines = []; }; window._mark()"},
-    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [4, 13, 10]},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [4, 12, 11]},
     {"key": "ArrowUp", "times": 1, "gap": 30},
-    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [13, 10, 8]},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [12, 11, 8]},
 
     {"comment": "Without Piper, after the road: the turnip as it was.", "eval": "$gameSwitches.setValue(2, true); window._mark()"},
     {"check": "$gameMap.event(6).findProperPageIndex()", "expect": 0},

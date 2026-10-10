@@ -20,6 +20,7 @@ import rmmzdata as R  # noqa: E402
 R.use_project(GAME)
 
 import db  # noqa: E402
+import handdrawn  # noqa: E402
 import field  # noqa: E402
 import meadow  # noqa: E402
 import journey  # noqa: E402
@@ -201,10 +202,18 @@ def shape_wall_tops():
     outline every square of a two-tone floor. Shape 0 is `0xe00` and blocks
     nothing; it is the edge shapes that carry the direction bit for their
     edge, so a ring left in shape 0 is a ring the player can walk round the
-    top of. Only the A4 wall-top kinds are re-shaped: the faces already are,
-    and the floor is not touched. Maps built another way are unchanged by
-    it, because their tops are already in the shapes this computes."""
+    top of. Only the A4 kinds are re-shaped, and the floor is not touched.
+    Maps built another way are unchanged by it, because their walls are
+    already in the shapes this computes.
+
+    **The faces too** (October 2026). They were written in shape 0 as well,
+    which on a face is a plank wall with no trim at all - no rail along its
+    top, none along its foot - and nothing shaped them; Mike found it
+    redrawing the Gilded Turnip in the editor. `shape_faces` is the editor's
+    rule, which reproduces his walls there cell for cell."""
     for map_id, _, _ in MAP_NAMES:
+        if map_id in handdrawn.frozen():
+            continue                    # drawn by hand, walls and all
         m = R.load_map(map_id)
         if m["tilesetId"] not in INTERIOR_TILESETS:
             continue
@@ -215,6 +224,111 @@ def shape_wall_tops():
             continue
         g = R.MapGrid(w, h, list(m["data"]))
         g.autotile(0, kinds=kinds)
+        shape_faces(g)
+        if g.data != m["data"]:
+            m["data"] = g.data
+            R.save_map(map_id, m)
+
+
+def shape_faces(g):
+    """Shape every A4 wall face on layer 0 the way the editor does: a rail
+    along the top and foot wherever the face ends, and a post at a side only
+    where the face stops against something that is not wall - so the north
+    wall of a room runs into its side walls with no post, and the outside of
+    the south wall has one either side of the doorway."""
+    def wall(x, y):
+        if not (0 <= x < g.width and 0 <= y < g.height):
+            return True
+        return R.TILE_ID_A4 <= g.get(x, y, 0) < R.TILE_ID_MAX
+    faces = {R.autotile_kind(t) for t in g.data[:g.width * g.height]
+             if R.TILE_ID_A4 <= t < R.TILE_ID_MAX and R.is_wall_autotile(t)}
+    if not faces:
+        return
+    g.autotile(0, kinds=faces)
+    for y in range(g.height):
+        for x in range(g.width):
+            t = g.get(x, y, 0)
+            if not (R.is_autotile(t) and R.autotile_kind(t) in faces):
+                continue
+            shape = R.autotile_shape(t)
+            for dx, bit in ((-1, 1), (1, 4)):
+                if wall(x + dx, y):
+                    shape &= ~bit
+            g.set(x, y, 0, R.make_autotile(R.autotile_kind(t), shape))
+
+
+# The plain tables of Inside_B - `Table D` (one cell) and `Table A` (two) -
+# and what Mike put in their place in the Slain Wyvern (October 2026).
+OLD_TABLES = {mapkit.IN_TABLE_WOOD, *mapkit.IN_TABLE[0]}
+# Maps that keep the old tables: none yet. A map goes here when its tables
+# are not tables - a counter, a desk - and look wrong joined up.
+KEEP_OLD_TABLES = set()
+
+
+def _rug_down(g, x, y):
+    """A rug on layer 1 under a table that is moving onto layer 1: the whole
+    rug - every cell of its kind joined to this one - goes down to layer 0,
+    over the boards, which is where an A2 carpet can lie as well as on 1.
+    Moving only the cell under the table would cut the rug's border in two.
+    False when layer 1 holds something that is not an A2 floor."""
+    t = g.get(x, y, 1)
+    if not (R.TILE_ID_A2 <= t < R.TILE_ID_A3):
+        return False
+    kind = R.autotile_kind(t)
+    todo, seen = [(x, y)], set()
+    while todo:
+        cx, cy = todo.pop()
+        if (cx, cy) in seen or not (0 <= cx < g.width and 0 <= cy < g.height):
+            continue
+        c = g.get(cx, cy, 1)
+        if not (R.is_autotile(c) and R.autotile_kind(c) == kind):
+            continue
+        seen.add((cx, cy))
+        todo += [(cx + 1, cy), (cx - 1, cy), (cx, cy + 1), (cx, cy - 1)]
+    for cx, cy in seen:
+        g.set(cx, cy, 0, g.get(cx, cy, 1))
+        g.set(cx, cy, 1, 0)
+    g.moved_rugs = getattr(g, "moved_rugs", set()) | {kind}
+    return True
+
+
+def moved_rugs(g):
+    return getattr(g, "moved_rugs", set())
+
+
+def new_tables():
+    """Every `Table D` and `Table A` on an Inside map becomes the A2 table,
+    `mapkit.IN_TABLE_TOP`, which is what Mike chose for the Slain Wyvern:
+    bigger, so what stands on it sits on the top instead of hanging off the
+    edge, and an autotile, so tables side by side are one table. It goes on
+    layer 1, where the sample's tables are, and what was on the table stays
+    where it was. Runs after every module, so a table any room lays gets it;
+    a cell whose layer 1 is already taken - a rug - keeps its old table and
+    is reported, because a table cannot be laid on a rug that is on the
+    same layer."""
+    for map_id, _, _ in MAP_NAMES:
+        if map_id in handdrawn.frozen() or map_id in KEEP_OLD_TABLES:
+            continue
+        m = R.load_map(map_id)
+        if m["tilesetId"] != mapkit.TS_INSIDE:
+            continue
+        w, h = m["width"], m["height"]
+        g = R.MapGrid(w, h, list(m["data"]))
+        for y in range(h):
+            for x in range(w):
+                if g.get(x, y, 1) in OLD_TABLES:         # laid on layer 1
+                    g.set(x, y, 1, mapkit.IN_TABLE_TOP)
+                for z in (2, 3):
+                    if g.get(x, y, z) not in OLD_TABLES:
+                        continue
+                    if g.get(x, y, 1) and not _rug_down(g, x, y):
+                        print("  Map%03d (%d,%d): a table on something that "
+                              "is not a rug, left as it was" % (map_id, x, y))
+                        continue
+                    g.set(x, y, z, 0)
+                    g.set(x, y, 1, mapkit.IN_TABLE_TOP)
+        g.autotile(0, kinds=moved_rugs(g))
+        g.autotile(1, kinds=mapkit.TABLE_KINDS)
         if g.data != m["data"]:
             m["data"] = g.data
             R.save_map(map_id, m)
@@ -236,6 +350,8 @@ def cast_shadows():
     def is_wall(t):
         return R.TILE_ID_A4 <= t < R.TILE_ID_MAX
     for map_id, _, _ in MAP_NAMES:
+        if map_id in handdrawn.frozen():
+            continue                    # drawn by hand, walls and all
         m = R.load_map(map_id)
         if m["tilesetId"] not in INTERIOR_TILESETS:
             continue
@@ -661,6 +777,7 @@ def main():
     pottering.build()                   # SPA-4's village, Maps 68-69
     q_spare.build()                     # SPA-2's culvert, Map 70
     q_spare.check_couriers()            # F2's courier ids are the towns'
+    new_tables()
     shape_wall_tops()
     door_holes()
     cast_shadows()

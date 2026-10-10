@@ -1101,6 +1101,8 @@ QUAYLE = (12, 8)
 STAGE = (15, 5, 18, 8)
 TWEDDLE = (16, 6)
 TABLES = [(4, 8), (7, 10)]
+BELL_STAIRS = (10, 11)
+STAIRS_UP = K.b_tile(1, 0)          # `Stairs A (Up)`, on layer 1 - restwell's
 
 
 def bell_map():
@@ -1126,6 +1128,14 @@ def bell_map():
         g.set(tx - 1, ty, 2, STOOL)
         g.set(tx + 2, ty, 2, STOOL)
         g.set(tx, ty, 3, PINT)
+    # The rooms are upstairs ("You go up"), so the Bell has a staircase
+    # rather than a bedroom off the bar: the Eight Hours' flight, from the
+    # wall face down to the floor.
+    for sy in range(y1 - 1, y1 + 3):
+        for sx in BELL_STAIRS:
+            g.set(sx, sy, 1, STAIRS_UP)
+    # The windows on the street, where the town's front has them.
+    K.outside_windows(g, (door_x - 4, door_x + 6), y2)
     m = K.new_map(LW, LH, K.TS_INSIDE, name="The Bell", bgm="Town5",
                   battleback=("Wood1", "Room1"))
     m["data"] = g.data

@@ -401,13 +401,13 @@ def bramus(event_id, x, y):
 # * **Her gear is the badge** (`QUESTS.md` 0.5): an armour type nobody else
 #   can wear, allowed on her actor alone.
 WRE3_SPEAKERS = [            # (key, event name, speaker, the inn cell, facing)
-    ("lumb", "Mrs Lumb (the Gloamwood Society)", "Mrs Lumb", (11, 11), 6),
+    ("lumb", "Mrs Lumb (the Gloamwood Society)", "Mrs Lumb", (4, 11), 6),
     ("dunmore", "Mr Dunmore (the Gloamwood Society)", "Mr Dunmore",
-     (13, 11), 4),
+     (6, 11), 4),
     ("pellow", "Miss Pellow (the Gloamwood Society)", "Miss Pellow",
-     (12, 10), 2),
+     (5, 10), 2),
 ]
-WRE3_TABLE = (12, 11)
+WRE3_TABLE = (5, 11)        # drawn by hand now, in the Gilded Turnip's tiles
 # The walk, round the clearing on Map 10. The Thing stood at (15, 10) and the
 # path comes up the middle, so that column is left clear.
 WRE3_WALK = {"lumb": ((15, 9), 2), "dunmore": ((16, 9), 2),
