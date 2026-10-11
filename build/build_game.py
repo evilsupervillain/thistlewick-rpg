@@ -131,6 +131,7 @@ MAP_NAMES = [
     (places.MAP_POTTERING_IN, "The Gotobeds' Cottage", places.MAP_POTTERING),
     (places.MAP_CULVERT, "The Bottom Lock", dunnage.MAP_DUNNAGE),
     (places.MAP_FITCH, "Ambrose Fitch's Cottage", south.MAP_SOPPING),
+    (places.MAP_WYVERN_UP, "The Slain Wyvern - Upstairs", south.MAP_WYVERN),
 ]
 
 
@@ -470,6 +471,22 @@ def build_tilesets():
         flags[tile_id] &= ~0x10
     for tile_id in (250, 251):
         flags[tile_id] |= 0x10
+    # The crest of a roof - the top row of its nine-slice - is a star tile on
+    # every stock roof, so the engine ignores it for passage and the ground
+    # under it decides: a player on the street north of a house walks up on to
+    # the ridge and vanishes behind it. `Canvas.crest()` used to put the
+    # house's wall under the crest to stop that, and the wall showed through
+    # the gaps in the ridge as a second building standing behind the first
+    # (Mike, Great Dunnage, October 2026: he painted the street back under it).
+    # So the crest itself blocks, all four ways, and is no longer a star - it
+    # is drawn under the characters, which nobody can now be standing behind
+    # - and the street goes under it like it goes under everything else.
+    for tid, roofs in mapkit.TILESET_ROOFS.items():
+        flags = tilesets[tid]["flags"]
+        for col, row in roofs:
+            for i in range(3):
+                tile_id = mapkit.c_tile(col + i, row)
+                flags[tile_id] = (flags[tile_id] & ~0x10) | 0x0F
     R.save_list("Tilesets.json", tilesets)
 
 

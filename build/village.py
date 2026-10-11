@@ -533,15 +533,24 @@ def finish(map_id, g, name, bgm, battleback, events):
     m["events"] = [None] + events
     return m
 
+HOME_BEDROOM = (3, 4, 6, 6, 6)          # x1, y1, x2, y2, door_x
+
+
 def home_map():
-    """Where a new game starts: Bram's one room, his bed, and his mother."""
+    """Where a new game starts: Bram's house, his mother, and his bed - in a
+    room of his own now, walled off the north-west corner the way Mike gave
+    Number Forty-Five one (October 2026). The bed has not moved, and nor has
+    anything a new game starts beside."""
     g = room(MAP_HOME, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
+    bx1, by1, bx2, by2, bdoor = HOME_BEDROOM
+    K.guest_room(g, bx1, by1, bx2, by2, bdoor)
     g.column(4, 4, 2, K.IN_BED)                     # Bram's bed
-    g.column(6, 3, 2, K.IN_CABINET)
+    g.set(5, 4, 2, K.IN_NIGHTSTAND)
+    g.column(6, 3, 2, K.IN_CABINET)                 # in his room, by the door
     g.column(13, 3, 2, K.IN_SHELF_JARS)             # the pantry
     g.blit(9, 3, 2, K.IN_FIREPLACE)
     g.set(12, 4, 2, K.IN_BARREL_WOOD)
-    g.scatter([(4, 9), (5, 9)], 2, K.IN_SACK)
+    g.scatter([(3, 10), (4, 10)], 2, K.IN_SACK)     # under the partition
     g.set(12, 9, 2, K.IN_CRATE)
     # Supper for one, laid toward the bottom of the table (`Dinner Set A
     # (Bottom)`), so the stool is below it. There was a heap of scrolls in the

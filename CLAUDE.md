@@ -241,8 +241,9 @@ in each of the four states.
       handdrawn.py   maps drawn by hand in the editor, kept: `freeze <id>`
                      copies a map's tile layers into `build/handdrawn/`, and
                      its builder loads them with `handdrawn.load()` and adds
-                     its events as usual. **Maps 4, 9 and 10 are frozen** -
-                     the Gilded Turnip and both Gloamwood maps (Mike, October
+                     its events as usual. **Maps 4, 9, 10, 17 and 23 are frozen** -
+                     the Gilded Turnip, both Gloamwood maps, Number
+                     Forty-Five's cottage and the Safety Valve (Mike, October
                      2026). To change one: edit in the editor, `python3
                      build/handdrawn.py freeze <id>`, rebuild - a rebuild
                      without the freeze throws the edit away. The build's
@@ -520,6 +521,11 @@ Append instead.
   Door" (Map 13 event 15), which clause nineteen's key opens after the ending
   (P4b). Drawn by `south.fitch_map`, its events from `postgame.py`;
   `places.MAP_FITCH`. Out to `places.FITCH_STEP` |
+| Map 72 | The Slain Wyvern's upstairs, where the beds Dorcas sells are (October
+  2026: the building is three rows of wall from the street). Drawn by
+  `south.wyvern_up_map`; `places.MAP_WYVERN_UP`. In and out by the stairs in
+  the bar's north-east corner, `places.WYVERN_STAIRS` - placeholder stairs,
+  for Mike to redraw |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills

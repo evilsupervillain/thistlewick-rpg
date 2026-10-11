@@ -218,7 +218,6 @@ def sf_fronts():
     g.fill(0, 0, 33, 29, 0, K.SF_WASTE)
     for gi, (_, items) in enumerate(groups):
         top = 1 + gi * 7
-        g.crest(1, top, 32, K.SF_WALL_BRICK)
         g.building(1, top, 32, 5, wall=K.SF_WALL_BRICK, roof=K.SF_ROOF,
                    wall_rows=3)
         for n, item in enumerate(items):

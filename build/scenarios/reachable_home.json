@@ -7,12 +7,30 @@
       "label": "starting map"
     },
     {
+      "comment": "Bram's room is walled off the north-west corner (October 2026): round under its partition and in at its door.",
+      "key": "ArrowDown",
+      "times": 2,
+      "gap": 30
+    },
+    {
       "key": "ArrowLeft",
-      "times": 4
+      "times": 2,
+      "gap": 30
     },
     {
       "key": "ArrowUp",
-      "times": 3
+      "times": 4,
+      "gap": 30
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 2,
+      "gap": 30
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
     },
     {
       "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
@@ -44,16 +62,34 @@
       "frames": 24
     },
     {
+      "key": "ArrowRight",
+      "times": 2,
+      "gap": 30
+    },
+    {
       "key": "ArrowDown",
-      "times": 1
+      "times": 4,
+      "gap": 30
     },
     {
       "key": "ArrowRight",
-      "times": 6
+      "times": 3,
+      "gap": 30
     },
     {
       "key": "ArrowUp",
-      "times": 3
+      "times": 3,
+      "gap": 30
+    },
+    {
+      "key": "ArrowRight",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "ArrowUp",
+      "times": 3,
+      "gap": 30
     },
     {
       "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",

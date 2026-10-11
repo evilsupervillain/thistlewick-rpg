@@ -31,6 +31,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
+import handdrawn as HD
 import mapkit as K
 import q_hob
 import q_merribell
@@ -228,13 +229,10 @@ def clanging_map():
             for i in range(3):
                 g.set(STAIR_X + i, row, 0, K.SF_STAIRS_METAL[i])
 
-    # -- the buildings. `crest` first, every time: the top row of an SF roof is
-    # a star tile, drawn over the player and ignored for collision, so without
-    # something solid underneath it the ridge of every building in town is a
-    # tile you can stand on and disappear behind.
+    # -- the buildings. Their ridges block because `build_tilesets` makes the
+    # crest row of every roof solid; see there.
     def put(box, rows, wall):
         x, y, w, h = box
-        g.crest(x, y, w, wall)
         return g.building(x, y, w, h, wall=wall, roof=K.SF_ROOF, wall_rows=rows)
 
     put(WORKS, WORKS_ROWS, K.SF_WALL_BRICK)
@@ -1522,74 +1520,23 @@ def works_events():
 # ========================================================= the Safety Valve ==
 def valve_map():
     """The inn. Named for the one part of a boiler whose entire job is to give
-    up before anything else does."""
-    g = room(MAP_VALVE, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD,
-             wall_top=K.SF_IN_WALL_WOOD, wall_face=K.SF_IN_FACE_WOOD,
-             threshold=K.SF_STAIRS_WOOD[3], outside=K.SF_STAIRS_WOOD[3])
-    g.autotile(0)
+    up before anything else does.
 
-    # -- the back wall: the shelves behind the bar, the framed list, the clock
-    g.column(3, 3, 2, K.SF_IN_ODDMENTS)
-    g.column(4, 3, 2, K.SF_IN_DRAWERS)
-    # THINGS THAT ARE NOT TO HAPPEN AGAIN. `Black Board` was tried here,
-    # three tiles of chalked board being the right shape for a list of
-    # sixty-three: it is chalked with a bar chart, a graph and a line of
-    # katakana, and reads as a lecture theatre. The blank board it is.
-    g.set(7, 3, 2, K.SF_IN_BULLETIN)
-    g.column(12, 3, 2, K.SF_IN_WALL_CLOCK)
-    g.blit(14, 3, 2, K.SF_IN_FIREPLACE)
-    g.column(17, 3, 2, K.SF_IN_PLANT)
-
-    # -- the bar. `Large Desk B` is a two-tile counter with a dark top, and
-    # it carries the counter flag (0x80) as well as being solid, so the
-    # action button reaches across it and Mr Kell stands behind his own bar
-    # instead of beside it. Two of them make one unbroken four-tile run;
-    # a row of `Side Table` here read as four little round tables in a line,
-    # which is the Slain Wyvern's mistake and this town is not that town.
-    g.blit(3, 6, 2, (K.SF_IN_DESK_LARGE_B,))
-    g.blit(5, 6, 2, (K.SF_IN_DESK_LARGE_B,))
-    g.set(3, 6, 3, K.SF_IN_MUG)
-    g.set(5, 6, 3, K.SF_IN_TEAPOT)
-    g.set(6, 6, 3, K.SF_IN_BREAD)
-
-    # -- the room. Stools are passable, so they go anywhere; tables are not.
-    for tx, ty in [(9, 7), (13, 7), (9, 10), (14, 10)]:
-        g.set(tx, ty, 2, K.SF_IN_TABLE)
-    g.set(9, 7, 3, K.SF_IN_MEAT)
-    g.set(13, 7, 3, K.SF_IN_MUG)
-    g.set(9, 10, 3, K.SF_IN_PLATE)
-    g.set(14, 10, 3, K.SF_IN_WINE)
-    g.scatter([(8, 7), (10, 7), (12, 7), (8, 10), (10, 10), (15, 10),
-               (13, 10)], 2, K.SF_IN_STOOL)
-    g.set(15, 6, 2, K.SF_IN_TABLE)                # the fireside table
-    g.set(15, 6, 3, K.SF_IN_MUG)
-    g.scatter([(14, 6), (16, 6)], 2, K.SF_IN_STOOL)
-    g.column(3, 10, 2, K.SF_IN_BOOKSHELF)
-    g.set(17, 12, 2, K.SF_IN_LAMP)
-    g.set(3, 12, 2, K.SF_IN_LAMP)
-
-    # -- the guest room, walled off the north-east corner the way Mike split
-    # the Gilded Turnip (October 2026): four beds, one for each of a full
-    # party, and "you will be dry" under a window that shuts.
-    bx1, by1, bx2, by2, bdoor = VALVE_BEDROOM
-    K.guest_room(g, bx1, by1, bx2, by2, bdoor, wall_top=K.SF_IN_WALL_WOOD,
-                 wall_face=K.SF_IN_FACE_WOOD)
-    for x in range(bx1, bx2 + 1):
-        g.column(x, by1, 2, K.SF_IN_BED)
-    g.column(bx1 + 1, by1 - 2, 3, K.SF_IN_WINDOW)
-    g.set(bx2, by2, 2, K.SF_IN_LAMP)
-    g.set(22, 12, 2, K.SF_IN_LAMP)
-    # Four windows on the street, where the town's front has them.
-    x2, y2, door_x = ROOMS[MAP_VALVE][4], ROOMS[MAP_VALVE][5], \
-        ROOMS[MAP_VALVE][6]
-    K.outside_windows(g, (door_x - 5, door_x - 2, door_x + 3, door_x + 6),
-                      y2, window=K.SF_IN_WINDOW)
+    Drawn by hand in the editor (Mike, October 2026) and kept by
+    `handdrawn.py`: Mr Kell's bar a run of the A2 dark table (it carries the
+    counter flag, so he is still served across it), single tables with a
+    stool either side, windows in the back wall, and the guest room's four
+    beds two and two against its side walls with the aisle between them -
+    the layout `mapkit.four_beds` now draws wherever there are four. Only the
+    events are built here."""
+    w, h = ROOMS[MAP_VALVE][0], ROOMS[MAP_VALVE][1]
+    g = K.Canvas(w, h, HD.load(MAP_VALVE, w, h, K.TS_CLANGING_IN),
+                 tileset=K.TS_CLANGING_IN)
     return finish(MAP_VALVE, g, "The Safety Valve", bgm="Town5",
                   battleback=("Wood1", "Room1"), events=valve_events())
 
 
 BED_PRICE = 30
-VALVE_BEDROOM = (19, 4, 22, 7, 21)          # x1, y1, x2, y2, door_x
 
 
 def valve_events():
@@ -2081,11 +2028,13 @@ def parish_map():
     g.column(14, 3, 2, K.SF_IN_STEEL_SHELF)       # what there is, is behind me
     g.column(15, 3, 2, K.SF_IN_PLANT)
 
-    # The counter, which is also the shop. Two Large Desks side by side: the
-    # tile is solid *and* carries the counter flag, so nobody walks on it and
-    # the action button reaches over it.
-    g.blit(5, 7, 2, (K.SF_IN_DESK_LARGE_B,))
-    g.blit(7, 7, 2, (K.SF_IN_DESK_LARGE_B,))
+    # The counter, which is also the shop: the A2 dark table, four long, the
+    # way Mike rebuilt the Safety Valve's bar (October 2026) out of what was
+    # two Large Desks side by side here as well. It is solid *and* carries
+    # the counter flag, so nobody walks on it and the action button reaches
+    # over it.
+    g.fill(5, 7, 8, 7, 1, K.IN_TABLE_DARK)
+    g.autotile(1, kinds=K.TABLE_KINDS)
     g.set(5, 7, 3, K.SF_IN_DOCUMENT)
     g.set(8, 7, 3, K.SF_IN_BOOK)
 

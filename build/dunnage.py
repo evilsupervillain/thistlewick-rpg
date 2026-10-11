@@ -54,7 +54,7 @@ import q_hob
 import q_spare
 from places import (MAP_WORLD, MAP_DUNNAGE, MAP_SMITHS_HALL,
                     MAP_COUNTING_HOUSE, MAP_BONDED, MAP_BELL, DUNNAGE_STEP,
-                    VAULT, VAULT_CHAIR, COUNTING_BEFORE_DOOR)
+                    VAULT, VAULT_CHAIR, COUNTING_BEFORE_DOOR, CULVERT_STEP)
 
 # The name `worldmap.json`'s door events carry for this site.
 SITE = "Great Dunnage"
@@ -112,6 +112,7 @@ PINT = K.sf_tile("Inside_C", "Pint Mug C")
 LEDGER = K.sf_tile("Inside_C", "Closed Books C")
 OPEN_BOOK = K.sf_tile("Inside_C", "Open Book A (H)")
 HAY = K.sf_tile("Outside_B", "Hay")
+GRATE = K.sf_tile("Outside_B", "Window F")             # laid flat: the culvert
 BOLLARD = K.sf_tile("Outside_B", "Mooring Bollard A")
 BOLLARD_ROPE = K.sf_tile("Outside_B", "Mooring Bollard B (Rope)")
 CRATE_OUT = K.sf_tile("Outside_B", "Crate A")
@@ -176,6 +177,11 @@ def town_map():
     g.fill(x1, y1, x2, y2, 0, K.PATH)
     g.fill(*CANAL, 0, PORT)
 
+    # Along the north side the fence runs on behind the stable (Mike, October
+    # 2026), where the ridge of its roof lets it show - laid before the
+    # stable is, since nothing is drawn on a house once it is up.
+    for x in range(x1, x1 + 5):
+        g.set(x, y1, 1, K.DECKING)
     for b, wall, roof in [
             (IRONWORKS, K.WALL_BRICK_RED, K.ROOF_BROWN),
             (SMITHS, K.WALL_STONE, K.ROOF_GREEN),
@@ -186,7 +192,6 @@ def town_map():
             (WAREHOUSE, K.WALL_BRICK_RED, K.ROOF_BROWN),
             (WEST_RANGE, K.WALL_STONE, K.ROOF_GREEN),
             (EAST_RANGE, K.WALL_STONE, K.ROOF_GREEN)]:
-        g.crest(b[0], b[1], b[2], wall)
         g.building(*b, wall=wall, roof=roof)
 
     # The yard's fence, a wooden overlay on layer 1, with a gap for the gate.
@@ -258,6 +263,15 @@ def town_map():
                   bgm_volume=70)
     m["data"] = g.data
     m["events"] = [None] + q_aldric.with_follower(town_events(), MAP_DUNNAGE)  # ALD-5
+    # 20, after the Fourth's 19: the grate over the bottom lock, where
+    # Cotter's errand stands the party before Spare goes down (SPA-2), so the
+    # culvert has a way in that can be seen. Mike's, from the editor (October
+    # 2026): `Window F` laid flat in the street, as an event so that it is
+    # drawn over the paving and stood on.
+    m["events"].append(R.event(len(m["events"]), "The Bottom Lock Grate",
+                               *CULVERT_STEP, [R.page(
+        [], img=R.image(tile_id=GRATE, pattern=0), priority=0, through=True)]))
+    assert m["events"][-1]["id"] == 20
     return m
 
 

@@ -130,7 +130,6 @@ def pottering_map():
                           (DIBBLE, K.WALL_PLANK, K.ROOF_GREEN),
                           (HALL, K.WALL_BRICK_RED, K.ROOF_GOLD),
                           (THROSSELL, K.WALL_STONE_WHITE, K.ROOF_GREEN)]:
-        g.crest(b[0], b[1], b[2], wall)
         g.building(*b, wall=wall, roof=roof)
 
     # Mr Dibble's fence, a wooden overlay on layer 1.

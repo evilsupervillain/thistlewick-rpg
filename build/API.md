@@ -135,7 +135,7 @@ choice_block(options, branches, cancel=None, default=0, position=2, background=0
 
 Tile vocabulary and drawing helpers for The Obligatory Quest.
 
-**Tile constants (358)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
+**Tile constants (359)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
 
 ```
 GRASS                   PATH                    COBBLE                  PAVING
@@ -219,15 +219,15 @@ SF_METAL_FENCE          SF_SPHERE_MACHINERY     SF_WATER_TANK           SF_ROUND
 SF_SIGN_POST            SF_WARNING_PLATE        SF_CANOPY               SF_PUMP
 SF_POSTBOX              SF_BENCH                SF_BENCH_B              SF_DUMPSTER
 SF_WEEDS                SF_WEEDS_B              SF_RUBBLE               IN_TABLE_TOP
-IN_BOOKCASE_WIDE        SF_RAILING              SF_RAILING_PIER         SF_GATE_LEAF
-SF_IN_WALL_CONCRETE     SF_IN_FACE_CONCRETE     SF_IN_WALL_HOUSE        SF_IN_FACE_HOUSE
-SF_IN_WALL_METAL        SF_IN_FACE_METAL        SF_IN_WALL_RUST         SF_IN_FACE_RUST
-SF_IN_WALL_BARRACKS     SF_IN_FACE_BARRACKS     SF_IN_WALL_FACTORY      SF_IN_FACE_FACTORY
-SF_IN_WALL_FACTORY_B    SF_IN_FACE_FACTORY_B    SF_IN_WALL_PATTERN      SF_IN_FACE_PATTERN
-SF_IN_WALL_PATTERN_B    SF_IN_FACE_PATTERN_B    SF_IN_WALL_BRICK        SF_IN_FACE_BRICK
-SF_IN_WALL_WOOD         SF_IN_FACE_WOOD         SF_FLOOR_RESIN          SF_FLOOR_TILE
-SF_FLOOR_DECO           SF_FLOOR_WOOD           SF_FLOOR_CARPET         SF_FLOOR_MARBLE
-SF_FLOOR_LINO           SF_THRESHOLD
+IN_TABLE_DARK           IN_BOOKCASE_WIDE        SF_RAILING              SF_RAILING_PIER
+SF_GATE_LEAF            SF_IN_WALL_CONCRETE     SF_IN_FACE_CONCRETE     SF_IN_WALL_HOUSE
+SF_IN_FACE_HOUSE        SF_IN_WALL_METAL        SF_IN_FACE_METAL        SF_IN_WALL_RUST
+SF_IN_FACE_RUST         SF_IN_WALL_BARRACKS     SF_IN_FACE_BARRACKS     SF_IN_WALL_FACTORY
+SF_IN_FACE_FACTORY      SF_IN_WALL_FACTORY_B    SF_IN_FACE_FACTORY_B    SF_IN_WALL_PATTERN
+SF_IN_FACE_PATTERN      SF_IN_WALL_PATTERN_B    SF_IN_FACE_PATTERN_B    SF_IN_WALL_BRICK
+SF_IN_FACE_BRICK        SF_IN_WALL_WOOD         SF_IN_FACE_WOOD         SF_FLOOR_RESIN
+SF_FLOOR_TILE           SF_FLOOR_DECO           SF_FLOOR_WOOD           SF_FLOOR_CARPET
+SF_FLOOR_MARBLE         SF_FLOOR_LINO           SF_THRESHOLD
 ```
 
 **Everything else.**
@@ -255,13 +255,14 @@ SF_ROOF                      (13, 12)
 DGE_BASIN                    borrowed('Inside_C', 'Large Basin')
 DGE_HAMPER                   borrowed('Inside_C', 'Basket A')
 IN_TABLE_WOOD                sf_tile('Inside_B', 'Table D')
+IN_NIGHTSTAND                sf_tile('Inside_B', 'Table F')
 IN_STOOL_SQUARE              sf_tile('Inside_B', 'Stool C')
 IN_BARREL_WOOD               sf_tile('Inside_B', 'Barrel')
 IN_STONE_PILLAR              sf_block('Inside_B', 'Stone Pillar A')
 IN_LONGCASE_CLOCK            sf_block('Inside_B', 'Clock')
 IN_PIANO_WHOLE               _rows(sf_block('Inside_B', 'Piano'), 3)
 IN_PIPE_ORGAN                _rows(sf_block('Inside_B', 'Pipe Organ'), 3)
-TABLE_KINDS                  {R.autotile_kind(IN_TABLE_TOP)}
+TABLE_KINDS                  ...
 INC_DINNER_BELOW             sf_tile('Inside_C', 'Dinner Set A (Bottom)')
 INC_DINNER_ABOVE             sf_tile('Inside_C', 'Dinner Set B (Top)')
 INC_DINNER_LEFT              sf_tile('Inside_C', 'Dinner Set C (Left)')
@@ -413,7 +414,6 @@ column(x, y, z, tiles)                               Draw a vertical run of tile
 scatter(spots, z, tile)
 roof(x, y, w, h, roof, z=3)                          Nine-slice a roof over a w x h rectangle. Needs w >= 2 and h >= 2.
 chimney(x, y, tile)                                  A chimney on a roof, drawn so that it is actually visible.
-crest(x, y, w, wall)                                 Block the top row of a roof before the building is drawn.
 clock_tower(x, y, h=5, z=3)                          The Clock Tower, three tiles wide and `h` tall, with its base at
 building(x, y, w, h, wall=WALL_PLANK, roof=ROOF_BROWN, wall_rows=2, register=True) A house: `wall_rows` rows of A3 wall along the bottom on layer 0,
 dungeon_walls(top, face, z=0)                        Turn solid rock into a cave wall: the two rows of rock directly
@@ -439,6 +439,7 @@ paint_regions(g, tileset_id, value=1, layer=5)       Region-tag every tile the p
 new_map(width, height, tileset, name='', bgm='Town1', bgm_volume=70, encounters=(), encounter_step=30, battleback=None, scroll_type=0, parallax='', disable_dashing=False) A map record with everything the editor expects, and nothing surprising.
 interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR, floor_alt=None, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, void=IN_VOID, threshold=None, outside=None, tileset=TS_INSIDE) A room in black space, tiled the way the stock interiors are.
 guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, floor=None) Wall off a room inside an interior that `interior()` has drawn: the
+four_beds(g, x1, y1, x2, door_x, bed=None, nightstand=None) Four beds in a guest room the way Mike laid out the Safety Valve's
 outside_windows(g, xs, y2, window=None)              Windows on the outside of the south wall - its two face rows below the
 door_animation()                                     Open a door sprite, hold, close it, then make it transparent - the
 ```
@@ -536,7 +537,7 @@ Ninian                The Copyist
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-162 constants.
+166 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -701,6 +702,10 @@ CULVERT_STEP                 (33, 20)
 MAP_FITCH                    71
 FITCH_DOOR_EVENT             15
 FITCH_STEP                   (14, 9)
+MAP_WYVERN_UP                72
+WYVERN_STAIRS                (20, 21)
+WYVERN_STAIRS_FOOT           5
+WYVERN_UP_LANDING            5
 ```
 
 

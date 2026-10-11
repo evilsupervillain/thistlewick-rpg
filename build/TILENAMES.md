@@ -407,6 +407,7 @@ dresser is `Closet / Sundries Shelf A`.
 | constant | tiles | what the sheet calls it |
 | --- | --- | --- |
 | `IN_TABLE_TOP` | A2 k23 | Table A (Wood) |
+| `IN_TABLE_DARK` | A2 k31 | Table B (Dark Wood) |
 | `IN_BOOKCASE_WIDE` | B 158, B 159, B 166, B 167 | Bookshelf B |
 
 ## the Long Field  (tileset 5)

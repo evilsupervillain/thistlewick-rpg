@@ -438,3 +438,14 @@ CULVERT_STEP = (33, 20)
 MAP_FITCH = 71
 FITCH_DOOR_EVENT = 15
 FITCH_STEP = (14, 9)
+
+# The Slain Wyvern's upstairs (October 2026): the building is three rows of
+# wall from the street, which is two storeys, and Dorcas sells beds that Mike
+# took out of the bar. So the beds are upstairs: a flight in the bar's
+# north-east corner, where the painting was, and a landing at the top of it
+# with the guests' room, Dorcas's own and a double off it. The stairs on both
+# floors are placeholders for Mike to redraw.
+MAP_WYVERN_UP = 72
+WYVERN_STAIRS = (20, 21)        # the flight's two columns, on both floors
+WYVERN_STAIRS_FOOT = 5          # the bar's floor row below the flight
+WYVERN_UP_LANDING = 5           # upstairs, the row below the stairs down

@@ -16,6 +16,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 import story as S
@@ -32,6 +33,8 @@ from places import (WYVERN_BACK, WYVERN_BACK_TABLE, WYVERN_LONG_TABLE,
                     MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
                     MAP_FITCH, FITCH_DOOR_EVENT,
+                    MAP_WYVERN_UP, WYVERN_STAIRS, WYVERN_STAIRS_FOOT,
+                    WYVERN_UP_LANDING,
                     WORLD_SOPPING_STEP, WORLD_LIGHTHOUSE_STEP)
 
 TOWN_W, TOWN_H = 40, 34
@@ -452,9 +455,10 @@ ROOMS = {
     MAP_WYVERN:     (37, 21, 3, 4, 21, 15, 12),
     MAP_GUILD:      (19, 17, 3, 4, 15, 11, 9),
     MAP_OUTFIT:     (17, 16, 3, 4, 13, 10, 8),
-    MAP_COTTAGE:    (17, 16, 3, 4, 13, 10, 8),
+    MAP_COTTAGE:    (17, 16, 3, 4, 13, 11, 8),
     MAP_LIGHTHOUSE: (13, 25, 3, 4, 9, 19, 6),
     MAP_FITCH:      (13, 13, 3, 4, 9, 9, 6),
+    MAP_WYVERN_UP:  (25, 17, 3, 4, 21, 12, None),
 }
 
 
@@ -557,9 +561,13 @@ def wyvern_map():
     g.column(14, 3, 2, K.IN_BOOKSHELF)
     g.blit(17, 3, 2, K.IN_FIREPLACE)
     # Where the beds were (Mike took them out: a bed is not a thing a bar
-    # has), a picture, hung on the wall's lower face row like the sample's.
-    g.set(20, 3, 3, K.sf_block("Inside_B", "Painting")[0])
-    g.set(21, 3, 3, K.sf_block("Inside_B", "Painting")[1])
+    # has), the stairs up to where they went (`wyvern_up_map`): the Eight
+    # Hours' flight, on layer 1, from the wall face down to the first row of
+    # floor. A placeholder - Mike is to redraw them. The picture that hung
+    # here is upstairs now, on the landing.
+    for sx in WYVERN_STAIRS:
+        for sy in range(2, WYVERN_STAIRS_FOOT):
+            g.set(sx, sy, 1, STAIRS_UP)
     # The red curtain at 15-16, over the back room's door, is events
     # (`q_merribell.curtain_events`), because it is drawn back for the Table.
 
@@ -632,11 +640,85 @@ def wyvern_map():
     g.set(3, 11, 2, K.IN_BARREL2)
     g.set(3, 12, 2, K.IN_BARREL)
     g.set(3, 15, 2, K.IN_CRATE)
-    g.set(21, 6, 2, K.IN_BARREL_WOOD)
-    g.set(13, 15, 2, K.IN_BARREL_WOOD)
+    g.set(13, 15, 2, K.IN_BARREL_WOOD)              # (and one by the stairs
+    g.set(21, 13, 2, K.IN_BARREL_WOOD)              # was in their way)
     back_room(g)                                                    # MER-3
     return finish(MAP_WYVERN, g, "The Slain Wyvern", bgm="Town5",
                   battleback=("Wood1", "Room1"), events=wyvern_events())
+
+
+STAIRS_UP = K.sf_tile("Inside_B", "Stairs A (Up)")
+STAIRS_DOWN = K.sf_tile("Inside_B", "Stairs A (Down)")
+PAINTING = K.sf_block("Inside_B", "Painting")              # 2x1, on the face
+
+
+# ================================================ the Slain Wyvern, upstairs ==
+# Three rooms off a corridor, each walled off the one before it with
+# `mapkit.guest_room` from west to east, so each one's partition is the next
+# one's west wall: the guests' room with four beds (`mapkit.four_beds`, the
+# Safety Valve's layout), Dorcas's own, and a double; then the landing, with
+# the stairs down at the top of it, in the same two columns as the flight up.
+WYVERN_UP_ROOMS = [(3, 6, 5), (8, 11, 9), (13, 16, 14)]   # x1, x2, door_x
+WYVERN_UP_BEDS_Y = (4, 8)                                  # y1, y2 of each
+
+
+def wyvern_up_map():
+    """The Slain Wyvern's upstairs, where the beds Dorcas sells are."""
+    g = room(MAP_WYVERN_UP, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
+    y1, y2 = WYVERN_UP_BEDS_Y
+    for x1, x2, door_x in WYVERN_UP_ROOMS:
+        K.guest_room(g, x1, y1, x2, y2, door_x)
+    (gx1, gx2, gdoor), (dx1, dx2, ddoor), (cx1, cx2, cdoor) = WYVERN_UP_ROOMS
+
+    # The guests': four beds, and a window over the aisle.
+    K.four_beds(g, gx1, y1, gx2, gdoor, nightstand=K.IN_NIGHTSTAND)
+    g.column(gdoor - 1, y1 - 2, 3, K.IN_WINDOW)
+    # Dorcas's: one bed, her cabinet, and the takings in a strongbox.
+    g.column(dx2, y1, 2, K.IN_BED)
+    g.set(dx2 - 1, y1, 2, K.IN_NIGHTSTAND)
+    g.column(dx1, y1 - 1, 2, K.IN_CABINET)
+    g.set(dx1, y2, 2, K.IN_CRATE)
+    # The double: two beds and a nightstand between them.
+    g.column(cx1, y1, 2, K.IN_BED)
+    g.column(cx2, y1, 2, K.IN_BED)
+    g.set(cdoor + 1, y1, 2, K.IN_NIGHTSTAND)
+    g.column(cdoor + 1, y1 - 2, 3, K.IN_WINDOW)
+
+    # The landing: the stairs down, and the picture from the bar's east end.
+    for sx in WYVERN_STAIRS:
+        g.set(sx, WYVERN_UP_LANDING - 1, 1, STAIRS_DOWN)
+    g.set(18, 3, 3, PAINTING[0])
+    g.set(19, 3, 3, PAINTING[1])
+    g.set(21, 12, 3, K.INC_PLANT2)
+    # Windows on the street, in the top row of the bar's three.
+    K.outside_windows(g, (5, 9, 14, 19), ROOMS[MAP_WYVERN_UP][5])
+    return finish(MAP_WYVERN_UP, g, "The Slain Wyvern - Upstairs",
+                  bgm="Town5", battleback=("Wood1", "Room1"),
+                  events=wyvern_up_events())
+
+
+def wyvern_up_events():
+    """The way down, from either column of the stairs. Both land at the foot
+    of the east one: Roland stands at the foot of the west one, by the fire."""
+    evs = []
+    for sx in WYVERN_STAIRS:
+        evs.append(R.event(len(evs) + 1, "The Stairs Down", sx,
+                           WYVERN_UP_LANDING - 1, [R.page(
+            [R.play_se("Move1"),
+             R.transfer(MAP_WYVERN, WYVERN_STAIRS[1], WYVERN_STAIRS_FOOT, 2,
+                        0)],
+            img=R.image(""), trigger=1, priority=0)]))
+    return evs
+
+
+def wyvern_stairs_events(first_id):
+    """The Slain Wyvern's way up, on the flight's second step from the top -
+    the top step is the wall's upper face row."""
+    return [R.event(first_id + i, "The Stairs Up", sx, 3, [R.page(
+        [R.play_se("Move1"),
+         R.transfer(MAP_WYVERN_UP, sx, WYVERN_UP_LANDING, 2, 0)],
+        img=R.image(""), trigger=1, priority=0)])
+        for i, sx in enumerate(WYVERN_STAIRS)]
 
 
 BACK_MEDICINE = K.sf_block("Inside_B", "Medicine Shelf")     # 1x2, on its base
@@ -1040,6 +1122,7 @@ def wyvern_events():
     evs += q_roland.alumni_events(22)       # ROL-3: the dinner, while it is on
     evs += q_merribell.back_room_events(33)  # MER-3: the Table, once a year
     evs += q_merribell.curtain_events(evs[-1]["id"] + 1)   # and its curtain
+    evs += wyvern_stairs_events(evs[-1]["id"] + 1)         # up to the beds
 
     # Everybody to their seat. The builders above take a cell, and are given
     # (0, 0); the seat, and the way they face, is `WYVERN_SEATS`'s.
@@ -2222,22 +2305,14 @@ def outfit_events():
 
 # ================================================== Number Forty-Five's house ==
 def cottage_map():
-    g = room(MAP_COTTAGE, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_PARQUET)
-    g.blit(9, 3, 2, K.IN_FIREPLACE)
-    g.column(3, 3, 2, K.IN_BOOKCASE)
-    g.column(4, 3, 2, K.IN_BOOKCASE2)
-    g.column(13, 3, 2, K.IN_SHELF_JARS)
-    g.blit(6, 2, 2, K.IN_WINDOW_GREEN)        # all of it, on the wall
-    # The whole five-wide sofa; `IN_SOFA` is the first four columns of it.
-    g.blit(3, 8, 2, K.sf_grid("Inside_B", "Sofa (Castle)", 5))
-    g.set(8, 6, 2, K.IN_TABLE_WOOD)
-    g.set(8, 6, 3, K.INC_PLANT2)
-    # Supper laid toward the bottom of the table, so the stool is under it.
-    g.set(12, 6, 2, K.IN_TABLE_WOOD)
-    g.set(12, 6, 3, K.INC_MEAL)
-    g.set(12, 7, 2, K.IN_STOOL)
-    g.scatter([(13, 9), (12, 9)], 2, K.IN_BARREL_WOOD)
-    g.set(5, 5, 2, K.IN_CRATE)
+    """Halbert Quy's cottage. Drawn by hand in the editor (Mike, October 2026)
+    and kept by `handdrawn.py`: a room deeper than it was, the sofa by the
+    fire with him on it, and a bedroom of his own behind a partition, with
+    windows on the outside wall where the town map has them. Only the events
+    are built here."""
+    w, h = ROOMS[MAP_COTTAGE][0], ROOMS[MAP_COTTAGE][1]
+    g = K.Canvas(w, h, HD.load(MAP_COTTAGE, w, h, K.TS_INSIDE),
+                 tileset=K.TS_INSIDE)
     return finish(MAP_COTTAGE, g, "Number Forty-Five's Cottage", bgm="Theme2",
                   battleback=("Wood1", "Room1"), events=cottage_events())
 
@@ -2245,9 +2320,9 @@ def cottage_map():
 def cottage_events():
     evs = [S.exit_tile(1, "Cottage Door", *threshold(MAP_COTTAGE), MAP_SOPPING,
                        *OUT[MAP_COTTAGE])]
-    evs.append(quy_event(2, 7, 6))
+    evs.append(quy_event(2, 11, 8))            # on the sofa
 
-    evs.append(S.prop(3, "A Sword Over The Fire", 10, 4, [
+    evs.append(S.prop(3, "A Sword Over The Fire", 10, 3, [
         "A sword on two hooks above the fireplace,",
         "exactly like the one that was over yours.",
         "There is dust on the upper edge, which takes",
@@ -2551,3 +2626,4 @@ def build():
     R.save_map(MAP_COTTAGE, cottage_map())
     R.save_map(MAP_LIGHTHOUSE, lighthouse_map())
     R.save_map(MAP_FITCH, fitch_map())
+    R.save_map(MAP_WYVERN_UP, wyvern_up_map())

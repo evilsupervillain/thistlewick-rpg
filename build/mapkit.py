@@ -593,6 +593,9 @@ def _rows(block, width):
 
 
 IN_TABLE_WOOD = sf_tile("Inside_B", "Table D")          # plain, counter-flagged
+# A small table with flowers painted on: the nightstand by Halbert Quy's bed
+# (Mike, October 2026). Not a `Table D`, so `new_tables` leaves it alone.
+IN_NIGHTSTAND = sf_tile("Inside_B", "Table F")
 IN_STOOL_SQUARE = sf_tile("Inside_B", "Stool C")        # two make a bench
 IN_BARREL_WOOD = sf_tile("Inside_B", "Barrel")
 IN_STONE_PILLAR = sf_block("Inside_B", "Stone Pillar A")    # capital, shaft
@@ -607,7 +610,11 @@ IN_PIPE_ORGAN = _rows(sf_block("Inside_B", "Pipe Organ"), 3)
 # reach across. Lay it, then `autotile(1, kinds=TABLE_KINDS)`; two tables
 # meant to be separate need a cell between them or they become one.
 IN_TABLE_TOP = A(23)
-TABLE_KINDS = {R.autotile_kind(IN_TABLE_TOP)}
+# Its dark twin, `Table B (Dark Wood)`, which Mike made the Safety Valve's bar
+# and tables from (October 2026). Inside_A2 is the A2 of the northern tileset
+# too, so it is the A2 table there as well as here; same flags, counter and all.
+IN_TABLE_DARK = A(31)
+TABLE_KINDS = {R.autotile_kind(IN_TABLE_TOP), R.autotile_kind(IN_TABLE_DARK)}
 INC_DINNER_BELOW = sf_tile("Inside_C", "Dinner Set A (Bottom)")  # a place laid
 INC_DINNER_ABOVE = sf_tile("Inside_C", "Dinner Set B (Top)")     # toward the
 INC_DINNER_LEFT = sf_tile("Inside_C", "Dinner Set C (Left)")     # side its
@@ -1296,35 +1303,21 @@ class Canvas(R.MapGrid):
 
         Both tiles block, so the roof stays as impassable as it was.
 
-        Not on the crest, though. The top row of the nine-slice *is* a star
-        tile, so it goes to the upper rendering layer wherever it is put and is
-        drawn after everything on the lower one - a chimney on the crest is
-        moved to layer 2, the crest is moved down with it, and the crest wins.
-        It builds, it validates, and the chimney is simply not there."""
+        Not on the crest, though. The top row of the nine-slice was a star
+        tile, drawn on the upper rendering layer after everything on the lower
+        one, so a chimney there was simply not drawn. `build_tilesets` has
+        since made the crest solid and not a star, but the ridge is no place
+        for a chimney anyway."""
         if tile not in ROOF_MOUNTED:
             raise ValueError("%d is not a roof fitting; see ROOF_MOUNTED" % tile)
         for bx, by, bw, bh, _ in self.buildings:
             if bx <= x < bx + bw and by <= y < by + bh and y == by:
                 raise ValueError(
                     "a chimney at (%d,%d) is on the crest of the building at "
-                    "(%d,%d) %dx%d, and the crest is a star tile that will be "
-                    "drawn over it. Put it a row further down the roof."
+                    "(%d,%d) %dx%d. Put it a row further down the roof."
                     % (x, y, bx, by, bw, bh))
         self.set(x, y, 2, self.get(x, y, 3))
         self.set(x, y, 3, tile)
-
-    def crest(self, x, y, w, wall):
-        """Block the top row of a roof before the building is drawn.
-
-        The topmost row of an SF roof nine-slice is a star tile - drawn over
-        the player and ignored for collision - while every row below it blocks.
-        So the crest of every building is a tile the player can walk onto and
-        disappear behind. Laying the wall tile on layer 0 first puts something
-        solid under it; the roof covers it and nothing shows.
-
-        Call this *before* `building()`, while the footprint is still not
-        registered and layer 0 there can still be written."""
-        self.fill(x, y, x + w - 1, y, 0, wall)
 
     def clock_tower(self, x, y, h=5, z=3):
         """The Clock Tower, three tiles wide and `h` tall, with its base at
@@ -1551,6 +1544,27 @@ def guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP,
     under = floor if floor is not None else g.get(door_x, y2 + 4, 0)
     for y in (y2 + 1, y2 + 2, y2 + 3):
         g.set(door_x, y, 0, under)
+
+
+def four_beds(g, x1, y1, x2, door_x, bed=None, nightstand=None):
+    """Four beds in a guest room the way Mike laid out the Safety Valve's
+    (October 2026): two and two, against the side walls, with an aisle up the
+    middle from the door. The top pair stands under the north wall at y1 and
+    the bottom pair one clear row below it, at y1 + 3, so the room wants five
+    rows of floor, y1..y1 + 4, and at least two columns of aisle between
+    x1 and x2. A nightstand goes between the top pair, in the door's column,
+    at the far end of the aisle - not in the doorway's line of sight, since
+    the aisle is two wide and the door is in one of them. Four in a row along
+    the back wall is a dormitory; this is an inn."""
+    bed = bed or IN_BED
+    if x2 - x1 < 3:
+        raise ValueError("four_beds needs two columns of aisle: x %d..%d"
+                         % (x1, x2))
+    for x in (x1, x2):
+        for y in (y1, y1 + 3):
+            g.column(x, y, 2, bed)
+    if nightstand is not None:
+        g.set(door_x, y1, 2, nightstand)
 
 
 def outside_windows(g, xs, y2, window=None):

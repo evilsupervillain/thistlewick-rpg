@@ -330,10 +330,12 @@ def frostwick_events():
 
 # ========================================================= The Eleven Days ==
 #            w   h  x1  y1  x2  y2  door_x
-ELEVEN_ROOM = (24, 15, 3, 4, 20, 11, 9)
+ELEVEN_ROOM = (24, 16, 3, 4, 20, 12, 9)
 # The guest room, walled off the bar's north-east corner (`mapkit.guest_room`,
-# Mike's split of the Gilded Turnip): four beds, one each for a full party.
-ELEVEN_BEDROOM = (17, 4, 20, 7, 18)         # x1, y1, x2, y2, door_x
+# Mike's split of the Gilded Turnip): four beds, one each for a full party,
+# laid two and two the way he laid the Safety Valve's (`mapkit.four_beds`).
+# That wants five rows of floor, so the inn is a row deeper than it was.
+ELEVEN_BEDROOM = (17, 4, 20, 8, 18)         # x1, y1, x2, y2, door_x
 MARCHPANE = (8, 5)
 VISITORS_BOOK = (5, 5)
 SNOW_MARK = (13, 3)             # the plate, on the wall face, read from below
@@ -367,14 +369,11 @@ def eleven_days_map():
         g.set(tx + 2, ty, 2, K.IN_STOOL)
         g.set(tx, ty, 3, dish)
 
-    # The guest room, and its four beds under the window.
+    # The guest room, its four beds, and the window over the aisle.
     bx1, by1, bx2, by2, bdoor = ELEVEN_BEDROOM
     K.guest_room(g, bx1, by1, bx2, by2, bdoor)
-    for x in range(bx1, bx2 + 1):
-        g.column(x, by1, 2, K.IN_BED)
-    g.column(bx1 + 1, by1 - 2, 3, K.IN_WINDOW)
-    g.set(bx2, by2 - 1, 2, K.IN_BARREL)         # "Pot B": a jug
-    g.set(bx2, by2, 2, K.IN_BARREL2)            # and its basin
+    K.four_beds(g, bx1, by1, bx2, bdoor, nightstand=K.IN_NIGHTSTAND)
+    g.column(bx1 + 2, by1 - 2, 3, K.IN_WINDOW)
     # The windows onto the street, either side of the door as the town's
     # front has them, and a rug in front of the fire.
     K.outside_windows(g, (door_x - 2, door_x + 2), y2)
@@ -386,7 +385,7 @@ def eleven_days_map():
         g.set(x, 5, 1, K.IN_RED_RUG)
     g.autotile(1)
     g.set(3, 11, 2, K.IN_CRATE)
-    g.set(20, 11, 2, K.IN_CRATE2)
+    g.set(20, 12, 2, K.IN_CRATE2)
 
     m = K.new_map(w, h, K.TS_INSIDE, name="The Eleven Days", bgm="Town3",
                   battleback=("Wood1", "Room1"))
