@@ -8,6 +8,7 @@ calls, is the only place the game's content is authored - `data/*.json` is
 output, not source.
 """
 import copy
+import math
 import os
 import sys
 
@@ -339,6 +340,25 @@ def new_tables():
 SHADOW_LEFT = 1 | 4
 
 
+def check_wide_pieces():
+    """No two-wide cabinet cut in half (`mapkit.WIDE_PIECES`). The sheet's
+    `.txt` names the halves as if they were whole shelves, so half of one is
+    an easy thing to lay and looks, at map scale, like a shelf with its frame
+    sawn through. Mike mended one in the Eleven Days (October 2026) and there
+    were nine more. Frozen maps are checked too: a new half there is worth
+    asking him about."""
+    tilesets = R.load("Tilesets.json")
+    bad = []
+    for map_id, _, _ in MAP_NAMES:
+        m = R.load_map(map_id)
+        if tilesets[m["tilesetId"]]["tilesetNames"][5] != "Inside_B":
+            continue
+        bad += [(map_id,) + c for c in mapkit.lone_halves(m)]
+    if bad:
+        raise ValueError("half a two-wide cabinet (map, x, y, tile): %s"
+                         % bad)
+
+
 def cast_shadows():
     """Shadows every interior the way the sample's are: the left half of a
     cell whose west and north-west neighbours are both wall, if it is not wall
@@ -381,6 +401,7 @@ DOORWAY = {
     mapkit.TS_OUTSIDE: mapkit.DOORWAY_DARK,
     mapkit.TS_COLLEGIUM: mapkit.DOORWAY_DARK,
     mapkit.TS_CLANGING: mapkit.sf_tile("SF_Outside_B", "Entrance A"),
+    mapkit.TS_INSIDE: mapkit.IN_DOOR_OPENING,
 }
 
 
@@ -389,8 +410,11 @@ def door_holes():
     after every module, like `shape_wall_tops`, so a door added anywhere gets
     one.
 
-    Only doors in an A3 wall: a gate in a fence opens onto grass, which is
-    right. The doorway goes on layer 3, as the sample's do, or on the highest
+    Only doors in a wall - A3 outside, A4 in: a gate in a fence opens onto
+    grass, which is right. A door in a room's north wall is the Slain
+    Wyvern's back door (Mike, October 2026: "should have a door opening
+    behind it"), and its first page is the curtain over it, so every page is
+    asked whether it is a door. The doorway goes on layer 3, as the sample's do, or on the highest
     layer still free - the Safety Valve has a canopy over its door on 3, and a
     star tile draws over the doorway whichever layer that is on. The tile is
     open (`0x600`), so the step through the opened door now really is a step
@@ -404,11 +428,14 @@ def door_holes():
         w, h = m["width"], m["height"]
         data = list(m["data"])
         for ev in m["events"]:
-            if not ev or not ev["pages"][0]["image"]["characterName"].startswith("!Door"):
+            if not ev or not any(p["image"]["characterName"].startswith(
+                    "!Door") for p in ev["pages"]):
                 continue
             cell = ev["y"] * w + ev["x"]
-            if not R.TILE_ID_A3 <= data[cell] < R.TILE_ID_A4:
+            if not R.TILE_ID_A3 <= data[cell] < R.TILE_ID_MAX:
                 continue
+            if hole in (data[z * w * h + cell] for z in (1, 2, 3)):
+                continue                # drawn by hand already
             free = [z for z in (3, 2, 1) if data[z * w * h + cell] == 0]
             if not free:
                 raise ValueError("Map%03d %s: no free layer for a doorway"
@@ -417,6 +444,171 @@ def door_holes():
         if data != m["data"]:
             m["data"] = data
             R.save_map(map_id, m)
+
+
+# The window drawn on the outside of an interior's south wall, by tileset:
+# Inside_B's `Large Window A`, and on SF Inside the `Midsize Window A` Mike
+# gave the Safety Valve.
+# Frozen maps whose windows are Mike's and stay as drawn although the street
+# disagrees: the Safety Valve's front has none, and the Eleven Days' right-hand
+# window is a cell nearer the door than the rule would put it.
+WINDOWS_AS_DRAWN = {23, 45}
+
+OUTSIDE_WINDOW = {
+    mapkit.TS_INSIDE: mapkit.IN_WINDOW,
+    mapkit.TS_CLANGING_IN: (mapkit.b_tile(0, 2), mapkit.b_tile(0, 3)),
+}
+
+
+def _sheet_names(tileset):
+    """{tile id: name} over a tileset's B-E sheets."""
+    names = {}
+    for slot, sheet in enumerate(R.load("Tilesets.json")[tileset]["tilesetNames"]):
+        if slot >= 5 and sheet:
+            for name, ids in mapkit.tile_names(sheet).items():
+                for i in ids:
+                    names[(slot - 5) * 256 + i] = name
+    return names
+
+
+def _street_windows(town, door, names):
+    """The building a town door is in - the run of the same wall along the
+    door's row, since a terrace is several houses in different walls - as
+    (west end, east end), and the columns along it that have a window in
+    either of its two rows. A window over the door itself is a fanlight and
+    is not one of them."""
+    w, h, d = town["width"], town["height"], town["data"]
+    dx, dy = door
+    kinds = {R.autotile_kind(d[dy * w + x]) for x in (dx - 1, dx + 1)
+             if 0 <= x < w and R.TILE_ID_A3 <= d[dy * w + x] < R.TILE_ID_MAX}
+
+    def wall(x):
+        return (0 <= x < w and R.TILE_ID_A3 <= d[dy * w + x] < R.TILE_ID_MAX
+                and R.autotile_kind(d[dy * w + x]) in kinds)
+    x1 = x2 = dx
+    while wall(x1 - 1):
+        x1 -= 1
+    while wall(x2 + 1):
+        x2 += 1
+    found = set()
+    for x in range(x1, x2 + 1):
+        for y in (dy - 1, dy):
+            for z in (1, 2, 3):
+                t = d[(z * h + y) * w + x]
+                if 0 < t < R.TILE_ID_A5 and "window" in names.get(t, "").lower():
+                    found.add(x)
+    found.discard(dx)
+    return x1, x2, sorted(found)
+
+
+def _inside_windows(span, door, street, room):
+    """Where the street's windows go on the inside of the south wall: each
+    side of the door has the same windows the street front has on that side,
+    each the same fraction of the way from the door to its end of the
+    building, rounded towards the corner. That is Mike's own placing on
+    Bram's House, the Gilded Turnip and Forty-Five's, all six windows of
+    them. Windows side by side outside stay side by side, laid from the one
+    nearest the corner."""
+    (bx1, bx2), dx, (rx1, ix, rx2) = span, door, room
+    out = set()
+    runs = []
+    for x in street:
+        if runs and x == runs[-1][-1] + 1 and (x < dx) == (runs[-1][0] < dx):
+            runs[-1].append(x)
+        else:
+            runs.append([x])
+    for run in runs:
+        if run[0] < dx:
+            frac = (dx - run[0]) / float(dx - bx1)
+            at = math.floor(ix - frac * (ix - rx1) + 1e-9)
+            at = max(rx1, min(at, ix - len(run)))
+            xs = range(at, at + len(run))
+        else:
+            frac = (run[-1] - dx) / float(bx2 - dx)
+            at = math.ceil(ix + frac * (rx2 - ix) - 1e-9)
+            at = min(rx2, max(at, ix + len(run)))
+            xs = range(at - len(run) + 1, at + 1)
+        out.update(xs)
+    return sorted(out)
+
+
+def match_windows():
+    """Gives every interior's south wall the windows its building has on the
+    street: Mike, October 2026, added Bram's House's "to match what is
+    outside". The outside face of the south wall is the two face rows under
+    the ring, which is the front of the building seen from the street.
+    Frozen maps are drawn by hand and are left alone; what this would do to
+    one is printed, for drawing in the editor."""
+    town_cache = {}
+    for map_id, _, _ in MAP_NAMES:
+        m = R.load_map(map_id)
+        window = OUTSIDE_WINDOW.get(m["tilesetId"])
+        if window is None:
+            continue
+        w, h, d = m["width"], m["height"], m["data"]
+        exits = []
+        for ev in m["events"]:
+            for page in (ev or {}).get("pages", [])[:1]:
+                for c in page["list"]:
+                    if c["code"] == 201 and c["parameters"][0] == 0:
+                        exits.append((ev, c["parameters"][1:4]))
+        for ev, (town_id, tx, ty) in exits:
+            if town_id == map_id:
+                continue
+            if town_id not in town_cache:
+                town_cache[town_id] = R.load_map(town_id)
+            town = town_cache[town_id]
+            if town["tilesetId"] in OUTSIDE_WINDOW:
+                continue                # a stair or a back door, not the street
+            doors = [(e["x"], e["y"]) for e in town["events"] if e and any(
+                c["code"] == 201 and c["parameters"][:2] == [0, map_id]
+                for p in e["pages"] for c in p["list"])]
+            if not doors:
+                continue
+            door = min(doors, key=lambda c: abs(c[0] - tx) + abs(c[1] - ty))
+            bx1, bx2, street = _street_windows(
+                town, door, _sheet_names(town["tilesetId"]))
+            ix, y2 = ev["x"], ev["y"] - 2
+
+            def floor(x):
+                t = d[y2 * w + x]
+                return t and t != mapkit.IN_VOID and not (
+                    R.TILE_ID_A4 <= t < R.TILE_ID_MAX)
+
+            def face(x):
+                return all(R.TILE_ID_A4 <= d[y * w + x] < R.TILE_ID_MAX
+                           for y in (y2 + 2, y2 + 3))
+            if not (0 <= y2 and y2 + 3 < h and floor(ix)):
+                continue
+            # The room's width is the south wall's, inside its corners: a
+            # bedroom partitioned off the bar is still behind the same front.
+            rx1 = rx2 = ix
+            while rx1 > 1 and face(rx1 - 2):
+                rx1 -= 1
+            while rx2 < w - 2 and face(rx2 + 2):
+                rx2 += 1
+            want = [x for x in _inside_windows((bx1, bx2), door[0], street,
+                                               (rx1, ix, rx2)) if face(x)]
+            if map_id in handdrawn.frozen():
+                have = [x for x in range(w) if d[(3 * h + y2 + 2) * w + x]
+                        == window[0]]
+                if have != want and map_id not in WINDOWS_AS_DRAWN:
+                    print("  Map%03d is frozen; the street says windows at "
+                          "x %s, row %d (it has %s)" % (map_id, want,
+                                                        y2 + 2, have))
+                break
+            data = list(d)
+            for x in range(rx1 - 1, rx2 + 2):
+                for y, t in zip((y2 + 2, y2 + 3), window):
+                    cell = (3 * h + y) * w + x
+                    if data[cell] in window:
+                        data[cell] = 0
+                    if x in want:
+                        data[cell] = t
+            if data != d:
+                m["data"] = data
+                R.save_map(map_id, m)
+            break
 
 
 def build_tilesets():
@@ -796,8 +988,10 @@ def main():
     q_spare.check_couriers()            # F2's courier ids are the towns'
     new_tables()
     shape_wall_tops()
+    match_windows()
     door_holes()
     cast_shadows()
+    check_wide_pieces()
     build_map_infos()
     build_system()
 

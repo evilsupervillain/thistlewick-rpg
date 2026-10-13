@@ -533,37 +533,20 @@ def finish(map_id, g, name, bgm, battleback, events):
     m["events"] = [None] + events
     return m
 
-HOME_BEDROOM = (3, 4, 6, 6, 6)          # x1, y1, x2, y2, door_x
-
-
 def home_map():
-    """Where a new game starts: Bram's house, his mother, and his bed - in a
-    room of his own now, walled off the north-west corner the way Mike gave
-    Number Forty-Five one (October 2026). The bed has not moved, and nor has
-    anything a new game starts beside."""
-    g = room(MAP_HOME, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
-    bx1, by1, bx2, by2, bdoor = HOME_BEDROOM
-    K.guest_room(g, bx1, by1, bx2, by2, bdoor)
-    g.column(4, 4, 2, K.IN_BED)                     # Bram's bed
-    g.set(5, 4, 2, K.IN_NIGHTSTAND)
-    g.column(6, 3, 2, K.IN_CABINET)                 # in his room, by the door
-    g.column(13, 3, 2, K.IN_SHELF_JARS)             # the pantry
-    g.blit(9, 3, 2, K.IN_FIREPLACE)
-    g.set(12, 4, 2, K.IN_BARREL_WOOD)
-    g.scatter([(3, 10), (4, 10)], 2, K.IN_SACK)     # under the partition
-    g.set(12, 9, 2, K.IN_CRATE)
-    # Supper for one, laid toward the bottom of the table (`Dinner Set A
-    # (Bottom)`), so the stool is below it. There was a heap of scrolls in the
-    # middle of the floor at (7, 6); it has gone.
-    g.set(11, 6, 2, K.IN_TABLE_WOOD)
-    g.set(11, 6, 3, K.INC_MEAL)
-    g.set(11, 7, 2, K.IN_STOOL)
-    # The mat inside the door, which the letter comes through onto (P4b), on
-    # the floor-art layer as the sample lays rugs.
-    g.set(*HOME_MAT, 1, K.IN_RED_RUG)
-    g.autotile(1, kinds={R.autotile_kind(K.IN_RED_RUG)})
+    """Where a new game starts: Bram's house, his mother, and his bed. Drawn
+    by hand in the editor and kept by `handdrawn.py`: Bram's room walled off
+    the north-west corner the way Mike gave Number Forty-Five one, then his
+    own pass of October 2026 - the fire set into the north wall, the family
+    portrait hung beside it, and windows where the street front has them.
+    Only the events are built here."""
+    w, h = ROOMS[MAP_HOME][0], ROOMS[MAP_HOME][1]
+    g = K.Canvas(w, h, HD.load(MAP_HOME, w, h, K.TS_INSIDE),
+                 tileset=K.TS_INSIDE)
     return finish(MAP_HOME, g, "Bram's House", bgm="Town2",
                   battleback=("Wood1", "Room1"), events=home_events())
+
+
 def home_events():
     evs = [S.exit_tile(1, "Front Door", *threshold(MAP_HOME), MAP_VILLAGE, *OUT[MAP_HOME])]
 
@@ -613,11 +596,10 @@ def home_events():
                        "Equip it. It has waited a century",
                        "and it will not be gracious about waiting longer."])
     take += [S.trope(), R.self_switch("A", True)]
-    # The sword hangs on the wall at (10,3), but the fireplace fills (9-11,
-    # 3-4) and blocks, so nobody can stand next to the wall tile. The event
-    # goes on the fireplace's lower half instead - the tile the player faces
-    # when they walk up to the hearth.
-    evs.append(R.event(4, "Sword Over The Fireplace", 10, 4, [
+    # The sword hangs over the mantel at (10,2), and the fireplace, set into
+    # the wall, fills (9-11, 2-3) and blocks. The event goes on the
+    # fireplace's lower half - the tile the player faces at the hearth.
+    evs.append(R.event(4, "Sword Over The Fireplace", 10, 3, [
         R.page(take, img=R.image(""), trigger=0, priority=1,
                direction_fix=True, through=True),
         R.page(S.narrate(["A clean rectangle of wall where a sword",
@@ -1619,17 +1601,20 @@ def store_map():
     g = room(MAP_STORE, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
     for x in (4, 5, 6):
         g.column(x, 3, 2, K.IN_SHELF_GOODS)
-    for x in (10, 11, 12):
-        g.column(x, 3, 2, K.IN_SHELF_BOTTLES)
-    g.column(7, 3, 2, K.IN_SHELF_FRUIT)
-    g.column(8, 3, 2, K.IN_SHELF_JARS)
+    # Two whole sundries cabinets (each was half of one, cut down the frame),
+    # and the jars.
+    K.wide(g, 7, 3, 2, K.IN_SUNDRIES_CABINET)
+    K.wide(g, 10, 3, 2, K.IN_SUNDRIES_CABINET)
+    g.column(12, 3, 2, K.IN_SHELF_JARS)
     g.scatter([(4, 9), (5, 9), (12, 9)], 2, K.IN_CRATE2)
-    g.scatter([(13, 5), (13, 8)], 2, K.IN_BARREL2)
+    g.scatter([(13, 6), (13, 8)], 2, K.IN_BARREL2)
     # Goods out on tables. The potions stood on the bare floorboards, and the
-    # other two tables were broken stools.
+    # other two tables were broken stools. All a row out from the shelves, so
+    # there is an aisle along them - the gap between two cabinets was a cell
+    # nobody could stand in (Mike's Eleven Days counter, October 2026).
     for (x, y), goods in [((4, 6), K.INC_BASKET), ((12, 6), K.INC_POTION_RED),
-                          ((9, 5), K.INC_POTION_BLUE),
-                          ((6, 5), K.INC_POTION_GREEN)]:
+                          ((9, 6), K.INC_POTION_BLUE),
+                          ((6, 6), K.INC_POTION_GREEN)]:
         g.set(x, y, 2, K.IN_TABLE_WOOD)
         g.set(x, y, 3, goods)
     return finish(MAP_STORE, g, "Nix's Emporium", bgm="Town2",

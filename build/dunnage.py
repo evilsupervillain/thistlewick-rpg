@@ -102,7 +102,6 @@ TABLE_D = K.sf_tile("Inside_B", "Table D")            # a plain desk
 STOOL = K.sf_tile("Inside_B", "Stool A")
 TAPESTRY = K.sf_block("Inside_B", "Tapestry A")       # 1x2, red and gold
 NOTICE = K.sf_tile("Inside_B", "Posted Notice")
-BOTTLES = K.sf_block("Inside_B", "Bottle Shelf A")
 ANVIL = (K.sf_tile("Inside_C", "Blacksmith's Table A"),
          K.sf_tile("Inside_C", "Blacksmith's Table B"))
 HAMMERS = K.sf_tile("Inside_C", "Hammers")
@@ -1107,16 +1106,17 @@ LW, LH = 22, 14
 BAR = [(3, 5), (4, 5), (5, 5), (6, 5)]
 DEWHIRST = (7, 5)
 THE_BELL = (6, 5)
-POSTER = (9, 3)
-JUDGES_TABLE = [(13, 6), (13, 7), (13, 8)]
-HARBOTTLE = (12, 7)
-AMBLER = (12, 6)
-QUAYLE = (12, 8)
+POSTER = (8, 3)
+# The judges sit a row lower than they did, under the pier on the east of
+# the stairs (October 2026); they still face the stage.
+JUDGES_TABLE = [(13, 7), (13, 8), (13, 9)]
+HARBOTTLE = (12, 8)
+AMBLER = (12, 7)
+QUAYLE = (12, 9)
 STAGE = (15, 5, 18, 8)
 TWEDDLE = (16, 6)
 TABLES = [(4, 8), (7, 10)]
-BELL_STAIRS = (10, 11)
-STAIRS_UP = K.b_tile(1, 0)          # `Stairs A (Up)`, on layer 1 - restwell's
+BELL_STAIRS = 10                    # the flight's west column
 
 
 def bell_map():
@@ -1127,9 +1127,9 @@ def bell_map():
     g.fill(*STAGE, 1, K.IN_RED_RUG)
     g.autotile(1)
     # Behind the bar: bottles and the wine.
-    for x, block in [(3, BOTTLES), (4, K.IN_WINE_RACK), (5, BOTTLES),
-                     (6, K.IN_WINE_RACK)]:
-        g.column(x, y1 - 1, 2, block)
+    # Two whole cabinets: `Bottle Shelf A` is only the west half of one.
+    K.wide(g, 3, y1 - 1, 2, K.IN_BOTTLE_CABINET)
+    K.wide(g, 5, y1 - 1, 2, K.IN_BOTTLE_CABINET)
     for x, y in BAR:
         g.set(x, y, 2, K.IN_TABLE[0][(x - BAR[0][0]) % 2])
     g.set(*THE_BELL, 3, K.INC_DESK_BELL)
@@ -1143,13 +1143,10 @@ def bell_map():
         g.set(tx + 2, ty, 2, STOOL)
         g.set(tx, ty, 3, PINT)
     # The rooms are upstairs ("You go up"), so the Bell has a staircase
-    # rather than a bedroom off the bar: the Eight Hours' flight, from the
-    # wall face down to the floor.
-    for sy in range(y1 - 1, y1 + 3):
-        for sx in BELL_STAIRS:
-            g.set(sx, sy, 1, STAIRS_UP)
-    # The windows on the street, where the town's front has them.
-    K.outside_windows(g, (door_x - 4, door_x + 6), y2)
+    # rather than a bedroom off the bar: up through the north wall, between
+    # two piers, the way Mike drew the Slain Wyvern's (`mapkit.stairs_up`).
+    K.stairs_up(g, BELL_STAIRS, y1)
+    # The windows on the street are `build_game.match_windows`'s.
     m = K.new_map(LW, LH, K.TS_INSIDE, name="The Bell", bgm="Town5",
                   battleback=("Wood1", "Room1"))
     m["data"] = g.data
@@ -1335,6 +1332,14 @@ def bell_events():
     evs += q_roland.meeting_events()                                  # ROL-1
     evs.append(q_roland.understudy_event(len(evs) + 1))               # ROL-5
     evs.append(q_roland.snug_card_event(len(evs) + 1))                # ROL-2
+    # The top tread of each column: the rooms are Mrs Dewhirst's to give.
+    stairs = S.narrate([
+        "The stairs up to the rooms. A sign on the newel post",
+        "says RESIDENTS, and under it, smaller, AND JUDGES."])
+    for i in range(2):
+        evs.append(R.event(len(evs) + 1, "The Stairs Up", BELL_STAIRS + i,
+                           y1, [R.page(stairs, img=R.image(""), trigger=1,
+                                       priority=1, direction_fix=True)]))
     return evs
 
 

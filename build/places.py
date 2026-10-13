@@ -379,13 +379,17 @@ CARN_DREY = (39, 55)
 CARN_DREY_STEP = (40, 55)
 SNUG_CARD = (4, 8)
 # MER-3 (QUESTS.md E3): the Slain Wyvern's back room, in Map 14's black east,
-# where the Healers' Table meets once a year. Drawn by `south.back_room`; its
-# events are `q_merribell.py`'s. Its door is on the bar's north wall face,
-# behind the red curtain, which is drawn back only for the Table.
-WYVERN_BACK = (28, 4, 34, 9, 31)        # x1, y1, x2, y2, door_x
-WYVERN_BACK_DOOR = (15, 3)              # on the north wall face of the bar
-WYVERN_BACK_TABLE = (29, 6, 33)         # the long table, x 29 to 33, row 6
-WYVERN_CURTAIN = (15, 2)                # its top-left; two wide, two tall
+# where the Healers' Table meets once a year. Mike made it a cellar in October
+# 2026 - the street shows no back room - so its door, behind the red curtain,
+# is the top of a passage that goes round under the main stairs, and the way
+# in is down the cellar's own flight in its north-east corner. The map is
+# hand-drawn (`handdrawn.py`); its events are `q_merribell.py`'s. The curtain
+# is drawn back only for the Table.
+WYVERN_BACK_DOOR = (18, 5)              # the curtain's east column, at the foot
+WYVERN_CURTAIN = (17, 4)                # its top-left; two wide, two tall
+WYVERN_BACK_ARRIVAL = (36, 6, 2)        # the foot of the cellar stairs, facing
+WYVERN_BACK_EXIT = (36, 4)              # down; and the way back up them
+WYVERN_BACK_TABLE = (30, 8, 34)         # the long table, x 30 to 34, row 8
 # The Slain Wyvern's long table, on the red rug, and the twelve stools round
 # it: ROL-3's eleven sit at it while the dinner is on (`q_roland.ALUMNI`), and
 # nobody does otherwise. (x, y, facing), top row facing down at the table,
@@ -441,11 +445,12 @@ FITCH_STEP = (14, 9)
 
 # The Slain Wyvern's upstairs (October 2026): the building is three rows of
 # wall from the street, which is two storeys, and Dorcas sells beds that Mike
-# took out of the bar. So the beds are upstairs: a flight in the bar's
-# north-east corner, where the painting was, and a landing at the top of it
-# with the guests' room, Dorcas's own and a double off it. The stairs on both
-# floors are placeholders for Mike to redraw.
+# took out of the bar. So the beds are upstairs. Mike drew both floors' stairs
+# in the editor (`handdrawn.py`): a flight up the bar's north-east corner, and
+# at the top of it a stairwell walled off the landing, in the same two columns.
 MAP_WYVERN_UP = 72
 WYVERN_STAIRS = (20, 21)        # the flight's two columns, on both floors
-WYVERN_STAIRS_FOOT = 5          # the bar's floor row below the flight
-WYVERN_UP_LANDING = 5           # upstairs, the row below the stairs down
+WYVERN_STAIRS_UP = 5            # the bar: the flight's middle row, going up
+WYVERN_STAIRS_FOOT = 7          # the bar's floor row below the flight
+WYVERN_STAIRS_DOWN = 6          # upstairs: the stairwell's top row
+WYVERN_UP_LANDING = 5           # upstairs, the row above the stairwell

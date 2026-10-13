@@ -1,10 +1,10 @@
 {
-  "query": "?map=14&x=18&y=5&frames=90",
+  "query": "?map=14&x=14&y=4&frames=90",
   "comment": "QUESTS.md A1, WRE-2 The Second Plaque. The goose without Wren is what it always was and the second plaque has no page; with her, the ask (a trope, once), the engraving card without her and with her, the wording settled and left with Mrs Barrow, too little money and then enough - paid without Wren, because the wording is left behind - the plate carried past the goose without her and nothing happens, then the handover with her: the plate spent, SW_WRE2_UP, SW_WREN_STORY and VAR_COMPANION_STORIES once. Then both plaques read, and the goose afterwards with and without her.",
   "steps": [
     {"eval": "$gameSystem.disableEncounter()"},
     {"eval": "window._tropes = $gameVariables.value(2); window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }"},
-    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [14, 18, 5]},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [14, 14, 4]},
     {"check": "$gameMap.event(21).findProperPageIndex()", "expect": -1, "label": "the second plaque has no page until it is put up"},
 
     {"comment": "The goose, without Wren: its own two pages.", "key": "ArrowUp", "times": 1, "gap": 30},
@@ -60,7 +60,7 @@
     {"check": "window._lines.some(l => l.includes('Mind the edges'))", "expect": true, "label": "the card while the plate is carried"},
 
     {"comment": "Back to the goose with the plate and without Wren: the goose's own page, and the plate is still held.", "eval": "window._lines = []"},
-    {"goto": [14, 18, 5]},
+    {"goto": [14, 14, 4]},
     {"key": "ArrowUp", "times": 1, "gap": 30},
     {"key": "Enter"}, {"frames": 60}, {"advance": 10},
     {"check": "window._lines.some(l => l.includes('Sixty years of everybody agreeing'))", "expect": true},
@@ -82,7 +82,7 @@
     {"comment": "The second plaque, on the right of the fire.", "eval": "window._lines = []"},
     {"key": "ArrowRight", "times": 1, "gap": 30},
     {"key": "ArrowUp", "times": 1, "gap": 30},
-    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [19, 5, 8]},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [15, 4, 8]},
     {"key": "Enter"}, {"frames": 60},
     {"check": "$gameMap._interpreter.eventId()", "expect": 21},
     {"frames": 150},
@@ -94,7 +94,7 @@
     {"comment": "And the first, on the left, unchanged.", "eval": "window._lines = []"},
     {"key": "ArrowLeft", "times": 2, "gap": 30},
     {"key": "ArrowUp", "times": 1, "gap": 30},
-    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [17, 5, 8]},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [13, 4, 8]},
     {"key": "Enter"}, {"frames": 60},
     {"check": "$gameMap._interpreter.eventId()", "expect": 18},
     {"advance": 10},

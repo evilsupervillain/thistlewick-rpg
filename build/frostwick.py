@@ -32,6 +32,7 @@ speciality is refrigeration, and the town is very proud of the arrangement.
 * **The door is claimed by name**, `journey.world_map`'s mechanism, and
   `places.py` has `FROSTWICK_STEP` and no world coordinate.
 """
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 
@@ -334,62 +335,23 @@ ELEVEN_ROOM = (24, 16, 3, 4, 20, 12, 9)
 # The guest room, walled off the bar's north-east corner (`mapkit.guest_room`,
 # Mike's split of the Gilded Turnip): four beds, one each for a full party,
 # laid two and two the way he laid the Safety Valve's (`mapkit.four_beds`).
-# That wants five rows of floor, so the inn is a row deeper than it was.
-ELEVEN_BEDROOM = (17, 4, 20, 8, 18)         # x1, y1, x2, y2, door_x
 MARCHPANE = (8, 5)
-VISITORS_BOOK = (5, 5)
+VISITORS_BOOK = (5, 6)
 SNOW_MARK = (13, 3)             # the plate, on the wall face, read from below
+# The plate: a small brass frame, from the Hall's sheet.
+SNOW_MARK_IMAGE = R.image("!$Hall_Frame", 0, direction=2, pattern=0)
 
 
 def eleven_days_map():
-    w, h, x1, y1, x2, y2, door_x = ELEVEN_ROOM
-    g = K.interior(w, h, x1, y1, x2, y2, door_x=door_x,
-                   floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
-
-    # Behind the bar, and the bar. `IN_TABLE` is `Table A`, two cells wide,
-    # and is Restwell's corrected bar - `IN_COUNTER` is the teddy-bear shelf.
-    g.column(4, y1 - 1, 2, K.IN_SHELF_BOTTLES)
-    g.column(6, y1 - 1, 2, K.IN_WINE_RACK)
-    g.blit(4, 5, 1, K.IN_TABLE)
-    g.blit(6, 5, 1, K.IN_TABLE)
-    g.set(VISITORS_BOOK[0], VISITORS_BOOK[1], 3, K.INC_OPEN_BOOK)
-    g.set(4, 5, 3, K.INC_DESK_BELL)
-    g.set(7, 5, 3, K.INC_GOBLET)
-
-    # The fire, the windows onto the snow, and the plate beside the fire.
-    g.blit(9, y1 - 1, 2, K.IN_FIREPLACE)
-    g.column(12, y1 - 2, 3, K.IN_WINDOW)
-    g.column(15, y1 - 2, 3, K.IN_WINDOW)
-
-    # Tables, with supper on them.
-    for tx, ty, dish in [(5, 8, K.INC_MEAL), (11, 7, K.INC_MEAL2),
-                         (11, 9, K.INC_BOTTLE)]:
-        g.blit(tx, ty, 2, K.IN_TABLE)
-        g.set(tx - 1, ty, 2, K.IN_STOOL)
-        g.set(tx + 2, ty, 2, K.IN_STOOL)
-        g.set(tx, ty, 3, dish)
-
-    # The guest room, its four beds, and the window over the aisle.
-    bx1, by1, bx2, by2, bdoor = ELEVEN_BEDROOM
-    K.guest_room(g, bx1, by1, bx2, by2, bdoor)
-    K.four_beds(g, bx1, by1, bx2, bdoor, nightstand=K.IN_NIGHTSTAND)
-    g.column(bx1 + 2, by1 - 2, 3, K.IN_WINDOW)
-    # The windows onto the street, either side of the door as the town's
-    # front has them, and a rug in front of the fire.
-    K.outside_windows(g, (door_x - 2, door_x + 2), y2)
-    g.blit(5, 10, 2, K.IN_TABLE)                # and the extra row has a table
-    g.set(4, 10, 2, K.IN_STOOL)
-    g.set(7, 10, 2, K.IN_STOOL)
-    g.set(6, 10, 3, K.INC_MEAL2)
-    for x in range(9, 12):
-        g.set(x, 5, 1, K.IN_RED_RUG)
-    g.autotile(1)
-    g.set(3, 11, 2, K.IN_CRATE)
-    g.set(20, 12, 2, K.IN_CRATE2)
-
+    """The inn at Frostwick. Drawn by hand in the editor and kept by
+    `handdrawn.py`: the guest room as it was built, then Mike's pass of
+    October 2026 - the bar brought forward off the shelves so there is a way
+    behind it, the sundries shelf given its other half, and the fire set
+    back into the north wall. Only the events are built here."""
+    w, h = ELEVEN_ROOM[0], ELEVEN_ROOM[1]
     m = K.new_map(w, h, K.TS_INSIDE, name="The Eleven Days", bgm="Town3",
                   battleback=("Wood1", "Room1"))
-    m["data"] = g.data
+    m["data"] = HD.load(MAP_ELEVEN_DAYS, w, h, K.TS_INSIDE)
     m["events"] = [None] + eleven_days_events()
     return m
 
@@ -478,7 +440,8 @@ def eleven_days_events():
         "   THE ELEVEN DAYS. SNOW DEPTH DURING: THIS HIGH."])
     mark += S.narrate(["The line is on the floor."])
     evs.append(R.event(4, "The Eleven Days (Plate)", *SNOW_MARK, [R.page(
-        mark, img=R.image(""), trigger=0, priority=1, direction_fix=True)]))
+        mark, img=SNOW_MARK_IMAGE, trigger=0, priority=1,
+        direction_fix=True)]))
     return evs
 
 
@@ -673,7 +636,7 @@ def cold_room_map():
     g.set(SCHEDULE[0] + 1, SCHEDULE[1], 3, K.INC_BOOK)
 
     # The larder, which is next January, and the rest of the trade.
-    g.column(LARDER_X, y1 - 1, 2, K.IN_SHELF_BOTTLES)
+    g.column(LARDER_X, y1 - 1, 2, K.IN_SHELF_JARS)
     g.column(LARDER_X + 1, y1 - 1, 2, K.IN_BOOKSHELF)
     g.column(4, y1 - 2, 3, K.IN_WINDOW)
     g.set(3, y2, 2, K.IN_CRATE)

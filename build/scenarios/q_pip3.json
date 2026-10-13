@@ -16,7 +16,7 @@
    "goto": [
     65,
     11,
-    7
+    8
    ]
   },
   {
@@ -72,7 +72,7 @@
    "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
    "expect": [
     11,
-    7,
+    8,
     6
    ],
    "label": "before the judges' table, facing Mrs Harbottle"

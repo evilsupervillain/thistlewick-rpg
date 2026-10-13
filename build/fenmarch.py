@@ -285,7 +285,7 @@ def gallery_map():
     g.autotile(1)
 
     # The west end: the fire, the table, the clock.
-    g.blit(FIRE_X, y1 - 1, 2, K.IN_FIREPLACE)
+    g.blit(FIRE_X, y1 - 2, 2, K.IN_FIREPLACE)    # set into the wall
     g.column(HOME_X2 - 1, y1 - 2, 2, CLOCK)   # hung on the wall, not stood
     for x, y in FAMILY_TABLE:
         g.set(x, y, 2, TABLE_C)
@@ -536,7 +536,7 @@ def gallery_events():
     evs[-1]["pages"] += q_piper.interview_pages("ottershaw", evs[-1]["pages"])  # PIP-4
 
     # 5: the fire, which the stock fireplace does not have - step 12.
-    evs.append(R.event(5, "The Fire", FIRE_X + 1, y1, [R.page(
+    evs.append(R.event(5, "The Fire", FIRE_X + 1, y1 - 1, [R.page(
         [], img=R.image("!Flame", 3, direction=4), trigger=0, priority=0,
         step_anime=True, direction_fix=True)]))
 

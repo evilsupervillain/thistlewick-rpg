@@ -915,6 +915,18 @@ step moves the row into the table above. Spare's two are not provisional.
 | **The Wrong Dragon, lit** (E8) | F | **answered, 2 Oct 2026: no new image.** ALD-6 lights the lamp and the narration shows the books, a blanket with ducks on it and a pair of spectacles the size of cartwheels, and declines the rest; its face stays the silhouette (`Supplied` 2), so what it is stays closed | | |
 | **Enemy art** (C4, E7, E18) | F | eleven type specimens, the vigil, Roland's thing - stock monster art first; a generated person gets `art.py`'s stand-in and a row in the table above, as B3's two rival acts have (its hecklers are the stock `Sailor`) | | |
 
+#### Pictures, not faces - added 10 October 2026
+
+Mike's round of map edits asked for three pieces of art no sheet has. Each is
+a prop on the wall, read with the action button from the floor below it, and
+each is already in the game as an event that a picture can be given to.
+
+| what | where | event | must show | now |
+| --- | --- | --- | --- | --- |
+| **The Thistle family portrait** | Bram's House (Map 2), on the wall at (8, 2) | 6, "Family Portrait" (read from (8, 4)) | **six generations** of Thistles in one frame, all holding turnips, none holding a sword - the event's own text | a stock one-person portrait Mike hung there |
+| **The "wyvern"** | the Slain Wyvern (Map 14), over the fireplace at (13-15, 2-3) | 14, "The Wyvern (A Goose)" | a goose, wings out and jaws open, mounted as a trophy - sixty years of everybody agreeing it is a wyvern | nothing: the event has no picture |
+| **Two small brass plaques** | either side of it, on the fireplace's lower row | 18 at (13, 3), 21 at (15, 3) | plain small brass plates; 21 has no page until WRE-2 puts it up, so its picture must belong to that page | nothing |
+
 ### 5. The Collegium's roofs, and other visual contradictions
 
 The world-map stamp and the text say **purple spires**; every roof on Map 58

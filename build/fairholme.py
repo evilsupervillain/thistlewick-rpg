@@ -63,7 +63,13 @@ ROOM = (23, 17, 2, 4, 20, 13, 11)
 TABLE_Y = (8, 9)                # the table's two rows
 NORTH_Y, SOUTH_Y = 7, 10        # the seats either side of it
 SEATS = (5, 7, 9, 11, 13, 15, 17)
-STAIRS_UP = (20, 4)             # to the tower, in the north-east corner
+# The flight up to the tower, in the north-east corner, and the well it comes
+# up into: Mike's Slain Wyvern stairs (`mapkit.stairs_up`, `stairwell`). Each
+# column's middle tread goes up to the landing above the well's same column,
+# and the well's top row comes down to the foot of the flight.
+STAIRS_X = 19                   # the flight's west column; the east wall is 21
+STAIRS_UP = 5                   # the middle tread
+STAIRS_FOOT = 7
 MINUTES = (10, 9)               # on the table, in front of the King
 PLACE_CARD = (17, 8)            # in front of the empty chair
 
@@ -76,8 +82,6 @@ STOOL = K.sf_tile("Inside_B", "Stool B")
 TAPESTRY = K.sf_block("Inside_B", "Tapestry A")
 PORTRAIT_KING = K.sf_tile("Inside_B", "Portrait B")
 PORTRAIT_GIRL = K.sf_tile("Inside_B", "Portrait A")
-STAIRS_A_UP = K.sf_tile("Inside_B", "Stairs A (Up)")
-STAIRS_A_DOWN = K.sf_tile("Inside_B", "Stairs A (Down)")
 PLATE = K.sf_tile("Inside_C", "Plate A")
 MUG = K.sf_tile("Inside_C", "Cup (Lower Left)")
 TEAPOT = K.sf_tile("Inside_C", "Teapot A")
@@ -87,8 +91,8 @@ SCROLLS = K.sf_tile("Inside_C", "Scrolls A")
 
 # ------------------------------------------------------ Rosamund's tower ---
 TOWER = (13, 13, 3, 4, 9, 8)    # w, h, x1, y1, x2, y2: no south door
-TOWER_DOWN = (9, 8)             # the stairs back down
-TOWER_ARRIVE = (8, 8)
+TOWER_WELL = (8, 7)             # the well's west column and top row
+TOWER_ARRIVE = 6                # the landing, above the well
 BAG = (6, 4)                    # under the window
 CARD = (8, 4)                   # on the table beside it
 ROSAMUND_AT = (5, 6)
@@ -173,8 +177,8 @@ def council_map():
     g.column(6, y1 - 2, 3, TAPESTRY)
     g.column(16, y1 - 2, 3, TAPESTRY)
     g.column(3, y1 - 2, 3, K.IN_WINDOW)
-    g.column(19, y1 - 2, 3, K.IN_WINDOW)
-    g.set(*STAIRS_UP, 3, STAIRS_A_UP)
+    g.column(14, y1 - 2, 3, K.IN_WINDOW)
+    K.stairs_up(g, STAIRS_X, y1, piers=(True, False))
 
     g.set(x1, y2, 3, K.INC_PLANT2)
     g.set(x2, y2, 3, K.INC_PLANT2)
@@ -242,6 +246,27 @@ SHAREHOLDERS = [
         "it. Put most of it back",
         "into the orchard."]),
 ]
+
+
+def _tower_stairs(event_id, i):
+    """Column i of the flight up: its middle tread, to the landing above the
+    tower's well, facing up."""
+    return R.event(event_id, "The Tower Stairs", STAIRS_X + i, STAIRS_UP, [
+        R.page([R.play_se("Move1"),
+                R.transfer(MAP_ROSAMUND, TOWER_WELL[0] + i, TOWER_ARRIVE, 8,
+                           0)],
+               img=R.image(""), trigger=1, priority=0, through=True)])
+
+
+def _stairs_down(event_id, i):
+    """Column i of the tower's well: its top row, to the foot of the flight
+    in the council chamber, facing down."""
+    return R.event(event_id, "The Stairs Down", TOWER_WELL[0] + i,
+                   TOWER_WELL[1], [R.page(
+                       [R.play_se("Move1"),
+                        R.transfer(MAP_FAIRHOLME, STAIRS_X + i, STAIRS_FOOT,
+                                   2, 0)],
+                       img=R.image(""), trigger=1, priority=0, through=True)])
 
 
 def council_events():
@@ -316,10 +341,8 @@ def council_events():
         card, img=R.image(""), trigger=0, priority=1, direction_fix=True)]))
 
     # 5: the stairs up to the tower.
-    evs.append(R.event(5, "The Tower Stairs", *STAIRS_UP, [R.page(
-        [R.play_se("Move1"),
-         R.transfer(MAP_ROSAMUND, TOWER_ARRIVE[0], TOWER_ARRIVE[1], 4, 0)],
-        img=R.image(""), trigger=1, priority=0)]))
+    # (the east column's is appended last, so no id moves).
+    evs.append(_tower_stairs(5, 0))
 
     # 6: Mr Pilbeam, at the far end, on the table that does not match.
     pilbeam = S.say("Mr Pilbeam", [
@@ -341,6 +364,7 @@ def council_events():
         facing = 2 if y == NORTH_Y else 8
         evs.append(S.npc(7 + i, name, x, y, S.say(name, lines), sheet, index,
                          direction=facing))
+    evs.append(_tower_stairs(len(evs) + 1, 1))
     return evs
 
 
@@ -350,7 +374,7 @@ def tower_map():
     g = K.interior(w, h, x1, y1, x2, y2, floor=K.IN_WOOD_FLOOR,
                    wall_top=K.IN_WALL_TOP_STONE,
                    wall_face=K.IN_WALL_FACE_STONE)
-    g.fill(4, 6, 7, 7, 1, K.IN_PURPLE_RUG)
+    g.fill(4, 6, 6, 7, 1, K.IN_PURPLE_RUG)
     g.autotile(1)
 
     # The window, and under it the bag. Beside it, on the table, the book
@@ -365,8 +389,9 @@ def tower_map():
     g.column(x1, y1, 3, K.IN_BED)
     g.set(4, y1 - 1, 3, PORTRAIT_KING)
     g.column(x2, y1 - 1, 3, CLOSET)
-    g.set(x2, 6, 3, DRESSER)
-    g.set(*TOWER_DOWN, 3, STAIRS_A_DOWN)
+    g.set(x2, 5, 3, DRESSER)
+    K.stairwell(g, *TOWER_WELL, wall_top=K.IN_WALL_TOP_STONE,
+                wall_face=K.IN_WALL_FACE_STONE, sides=(True, False))
     g.set(x1, y2, 3, K.INC_PLANT2)
 
     m = K.new_map(w, h, K.TS_INSIDE, name="Rosamund's Tower", bgm="Town3")
@@ -376,10 +401,7 @@ def tower_map():
 
 
 def tower_events():
-    evs = [R.event(1, "The Stairs Down", *TOWER_DOWN, [R.page(
-        [R.play_se("Move1"),
-         R.transfer(MAP_FAIRHOLME, STAIRS_UP[0], STAIRS_UP[1] + 1, 2, 0)],
-        img=R.image(""), trigger=1, priority=0)])]
+    evs = [_stairs_down(1, 0)]
 
     # 2: Rosamund. The bio's own line first, then the Thursdays.
     rosa = S.say("Rosamund", [
@@ -457,6 +479,7 @@ def tower_events():
                direction_fix=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
+    evs.append(_stairs_down(len(evs) + 1, 1))
     return evs
 
 

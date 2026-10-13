@@ -980,8 +980,10 @@ def crag_map():
 
     # -- the control car. Her instruments, her chart table, and the log.
     g.blit(11, 3, 2, (K.SF_IN_DESK_LARGE,))          # the chart table
-    g.set(13, 3, 2, K.SF_IN_BULLETIN)                # the charts, pinned
-    g.column(15, 3, 2, K.SF_IN_WALL_CLOCK)           # stopped at 0940
+    # The charts and the clock are on the bulkhead, the wall's two face rows,
+    # not stood on the deck in front of it (Mike's clocks, October 2026).
+    g.set(13, 2, 2, K.SF_IN_BULLETIN)                # the charts, pinned
+    g.column(15, 1, 2, K.SF_IN_WALL_CLOCK)           # stopped at 0940
     g.set(10, 4, 2, K.SF_IN_MACHINE_C)
     g.set(16, 4, 2, K.SF_IN_VALVE)
     # The helm. "Mechanical Device" was here first and is a rack of coloured
@@ -1102,14 +1104,14 @@ def crag_events():
         "Underneath it, and this is the whole of it:",
         "\\C[6]WE ARE WALKING HOME.\\C[0]"]))
 
-    evs.append(S.sign(3, "The Charts", 13, 3, [
+    evs.append(S.sign(3, "The Charts", 13, 2, [
         "Charts, pinned four deep, all of them of the",
         "same fourteen miles.",
         "The top one has a line ruled on it from the",
         "works to the tower, and a small cross on the",
         "line, and nothing after the cross."]))
 
-    evs.append(S.sign(4, "The Clock", 15, 3, [
+    evs.append(S.sign(4, "The Clock", 15, 2, [
         "A brass clock, screwed to the bulkhead.",
         "It is stopped at nine forty.",
         "",

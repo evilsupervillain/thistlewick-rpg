@@ -777,7 +777,9 @@ def works_map():
     g.column(4, 3, 2, K.SF_IN_DRAWERS)      # a deed press, not a display case
     g.column(5, 3, 2, K.SF_IN_BOOKSHELF)
     g.set(7, 3, 2, K.SF_IN_BULLETIN)              # the drawings
-    g.column(9, 3, 2, K.SF_IN_WALL_CLOCK)      # the shed runs on the hour
+    # The shed runs on the hour. The clock hangs on the wall face, as Mike
+    # hung the Parish Rooms' (October 2026), not stood on the floor below it.
+    g.column(9, 2, 2, K.SF_IN_WALL_CLOCK)
     g.column(10, 3, 2, K.SF_IN_DUCT)
     g.column(14, 3, 2, K.SF_IN_STEEL_SHELF)
     g.set(15, 3, 2, K.SF_IN_WARNING)
@@ -2024,7 +2026,7 @@ def parish_map():
     g.column(6, 3, 2, K.SF_IN_ODDMENTS)
     g.set(8, 3, 2, K.SF_IN_BULLETIN)
     g.set(10, 3, 2, K.SF_IN_PAINTING_A)     # a framed landscape
-    g.column(12, 3, 2, K.SF_IN_WALL_CLOCK)
+    g.column(12, 2, 2, K.SF_IN_WALL_CLOCK)      # hung on the wall (Mike's)
     g.column(14, 3, 2, K.SF_IN_STEEL_SHELF)       # what there is, is behind me
     g.column(15, 3, 2, K.SF_IN_PLANT)
 

@@ -246,12 +246,11 @@ def shoppe_map():
     # red drum. A screenshot is the only thing that finds that.
     g.column(8, 2, 2, K.IN_SWORD_RACK)        # on the wall's face rows
 
-    g.column(3, 3, 2, K.IN_SHELF_BOTTLES)
-    g.column(4, 3, 2, K.IN_SHELF_BOTTLES)
+    K.wide(g, 3, 3, 2, K.IN_SUNDRIES_CABINET)     # whole: it was two halves
     g.column(5, 3, 2, K.IN_WINE_RACK)
-    g.column(11, 3, 2, K.IN_SHELF_BOTTLES)
+    g.column(11, 3, 2, K.IN_SHELF_JARS)
     g.column(12, 3, 2, K.IN_BOOKSHELF)
-    g.column(13, 3, 2, K.IN_SHELF_BOTTLES)
+    g.column(13, 3, 2, K.IN_SHELF_JARS)
 
     # The counter, across the west end, with the ledger open on it. Layer 1 is
     # floor art in the corpus and layer 3 the props, which is why the counter
@@ -352,7 +351,9 @@ def shoppe_events():
         "The Sword of Ultimate Ending, in the window,",
         "behind its rope, and priced beyond the reach",
         "of anybody who has ever walked up this road."])
-    evs.append(R.event(3, "The Window", 8, 5, [
+    # On the rack itself, the lower of its two cells on the wall - it was two
+    # squares out on the bare floor, where nothing is drawn.
+    evs.append(R.event(3, "The Window", 8, 3, [
         R.page(sword, img=R.image(""), trigger=0, priority=1, through=True,
                direction_fix=True),
         R.page(again, img=R.image(""), trigger=0, priority=1, through=True,

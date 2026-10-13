@@ -92,14 +92,14 @@ ROOM = (24, 17, 3, 4, 20, 11, 9)
 BEDROOM = (17, 4, 20, 7, 19)                # x1, y1, x2, y2, door_x
 BEDS = (18, 4)                              # the left of the two
 
-# `Stairs A (Up)`, Inside_B (1,0). Flags 0x600 - open four ways and not a star
-# tile, so it is laid on **layer 1**, the corpus's floor-art layer, over the
-# boards rather than instead of them. There is no `mapkit` constant for it
-# because nothing in this game has had an indoor staircase before.
-STAIRS_UP = K.b_tile(1, 0)
+# The flight up to the rooms, in the north wall beside the bedroom's
+# partition, drawn the way Mike drew the Slain Wyvern's (`mapkit.stairs_up`).
+# There is no upstairs map, so the top tread says why not.
+STAIRS_X = 14                               # the flight's west column
 
 # Where Walt sits, which is the one thing in the room the site is about.
 WALT = (14, 7)
+BAR_Y = 6                                   # the bar, a row off the shelves
 
 
 # =============================================================== the street ==
@@ -301,35 +301,33 @@ def eight_hours_map():
 
     # Behind the bar: bottles, crockery, and the sacks and loaves, because
     # breakfast is served at all hours and has to come from somewhere.
-    g.column(4, 3, 2, K.IN_SHELF_BOTTLES)
-    g.column(5, 3, 2, K.IN_SHELF_JARS)
+    K.wide(g, 3, 3, 2, K.IN_SUNDRIES_CABINET)     # whole, as Mike mended the
+    g.column(5, 3, 2, K.IN_SHELF_JARS)            # Eleven Days' copy of it
     g.column(6, 3, 2, K.IN_SHELF_GOODS)
-    g.blit(10, 3, 2, K.IN_FIREPLACE)
+    g.blit(10, 2, 2, K.IN_FIREPLACE)          # set into the wall
 
     # The bar. `IN_TABLE` is `Table A`, two cells wide, and is the corrected
     # constant: `IN_COUNTER` is `Sundries Shelf A`, which has two teddy bears
     # and a pink rabbit painted on it. Layer 1 is the corpus's floor-art layer
     # and layer 3 the props, which is why the bar and what stands on it are
     # two cells deep rather than two tiles in one.
-    g.blit(4, 5, 1, K.IN_TABLE)
-    g.blit(6, 5, 1, K.IN_TABLE)
-    g.set(4, 5, 3, K.INC_DESK_BELL)
-    g.set(5, 5, 3, K.INC_OPEN_BOOK)     # the register, and it is open
-    g.set(6, 5, 3, K.INC_MEAL2)         # breakfast, at whatever hour this is
-    g.set(7, 5, 3, K.INC_GOBLET)
+    # A row out from the shelves, so there is a way behind it: Mike brought
+    # the Eleven Days' forward (October 2026), and that one was this one's.
+    g.blit(4, BAR_Y, 1, K.IN_TABLE)
+    g.blit(6, BAR_Y, 1, K.IN_TABLE)
+    g.set(4, BAR_Y, 3, K.INC_DESK_BELL)
+    g.set(5, BAR_Y, 3, K.INC_OPEN_BOOK)     # the register, and it is open
+    g.set(6, BAR_Y, 3, K.INC_MEAL2)         # breakfast, at whatever hour
+    g.set(7, BAR_Y, 3, K.INC_GOBLET)
 
-    # The stairs everybody goes up at noon, and Walt at the foot of them. The
-    # flight runs up into the wall face, which is what a staircase to an upper
-    # floor looks like; stopping it at the first floor row leaves a set of
-    # steps standing in the middle of the room going nowhere.
-    for sy in (3, 4, 5, 6):
-        for sx in (14, 15):
-            g.set(sx, sy, 1, STAIRS_UP)
+    # The stairs everybody goes up at noon, and Walt at the foot of them.
+    # They go up through the wall, beside the bedroom's partition, which is
+    # their east side; a pier of wall stands on the west.
+    K.stairs_up(g, STAIRS_X, y1, piers=(True, False))
 
-    # Windows over the street, and one more shelf past the fire.
+    # Windows over the street.
     g.column(8, 2, 3, K.IN_WINDOW)
     g.column(9, 2, 3, K.IN_WINDOW)
-    g.column(13, 3, 2, K.IN_SHELF_BOTTLES)
 
     # Two tables, breakfast on both because breakfast is at all hours.
     # `IN_STOOL` is `Stool A`; `IN_TABLE_SMALL` is the *ruined* one. The tables
@@ -353,9 +351,7 @@ def eight_hours_map():
     g.set(bx1, by1, 2, K.IN_TABLE_WOOD)        # a nightstand, and a plant
     g.set(bx1, by1, 3, K.INC_PLANT2)
     g.set(bx2, by2, 2, K.IN_BARREL)            # "Pot B", the jug
-    # The windows onto the street, right of the door as the town's front
-    # has them.
-    K.outside_windows(g, (door_x + 2, door_x + 4), y2)
+    # The windows on the street are `build_game.match_windows`'s.
     g.set(3, 10, 2, K.IN_BARREL_WOOD)
 
     # A third table, because a room the size of this one with two tables in it
@@ -365,7 +361,6 @@ def eight_hours_map():
     g.set(8, 10, 2, K.IN_STOOL)
     g.set(7, 10, 3, K.INC_MEAL2)
 
-    g.set(3, 4, 2, K.IN_CRATE)
     g.set(3, 7, 2, K.IN_CRATE)
     g.set(15, 8, 2, K.IN_CRATE2)
     g.set(15, 10, 2, K.IN_CRATE2)
@@ -501,7 +496,7 @@ def eight_hours_events():
         "somebody was in a hurry."])
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True,
                 through=True)
-    evs.append(R.event(4, "The Register", 5, 5, [
+    evs.append(R.event(4, "The Register", 5, BAR_Y, [
         R.page(book, **page),
         R.page(book_again, conditions={"selfSwitchValid": True,
                                        "selfSwitchCh": "A"}, **page),
@@ -541,6 +536,17 @@ def eight_hours_events():
     evs.append(R.event(6, "The Beds", BEDS[0], BEDS[1] + 1, [R.page(
         beds_look, img=R.image(""), trigger=0, priority=1, through=True,
         direction_fix=True)]))
+
+    # 7, 8: the top tread of each column of the stairs. The rooms are
+    # upstairs and there is no upstairs, so this is as far as anybody goes
+    # who has not taken one.
+    stairs = S.narrate([
+        "The stairs up to the rooms. Somebody up there is",
+        "asleep, audibly, and has been since noon."])
+    for i in range(2):
+        evs.append(R.event(7 + i, "The Stairs Up", STAIRS_X + i, ROOM[3], [
+            R.page(stairs, img=R.image(""), trigger=1, priority=1,
+                   direction_fix=True)]))
     return evs
 
 

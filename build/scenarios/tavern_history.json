@@ -43,7 +43,7 @@
       "label": "paid handsomely"
     },
     {
-      "eval": "$gamePlayer.locate(18, 5); $gameMap.event(14).start()"
+      "eval": "$gamePlayer.locate(14, 4); $gameMap.event(14).start()"
     },
     {
       "advance": 25

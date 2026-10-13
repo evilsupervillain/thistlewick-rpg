@@ -197,6 +197,10 @@ IN_PURPLE_RUG = A(35)
 IN_GREEN_RUG = A(27)
 IN_BLUE_RUG = A(34)
 IN_RED_RUG = A(42)
+# The dark of a doorway in a north wall, for under a `!Door1` sprite on the
+# lower face row: the sample's `Entrance A (Extend)`. Without it the door
+# opens onto the wall it was hung on.
+IN_DOOR_OPENING = b_tile(1, 2)
 # Wall top and wall face come in matched pairs on Inside_A4: the tops are the
 # even block-rows (48-shape) and the faces the odd ones (16-shape).
 IN_WALL_TOP = A(98)               # dark wood panelling, the village default
@@ -219,10 +223,21 @@ IN_BOOKCASE = (b_tile(14, 3), b_tile(14, 4))   # shelf of books
 IN_BOOKCASE2 = (b_tile(15, 3), b_tile(15, 4))
 IN_CURTAIN_GREEN = (b_tile(2, 8), b_tile(2, 9))
 IN_SHELF_JARS = (b_tile(9, 3), b_tile(9, 4))   # pots and crockery
+# These two are the halves of one cabinet - its frame runs across both - and
+# the sheet's `.txt` hides it, calling column 9 and column 10 `Sundries Shelf
+# A` and column 11 `B`. Either one alone is a cabinet cut in half down the
+# middle, which is what Mike mended in the Eleven Days (October 2026): lay
+# them as `IN_SUNDRIES_CABINET`, never one without the other.
 IN_SHELF_BOTTLES = (b_tile(11, 3), b_tile(11, 4))
-# Not fruit: `Sundries Shelf A` with two teddy bears and a pink rabbit on its
-# top shelf. Right in a shop of previously owned goods; wrong behind a bar.
+# Not fruit: two teddy bears and a pink rabbit on its top shelf.
 IN_SHELF_FRUIT = (b_tile(10, 3), b_tile(10, 4))
+IN_SUNDRIES_CABINET = (IN_SHELF_FRUIT, IN_SHELF_BOTTLES)  # columns, W to E
+# Likewise `Bottle Shelf A` and `B`, columns 14 and 15: crockery on the west
+# half, bottles on the east, one frame.
+IN_BOTTLE_CABINET = ((b_tile(14, 1), b_tile(14, 2)),
+                     (b_tile(15, 1), b_tile(15, 2)))
+# Every two-wide piece above, for `lone_halves`.
+WIDE_PIECES = (IN_SUNDRIES_CABINET, IN_BOTTLE_CABINET)
 IN_SHELF_GOODS = (b_tile(8, 3), b_tile(8, 4))  # sacks and loaves
 IN_CABINET = (b_tile(8, 2), b_tile(8, 3))
 IN_DRESSER = (b_tile(10, 2), b_tile(10, 3))
@@ -1514,6 +1529,119 @@ def interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR,
     return g
 
 
+# The wooden flight on Inside_A5 (`Stairs A (Wood, Left)` and the right-hand
+# piece; 89 is a centre for a wider one), and the standalone step, which is
+# the one a one-wide flight is made of. All flagged up-and-down only.
+IN_FLIGHT = (a5(88), a5(90))
+IN_STEP = a5(91)
+
+# Shadow-layer bits: a cell's four quarters, top-left 1, top-right 2,
+# bottom-left 4, bottom-right 8.
+SHADOW_FULL, SHADOW_LEFT = 15, 5
+
+
+def _kind_of(g, x, y):
+    return A(R.autotile_kind(g.get(x, y, 0)))
+
+
+def _floor_like(g, cx, cy, from_y):
+    """The room's floor for cell (cx, cy), read off the floor from row
+    `from_y` down: the nearest floor cell an even step away, so a two-tone
+    floor carries its checkerboard into a cell that was wall."""
+    def floor(t):
+        return (R.TILE_ID_A1 <= t < R.TILE_ID_A4
+                or (R.TILE_ID_A5 < t < R.TILE_ID_A1
+                    and t not in IN_FLIGHT and t != IN_STEP))
+    best = None
+    for r in range(from_y, min(from_y + 4, g.height)):
+        for c in range(max(cx - 3, 0), min(cx + 4, g.width)):
+            t = g.get(c, r, 0)
+            if (c + r - cx - cy) % 2 or not floor(t):
+                continue
+            d = abs(c - cx) + abs(r - from_y)
+            if best is None or d < best[0]:
+                best = (d, t)
+    if best is None:
+        raise ValueError("no floor below (%d,%d) to carry up the stairwell"
+                         % (cx, cy))
+    return best[1]
+
+
+def stairs_up(g, x, y1, rows=3, width=2, piers=(True, True)):
+    """A flight going up through a room's north wall, the way Mike drew the
+    Slain Wyvern's (Map 14, October 2026) and its cellar's - the single
+    `Stairs A (Up)` tile laid over the boards "does not work visually".
+
+    The treads are on layer 0, `width` wide at x and `rows` tall from y1, the
+    room's first floor row, down. The two face rows above them are not wall
+    but the floor upstairs seen up the stairwell, under the full shadow,
+    which steps down the flight's left-hand side. Each side with a pier gets
+    a column of wall round the stairwell: wall top through the face rows
+    and on down beside the flight, and a face over the last two treads, so
+    the pier is flush with the foot of the stairs. A side that is already
+    the room's own wall wants `piers` False there.
+
+    The floor in the stairwell is copied from the room below the flight, so
+    a two-tone floor keeps its checkerboard. The way up - a transfer, or
+    something that says why not - is the caller's event: nothing here stops
+    the player walking up the flight into the stairwell."""
+    top, face = _kind_of(g, x, y1 - 3), _kind_of(g, x, y1 - 2)
+    treads = IN_FLIGHT if width == 2 else (IN_STEP,) * width
+    for i in range(width):
+        for y in range(y1 - 2, y1 + rows):
+            for z in (1, 2, 3):
+                g.set(x + i, y, z, 0)
+            if y >= y1:
+                g.set(x + i, y, 0, treads[i])
+            else:
+                g.set(x + i, y, 0, _floor_like(g, x + i, y, y1 + rows))
+                g.set(x + i, y, 4, SHADOW_FULL)
+        g.set(x + i, y1, 4, 7 if i == 0 else 3)
+    for y in range(y1 + 1, y1 + rows):
+        g.set(x, y, 4, SHADOW_LEFT)
+    for side, wanted in zip((x - 1, x + width), piers):
+        if not wanted:
+            continue
+        for y in range(y1 - 2, y1 + rows):
+            for z in (1, 2, 3):
+                g.set(side, y, z, 0)
+            g.set(side, y, 0, top if y < y1 + rows - 2 else face)
+
+
+def stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP,
+              wall_face=IN_WALL_FACE, sides=(True, True)):
+    """The top of a flight that `stairs_up` drew on the floor below: the
+    Slain Wyvern's upstairs (Map 72, Mike, October 2026). The treads, two
+    rows from y, sit in a well walled off the floor round three sides and
+    open on the north, where the landing is; the wall under the well shows
+    its two face rows to the floor south of it, so the map wants floor at
+    y + 3 and y + 4 beside the well, or the room's south wall. The wall
+    beside the treads starts a row above them, alongside the landing.
+
+    The way down is the caller's event on the well's top row; arrival from
+    below is the landing above it, y - 1. A side that is already the room's
+    wall wants `sides` False there."""
+    def wall(c, r):
+        return R.autotile_kind(g.get(c, r, 0)) in (
+            R.autotile_kind(wall_top), R.autotile_kind(wall_face))
+    for i in range(width):
+        for r in (y, y + 1):
+            for z in (1, 2, 3):
+                g.set(x + i, r, z, 0)
+            g.set(x + i, r, 0, IN_FLIGHT[i] if width == 2 else IN_STEP)
+    g.set(x, y, 4, SHADOW_LEFT)
+    g.set(x, y + 1, 4, SHADOW_LEFT)
+    for side, wanted in zip((x - 1, x + width), sides):
+        if wanted:
+            for r in range(y - 1, y + 3):
+                g.set(side, r, 0, wall_top)
+    for c in range(x - 1, x + width + 1):
+        g.set(c, y + 2, 0, wall_top)
+        for r in (y + 3, y + 4):
+            if not wall(c, r):
+                g.set(c, r, 0, wall_face)
+
+
 def guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP,
                wall_face=IN_WALL_FACE, floor=None):
     """Wall off a room inside an interior that `interior()` has drawn: the
@@ -1546,6 +1674,35 @@ def guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP,
         g.set(door_x, y, 0, under)
 
 
+def wide(g, x, y, z, piece):
+    """Lay a piece that is several columns wide - `IN_SUNDRIES_CABINET` - with
+    its west column at x."""
+    for i, col in enumerate(piece):
+        g.column(x + i, y, z, col)
+
+
+def lone_halves(m):
+    """Cells of map `m` holding one column of a `WIDE_PIECES` piece without
+    the column that belongs beside it, as (x, y, tile). Inside_B only."""
+    w, h, d = m["width"], m["height"], m["data"]
+
+    def cell(x, y):
+        return ({d[(z * h + y) * w + x] for z in range(4)}
+                if 0 <= x < w else set())
+    out = []
+    for piece in WIDE_PIECES:
+        for i, col in enumerate(piece):
+            for row, tile in enumerate(col):
+                for y in range(h):
+                    for x in range(w):
+                        if tile not in cell(x, y):
+                            continue
+                        for j, other in enumerate(piece):
+                            if j != i and other[row] not in cell(x + j - i, y):
+                                out.append((x, y, tile))
+    return out
+
+
 def four_beds(g, x1, y1, x2, door_x, bed=None, nightstand=None):
     """Four beds in a guest room the way Mike laid out the Safety Valve's
     (October 2026): two and two, against the side walls, with an aisle up the
@@ -1565,15 +1722,6 @@ def four_beds(g, x1, y1, x2, door_x, bed=None, nightstand=None):
             g.column(x, y, 2, bed)
     if nightstand is not None:
         g.set(door_x, y1, 2, nightstand)
-
-
-def outside_windows(g, xs, y2, window=None):
-    """Windows on the outside of the south wall - its two face rows below the
-    ring - at each x in `xs`, where the town map's front has them (Mike,
-    October 2026: the inside and the outside of a building should agree)."""
-    window = window or IN_WINDOW
-    for x in xs:
-        g.column(x, y2 + 2, 3, window)
 
 
 def door_animation():

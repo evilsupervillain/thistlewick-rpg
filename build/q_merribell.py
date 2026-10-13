@@ -43,8 +43,8 @@ import db
 import mapkit as K
 import rmmzdata as R
 import story as S
-from places import (MAP_WYVERN, WYVERN_BACK, WYVERN_BACK_DOOR, WYVERN_CURTAIN,
-                    WYVERN_BACK_TABLE)
+from places import (MAP_WYVERN, WYVERN_BACK_DOOR, WYVERN_CURTAIN,
+                    WYVERN_BACK_ARRIVAL, WYVERN_BACK_EXIT, WYVERN_BACK_TABLE)
 
 
 def _like(page0, cmds, conditions):
@@ -1220,8 +1220,8 @@ _MER3_ROUND = [
         "sash. He minded about the sash."]),
 ]
 _MER3_SEATS = [         # where the four sit, and which way they face
-    ("Mother Grizel", (30, 5), 2), ("Dr Hobday", (32, 5), 2),
-    ("Nan Gilly", (30, 7), 8), ("Mr Spence", (32, 7), 8)]
+    ("Mother Grizel", (31, 7), 2), ("Dr Hobday", (33, 7), 2),
+    ("Nan Gilly", (31, 9), 8), ("Mr Spence", (33, 9), 8)]
 _MER3_ASIDES = {        # what each says if spoken to while the Table sits
     "Mother Grizel": ["Eighty-one. Seven parties. The",
                       "candlestick's on my mantelpiece."],
@@ -1253,7 +1253,6 @@ def _mer3_invite():
 
 
 def _mer3_table():
-    x1, y1, x2, y2, door_x = WYVERN_BACK
     c = []
     c += S.narrate([
         "A back room, a long table, a medicine shelf, and four old",
@@ -1323,9 +1322,11 @@ def _mer3_table():
 
 # The curtain over the back room's door, Inside_B's red `Curtains`: shut,
 # both columns are the closed panel; drawn back, the door's column is bare and
-# the other is the panel gathered to the right. (top, bottom) each.
+# the other is the panel gathered away from it - `Curtains C` is tied back to
+# the west side of its cell and `Curtains D` to the east. (top, bottom) each.
 CURTAIN_SHUT = (K.b_tile(1, 6), K.b_tile(1, 7))
-CURTAIN_DRAWN = (K.b_tile(3, 6), K.b_tile(3, 7))
+CURTAIN_DRAWN_WEST = (K.b_tile(2, 6), K.b_tile(2, 7))
+CURTAIN_DRAWN_EAST = (K.b_tile(3, 6), K.b_tile(3, 7))
 
 
 def curtain_events(first_id):
@@ -1336,27 +1337,34 @@ def curtain_events(first_id):
     curtain is open whenever there is a door to see and shut whenever there
     is not. The door's own event is the lower half of the door's column (its
     page 1 is the shut curtain); these are the other three cells, appended
-    after everything else so no id moves."""
+    after everything else so no id moves.
+
+    The door is the curtain's east column, away from the open floor west of
+    it, so the panel is gathered back to the west."""
     cx, cy = WYVERN_CURTAIN
+    dx = WYVERN_BACK_DOOR[0]
+    assert WYVERN_BACK_DOOR[1] == cy + 1 and dx in (cx, cx + 1)
+    ox = cx + 1 if dx == cx else cx
+    drawn = CURTAIN_DRAWN_WEST if ox < dx else CURTAIN_DRAWN_EAST
     shown = [{"actorValid": True, "actorId": db.MERRI},
              {"switch1Valid": True, "switch1Id": db.SW_MER3_ON},
              {"switch1Valid": True, "switch1Id": db.SW_MER3_DONE}]
 
-    def cell(event_id, name, x, y, shut, drawn):
+    def cell(event_id, name, x, y, shut, open_):
         pages = [R.page([], img=R.image(tile_id=shut), priority=0,
                         through=True)]
         for c in shown:
-            pages.append(R.page([], img=R.image(tile_id=drawn), priority=0,
+            pages.append(R.page([], img=R.image(tile_id=open_), priority=0,
                                 through=True, conditions=c))
         return R.event(event_id, name, x, y, pages)
 
     return [
-        cell(first_id, "The Red Curtain (over the door)", cx, cy,
+        cell(first_id, "The Red Curtain (over the door)", dx, cy,
              CURTAIN_SHUT[0], 0),
-        cell(first_id + 1, "The Red Curtain (top)", cx + 1, cy,
-             CURTAIN_SHUT[0], CURTAIN_DRAWN[0]),
-        cell(first_id + 2, "The Red Curtain (bottom)", cx + 1, cy + 1,
-             CURTAIN_SHUT[1], CURTAIN_DRAWN[1]),
+        cell(first_id + 1, "The Red Curtain (top)", ox, cy,
+             CURTAIN_SHUT[0], drawn[0]),
+        cell(first_id + 2, "The Red Curtain (bottom)", ox, cy + 1,
+             CURTAIN_SHUT[1], drawn[1]),
     ]
 
 
@@ -1364,12 +1372,11 @@ def back_room_events(first_id):
     """Events for Map 14, appended after everything else so no id moves:
     the door in the bar, the way back out, Ysolde in the chair, the four,
     and the card left on the table. Each is nothing until the Table sits."""
-    x1, y1, x2, y2, door_x = WYVERN_BACK
     blank = R.page([], img=R.image(""), trigger=0, priority=0, through=True)
     on = {"switch1Valid": True, "switch1Id": db.SW_MER3_ON}
     done = {"switch1Valid": True, "switch1Id": db.SW_MER3_DONE}
     door_img = R.image("!Door1", 0, direction=2)
-    go_in = S.door_page(MAP_WYVERN, door_x, y2, 8)
+    go_in = S.door_page(MAP_WYVERN, *WYVERN_BACK_ARRIVAL)
     evs = []
 
     sitting = R.if_then(R.condition_actor_in_party(db.MERRI), go_in, S.narrate([
@@ -1387,13 +1394,13 @@ def back_room_events(first_id):
         R.page(go_in, img=door_img, trigger=1, priority=1, conditions=done),
     ]))
 
-    out = S.exit_tile(first_id + 1, "The Back Room Way Out", door_x, y2 + 2,
+    out = S.exit_tile(first_id + 1, "The Back Room Way Out", *WYVERN_BACK_EXIT,
                       MAP_WYVERN, WYVERN_BACK_DOOR[0], WYVERN_BACK_DOOR[1] + 1)
     evs.append(out)
 
     tx1, ty, tx2 = WYVERN_BACK_TABLE
     chair = R.image(*S.FACES["Ysolde"], direction=6)
-    evs.append(R.event(first_id + 2, "Ysolde (in the chair)", x1, ty, [
+    evs.append(R.event(first_id + 2, "Ysolde (in the chair)", tx1 - 1, ty, [
         copy.deepcopy(blank),
         R.page(_mer3_table(), img=chair, trigger=0, priority=1,
                conditions=on),

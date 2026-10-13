@@ -241,10 +241,11 @@ in each of the four states.
       handdrawn.py   maps drawn by hand in the editor, kept: `freeze <id>`
                      copies a map's tile layers into `build/handdrawn/`, and
                      its builder loads them with `handdrawn.load()` and adds
-                     its events as usual. **Maps 4, 9, 10, 17 and 23 are frozen** -
-                     the Gilded Turnip, both Gloamwood maps, Number
-                     Forty-Five's cottage and the Safety Valve (Mike, October
-                     2026). To change one: edit in the editor, `python3
+                     its events as usual. **Maps 2, 4, 9, 10, 14, 17, 23, 45
+                     and 72 are frozen** - Bram's House, the Gilded Turnip,
+                     both Gloamwood maps, the Slain Wyvern and its upstairs,
+                     Number Forty-Five's cottage, the Safety Valve and the
+                     Eleven Days (Mike, October 2026). To change one: edit in the editor, `python3
                      build/handdrawn.py freeze <id>`, rebuild - a rebuild
                      without the freeze throws the edit away. The build's
                      post-passes skip frozen maps. `handdrawn.py check` says
@@ -330,10 +331,13 @@ in each of the four states.
                      the A2 table Mike chose, joined where tables touch;
                      `KEEP_OLD_TABLES` opts a map out), `shape_wall_tops`
                      (the tops' edge shapes, and `shape_faces`, the faces'
-                     trim the editor's way), `cast_shadows`; then
-                     System.json and MapInfos. A room that splits off a
-                     bedroom uses `mapkit.guest_room`, and its outside wall's
-                     windows `mapkit.outside_windows`
+                     trim the editor's way), `match_windows` (an
+                     interior's south wall gets the windows its building
+                     has on the street), `door_holes` (a dark doorway under
+                     every door sprite), `cast_shadows`; then System.json
+                     and MapInfos. A room that splits off a bedroom uses
+                     `mapkit.guest_room`; stairs between floors are
+                     `mapkit.stairs_up` below and `mapkit.stairwell` above
       scenarios/     scripted playthroughs for `tools/scenario.js`
       balance.py     offline damage report: evaluates the real formulas
       sampler.py     throwaway tile sampler; writes Map099. `build_game.py`
@@ -412,7 +416,8 @@ Append instead.
 | Maps 8-12 | the journey |
 | Maps 13-18 | Nether Sopping and its interiors, and the lighthouse. MER-3
   widened Map 14, the Slain Wyvern, from 25 to 37 columns for its back room,
-  where the Healers' Table meets, in its black east (`places.WYVERN_BACK`) |
+  where the Healers' Table meets, in its black east; Mike made it a cellar
+  in October 2026 and widened the map to 39 (`places.WYVERN_BACK_*`) |
 | Maps 19-20 | the Bottomless Pit, the Barrow of the Forty-Fourth |
 | Maps 21-25 | Upper Clanging and its interiors: the works, the inn, the forge,
   the Parish Rooms. `north.py` |
@@ -522,10 +527,11 @@ Append instead.
   (P4b). Drawn by `south.fitch_map`, its events from `postgame.py`;
   `places.MAP_FITCH`. Out to `places.FITCH_STEP` |
 | Map 72 | The Slain Wyvern's upstairs, where the beds Dorcas sells are (October
-  2026: the building is three rows of wall from the street). Drawn by
-  `south.wyvern_up_map`; `places.MAP_WYVERN_UP`. In and out by the stairs in
-  the bar's north-east corner, `places.WYVERN_STAIRS` - placeholder stairs,
-  for Mike to redraw |
+  2026: the building is three rows of wall from the street). Drawn by hand
+  by Mike and frozen; events in `south.wyvern_up_events`;
+  `places.MAP_WYVERN_UP`. In and out by the stairs in the bar's north-east
+  corner, `places.WYVERN_STAIRS` - Mike's, and the model for any other
+  staircase (`../TILES-AND-ASSETS.md`) |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills

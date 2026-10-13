@@ -66,9 +66,9 @@
      "label": "on the mat"},
 
     {"comment": "The window. The Sword of Ultimate Ending is a prop with a price card and is deliberately not stock - Game_Party.maxGold is 99,999,999, so a sword priced at 9,999,999 that a shop list could sell is a sword somebody eventually buys.",
-     "key": "ArrowUp", "times": 4, "gap": 30},
-    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [8, 6, 8],
-     "label": "in front of the window, facing it"},
+     "key": "ArrowUp", "times": 6, "gap": 30},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [8, 4, 8],
+     "label": "under the window, facing it"},
     {"key": "Enter"},
     {"frames": 60},
     {"shot": "penultima_window.png"},
@@ -79,7 +79,8 @@
      "label": "and nothing was gained: it is scenery, not an item"},
 
     {"comment": "Dorothy, at the counter. Register A, by the innocent superlative - NORTH.md 1.3 item 1.",
-     "key": "ArrowLeft", "times": 4, "gap": 30},
+     "key": "ArrowDown", "times": 2, "gap": 30},
+    {"key": "ArrowLeft", "times": 4, "gap": 30},
     {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [4, 6]},
     {"key": "ArrowLeft", "times": 1, "gap": 30},
     {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [4, 6, 4],

@@ -103,16 +103,18 @@ DESK = (5, 6)                   # Table A, two cells
 MAP_AT = (6, 2)                 # the World Map on the wall, two cells
 #        x1  y1  x2  y2
 BACK = (17, 4, 21, 6)
-BACK_ARRIVE = (19, 5)
-STAIRS = (19, 6)
+# The steps up out of the back room go through its north wall in the east
+# corner, one step wide, the way Mike drew the Slain Wyvern's cellar stairs
+# (`mapkit.stairs_up`): the way up is the top step, and you arrive at the foot.
+BACK_ARRIVE = (21, 6)
+STAIRS = (21, 4)
 LEDGER = (17, 4)
 SACK = (18, 4)
-CAP = (21, 4)
+CAP = (17, 6)
 
 TABLE_A = K.sf_grid("Inside_B", "Table A", 2)[0]
 CHAIR = K.sf_block("Inside_B", "Chair A (Wood)")
 WALL_MAP = K.sf_grid("Inside_B", "World Map", 2)[0]
-STAIRS_UP = K.sf_tile("Inside_B", "Stairs A (Up)")
 OPEN_BOOK = K.sf_tile("Inside_C", "Open Book A (H)")
 SACK_TILE = K.sf_tile("Inside_C", "Sack A")
 CAP_TILE = K.sf_tile("Inside_C", "Hat A (Stand)")
@@ -545,7 +547,7 @@ def mayors_map():
     g.set(LEDGER[0], LEDGER[1], 3, OPEN_BOOK)
     g.set(SACK[0], SACK[1], 3, SACK_TILE)
     g.set(CAP[0], CAP[1], 3, CAP_TILE)
-    g.set(STAIRS[0], STAIRS[1], 1, STAIRS_UP)
+    K.stairs_up(g, STAIRS[0], STAIRS[1], rows=2, width=1, piers=(True, False))
 
     m = K.new_map(MW, MH, K.TS_INSIDE, name="The Mayor's House",
                   bgm="Town2")

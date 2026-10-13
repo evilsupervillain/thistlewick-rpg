@@ -48,7 +48,6 @@ ROOM = (21, 13, 3, 4, 17, 9, 10)
 
 POSTED = K.sf_tile("Inside_B", "Posted Notice")
 CURTAIN = K.sf_block("Inside_B", "Curtains B")      # 1x2, heavy, and drawn
-BOTTLES = K.sf_block("Inside_B", "Bottle Shelf A")
 CORNER_TABLE = K.sf_tile("Inside_B", "Table D")
 MUG = K.sf_tile("Inside_C", "Pint Mug C")
 NOTES = K.sf_tile("Inside_C", "Notes D")
@@ -58,9 +57,9 @@ CRAKE = (3, 4)              # north-west, by the window: the Secretary's
 VEYLE = (17, 4)             # north-east, the darkest, until Monday
 ROOK = (3, 9)               # south-west: the league table's workings
 MORROW = (17, 9)            # south-east: the newsletter
-BLACKWOOD = (11, 6)         # by the fire, on a stool; first on the list
+BLACKWOOD = (11, 5)         # by the fire, on a stool; first on the list
 GARROW = (8, 5)             # the end of the bar
-HEARTH = (11, 4)            # the fire in `Large Fireplace`'s opening
+HEARTH = (11, 3)            # the fire in `Large Fireplace`'s opening
 LEAGUE = (14, 3)            # a notice on the wall face, read from below
 ROTA = (15, 3)              # pinned beside it, and over its bottom half
 MIDDLE = [(6, 7), (13, 7)]  # `Table A`, two cells each, with a stool each end
@@ -73,19 +72,21 @@ def hart_map():
 
     # A rug in front of the fire, for the one seat that is not in a corner.
     # Layer 1 is floor art.
-    g.fill(10, y1 + 1, 12, y1 + 1, 1, K.IN_RED_RUG)
+    g.fill(10, y1, 12, y1, 1, K.IN_RED_RUG)
     g.autotile(1)
 
     # The north wall: the window over the Secretary's corner, the bar, the
     # fire, the two notices, and a curtain drawn over the darkest corner,
     # where there is no window.
     g.column(x1, y1 - 2, 3, K.IN_WINDOW)
-    g.column(6, y1 - 1, 2, BOTTLES)
-    g.column(7, y1 - 1, 2, K.IN_WINE_RACK)
+    K.wide(g, 6, y1 - 1, 2, K.IN_BOTTLE_CABINET)  # whole; it was half of one
     g.blit(6, y1 + 1, 1, K.IN_TABLE)
     g.set(6, y1 + 1, 3, K.INC_DESK_BELL)
     g.set(7, y1 + 1, 3, MUG)
-    g.blit(10, y1 - 1, 2, K.IN_FIREPLACE)
+    # The fire is set into the wall, on its two face rows, as Mike set the
+    # Eleven Days' and Bram's (October 2026): stood a row lower, it is a
+    # fireplace standing out in the room.
+    g.blit(10, y1 - 2, 2, K.IN_FIREPLACE)
     g.set(*LEAGUE, 3, POSTED)
     g.set(*ROTA, 3, POSTED)
     g.column(x2, y1 - 2, 3, CURTAIN)

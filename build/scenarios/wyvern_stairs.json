@@ -1,0 +1,25 @@
+{
+  "query": "?map=14&x=21&y=7&frames=90",
+  "comment": "The Slain Wyvern's stairs, as Mike drew them (October 2026): up either column of the flight in the bar's north-east corner to the top of the stairwell upstairs, facing on up; and down the stairwell to the foot of the flight, facing down it.",
+  "steps": [
+    {"eval": "$gameSystem.disableEncounter()"},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]", "expect": [14, 21, 7]},
+    {"key": "ArrowUp", "times": 2, "gap": 30},
+    {"frames": 90},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [72, 21, 5, 8], "label": "up the east column"},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map"},
+    {"frames": 60},
+    {"key": "ArrowDown", "times": 1, "gap": 30},
+    {"frames": 90},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [14, 21, 7, 2], "label": "and down it"},
+    {"goto": [14, 20, 7]},
+    {"key": "ArrowUp", "times": 2, "gap": 30},
+    {"frames": 90},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [72, 20, 5, 8], "label": "up the west column"},
+    {"frames": 60},
+    {"key": "ArrowDown", "times": 1, "gap": 30},
+    {"frames": 90},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [14, 20, 7, 2], "label": "and down it"},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map"}
+  ]
+}

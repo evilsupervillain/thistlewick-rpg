@@ -135,7 +135,7 @@ choice_block(options, branches, cancel=None, default=0, position=2, background=0
 
 Tile vocabulary and drawing helpers for The Obligatory Quest.
 
-**Tile constants (359)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
+**Tile constants (365)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
 
 ```
 GRASS                   PATH                    COBBLE                  PAVING
@@ -162,13 +162,14 @@ DOORWAY_DARK            DOOR_SHUT               DOORWAY_ARCH            WINDOW
 WINDOW_GLASS            DOOR_DOUBLE             IN_WOOD_FLOOR           IN_COBBLE
 IN_DARK_WOOD            IN_RED_CARPET           IN_SANDSTONE            IN_DIAMOND_TILE
 IN_PARQUET              IN_BRICK_FLOOR          IN_PURPLE_RUG           IN_GREEN_RUG
-IN_BLUE_RUG             IN_RED_RUG              IN_WALL_TOP             IN_WALL_FACE
-IN_WALL_TOP_PLANK       IN_WALL_FACE_PLANK      IN_WALL_TOP_STONE       IN_WALL_FACE_STONE
-IN_WALL_TOP_TAN         IN_WALL_FACE_TAN        IN_WALL_TOP_WHITE       IN_WALL_FACE_WHITE
-IN_WALL_TOP_RED         IN_WALL_FACE_RED        IN_WALL_TOP_GOLD        IN_WALL_FACE_GOLD
-IN_WALL_TOP_PURPLE      IN_WALL_FACE_PURPLE     IN_VOID                 IN_BED
-IN_BED_ORANGE           IN_BED_BROWN            IN_BOOKCASE             IN_BOOKCASE2
-IN_CURTAIN_GREEN        IN_SHELF_JARS           IN_SHELF_BOTTLES        IN_SHELF_FRUIT
+IN_BLUE_RUG             IN_RED_RUG              IN_DOOR_OPENING         IN_WALL_TOP
+IN_WALL_FACE            IN_WALL_TOP_PLANK       IN_WALL_FACE_PLANK      IN_WALL_TOP_STONE
+IN_WALL_FACE_STONE      IN_WALL_TOP_TAN         IN_WALL_FACE_TAN        IN_WALL_TOP_WHITE
+IN_WALL_FACE_WHITE      IN_WALL_TOP_RED         IN_WALL_FACE_RED        IN_WALL_TOP_GOLD
+IN_WALL_FACE_GOLD       IN_WALL_TOP_PURPLE      IN_WALL_FACE_PURPLE     IN_VOID
+IN_BED                  IN_BED_ORANGE           IN_BED_BROWN            IN_BOOKCASE
+IN_BOOKCASE2            IN_CURTAIN_GREEN        IN_SHELF_JARS           IN_SHELF_BOTTLES
+IN_SHELF_FRUIT          IN_SUNDRIES_CABINET     IN_BOTTLE_CABINET       WIDE_PIECES
 IN_SHELF_GOODS          IN_CABINET              IN_DRESSER              IN_COUNTER
 IN_PILLAR               IN_FIREPLACE            IN_PIANO                IN_ORGAN
 IN_TABLE_ROUND          IN_TABLE_SMALL          IN_POT                  IN_CRATE
@@ -227,7 +228,8 @@ SF_IN_FACE_FACTORY      SF_IN_WALL_FACTORY_B    SF_IN_FACE_FACTORY_B    SF_IN_WA
 SF_IN_FACE_PATTERN      SF_IN_WALL_PATTERN_B    SF_IN_FACE_PATTERN_B    SF_IN_WALL_BRICK
 SF_IN_FACE_BRICK        SF_IN_WALL_WOOD         SF_IN_FACE_WOOD         SF_FLOOR_RESIN
 SF_FLOOR_TILE           SF_FLOOR_DECO           SF_FLOOR_WOOD           SF_FLOOR_CARPET
-SF_FLOOR_MARBLE         SF_FLOOR_LINO           SF_THRESHOLD
+SF_FLOOR_MARBLE         SF_FLOOR_LINO           SF_THRESHOLD            IN_FLIGHT
+IN_STEP
 ```
 
 **Everything else.**
@@ -392,6 +394,8 @@ BANNER_PURPLE                sf_block('Outside_C', 'Tapestry B')
 WALL_MOUNTED                 ...
 CHIMNEY_STACK                sf_block('Outside_C', 'Chimney')
 ROOF_MOUNTED                 ...
+SHADOW_FULL                  15
+SHADOW_LEFT                  5
 ```
 
 ### `class ForbiddenTile`
@@ -438,9 +442,12 @@ recolour_sheet(sheet, out, cells, hues, hue, sat, renames=()) Writes `img/tilese
 paint_regions(g, tileset_id, value=1, layer=5)       Region-tag every tile the player can actually stand on.
 new_map(width, height, tileset, name='', bgm='Town1', bgm_volume=70, encounters=(), encounter_step=30, battleback=None, scroll_type=0, parallax='', disable_dashing=False) A map record with everything the editor expects, and nothing surprising.
 interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR, floor_alt=None, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, void=IN_VOID, threshold=None, outside=None, tileset=TS_INSIDE) A room in black space, tiled the way the stock interiors are.
+stairs_up(g, x, y1, rows=3, width=2, piers=(True, True)) A flight going up through a room's north wall, the way Mike drew the
+stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, sides=(True, True)) The top of a flight that `stairs_up` drew on the floor below: the
 guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, floor=None) Wall off a room inside an interior that `interior()` has drawn: the
+wide(g, x, y, z, piece)                              Lay a piece that is several columns wide - `IN_SUNDRIES_CABINET` - with
+lone_halves(m)                                       Cells of map `m` holding one column of a `WIDE_PIECES` piece without
 four_beds(g, x1, y1, x2, door_x, bed=None, nightstand=None) Four beds in a guest room the way Mike laid out the Safety Valve's
-outside_windows(g, xs, y2, window=None)              Windows on the outside of the south wall - its two face rows below the
 door_animation()                                     Open a door sprite, hold, close it, then make it transparent - the
 ```
 
@@ -537,7 +544,7 @@ Ninian                The Copyist
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-166 constants.
+169 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -684,10 +691,11 @@ TOWER_DOOR_EVENT             4
 CARN_DREY                    (39, 55)
 CARN_DREY_STEP               (40, 55)
 SNUG_CARD                    (4, 8)
-WYVERN_BACK                  (28, 4, 34, 9, 31)
-WYVERN_BACK_DOOR             (15, 3)
-WYVERN_BACK_TABLE            (29, 6, 33)
-WYVERN_CURTAIN               (15, 2)
+WYVERN_BACK_DOOR             (18, 5)
+WYVERN_CURTAIN               (17, 4)
+WYVERN_BACK_ARRIVAL          (36, 6, 2)
+WYVERN_BACK_EXIT             (36, 4)
+WYVERN_BACK_TABLE            (30, 8, 34)
 WYVERN_LONG_TABLE            (9, 9, 5, 2)
 WYVERN_DINNER                ...
 COLDBARROW_MAP_AT_LARGE      'Coldbarrow_Map_AtLarge'
@@ -704,7 +712,9 @@ FITCH_DOOR_EVENT             15
 FITCH_STEP                   (14, 9)
 MAP_WYVERN_UP                72
 WYVERN_STAIRS                (20, 21)
-WYVERN_STAIRS_FOOT           5
+WYVERN_STAIRS_UP             5
+WYVERN_STAIRS_FOOT           7
+WYVERN_STAIRS_DOWN           6
 WYVERN_UP_LANDING            5
 ```
 

@@ -522,7 +522,7 @@ def parlour_map():
     g.fill(4, 6, 7, 8, 1, K.IN_GREEN_RUG)
     g.autotile(1)
 
-    g.column(x1 + 1, y1 - 1, 2, FIREPLACE)
+    g.column(x1 + 1, y1 - 2, 2, FIREPLACE)    # set into the wall, Mike's way
     g.set(*PAINTING_AT, 3, MOUNTAIN)
     g.column(6, y1 - 2, 3, K.IN_WINDOW)
     g.column(7, y1 - 2, 2, CLOCK)             # hung on the wall, not stood

@@ -74,9 +74,9 @@ def cottage_map():
 
     # A window on to the road, the stove and the one shelf.
     g.column(7, y1 - 2, 3, K.IN_WINDOW)
-    g.column(10, y1 - 1, 2, K.IN_STOVE)
+    g.column(10, y1 - 2, 2, K.IN_STOVE)          # set into the wall, Mike's way
     g.set(11, y1, 2, K.IN_KITCHEN_COUNTER)
-    g.column(4, y1 - 1, 2, K.IN_SHELF_BOTTLES)
+    g.column(4, y1 - 1, 2, K.IN_SHELF_JARS)
     g.column(MEDICINE_X, y1 - 1, 2, MEDICINE)
 
     # The bed, in the corner, made. He has spent a good deal of time lying

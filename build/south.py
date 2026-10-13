@@ -28,13 +28,12 @@ import q_roland
 import q_wren
 import q_spare
 import postgame as PG
-from places import (WYVERN_BACK, WYVERN_BACK_TABLE, WYVERN_LONG_TABLE,
-                    WYVERN_DINNER,
+from places import (
                     MAP_SOPPING, MAP_WYVERN, MAP_GUILD, MAP_OUTFIT,
                     MAP_COTTAGE, MAP_LIGHTHOUSE, MAP_WORLD, SOPPING_GATE,
                     MAP_FITCH, FITCH_DOOR_EVENT,
-                    MAP_WYVERN_UP, WYVERN_STAIRS, WYVERN_STAIRS_FOOT,
-                    WYVERN_UP_LANDING,
+                    MAP_WYVERN_UP, WYVERN_STAIRS, WYVERN_STAIRS_UP,
+                    WYVERN_STAIRS_FOOT, WYVERN_STAIRS_DOWN, WYVERN_UP_LANDING,
                     WORLD_SOPPING_STEP, WORLD_LIGHTHOUSE_STEP)
 
 TOWN_W, TOWN_H = 40, 34
@@ -451,14 +450,14 @@ def sopping_events():
 # ================================================================ interiors ==
 ROOMS = {
     #                w   h  x1  y1  x2  y2  door_x
-    # 37, not 25: MER-3's back room is in the black east (`back_room`).
-    MAP_WYVERN:     (37, 21, 3, 4, 21, 15, 12),
+    # 39, not 25: MER-3's cellar is in the black east.
+    MAP_WYVERN:     (39, 21, 3, 4, 21, 15, 12),
     MAP_GUILD:      (19, 17, 3, 4, 15, 11, 9),
     MAP_OUTFIT:     (17, 16, 3, 4, 13, 10, 8),
     MAP_COTTAGE:    (17, 16, 3, 4, 13, 11, 8),
     MAP_LIGHTHOUSE: (13, 25, 3, 4, 9, 19, 6),
     MAP_FITCH:      (13, 13, 3, 4, 9, 9, 6),
-    MAP_WYVERN_UP:  (25, 17, 3, 4, 21, 12, None),
+    MAP_WYVERN_UP:  (25, 21, 3, 4, 21, 15, None),
 }
 
 
@@ -488,8 +487,8 @@ def finish(map_id, g, name, bgm, battleback, events):
 # ========================================================= the Slain Wyvern ==
 # Who sits where in the Slain Wyvern: (x, y, facing). Mike's note of October
 # 2026 is the rule - a patron who is not meant to be standing is sat on a stool
-# at a table, with whoever they belong with - and the tables below are laid
-# round these. Dorcas is behind her bar, Roland is stood by the fire because
+# at a table, with whoever they belong with - and the tables are laid round
+# these. Dorcas is behind her bar, Roland is stood by the fire because
 # his line says so, Corvin is stood in his corner because his does, and Sops
 # is working. The dinner's eleven are `WYVERN_DINNER`, at the long table.
 WYVERN_SEATS = {
@@ -504,7 +503,7 @@ WYVERN_SEATS = {
     "perpetua": (17, 11, 6),    # at the fire end, where the good chairs are
     "corvin": (21, 15, 4),      # stood in the corner, hood up
     "wren": (15, 14, 6),        # at a table she has covered in jars
-    "roland": (20, 5, 4),       # stood by the fire
+    "roland": (16, 4, 4),       # stood by the fire
     "traveller": (4, 14, 2),    # the two travellers side by side,
     "traveller2": (5, 14, 2),   # holding hands under the table
     "sops": (9, 14, 8),         # working
@@ -531,246 +530,59 @@ def wyvern_map():
     people who have all been on a quest - sat at tables, on stools, with the
     people they came with.
 
-    The tables are `IN_TABLE_TOP`, the A2 autotile the sample's bars are
-    built from, which Mike swapped in for `Table D` in October 2026; that
-    rework also put the clock and the two boards up on the wall where they
-    hang, gave the bookcase its one-wide `Bookshelf A`, took the beds out of
-    the bar, and hung the red curtain over the back room's door."""
-    g = room(MAP_WYVERN, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
-    lx, ly, lw, lh = WYVERN_LONG_TABLE
-    g.fill(lx - 1, ly - 1, lx + lw, ly + lh, 0, K.IN_RED_RUG)  # the long table
-    g.fill(16, 10, 20, 12, 0, K.IN_GREEN_RUG)    # the fire end, which is
-    g.autotile(0)                                 # where the good chairs are
-
-    for x, shelf in ((3, K.IN_SHELF_BOTTLES), (4, K.IN_SHELF_JARS),
-                     (5, K.IN_SHELF_GOODS), (6, K.IN_SHELF_JARS)):
-        # (6 was IN_SHELF_FRUIT - teddy bears and a pink rabbit, at a bar.)
-        g.column(x, 3, 2, shelf)
-
-    # -- along the north wall -----------------------------------------------
-    # The notice boards and the clock hang on the wall's two face rows, as
-    # they do in the sample's bars: one row lower and the notice under the
-    # swords was on the floor. Dorcas's board, at 7, is NORTH.md 3.1's; its
-    # event is on the notice, which the action button reaches from behind
-    # the bar.
-    g.column(7, 2, 2, K.IN_NOTICE_BOARD)
-    g.column(12, 2, 2, K.IN_NOTICE_BOARD)
-    g.column(11, 2, 2, K.IN_LONGCASE_CLOCK)
-    # The whole piano (it was the lid alone).
-    g.blit(8, 3, 2, K.IN_PIANO_WHOLE)
-    g.column(14, 3, 2, K.IN_BOOKSHELF)
-    g.blit(17, 3, 2, K.IN_FIREPLACE)
-    # Where the beds were (Mike took them out: a bed is not a thing a bar
-    # has), the stairs up to where they went (`wyvern_up_map`): the Eight
-    # Hours' flight, on layer 1, from the wall face down to the first row of
-    # floor. A placeholder - Mike is to redraw them. The picture that hung
-    # here is upstairs now, on the landing.
-    for sx in WYVERN_STAIRS:
-        for sy in range(2, WYVERN_STAIRS_FOOT):
-            g.set(sx, sy, 1, STAIRS_UP)
-    # The red curtain at 15-16, over the back room's door, is events
-    # (`q_merribell.curtain_events`), because it is drawn back for the Table.
-
-    tables = []                       # (x, y, w, h) of every table, for the
-                                      # autotile and the overlap check below
-
-    def table(x, y, w=1, h=1, on=()):
-        """A table, and what is on it: `on` is (dx, dy, tile) on layer 3."""
-        for t in tables:
-            tx, ty, tw, th = t
-            if x - 1 <= tx + tw - 1 and tx <= x + w and \
-                    y - 1 <= ty + th - 1 and ty <= y + h:
-                raise ValueError("table at (%d,%d) touches the one at (%d,%d) "
-                                 "and would join it" % (x, y, tx, ty))
-        tables.append((x, y, w, h))
-        g.fill(x, y, x + w - 1, y + h - 1, 1, K.IN_TABLE_TOP)
-        for dx, dy, tile in on:
-            g.set(x + dx, y + dy, 3, tile)
-
-    def stools(*cells):
-        for x, y in cells:
-            g.set(x, y, 2, K.IN_STOOL)
-
-    # -- the bar --------------------------------------------------------------
-    # One run of table, and Dorcas in the gap behind it: the A2 table keeps
-    # the counter flag, so the action button reaches her across it. The east
-    # end is NORTH.md 3.2's register, open on the counter under the board.
-    table(3, 6, 5, 1, on=[(0, 0, K.INC_BOTTLES), (1, 0, K.INC_KEG),
-                          (2, 0, K.INC_GOBLET),
-                          (3, 0, K.INC_PINT),       # Merrow's, carefully
-                          # INC_BOOK2, not INC_BOOK: the sheet's `.txt` calls
-                          # them Closed Book A and Open Book A, and this one is
-                          # described as open with forty entries down the page.
-                          (4, 0, K.INC_BOOK2)])
-    stools((3, 7), (4, 7), (5, 7), (6, 7))
-
-    # -- the west wall: people with paperwork ------------------------------
-    table(10, 6, on=[(0, 0, K.INC_LEDGER)])        # Hosea's, and his book
-    stools((9, 6))
-    table(4, 9, on=[(0, 0, K.INC_LEDGER)])         # Hulda's ledger
-    stools((3, 9))
-    table(6, 9, on=[(0, 0, K.INC_MEDICINE)])       # Ysolde's canvas roll
-    stools((7, 9))
-    table(5, 12, 2, 1, on=[(0, 0, K.INC_ENVELOPE),  # Nabb and Tolly, writing
-                           (1, 0, K.INC_PINTS)])
-    stools((5, 11), (6, 11))
-    table(4, 15, 2, 1, on=[(0, 0, K.INC_MEAL),     # the travellers: beans
-                           (1, 0, K.INC_GOBLET)])
-    stools((4, 14), (5, 14))
-
-    # -- the long table, which is the dinner's ------------------------------
-    # A place laid at every seat, on the side its diner sits on.
-    places = [(dx, 0, K.INC_DINNER_ABOVE) for dx in range(lw)]
-    places += [(dx, 1, K.INC_DINNER_BELOW) for dx in range(lw)]
-    table(lx, ly, lw, lh, on=places)
-    stools(*[(x, y) for x, y, _ in WYVERN_DINNER])
-
-    # -- the fire end ---------------------------------------------------------
-    table(20, 8, on=[(0, 0, K.INC_GOBLET)])        # Dree's, for one
-    stools((21, 8))
-    table(18, 11, 2, 1, on=[(0, 0, K.INC_MEAL), (1, 0, K.INC_BOTTLE)])
-    stools((17, 11), (20, 11))                     # Perpetua, and a spare
-    table(16, 14, 2, 1, on=[(0, 0, K.INC_MEDICINE_ONE),   # Wren's: jars, all
-                            (1, 0, K.INC_BOTTLES)])       # of it, edge to edge
-    g.set(16, 14, 2, K.INC_MEDICINE)
-    g.set(17, 14, 2, K.INC_BOTTLE)
-    stools((15, 14))
-    g.autotile(1, kinds=K.TABLE_KINDS)
-
-    g.set(3, 11, 2, K.IN_BARREL2)
-    g.set(3, 12, 2, K.IN_BARREL)
-    g.set(3, 15, 2, K.IN_CRATE)
-    g.set(13, 15, 2, K.IN_BARREL_WOOD)              # (and one by the stairs
-    g.set(21, 13, 2, K.IN_BARREL_WOOD)              # was in their way)
-    back_room(g)                                                    # MER-3
+    Drawn by hand in the editor and kept by `handdrawn.py`. Mike's, October
+    2026, over two rounds: A2 tables, the clock and the boards up on the wall
+    where they hang, the beds taken out of the bar; then the fire set into
+    the north wall with the goose over it, the red curtain moved east of it
+    over the door to a passage that runs round under the stairs, the stairs
+    up in the north-east corner (`wyvern_up_map` is where they go), and the
+    back room made a cellar, because the street shows none. Behind the
+    door's sprite is the sample's own doorway, `IN_DOOR_OPENING` on layer 3,
+    so the door swings open onto a dark passage and not onto the wall."""
+    w, h = ROOMS[MAP_WYVERN][0], ROOMS[MAP_WYVERN][1]
+    g = K.Canvas(w, h, HD.load(MAP_WYVERN, w, h, K.TS_INSIDE),
+                 tileset=K.TS_INSIDE)
     return finish(MAP_WYVERN, g, "The Slain Wyvern", bgm="Town5",
                   battleback=("Wood1", "Room1"), events=wyvern_events())
 
 
-STAIRS_UP = K.sf_tile("Inside_B", "Stairs A (Up)")
-STAIRS_DOWN = K.sf_tile("Inside_B", "Stairs A (Down)")
-PAINTING = K.sf_block("Inside_B", "Painting")              # 2x1, on the face
-
-
 # ================================================ the Slain Wyvern, upstairs ==
-# Three rooms off a corridor, each walled off the one before it with
-# `mapkit.guest_room` from west to east, so each one's partition is the next
-# one's west wall: the guests' room with four beds (`mapkit.four_beds`, the
-# Safety Valve's layout), Dorcas's own, and a double; then the landing, with
-# the stairs down at the top of it, in the same two columns as the flight up.
-WYVERN_UP_ROOMS = [(3, 6, 5), (8, 11, 9), (13, 16, 14)]   # x1, x2, door_x
-WYVERN_UP_BEDS_Y = (4, 8)                                  # y1, y2 of each
-
-
 def wyvern_up_map():
-    """The Slain Wyvern's upstairs, where the beds Dorcas sells are."""
-    g = room(MAP_WYVERN_UP, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
-    y1, y2 = WYVERN_UP_BEDS_Y
-    for x1, x2, door_x in WYVERN_UP_ROOMS:
-        K.guest_room(g, x1, y1, x2, y2, door_x)
-    (gx1, gx2, gdoor), (dx1, dx2, ddoor), (cx1, cx2, cdoor) = WYVERN_UP_ROOMS
-
-    # The guests': four beds, and a window over the aisle.
-    K.four_beds(g, gx1, y1, gx2, gdoor, nightstand=K.IN_NIGHTSTAND)
-    g.column(gdoor - 1, y1 - 2, 3, K.IN_WINDOW)
-    # Dorcas's: one bed, her cabinet, and the takings in a strongbox.
-    g.column(dx2, y1, 2, K.IN_BED)
-    g.set(dx2 - 1, y1, 2, K.IN_NIGHTSTAND)
-    g.column(dx1, y1 - 1, 2, K.IN_CABINET)
-    g.set(dx1, y2, 2, K.IN_CRATE)
-    # The double: two beds and a nightstand between them.
-    g.column(cx1, y1, 2, K.IN_BED)
-    g.column(cx2, y1, 2, K.IN_BED)
-    g.set(cdoor + 1, y1, 2, K.IN_NIGHTSTAND)
-    g.column(cdoor + 1, y1 - 2, 3, K.IN_WINDOW)
-
-    # The landing: the stairs down, and the picture from the bar's east end.
-    for sx in WYVERN_STAIRS:
-        g.set(sx, WYVERN_UP_LANDING - 1, 1, STAIRS_DOWN)
-    g.set(18, 3, 3, PAINTING[0])
-    g.set(19, 3, 3, PAINTING[1])
-    g.set(21, 12, 3, K.INC_PLANT2)
-    # Windows on the street, in the top row of the bar's three.
-    K.outside_windows(g, (5, 9, 14, 19), ROOMS[MAP_WYVERN_UP][5])
+    """The Slain Wyvern's upstairs, where the beds Dorcas sells are. Drawn by
+    hand in the editor (Mike, October 2026) and kept by `handdrawn.py`: laid
+    out like the bar below it, with three bedrooms along the north wall, a
+    corridor under them to rooms along the street, and the stairs down in a
+    well walled off the landing, in the same two columns as the flight up."""
+    w, h = ROOMS[MAP_WYVERN_UP][0], ROOMS[MAP_WYVERN_UP][1]
+    g = K.Canvas(w, h, HD.load(MAP_WYVERN_UP, w, h, K.TS_INSIDE),
+                 tileset=K.TS_INSIDE)
     return finish(MAP_WYVERN_UP, g, "The Slain Wyvern - Upstairs",
                   bgm="Town5", battleback=("Wood1", "Room1"),
                   events=wyvern_up_events())
 
 
 def wyvern_up_events():
-    """The way down, from either column of the stairs. Both land at the foot
-    of the east one: Roland stands at the foot of the west one, by the fire."""
+    """The way down, from either column of the stairwell, to the foot of the
+    flight in the bar, facing down it."""
     evs = []
     for sx in WYVERN_STAIRS:
         evs.append(R.event(len(evs) + 1, "The Stairs Down", sx,
-                           WYVERN_UP_LANDING - 1, [R.page(
+                           WYVERN_STAIRS_DOWN, [R.page(
             [R.play_se("Move1"),
-             R.transfer(MAP_WYVERN, WYVERN_STAIRS[1], WYVERN_STAIRS_FOOT, 2,
-                        0)],
+             R.transfer(MAP_WYVERN, sx, WYVERN_STAIRS_FOOT, 2, 0)],
             img=R.image(""), trigger=1, priority=0)]))
     return evs
 
 
 def wyvern_stairs_events(first_id):
-    """The Slain Wyvern's way up, on the flight's second step from the top -
-    the top step is the wall's upper face row."""
-    return [R.event(first_id + i, "The Stairs Up", sx, 3, [R.page(
+    """The Slain Wyvern's way up, half way up the flight, to the top of the
+    stairwell upstairs, facing on up."""
+    return [R.event(first_id + i, "The Stairs Up", sx, WYVERN_STAIRS_UP,
+                    [R.page(
         [R.play_se("Move1"),
-         R.transfer(MAP_WYVERN_UP, sx, WYVERN_UP_LANDING, 2, 0)],
+         R.transfer(MAP_WYVERN_UP, sx, WYVERN_UP_LANDING, 8, 0)],
         img=R.image(""), trigger=1, priority=0)])
         for i, sx in enumerate(WYVERN_STAIRS)]
-
-
-BACK_MEDICINE = K.sf_block("Inside_B", "Medicine Shelf")     # 1x2, on its base
-BACK_BOOKS = K.sf_block("Inside_B", "Bookshelf A")           # 1x2, on its base
-BACK_OPEN_BOOK = K.sf_tile("Inside_C", "Open Book A (V)")
-
-
-def back_room(g):
-    """MER-3's back room, where every surviving party medic within forty
-    miles meets once a year to compare the worst thing they have had to
-    improvise with (`COMPANIONS.md`). In the map's black east, Ashcombe's
-    `_room` idiom, in the bar's own wood: one long table, a medicine shelf, a
-    bookshelf, and the Table's minutes open at this year. Nobody else uses it,
-    so it is drawn whether or not the Table is sitting; its door only
-    appears while it is."""
-    x1, y1, x2, y2, door_x = WYVERN_BACK
-    g.fill(x1, y1, x2, y2, 0, K.IN_DARK_WOOD)
-    g.fill(x1 - 1, y1 - 3, x2 + 1, y1 - 3, 0, K.IN_WALL_TOP)
-    g.fill(x1, y1 - 2, x2, y1 - 1, 0, K.IN_WALL_FACE)
-    for y in range(y1 - 2, y2 + 2):
-        g.set(x1 - 1, y, 0, K.IN_WALL_TOP)
-        g.set(x2 + 1, y, 0, K.IN_WALL_TOP)
-    g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, K.IN_WALL_TOP)
-    g.fill(x1 - 1, y2 + 2, x2 + 1, y2 + 3, 0, K.IN_WALL_FACE)  # corners too
-    g.set(door_x, y2 + 1, 0, K.IN_DARK_WOOD)
-    g.set(door_x, y2 + 2, 0, K.a5(91))
-    g.set(door_x, y2 + 3, 0, K.a5(91))
-    # Its faces, shaped: written as `IN_WALL_FACE` they are all shape 0, and
-    # the south face then ran on past both corners with no end to it.
-    face = {R.autotile_kind(K.IN_WALL_FACE)}
-    snap = R.MapGrid(g.width, g.height, list(g.data))
-    snap.autotile(0, kinds=face)
-    for y in range(y1 - 3, y2 + 4):
-        for x in range(x1 - 1, x2 + 2):
-            if R.autotile_kind(g.get(x, y, 0)) in face:
-                g.set(x, y, 0, snap.get(x, y, 0))
-
-    tx1, ty, tx2 = WYVERN_BACK_TABLE
-    g.fill(tx1, ty, tx2, ty, 1, K.IN_TABLE_TOP)
-    g.autotile(1, kinds=K.TABLE_KINDS)
-    # Ysolde's chair at the west end and the four either side
-    # (`q_merribell._MER3_SEATS`), and one spare at the far end.
-    for x, y in [(tx1 - 1, ty), (tx1 + 1, ty - 1), (tx1 + 3, ty - 1),
-                 (tx1 + 1, ty + 1), (tx1 + 3, ty + 1), (tx2 + 1, ty)]:
-        g.set(x, y, 2, K.IN_STOOL)
-    g.set(tx1, ty, 3, K.INC_GOBLET)
-    g.set(tx1 + 2, ty, 3, BACK_OPEN_BOOK)
-    g.set(tx2, ty, 3, K.INC_BOTTLES)
-    g.column(x1 + 1, y1 - 1, 2, BACK_MEDICINE)
-    g.column(x2 - 1, y1 - 1, 2, BACK_BOOKS)
-    g.set(x1, y2, 3, K.INC_PLANT2)
-    g.set(x2, y2, 3, K.INC_PLANT2)
 
 
 def wyvern_events():
@@ -964,7 +776,7 @@ def wyvern_events():
     evs.append(roland_event(13, 0, 0))
 
     # -- the wyvern ------------------------------------------------------------
-    evs.append(the_wyvern(14, 18, 4))
+    evs.append(the_wyvern(14, 14, 3))         # over the fire
 
     # -- two very ordinary travellers -----------------------------------------
     trav = S.say("Traveller", [
@@ -1109,16 +921,16 @@ def wyvern_events():
     board = dorcas_board(19, 7, 3)      # on the notice, on the wall
     board["pages"] += q_roland.board_pages(board["pages"][-1])   # ROL-3
     evs.append(board)
-    evs.append(the_register(20, 7, 6))
+    evs.append(the_register(20, 4, 6))
 
-    evs.append(S.prop(18, "The Wyvern's Plaque", 17, 4, [
+    evs.append(S.prop(18, "The Wyvern's Plaque", 13, 3, [
         "A brass plaque under the mounted wyvern:",
         "'SLAIN BY H. VANCE, CHOSEN ONE #41,",
         "IN THE MARSHES, AFTER A LONG STRUGGLE.'",
         "Somebody has polished it recently."],
         "", 0, extra=[S.trope()]))
     # WRE-2: the other side of the fire. No page until it is put up.
-    evs.append(q_wren.second_plaque(21, 19, 4))
+    evs.append(q_wren.second_plaque(21, 15, 3))
     evs += q_roland.alumni_events(22)       # ROL-3: the dinner, while it is on
     evs += q_merribell.back_room_events(33)  # MER-3: the Table, once a year
     evs += q_merribell.curtain_events(evs[-1]["id"] + 1)   # and its curtain
@@ -2178,8 +1990,8 @@ def outfit_map():
         g.column(x, 3, 2, K.IN_SHELF_GOODS)
     g.column(6, 3, 2, K.IN_SHELF_JARS)
     g.column(10, 2, 2, K.IN_SWORD_RACK)       # on the wall, where it hangs
-    for x in (11, 12, 13):
-        g.column(x, 3, 2, K.IN_SHELF_BOTTLES)
+    g.column(11, 3, 2, K.IN_SHELF_JARS)
+    K.wide(g, 12, 3, 2, K.IN_SUNDRIES_CABINET)    # whole, not three halves
     g.scatter([(3, 9), (4, 9), (13, 9)], 2, K.IN_CRATE2)
     g.scatter([(3, 7), (12, 8)], 2, K.IN_BARREL2)
     g.set(4, 6, 2, K.IN_TABLE_WOOD)
@@ -2465,7 +2277,7 @@ def lighthouse_map():
              wall_top=K.IN_WALL_TOP_STONE, wall_face=K.IN_WALL_FACE_STONE)
     g.fill(5, 4, 7, 6, 0, K.IN_DIAMOND_TILE)      # the lamp floor at the top
     g.autotile(0)
-    g.column(3, 3, 2, K.IN_SHELF_BOTTLES)
+    K.wide(g, 3, 3, 2, K.IN_SUNDRIES_CABINET)     # the keeper's sundries
     g.column(9, 3, 2, K.IN_CABINET)
     g.column(3, 16, 2, K.IN_BED_BROWN)
     g.column(9, 16, 2, K.IN_BOOKSHELF)        # was half of `Bookshelf B`

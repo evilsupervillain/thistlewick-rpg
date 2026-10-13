@@ -141,6 +141,7 @@ dresser is `Closet / Sundries Shelf A`.
 | `IN_GREEN_RUG` | A2 k27 | Rug B (Oriental Green) |
 | `IN_BLUE_RUG` | A2 k34 | Rug C (Oriental Blue) |
 | `IN_RED_RUG` | A2 k42 | Rug E (Oriental Red) |
+| `IN_DOOR_OPENING` | B 17 | Entrance A (Extend) |
 | `IN_WALL_TOP` | A4 k98 | Wall J (Wood) |
 | `IN_WALL_FACE` | A4 k104 | Wall H (Wood) |
 | `IN_WALL_TOP_PLANK` | A4 k97 | Wall I (Log) |
@@ -167,6 +168,9 @@ dresser is `Closet / Sundries Shelf A`.
 | `IN_SHELF_JARS` | B 153, B 161 | Sundries Shelf A |
 | `IN_SHELF_BOTTLES` | B 155, B 163 | Sundries Shelf B |
 | `IN_SHELF_FRUIT` | B 154, B 162 | Sundries Shelf A |
+| `IN_SUNDRIES_CABINET` | B 154, B 162, B 155, B 163 | Sundries Shelf A / Sundries Shelf B |
+| `IN_BOTTLE_CABINET` | B 142, B 150, B 143, B 151 | Bottle Shelf A / Bottle Shelf B |
+| `WIDE_PIECES` | B 154, B 162, B 155, B 163, B 142, B 150, B 143, B 151 | Sundries Shelf A / Sundries Shelf B / Bottle Shelf A / Bottle Shelf B |
 | `IN_SHELF_GOODS` | B 152, B 160 | Bread Shelf |
 | `IN_CABINET` | B 144, B 152 | Chest B / Bread Shelf |
 | `IN_DRESSER` | B 146, B 154 | Closet / Sundries Shelf A |
@@ -452,3 +456,10 @@ dresser is `Closet / Sundries Shelf A`.
 | `SF_FLOOR_MARBLE` | A5 96 | Marble Floor |
 | `SF_FLOOR_LINO` | A5 97 | Interior Floor G (Linoleum) |
 | `SF_THRESHOLD` | A5 47 | Stairs B (Metal) |
+
+## drawing  (tileset 6)
+
+| constant | tiles | what the sheet calls it |
+| --- | --- | --- |
+| `IN_FLIGHT` | A5 88, A5 90 | Neon Floor / Interior Floor F (Tile Carpet, Ruins) |
+| `IN_STEP` | A5 91 | Ledge (Demonic Ground) |
