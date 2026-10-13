@@ -562,7 +562,8 @@ in before the ending, in this order. One step per session, as before.
   the push**, in that order. The re-cuts come last because P4 adds tropes.
 
 **G0. The quest log** (added 7 Oct 2026). Install the workspace's generic
-quest-log plugin (`../QUESTLOG.md`) once its milestones Q0-Q6 are done. It goes
+quest-log plugin (`../QUESTLOG.md`); its milestones Q0-Q7 are done (13 Oct
+2026), so this step can start whenever its turn comes. It goes
 **before G1** so that G1's one full suite and Mike's playtest cover it too;
 putting it after the release would mean a second suite, a second playtest and
 a second push. The plugin is generic. Everything below is this game's side of
@@ -607,7 +608,11 @@ it, and none of it belongs in `tools/questlog/`.
   either. `SW_FF_SHEEP_ASKED` moves up to just before the narration, so the
   quest really is in the log when the line says so. If the plugin only
   shows a banner when the screen is idle, the timing is adjusted so the
-  banner and the line agree.
+  banner and the line agree. (It does: a banner waits for the message to
+  close and the event to end, so it appears after Dilys's conversation.
+  `QuestLog.status()` is live, though, so the quest *is* in the log the
+  moment the switch is set - the line is true when it is said, and the
+  banner follows it.)
 * **Two Firstfield quests**: the sheep (which are pigs), started on
   `SW_FF_SHEEP_ASKED` and done on `SW_FF_SHEEP_DONE`; and **"We haven't got
   a quest log."**, started and done on `SW_FF_SHEEP_ASKED`, so it arrives
@@ -4438,7 +4443,10 @@ tally, with "What was it like?" on `SW_GRIMSPITE_TEA`; and Hollowell's notice.
 Read `POSTGAME.md` 6 and 8 once. P4b left two notes for it: the tally's ROL-5
 line is wrong for `SW_ROL5_LATE` (Maud told after the ending), and Quy lives
 next door to Fitch's cottage. Then P4d-P4e, the Mountain. G0, the quest log,
-follows its plugin (`../QUESTLOG.md` Q0-Q7). Last come G1's counter re-cuts,
+follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct); its
+first act is `python3 ../tools/apidigest.py . --write`, because the plugin
+work added `rmmzdata.read_plugins`/`write_plugins`/`upsert_plugin` and left
+`build/API.md` stale. Last come G1's counter re-cuts,
 the one full suite, Mike's playthrough, and the push. Still open for Mike, and
 not part of P4 unless he says so: three P4a tally lines are new wording (WRE-5,
 SPA-4, MER-2); every buff and debuff in `db.py` puts its turns in value2 and
