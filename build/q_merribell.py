@@ -1219,9 +1219,12 @@ _MER3_ROUND = [
         "A tourniquet, out of a paladin's",
         "sash. He minded about the sash."]),
 ]
+_TX, _TY = WYVERN_BACK_TABLE[0], WYVERN_BACK_TABLE[1]
 _MER3_SEATS = [         # where the four sit, and which way they face
-    ("Mother Grizel", (31, 7), 2), ("Dr Hobday", (33, 7), 2),
-    ("Nan Gilly", (31, 9), 8), ("Mr Spence", (33, 9), 8)]
+    ("Mother Grizel", (_TX + 1, _TY - 1), 2),
+    ("Dr Hobday", (_TX + 3, _TY - 1), 2),
+    ("Nan Gilly", (_TX + 1, _TY + 1), 8),
+    ("Mr Spence", (_TX + 3, _TY + 1), 8)]
 _MER3_ASIDES = {        # what each says if spoken to while the Table sits
     "Mother Grizel": ["Eighty-one. Seven parties. The",
                       "candlestick's on my mantelpiece."],

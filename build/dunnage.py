@@ -815,7 +815,7 @@ def smiths_events():
 COUNTING_ROOM = (3, 5, 14, 9, 8)
 # At least a screen in each direction: a map smaller than the screen is drawn
 # wrapped, and its own south wall turns up again along the top.
-CW, CH = 30, 14                 # 18 until NIX-2's room went in the black east
+CW, CH = 34, 14                 # 18 until NIX-2's room went in the black east
 THE_DOOR = (8, 4)               # `!$Gate2`, 3x2, drawn up over the wall face
 MAYOR = (7, 6)
 MEMORANDUM = (4, 4)

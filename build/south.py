@@ -349,12 +349,13 @@ def sopping_events():
 # ================================================================ interiors ==
 ROOMS = {
     #                w   h  x1  y1  x2  y2  door_x
-    # 39, not 25: MER-3's cellar is in the black east.
-    MAP_WYVERN:     (39, 21, 3, 4, 21, 15, 12),
+    # 44, not 25: MER-3's cellar is in the black east, far enough out that
+    # neither it nor the bar can be seen from the other.
+    MAP_WYVERN:     (44, 21, 3, 4, 21, 15, 12),
     MAP_GUILD:      (19, 17, 3, 4, 15, 11, 9),
     MAP_OUTFIT:     (17, 16, 3, 4, 13, 10, 8),
     MAP_COTTAGE:    (17, 16, 3, 4, 13, 11, 8),
-    MAP_LIGHTHOUSE: (130, 25, 3, 2, 13, 14, 8),     # frozen; see LIGHTHOUSE_*
+    MAP_LIGHTHOUSE: (148, 25, 3, 2, 13, 14, 8),     # frozen; see LIGHTHOUSE_*
     MAP_FITCH:      (13, 13, 3, 4, 9, 9, 6),
     MAP_WYVERN_UP:  (25, 21, 3, 4, 21, 15, None),
 }
@@ -2172,7 +2173,8 @@ def quy_event(event_id, x, y):
 # six floors laid side by side across one wide map, black between them, from
 # the keeper's room at the west end to the lamp on the roof at the east, which
 # is drawn transparent over the `Ocean` parallax so the sky shows round it.
-# Each floor is (west edge of its stairs, the flight it arrives by, the flight
+# The black between floors is wide enough that none shows from the edge of
+# the next (`handdrawn.widen`; the map was 130 wide as drawn). Each floor is (west edge of its stairs, the flight it arrives by, the flight
 # it leaves by); a flight is (top tread, bottom tread) in its one column. The
 # ground floor only goes up and the roof only comes down.
 LIGHTHOUSE_DOOR = (8, 15)               # the step inside the door
@@ -2180,11 +2182,11 @@ LIGHTHOUSE_ARRIVE = (8, 14)             # one in from it, facing up
 LIGHTHOUSE_FLOORS = [
     # x   down flight  up flight
     (4,   None,        (7, 9)),         # the keeper's room
-    (22,  (5, 6),      (9, 10)),        # the stores
-    (37,  (5, 6),      (9, 10)),        # the bedroom
-    (52,  (5, 6),      (9, 10)),        # the books
-    (67,  (5, 6),      (9, 10)),        # the log room
-    (111, (5, 6),      None),           # the lamp
+    (25,  (5, 6),      (9, 10)),        # the stores
+    (45,  (5, 6),      (9, 10)),        # the bedroom
+    (65,  (5, 6),      (9, 10)),        # the books
+    (85,  (5, 6),      (9, 10)),        # the log room
+    (129, (5, 6),      None),           # the lamp
 ]
 
 
@@ -2229,10 +2231,10 @@ def lighthouse_events():
     evs = [S.exit_tile(1, "Lighthouse Door", *LIGHTHOUSE_DOOR,
                        MAP_WORLD, *WORLD_LIGHTHOUSE_STEP)]
     evs.append(bother_event(2, 8, 12))          # below the bar's last stool
-    evs.append(the_lamp(3, 115, 7))             # the stove on the lamp floor
+    evs.append(the_lamp(3, 133, 7))             # the stove on the lamp floor
 
     # On the book, on the desk in the log room at the top of the stairs.
-    evs.append(S.prop(4, "The Ships Book", 73, 4, [
+    evs.append(S.prop(4, "The Ships Book", 91, 4, [
         "A ledger of every ship that has passed the",
         "point. The last entry is ninety-one years old.",
         "Under it, in the same hand, again and again",

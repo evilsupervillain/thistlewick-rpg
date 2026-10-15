@@ -74,11 +74,7 @@
   },
   {
    "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
-   "expect": [
-    14,
-    36,
-    6
-   ],
+   "expect": [14, 41, 6],
    "label": "THE POINT: through into the back room"
   },
   {
@@ -211,10 +207,7 @@
   },
   {
    "check": "[$gamePlayer.x, $gamePlayer.y]",
-   "expect": [
-    36,
-    6
-   ],
+   "expect": [41, 6],
    "label": "in again, with her"
   },
   {
@@ -397,10 +390,7 @@
   },
   {
    "check": "[$gamePlayer.x, $gamePlayer.y]",
-   "expect": [
-    36,
-    6
-   ],
+   "expect": [41, 6],
    "label": "an empty room, anybody may go in"
   },
   {

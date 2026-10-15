@@ -260,11 +260,18 @@ in each of the four states.
                      lamps on their feet (`mapkit.LAMP` is three cells), no
                      `Waterfall D (Boulder)` scattered as "reeds", and caves
                      with ragged rooms and dark beyond the rock
-                     (`mapkit.naturalise_cave`). To change one: edit in the editor, `python3
+                     (`mapkit.naturalise_cave`). Rooms that share a map
+                     (floors side by side, a back room in the black) are far
+                     enough apart that none shows from the edge of another -
+                     a 17x13 screen, so about ten columns of black; Maps 3,
+                     14, 18, 41, 53 and 63 were widened for it.
+                     To change one: edit in the editor, `python3
                      build/handdrawn.py freeze <id>`, rebuild - a rebuild
-                     without the freeze throws the edit away. The build's
-                     post-passes skip frozen maps. `handdrawn.py check` says
-                     whether data still matches
+                     without the freeze throws the edit away. `widen <id> <x>
+                     <n>` inserts n black columns at x in a frozen file; move
+                     the builder's width and the events east of x to match.
+                     The build's post-passes skip frozen maps.
+                     `handdrawn.py check` says whether data still matches
       darkwood.py    the Gloamwood's dark-forest style as a kit - `Forest A`
                      as a wall, trunks along every north edge, undergrowth,
                      dressed trunks - drawn from a character plan. Map 10,

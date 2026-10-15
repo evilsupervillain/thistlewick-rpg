@@ -377,13 +377,15 @@ def ashcombe_events():
 
 
 # ================================================================== indoors ==
-# One map, two rooms in the black: Mrs Ash's kitchen to the west and the
-# Drainage Museum to the east. The map shows no name on arrival, because it is
-# two places.
-IW, IH = 36, 13                     # 26 until COR-1's study, in the east
+# One map, three rooms in the black: Mrs Ash's kitchen to the west, the
+# Drainage Museum, and COR-1's study to the east. The map shows no name on
+# arrival, because it is more than one place. Each room is ten columns of
+# black from the next, so none can be seen from the edge of another (Mike,
+# October 2026).
+IW, IH = 50, 13                     # 26 until COR-1's study, then 36
 #            x1  y1  x2  y2  door_x
 KITCHEN = (2, 4, 9, 8, 5)
-MUSEUM_ROOM = (14, 4, 23, 8, 18)
+MUSEUM_ROOM = (21, 4, 30, 8, 25)
 
 OVEN = K.sf_tile("Inside_B", "Oven")
 SINK = K.sf_tile("Inside_B", "Sink")
@@ -406,13 +408,13 @@ OLD_DRAIN = K.sf_tile("Inside_B", "Stone Tablet")
 DRESSER_X = 9
 MRS_ASH = (7, 7)
 KITCHEN_TABLE = (5, 7)              # two cells of `Table D`
-PAINTING_AT = (15, 3)               # two cells, on the wall face
-ROLL_X, MENUS_X = 19, 21
-PLAN_AT = (16, 6)                   # two cells of `Table D`, the plan on them
-PLINTH_AT = (21, 6)
-OLD_DRAIN_AT = (19, 5)
+PAINTING_AT = (22, 3)               # two cells, on the wall face
+ROLL_X, MENUS_X = 26, 28
+PLAN_AT = (23, 6)                   # two cells of `Table D`, the plan on them
+PLINTH_AT = (28, 6)
+OLD_DRAIN_AT = (26, 5)
 BASKET_AT = (8, 8)
-WEIR = (19, 7)
+WEIR = (26, 7)
 
 
 def _room(g, x1, y1, x2, y2, door_x, floor, top, face):
@@ -476,7 +478,7 @@ def indoors_map():
 
     # Rugs. Layer 1 is floor art.
     g.fill(4, 6, 7, 8, 1, K.IN_GREEN_RUG)
-    g.fill(16, 7, 21, 8, 1, K.IN_RED_CARPET)
+    g.fill(23, 7, 28, 8, 1, K.IN_RED_CARPET)
     g.autotile(1)
 
     # -- the kitchen: all new. The range, the sink and the counters along

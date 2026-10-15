@@ -503,8 +503,9 @@ def aldric_event(event_id, x, y):
 ROOMS = {
     #          w   h  x1  y1  x2  y2  door_x
     MAP_HOME:   (17, 15, 3, 4, 13, 10, 8),
-    # 31, not 21: PIP-5's archive is a room in the black east of the hall.
-    MAP_HALL:   (31, 18, 3, 4, 17, 13, 10),
+    # 37, not 21: PIP-5's archive is a room in the black east of the hall,
+    # far enough out that neither room can be seen from the other.
+    MAP_HALL:   (37, 18, 3, 4, 17, 13, 10),
     MAP_INN:    (19, 16, 3, 4, 15, 11, 9),
     MAP_CHAPEL: (19, 18, 3, 4, 15, 13, 9),
     MAP_SMITHY: (17, 15, 3, 4, 13, 10, 8),
@@ -869,13 +870,14 @@ MINUTE_BOOK = (14, 12)
 # PIP-5's archive: a room in the black east of Prophecy Hall, reached only
 # through the door behind the green curtain - its lower cell, which is on
 # the wall's lower face row since the window was hung where windows hang
-# (October 2026); you face it from the floor below. One wall's thickness of
-# black between the archive and the hall.
+# (October 2026); you face it from the floor below. Ten columns of black
+# between the archive and the hall, so that from the edge of either the
+# other is off the screen (Mike, October 2026).
 CURTAIN = (16, 3)
-ARCHIVE = (23, 5, 27, 8, 25)                # x1, y1, x2, y2, door_x
-ARCHIVE_IN = (25, 8)
-ARCHIVE_DOOR = (25, 9)
-ARCHIVE_BOX = (25, 5)
+ARCHIVE = (29, 5, 33, 8, 31)                # x1, y1, x2, y2, door_x
+ARCHIVE_IN = (31, 8)
+ARCHIVE_DOOR = (31, 9)
+ARCHIVE_BOX = (31, 5)
 # PIP-1: Ambrosine Quill, at the Committee's paperwork by the door.
 AMBROSINE = (7, 12)
 

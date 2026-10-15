@@ -2,6 +2,7 @@
 
     python3 build/handdrawn.py freeze 9        data/Map009.json -> build/handdrawn/Map009.json
     python3 build/handdrawn.py check           every frozen map still matches its data file
+    python3 build/handdrawn.py widen 18 16 3   three more columns of black at x 16
 
 The build writes `data/*.json`, so anything painted in the editor is gone the
 next time it runs. A map that is better drawn than generated - the Gloamwood,
@@ -16,6 +17,12 @@ editor session that moves a wall leaves the old regions behind it.
 
 To change a frozen map: edit it in the editor, `freeze` it, rebuild. The file
 is one row per line so the diff of an edit is the rows it touched.
+
+`widen` is the one change made to a frozen file outside the editor: it copies
+an all-black column in place to push everything east of it further east, so
+two rooms drawn side by side on one map are far enough apart that neither
+shows from the edge of the other. The builder's width and every event east
+of the column move by the same amount, by hand.
 """
 import json
 import os
@@ -68,17 +75,40 @@ def freeze(map_id):
     d = m["data"]
     layers = [[d[(z * h + y) * w:(z * h + y + 1) * w] for y in range(h)]
               for z in range(LAYERS)]
+    _write(map_id, w, h, m["tilesetId"], layers)
+    print("froze Map%03d (%dx%d) into %s" % (map_id, w, h,
+                                              os.path.relpath(path(map_id))))
+
+
+def widen(map_id, x, count):
+    """Insert `count` copies of column `x` of a frozen map at `x`. The column
+    has to be the same tile all the way down on every layer - black between
+    two rooms - or this refuses, because copying a column through a room
+    would stretch the room."""
+    with open(path(map_id)) as f:
+        frozen = json.load(f)
+    w, h = frozen["width"], frozen["height"]
+    for z, layer in enumerate(frozen["layers"]):
+        if len({row[x] for row in layer}) != 1:
+            raise ValueError("Map%03d column %d is not uniform on layer %d"
+                             % (map_id, x, z))
+    layers = [[row[:x] + [row[x]] * count + row[x:] for row in layer]
+              for layer in frozen["layers"]]
+    _write(map_id, w + count, h, frozen["tilesetId"], layers)
+    print("widened Map%03d at x %d by %d: %dx%d" % (map_id, x, count,
+                                                    w + count, h))
+
+
+def _write(map_id, w, h, tileset, layers):
     os.makedirs(FROZEN, exist_ok=True)
     with open(path(map_id), "w") as f:
         f.write('{"width": %d, "height": %d, "tilesetId": %d,\n'
-                % (w, h, m["tilesetId"]))
+                % (w, h, tileset))
         f.write(' "layers": [\n')
         f.write(",\n".join(
             "  [\n" + ",\n".join("   " + json.dumps(r) for r in layer) + "\n  ]"
             for layer in layers))
         f.write("\n ]}\n")
-    print("froze Map%03d (%dx%d) into %s" % (map_id, w, h,
-                                              os.path.relpath(path(map_id))))
 
 
 def check():
@@ -102,6 +132,8 @@ if __name__ == "__main__":
     R.use_project(os.path.join(HERE, ".."))
     if sys.argv[1:2] == ["freeze"] and len(sys.argv) == 3:
         freeze(int(sys.argv[2]))
+    elif sys.argv[1:2] == ["widen"] and len(sys.argv) == 5:
+        widen(*map(int, sys.argv[2:]))
     elif sys.argv[1:] == ["check"]:
         sys.exit(1 if check() else 0)
     else:

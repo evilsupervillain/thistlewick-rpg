@@ -96,22 +96,24 @@ WELL = (9, 14)
 FLOWERPOT = (10, 14)
 
 # --------------------------------------------------------- the mayor's room ---
-MW, MH = 26, 13
+# 33 wide, not 26: ten columns of black between the office and the cellar,
+# so neither shows from the edge of the other (Mike, October 2026).
+MW, MH = 33, 13
 #            x1  y1  x2  y2  door_x
 OFFICE = (3, 4, 12, 8, 7)
 PASSAGE_X = 9                   # the bookcase that is a door
 DESK = (5, 6)                   # Table A, two cells
 MAP_AT = (6, 2)                 # the World Map on the wall, two cells
 #        x1  y1  x2  y2
-BACK = (17, 4, 21, 6)
+BACK = (24, 4, 28, 6)
 # The steps up out of the back room go through its north wall in the east
 # corner, one step wide, the way Mike drew the Slain Wyvern's cellar stairs
 # (`mapkit.stairs_up`): the way up is the top step, and you arrive at the foot.
-BACK_ARRIVE = (21, 6)
-STAIRS = (21, 4)
-LEDGER = (17, 4)
-SACK = (18, 4)
-CAP = (17, 6)
+BACK_ARRIVE = (28, 6)
+STAIRS = (28, 4)
+LEDGER = (24, 4)
+SACK = (25, 4)
+CAP = (24, 6)
 
 # Event ids on the mayor's map, which the street's Toby reads back.
 LEDGER_EVENT = 4

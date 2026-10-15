@@ -170,11 +170,7 @@
   },
   {
    "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
-   "expect": [
-    63,
-    24,
-    7
-   ],
+   "expect": [63, 28, 7],
    "label": "through it"
   },
   {

@@ -339,23 +339,26 @@ UNDERSTUDY_DOOR = (65, 43)
 
 # NIX-2's room behind the Door (`../QUESTS.md` B6): drawn by `dunnage.py` in
 # the black east of Map 63, which was widened for it from 18 to 30 columns -
-# the lobby is tile for tile what it was - and furnished by `q_nix.py`. The
+# the lobby is tile for tile what it was - then to 34, so that neither room
+# can be seen from the edge of the other - and furnished by `q_nix.py`. The
 # Door is at (8, 4) and the lobby's square in front of it is (8, 5).
 #           x1 y1  x2  y2 door_x
-VAULT = (23, 5, 25, 7, 24)
-VAULT_CHAIR = (24, 5)           # Chair A (Wood), 1x2: back, then the seat
+VAULT = (27, 5, 29, 7, 28)
+VAULT_CHAIR = (28, 5)           # Chair A (Wood), 1x2: back, then the seat
 COUNTING_BEFORE_DOOR = (8, 5)
 
 # COR-1's study (`../QUESTS.md` D1), Corvin's old bedroom: drawn by
 # `ashcombe.py` in the black east of Map 53, which was widened for it from 26
-# to 36 columns - the kitchen and the museum are tile for tile what they were.
+# to 36 columns - the kitchen and the museum are tile for tile what they were
+# - and then to 50, with the museum and the study moved east, so that no room
+# can be seen from the edge of another.
 # Its door is an event in the kitchen's north wall, up from (6, 4), and its
 # way out is the foot of its stairs; both are `q_corvin.py`'s.
 #           x1 y1  x2  y2 door_x
-STUDY = (28, 4, 33, 8, 30)
+STUDY = (42, 4, 47, 8, 44)
 STUDY_DOOR = (6, 3)             # on the kitchen's north wall face
-STUDY_DESK = (31, 6)            # Table A, two cells, the committee's papers
-STUDY_MARKS = (30, 3)           # the height marks, on the north wall face
+STUDY_DESK = (45, 6)            # Table A, two cells, the committee's papers
+STUDY_MARKS = (44, 3)           # the height marks, on the north wall face
 
 # COR-2's drowned street (`../QUESTS.md` D2): old Ashcombe, under the lake,
 # for the week it is let down. A map in no place, drawn by `q_corvin.py`.
@@ -382,14 +385,16 @@ SNUG_CARD = (4, 8)
 # where the Healers' Table meets once a year. Mike made it a cellar in October
 # 2026 - the street shows no back room - so its door, behind the red curtain,
 # is the top of a passage that goes round under the main stairs, and the way
-# in is down the cellar's own flight in its north-east corner. The map is
+# in is down the cellar's own flight in its north-east corner. Ten columns
+# of black between it and the bar, so neither shows from the edge of the
+# other (Mike, October 2026; the map was 39 wide, now 44). The map is
 # hand-drawn (`handdrawn.py`); its events are `q_merribell.py`'s. The curtain
 # is drawn back only for the Table.
 WYVERN_BACK_DOOR = (18, 5)              # the curtain's east column, at the foot
 WYVERN_CURTAIN = (17, 4)                # its top-left; two wide, two tall
-WYVERN_BACK_ARRIVAL = (36, 6, 2)        # the foot of the cellar stairs, facing
-WYVERN_BACK_EXIT = (36, 4)              # down; and the way back up them
-WYVERN_BACK_TABLE = (30, 8, 34)         # the long table, x 30 to 34, row 8
+WYVERN_BACK_ARRIVAL = (41, 6, 2)        # the foot of the cellar stairs, facing
+WYVERN_BACK_EXIT = (41, 4)              # down; and the way back up them
+WYVERN_BACK_TABLE = (35, 8, 39)         # the long table, x 35 to 39, row 8
 # The Slain Wyvern's long table, on the red rug, and the twelve stools round
 # it: ROL-3's eleven sit at it while the dinner is on (`q_roland.ALUMNI`), and
 # nobody does otherwise. (x, y, facing), top row facing down at the table,

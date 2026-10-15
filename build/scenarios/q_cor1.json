@@ -1,5 +1,5 @@
 {
- "query": "?map=53&x=19&y=5&frames=90",
+ "query": "?map=53&x=26&y=5&frames=90",
  "comment": "QUESTS.md D1, COR-1 Ashcombe (New). The Roll with Corvin: the published page, then his own name on it ('...Today, then.'). Her door: he knocks, and goes in. Home: the tea, and one trope (going home). The study up a flight: the committee's desk and eleven unposted invitations, the height marks. The Flood Dinner's notice: 'Not yet', then confirmed, the speech (it goes well) and the scarf, the wrong colour, armour 44, his alone. Afterwards for everybody.",
  "steps": [
   {
@@ -51,11 +51,7 @@
   },
   {
    "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
-   "expect": [
-    19,
-    4,
-    8
-   ],
+   "expect": [26, 4, 8],
    "label": "under the Roll, facing it"
   },
   {
@@ -288,10 +284,7 @@
   },
   {
    "check": "[$gamePlayer.x, $gamePlayer.y]",
-   "expect": [
-    30,
-    8
-   ],
+   "expect": [44, 8],
    "label": "up in the study"
   },
   {
@@ -315,11 +308,7 @@
   },
   {
    "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
-   "expect": [
-    31,
-    7,
-    8
-   ],
+   "expect": [45, 7, 8],
    "label": "below the desk, facing it"
   },
   {
@@ -362,11 +351,7 @@
   },
   {
    "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
-   "expect": [
-    30,
-    4,
-    8
-   ],
+   "expect": [44, 4, 8],
    "label": "below the height marks"
   },
   {
