@@ -28,6 +28,7 @@ import os
 import sys
 
 import db
+import mapkit as K
 import places
 import rmmzdata as R
 import story as S
@@ -619,7 +620,12 @@ def fitch_door(ev, arrive):
         "turns, after some thought."])
     first += [R.control_switch(db.SW_COTTAGE_SEEN, True)]
     go = R.if_then(R.condition_switch(db.SW_COTTAGE_SEEN, False), first)
-    go += [R.play_se("Open1"), R.play_se("Move1"),
+    # The shut page is direction-fixed, being a sign, and the door's opening
+    # is a turn through its four rows, so the fix comes off first.
+    go += [R.play_se("Open1")]
+    go += R.move_route(0, [{"code": 36}] + K.door_animation(), repeat=False,
+                       wait_flag=True)
+    go += [R.play_se("Move1"),
            R.transfer(places.MAP_FITCH, *arrive, 8, 0)]
     owed = [(1, "!$gameSelfSwitches.value([this._mapId, this._eventId,"
                 " 'A'])")]

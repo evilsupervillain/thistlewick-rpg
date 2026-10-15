@@ -26,6 +26,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 import story as S
@@ -928,136 +929,26 @@ def build():
 #
 # Still aboard is the thing they meant to drop on the tower. On the works
 # inventory since 1802 it is ITEM 1, and nobody has ever ticked it off.
-CRAG_W, CRAG_H = 27, 26
-CRAG_IN = (13, 22)              # inside the rent in her flank
-CRAG_OUT = (13, 23)
-
-CRAG_ROOMS = [(10, 3, 16, 7),        # the control car, in the bow
-              (12, 8, 14, 20),       # the keel corridor, her whole length
-              (3, 9, 9, 14),         # the gas cell space, and the hold
-              (17, 9, 23, 14),       # the engine room
-              (3, 16, 9, 20),        # the crew's quarters
-              (17, 16, 23, 20),      # the mess
-              (11, 21, 15, 23)]      # the rent, which is the way in
-CRAG_DOORS = [(10, 11, 11, 11), (15, 11, 16, 11),
-              (10, 18, 11, 18), (15, 18, 16, 18)]
+CRAG_W, CRAG_H = 27, 28
+CRAG_IN = (13, 23)              # inside the rent in her flank
+CRAG_OUT = (13, 24)
 
 
 def crag_map():
-    g = K.Canvas(CRAG_W, CRAG_H, tileset=K.TS_CLANGING_IN)
-    # Wall G (Barracks): its top is grey **corrugated** sheet, which is what
-    # an airship hull looks like from directly above and is the whole reason
-    # the map reads as being inside something.
-    #
-    # Two others were drawn and looked at first, and on a carved map the wall
-    # *top* is not trim - it is the two thirds of the screen that is not room,
-    # so it is the single biggest decision on the map. Wall D is called Metal
-    # and its top is a green-grey mould: the hull came out as a flooded
-    # cellar. Wall E (Metal, Red Rust) has the grey plate top `north.py`
-    # recommends, and at hull scale the plate reads as a wall of lockers.
-    g.fill(0, 0, CRAG_W - 1, CRAG_H - 1, 0, K.SF_IN_WALL_BARRACKS)
-    for x1, y1, x2, y2 in CRAG_ROOMS + CRAG_DOORS:
-        g.fill(x1, y1, x2, y2, 0, K.SF_METAL_FLOOR)
-    # Treadplate, not `SF_GRID_FLOOR`. "Walkable grating" sounds like the
-    # right floor for a keel and draws as a green-edged cage grid that is the
-    # loudest thing on the map.
-    #
-    # The control car is the one part of her with a floor anybody sat on.
-    g.fill(11, 4, 15, 6, 0, K.SF_FLOOR_WOOD)
-    g.dungeon_walls(K.SF_IN_WALL_BARRACKS, K.SF_IN_FACE_BARRACKS)
-    g.autotile(0)
+    """The wreck, inside. Drawn by hand in the editor and kept by
+    `handdrawn.py` (Mike, October 2026), from the generated hull: the wall
+    tops she was missing, a proper bulkhead over the crew's quarters and the
+    mess - two rows taller for it - and black outside her rather than more
+    plating. Only the events are built here.
 
-    # -- the keel. Girders the whole length of her, which is the only reason a
-    # corridor drawn from directly overhead reads as being inside anything.
-    for y in (9, 13, 17):
-        left, centre, right = K.SF_IN_GIRDER
-        g.set(12, y, 2, left)
-        g.set(13, y, 2, centre)
-        g.set(14, y, 2, right)
-    g.set(13, 12, 2, K.SF_IN_DRAIN)
-    g.set(12, 15, 2, K.SF_IN_PIPE_V[0])
-    g.set(14, 20, 2, K.SF_IN_RUBBLE)
-
-    # -- the control car. Her instruments, her chart table, and the log.
-    g.blit(11, 3, 2, (K.SF_IN_DESK_LARGE,))          # the chart table
-    # The charts and the clock are on the bulkhead, the wall's two face rows,
-    # not stood on the deck in front of it (Mike's clocks, October 2026).
-    g.set(13, 2, 2, K.SF_IN_BULLETIN)                # the charts, pinned
-    g.column(15, 1, 2, K.SF_IN_WALL_CLOCK)           # stopped at 0940
-    g.set(10, 4, 2, K.SF_IN_MACHINE_C)
-    g.set(16, 4, 2, K.SF_IN_VALVE)
-    # The helm. "Mechanical Device" was here first and is a rack of coloured
-    # somethings that reads as a bookshelf; `Machine C` is brass gears and
-    # pipework, which is what a wheel is attached to.
-    g.set(13, 6, 2, K.SF_IN_MACHINE_C)               # the wheel and its gearing
-    g.set(11, 6, 2, K.SF_IN_STOOL)
-    g.set(15, 6, 2, K.SF_IN_STOOL)
-    g.set(10, 7, 2, K.SF_IN_PAPERS)
-    g.set(16, 7, 2, K.SF_IN_BOOK)                    # the ship's rules, shut
-
-    # -- the engine room. Nothing here is broken and nothing here has stopped.
-    g.blit(18, 8, 2, K.SF_IN_PLUMBING)
-    g.column(22, 8, 2, K.SF_IN_DUCT)
-    g.set(17, 9, 2, K.SF_IN_MACHINE_C)
-    g.set(23, 9, 2, K.SF_IN_MACHINE_C)
-    for x in range(18, 23):
-        g.set(x, 12, 2, K.SF_IN_PIPE_H)
-    g.set(17, 14, 2, K.SF_IN_VALVE)
-    g.set(23, 14, 2, K.SF_IN_VALVE)
-    g.set(21, 14, 2, K.SF_IN_METAL_RUBBLE)
-    g.set(19, 14, 2, K.SF_IN_AIR_VENT_A)
-
-    # -- the hold, forward and to port. The gas cell space above it is empty
-    # and has been since she was gassed down; what is left is the stowage.
-    g.column(3, 8, 2, K.SF_IN_STEEL_SHELF)
-    g.column(4, 8, 2, K.SF_IN_STEEL_SHELF)
-    g.column(8, 8, 2, K.SF_IN_STEEL_SHELF)
-    g.column(3, 12, 2, K.SF_IN_STACKED_CRATES)
-    g.column(9, 12, 2, K.SF_IN_STACKED_CRATES)
-    g.set(7, 14, 2, K.SF_IN_RUBBLE)
-    g.set(4, 14, 2, K.SF_IN_PAPERS)
-
-    # -- the crew's quarters. Four berths and a locker, along the forward
-    # bulkhead. Every two-tile prop on this sheet is a *column* - star top,
-    # solid foot - so it stands at the last wall row and its foot lands on the
-    # first row of floor. Laid sideways instead, four berths reach across the
-    # room and seal the only doorway into it, which is what happened first.
-    for x in (3, 4, 8, 9):
-        g.column(x, 15, 2, K.SF_IN_BED_IRON)
-    g.column(6, 15, 2, K.SF_IN_DRAWERS)
-    g.set(5, 20, 2, K.SF_IN_SPIDER_WEB)
-    g.set(7, 20, 2, K.SF_IN_MATTRESS)
-    g.set(3, 19, 2, K.SF_IN_SIDE_DESK_METAL)
-    g.set(9, 19, 2, K.SF_IN_STOOL)
-
-    # -- the mess. The mugs are still out. Nobody cleared up, because nobody
-    # was doing anything wrong when they left. Table things go on layer 3, on
-    # top of the table's own tile on layer 2.
-    g.blit(19, 17, 2, (K.SF_IN_DESK_LARGE_B,))
-    g.set(19, 17, 3, K.SF_IN_MUG)
-    g.set(20, 17, 3, K.SF_IN_TEAPOT)
-    g.set(21, 18, 2, K.SF_IN_TABLE)
-    g.set(21, 18, 3, K.SF_IN_MUG)
-    g.set(18, 19, 2, K.SF_IN_STOOL)
-    g.set(22, 19, 2, K.SF_IN_STOOL)
-    # The galley bench. `Kitchen Counter` was here and is a modern **electric
-    # hob**, four rings and a control panel, which no map-scale screenshot was
-    # ever going to show.
-    g.blit(17, 16, 2, (K.SF_IN_DESK_LARGE,))
-    # The galley dresser. Not `SF_IN_ODDMENTS`, which has a **living pot
-    # plant** and a wound wall clock painted into its top cell: both are
-    # right in a parish room and neither survives two hundred years on a
-    # crag with nobody aboard.
-    g.column(23, 15, 2, K.SF_IN_DRAWERS)
-    # Not `SF_IN_DRIPPING`: it is bright magenta and reads as slime.
-    g.set(23, 20, 2, K.SF_IN_SPIDER_WEB)
-
-    # -- the rent. The only thing broken on the whole ship.
-    g.set(11, 21, 2, K.SF_IN_METAL_RUBBLE)
-    g.set(15, 21, 2, K.SF_IN_METAL_RUBBLE)
-    g.set(11, 23, 2, K.SF_IN_RUBBLE)
-    g.set(15, 23, 2, K.SF_IN_RUBBLE)
-
+    Wall G (Barracks) is still the hull: its top is grey **corrugated** sheet,
+    which is what an airship hull looks like from directly above. Wall D
+    (Metal) came out as a flooded cellar and Wall E (Metal, Red Rust) as a
+    wall of lockers; on a carved map the wall top is not trim, it is most of
+    the screen."""
+    g = K.Canvas(CRAG_W, CRAG_H, HD.load(MAP_CRAG, CRAG_W, CRAG_H,
+                                         K.TS_CLANGING_IN),
+                 tileset=K.TS_CLANGING_IN)
     K.paint_regions(g, K.TS_CLANGING_IN, 1)
     m = K.new_map(CRAG_W, CRAG_H, K.TS_CLANGING_IN,
                   name="The Wreck of the One Hundred and Ninety-Ninth",
@@ -1138,20 +1029,25 @@ def crag_events():
         "Nothing in this room has failed and nothing",
         "in this room is going to."]))
 
-    evs.append(S.sign(7, "The Berths", 4, 16, [
+    evs.append(S.sign(7, "The Berths", 4, 18, [
         "Four berths, made up.",
         "Nobody packed. There is a shirt over the end",
         "of one of them and a book face down on",
         "another, still holding its place."]))
 
-    evs.append(S.chest(8, "The Locker", 6, 16,
-                       [R.gain_item(db.IT_ELIXIR, 1),
-                        R.gain_item(db.IT_LINIMENT, 3)],
-                       ["The crew's locker. \\I[179]\\C[3]Elixir\\C[0] and",
-                        "\\I[194]\\C[3]Works Liniment x3\\C[0], and a note",
-                        "saying PUT IT BACK, which somebody did."]))
+    # The locker is drawn, so the chest is only its contents: no sprite, on
+    # the locker's foot, searched from the deck in front of it.
+    locker = S.chest(8, "The Locker", 6, 17,
+                     [R.gain_item(db.IT_ELIXIR, 1),
+                      R.gain_item(db.IT_LINIMENT, 3)],
+                     ["The crew's locker. \\I[179]\\C[3]Elixir\\C[0] and",
+                      "\\I[194]\\C[3]Works Liniment x3\\C[0], and a note",
+                      "saying PUT IT BACK, which somebody did."])
+    for page in locker["pages"]:
+        page["image"] = R.image("")
+    evs.append(locker)
 
-    evs.append(S.sign(9, "The Mess Table", 20, 17, [
+    evs.append(S.sign(9, "The Mess Table", 20, 18, [
         "The mess table. Four mugs, put down rather",
         "than emptied. A teapot with the lid off.",
         "",

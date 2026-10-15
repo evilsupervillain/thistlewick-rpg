@@ -45,6 +45,7 @@ a few squares north-east of it. Both claims come from `SITES` below, the way
   whole-sheet character and faces down on its first row; no stock face sheet
   has a dragon on it, so she speaks with her name and no portrait.
 """
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 
@@ -96,14 +97,6 @@ TOWER_ARRIVE = 6                # the landing, above the well
 BAG = (6, 4)                    # under the window
 CARD = (8, 4)                   # on the table beside it
 ROSAMUND_AT = (5, 6)
-SACK = K.sf_tile("Inside_C", "Sack A")
-BOOK = K.sf_tile("Inside_C", "Closed Book A (H)")
-CARDIGAN = K.sf_tile("Inside_C", "Women's Clothing A (Hanging)")
-WINDOW = K.sf_block("Inside_B", "Large Window B")
-# Not `IN_DRESSER`, whose lower cell is `Sundries Shelf A` with the teddy
-# bears painted on it. `Dresser` is a vanity with a mirror.
-CLOSET = K.sf_block("Inside_B", "Closet")
-DRESSER = K.sf_tile("Inside_B", "Dresser")
 
 # --------------------------------------------------------------- the lair ---
 LW, LH = 21, 17
@@ -370,32 +363,15 @@ def council_events():
 
 # ========================================================= Rosamund's tower ==
 def tower_map():
-    w, h, x1, y1, x2, y2 = TOWER
-    g = K.interior(w, h, x1, y1, x2, y2, floor=K.IN_WOOD_FLOOR,
-                   wall_top=K.IN_WALL_TOP_STONE,
-                   wall_face=K.IN_WALL_FACE_STONE)
-    g.fill(4, 6, 6, 7, 1, K.IN_PURPLE_RUG)
-    g.autotile(1)
-
-    # The window, and under it the bag. Beside it, on the table, the book
-    # and the card; the cardigan is hanging up ready on the wall above.
-    g.column(BAG[0], y1 - 2, 3, WINDOW)
-    g.set(*BAG, 3, SACK)
-    g.blit(7, y1, 2, TABLE_A)
-    g.set(7, y1, 3, BOOK)
-    g.set(*CARD, 3, NOTE)
-    g.set(8, y1 - 1, 3, CARDIGAN)
-
-    g.column(x1, y1, 3, K.IN_BED)
-    g.set(4, y1 - 1, 3, PORTRAIT_KING)
-    g.column(x2, y1 - 1, 3, CLOSET)
-    g.set(x2, 5, 3, DRESSER)
-    K.stairwell(g, *TOWER_WELL, wall_top=K.IN_WALL_TOP_STONE,
-                wall_face=K.IN_WALL_FACE_STONE, sides=(True, False))
-    g.set(x1, y2, 3, K.INC_PLANT2)
-
+    """Drawn by hand in the editor and kept by `handdrawn.py` (Mike, October
+    2026), from the generated room: the window over the bag, the book and the
+    card on the table beside it and the cardigan hung ready, the bed, the
+    stairwell, and the dresser and the portrait where he put them. Only the
+    events are built here."""
+    w, h = TOWER[0], TOWER[1]
+    data = HD.load(MAP_ROSAMUND, w, h, K.TS_INSIDE)
     m = K.new_map(w, h, K.TS_INSIDE, name="Rosamund's Tower", bgm="Town3")
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + tower_events()
     return m
 
@@ -515,11 +491,13 @@ def lair_map():
     g.set(*TABLET, 3, STONE_TABLET)
     for x, y in MOUTH:
         g.set(x, y, 3, DAYLIGHT)
+    evs = lair_events()
+    K.naturalise_cave(g, MAP_LAIR, keep=[(e["x"], e["y"]) for e in evs])
 
     m = K.new_map(w, h, K.TS_DUNGEON, name="Mrs Emberthwaite's Lair",
                   bgm="Town5", battleback=("Cave1", "Cave1"))
     m["data"] = g.data
-    m["events"] = [None] + lair_events()
+    m["events"] = [None] + evs
     return m
 
 

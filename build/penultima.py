@@ -102,14 +102,14 @@ def penultima_map():
 
     g.set(HOUSE_W[0] + 1, HOUSE_W[1] + HOUSE_W[3] - 1, 3, K.WINDOW)
     g.set(HOUSE_E[0] + 4, HOUSE_E[1] + HOUSE_E[3] - 1, 3, K.WINDOW)
-    for x, y in [(HOUSE_W[0] + 4, HOUSE_W[1]), (HOUSE_E[0] + 1, HOUSE_E[1])]:
-        g.set(x, y, 2, K.STOVEPIPE)
+    for b in (HOUSE_W, HOUSE_E):
+        g.chimney_beside(*b[:2])
 
-    # `LAMP` is a lit head over its post, so the post is the *lower* cell: a
-    # lamp drawn from STREET_Y - 2 stands with its foot in the road.
+    # `LAMP` is head, post and foot, and the foot is the cell that blocks: a
+    # lamp drawn from STREET_Y - 3 stands with its foot in the road.
     g.set(3, STREET_Y - 2, 3, K.SIGNPOST)          # the town's own sign
-    g.column(7, STREET_Y - 3, 3, K.LAMP)
-    g.column(16, STREET_Y - 3, 3, K.LAMP)
+    g.column(7, STREET_Y - 4, 3, K.LAMP)
+    g.column(16, STREET_Y - 4, 3, K.LAMP)
     g.scatter([(6, 13), (25, 13), (15, 14)], 3, K.BARREL)
     g.scatter([(24, 9), (5, 9), (13, 13)], 3, K.CRATE)
     g.scatter([(11, 13), (21, 13)], 3, K.TUB)

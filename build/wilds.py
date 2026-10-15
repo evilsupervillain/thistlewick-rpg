@@ -65,7 +65,7 @@ def south_events(next_id):
     light += R.choice_block(
         ["Go in", "Leave it"],
         [[R.play_se("Move1"),
-          R.transfer(MAP_LIGHTHOUSE, 6, 19, 8, 0)], []])
+          R.transfer(MAP_LIGHTHOUSE, 8, 14, 8, 0)], []])
     lit = S.narrate([
         "The Lighthouse of Saint Bother, burning.",
         "You can see it from the crossroads. Somebody",
@@ -73,7 +73,7 @@ def south_events(next_id):
     lit += R.choice_block(
         ["Go in", "Leave it"],
         [[R.play_se("Move1"),
-          R.transfer(MAP_LIGHTHOUSE, 6, 19, 8, 0)], []])
+          R.transfer(MAP_LIGHTHOUSE, 8, 14, 8, 0)], []])
     evs.append(R.event(next_id + len(evs), "The Lighthouse",
                        *WORLD_LIGHTHOUSE, [
         R.page(light, img=R.image(""), trigger=1, priority=0, through=True),
@@ -458,6 +458,8 @@ def pit_map():
     g.column(4, 5, 3, K.DGB_PILLAR)
     g.column(21, 5, 3, K.DGB_PILLAR)
     g.set(17, 9, 3, K.DGE_HAMPER)       # A Hamper's; it was bare floor
+    evs = pit_events()
+    K.naturalise_cave(g, MAP_PIT, keep=[(e["x"], e["y"]) for e in evs])
     K.paint_regions(g, K.TS_DUNGEON, 1)
 
     m = K.new_map(PIT_W, PIT_H, K.TS_DUNGEON, name="The Bottomless Pit",
@@ -466,7 +468,7 @@ def pit_map():
                   encounters=[(db.TR_PIT_MIX, 5, [1]),
                               (db.TR_GULLS, 2, [1])])
     m["data"] = g.data
-    m["events"] = [None] + pit_events()
+    m["events"] = [None] + evs
     return m
 
 
@@ -594,6 +596,11 @@ def barrow_map():
     g.scatter([(3, 14), (26, 14)], 3, K.DGB_SKULLS)
     g.scatter([(13, 22), (16, 22)], 3, K.DGB_RUBBLE)
     g.scatter([(12, 17), (17, 17)], 3, K.DGB_ROCK)
+    # Built, not dug, so its chambers keep their lines; but the mound ends,
+    # and beyond it is dark.
+    evs = barrow_events()
+    K.naturalise_cave(g, MAP_BARROW, keep=[(e["x"], e["y"]) for e in evs],
+                      rough=False)
     K.paint_regions(g, K.TS_DUNGEON, 1)
 
     m = K.new_map(BARROW_W, BARROW_H, K.TS_DUNGEON,
@@ -603,7 +610,7 @@ def barrow_map():
                               (db.TR_WRAITHS, 4, [1]),
                               (db.TR_GRAVE_GOODS, 3, [1])])
     m["data"] = g.data
-    m["events"] = [None] + barrow_events()
+    m["events"] = [None] + evs
     return m
 
 

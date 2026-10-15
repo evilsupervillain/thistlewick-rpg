@@ -48,8 +48,8 @@ One site and one module, so it exports `SITE` and `world_doors` the way
   is `Wood Ladder`, three cells up the north wall against the bookcases, with
   Elder Faelan at its foot. The Archive's copy of the Prophecy is `Scrolls B`
   on a `Table D`; the bed is `Bed`, in the corner. The village's cliffs are
-  `Ledge A (Meadow)` over `Meadow` and `Dirt (Meadow)`, one family, and the
-  landing is `Outside_B`'s `Fallen Leaves`, which is open.
+  `Ledge A (Meadow)` over `Grass (Dirt)` and `Dirt`, the ground in the
+  second row so that it blends (Mike, October 2026), and the landing is `Outside_B`'s `Fallen Leaves`, which is open.
 * **Elves about doing things** (`../QUESTS.md` P3, Mike's playtest): a
   village of four people read as empty. Six more, each with a job, in the
   raker's idiom that it is somebody's whole job: Thalion judges arrivals
@@ -78,8 +78,8 @@ SITE = "Olde Evermore"
 VW, VH = 26, 24
 MASS = K.CLIFF_TOP              # Ledge A (Meadow)
 FACE = K.CLIFF_FACE             # and its face
-GROUND = K.GRASS                # Meadow: the same family as the ledge
-PATH = K.PATH                   # Dirt (Meadow)
+GROUND = K.GRASS                # `Grass (Dirt)`, so the path blends into it
+PATH = K.PATH                   # `Dirt`
 PATH_X = 12                     # the path: columns 12 and 13
 
 ARRIVE = (PATH_X, 6)            # under the ledge, in the leaves
@@ -185,7 +185,7 @@ def evermore_map():
         fy = y + bh - 1
         g.column(x + 2, fy - 1, 3, K.DOOR_SHUT)
         g.set(x + 4, fy, 3, K.WINDOW)
-        g.set(x + 1, y, 2, K.STOVEPIPE)
+        g.chimney_beside(x, y)
 
     g.set(*ARRIVALS_AT, 3, K.SIGNPOST)
     g.set(*SIGN_AT, 3, K.SIGNPOST)

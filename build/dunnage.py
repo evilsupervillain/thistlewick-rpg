@@ -40,6 +40,7 @@ reaction shot, or nothing:
 one blush**, Cotter's, which is his mother's line about his father, in his
 own mouth, meant exactly as said.
 """
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 
@@ -99,7 +100,6 @@ IN_BARREL = K.sf_tile("Inside_B", "Barrel")
 CLOSET = K.sf_block("Inside_B", "Closet")             # 1x2, a wardrobe
 TABLE_C = K.sf_tile("Inside_B", "Table C")            # the red cloth
 TABLE_D = K.sf_tile("Inside_B", "Table D")            # a plain desk
-STOOL = K.sf_tile("Inside_B", "Stool A")
 TAPESTRY = K.sf_block("Inside_B", "Tapestry A")       # 1x2, red and gold
 NOTICE = K.sf_tile("Inside_B", "Posted Notice")
 ANVIL = (K.sf_tile("Inside_C", "Blacksmith's Table A"),
@@ -107,7 +107,6 @@ ANVIL = (K.sf_tile("Inside_C", "Blacksmith's Table A"),
 HAMMERS = K.sf_tile("Inside_C", "Hammers")
 SWORD = K.sf_tile("Inside_C", "Sword A")
 ARMOUR = K.sf_tile("Inside_C", "Armor A (Stand)")
-PINT = K.sf_tile("Inside_C", "Pint Mug C")
 LEDGER = K.sf_tile("Inside_C", "Closed Books C")
 OPEN_BOOK = K.sf_tile("Inside_C", "Open Book A (H)")
 HAY = K.sf_tile("Outside_B", "Hay")
@@ -1103,53 +1102,28 @@ def bonded_events():
 #            x1 y1  x2  y2 door_x
 BELL_ROOM = (2, 4, 19, 10, 10)
 LW, LH = 22, 14
-BAR = [(3, 5), (4, 5), (5, 5), (6, 5)]
 DEWHIRST = (7, 5)
 THE_BELL = (6, 5)
 POSTER = (8, 3)
-# The judges sit a row lower than they did, under the pier on the east of
-# the stairs (October 2026); they still face the stage.
-JUDGES_TABLE = [(13, 7), (13, 8), (13, 9)]
-HARBOTTLE = (12, 8)
-AMBLER = (12, 7)
-QUAYLE = (12, 9)
-STAGE = (15, 5, 18, 8)
+# The judges' table is a column across from the stage, where Mike moved it
+# (October 2026), and they sit along its west side facing the stage.
+HARBOTTLE = (13, 7)
+AMBLER = (13, 6)
+QUAYLE = (13, 8)
 TWEDDLE = (16, 6)
-TABLES = [(4, 8), (7, 10)]
 BELL_STAIRS = 10                    # the flight's west column
 
 
 def bell_map():
-    x1, y1, x2, y2, door_x = BELL_ROOM
-    g = K.interior(LW, LH, x1, y1, x2, y2, door_x=door_x,
-                   floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
-    # The stage is a rug, which is what the Bell can run to.
-    g.fill(*STAGE, 1, K.IN_RED_RUG)
-    g.autotile(1)
-    # Behind the bar: bottles and the wine.
-    # Two whole cabinets: `Bottle Shelf A` is only the west half of one.
-    K.wide(g, 3, y1 - 1, 2, K.IN_BOTTLE_CABINET)
-    K.wide(g, 5, y1 - 1, 2, K.IN_BOTTLE_CABINET)
-    for x, y in BAR:
-        g.set(x, y, 2, K.IN_TABLE[0][(x - BAR[0][0]) % 2])
-    g.set(*THE_BELL, 3, K.INC_DESK_BELL)
-    g.set(4, 5, 3, PINT)
-    g.set(*POSTER, 2, NOTICE)
-    for x, y in JUDGES_TABLE:
-        g.set(x, y, 2, TABLE_C)
-    for tx, ty in TABLES:
-        g.blit(tx, ty, 2, K.IN_TABLE)
-        g.set(tx - 1, ty, 2, STOOL)
-        g.set(tx + 2, ty, 2, STOOL)
-        g.set(tx, ty, 3, PINT)
-    # The rooms are upstairs ("You go up"), so the Bell has a staircase
-    # rather than a bedroom off the bar: up through the north wall, between
-    # two piers, the way Mike drew the Slain Wyvern's (`mapkit.stairs_up`).
-    K.stairs_up(g, BELL_STAIRS, y1)
-    # The windows on the street are `build_game.match_windows`'s.
+    """Drawn by hand in the editor and kept by `handdrawn.py` (Mike, October
+    2026), from the generated inn: the bar and its two cabinets, the bell on
+    the counter, the poster, the stage on its rug, the judges' table across
+    from it, and the stairs up through the north wall ("You go up"). Only
+    the events are built here."""
+    data = HD.load(MAP_BELL, LW, LH, K.TS_INSIDE)
     m = K.new_map(LW, LH, K.TS_INSIDE, name="The Bell", bgm="Town5",
                   battleback=("Wood1", "Room1"))
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + bell_events()
     return m
 

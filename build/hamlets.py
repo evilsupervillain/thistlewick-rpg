@@ -45,6 +45,7 @@ later as pages of their own. Nothing here spends one.
 * **One trope, the cursed village, on Sump's sign. No blush**: both places are
   warm, and neither has anybody in it for a double meaning to land on.
 """
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 
@@ -60,17 +61,6 @@ from places import (MAP_WORLD, MAP_LITTLE_GORE, MAP_SUMP,
 # The names `worldmap.json`'s door events carry for these two sites.
 LITTLE_GORE = "Little Gore"
 SUMP = "Sump"
-
-# Sump's ground is Outside_A2's `Sand` family, and `Water D (Sand)` on A1 is
-# the water that goes with it. **The `mapkit` names are the wrong way round
-# here**: `K.SOIL` is the sheet's `Sand` and `K.SAND` is its `Dirt`, which is
-# what the street is - `Road (Sand)` is grey cobbles, and that is a town.
-SAND = K.SOIL
-SAND_GRASS = K.A(33)                # `Grass (Sand)`, round the pool
-SAND_ROAD = K.SAND                  # `Dirt`
-SEA = K.A(10)
-CACTUS = K.sf_tile("Outside_B", "Cactus")
-
 
 # ============================================================= Little Gore ==
 GW, GH = 24, 18
@@ -112,8 +102,8 @@ def gore_map():
     g.set(VANES_DOOR[0] + 3, VANES_DOOR[1], 3, K.WINDOW)
     g.set(COPES_DOOR[0] + 1, COPES_DOOR[1], 3, K.WINDOW)
     g.set(EAST_DOOR[0] + 1, EAST_DOOR[1], 3, K.WINDOW)
-    g.set(VANES[0] + 5, VANES[1], 2, K.STOVEPIPE)
-    g.set(EAST[0] + 1, EAST[1], 2, K.STOVEPIPE)
+    g.chimney_beside(*VANES[:2])
+    g.chimney_beside(*EAST[:2])
 
     # The Vanes' front garden, which is where Mrs Vane is.
     g.scatter([(3, 10), (4, 10), (6, 10), (7, 10), (9, 10)], 3, K.FLOWERS2)
@@ -321,50 +311,19 @@ ARRIVE_S = (ROAD_S, SH_ - 2)
 
 
 def sump_map():
+    """A spit of sand with three houses on it and the sea round three sides.
+    Drawn by hand in the editor and kept by `handdrawn.py` (Mike, October
+    2026), from the generated village: the street in `Road (Sand)`, which
+    blends into the sand it is laid on. It was `Dirt` (`K.SAND`, the mapkit
+    names being the wrong way round) on the grounds that `Road (Sand)` is
+    grey cobbles and that is a town; Mike's call is that the edge matters
+    more. Only the events are built here."""
     w, h = SW_, SH_
-    g = K.Canvas(w, h)
-    # The spit: sea on three sides, and the road out to the south.
-    g.fill(0, 0, w - 1, h - 1, 0, SEA)
-    g.fill(3, 3, w - 4, h - 1, 0, SAND)
-    g.fill(2, 10, 2, h - 1, 0, SAND)
-    g.fill(w - 3, 12, w - 3, h - 1, 0, SAND)
-
-    g.fill(3, STREET_Y, w - 4, STREET_Y + 1, 0, SAND_ROAD)
-    g.fill(ROAD_S, STREET_Y, ROAD_S + 1, h - 1, 0, SAND_ROAD)
-    # A little green round the pool, which is what it looks like from the road.
-    x0, y0 = POOL
-    g.fill(x0 - 1, y0 - 1, x0 + 3, y0 + 2, 0, SAND_GRASS)
-    for cx, cy in [(x0 - 1, y0 - 1), (x0 + 3, y0 - 1),
-                   (x0 - 1, y0 + 2), (x0 + 3, y0 + 2)]:
-        g.set(cx, cy, 0, SAND)
-    g.fill(POOL[0], POOL[1], POOL[0] + 2, POOL[1] + 1, 0, SEA)
-
-    g.building(*WEST, wall=K.WALL_SANDBRICK, roof=K.ROOF_GOLD)
-    g.building(*HUT, wall=K.WALL_SANDBRICK, roof=K.ROOF_GOLD)
-    g.building(*EASTH, wall=K.WALL_SANDBRICK, roof=K.ROOF_GOLD)
-    g.autotile(0)
-
-    for x, y in (WEST_DOOR, HUT_DOOR, EAST_DOOR_S):
-        g.column(x, y - 1, 3, K.DOOR_SHUT)
-    g.set(WEST_DOOR[0] + 1, WEST_DOOR[1], 3, K.WINDOW)
-    g.set(HUT_DOOR[0] + 1, HUT_DOOR[1], 3, K.WINDOW)
-    g.set(EAST_DOOR_S[0] + 1, EAST_DOOR_S[1], 3, K.WINDOW)
-
-    g.set(*WELL_S, 3, K.TUB)                            # `Well`, and it is one
-    g.set(*BOARD, 3, K.FENCE_PANEL)                     # `Sign B`, a board
-    g.set(*TOWN_SIGN, 3, K.SIGNPOST)
-
-    g.blit(POOL[0] - 1, POOL[1] - 1, 3, K.PALM)
-    g.blit(3, 4, 3, K.PALM)
-    g.blit(18, 4, 3, K.PALM)
-    g.blit(17, 12, 3, K.PALM)
-    g.scatter([(8, 13), (16, 14), (4, 9), (18, 9)], 3, CACTUS)
-    g.scatter([(9, 9), (14, 9)], 3, K.POT)
-
+    data = HD.load(MAP_SUMP, w, h, K.TS_OUTSIDE)
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Sump", bgm="Town8")
     m["bgs"] = {"name": "Sea", "pan": 0, "pitch": 100, "volume": 40}
     m["autoplayBgs"] = True
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + sump_events()
     return m
 

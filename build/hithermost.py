@@ -143,7 +143,7 @@ def hithermost_map():
     # chimney, because Brother Quillon makes a great deal of tea.
     g.column(CHAPEL_DOOR[0] - 2, CHAPEL_DOOR[1] - 1, 3, K.WINDOW_GLASS)
     g.column(CHAPEL_DOOR[0] + 2, CHAPEL_DOOR[1] - 1, 3, K.WINDOW_GLASS)
-    g.set(CHAPEL_B[0] + 6, CHAPEL_B[1], 2, K.STOVEPIPE)
+    g.chimney_beside(*CHAPEL_B[:2])
 
     # The houses: a shut door and a window on each, and one sign - Hithermost
     # does teas, because people keep coming back down.
@@ -151,7 +151,7 @@ def hithermost_map():
         fy = y + bh - 1
         g.column(x + 2, fy - 1, 3, K.DOOR_SHUT)
         g.set(x + 4, fy, 3, K.WINDOW)
-        g.set(x + 1, y, 2, K.STOVEPIPE)
+        g.chimney_beside(x, y)
     g.set(HOUSES[2][0] + 1, HOUSES[2][1] + HOUSES[2][3] - 1, 3, K.SIGN_PLATE)
 
     boulder = K.sf_tile("Outside_B", "Boulder A")

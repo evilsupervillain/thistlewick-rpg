@@ -1,0 +1,42 @@
+{
+  "query": "?map=69&x=2&y=7&frames=60",
+  "steps": [
+    {"comment": "Mike's sixth round of map edits (October 2026), the parts that are events rather than tiles: the Gotobeds' new stairs, both ways; the Wreck's locker, now drawn and searched from the deck in front of it; and the two roads out that he moved, Upper Clanging's to the bottom edge and Nether Sopping's to the top. Walked with key presses, because whether the player can get there is the question."},
+    {"eval": "$gameSystem.disableEncounter()"},
+    {"key": "ArrowUp", "gap": 30},
+    {"check": "[$gamePlayer.x, $gamePlayer.y].join()", "expect": "2,6", "label": "the foot of the parlour stairs"},
+    {"key": "ArrowUp", "gap": 30},
+    {"key": "ArrowUp", "gap": 30},
+    {"until": "$gamePlayer.x === 26 && !$gamePlayer.isTransferring() && SceneManager._scene.isPlayerActive && SceneManager._scene.isPlayerActive()", "frames": 400},
+    {"frames": 30},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()].join()", "expect": "69,26,4,8", "label": "up the stairs to the landing over the parlour"},
+    {"key": "ArrowDown", "gap": 30},
+    {"until": "$gamePlayer.x === 2 && !$gamePlayer.isTransferring() && SceneManager._scene.isPlayerActive && SceneManager._scene.isPlayerActive()", "frames": 400},
+    {"frames": 30},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()].join()", "expect": "69,2,5,2", "label": "and turning round goes straight back down"},
+
+    {"goto": [27, 6, 18]},
+    {"eval": "$gameSystem.disableEncounter()"},
+    {"key": "ArrowUp", "gap": 30},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()].join()", "expect": "6,18,8", "label": "in front of the crew's locker, facing it"},
+    {"key": "Enter"},
+    {"frames": 10},
+    {"advance": 20},
+    {"check": "$gameSelfSwitches.value([27, 8, 'A'])", "expect": true, "label": "the locker opens from the deck in front of it"},
+    {"check": "SceneManager._scene.constructor.name", "expect": "Scene_Map", "label": "still on the map"},
+
+    {"goto": [21, 17, 42]},
+    {"key": "ArrowDown", "gap": 30},
+    {"frames": 60},
+    {"advance": 20},
+    {"until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()", "frames": 400},
+    {"check": "$gameMap.mapId()", "expect": 8, "label": "Upper Clanging's road out is at the bottom edge now"},
+
+    {"goto": [13, 20, 1]},
+    {"key": "ArrowUp", "gap": 30},
+    {"frames": 60},
+    {"advance": 20},
+    {"until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()", "frames": 400},
+    {"check": "$gameMap.mapId()", "expect": 8, "label": "and Nether Sopping's at the top"}
+  ]
+}

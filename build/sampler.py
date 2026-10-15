@@ -67,12 +67,12 @@ def scenery():
         g.blit(1 + n * 4, 1, 3, b)
     singles = [K.BUSH, K.BUSH2, K.BUSH3, K.FLOWERS, K.FLOWERS2, K.FLOWERS3,
                K.ROCK, K.ROCK2, K.LOGS, K.BARREL, K.BARREL2, K.CRATE, K.POT,
-               K.BUCKET, K.SIGNPOST, K.SIGNPOST2, K.CHIMNEY, K.PEBBLES,
+               K.BUCKET, K.SIGNPOST, K.SIGNPOST2, K.PEBBLES,
                K.LILYPAD, K.MUSHROOMS, K.VINES, K.LADDER,
                K.DOORWAY_DARK, K.FENCE_RAIL]
     for n, t in enumerate(singles):
         g.set(1 + (n % 16) * 2, 5 + (n // 16) * 2, 3, t)
-    pairs = [K.LAMP, K.STATUE_POST, K.WINDOW_FLOWERS, K.WINDOW_ARCH,
+    pairs = [K.LAMP, K.CHIMNEY, K.STATUE_POST, K.WINDOW_FLOWERS, K.WINDOW_ARCH,
              K.WINDOW_GLASS, K.DOOR_WOOD, K.DOOR_DOUBLE]
     for n, p in enumerate(pairs):
         g.column(1 + n * 3, 10, 3, p)
@@ -88,7 +88,7 @@ def scenery():
 def ground():
     g = K.Canvas(34, 20)
     tiles = [K.GRASS, K.PATH, K.COBBLE, K.PAVING, K.HEDGE, K.DECKING, K.SAND,
-             K.WHEAT, K.SOIL, K.DARK_GRASS, K.WATER, K.CLIFF_TOP, K.REEDS]
+             K.WHEAT, K.SOIL, K.DARK_GRASS, K.WATER, K.CLIFF_TOP]
     g.fill(0, 0, 33, 19, 0, K.GRASS)
     for n, t in enumerate(tiles):
         cx = 3 + (n % 5) * 7

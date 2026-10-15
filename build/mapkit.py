@@ -8,6 +8,7 @@ The names were read off the labelled sheets that `tools/sheetgrid.py` produces
 and then confirmed in a screenshot; anything unconfirmed says so.
 """
 import os
+import random
 import sys
 
 GAME = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -51,15 +52,22 @@ def A(kind):
 
 
 # ------------------------------------------------------- Outside_A2 ground ---
-GRASS = A(16)
-PATH = A(17)              # sandy dirt path over grass
-COBBLE = A(18)            # grey cobblestone
-PAVING = A(19)            # cut paving slabs
+# The ground is the sheet's second row, the kinds named "(Dirt)": each one's
+# edge is a soft band of earth, so grass, a road and paving laid side by side
+# blend into each other. The first row - `Meadow` and the kinds named
+# "(Meadow)" - edges everything in a hard green lip, and a town drawn in it
+# looks like its streets were cut out of a lawn with scissors. Mike redrew
+# Nether Sopping and Much Pottering in the second row (October 2026).
+GRASS = A(25)             # `Grass (Dirt)`
+PATH = A(24)              # `Dirt`, a sandy track
+COBBLE = A(26)            # `Road (Dirt)`, grey cobblestone
+PAVING = A(27)            # `Cobblestones A (Dirt)`, cut paving slabs
+MEADOW = A(16)            # `Meadow`, the green-lipped first row
 HEDGE = A(20)             # dense low shrub
 DECKING = A(22)           # wooden decking
-SAND = A(24)
+SAND = A(24)              # `Dirt`, despite the name; `SOIL` is the `Sand`
 WHEAT = A(28)             # yellow crop over grass - the turnip fields
-SOIL = A(32)              # bare brown earth
+SOIL = A(32)              # `Sand`
 DARK_GRASS = A(39)
 WATER = A(1)              # Outside_A1: water with a grassy bank
 
@@ -147,7 +155,12 @@ SIGNPOST = b_tile(9, 1)           # a fingerpost with two boards
 GRAVE_A = b_tile(14, 1)          # `Grave A`, a stone cross
 GRAVE_B = b_tile(15, 1)          # `Grave B`, a headstone
 FENCE_PANEL = b_tile(10, 1)       # a short slatted fence panel
-STOVEPIPE = b_tile(8, 1)
+STOVEPIPE = b_tile(8, 1)          # `Chimney`'s pipe; alone, it has no top
+# `Chimney`, whole: the cap over the pipe, which bends east at the top. It
+# stands *beside* a house, west of its roof's top two rows, with the bend
+# reaching in over the roof - not stood in the middle of the roof, where the
+# pipe alone was drawn for a year. Mike's, October 2026; `Canvas.chimney_beside`.
+CHIMNEY = (b_tile(8, 0), b_tile(8, 1))
 LILYPAD = b_tile(15, 15)
 MUSHROOMS = b_tile(11, 13)
 BURROW = b_tile(9, 5)             # a small dug hole in the earth
@@ -156,9 +169,11 @@ DEAD_BUSH = b_tile(11, 15)
 DEAD_TREE = b_tile(8, 13)
 DEAD_ROOTS = b_tile(8, 12)
 LADDER = b_tile(2, 2)
-REEDS = A(11)                     # A1 kind 11: tall green reeds
 
-LAMP = (b_tile(0, 1), b_tile(0, 2))       # street lamp: lit head over its post
+# Street lamp: lit head, post, and the foot it stands on, which is the one
+# cell of the three that blocks. Two cells, without the foot, for a year; Mike
+# gave Nether Sopping's and Much Pottering's theirs (October 2026).
+LAMP = (b_tile(0, 1), b_tile(0, 2), b_tile(0, 3))
 
 # Shop signs, hung on a wall above a door.
 SIGN_BLADE = b_tile(1, 8)
@@ -1334,6 +1349,30 @@ class Canvas(R.MapGrid):
         self.set(x, y, 2, self.get(x, y, 3))
         self.set(x, y, 3, tile)
 
+    def chimney_beside(self, x, y):
+        """A chimney up the west side of the house whose top-left corner is
+        (x, y): `CHIMNEY` in the cell west of the roof's top two rows, its cap
+        level with the crest and its pipe bending in over the roof. Mike's
+        rule from Nether Sopping and Frostwick (October 2026).
+
+        Both cells are star tiles, so the ground under them still decides
+        passage and the player walks behind the stack. The west cell has to be
+        clear: another house there is refused by `set`, and anything already
+        on layer 3 - a tree, a sign - raises here, since a chimney with no
+        room for it is a house that should not have one."""
+        if self.tileset not in (TS_OUTSIDE, TS_COLLEGIUM):
+            raise ValueError("`CHIMNEY` is an Outside_B tile; tileset %d has "
+                             "its own chimneys" % self.tileset)
+        if not any(b[:2] == (x, y) for b in self.buildings):
+            raise ValueError("no building has its corner at (%d,%d)" % (x, y))
+        for dy, tile in enumerate(CHIMNEY):
+            if self.get(x - 1, y + dy, 3):
+                raise ValueError(
+                    "the chimney beside the house at (%d,%d) would go over "
+                    "tile %d at (%d,%d)" % (x, y, self.get(x - 1, y + dy, 3),
+                                            x - 1, y + dy))
+            self.set(x - 1, y + dy, 3, tile)
+
     def clock_tower(self, x, y, h=5, z=3):
         """The Clock Tower, three tiles wide and `h` tall, with its base at
         `y + h - 1`. The top two rows are fixed - the cap and the clock face -
@@ -1640,6 +1679,195 @@ def stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP,
         for r in (y + 3, y + 4):
             if not wall(c, r):
                 g.set(c, r, 0, wall_face)
+
+
+# What Mike lays over the rock beyond a cave (Under Carn Drey, October 2026):
+# `Ground D (Black Floor)` on layer 1, black inside a ragged rim of rock.
+DG_BLACK = A(22)
+
+
+def naturalise_cave(g, seed, keep=(), rough=True, top=DG_WALL_TOP,
+                    face=DG_WALL_FACE, dark=DG_BLACK):
+    """Make a carved cave read as rock rather than as boxes, the way Mike
+    redrew Under Carn Drey (October 2026). Two things, on a Canvas whose rooms
+    are carved, walled with `dungeon_walls` and dressed:
+
+    * `rough`: the rooms' outlines broken up - a corner cell knocked back into
+      the rock here, a cell of rock opened into the room there - and the walls
+      re-faced to match. Nothing is touched within a cell of a prop or an
+      event (`keep` is the events' cells), nor the top row of a room whose
+      face has anything hung on it, and every change is undone that would
+      join two passages or part one: the cave goes where it went.
+    * then the rock itself given an edge. One or two cells of it are kept
+      round every room and passage, and everything beyond is `dark` on layer
+      1, so the hill ends in the dark instead of filling the map.
+
+    `seed` makes it the same cave on every build."""
+    rng = random.Random(seed)
+    w, h = g.width, g.height
+    walls = (R.autotile_kind(top), R.autotile_kind(face))
+
+    def rock(x, y):
+        if not (0 <= x < w and 0 <= y < h):
+            return True
+        t = g.get(x, y, 0)
+        return R.is_autotile(t) and R.autotile_kind(t) in walls
+
+    def dressed(x, y):
+        return any(g.get(x, y, z) for z in (1, 2, 3))
+
+    near = set()
+    for x, y in keep:
+        near.update((x + dx, y + dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1))
+    for y in range(h):
+        for x in range(w):
+            if dressed(x, y) and not rock(x, y):
+                near.update((x + dx, y + dy)
+                            for dx in (-1, 0, 1) for dy in (-1, 0, 1))
+
+    def floor_cells():
+        return {(x, y) for y in range(h) for x in range(w) if not rock(x, y)}
+
+    def parts(cells):
+        seen, out = set(), []
+        for c in sorted(cells):
+            if c in seen:
+                continue
+            stack, part = [c], set()
+            while stack:
+                x, y = stack.pop()
+                if (x, y) in seen or (x, y) not in cells:
+                    continue
+                seen.add((x, y))
+                part.add((x, y))
+                stack += [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
+            out.append(part)
+        return out
+
+    def steps(cells, start, limit):
+        """Walking distance from `start` to each cell, up to `limit`."""
+        dist, todo = {start: 0}, [start]
+        for cx, cy in todo:
+            if dist[(cx, cy)] >= limit:
+                continue
+            for n in ((cx + 1, cy), (cx - 1, cy), (cx, cy + 1), (cx, cy - 1)):
+                if n in cells and n not in dist:
+                    dist[n] = dist[(cx, cy)] + 1
+                    todo.append(n)
+        return dist
+
+    floors = floor_cells()
+    count = len(parts(floors))
+    if rough:
+        changed = []
+        candidates = []
+        for x, y in sorted(floors):
+            if (x, y) in near or x < 2 or y < 3 or x > w - 3 or y > h - 2:
+                continue
+            if g.get(x, y, 0) >= R.TILE_ID_A5 and g.get(x, y, 0) < R.TILE_ID_A1:
+                continue                # stairs and the like, laid by id
+            sides = [rock(x - 1, y), rock(x + 1, y), rock(x, y - 1),
+                     rock(x, y + 1)]
+            if rock(x, y - 1) and any(dressed(x, y - d) for d in (1, 2, 3)):
+                continue                # something hangs on the face above
+            if sum(sides) >= 2 and not (sides[0] and sides[1]) \
+                    and not (sides[2] and sides[3]):
+                candidates.append(("notch", x, y))
+        for y in range(3, h - 1):
+            for x in range(2, w - 2):
+                if not rock(x, y) or (x, y) in near or dressed(x, y):
+                    continue
+                if any(dressed(x, y - d) for d in (1, 2)):
+                    continue
+                into = [(x - 1, y), (x + 1, y), (x, y - 1)]
+                if sum((c in floors) for c in into) == 1 and \
+                        (x, y + 1) not in floors:
+                    candidates.append(("bulge", x, y))
+        rng.shuffle(candidates)
+        budget = max(2, len(candidates) // 5)
+        for kind, x, y in candidates:
+            if len(changed) >= budget:
+                break
+            # Two cells apart, or two changes make a zigzag of loose faces.
+            if any(abs(cx - x) <= 2 and abs(cy - y) <= 2
+                   for _, cx, cy in changed):
+                continue
+            if kind == "notch":
+                if (x, y) not in floors:
+                    continue
+                trial = floors - {(x, y)}
+                if len(parts(trial)) != count:
+                    continue
+                g.set(x, y, 0, top)
+            else:
+                if (x, y) in floors:
+                    continue
+                trial = floors | {(x, y)}
+                if len(parts(trial)) != count:
+                    continue
+                # No short cut: everything within two cells of the new floor
+                # must already be a short walk from the room it opens off.
+                door = next(c for c in [(x - 1, y), (x + 1, y), (x, y - 1)]
+                            if c in floors)
+                # Off a room, not a passage: three cells of floor straight
+                # on from the opening.
+                ox, oy = door[0] - x, door[1] - y
+                if (door[0] + 2 * ox, door[1] + 2 * oy) not in floors:
+                    continue
+                close = steps(floors, door, 6)
+                if any(c not in close for c in floors
+                       if abs(c[0] - x) <= 2 and abs(c[1] - y) <= 2):
+                    continue
+                g.set(x, y, 0, g.get(door[0], door[1], 0))
+            floors = trial
+            changed.append((kind, x, y))
+        # Re-wall: rock over a floor is face for two rows, the rest is top.
+        for y in range(h):
+            for x in range(w):
+                if rock(x, y):
+                    g.set(x, y, 0, top)
+        g.dungeon_walls(top, face)
+        g.autotile(0)
+
+    # -- the edge of the rock --------------------------------------------
+    cave = {(x, y) for y in range(h) for x in range(w)
+            if not (rock(x, y) and R.autotile_kind(g.get(x, y, 0)) == walls[0])}
+    rim = {}
+    step = 3
+    for gy in range(-step, h + 2 * step, step):
+        for gx in range(-step, w + 2 * step, step):
+            rim[(gx, gy)] = rng.choice((1, 1, 2))
+
+    def width_at(x, y):
+        gx, gy = x - x % step, y - y % step
+        return rim[(gx, gy)]
+
+    void = set()
+    for y in range(h):
+        for x in range(w):
+            if (x, y) in cave or dressed(x, y):
+                continue
+            r = width_at(x, y)
+            if not any((x + dx, y + dy) in cave
+                       for dx in range(-r, r + 1) for dy in range(-r, r + 1)):
+                void.add((x, y))
+    # No single cells of rock left standing in the dark, nor single cells of
+    # dark in the rock: both read as a mistake.
+    for _ in range(2):
+        for y in range(h):
+            for x in range(w):
+                n = sum((x + dx, y + dy) in void or not (0 <= x + dx < w and
+                                                         0 <= y + dy < h)
+                        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
+                if (x, y) in void and n <= 1:
+                    void.discard((x, y))
+                elif (x, y) not in void and (x, y) not in cave \
+                        and not dressed(x, y) and n >= 3:
+                    void.add((x, y))
+    for x, y in void:
+        g.set(x, y, 1, dark)
+    g.autotile(1, kinds={R.autotile_kind(dark)})
+    return void
 
 
 def guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP,

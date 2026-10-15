@@ -679,6 +679,11 @@ def tower_map():
     g.column(15, 12, 3, K.DGB_OBELISK)
     g.scatter([(17, 20), (15, 23)], 3, K.DGB_ROCK)
     g.set(16, 16, 3, K.DGE_BASIN)       # the Basin event's; it was bare floor
+    # Built, so the rooms keep their lines; but the rock ends, and beyond it
+    # is dark, as Mike has the outside of a map (October 2026).
+    evs = tower_events()
+    K.naturalise_cave(g, MAP_TOWER, keep=[(e["x"], e["y"]) for e in evs],
+                      rough=False)
 
     K.paint_regions(g, K.TS_DUNGEON, 1)
 
@@ -689,7 +694,7 @@ def tower_map():
                               (db.TR_TOWER_MIX, 4, [1]),
                               (db.TR_GARGOYLES, 3, [1])])
     m["data"] = g.data
-    m["events"] = [None] + tower_events()
+    m["events"] = [None] + evs
     return m
 
 
@@ -865,12 +870,15 @@ def summit_map():
     g.scatter([(8, 14), (16, 14)], 3, K.DGB_SKULLS)
     g.scatter([(7, 16), (17, 16)], 3, K.DGB_BONES)
     g.scatter([(10, 15), (14, 15)], 3, K.DGB_RUBBLE)
+    evs = summit_events()
+    K.naturalise_cave(g, MAP_SUMMIT, keep=[(e["x"], e["y"]) for e in evs],
+                      rough=False)
 
     m = K.new_map(SW_, SH, K.TS_DUNGEON,
                   name="The Obligatory Tower - Summit", bgm="Dungeon7",
                   battleback=("DemonCastle1", "DemonCastle1"))
     m["data"] = g.data
-    m["events"] = [None] + summit_events()
+    m["events"] = [None] + evs
     return m
 
 

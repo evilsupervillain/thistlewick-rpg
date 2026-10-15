@@ -58,7 +58,8 @@ OUT = {m: (d[0], d[1] + 1) for m, d in [
 LIGHTHOUSE_IN = (6, 19)
 
 # The four sheds you cannot go into, at the top tile of their shut door. Each
-# one has an event on the bottom tile saying why not.
+# one has an event on the bottom tile saying why not. The third is Ambrose
+# Fitch's, which the postgame opens: a door sprite on the bottom tile.
 SHED_DOORS = [(36, 14), (5, 22), (14, 7), (31, 22)]
 
 
@@ -122,123 +123,17 @@ def travellers_count():
 def sopping_map():
     """One street down to a harbour. Everything faces the sea, including the
     people, which is a thing Thistlewick notices about southerners and does not
-    like."""
-    g = K.Canvas(TOWN_W, TOWN_H)
-    g.fill(0, 0, TOWN_W - 1, TOWN_H - 1, 0, K.GRASS)
-    g.fill(0, 24, TOWN_W - 1, 26, 0, K.SAND)
-    g.fill(0, 27, TOWN_W - 1, TOWN_H - 1, 0, K.WATER)
+    like.
 
-    # -- the ground. A working harbour is paved right up to the water, and
-    # the green only survives round the edges, which is what makes it read as
-    # a town rather than four sheds on a lawn.
-    g.fill(3, 9, 35, 23, 0, K.PAVING)             # the town proper
-    g.fill(19, 2, 20, 25, 0, K.PAVING)            # the street, up to the gate
-    g.fill(12, 20, 28, 25, 0, K.COBBLE)           # the harbour front
-    # A stone jetty, not a wooden one: Outside_A2 kind 22 reads as decking but
-    # is flagged impassable in every direction, so a pier built out of it is a
-    # pier nobody can stand on.
-    g.fill(19, 26, 20, 31, 0, K.PAVING)           # the jetty, over the water
-
-    g.building(*COTTAGE, wall=K.WALL_PLASTER, roof=K.ROOF_BROWN)
-    g.building(*OUTFIT, wall=K.WALL_PLANK_LIGHT, roof=K.ROOF_GREEN)
-    g.building(*WYVERN, wall=K.WALL_TIMBER, roof=K.ROOF_BROWN, wall_rows=3)
-    # Three rows of ashlar and a shallow gold roof: the Guild is the one
-    # building in Nether Sopping with an opinion of itself.
-    g.building(*GUILD, wall=K.WALL_STONE, roof=K.ROOF_GOLD, wall_rows=3)
-    # Two sheds with no doors you can open, to fill the plots out. A town made
-    # only of buildings you can enter is a town with four buildings in it.
-    g.building(34, 11, 5, 5, wall=K.WALL_LOG, roof=K.ROOF_BROWN)
-    g.building(3, 19, 5, 5, wall=K.WALL_PLANK, roof=K.ROOF_BROWN)
-    g.building(12, 4, 6, 5, wall=K.WALL_PLASTER, roof=K.ROOF_GREEN)
-    g.building(29, 19, 5, 5, wall=K.WALL_PLANK_LIGHT, roof=K.ROOF_BROWN)
-
-    g.autotile(0)
-
-    # -- signs and windows on the fronts. A front is laid out outward from its
-    # door: sign, gap, door, gap, sign, and the windows out at the corners. The
-    # windows used to be listed at the two tiles either side of the door, which
-    # is where the signs are, so the outfitters' and the Guild's signs were
-    # drawn and then painted over and the shops had no sign at all.
-    g.set(WYVERN_DOOR[0] - 2, WYVERN_DOOR[1], 3, K.SIGN_MUG)
-    g.set(WYVERN_DOOR[0] + 2, WYVERN_DOOR[1], 3, K.SIGN_INN)
-    g.set(OUTFIT_DOOR[0] - 2, OUTFIT_DOOR[1], 3, K.SIGN_ARMOR)
-    g.set(OUTFIT_DOOR[0] + 2, OUTFIT_DOOR[1], 3, K.SIGN_POTION)
-    g.set(GUILD_DOOR[0] - 2, GUILD_DOOR[1], 3, K.SIGN_BLADE)
-    # A crest, not the eatery's plate it had: the Guild sells nobody dinner.
-    g.set(GUILD_DOOR[0] + 2, GUILD_DOOR[1], 3,
-          K.sf_tile("Outside_B", "Shop Sign (Crest)"))
-    g.set(COTTAGE_DOOR[0] - 2, COTTAGE_DOOR[1], 3, K.WINDOW)
-    # The four sheds get a shut door, two tiles tall, standing on the bottom
-    # wall row. A bare black tile there is the inside of an opening with no
-    # opening drawn round it, and reads as a hole somebody forgot to tile.
-    for x, y in SHED_DOORS:
-        g.column(x, y, 3, K.DOOR_SHUT)
-    for x, y in [(7, 16), (8, 16), (14, 16), (15, 16), (26, 8), (33, 8),
-                 (26, 17), (33, 17),
-                 (5, 8), (9, 8), (35, 15), (38, 15), (4, 23), (7, 23),
-                 (12, 8), (16, 8), (29, 23), (33, 23)]:
-        g.set(x, y, 3, K.WINDOW)
-    for x, y in [(7, 14), (15, 14), (28, 6), (28, 14), (36, 12), (5, 20),
-                 (13, 5), (30, 20)]:
-        g.set(x, y, 2, K.STOVEPIPE)
-
-    # -- street furniture. Nether Sopping is a working harbour and looks it.
-    for x, y in [(18, 10), (21, 10), (18, 19), (21, 19)]:
-        g.column(x, y, 3, K.LAMP)
-
-    # -- the market. It stands in the block between the street and the Guild,
-    # which is the only open ground in the middle of the town; the tavern has
-    # the whole of the west side and there is no room in front of it.
-    g.blit(21, 12, 3, K.TENT)
-    g.blit(24, 12, 3, K.STALL)
-    g.blit(24, 15, 3, K.STALL_FRUIT)
-    g.blit(21, 16, 3, K.STALL)
-    g.blit(17, 12, 3, K.STALL_FRUIT)              # in the lane down the side
-    g.set(22, 3, 3, K.SIGNPOST)                   # the town sign
-    for x in (17, 18, 22, 23):                    # railings along the quay
-        g.set(x, 25, 3, K.FENCE_PANEL)
-    for x, y in [(4, 10), (10, 10), (24, 10), (31, 10), (3, 16), (34, 20)]:
-        g.set(x, y, 3, K.FENCE_PANEL)
-    g.scatter([(16, 23), (24, 23), (17, 21), (23, 21), (13, 22), (27, 22)],
-              3, K.BARREL)
-    g.scatter([(24, 21), (15, 24), (25, 24), (12, 21), (28, 21),
-               (12, 23)], 3, K.CRATE)   # what the man on his day off leans on
-    g.scatter([(22, 24), (18, 21), (14, 20), (26, 20)], 3, K.TUB)
-    g.scatter([(15, 22), (25, 22), (18, 24), (21, 22)], 3, K.BUCKET)
-    g.scatter([(12, 25), (29, 24), (33, 26), (6, 26), (9, 24), (31, 25)],
-              3, K.LOGS)
-    g.scatter([(2, 25), (37, 25), (10, 26), (30, 26), (1, 21), (38, 21)],
-              3, K.ROCK2)
-    g.scatter([(2, 22), (37, 22), (11, 26), (29, 27)], 3, K.REEDS)
-    g.scatter([(4, 16), (34, 16), (25, 11), (30, 11), (17, 15), (22, 15)],
-              3, K.POT)
-    # Nothing on row 18: that is the lower street, and it is one tile deep
-    # where it runs past the sheds.
-    g.scatter([(17, 14), (18, 16), (35, 22)], 3, K.CRATE)
-    g.scatter([(17, 16), (25, 14), (22, 19), (16, 19)], 3, K.BARREL)
-    g.scatter([(3, 11), (35, 21), (11, 9), (25, 8)], 3, K.BUSH)
-    g.scatter([(23, 6), (2, 12), (37, 8)], 3, K.FLOWERS3)
-    g.scatter([(24, 7), (2, 6), (35, 5)], 3, K.FLOWERS2)
-    # Quy's roses, such as they are: in the strip of grass beside his cottage,
-    # which is the only ground he has that the harbour has not been paved over.
-    g.set(11, 6, 3, K.FLOWERS)
-    g.set(11, 7, 3, K.FLOWERS)
-    g.scatter([(34, 4), (36, 8), (2, 4), (35, 3)], 3, K.LILYPAD)
-
-    # -- trees along the landward sides, and a gap for the road
-    for x in range(0, TOWN_W - 1, 2):
-        if not (SOPPING_GATE[0] - 1 <= x <= SOPPING_GATE[0]):
-            g.blit(x, 0, 3, K.TREE)
-    for y in range(2, 18, 2):
-        g.blit(0, y, 3, K.TREE)
-        if not 10 <= y <= 14:        # the boat shed stands in the eastern trees
-            g.blit(TOWN_W - 2, y, 3, K.TREE)
-    for x, y in [(2, 8), (37, 4), (24, 3), (10, 2)]:
-        g.blit(x, y, 3, K.TREE)
-
+    Drawn by hand in the editor and kept by `handdrawn.py` (Mike, October
+    2026): the ground in the Dirt-edged kinds so the street and the grass
+    blend, the chimneys out at the side of the roof where they stand, lamps
+    with their feet, a wooden jetty with its bollards, and Ambrose Fitch's
+    front door a real door. Only the events are built here."""
+    data = HD.load(MAP_SOPPING, TOWN_W, TOWN_H, K.TS_OUTSIDE)
     m = K.new_map(TOWN_W, TOWN_H, K.TS_OUTSIDE, name="Nether Sopping",
                   bgm="Town6")
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + q_aldric.with_follower(sopping_events(), MAP_SOPPING)  # ALD-5
     m["events"].append(q_nix.lorrimer_front(19, *LORRIMER_FRONT))     # NIX-3
     m["events"].append(q_spare.courier("sopping", 21, 5))             # SPA-1
@@ -405,6 +300,10 @@ def sopping_events():
     ]
     for i, ((name, lines), (x, y)) in enumerate(zip(shut, SHED_DOORS)):
         evs.append(S.sign(13 + i, name, x, y + 1, lines))
+    # Ambrose Fitch's is a real door, not the shutters the others are drawn
+    # with, since clause nineteen's key opens it (Mike, October 2026). Every
+    # page after this one is dressed like it.
+    evs[-2]["pages"][0]["image"] = R.image("!Door1", 4, pattern=0)
     # NIX-3: three of Lorrimer's list, located with receipts (q_nix.py).
     for ev, key in zip(evs[-4:-1], ["oar", "rope", "pot"]):
         ev["pages"] += q_nix.located_page(key, ev["pages"][0])     # NIX-3
@@ -455,7 +354,7 @@ ROOMS = {
     MAP_GUILD:      (19, 17, 3, 4, 15, 11, 9),
     MAP_OUTFIT:     (17, 16, 3, 4, 13, 10, 8),
     MAP_COTTAGE:    (17, 16, 3, 4, 13, 11, 8),
-    MAP_LIGHTHOUSE: (13, 25, 3, 4, 9, 19, 6),
+    MAP_LIGHTHOUSE: (130, 25, 3, 2, 13, 14, 8),     # frozen; see LIGHTHOUSE_*
     MAP_FITCH:      (13, 13, 3, 4, 9, 9, 6),
     MAP_WYVERN_UP:  (25, 21, 3, 4, 21, 15, None),
 }
@@ -2269,47 +2168,77 @@ def quy_event(event_id, x, y):
 
 
 # =============================================================== the lighthouse ==
+# Drawn by hand in the editor (Mike, October 2026) and kept by `handdrawn.py`:
+# six floors laid side by side across one wide map, black between them, from
+# the keeper's room at the west end to the lamp on the roof at the east, which
+# is drawn transparent over the `Ocean` parallax so the sky shows round it.
+# Each floor is (west edge of its stairs, the flight it arrives by, the flight
+# it leaves by); a flight is (top tread, bottom tread) in its one column. The
+# ground floor only goes up and the roof only comes down.
+LIGHTHOUSE_DOOR = (8, 15)               # the step inside the door
+LIGHTHOUSE_ARRIVE = (8, 14)             # one in from it, facing up
+LIGHTHOUSE_FLOORS = [
+    # x   down flight  up flight
+    (4,   None,        (7, 9)),         # the keeper's room
+    (22,  (5, 6),      (9, 10)),        # the stores
+    (37,  (5, 6),      (9, 10)),        # the bedroom
+    (52,  (5, 6),      (9, 10)),        # the books
+    (67,  (5, 6),      (9, 10)),        # the log room
+    (111, (5, 6),      None),           # the lamp
+]
+
+
 def lighthouse_map():
-    """Tall and thin, the way a lighthouse ought to be: the keeper at the
-    bottom, the lamp nineteen rows up, and nothing much in between except the
-    climb."""
-    g = room(MAP_LIGHTHOUSE, floor=K.IN_SANDSTONE,
-             wall_top=K.IN_WALL_TOP_STONE, wall_face=K.IN_WALL_FACE_STONE)
-    g.fill(5, 4, 7, 6, 0, K.IN_DIAMOND_TILE)      # the lamp floor at the top
-    g.autotile(0)
-    K.wide(g, 3, 3, 2, K.IN_SUNDRIES_CABINET)     # the keeper's sundries
-    g.column(9, 3, 2, K.IN_CABINET)
-    g.column(3, 16, 2, K.IN_BED_BROWN)
-    g.column(9, 16, 2, K.IN_BOOKSHELF)        # was half of `Bookshelf B`
-    g.set(4, 18, 2, K.IN_TABLE_WOOD)
-    g.set(4, 18, 3, K.INC_MEAL)
-    g.set(8, 18, 2, K.IN_TABLE_WOOD)
-    g.set(8, 18, 3, K.INC_BOOK)
-    g.scatter([(3, 12), (9, 12)], 2, K.IN_BARREL)
-    g.scatter([(3, 9), (9, 9)], 2, K.IN_CRATE)
-    g.column(6, 4, 2, K.IN_STOVE)                 # the lamp itself, brass and
-                                                  # the size of a cart
-    return finish(MAP_LIGHTHOUSE, g, "The Lighthouse of Saint Bother",
-                  bgm="Ship2", battleback=("Stone1", "Room1"),
-                  events=lighthouse_events())
+    """Six floors and the climb between them: the keeper at the bottom, the
+    lamp at the top, and on every floor in between a flight up from below
+    at the top of the west wall and a flight on up at the bottom of it."""
+    w, h = ROOMS[MAP_LIGHTHOUSE][0], ROOMS[MAP_LIGHTHOUSE][1]
+    g = K.Canvas(w, h, HD.load(MAP_LIGHTHOUSE, w, h, K.TS_INSIDE),
+                 tileset=K.TS_INSIDE)
+    m = finish(MAP_LIGHTHOUSE, g, "The Lighthouse of Saint Bother",
+               bgm="Ship2", battleback=("Stone1", "Room1"),
+               events=lighthouse_events())
+    m["parallaxName"] = "Ocean"
+    return m
+
+
+def lighthouse_stairs(first_id):
+    """The way up from each floor and the way down from each one above it.
+    Up is the top tread of a floor's lower flight, to the top tread of the
+    next floor's flight up from below, facing up; down is that flight's
+    bottom tread, back to the bottom tread of the flight below, facing down.
+    So turning round on the stairs takes you straight back."""
+    evs = []
+    for (x, down, up), (nx, ndown, _) in zip(LIGHTHOUSE_FLOORS,
+                                             LIGHTHOUSE_FLOORS[1:]):
+        evs.append(R.event(first_id + len(evs), "The Stairs Up", x, up[0], [
+            R.page([R.play_se("Move1"),
+                    R.transfer(MAP_LIGHTHOUSE, nx, ndown[0], 8, 0)],
+                   img=R.image(""), trigger=1, priority=0, through=True)]))
+        evs.append(R.event(first_id + len(evs), "The Stairs Down",
+                           nx, ndown[1], [
+            R.page([R.play_se("Move1"),
+                    R.transfer(MAP_LIGHTHOUSE, x, up[1], 2, 0)],
+                   img=R.image(""), trigger=1, priority=0, through=True)]))
+    return evs
 
 
 def lighthouse_events():
     # Out onto the spit, not one square south of the door - south of the door
     # is the sea. See `WORLD_LIGHTHOUSE_STEP` in `places.py`.
-    evs = [S.exit_tile(1, "Lighthouse Door", *threshold(MAP_LIGHTHOUSE),
+    evs = [S.exit_tile(1, "Lighthouse Door", *LIGHTHOUSE_DOOR,
                        MAP_WORLD, *WORLD_LIGHTHOUSE_STEP)]
-    evs.append(bother_event(2, 6, 17))
-    evs.append(the_lamp(3, 6, 5))
+    evs.append(bother_event(2, 8, 12))          # below the bar's last stool
+    evs.append(the_lamp(3, 115, 7))             # the stove on the lamp floor
 
-    # On the book, on the desk; it was the bare floor in front of them (P2).
-    evs.append(S.prop(4, "The Ships Book", 8, 18, [
+    # On the book, on the desk in the log room at the top of the stairs.
+    evs.append(S.prop(4, "The Ships Book", 73, 4, [
         "A ledger of every ship that has passed the",
         "point. The last entry is ninety-one years old.",
         "Under it, in the same hand, again and again",
         "down four hundred pages: 'no ship. light lit.'"],
         "", 0, extra=[S.trope()]))
-    return evs
+    return evs + lighthouse_stairs(5)
 
 
 def bother_event(event_id, x, y):

@@ -54,6 +54,9 @@ import village  # noqa: E402
 import wilds  # noqa: E402
 
 
+# In the editor's tree order, which is this list's order: Mike's, October 2026,
+# with the places off the world map together and each town's own maps
+# straight after it.
 MAP_NAMES = [
     (village.MAP_VILLAGE, "Thistlewick", 0),
     (village.MAP_HOME, "Bram's House", village.MAP_VILLAGE),
@@ -67,20 +70,9 @@ MAP_NAMES = [
     (journey.MAP_GLOAM_DEEP, "Gloamwood - The Bit With The Thing", journey.MAP_WORLD),
     (journey.MAP_TOWER, "The Obligatory Tower", journey.MAP_WORLD),
     (journey.MAP_SUMMIT, "The Obligatory Tower - Summit", journey.MAP_WORLD),
-    (south.MAP_SOPPING, "Nether Sopping", 0),
-    (south.MAP_WYVERN, "The Slain Wyvern", south.MAP_SOPPING),
-    (south.MAP_GUILD, "The Adventurers' Guild (Provisional)",
-     south.MAP_SOPPING),
-    (south.MAP_OUTFIT, "Wick & Barrow, Outfitters", south.MAP_SOPPING),
-    (south.MAP_COTTAGE, "Number Forty-Five's Cottage", south.MAP_SOPPING),
     (south.MAP_LIGHTHOUSE, "The Lighthouse of Saint Bother", journey.MAP_WORLD),
     (wilds.MAP_PIT, "The Bottomless Pit", journey.MAP_WORLD),
     (wilds.MAP_BARROW, "The Barrow of the Forty-Fourth", journey.MAP_WORLD),
-    (north.MAP_CLANGING, "Upper Clanging", 0),
-    (north.MAP_WORKS, "The Hoyle Works", north.MAP_CLANGING),
-    (north.MAP_VALVE, "The Safety Valve", north.MAP_CLANGING),
-    (north.MAP_FORGE, "Ollerenshaw's", north.MAP_CLANGING),
-    (north.MAP_PARISH, "The Parish Rooms", north.MAP_CLANGING),
     (field.MAP_LONG_FIELD, "The Long Field", journey.MAP_WORLD),
     (field.MAP_CRAG, "The Wreck of the One Hundred and Ninety-Ninth",
      journey.MAP_WORLD),
@@ -126,13 +118,24 @@ MAP_NAMES = [
     (dunnage.MAP_COUNTING_HOUSE, "The Counting House", dunnage.MAP_DUNNAGE),
     (dunnage.MAP_BONDED, "The Bonded Warehouse", dunnage.MAP_DUNNAGE),
     (dunnage.MAP_BELL, "The Bell", dunnage.MAP_DUNNAGE),
+    (places.MAP_CULVERT, "The Bottom Lock", dunnage.MAP_DUNNAGE),
     (places.MAP_DROWNED_STREET, "Old Ashcombe", journey.MAP_WORLD),
     (places.MAP_CARN_DREY, "Under Carn Drey", journey.MAP_WORLD),
     (places.MAP_POTTERING, "Much Pottering", journey.MAP_WORLD),
     (places.MAP_POTTERING_IN, "The Gotobeds' Cottage", places.MAP_POTTERING),
-    (places.MAP_CULVERT, "The Bottom Lock", dunnage.MAP_DUNNAGE),
-    (places.MAP_FITCH, "Ambrose Fitch's Cottage", south.MAP_SOPPING),
+    (south.MAP_SOPPING, "Nether Sopping", 0),
+    (south.MAP_WYVERN, "The Slain Wyvern", south.MAP_SOPPING),
     (places.MAP_WYVERN_UP, "The Slain Wyvern - Upstairs", south.MAP_WYVERN),
+    (south.MAP_GUILD, "The Adventurers' Guild (Provisional)",
+     south.MAP_SOPPING),
+    (south.MAP_OUTFIT, "Wick & Barrow, Outfitters", south.MAP_SOPPING),
+    (south.MAP_COTTAGE, "Number Forty-Five's Cottage", south.MAP_SOPPING),
+    (places.MAP_FITCH, "Ambrose Fitch's Cottage", south.MAP_SOPPING),
+    (north.MAP_CLANGING, "Upper Clanging", 0),
+    (north.MAP_WORKS, "The Hoyle Works", north.MAP_CLANGING),
+    (north.MAP_VALVE, "The Safety Valve", north.MAP_CLANGING),
+    (north.MAP_FORGE, "Ollerenshaw's", north.MAP_CLANGING),
+    (north.MAP_PARISH, "The Parish Rooms", north.MAP_CLANGING),
 ]
 
 
@@ -450,9 +453,10 @@ def door_holes():
 # Inside_B's `Large Window A`, and on SF Inside the `Midsize Window A` Mike
 # gave the Safety Valve.
 # Frozen maps whose windows are Mike's and stay as drawn although the street
-# disagrees: the Safety Valve's front has none, and the Eleven Days' right-hand
-# window is a cell nearer the door than the rule would put it.
-WINDOWS_AS_DRAWN = {23, 45}
+# disagrees: the Safety Valve's front has none, the Eleven Days' right-hand
+# window is a cell nearer the door than the rule would put it, and the
+# Gotobeds' front is a storey taller than the rule's rows.
+WINDOWS_AS_DRAWN = {23, 45, 69}
 
 OUTSIDE_WINDOW = {
     mapkit.TS_INSIDE: mapkit.IN_WINDOW,

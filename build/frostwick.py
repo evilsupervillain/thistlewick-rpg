@@ -46,23 +46,6 @@ from places import (MAP_WORLD, MAP_FROSTWICK, MAP_ELEVEN_DAYS,
 # The name `worldmap.json`'s door events carry for this site.
 SITE = "Frostwick"
 
-# ----------------------------------------------------------- snow tiles ---
-# None of these had a `mapkit` constant, because nothing in this game had a
-# snow street before. Read off `Outside_A2.txt`, `Outside_A3.txt` and
-# `Outside_B.txt`, and cropped before use.
-SNOW = K.A(40)                  # A2 `Snow`
-SNOW_ROAD = K.A(42)             # A2 `Road (Snow)`
-WALL_SNOW_BRICK = K.A(77)       # A3 `Snow Outer Wall (Brick)`
-WALL_SNOW_WOOD = K.A(78)        # A3 `Snow Outer Wall (Wood)`
-# `Conifer Tree (Snow)`, 2x2. The top row is a star tile and the bottom blocks.
-SNOW_TREE = ((K.b_tile(8, 8), K.b_tile(9, 8)), (K.b_tile(8, 9), K.b_tile(9, 9)))
-# `Streetlight B (Snow)`: lamp, post, and a foot in a drift, which blocks.
-SNOW_LAMP = (K.b_tile(0, 4), K.b_tile(0, 5), K.b_tile(0, 6))
-SNOW_SIGN = K.b_tile(9, 10)     # `Sign A (Snow)`
-SNOWMAN = K.b_tile(8, 11)
-SNOW_BARREL = K.b_tile(13, 10)
-SNOW_CRATE = K.b_tile(15, 8)    # `Crate (Snow)`
-
 SNOW_POWER = 3
 
 
@@ -124,64 +107,14 @@ SNOWMAN_AT = (25, 18)
 
 
 def frostwick_map():
+    """One street of four houses, snowed on. Drawn by hand in the editor and
+    kept by `handdrawn.py` (Mike, October 2026), from the generated town:
+    the chimneys stood up beside the roofs rather than through the middle of
+    them, and the lamps down the street. Only the events are built here."""
     w, h = FW, FH
-    g = K.Canvas(w, h)
-    g.fill(0, 0, w - 1, h - 1, 0, SNOW)
-    g.fill(0, STREET_Y - 1, w - 1, STREET_Y, 0, SNOW_ROAD)
-    for door_at in (STAGGS_DOOR, ELEVEN_DOOR, GROUP_DOOR, COLD_DOOR):
-        g.set(door_at[0], door_at[1] + 1, 0, SNOW_ROAD)
-    # The green: a trodden path from the street to the ribbon post.
-    g.fill(RIBBON_POST[0], STREET_Y + 1, RIBBON_POST[0], RIBBON_POST[1] - 1,
-           0, SNOW_ROAD)
-
-    g.building(*STAGGS, wall=WALL_SNOW_WOOD, roof=K.ROOF_WHITE)
-    g.building(*ELEVEN, wall=WALL_SNOW_BRICK, roof=K.ROOF_WHITE)
-    g.building(*GROUP, wall=WALL_SNOW_BRICK, roof=K.ROOF_WHITE)
-    g.building(*COLD, wall=K.WALL_ICE, roof=K.ROOF_WHITE)
-
-    g.autotile(0)
-
-    # Fronts. The Staggs' door is shut - they are out at the ribbon.
-    g.column(STAGGS_DOOR[0], STAGGS_DOOR[1] - 1, 3, K.DOOR_SHUT)
-    g.set(STAGGS_DOOR[0] + 1, STAGGS_DOOR[1], 3, K.WINDOW)
-    g.set(STAGGS_DOOR[0] - 1, STAGGS_DOOR[1], 3, K.WINDOW)
-    g.set(ELEVEN_DOOR[0] - 2, ELEVEN_DOOR[1], 3, K.SIGN_INN)
-    g.set(ELEVEN_DOOR[0] - 1, ELEVEN_DOOR[1], 3, K.WINDOW)
-    g.set(ELEVEN_DOOR[0] + 1, ELEVEN_DOOR[1], 3, K.WINDOW)
-    g.set(ELEVEN_DOOR[0] + 2, ELEVEN_DOOR[1], 3, K.SIGN_MUG)
-    g.set(GROUP_DOOR[0] - 1, GROUP_DOOR[1], 3, K.WINDOW)
-    g.set(GROUP_DOOR[0] + 1, GROUP_DOOR[1], 3, K.WINDOW)
-    g.set(COLD_DOOR[0] + 1, COLD_DOOR[1], 3, K.WINDOW)
-    for x, y in [(STAGGS[0] + 1, STAGGS[1]), (ELEVEN[0] + 6, ELEVEN[1]),
-                 (GROUP[0] + 1, GROUP[1])]:
-        g.set(x, y, 2, K.STOVEPIPE)
-
-    # Lamps down the street, the lantern trade being four fifths of the
-    # parish income. Each is three cells and stands on its foot.
-    for x in (8, 18, 26):
-        g.column(x, STREET_Y - 4, 3, SNOW_LAMP)
-    for x in (4, 23, 30):
-        g.column(x, STREET_Y + 1, 3, SNOW_LAMP)
-
-    g.set(*TOWN_SIGN, 3, SNOW_SIGN)
-    g.set(*RIBBON_POST, 3, SNOW_SIGN)
-    g.set(*SNOWMAN_AT, 3, SNOWMAN)
-    g.scatter([(2, 12), (33, 11), (12, 16), (28, 16)], 3, SNOW_BARREL)
-    g.scatter([(2, 16), (33, 17)], 3, SNOW_CRATE)
-
-    # Snow conifers round the edge, with the road's gap at the east end.
-    for x in range(0, w - 1, 2):
-        g.blit(x, 0, 3, SNOW_TREE)
-        g.blit(x, h - 2, 3, SNOW_TREE)
-    for y in range(2, h - 3, 2):
-        g.blit(0, y, 3, SNOW_TREE)
-        if not (STREET_Y - 3 <= y <= STREET_Y):
-            g.blit(w - 2, y, 3, SNOW_TREE)
-    for x, y in [(12, 18), (20, 18), (29, 18), (3, 18)]:
-        g.blit(x, y, 3, SNOW_TREE)
-
+    data = HD.load(MAP_FROSTWICK, w, h, K.TS_OUTSIDE)
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Frostwick", bgm="Town2")
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + frostwick_events()
     return m
 

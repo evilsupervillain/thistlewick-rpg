@@ -23,10 +23,11 @@ dresser is `Closet / Sundries Shelf A`.
 
 | constant | tiles | what the sheet calls it |
 | --- | --- | --- |
-| `GRASS` | A2 k16 | Meadow |
-| `PATH` | A2 k17 | Dirt (Meadow) |
-| `COBBLE` | A2 k18 | Road (Meadow) |
-| `PAVING` | A2 k19 | Cobblestones A |
+| `GRASS` | A2 k25 | Grass (Dirt) |
+| `PATH` | A2 k24 | Dirt |
+| `COBBLE` | A2 k26 | Road (Dirt) |
+| `PAVING` | A2 k27 | Cobblestones A (Dirt) |
+| `MEADOW` | A2 k16 | Meadow |
 | `HEDGE` | A2 k20 | Bush |
 | `DECKING` | A2 k22 | Fencepost A (Wood) |
 | `SAND` | A2 k24 | Dirt |
@@ -96,6 +97,7 @@ dresser is `Closet / Sundries Shelf A`.
 | `GRAVE_B` | B 143 | Grave B |
 | `FENCE_PANEL` | B 138 | Sign B |
 | `STOVEPIPE` | B 136 | Chimney |
+| `CHIMNEY` | B 128, B 136 | Chimney |
 | `LILYPAD` | B 255 | Lotus Pads C |
 | `MUSHROOMS` | B 235 | Mushrooms B |
 | `BURROW` | B 169 | Hole |
@@ -104,8 +106,7 @@ dresser is `Closet / Sundries Shelf A`.
 | `DEAD_TREE` | B 232 | Dead Tree |
 | `DEAD_ROOTS` | B 224 | Dead Beanstalk |
 | `LADDER` | B 18 | Wood Ladder |
-| `REEDS` | A1 k11 | Waterfall D (Boulder) |
-| `LAMP` | B 8, B 16 | Streetlight A |
+| `LAMP` | B 8, B 16, B 24 | Streetlight A |
 | `SIGN_BLADE` | B 65 | Shop Sign (Sword) |
 | `SIGN_ORB` | B 66 | Shop Sign (Sword & Shield) |
 | `SIGN_ARMOR` | B 67 | Shop Sign (Armor) |
@@ -463,3 +464,4 @@ dresser is `Closet / Sundries Shelf A`.
 | --- | --- | --- |
 | `IN_FLIGHT` | A5 88, A5 90 | Neon Floor / Interior Floor F (Tile Carpet, Ruins) |
 | `IN_STEP` | A5 91 | Ledge (Demonic Ground) |
+| `DG_BLACK` | A2 k22 | Ground D (Black Floor) |

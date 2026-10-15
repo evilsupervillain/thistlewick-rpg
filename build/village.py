@@ -105,9 +105,10 @@ def village_map():
     for y in range(20, 31, 2):
         g.fill(10, y, 17, y, 0, K.WHEAT)
 
-    # -- the pond, with reeds on the near bank
+    # -- the pond. (32,24) is the Fisher's bank. It had "reeds" in it, which
+    # were `REEDS`, which is `Waterfall D (Boulder)`: two blocks of rock
+    # standing in the water, which Mike took out of Nether Sopping.
     g.blob(35, 25, 3, 3, 0, K.WATER)
-    g.scatter([(32, 27), (38, 23)], 0, K.REEDS)   # (32,24) is the Fisher's bank
 
     # -- buildings
     g.building(*HALL, wall=K.WALL_SANDBRICK, roof=K.ROOF_GOLD, wall_rows=3)
@@ -134,14 +135,17 @@ def village_map():
     for x, y in [(9, 10), (15, 10), (5, 23), (9, 23), (32, 22),
                  (26, 31), (31, 31), (4, 31), (25, 22)]:
         g.set(x, y, 3, K.WINDOW)
-    for x, y in [(5, 20), (27, 20), (27, 29), (5, 29)]:
-        g.set(x, y, 2, K.STOVEPIPE)
+    for b in (INN, STORE, HOME, SMITHY):
+        g.chimney_beside(*b[:2])
 
     # -- the market square
     g.blit(16, 12, 3, K.STALL)
     g.blit(22, 12, 3, K.STALL_FRUIT)
-    g.column(15, 16, 3, K.LAMP)
-    g.column(24, 16, 3, K.LAMP)
+    # At the square's two south corners, standing on its last row: a row
+    # lower and the foot would be off the paving, and the east one on the
+    # chimney of Nix's.
+    g.column(15, 15, 3, K.LAMP)
+    g.column(24, 15, 3, K.LAMP)
     g.set(18, 11, 3, K.SIGNPOST)
     g.set(14, 11, 3, K.SIGNPOST)                  # the notice board
     g.set(21, 4, 3, K.SIGNPOST)                   # the ominous sign

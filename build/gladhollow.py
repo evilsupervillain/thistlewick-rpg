@@ -48,8 +48,8 @@ door on each.
   "Welcome to Gladhollow!" villager, the hero who helps himself to a
   stranger's barrels, the key under the pot, and the passage behind a
   bookcase.
-* **Tiles.** The village is `Meadow` grass and `Dirt (Meadow)` road, one
-  family. The well is `TUB`, which is `Well`, with `POT` beside it - a plain
+* **Tiles.** The village is `Grass (Dirt)` and a `Dirt` road, the second
+  row of the sheet, so they blend. The well is `TUB`, which is `Well`, with `POT` beside it - a plain
   clay `Pot`, and the text says so. In the mayor's room the passage bookcase is `IN_BOOKSHELF`
   like its neighbours, and the event that opens it is on its lower cell. The back
   room is drawn on the same map in the black space east of the office, and
@@ -58,6 +58,7 @@ door on each.
   has no cap, so nothing says he wears one.
 """
 import db
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 
@@ -112,13 +113,6 @@ LEDGER = (17, 4)
 SACK = (18, 4)
 CAP = (17, 6)
 
-TABLE_A = K.sf_grid("Inside_B", "Table A", 2)[0]
-CHAIR = K.sf_block("Inside_B", "Chair A (Wood)")
-WALL_MAP = K.sf_grid("Inside_B", "World Map", 2)[0]
-OPEN_BOOK = K.sf_tile("Inside_C", "Open Book A (H)")
-SACK_TILE = K.sf_tile("Inside_C", "Sack A")
-CAP_TILE = K.sf_tile("Inside_C", "Hat A (Stand)")
-
 # Event ids on the mayor's map, which the street's Toby reads back.
 LEDGER_EVENT = 4
 
@@ -152,9 +146,8 @@ def gladhollow_map():
     g.set(MAYOR_DOOR[0] - 3, FRONT_Y - 1, 3, K.SIGN_SUN)
     g.column(HOUSE_B[0] + 2, FRONT_Y - 1, 3, K.DOOR_SHUT)
     g.set(HOUSE_B[0] + 4, FRONT_Y, 3, K.WINDOW)
-    for x, y in [(GRANNY_B[0] + 1, GRANNY_B[1]), (MAYOR_B[0] + 6, MAYOR_B[1]),
-                 (HOUSE_B[0] + 4, HOUSE_B[1])]:
-        g.set(x, y, 2, K.STOVEPIPE)
+    for b in (GRANNY_B, MAYOR_B, HOUSE_B):
+        g.chimney_beside(*b[:2])
 
     # Granny Wendle's barrels, either side of her.
     g.scatter(BARRELS, 3, K.BARREL)
@@ -501,57 +494,15 @@ def gladhollow_events():
 
 
 # ========================================================= the mayor's room ==
-def _room(g, x1, y1, x2, y2, floor, top, face):
-    """`mapkit.interior`'s walls, for a second room on the same canvas."""
-    g.fill(x1, y1, x2, y2, 0, floor)
-    g.fill(x1 - 1, y1 - 3, x2 + 1, y1 - 3, 0, top)
-    g.fill(x1, y1 - 2, x2, y1 - 1, 0, face)
-    for y in range(y1 - 2, y2 + 2):
-        g.set(x1 - 1, y, 0, top)
-        g.set(x2 + 1, y, 0, top)
-    g.fill(x1 - 1, y2 + 1, x2 + 1, y2 + 1, 0, top)
-    g.fill(x1 - 1, y2 + 2, x2 + 1, y2 + 3, 0, face)       # corners too
-
-
 def mayors_map():
-    x1, y1, x2, y2, door_x = OFFICE
-    g = K.interior(MW, MH, x1, y1, x2, y2, door_x=door_x,
-                   floor=K.IN_WOOD_FLOOR, wall_top=K.IN_WALL_TOP,
-                   wall_face=K.IN_WALL_FACE)
-    _room(g, *BACK, K.IN_WOOD_FLOOR, K.IN_WALL_TOP, K.IN_WALL_FACE)
-
-    # A rug under the desk. Layer 1 is floor art.
-    g.fill(4, 5, 7, 7, 1, K.IN_GREEN_RUG)
-    g.autotile(1)
-
-    # The north wall is the Council Minutes, and one bookcase of them is a
-    # door. The map of the town hangs between.
-    for x in [3, 8, PASSAGE_X, 10]:
-        g.column(x, y1 - 1, 3, K.IN_BOOKSHELF)
-    g.column(11, y1 - 1, 3, K.IN_BOOKCASE)
-    g.column(12, y1 - 1, 3, K.IN_BOOKCASE2)
-    g.set(MAP_AT[0], MAP_AT[1], 3, WALL_MAP[0])
-    g.set(MAP_AT[0] + 1, MAP_AT[1], 3, WALL_MAP[1])
-
-    # The desk, with the chair behind it and the note on it.
-    g.column(DESK[0], DESK[1] - 2, 3, CHAIR)
-    g.set(DESK[0], DESK[1], 2, TABLE_A[0])
-    g.set(DESK[0] + 1, DESK[1], 2, TABLE_A[1])
-    g.set(DESK[0] + 1, DESK[1], 3, K.INC_SCROLL)
-    g.set(x1, y2, 3, K.INC_PLANT2)
-    g.set(x2, y2, 3, K.INC_PLANT2)
-
-    # The back room: the ledger and the coppers on a table, and the cap.
-    g.set(LEDGER[0], LEDGER[1], 2, TABLE_A[0])
-    g.set(SACK[0], SACK[1], 2, TABLE_A[1])
-    g.set(LEDGER[0], LEDGER[1], 3, OPEN_BOOK)
-    g.set(SACK[0], SACK[1], 3, SACK_TILE)
-    g.set(CAP[0], CAP[1], 3, CAP_TILE)
-    K.stairs_up(g, STAIRS[0], STAIRS[1], rows=2, width=1, piers=(True, False))
-
+    """Drawn by hand in the editor and kept by `handdrawn.py` (Mike, October
+    2026), from the generated house: the office with the Council Minutes
+    along its north wall - one bookcase of them a door - the desk on its rug,
+    and the cellar behind, now in stone. Only the events are built here."""
+    data = HD.load(MAP_MAYORS, MW, MH, K.TS_INSIDE)
     m = K.new_map(MW, MH, K.TS_INSIDE, name="The Mayor's House",
                   bgm="Town2")
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + mayors_events()
     return m
 

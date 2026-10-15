@@ -241,11 +241,26 @@ in each of the four states.
       handdrawn.py   maps drawn by hand in the editor, kept: `freeze <id>`
                      copies a map's tile layers into `build/handdrawn/`, and
                      its builder loads them with `handdrawn.load()` and adds
-                     its events as usual. **Maps 2, 4, 9, 10, 14, 17, 23, 45
-                     and 72 are frozen** - Bram's House, the Gilded Turnip,
-                     both Gloamwood maps, the Slain Wyvern and its upstairs,
-                     Number Forty-Five's cottage, the Safety Valve and the
-                     Eleven Days (Mike, October 2026). To change one: edit in the editor, `python3
+                     its events as usual. **Maps 2, 4, 9, 10, 13, 14, 17, 18,
+                     21, 23, 27, 32, 36, 41, 44, 45, 51, 65, 67, 68, 69 and 72
+                     are frozen** - Bram's House, the Gilded Turnip, both
+                     Gloamwood maps, Nether Sopping, the Slain Wyvern and its
+                     upstairs, Number Forty-Five's cottage, the lighthouse
+                     (six floors side by side, `south.LIGHTHOUSE_FLOORS` wires
+                     the stairs), Upper Clanging, the Safety Valve, the Wreck,
+                     the Eight Hours, Rosamund's tower, the Mayor's House,
+                     Frostwick, the Eleven Days, Sump, the Bell, Under Carn
+                     Drey, Much Pottering and the Gotobeds' cottage (two
+                     floors side by side, `pottering.STAIRS_UP` /
+                     `STAIRS_DOWN`) (Mike, October 2026). What he redrew in
+                     them is the house style for every map that is still
+                     generated: the ground in Outside_A2's "(Dirt)" row so it
+                     blends (`mapkit.GRASS` and friends), a chimney beside a
+                     house rather than in its roof (`Canvas.chimney_beside`),
+                     lamps on their feet (`mapkit.LAMP` is three cells), no
+                     `Waterfall D (Boulder)` scattered as "reeds", and caves
+                     with ragged rooms and dark beyond the rock
+                     (`mapkit.naturalise_cave`). To change one: edit in the editor, `python3
                      build/handdrawn.py freeze <id>`, rebuild - a rebuild
                      without the freeze throws the edit away. The build's
                      post-passes skip frozen maps. `handdrawn.py check` says

@@ -59,7 +59,7 @@ WORLD_TOWER = (66, 43)          # was (31,8)
 # --------------------------------------------------------------- the south --
 # Nether Sopping's own gate, at the top of its one street, and the tiles on the
 # world map that lead to it. Everything below here is optional content.
-SOPPING_GATE = (20, 2)
+SOPPING_GATE = (20, 0)            # the top edge, where Mike ran the road out
 WORLD_SOPPING = (71, 84)        # was (36,44): `Town A` on the last land row
 WORLD_SOPPING_STEP = (71, 83)   # was (36,45), one SOUTH; the spur is north now
 
@@ -91,7 +91,7 @@ MAP_CLANGING, MAP_WORKS, MAP_VALVE = 21, 22, 23
 MAP_FORGE, MAP_PARISH = 24, 25
 MAP_LONG_FIELD, MAP_CRAG = 26, 27
 
-CLANGING_GATE = (17, 42)        # the foot of the street, where the road leaves
+CLANGING_GATE = (17, 43)        # the bottom edge, where the road leaves (Mike, Oct 2026)
 WORLD_CLANGING = (44, 47)       # was (9,12): restamped `World_C/Slum`, same cell
 WORLD_CLANGING_STEP = (44, 48)  # was (9,13); still one south, still on the road
 WORLD_LONG_FIELD = (47, 50)     # was (12,15)

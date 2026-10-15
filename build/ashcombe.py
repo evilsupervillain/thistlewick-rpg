@@ -134,8 +134,8 @@ def ashcombe_map():
     g.column(POST_DOOR[0], POST_DOOR[1] - 1, 3, K.DOOR_SHUT)
     g.set(POST_DOOR[0] + 1, POST_DOOR[1] - 1, 3, K.SIGN_RING)   # the sack
     g.set(POST_DOOR[0] + 2, POST_DOOR[1], 3, K.WINDOW)
-    g.set(ASH_HOUSE[0] + 1, ASH_HOUSE[1], 2, K.STOVEPIPE)
-    g.set(SCHOOL[0] + 5, SCHOOL[1], 2, K.STOVEPIPE)
+    g.chimney_beside(*ASH_HOUSE[:2])
+    g.chimney_beside(*SCHOOL[:2])
 
     # Mrs Ash's front garden, and flowers along every front.
     g.scatter([(20, 13), (21, 13), (23, 13), (24, 13)], 3, K.FLOWERS2)

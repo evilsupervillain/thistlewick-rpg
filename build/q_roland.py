@@ -29,6 +29,7 @@ sold, and travelled, and came back.
 import copy
 
 import db
+import handdrawn as HD
 import mapkit as K
 import places
 import rmmzdata as R
@@ -957,9 +958,7 @@ def understudy_at_door(event_id):
 #   door with the other, inside his own departure - which still happens.
 #   Nothing here keeps him at the door. Nobody answers whose prophecy it is.
 CARN_W, CARN_H = 21, 21
-CARN_WORM_ROOM = (5, 3, 15, 8)
 CARN_GLOOM = [-68, -68, -51, 68]   # the bottom of a hill; the tower's idiom
-CARN_STONE_ROOM = (6, 12, 14, 17)
 CARN_STONE = (10, 14)
 CARN_WORM = (10, 4)
 CARN_WAY_OUT = (10, 18)
@@ -974,27 +973,19 @@ CARN_PROPHECY = [
 def carn_drey_map():
     """Under Carn Drey: stairs down into a dirt cave, the stone at the foot
     of them, a short way on, and a long dark room at the bottom of the hill
-    with something asleep in it. Dirt Cave throughout, its own family."""
-    g = K.Canvas(CARN_W, CARN_H)
-    g.fill(0, 0, CARN_W - 1, CARN_H - 1, 0, K.DG_WALL_TOP)
-    g.fill(*CARN_WORM_ROOM, 0, K.DG_FLOOR2)
-    g.fill(*CARN_STONE_ROOM, 0, K.DG_FLOOR)
-    g.fill(10, CARN_WORM_ROOM[3] + 1, 10, CARN_STONE_ROOM[1] - 1, 0, K.DG_FLOOR)
-    g.set(*CARN_WAY_OUT, 0, K.DG_FLOOR)
-    g.dungeon_walls(K.DG_WALL_TOP, K.DG_WALL_FACE)
-    g.autotile(0)
-    d = lambda name, i=0: K.sf_tile("Dungeon_B", name, i)
-    g.set(*CARN_WAY_OUT, 2, d("Stairs A (Up)"))
-    g.set(*CARN_STONE, 2, d("Boulder A (Dirt Cave)"))
-    rock = K.sf_block("Dungeon_B", "Tall Rock A (Dirt Cave)")
-    for x, y in [(7, 13), (13, 13), (6, 5), (14, 5)]:
-        g.column(x, y - 1, 3, rock[:2])
-    g.scatter([(7, 16), (13, 15), (8, 12), (12, 7), (8, 6), (13, 4)],
-              3, d("Gravel A (Dirt Cave)"))
-    g.scatter([(5, 8), (15, 8), (7, 3)], 3, d("Boulder A (Dirt Cave)"))
+    with something asleep in it. Dirt Cave throughout, its own family.
+
+    Drawn by hand in the editor and kept by `handdrawn.py` (Mike, October
+    2026), from the generated cave: the rooms' walls broken up so they read
+    as rock rather than as two boxes, and the rock mass given an edge, with
+    `Ground D (Black Floor)` laid over everything beyond it on layer 1 so the
+    hill ends in the dark instead of filling the map. `mapkit.naturalise_cave` is the same
+    idea applied to the caves he did not draw. Only the events are built
+    here."""
+    data = HD.load(places.MAP_CARN_DREY, CARN_W, CARN_H, K.TS_DUNGEON)
     m = K.new_map(CARN_W, CARN_H, K.TS_DUNGEON, name="Under Carn Drey",
                   bgm="Dungeon2", battleback=("DirtCave", "DirtCave"))
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + carn_drey_events()
     return m
 

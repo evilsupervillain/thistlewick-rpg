@@ -146,7 +146,12 @@ def main(argv):
     # is a **lamp room**, which is why the shipped game's own constant for it is
     # `WB_TOWER_WHITE`. A few snow flecks on the stonework in temperate country
     # is a far smaller fault than the final dungeon having a twin.
-    F.restamp(w, (79, 79), 'World_B/Tower A (Snow)')
+    #
+    # **And then `Tower B` after all** (Mike, in the editor, October 2026):
+    # brown stone, no snow. It is the one he looked at in place and chose, and
+    # it is a different enough tower from the Obligatory one at 48 pixels that
+    # the twin above is no longer the question.
+    F.restamp(w, (79, 79), 'World_B/Tower B')
 
     # The Sky Anvil: a meteorite used as a gatepost since 1749, and HOB-4's
     # whole joke - Elias Meech will not sell a very good gatepost and will trade

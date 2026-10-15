@@ -53,6 +53,9 @@ save_object(name, obj)                               System.json-style: a single
 save_list(name, items)                               Actors.json-style: one element per line between brackets.
 map_text(m)                                          A map file's exact text, the way the editor writes one.
 save_map(map_id, m)
+read_plugins(project)                                The `$plugins` list from a project's js/plugins.js, in load order.
+write_plugins(project, plugins)                      Write js/plugins.js in the editor's layout, one entry per line.
+upsert_plugin(project, name, description='', parameters=None, status=True) Add or replace one plugin's js/plugins.js entry; a new one goes last.
 load_map(map_id)
 message_width(face=False)                            How many pixels of a message line the player will actually see.
 text_width(text, font_size=FONT_SIZE, currency='G', digits=4) Pixels the engine will draw `text` in, following processEscapeCharacter.
@@ -135,101 +138,101 @@ choice_block(options, branches, cancel=None, default=0, position=2, background=0
 
 Tile vocabulary and drawing helpers for The Obligatory Quest.
 
-**Tile constants (365)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
+**Tile constants (367)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
 
 ```
 GRASS                   PATH                    COBBLE                  PAVING
-HEDGE                   DECKING                 SAND                    WHEAT
-SOIL                    DARK_GRASS              WATER                   CLIFF_TOP
-CLIFF_FACE              WALL_SHINGLE            WALL_THATCH             WALL_LOG
-WALL_BLUE_TILE          WALL_SANDBRICK          WALL_PLASTER            WALL_BRICK_RED
-WALL_ICE                WALL_PLANK              WALL_PLANK_LIGHT        WALL_TIMBER
-WALL_BRICK_PURPLE       WALL_BRICK_GREEN        WALL_COLUMNS            WALL_CONCRETE
-WALL_MOSSY              WALL_STONE              WALL_STONE_WHITE        WALL_STONE_DARK
-WALL_MOSS_STONE         TREE                    TREE_DARK               STALL
-STALL_FRUIT             TENT                    PALM                    BUSH
-BUSH2                   BUSH3                   FLOWERS                 FLOWERS2
-FLOWERS3                ROCK                    ROCK2                   LOGS
-TUB                     BARREL                  CRATE                   POT
-BUCKET                  SIGNPOST                GRAVE_A                 GRAVE_B
-FENCE_PANEL             STOVEPIPE               LILYPAD                 MUSHROOMS
-BURROW                  BRAMBLES                DEAD_BUSH               DEAD_TREE
-DEAD_ROOTS              LADDER                  REEDS                   LAMP
-SIGN_BLADE              SIGN_ORB                SIGN_ARMOR              SIGN_RING
-SIGN_POTION             SIGN_INN                SIGN_MUG                SIGN_PLATE
-SIGN_WAND               SIGN_COIN               SIGN_HAMMER             SIGN_SUN
-DOORWAY_DARK            DOOR_SHUT               DOORWAY_ARCH            WINDOW
-WINDOW_GLASS            DOOR_DOUBLE             IN_WOOD_FLOOR           IN_COBBLE
-IN_DARK_WOOD            IN_RED_CARPET           IN_SANDSTONE            IN_DIAMOND_TILE
-IN_PARQUET              IN_BRICK_FLOOR          IN_PURPLE_RUG           IN_GREEN_RUG
-IN_BLUE_RUG             IN_RED_RUG              IN_DOOR_OPENING         IN_WALL_TOP
-IN_WALL_FACE            IN_WALL_TOP_PLANK       IN_WALL_FACE_PLANK      IN_WALL_TOP_STONE
-IN_WALL_FACE_STONE      IN_WALL_TOP_TAN         IN_WALL_FACE_TAN        IN_WALL_TOP_WHITE
-IN_WALL_FACE_WHITE      IN_WALL_TOP_RED         IN_WALL_FACE_RED        IN_WALL_TOP_GOLD
-IN_WALL_FACE_GOLD       IN_WALL_TOP_PURPLE      IN_WALL_FACE_PURPLE     IN_VOID
-IN_BED                  IN_BED_ORANGE           IN_BED_BROWN            IN_BOOKCASE
-IN_BOOKCASE2            IN_CURTAIN_GREEN        IN_SHELF_JARS           IN_SHELF_BOTTLES
-IN_SHELF_FRUIT          IN_SUNDRIES_CABINET     IN_BOTTLE_CABINET       WIDE_PIECES
-IN_SHELF_GOODS          IN_CABINET              IN_DRESSER              IN_COUNTER
-IN_PILLAR               IN_FIREPLACE            IN_PIANO                IN_ORGAN
-IN_TABLE_ROUND          IN_TABLE_SMALL          IN_POT                  IN_CRATE
-IN_CRATE2               IN_BARREL               IN_BARREL2              IN_SACK
-IN_SACK2                IN_SOFA                 IN_CURTAIN_RED          IN_WINDOW
-IN_STAINED_GLASS        IN_SWORD_RACK           IN_NOTICE_BOARD         IN_CLOCK
-IN_MIRROR               IN_THRONE               IN_RAILING              IN_STOVE
-IN_KITCHEN_COUNTER      IN_TABLE                IN_TABLE_ONE            IN_STOOL
-IN_TABLE_PLAIN          IN_BOOKSHELF            IN_WINE_RACK            IN_KITCHEN
-INC_BOOK                INC_BOOK2               INC_SCROLL              INC_SCROLL2
-INC_CANDLES             INC_PLANT               INC_PLANT2              INC_CHEST_PROP
-INC_POTION_BLUE         INC_POTION_GREEN        INC_POTION_RED          INC_FRUIT
-INC_BASKET              INC_BOTTLE              INC_BOTTLES             INC_GOBLET
-INC_MEAL                INC_MEAL2               INC_ARMOR_STAND         INC_LAMP
-INC_BELL                INC_DESK_BELL           INC_SWORD_STAND         INC_CASE
-INC_OPEN_BOOK           DG_FLOOR                DG_FLOOR2               DG_WALL_TOP
-DG_WALL_FACE            DG_VOID                 DGB_GATE                DGB_PORTAL
-DGB_OBELISK             DGB_MONUMENT            DGB_STATUE_ANGEL        DGB_STATUE_DEMON
-DGB_PILLAR              DGB_PILLAR_WHITE        DGB_LADDER              DGB_ROCK
-DGB_RUBBLE              DGB_BONES               DGB_SKULLS              DGB_CRYSTAL_PURPLE
-DGB_BARRICADE           W_SEA                   W_GRASS                 W_GRASS_DARK
-W_SAND                  W_SNOW                  W_WASTE                 W_FOREST
-W_CONIFER               W_HILLS                 W_HILLS_BROWN           W_MOUNTAIN
-W_VOLCANO               W_ROAD                  W_DUNES                 W_JUNGLE
-WB_VILLAGE              WB_TOWN                 WB_DARK_CASTLE          WB_STONE_CASTLE
-WB_TOWER                WB_TOWER_WHITE          WB_CAVE                 WB_CAVE_DARK
-WB_SIGN                 WB_TREE                 WB_HUT                  WB_ROCK
-SF_UPPER_BRICK          SF_UPPER_FACTORY        SF_UPPER_RUST           SF_UPPER_BARRACKS
-SF_UPPER_IVY            SF_WALL_STONE           SF_WALL_FACTORY         SF_WALL_RUST
-SF_WALL_BARRACKS_A      SF_WALL_BARRACKS_B      SF_WALL_FACTORY_B       SF_WALL_IVY
-SF_UPPER_PATINA         SF_UPPER_WOOD           SF_WALL_TILE            SF_WALL_BRICK_MOSSY
-SF_WALL_MORTAR          SF_WALL_WOOD            SF_WALL_BRICK           SF_WALL_WOOD_LIGHT
-SF_YARD_RUST_TOP        SF_YARD_RUST            SF_YARD_PATINA_TOP      SF_YARD_PATINA
-SF_YARD_BARRACKS_TOP    SF_YARD_BARRACKS        SF_YARD_BARRACKS2_TOP   SF_YARD_BARRACKS2
-SF_YARD_FACTORY_TOP     SF_YARD_FACTORY         SF_YARD_FACTORY_L_TOP   SF_YARD_FACTORY_L
-SF_YARD_FACTORY_M_TOP   SF_YARD_FACTORY_M       SF_YARD_BRICK_TOP       SF_YARD_BRICK
-SF_YARD_WOOD_TOP        SF_YARD_WOOD            SF_YARD_WOOD_DIRTY_TOP  SF_YARD_WOOD_DIRTY
-SF_WASTE                SF_METAL_FLOOR          SF_METAL_FLOOR_RUINS    SF_CONCRETE
-SF_CONCRETE_RUINS       SF_GRID_FLOOR           SF_DIRTY_FLOOR          SF_COBBLE_A
-SF_COBBLE_B             SF_COBBLE_C             SF_MECHA_FLOOR          SF_WOOD_FLOOR
-SF_HOLE                 SF_STAIRS_METAL         SF_STAIRS_WOOD          SF_CHIMNEY_A
-SF_CHIMNEY_B            SF_CHIMNEY_C            SF_CRATE                SF_BARREL
-SF_STACKED_CRATES       SF_MACHINE_A            SF_MACHINE_B            SF_MACHINE_C
-SF_MACHINE_DEVICE       SF_AIR_VENT_A           SF_AIR_VENT_B           SF_VENT
-SF_SMALL_FUEL_TANK      SF_PILLAR_MACHINE       SF_PILLAR_METAL         SF_PILLAR_BRICK
-SF_BROKEN_PILLAR_MACHINE  SF_BROKEN_PILLAR_BRICK  SF_IRON_FENCE_A         SF_IRON_FENCE_B
-SF_METAL_FENCE          SF_SPHERE_MACHINERY     SF_WATER_TANK           SF_ROUND_CLOCK
-SF_SIGN_POST            SF_WARNING_PLATE        SF_CANOPY               SF_PUMP
-SF_POSTBOX              SF_BENCH                SF_BENCH_B              SF_DUMPSTER
-SF_WEEDS                SF_WEEDS_B              SF_RUBBLE               IN_TABLE_TOP
-IN_TABLE_DARK           IN_BOOKCASE_WIDE        SF_RAILING              SF_RAILING_PIER
-SF_GATE_LEAF            SF_IN_WALL_CONCRETE     SF_IN_FACE_CONCRETE     SF_IN_WALL_HOUSE
-SF_IN_FACE_HOUSE        SF_IN_WALL_METAL        SF_IN_FACE_METAL        SF_IN_WALL_RUST
-SF_IN_FACE_RUST         SF_IN_WALL_BARRACKS     SF_IN_FACE_BARRACKS     SF_IN_WALL_FACTORY
-SF_IN_FACE_FACTORY      SF_IN_WALL_FACTORY_B    SF_IN_FACE_FACTORY_B    SF_IN_WALL_PATTERN
-SF_IN_FACE_PATTERN      SF_IN_WALL_PATTERN_B    SF_IN_FACE_PATTERN_B    SF_IN_WALL_BRICK
-SF_IN_FACE_BRICK        SF_IN_WALL_WOOD         SF_IN_FACE_WOOD         SF_FLOOR_RESIN
-SF_FLOOR_TILE           SF_FLOOR_DECO           SF_FLOOR_WOOD           SF_FLOOR_CARPET
-SF_FLOOR_MARBLE         SF_FLOOR_LINO           SF_THRESHOLD            IN_FLIGHT
-IN_STEP
+MEADOW                  HEDGE                   DECKING                 SAND
+WHEAT                   SOIL                    DARK_GRASS              WATER
+CLIFF_TOP               CLIFF_FACE              WALL_SHINGLE            WALL_THATCH
+WALL_LOG                WALL_BLUE_TILE          WALL_SANDBRICK          WALL_PLASTER
+WALL_BRICK_RED          WALL_ICE                WALL_PLANK              WALL_PLANK_LIGHT
+WALL_TIMBER             WALL_BRICK_PURPLE       WALL_BRICK_GREEN        WALL_COLUMNS
+WALL_CONCRETE           WALL_MOSSY              WALL_STONE              WALL_STONE_WHITE
+WALL_STONE_DARK         WALL_MOSS_STONE         TREE                    TREE_DARK
+STALL                   STALL_FRUIT             TENT                    PALM
+BUSH                    BUSH2                   BUSH3                   FLOWERS
+FLOWERS2                FLOWERS3                ROCK                    ROCK2
+LOGS                    TUB                     BARREL                  CRATE
+POT                     BUCKET                  SIGNPOST                GRAVE_A
+GRAVE_B                 FENCE_PANEL             STOVEPIPE               CHIMNEY
+LILYPAD                 MUSHROOMS               BURROW                  BRAMBLES
+DEAD_BUSH               DEAD_TREE               DEAD_ROOTS              LADDER
+LAMP                    SIGN_BLADE              SIGN_ORB                SIGN_ARMOR
+SIGN_RING               SIGN_POTION             SIGN_INN                SIGN_MUG
+SIGN_PLATE              SIGN_WAND               SIGN_COIN               SIGN_HAMMER
+SIGN_SUN                DOORWAY_DARK            DOOR_SHUT               DOORWAY_ARCH
+WINDOW                  WINDOW_GLASS            DOOR_DOUBLE             IN_WOOD_FLOOR
+IN_COBBLE               IN_DARK_WOOD            IN_RED_CARPET           IN_SANDSTONE
+IN_DIAMOND_TILE         IN_PARQUET              IN_BRICK_FLOOR          IN_PURPLE_RUG
+IN_GREEN_RUG            IN_BLUE_RUG             IN_RED_RUG              IN_DOOR_OPENING
+IN_WALL_TOP             IN_WALL_FACE            IN_WALL_TOP_PLANK       IN_WALL_FACE_PLANK
+IN_WALL_TOP_STONE       IN_WALL_FACE_STONE      IN_WALL_TOP_TAN         IN_WALL_FACE_TAN
+IN_WALL_TOP_WHITE       IN_WALL_FACE_WHITE      IN_WALL_TOP_RED         IN_WALL_FACE_RED
+IN_WALL_TOP_GOLD        IN_WALL_FACE_GOLD       IN_WALL_TOP_PURPLE      IN_WALL_FACE_PURPLE
+IN_VOID                 IN_BED                  IN_BED_ORANGE           IN_BED_BROWN
+IN_BOOKCASE             IN_BOOKCASE2            IN_CURTAIN_GREEN        IN_SHELF_JARS
+IN_SHELF_BOTTLES        IN_SHELF_FRUIT          IN_SUNDRIES_CABINET     IN_BOTTLE_CABINET
+WIDE_PIECES             IN_SHELF_GOODS          IN_CABINET              IN_DRESSER
+IN_COUNTER              IN_PILLAR               IN_FIREPLACE            IN_PIANO
+IN_ORGAN                IN_TABLE_ROUND          IN_TABLE_SMALL          IN_POT
+IN_CRATE                IN_CRATE2               IN_BARREL               IN_BARREL2
+IN_SACK                 IN_SACK2                IN_SOFA                 IN_CURTAIN_RED
+IN_WINDOW               IN_STAINED_GLASS        IN_SWORD_RACK           IN_NOTICE_BOARD
+IN_CLOCK                IN_MIRROR               IN_THRONE               IN_RAILING
+IN_STOVE                IN_KITCHEN_COUNTER      IN_TABLE                IN_TABLE_ONE
+IN_STOOL                IN_TABLE_PLAIN          IN_BOOKSHELF            IN_WINE_RACK
+IN_KITCHEN              INC_BOOK                INC_BOOK2               INC_SCROLL
+INC_SCROLL2             INC_CANDLES             INC_PLANT               INC_PLANT2
+INC_CHEST_PROP          INC_POTION_BLUE         INC_POTION_GREEN        INC_POTION_RED
+INC_FRUIT               INC_BASKET              INC_BOTTLE              INC_BOTTLES
+INC_GOBLET              INC_MEAL                INC_MEAL2               INC_ARMOR_STAND
+INC_LAMP                INC_BELL                INC_DESK_BELL           INC_SWORD_STAND
+INC_CASE                INC_OPEN_BOOK           DG_FLOOR                DG_FLOOR2
+DG_WALL_TOP             DG_WALL_FACE            DG_VOID                 DGB_GATE
+DGB_PORTAL              DGB_OBELISK             DGB_MONUMENT            DGB_STATUE_ANGEL
+DGB_STATUE_DEMON        DGB_PILLAR              DGB_PILLAR_WHITE        DGB_LADDER
+DGB_ROCK                DGB_RUBBLE              DGB_BONES               DGB_SKULLS
+DGB_CRYSTAL_PURPLE      DGB_BARRICADE           W_SEA                   W_GRASS
+W_GRASS_DARK            W_SAND                  W_SNOW                  W_WASTE
+W_FOREST                W_CONIFER               W_HILLS                 W_HILLS_BROWN
+W_MOUNTAIN              W_VOLCANO               W_ROAD                  W_DUNES
+W_JUNGLE                WB_VILLAGE              WB_TOWN                 WB_DARK_CASTLE
+WB_STONE_CASTLE         WB_TOWER                WB_TOWER_WHITE          WB_CAVE
+WB_CAVE_DARK            WB_SIGN                 WB_TREE                 WB_HUT
+WB_ROCK                 SF_UPPER_BRICK          SF_UPPER_FACTORY        SF_UPPER_RUST
+SF_UPPER_BARRACKS       SF_UPPER_IVY            SF_WALL_STONE           SF_WALL_FACTORY
+SF_WALL_RUST            SF_WALL_BARRACKS_A      SF_WALL_BARRACKS_B      SF_WALL_FACTORY_B
+SF_WALL_IVY             SF_UPPER_PATINA         SF_UPPER_WOOD           SF_WALL_TILE
+SF_WALL_BRICK_MOSSY     SF_WALL_MORTAR          SF_WALL_WOOD            SF_WALL_BRICK
+SF_WALL_WOOD_LIGHT      SF_YARD_RUST_TOP        SF_YARD_RUST            SF_YARD_PATINA_TOP
+SF_YARD_PATINA          SF_YARD_BARRACKS_TOP    SF_YARD_BARRACKS        SF_YARD_BARRACKS2_TOP
+SF_YARD_BARRACKS2       SF_YARD_FACTORY_TOP     SF_YARD_FACTORY         SF_YARD_FACTORY_L_TOP
+SF_YARD_FACTORY_L       SF_YARD_FACTORY_M_TOP   SF_YARD_FACTORY_M       SF_YARD_BRICK_TOP
+SF_YARD_BRICK           SF_YARD_WOOD_TOP        SF_YARD_WOOD            SF_YARD_WOOD_DIRTY_TOP
+SF_YARD_WOOD_DIRTY      SF_WASTE                SF_METAL_FLOOR          SF_METAL_FLOOR_RUINS
+SF_CONCRETE             SF_CONCRETE_RUINS       SF_GRID_FLOOR           SF_DIRTY_FLOOR
+SF_COBBLE_A             SF_COBBLE_B             SF_COBBLE_C             SF_MECHA_FLOOR
+SF_WOOD_FLOOR           SF_HOLE                 SF_STAIRS_METAL         SF_STAIRS_WOOD
+SF_CHIMNEY_A            SF_CHIMNEY_B            SF_CHIMNEY_C            SF_CRATE
+SF_BARREL               SF_STACKED_CRATES       SF_MACHINE_A            SF_MACHINE_B
+SF_MACHINE_C            SF_MACHINE_DEVICE       SF_AIR_VENT_A           SF_AIR_VENT_B
+SF_VENT                 SF_SMALL_FUEL_TANK      SF_PILLAR_MACHINE       SF_PILLAR_METAL
+SF_PILLAR_BRICK         SF_BROKEN_PILLAR_MACHINE  SF_BROKEN_PILLAR_BRICK  SF_IRON_FENCE_A
+SF_IRON_FENCE_B         SF_METAL_FENCE          SF_SPHERE_MACHINERY     SF_WATER_TANK
+SF_ROUND_CLOCK          SF_SIGN_POST            SF_WARNING_PLATE        SF_CANOPY
+SF_PUMP                 SF_POSTBOX              SF_BENCH                SF_BENCH_B
+SF_DUMPSTER             SF_WEEDS                SF_WEEDS_B              SF_RUBBLE
+IN_TABLE_TOP            IN_TABLE_DARK           IN_BOOKCASE_WIDE        SF_RAILING
+SF_RAILING_PIER         SF_GATE_LEAF            SF_IN_WALL_CONCRETE     SF_IN_FACE_CONCRETE
+SF_IN_WALL_HOUSE        SF_IN_FACE_HOUSE        SF_IN_WALL_METAL        SF_IN_FACE_METAL
+SF_IN_WALL_RUST         SF_IN_FACE_RUST         SF_IN_WALL_BARRACKS     SF_IN_FACE_BARRACKS
+SF_IN_WALL_FACTORY      SF_IN_FACE_FACTORY      SF_IN_WALL_FACTORY_B    SF_IN_FACE_FACTORY_B
+SF_IN_WALL_PATTERN      SF_IN_FACE_PATTERN      SF_IN_WALL_PATTERN_B    SF_IN_FACE_PATTERN_B
+SF_IN_WALL_BRICK        SF_IN_FACE_BRICK        SF_IN_WALL_WOOD         SF_IN_FACE_WOOD
+SF_FLOOR_RESIN          SF_FLOOR_TILE           SF_FLOOR_DECO           SF_FLOOR_WOOD
+SF_FLOOR_CARPET         SF_FLOOR_MARBLE         SF_FLOOR_LINO           SF_THRESHOLD
+IN_FLIGHT               IN_STEP                 DG_BLACK
 ```
 
 **Everything else.**
@@ -418,6 +421,7 @@ column(x, y, z, tiles)                               Draw a vertical run of tile
 scatter(spots, z, tile)
 roof(x, y, w, h, roof, z=3)                          Nine-slice a roof over a w x h rectangle. Needs w >= 2 and h >= 2.
 chimney(x, y, tile)                                  A chimney on a roof, drawn so that it is actually visible.
+chimney_beside(x, y)                                 A chimney up the west side of the house whose top-left corner is
 clock_tower(x, y, h=5, z=3)                          The Clock Tower, three tiles wide and `h` tall, with its base at
 building(x, y, w, h, wall=WALL_PLANK, roof=ROOF_BROWN, wall_rows=2, register=True) A house: `wall_rows` rows of A3 wall along the bottom on layer 0,
 dungeon_walls(top, face, z=0)                        Turn solid rock into a cave wall: the two rows of rock directly
@@ -444,6 +448,7 @@ new_map(width, height, tileset, name='', bgm='Town1', bgm_volume=70, encounters=
 interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR, floor_alt=None, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, void=IN_VOID, threshold=None, outside=None, tileset=TS_INSIDE) A room in black space, tiled the way the stock interiors are.
 stairs_up(g, x, y1, rows=3, width=2, piers=(True, True)) A flight going up through a room's north wall, the way Mike drew the
 stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, sides=(True, True)) The top of a flight that `stairs_up` drew on the floor below: the
+naturalise_cave(g, seed, keep=(), rough=True, top=DG_WALL_TOP, face=DG_WALL_FACE, dark=DG_BLACK) Make a carved cave read as rock rather than as boxes, the way Mike
 guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, floor=None) Wall off a room inside an interior that `interior()` has drawn: the
 wide(g, x, y, z, piece)                              Lay a piece that is several columns wide - `IN_SUNDRIES_CABINET` - with
 lone_halves(m)                                       Cells of map `m` holding one column of a `WIDE_PIECES` piece without
@@ -578,7 +583,7 @@ WORLD_VILLAGE                (60, 79)
 WORLD_VILLAGE_STEP           (60, 78)
 WORLD_GLOAMWOOD              (52, 62)
 WORLD_TOWER                  (66, 43)
-SOPPING_GATE                 (20, 2)
+SOPPING_GATE                 (20, 0)
 WORLD_SOPPING                (71, 84)
 WORLD_SOPPING_STEP           (71, 83)
 WORLD_LIGHTHOUSE             (79, 80)
@@ -596,7 +601,7 @@ MAP_FORGE                    24
 MAP_PARISH                   25
 MAP_LONG_FIELD               26
 MAP_CRAG                     27
-CLANGING_GATE                (17, 42)
+CLANGING_GATE                (17, 43)
 WORLD_CLANGING               (44, 47)
 WORLD_CLANGING_STEP          (44, 48)
 WORLD_LONG_FIELD             (47, 50)

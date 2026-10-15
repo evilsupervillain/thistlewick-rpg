@@ -26,6 +26,7 @@ pal lives.
   there, one line each. Without Spare the village is complete and the quest
   is invisible.
 """
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 
@@ -41,41 +42,21 @@ SITE = "Village 1"
 # ================================================================ the village ==
 VW, VH = 40, 28
 FRONT_Y = 11                        # the bottom wall row of the north side
-STREET_Y = 14                       # the street: rows 14 and 15
 ROAD_X = 19                         # the road in from the south: 19 and 20
-
-#             x  y  w  h
-GOTOBED = (4, 6, 6, 6)
-DIBBLE = (12, 7, 5, 5)
-HALL = (22, 6, 8, 6)
-THROSSELL = (32, 7, 5, 5)
-
 GOTOBED_DOOR = (6, FRONT_Y)
-DIBBLE_DOOR = (14, FRONT_Y)
-HALL_DOOR = (25, FRONT_Y)
-THROSSELL_DOOR = (34, FRONT_Y)
 
 # Mr Dibble's front fence, along row 13 with a gap for his path, and the one
 # post you walk into.
 FENCE_Y = 13
-FENCE_XS = [12, 13, 15, 16]
 WET_PAINT = (13, FENCE_Y)
 
-# The duck pond, row by row: (y, x1, x2).
-POND = [(17, 6, 10), (18, 5, 11), (19, 4, 12), (20, 5, 11), (21, 6, 10)]
-ALLOTMENT = (28, 18, 36, 22)        # x1, y1, x2, y2: Mr Dibble's
 VOLCANO = (33, 20)                  # the ring of stones, on the allotment
-MAZE = (2, 22, 12, 25)              # x1, y1, x2, y2: one hedge thick
-MAZE_GAP = (12, 23)                 # the way in, on the east side
-MAZE_WALLS = [(9, 24), (6, 23)]     # so that it is, technically, a maze
 MAZE_CENTRE = (3, 24)
 MAZE_SIGN = (13, 22)
 PLAQUE = (23, 17)                   # read from below
 WELL = (25, 21)
-OAK = (16, 23)                      # `K.TREE`'s top-left; its trunk is row 24
-BRANCH = (17, 24)                   # the trunk cell nearest the road
+BRANCH = (17, 24)                   # the oak's trunk cell nearest the road
 ROAD_SIGN = (21, 25)
-LAMPS = [(3, 16), (17, 16), (28, 16), (37, 16)]
 
 EFFIE_GATE = (7, 13)
 COURIER = (18, 17)
@@ -88,118 +69,19 @@ COBLEY_AT = (13, 19)
 PIG = (36, 15)
 ARRIVE = (ROAD_X, VH - 2)
 
-CROPS = [K.sf_tile("Outside_B", "Crops %s" % c) for c in "ABCD"]
-SCARECROW = K.sf_tile("Outside_B", "Scarecrow")
-FIRE_PIT = K.sf_tile("Outside_B", "Rock Fire Pit B")
-STUMP = K.sf_tile("Outside_B", "Stump")
-PLAQUE_TILE = K.sf_tile("Outside_C", "Monument C")
-HAY = K.sf_tile("Outside_B", "Hay")
-
 
 def pottering_map():
+    """A village of four houses on a green, with a duck pond, a hedge maze one
+    hedge thick and Mr Dibble's allotment. Drawn by hand in the editor and
+    kept by `handdrawn.py` (Mike, October 2026), from the generated village:
+    the ground in the Dirt-edged kinds so the street blends into the green,
+    the street and the doorsteps two wide, lamps with their feet, and the
+    Gotobeds' cottage a storey taller, which is where its upstairs is. Only
+    the events are built here."""
     w, h = VW, VH
-    g = K.Canvas(w, h)
-    g.fill(0, 0, w - 1, h - 1, 0, K.GRASS)
-
-    # The street, the road in, every doorstep.
-    g.fill(2, STREET_Y, w - 3, STREET_Y + 1, 0, K.PATH)
-    g.fill(ROAD_X, STREET_Y, ROAD_X + 1, h - 1, 0, K.PATH)
-    for x, _ in (GOTOBED_DOOR, DIBBLE_DOOR, HALL_DOOR, THROSSELL_DOOR):
-        g.fill(x, FRONT_Y + 1, x, STREET_Y - 1, 0, K.PATH)
-
-    # The duck pond, and the allotment in a square of dug earth (`K.SAND` is
-    # the sheet's `Dirt`).
-    for y, px1, px2 in POND:
-        g.fill(px1, y, px2, y, 0, K.WATER)
-    g.fill(*ALLOTMENT, 0, K.SAND)
-
-    # The maze: a ring of hedge one thick, and two walls inside it. `HEDGE`
-    # is an overlay, so it goes on layer 1 over the grass.
-    mx1, my1, mx2, my2 = MAZE
-    for x in range(mx1, mx2 + 1):
-        g.set(x, my1, 1, K.HEDGE)
-        g.set(x, my2, 1, K.HEDGE)
-    for y in range(my1, my2 + 1):
-        g.set(mx1, y, 1, K.HEDGE)
-        if (mx2, y) != MAZE_GAP:
-            g.set(mx2, y, 1, K.HEDGE)
-    for xy in MAZE_WALLS:
-        g.set(*xy, 1, K.HEDGE)
-
-    for b, wall, roof in [(GOTOBED, K.WALL_PLASTER, K.ROOF_BROWN),
-                          (DIBBLE, K.WALL_PLANK, K.ROOF_GREEN),
-                          (HALL, K.WALL_BRICK_RED, K.ROOF_GOLD),
-                          (THROSSELL, K.WALL_STONE_WHITE, K.ROOF_GREEN)]:
-        g.building(*b, wall=wall, roof=roof)
-
-    # Mr Dibble's fence, a wooden overlay on layer 1.
-    for x in FENCE_XS:
-        g.set(x, FENCE_Y, 1, K.DECKING)
-    g.autotile(0)
-    g.autotile(1)
-
-    # Fronts. The Gotobeds' door is an event; the rest are shut.
-    g.column(DIBBLE_DOOR[0], FRONT_Y - 1, 3, K.DOOR_SHUT)
-    g.column(HALL_DOOR[0], FRONT_Y - 1, 3, K.DOOR_DOUBLE)
-    g.column(THROSSELL_DOOR[0], FRONT_Y - 1, 3, K.DOOR_SHUT)
-    for x in (4, 8, 13, 16, 23, 27, 28, 33, 36):
-        g.set(x, FRONT_Y, 3, K.WINDOW)
-    g.set(HALL_DOOR[0] - 2, FRONT_Y - 1, 3, K.SIGN_SUN)
-    g.set(GOTOBED[0] + 1, GOTOBED[1], 2, K.STOVEPIPE)
-    g.set(THROSSELL[0] + 3, THROSSELL[1], 2, K.STOVEPIPE)
-
-    # Front gardens: hollyhocks along every front, Mrs Throssell's best.
-    g.scatter([(4, 12), (5, 12), (8, 12), (9, 12), (4, 13), (9, 13)], 3,
-              K.FLOWERS2)
-    g.scatter([(22, 12), (23, 12), (28, 12), (29, 12)], 3, K.FLOWERS)
-    g.scatter([(32, 12), (33, 12), (35, 12), (36, 12), (32, 13), (36, 13)],
-              3, K.FLOWERS3)
-
-    # The green: lamps, the plaque, the well, lily pads, flowers, bushes.
-    for x, y in LAMPS:
-        g.column(x, y - 1, 3, K.LAMP)
-    g.set(*PLAQUE, 3, PLAQUE_TILE)
-    g.set(*WELL, 3, K.TUB)
-    g.set(*ROAD_SIGN, 3, K.SIGNPOST)
-    g.set(*MAZE_SIGN, 3, K.FENCE_PANEL)
-    g.set(*MAZE_CENTRE, 3, STUMP)
-    g.scatter([(6, 18), (9, 20), (10, 18)], 3, K.LILYPAD)
-    g.scatter([(15, 18), (26, 17), (16, 21), (22, 22), (27, 24), (14, 17)],
-              3, K.FLOWERS3)
-    g.scatter([(2, 18), (24, 23), (30, 24), (14, 22)], 3, K.BUSH)
-
-    # The allotment: crops round the edge, the scarecrow, a stook of hay, and
-    # the ring of stones in which the volcano has been smouldering since
-    # November.
-    ax1, ay1, ax2, ay2 = ALLOTMENT
-    for i, x in enumerate(range(ax1, ax2 + 1)):
-        g.set(x, ay1, 3, CROPS[i % len(CROPS)])
-    for i, x in enumerate(range(ax1 + 3, ax2 + 1)):
-        g.set(x, ay2, 3, CROPS[(i + 2) % len(CROPS)])
-    g.set(ax1 + 1, ay1 + 2, 3, SCARECROW)
-    g.set(ax2, ay1 + 2, 3, HAY)
-    g.set(*VOLCANO, 3, FIRE_PIT)
-
-    # The oak by the road in, and the wood round everything else.
-    g.blit(*OAK, 3, K.TREE)
-    for x in range(0, w, 2):
-        g.blit(x, 0, 3, K.TREE)
-        if not (ROAD_X - 1 <= x <= ROAD_X + 1):
-            g.blit(x, h - 2, 3, K.TREE)
-    for y in range(2, h - 2, 2):
-        if y < FRONT_Y or y > STREET_Y + 2:
-            g.blit(0, y, 3, K.TREE)
-            g.blit(w - 2, y, 3, K.TREE)
-    for x in range(2, w - 2, 2):
-        if not any(b[0] - 1 <= x <= b[0] + b[2] for b in
-                   (GOTOBED, DIBBLE, HALL, THROSSELL)):
-            g.blit(x, 2, 3, K.TREE)
-            g.blit(x, 4, 3, K.TREE)
-    g.blit(30, 9, 3, K.TREE)
-    g.blit(18, 9, 3, K.TREE)
-
+    data = HD.load(MAP_POTTERING, w, h, K.TS_OUTSIDE)
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Much Pottering", bgm="Town1")
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + pottering_events()
     return m
 
@@ -493,56 +375,48 @@ def pottering_events():
 
 
 # ================================================================== indoors ==
-# The Gotobeds' cottage: one room, the kitchen that is also the parlour.
-IW, IH = 12, 12
+# The Gotobeds' cottage: the kitchen that is also the parlour, and since Mike
+# put a storey on it (October 2026) the bedrooms over it, drawn beside it on
+# the same map. Drawn by hand in the editor and kept by `handdrawn.py`.
+IW, IH = 36, 16
 #           x1 y1 x2 y2 door_x
-PARLOUR = (2, 4, 9, 8, 5)
-
-FIREPLACE = K.sf_block("Inside_B", "Fireplace B (Brick)")       # 1x2
-DRESSER = K.sf_block("Inside_B", "Dish Cabinet")                # 1x2, on its base
-CLOCK = K.sf_block("Inside_B", "Clock")                         # 1x2
-CABINET = K.sf_tile("Inside_B", "Cabinet")
-TABLE_D = K.sf_tile("Inside_B", "Table D")
-CHAIR = K.sf_block("Inside_B", "Chair A (Wood)")                # 1x2, faces south
-TEAPOT = K.sf_tile("Inside_C", "Teapot A")
-LETTERS = K.sf_tile("Inside_C", "Small Box C")                  # envelopes, sealed
-MOUNTAIN = K.sf_tile("Inside_B", "Painting B")                  # a mountain
+PARLOUR = (2, 4, 9, 9, 5)
+# The flight up in the parlour's north-west corner, and the one step down at
+# the head of it upstairs: (x, top tread, bottom tread).
+STAIRS_UP = (2, 4, 5)
+STAIRS_DOWN = (26, 4, 5)            # (26, 4) is the landing, (26, 5) the step
 
 PAINTING_AT = (4, 3)
 CABINET_AT = (9, 4)
-TABLE_AT = (5, 6)                   # two cells of `Table D`
-MRS_GOTOBED = (7, 6)
+MRS_GOTOBED = (7, 7)
 
 
 def parlour_map():
-    x1, y1, x2, y2, door_x = PARLOUR
-    g = K.interior(IW, IH, x1, y1, x2, y2, door_x=door_x,
-                   floor=K.IN_WOOD_FLOOR, wall_top=K.IN_WALL_TOP_WHITE,
-                   wall_face=K.IN_WALL_FACE_WHITE)
-    g.fill(4, 6, 7, 8, 1, K.IN_GREEN_RUG)
-    g.autotile(1)
-
-    g.column(x1 + 1, y1 - 2, 2, FIREPLACE)    # set into the wall, Mike's way
-    g.set(*PAINTING_AT, 3, MOUNTAIN)
-    g.column(6, y1 - 2, 3, K.IN_WINDOW)
-    g.column(7, y1 - 2, 2, CLOCK)             # hung on the wall, not stood
-    g.column(8, y1 - 1, 2, DRESSER)
-    g.set(*CABINET_AT, 2, CABINET)
-    g.set(*CABINET_AT, 3, LETTERS)
-    tx, ty = TABLE_AT
-    g.set(tx, ty, 2, TABLE_D)
-    g.set(tx + 1, ty, 2, TABLE_D)
-    g.column(tx, ty - 2, 2, CHAIR)
-    g.set(tx + 1, ty, 3, TEAPOT)
-    g.set(x1, y2, 3, K.INC_PLANT2)
-    g.set(x2, y2, 3, K.INC_PLANT2)
-
+    data = HD.load(MAP_POTTERING_IN, IW, IH, K.TS_INSIDE)
     m = K.new_map(IW, IH, K.TS_INSIDE, name="", bgm="Town1",
                   battleback=("Wood1", "Room1"))
     m["displayName"] = ""
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + parlour_events()
     return m
+
+
+def parlour_stairs(first_id):
+    """Up is the top tread of the parlour's flight, to the landing upstairs,
+    facing up; down is the step at the head of the stairs, back to the bottom
+    tread of the parlour's flight, facing down. Turning round on the stairs
+    takes you straight back, as in the Lighthouse."""
+    x, top, foot = STAIRS_UP
+    ux, landing, step = STAIRS_DOWN
+    go = dict(img=R.image(""), trigger=1, priority=0, through=True)
+    return [
+        R.event(first_id, "The Stairs Up", x, top, [R.page(
+            [R.play_se("Move1"),
+             R.transfer(MAP_POTTERING_IN, ux, landing, 8, 0)], **go)]),
+        R.event(first_id + 1, "The Stairs Down", ux, step, [R.page(
+            [R.play_se("Move1"),
+             R.transfer(MAP_POTTERING_IN, x, foot, 2, 0)], **go)]),
+    ]
 
 
 def gotobed_pages():
@@ -594,6 +468,7 @@ def parlour_events():
     ])
     evs.append(R.event(4, "The Painting", *PAINTING_AT,
                        [R.page(painting, **page)]))
+    evs += parlour_stairs(5)
     return evs
 
 

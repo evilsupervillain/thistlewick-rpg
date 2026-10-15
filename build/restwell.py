@@ -35,6 +35,7 @@ had to be thought about again were the ones below.
   which at forty-eight pixels is a red drum. Every table in this room is
   `IN_TABLE` (`Table A`), two cells wide, which reads as a table.
 """
+import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 
@@ -90,7 +91,7 @@ ROOM = (24, 17, 3, 4, 20, 11, 9)
 # The ground-floor room with the two beds in it, walled off the bar's
 # north-east corner (`mapkit.guest_room`). Everybody else goes up the stairs.
 BEDROOM = (17, 4, 20, 7, 19)                # x1, y1, x2, y2, door_x
-BEDS = (18, 4)                              # the left of the two
+BEDS = (18, 4)                              # the left of two, a cell apart
 
 # The flight up to the rooms, in the north wall beside the bedroom's
 # partition, drawn the way Mike drew the Slain Wyvern's (`mapkit.stairs_up`).
@@ -145,20 +146,20 @@ def restwell_map():
     g.set(INN_S[0] + 1, INN_S[1] + INN_S[3] - 1, 3, K.SIGN_MUG)
     g.set(INN_S[0] + 4, INN_S[1] + INN_S[3] - 1, 3, K.WINDOW)
 
-    for x, y in [(EIGHT[0] + 4, EIGHT[1]), (SEVEN[0] + 1, SEVEN[1]),
-                 (REST[0] + 4, REST[1]), (INN_S[0] + 1, INN_S[1])]:
-        g.set(x, y, 2, K.STOVEPIPE)
+    for b in (EIGHT, SEVEN, REST, INN_S):
+        g.chimney_beside(*b[:2])
 
     # `SIGNPOST` and `LAMP` both stand with their foot in the lower cell, so
-    # the lamps are drawn from STREET_Y - 3 and their posts land beside the
-    # road rather than in it.
+    # the lamps are drawn from STREET_Y - 4 - a lamp is three cells, head,
+    # post and foot - and their feet land beside the road rather than in it.
     g.set(*SIGNPOST_AT, 3, K.SIGNPOST)
-    g.column(6, STREET_Y - 3, 3, K.LAMP)
-    g.column(23, STREET_Y - 3, 3, K.LAMP)
-    g.column(CROSS_X - 1, 4, 3, K.LAMP)
-    # Between the two south inns, not in the lane: a lamp is two cells
-    # tall and one standing in a two-row lane cuts the lane in half.
-    g.column(CROSS_X + 2, LANE_Y - 2, 3, K.LAMP)
+    g.column(6, STREET_Y - 4, 3, K.LAMP)
+    g.column(23, STREET_Y - 4, 3, K.LAMP)
+    g.column(CROSS_X - 1, 3, 3, K.LAMP)
+    # Beside the road above the lane, not in it: one standing in a two-row
+    # lane cuts the lane in half. West of the road, because the east side
+    # is the chimney of the inn on that corner.
+    g.column(CROSS_X - 1, LANE_Y - 3, 3, K.LAMP)
 
     # The notice stands on a barrel, which is Penultima's idiom for a thing
     # pinned up in a street. **Not `CRATE`**, which is `Barricade (H)`, and
@@ -295,80 +296,15 @@ def restwell_events():
 
 # ========================================================= The Eight Hours ==
 def eight_hours_map():
-    w, h, x1, y1, x2, y2, door_x = ROOM
-    g = K.interior(w, h, x1, y1, x2, y2, door_x=door_x,
-                   floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
-
-    # Behind the bar: bottles, crockery, and the sacks and loaves, because
-    # breakfast is served at all hours and has to come from somewhere.
-    K.wide(g, 3, 3, 2, K.IN_SUNDRIES_CABINET)     # whole, as Mike mended the
-    g.column(5, 3, 2, K.IN_SHELF_JARS)            # Eleven Days' copy of it
-    g.column(6, 3, 2, K.IN_SHELF_GOODS)
-    g.blit(10, 2, 2, K.IN_FIREPLACE)          # set into the wall
-
-    # The bar. `IN_TABLE` is `Table A`, two cells wide, and is the corrected
-    # constant: `IN_COUNTER` is `Sundries Shelf A`, which has two teddy bears
-    # and a pink rabbit painted on it. Layer 1 is the corpus's floor-art layer
-    # and layer 3 the props, which is why the bar and what stands on it are
-    # two cells deep rather than two tiles in one.
-    # A row out from the shelves, so there is a way behind it: Mike brought
-    # the Eleven Days' forward (October 2026), and that one was this one's.
-    g.blit(4, BAR_Y, 1, K.IN_TABLE)
-    g.blit(6, BAR_Y, 1, K.IN_TABLE)
-    g.set(4, BAR_Y, 3, K.INC_DESK_BELL)
-    g.set(5, BAR_Y, 3, K.INC_OPEN_BOOK)     # the register, and it is open
-    g.set(6, BAR_Y, 3, K.INC_MEAL2)         # breakfast, at whatever hour
-    g.set(7, BAR_Y, 3, K.INC_GOBLET)
-
-    # The stairs everybody goes up at noon, and Walt at the foot of them.
-    # They go up through the wall, beside the bedroom's partition, which is
-    # their east side; a pier of wall stands on the west.
-    K.stairs_up(g, STAIRS_X, y1, piers=(True, False))
-
-    # Windows over the street.
-    g.column(8, 2, 3, K.IN_WINDOW)
-    g.column(9, 2, 3, K.IN_WINDOW)
-
-    # Two tables, breakfast on both because breakfast is at all hours.
-    # `IN_STOOL` is `Stool A`; `IN_TABLE_SMALL` is the *ruined* one. The tables
-    # are `Table A` rather than `Table B`, which is sound and illegible.
-    g.blit(6, 8, 2, K.IN_TABLE)
-    g.set(5, 8, 2, K.IN_STOOL)
-    g.set(8, 8, 2, K.IN_STOOL)
-    g.set(6, 8, 3, K.INC_MEAL)
-    g.blit(11, 8, 2, K.IN_TABLE)
-    g.set(10, 8, 2, K.IN_STOOL)
-    g.set(13, 8, 2, K.IN_STOOL)
-    g.set(12, 8, 3, K.INC_BOTTLE)
-
-    # Two beds on the ground floor, made up, in a room of their own off the
-    # bar, and the joke about them is on their event.
-    bx1, by1, bx2, by2, bdoor = BEDROOM
-    K.guest_room(g, bx1, by1, bx2, by2, bdoor)
-    g.column(BEDS[0], BEDS[1], 2, K.IN_BED)
-    g.column(BEDS[0] + 1, BEDS[1], 2, K.IN_BED)
-    g.column(bx2, by1 - 2, 3, K.IN_WINDOW)
-    g.set(bx1, by1, 2, K.IN_TABLE_WOOD)        # a nightstand, and a plant
-    g.set(bx1, by1, 3, K.INC_PLANT2)
-    g.set(bx2, by2, 2, K.IN_BARREL)            # "Pot B", the jug
-    # The windows on the street are `build_game.match_windows`'s.
-    g.set(3, 10, 2, K.IN_BARREL_WOOD)
-
-    # A third table, because a room the size of this one with two tables in it
-    # is a room that has not been filled.
-    g.blit(6, 10, 2, K.IN_TABLE)
-    g.set(5, 10, 2, K.IN_STOOL)
-    g.set(8, 10, 2, K.IN_STOOL)
-    g.set(7, 10, 3, K.INC_MEAL2)
-
-    g.set(3, 7, 2, K.IN_CRATE)
-    g.set(15, 8, 2, K.IN_CRATE2)
-    g.set(15, 10, 2, K.IN_CRATE2)
-    g.set(13, 10, 2, K.IN_BARREL)       # `Pot B`, a ceramic pot
-
+    """Drawn by hand in the editor and kept by `handdrawn.py` (Mike, October
+    2026), from the generated inn: the bar a row out from the shelves, the
+    stairs up through the wall beside the bedroom, and the two beds stood
+    apart. Only the events are built here."""
+    w, h = ROOM[0], ROOM[1]
+    data = HD.load(MAP_EIGHT_HOURS, w, h, K.TS_INSIDE)
     m = K.new_map(w, h, K.TS_INSIDE, name="The Eight Hours", bgm="Town3",
                   battleback=("Wood1", "Room1"))
-    m["data"] = g.data
+    m["data"] = data
     m["events"] = [None] + eight_hours_events()
     return m
 
