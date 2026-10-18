@@ -95,7 +95,7 @@
       "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
       "expect": [
         10,
-        5,
+        4,
         8
       ],
       "label": "walked up to the hearth and faced the sword"
@@ -131,13 +131,13 @@
       "check": "[$gamePlayer.x, $gamePlayer.y]",
       "expect": [
         8,
-        7
+        6
       ],
       "label": "stepped round Mother into the door column"
     },
     {
       "key": "ArrowDown",
-      "times": 5
+      "times": 6
     },
     {
       "frames": 60

@@ -171,6 +171,11 @@ def town_map():
     # grass seam between them, which is a village, not a town.
     g.fill(0, 0, w - 1, h - 1, 0, K.PAVING)
     g.fill(0, ROAD_Y, w - 1, h - 1, 0, K.PATH)
+    # The gate's paving runs on across the verge to the map edge, so the way
+    # out is a road the player can see and not a strip of open sand (Mike,
+    # October 2026: an open edge's exit is on the road, and the road reaches
+    # the edge).
+    g.fill(GATE_X[0], ROAD_Y, GATE_X[-1], h - 1, 0, K.PAVING)
     x1, y1, x2, y2 = YARD
     g.fill(x1, y1, x2, y2, 0, K.PATH)
     g.fill(*CANAL, 0, PORT)

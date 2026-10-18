@@ -18,9 +18,13 @@ a few squares north-east of it. Both claims come from `SITES` below, the way
   replace. `places.FAIRHOLME_STEP` and `places.LAIR_STEP` are the two squares
   this game chose, one south of each. `../WORLDMAP.md` 7.6.
 * **The council is a room, not a conversation.** The table has had to be made
-  larger, so it is three tables pushed end to end - a purple one, the red
-  royal one, and a plain wooden one on the end that does not match - and it
-  all but touches both walls. Round it: the King, nine heroes, two farmers, a
+  larger, so it is three tables pushed end to end in three different woods -
+  a dark old one at the west end, the long pale royal one, and a plain
+  kitchen table on the east end that does not match - and it all but touches
+  both walls. (They were a purple, a red and a plain one until Mike redrew
+  the room in October 2026: the stock tables are single tiles that do not
+  join end to end, and none comes in a coloured cloth, so the mismatch is in
+  the wood now. The table says so itself, event 19.) Round it: the King, nine heroes, two farmers, a
   man who was only passing, and an empty chair with a place card on it,
   because the knight is Sir Dunstable and it is a quarter past four.
 * **The arithmetic is the joke's spine.** Eleven rescues at half the kingdom
@@ -62,6 +66,7 @@ LAIR = "Mrs Emberthwaite's lair"
 #            w   h  x1  y1  x2  y2  door_x
 ROOM = (23, 17, 2, 4, 20, 13, 11)
 TABLE_Y = (8, 9)                # the table's two rows
+TABLE_END = (3, 9)              # its west end, read from beside or below
 NORTH_Y, SOUTH_Y = 7, 10        # the seats either side of it
 SEATS = (5, 7, 9, 11, 13, 15, 17)
 # The flight up to the tower, in the north-east corner, and the well it comes
@@ -135,8 +140,11 @@ def council_map():
     g.autotile(1)
 
     # The table, made larger: three tables end to end, none of them a match.
-    # The purple one at the west end, the red royal one, and a plain wooden
-    # one on the east end that was somebody's kitchen table last year.
+    # What is drawn now is Mike's, in `build/handdrawn/Map035.json` (laid by
+    # `build_game.lay_frozen`): `Table B (Dark Wood)` at the west end, the
+    # royal one in `Table C (White Wood)`, and `Table A (Wood)` on the east
+    # end, which was somebody's kitchen table last year. The tiles below are
+    # the generated room that his replaces.
     ty1, ty2 = TABLE_Y
     for y in (ty1, ty2):
         for x in (3, 4):
@@ -358,6 +366,14 @@ def council_events():
         evs.append(S.npc(7 + i, name, x, y, S.say(name, lines), sheet, index,
                          direction=facing))
     evs.append(_tower_stairs(len(evs) + 1, 1))
+
+    # 19: the table itself, at its dark west end, which is the end you reach
+    # first from the door side; minutes item 1 is the rest of the story.
+    evs.append(S.sign(19, "The Three Tables", *TABLE_END, [
+        "Three tables pushed end to end, in three different woods:",
+        "a dark old one, the long pale royal one, and on the end a",
+        "plain kitchen table that still has a drawer for the spoons.",
+        "The council has outgrown each of them in turn."]))
     return evs
 
 
@@ -498,6 +514,9 @@ def lair_map():
                   bgm="Town5", battleback=("Cave1", "Cave1"))
     m["data"] = g.data
     m["events"] = [None] + evs
+    # the floor runs a cell past the daylight either side of the mouth
+    S.widen_exit(m["events"], 1, [(MOUTH[0][0] - 1, MOUTH[0][1]),
+                                  (MOUTH[-1][0] + 1, MOUTH[-1][1])])
     return m
 
 

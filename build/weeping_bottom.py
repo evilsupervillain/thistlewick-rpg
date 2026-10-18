@@ -202,6 +202,7 @@ def valley_map():
     for x in range(gx1, gx2 + 1):
         for y in (gy1, gy2):
             g.set(x, y, 3, FERN)
+    g.set(gx1, gy1, 3, K.FENCE_PANEL)       # the slate that names it, `Sign B`
     g.scatter([(8, 7), (26, 22), (10, 22), (3, 12), (21, 12)], 3, MUSHROOMS)
 
     # Boulders across the top of the rock, which is otherwise bare dirt and

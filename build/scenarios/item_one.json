@@ -24,7 +24,7 @@
     {"frames": 90},
     {"check": "$gameMap.mapId()", "expect": 27,
      "label": "and 'Climb up' arrives inside Attempt 199"},
-    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [13, 22],
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [13, 23],
      "label": "in through the rent, which is the only thing broken on her"},
     {"shot": "item_one_rent.png"},
 

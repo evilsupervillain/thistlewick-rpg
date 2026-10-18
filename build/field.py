@@ -363,7 +363,7 @@ def clause_seven(event_id):
 FIELD_W, FIELD_H = 34, 32
 
 FIELD_IN = (16, 29)             # inside the gate, where you arrive
-FIELD_OUT = (16, 30)            # one south of it: the way back to the road
+FIELD_OUT = (16, 31)            # the bottom edge: the way back to the road
 
 # The rows, oldest first, given as the y of the upper of their two wall rows.
 # The plaque row is always the row directly south of the band, which is where
@@ -550,6 +550,7 @@ def long_field_map():
                               (db.TR_SALVAGE, 3, [1])])
     m["data"] = g.data
     m["events"] = [None] + long_field_events()
+    S.widen_exit(m["events"], 1, [(FIELD_OUT[0] + 1, FIELD_OUT[1])])  # two wide
     return m
 
 

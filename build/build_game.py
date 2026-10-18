@@ -197,6 +197,31 @@ TILESET_FLAGS = {
 INTERIOR_TILESETS = {mapkit.TS_INSIDE, mapkit.TS_DUNGEON, mapkit.TS_CLANGING_IN}
 
 
+def lay_frozen():
+    """Every frozen map's tiles over whatever its builder drew. Runs after
+    every module and before the passes that skip frozen maps.
+
+    A builder that was rewritten round its frozen file (`HD.load`, "only the
+    events are built here") comes out unchanged by this. Round seven (15 Oct
+    2026) froze thirty maps at once, most of them still drawn by their
+    generator, and this is how those are kept: the generator still runs, its
+    tiles are replaced here, and its events - which are what the rest of the
+    game points at - stand. Regions are derived, so a map that had them is
+    repainted from the frozen tiles."""
+    for map_id in sorted(handdrawn.frozen()):
+        m = R.load_map(map_id)
+        w, h = m["width"], m["height"]
+        data = handdrawn.load(map_id, w, h, m["tilesetId"])
+        if data[:w * h * handdrawn.LAYERS] == m["data"][:w * h * handdrawn.LAYERS]:
+            continue
+        regions = any(m["data"][w * h * 5:])
+        g = R.MapGrid(w, h, data)
+        if regions:
+            mapkit.paint_regions(g, m["tilesetId"], 1)
+        m["data"] = g.data
+        R.save_map(map_id, m)
+
+
 def shape_wall_tops():
     """Gives every interior's wall tops their edge shapes. Runs after every
     module, so it is the one place it happens.
@@ -455,8 +480,11 @@ def door_holes():
 # Frozen maps whose windows are Mike's and stay as drawn although the street
 # disagrees: the Safety Valve's front has none, the Eleven Days' right-hand
 # window is a cell nearer the door than the rule would put it, and the
-# Gotobeds' front is a storey taller than the rule's rows.
-WINDOWS_AS_DRAWN = {23, 45, 69}
+# Gotobeds' front is a storey taller than the rule's rows. Frayne's Cottage
+# (43) was a single tile outside that Mike drew a room for with liberties, and
+# the Long Gallery (57) has its door at the left inside and in the middle
+# outside, so he drew it as one end of a larger castle the player never sees.
+WINDOWS_AS_DRAWN = {23, 43, 45, 57, 69}
 
 OUTSIDE_WINDOW = {
     mapkit.TS_INSIDE: mapkit.IN_WINDOW,
@@ -668,21 +696,23 @@ def build_tilesets():
     for tile_id in (250, 251):
         flags[tile_id] |= 0x10
     # The crest of a roof - the top row of its nine-slice - is a star tile on
-    # every stock roof, so the engine ignores it for passage and the ground
-    # under it decides: a player on the street north of a house walks up on to
-    # the ridge and vanishes behind it. `Canvas.crest()` used to put the
-    # house's wall under the crest to stop that, and the wall showed through
-    # the gaps in the ridge as a second building standing behind the first
-    # (Mike, Great Dunnage, October 2026: he painted the street back under it).
-    # So the crest itself blocks, all four ways, and is no longer a star - it
-    # is drawn under the characters, which nobody can now be standing behind
-    # - and the street goes under it like it goes under everything else.
+    # every stock roof, so the engine ignores it for passage, the ground
+    # under it decides, and a player on the street north of a house walks up
+    # behind the ridge. From round 3 until October 2026 this made the crest
+    # solid and not a star, which stopped that; Mike wants it back (October
+    # 2026: "the top panel of the roofs cannot be walked behind anymore"),
+    # so the crest is put back to the stock flags - a star, with the Outside
+    # sheets' down bit, 0x611, and SF Outside's none, 0x610. Tilesets.json is
+    # read back from data/, so it has to be written, not just left alone.
+    # The street still goes under the crest, which is what the player stands
+    # on there; a chimney on the crest is refused by `Canvas.chimney`, since
+    # a star is drawn over it.
     for tid, roofs in mapkit.TILESET_ROOFS.items():
         flags = tilesets[tid]["flags"]
+        crest = 0x610 if tid == mapkit.TS_CLANGING else 0x611
         for col, row in roofs:
             for i in range(3):
-                tile_id = mapkit.c_tile(col + i, row)
-                flags[tile_id] = (flags[tile_id] & ~0x10) | 0x0F
+                flags[mapkit.c_tile(col + i, row)] = crest
     R.save_list("Tilesets.json", tilesets)
 
 
@@ -990,6 +1020,7 @@ def main():
     pottering.build()                   # SPA-4's village, Maps 68-69
     q_spare.build()                     # SPA-2's culvert, Map 70
     q_spare.check_couriers()            # F2's courier ids are the towns'
+    lay_frozen()
     new_tables()
     shape_wall_tops()
     match_windows()

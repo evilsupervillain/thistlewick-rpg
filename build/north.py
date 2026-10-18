@@ -207,6 +207,9 @@ def clanging_map():
                   bgm="Town8")
     m["data"] = data
     m["events"] = [None] + clanging_events()
+    # the cobbles are five wide, columns 15 to 19
+    S.widen_exit(m["events"], 2, [(CLANGING_GATE[0] + dx, CLANGING_GATE[1])
+                                  for dx in (-2, -1, 1, 2)])
     return m
 
 

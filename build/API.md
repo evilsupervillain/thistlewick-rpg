@@ -259,6 +259,8 @@ SF_CLOCK_TOWER               (12, 3)
 SF_ROOF                      (13, 12)
 DGE_BASIN                    borrowed('Inside_C', 'Large Basin')
 DGE_HAMPER                   borrowed('Inside_C', 'Basket A')
+E_NOTE                       borrowed('Inside_C', 'Note A (V)')
+E_BOARD                      borrowed('Inside_C', 'Notes B (V)')
 IN_TABLE_WOOD                sf_tile('Inside_B', 'Table D')
 IN_NIGHTSTAND                sf_tile('Inside_B', 'Table F')
 IN_STOOL_SQUARE              sf_tile('Inside_B', 'Stool C')
@@ -470,9 +472,11 @@ trope(indent=0)                                      Bump the cliché counter. T
 blush(indent=0)                                      Bump the count of things nobody quite said.
 companion_story(actor_id, indent=0)                  A companion quest is finished: turn on that companion's story switch,
 got(lines, indent=0)                                 The 'you found a thing' message, in the colour things are found in.
-door_page(target_map, tx, ty, direction=2, se='Open1') The commands behind a door sprite: open it, step through, transfer.
+door_page(target_map, tx, ty, direction=2, se='Open1') The commands behind a door sprite: open it, step through, transfer -
 door(event_id, name, x, y, target_map, tx, ty, direction=2, sheet='!Door1', index=0) An outward-facing door on a house wall. Player-touch, because a door
 exit_tile(event_id, name, x, y, target_map, tx, ty, direction=2) An invisible way out of an interior - stand on it and you are outside.
+widen_exit(events, event_id, cells)                  The way out at `event_id`, copied onto the rest of the road's width.
+pin_note(event, tile=K.E_NOTE)                       Give every page of `event` a card for a picture, pinned to whatever is
 sign(event_id, name, x, y, lines, sheet='', index=0) Something you read. No sprite by default - the scenery tile is the
 npc(event_id, name, x, y, commands, sheet, index, direction=2, move_type=0, trigger=0, priority=1, step_anime=False, pages=None, move_speed=3, move_frequency=3) A person who says something when you talk to them.
 prop(event_id, name, x, y, lines, sheet, index, direction=2, pattern=1, extra=()) A searchable object - a barrel, a bookshelf, a scarecrow.
@@ -578,7 +582,7 @@ REG_COAST                    3
 REG_CLANG                    4
 REG_SNOW                     5
 REG_DESERT                   6
-VILLAGE_GATE                 (19, 2)
+VILLAGE_GATE                 (19, 0)
 WORLD_VILLAGE                (60, 79)
 WORLD_VILLAGE_STEP           (60, 78)
 WORLD_GLOAMWOOD              (52, 62)
@@ -591,7 +595,7 @@ WORLD_LIGHTHOUSE_STEP        (78, 80)
 WORLD_PIT                    (43, 70)
 WORLD_BARROW                 (68, 56)
 WORLD_STONES                 (46, 53)
-WORLD_HERMIT                 (75, 65)
+WORLD_HERMIT                 (75, 64)
 WORLD_CRAB                   (55, 81)
 WORLD_CAMP                   (47, 67)
 MAP_CLANGING                 21
@@ -682,7 +686,7 @@ WORLD_SIGN_COAST             (63, 80)
 FEN_ROAD_SIGN                (33, 53)
 FEN_ROAD_END                 (47, 117)
 UNDERSTUDY_BELL              (4, 9)
-UNDERSTUDY_DOOR              (65, 43)
+UNDERSTUDY_DOOR              (64, 43)
 VAULT                        (27, 5, 29, 7, 28)
 VAULT_CHAIR                  (28, 5)
 COUNTING_BEFORE_DOOR         (8, 5)

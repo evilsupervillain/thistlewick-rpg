@@ -226,7 +226,7 @@
   {
    "goto": [
     3,
-    16,
+    14,
     4
    ]
   },
@@ -347,7 +347,7 @@
    "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y]",
    "expect": [
     3,
-    16,
+    14,
     4
    ],
    "label": "and out, in front of the curtain"

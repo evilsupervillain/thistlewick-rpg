@@ -48,7 +48,7 @@ SITE = "Penultima"
 # tower road comes in, and four buildings along it.
 PW, PH = 28, 22
 STREET_Y = 11                       # the road row the player walks in on
-GATE = (1, STREET_Y)                # the gap in the fence, and the way out
+GATE = (0, STREET_Y)                # the gap in the fence, and the way out
 
 SHOPPE = (8, 4, 7, 6)               # Gideon's, north side of the street
 RIVAL = (18, 4, 6, 6)               # what used to be further on
@@ -131,6 +131,7 @@ def penultima_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Penultima", bgm="Town2")
     m["data"] = g.data
     m["events"] = [None] + penultima_events()
+    S.widen_exit(m["events"], 1, [(GATE[0], GATE[1] - 1)])    # rows 10 and 11
     return m
 
 
@@ -217,11 +218,11 @@ def penultima_events():
 
     # 6: the notice a town like this puts up about itself, on the barrel at
     # (15, 14) it says it is pinned to - it was on the grass above it (P2).
-    evs.append(S.prop(6, "The Parish Notice", 15, 14, [
+    evs.append(S.pin_note(S.prop(6, "The Parish Notice", 15, 14, [
         "Pinned to a barrel, under glass:",
         "'PENULTIMA IS TWINNED WITH NOWHERE. THERE",
         "IS NOTHING TO BE TWINNED WITH. WE HAVE",
-        "WRITTEN TO THE TOWER TWICE.'"], "", 0))
+        "WRITTEN TO THE TOWER TWICE.'"], "", 0)))
     return evs
 
 
@@ -427,7 +428,7 @@ def world_doors(base_id, cells):
         arrive += R.choice_block(
             ["Go in", "Press on"],
             [[R.play_se("Move1"),
-              R.transfer(MAP_PENULTIMA, GATE[0] + 1, GATE[1], 6, 0)],
+              R.transfer(MAP_PENULTIMA, GATE[0] + 2, GATE[1], 6, 0)],
              S.narrate(["You press on. It is the last town before",
                         "the end. It will keep."])])
         evs.append(R.event(base_id + i, "Penultima", x, y, [R.page(

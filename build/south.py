@@ -137,6 +137,8 @@ def sopping_map():
     m["events"] = [None] + q_aldric.with_follower(sopping_events(), MAP_SOPPING)  # ALD-5
     m["events"].append(q_nix.lorrimer_front(19, *LORRIMER_FRONT))     # NIX-3
     m["events"].append(q_spare.courier("sopping", 21, 5))             # SPA-1
+    # the cobbles are columns 19 and 20
+    S.widen_exit(m["events"], 1, [(SOPPING_GATE[0] - 1, SOPPING_GATE[1])])
     return m
 
 
@@ -272,12 +274,15 @@ def sopping_events():
         direction=8)))
 
     # -- 12: the harbour notice ------------------------------------------------
-    evs.append(S.sign(12, "Harbour Notice", 24, 25, [
+    # On the sign post at (23,25), with a notice pinned to it (Mike, October
+    # 2026): `Note A (V)` is the event's own picture, over the post.
+    notice = S.sign(12, "Harbour Notice", 23, 25, [
         "\\C[6]HARBOUR RULES\\C[0]",
         "1. No adventuring on the pier.",
         "2. The crab on the west beach is nobody's",
         "   fault and is not to be provoked.",
-        "3. Rule 2 is not a challenge."]))
+        "3. Rule 2 is not a challenge."])
+    evs.append(S.pin_note(notice))
 
     # -- 13-16: the four shut doors -------------------------------------------
     # A door you cannot open is a promise the town is bigger than the four
@@ -304,6 +309,10 @@ def sopping_events():
     # with, since clause nineteen's key opens it (Mike, October 2026). Every
     # page after this one is dressed like it.
     evs[-2]["pages"][0]["image"] = R.image("!Door1", 4, pattern=0)
+    # And it stands in a doorway, `Entrance A (Extend)`, which is open ground,
+    # so unlike a sign on a shutter it must not be Through or the player walks
+    # into the door instead of trying it.
+    evs[-2]["pages"][0]["through"] = False
     # NIX-3: three of Lorrimer's list, located with receipts (q_nix.py).
     for ev, key in zip(evs[-4:-1], ["oar", "rope", "pot"]):
         ev["pages"] += q_nix.located_page(key, ev["pages"][0])     # NIX-3
@@ -1884,6 +1893,9 @@ def bounty_board(event_id, x, y):
 
 
 # ============================================================ the outfitters ==
+BENCH = (7, 4)                  # the flat-packed one nobody has bought
+
+
 def outfit_map():
     g = room(MAP_OUTFIT, floor=K.IN_WOOD_FLOOR, floor_alt=K.IN_DARK_WOOD)
     for x in (3, 4, 5):
@@ -1900,6 +1912,9 @@ def outfit_map():
     g.set(11, 6, 3, K.INC_BOTTLES)
     # A coat on a stand, which is what an outfitter shows. It was a doll.
     g.set(8, 4, 2, K.INC_COAT_STAND)
+    # The flat-packed bench against the wall: `Simple Shelf E` is a plain
+    # bench. Its event was on a sundries cabinet.
+    g.set(*BENCH, 2, K.sf_tile("Inside_B", "Simple Shelf E"))
     return finish(MAP_OUTFIT, g, "Wick & Barrow, Outfitters", bgm="Town7",
                   battleback=("Wood1", "Room1"), events=outfit_events())
 
@@ -2005,7 +2020,7 @@ def outfit_events():
                       S.narrate(["Wick's peg. Empty, and dusted."]),
                       sheet="", index=0))
 
-    evs.append(S.prop(4, "The Bench, Flat-Packed", 12, 4, [
+    evs.append(S.prop(4, "The Bench, Flat-Packed", *BENCH, [
         "A bench, in eleven pieces, leaning against",
         "the wall under a hand-lettered card:",
         "'BENCH. 400. NOBODY HAS EVER BOUGHT THIS.'",

@@ -1,0 +1,607 @@
+{
+ "query": "?map=13&x=19&y=2&frames=60",
+ "steps": [
+  {
+   "comment": "Mike's seventh round (October 2026): every way out of a town covers the whole width of its road at the map edge, and the three towns stamped two cells wide on the world map go in from both. Each extra cell is walked on to with a key press, because whether stepping there leaves is the question."
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "goto": [
+    13,
+    19,
+    1
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Nether Sopping: the west half of the cobbles leaves too"
+  },
+  {
+   "goto": [
+    21,
+    15,
+    42
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Upper Clanging: column 15 of the five-wide road leaves"
+  },
+  {
+   "goto": [
+    21,
+    16,
+    42
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Upper Clanging: column 16 of the five-wide road leaves"
+  },
+  {
+   "goto": [
+    21,
+    18,
+    42
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Upper Clanging: column 18 of the five-wide road leaves"
+  },
+  {
+   "goto": [
+    21,
+    19,
+    42
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Upper Clanging: column 19 of the five-wide road leaves"
+  },
+  {
+   "goto": [
+    26,
+    17,
+    30
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "the Long Field: the east wheel rut leaves"
+  },
+  {
+   "goto": [
+    29,
+    1,
+    10
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowLeft",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Penultima: row 10 at the very edge leaves"
+  },
+  {
+   "goto": [
+    29,
+    1,
+    11
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowLeft",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Penultima: and row 11"
+  },
+  {
+   "goto": [
+    31,
+    1,
+    13
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowLeft",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Restwell west, row 13"
+  },
+  {
+   "goto": [
+    31,
+    15,
+    1
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Restwell north, at the edge now"
+  },
+  {
+   "goto": [
+    31,
+    16,
+    1
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Restwell north, column 16"
+  },
+  {
+   "goto": [
+    31,
+    16,
+    22
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Restwell south, column 16"
+  },
+  {
+   "goto": [
+    31,
+    28,
+    13
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowRight",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Restwell east, row 13"
+  },
+  {
+   "goto": [
+    10,
+    14,
+    1
+   ]
+  },
+  {
+   "eval": "$gameSwitches.setValue(3, true)",
+   "comment": "SW_GLOAMWOOD: the north way only opens once the Thing is dealt with"
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "the Gloamwood's back half: the clearing west of the path leaves north"
+  },
+  {
+   "goto": [
+    10,
+    16,
+    28
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 9 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 9,
+   "label": "and the clearing east of it goes back south"
+  },
+  {
+   "goto": [
+    37,
+    8,
+    15
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "Mrs Emberthwaite's cave mouth, west of the daylight"
+  },
+  {
+   "goto": [
+    37,
+    12,
+    15
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 8,
+   "label": "and east of it"
+  },
+  {
+   "goto": [
+    8,
+    61,
+    78
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 1 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 1,
+   "label": "Thistlewick's east cell on the world map goes in"
+  },
+  {
+   "goto": [
+    8,
+    72,
+    83
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 13 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 13,
+   "label": "Nether Sopping's east cell goes in"
+  },
+  {
+   "goto": [
+    8,
+    43,
+    48
+   ]
+  },
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "key": "ArrowUp",
+   "gap": 30
+  },
+  {
+   "frames": 60
+  },
+  {
+   "advance": 20
+  },
+  {
+   "until": "$gameMap.mapId() === 21 && !$gamePlayer.isTransferring()",
+   "frames": 400
+  },
+  {
+   "check": "$gameMap.mapId()",
+   "expect": 21,
+   "label": "Upper Clanging's west cell goes in"
+  },
+  {
+   "goto": [
+    1,
+    20,
+    2
+   ]
+  },
+  {
+   "check": "$gameMap.eventsXy(20, 0).map(e => e.event().name).join()",
+   "expect": "North Gate",
+   "label": "Thistlewick's North Gate is on both cells of the road, with all its pages"
+  }
+ ]
+}

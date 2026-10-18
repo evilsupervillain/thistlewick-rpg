@@ -48,7 +48,7 @@ MAP_PIT, MAP_BARROW = 19, 20
 REG_SOUTH, REG_NORTH, REG_COAST, REG_CLANG, REG_SNOW, REG_DESERT = 1, 2, 3, 4, 5, 6
 
 # Thistlewick's north gate, and the tile you arrive on when you step out of it.
-VILLAGE_GATE = (19, 2)
+VILLAGE_GATE = (19, 0)          # the top edge, where Mike ran the road out
 WORLD_VILLAGE = (60, 79)        # was (24,43): restamped `Town B`, re-sited
 WORLD_VILLAGE_STEP = (60, 78)   # was (24,45), two SOUTH; the spur is north now
 
@@ -79,7 +79,7 @@ WORLD_BARROW = (68, 56)         # was (33,21)
 
 # World-map curiosities: things to look at rather than places to go into.
 WORLD_STONES = (46, 53)         # was (11,18); the plaque, between the four rocks
-WORLD_HERMIT = (75, 65)         # was (40,30); his hut is one row north of it
+WORLD_HERMIT = (75, 64)         # was (40,30); on his tent, so you call on him (Mike, Oct 2026)
 WORLD_CRAB = (55, 81)           # was (20,46)
 WORLD_CAMP = (47, 67)           # was (12,32); Crooke's tent is one column west
 
@@ -174,10 +174,10 @@ MAP_RESTWELL, MAP_EIGHT_HOURS = 31, 32
 RESTWELL_STEP = (42, 81)
 
 MAP_HITHERMOST, MAP_CONTINUANCE = 33, 34
-# One south of the western of Hithermost's two `Village A` cells, which is the
-# bottom of a stack of three sites - the village, the Chapel of Continuance
-# above it and the Door into the Mountain above that, all in column 30 - so it
-# is the one square below all of them. Checked open four ways
+# One south of the eastern of Hithermost's two `Village A` cells. The village
+# and the Chapel of Continuance above it are in column 29 since Mike moved them
+# one west onto a road of their own (October 2026), and the Door into the
+# Mountain stays at 30 above them; this is the road below all three. Checked open four ways
 # (`flags & 0x0F == 0`) against the finished `data/Map008.json`, region 2, and
 # nothing else standing on it. The village's road and the chapel's porch both
 # come back out here; the Door into the Mountain does not go anywhere yet.
@@ -334,8 +334,11 @@ FEN_ROAD_END = (47, 117)
 # it, facing up; and, once she has gone north, beside the Obligatory Tower's
 # door on the world map - west of it, on the grass, so the door's own cell and
 # the way up to it stay clear. Both checked open against the finished maps.
+# Two cells west, not one: an event on a cell stops an airship landing there,
+# even an event with no page showing, and the cell beside the door is where
+# anybody flying to the Tower sets down (`airship_lands`).
 UNDERSTUDY_BELL = (4, 9)
-UNDERSTUDY_DOOR = (65, 43)
+UNDERSTUDY_DOOR = (64, 43)
 
 # NIX-2's room behind the Door (`../QUESTS.md` B6): drawn by `dunnage.py` in
 # the black east of Map 63, which was widened for it from 18 to 30 columns -

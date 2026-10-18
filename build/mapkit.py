@@ -605,6 +605,15 @@ def borrowed(sheet, name):
 DGE_BASIN = borrowed("Inside_C", "Large Basin")    # a tub of clear water
 DGE_HAMPER = borrowed("Inside_C", "Basket A")      # cloth-lined, a picnic's
 
+# A card or a notice pinned to something, as an event's own picture (Mike's
+# Harbour Notice, October 2026): `Note A (V)` is a small sheet in the middle
+# of its cell, so it reads as pinned to whatever tile is under it - a post, a
+# window, a barrel, a door. `E_` because it is Inside_C in the E slot, which
+# Outside, the Collegium's Outside and Dungeon all have; on Inside it is
+# `INC_SCROLL`. `E_BOARD` is `Notes B (V)`, a plain pale board.
+E_NOTE = borrowed("Inside_C", "Note A (V)")
+E_BOARD = borrowed("Inside_C", "Notes B (V)")
+
 
 # -- Inside furniture, by name ------------------------------------------------
 # The honest half of the `IN_*` vocabulary. The constants above were named for
@@ -1333,11 +1342,10 @@ class Canvas(R.MapGrid):
 
         Both tiles block, so the roof stays as impassable as it was.
 
-        Not on the crest, though. The top row of the nine-slice was a star
+        Not on the crest, though. The top row of the nine-slice is a star
         tile, drawn on the upper rendering layer after everything on the lower
-        one, so a chimney there was simply not drawn. `build_tilesets` has
-        since made the crest solid and not a star, but the ridge is no place
-        for a chimney anyway."""
+        one, so a chimney there is simply not drawn - and the ridge is no
+        place for a chimney anyway."""
         if tile not in ROOF_MOUNTED:
             raise ValueError("%d is not a roof fitting; see ROOF_MOUNTED" % tile)
         for bx, by, bw, bh, _ in self.buildings:

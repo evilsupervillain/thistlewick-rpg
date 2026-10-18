@@ -131,7 +131,7 @@
    "label": "the arms, RESPICE, and FOUND IT at the height of a boy of ten"
   },
   {
-   "comment": "In at the gate and up the drive, then west along the moat's bank."
+   "comment": "In at the gate and up the drive to the foot of the bridge, which has railings, then up on to the moat's bank west of it."
   },
   {
    "key": "ArrowRight",
@@ -140,19 +140,29 @@
   },
   {
    "key": "ArrowUp",
-   "times": 11,
+   "times": 10,
    "gap": 30
   },
   {
    "check": "[$gamePlayer.x, $gamePlayer.y]",
    "expect": [
     16,
-    14
+    15
    ]
   },
   {
    "key": "ArrowLeft",
-   "times": 4,
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "key": "ArrowUp",
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowLeft",
+   "times": 2,
    "gap": 30
   },
   {
@@ -189,16 +199,26 @@
    "label": "wet for twenty yards in every direction"
   },
   {
-   "comment": "East along the bank and down through the flowerbeds to Tom."
+   "comment": "East along the bank, off it below the bridge (it has railings), and down through the flowerbeds to Tom."
   },
   {
    "key": "ArrowRight",
-   "times": 16,
+   "times": 2,
    "gap": 30
   },
   {
    "key": "ArrowDown",
-   "times": 3,
+   "times": 1,
+   "gap": 30
+  },
+  {
+   "key": "ArrowRight",
+   "times": 14,
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 2,
    "gap": 30
   },
   {
@@ -239,7 +259,7 @@
   },
   {
    "key": "ArrowUp",
-   "times": 3,
+   "times": 2,
    "gap": 30
   },
   {
@@ -251,12 +271,12 @@
    "check": "[$gamePlayer.x, $gamePlayer.y]",
    "expect": [
     16,
-    14
+    15
    ]
   },
   {
    "key": "ArrowUp",
-   "times": 4,
+   "times": 5,
    "gap": 30
   },
   {

@@ -483,11 +483,13 @@ def pit_events():
     evs.append(R.event(1, "Up The Rope", PIT_IN[0], PIT_IN[1] + 1, [R.page(
         out, img=R.image(""), trigger=1, priority=0, through=True)]))
 
-    evs.append(S.sign(2, "The Board At The Bottom", 15, 19, [
+    # A pale board lying face up is `Notes B (V)`; nothing on the Dungeon
+    # sheets is a painted board.
+    evs.append(S.pin_note(S.sign(2, "The Board At The Bottom", 15, 19, [
         "A painted board, at the bottom of the pit,",
         "facing up at the visitors:",
         "\\C[6]BOTTOMLESS (APPROX.)\\C[0]",
-        "Somebody has added: 'YOU ARE STANDING ON IT'."]))
+        "Somebody has added: 'YOU ARE STANDING ON IT'."]), K.E_BOARD))
 
     # The Thing At The Bottom.
     badger = S.narrate([

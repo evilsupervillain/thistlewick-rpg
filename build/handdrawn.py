@@ -3,6 +3,7 @@
     python3 build/handdrawn.py freeze 9        data/Map009.json -> build/handdrawn/Map009.json
     python3 build/handdrawn.py check           every frozen map still matches its data file
     python3 build/handdrawn.py widen 18 16 3   three more columns of black at x 16
+    python3 build/handdrawn.py set 20 16 22 3 177   one tile, one layer
 
 The build writes `data/*.json`, so anything painted in the editor is gone the
 next time it runs. A map that is better drawn than generated - the Gloamwood,
@@ -23,6 +24,12 @@ an all-black column in place to push everything east of it further east, so
 two rooms drawn side by side on one map are far enough apart that neither
 shows from the edge of the other. The builder's width and every event east
 of the column move by the same amount, by hand.
+
+`set` is the other: one tile on one layer, for a prop that contradicts the
+line the player reads when they examine it (October 2026) - `Rubble` under
+words cut into stone, a teddy-bear shelf under jars of cuttings. Mike rsyncs
+`data/` back to his editor, so the change reaches the editor on his next
+pull; whatever he paints after that is frozen over it as usual.
 """
 import json
 import os
@@ -99,6 +106,16 @@ def widen(map_id, x, count):
                                                     w + count, h))
 
 
+def set_tile(map_id, x, y, z, tile):
+    with open(path(map_id)) as f:
+        frozen = json.load(f)
+    old = frozen["layers"][z][y][x]
+    frozen["layers"][z][y][x] = tile
+    _write(map_id, frozen["width"], frozen["height"], frozen["tilesetId"],
+           frozen["layers"])
+    print("Map%03d (%d,%d) layer %d: %d -> %d" % (map_id, x, y, z, old, tile))
+
+
 def _write(map_id, w, h, tileset, layers):
     os.makedirs(FROZEN, exist_ok=True)
     with open(path(map_id), "w") as f:
@@ -134,6 +151,8 @@ if __name__ == "__main__":
         freeze(int(sys.argv[2]))
     elif sys.argv[1:2] == ["widen"] and len(sys.argv) == 5:
         widen(*map(int, sys.argv[2:]))
+    elif sys.argv[1:2] == ["set"] and len(sys.argv) == 7:
+        set_tile(*map(int, sys.argv[2:]))
     elif sys.argv[1:] == ["check"]:
         sys.exit(1 if check() else 0)
     else:

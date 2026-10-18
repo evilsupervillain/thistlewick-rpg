@@ -57,10 +57,10 @@ RW, RH = 30, 24
 STREET_Y = 14                       # the street: rows 13 and 14
 CROSS_X = 15                        # the north road: columns 15 and 16
 
-GATE_W = (1, STREET_Y)
-GATE_E = (28, STREET_Y)
-GATE_N = (CROSS_X, 1)
-GATE_S = (CROSS_X, 22)
+GATE_W = (0, STREET_Y)
+GATE_E = (29, STREET_Y)
+GATE_N = (CROSS_X, 0)
+GATE_S = (CROSS_X, 23)
 
 # Five of the nineteen are drawn. The notice on the street accounts for the
 # other fourteen, which is cheaper than drawing them and is the better joke.
@@ -193,6 +193,12 @@ def restwell_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Restwell", bgm="Town1")
     m["data"] = g.data
     m["events"] = [None] + restwell_events()
+    # Each road is two wide: the street is rows 13 and 14, the north-south
+    # road columns 15 and 16.
+    for event_id, (x, y) in [(1, GATE_W), (2, GATE_E)]:
+        S.widen_exit(m["events"], event_id, [(x, y - 1)])
+    for event_id, (x, y) in [(3, GATE_N), (4, GATE_S)]:
+        S.widen_exit(m["events"], event_id, [(x + 1, y)])
     return m
 
 
@@ -243,9 +249,9 @@ def restwell_events():
     notice += S.narrate([
         "Under that, in eighteen other hands,",
         "the word 'YES.'"])
-    evs.append(R.event(7, "The Inns Of Restwell", *NOTICE_AT, [R.page(
+    evs.append(S.pin_note(R.event(7, "The Inns Of Restwell", *NOTICE_AT, [R.page(
         notice, img=R.image(""), trigger=0, priority=1, through=True,
-        direction_fix=True)]))
+        direction_fix=True)])))
 
     # 8: the one next door, which is an hour quicker.
     seven = S.narrate([
@@ -506,7 +512,7 @@ def world_doors(base_id, cells):
         arrive += R.choice_block(
             ["Go in", "Press on"],
             [[R.play_se("Move1"),
-              R.transfer(MAP_RESTWELL, GATE_W[0] + 1, GATE_W[1], 6, 0)],
+              R.transfer(MAP_RESTWELL, GATE_W[0] + 2, GATE_W[1], 6, 0)],
              S.narrate(["You press on. There will be another one.",
                         "There are eighteen more in this one."])])
         evs.append(R.event(base_id + i, "Restwell", x, y, [R.page(

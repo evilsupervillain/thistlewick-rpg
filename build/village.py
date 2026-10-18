@@ -182,6 +182,7 @@ def village_map():
     m = K.new_map(VW, VH, K.TS_OUTSIDE, name="Thistlewick", bgm="Town1")
     m["data"] = g.data
     m["events"] = [None] + q_aldric.with_follower(village_events(), MAP_VILLAGE)  # ALD-5
+    S.widen_exit(m["events"], 1, [(GATE[0] + 1, GATE[1])])      # the road is two wide
     return m
 
 
@@ -306,7 +307,7 @@ def village_events():
         13, "Old Man", 11, 17, old, "People4", 4))))
 
     # -- 14/15: the dog, and the man who speaks for him ------------------------
-    add(S.npc(14, "Dog", 8, 27,
+    add(S.npc(14, "Dog", 10, 29,
               S.narrate(["\\C[6]Dog:\\C[0] Woof."]),
               "Nature", 0, move_type=1, move_frequency=2))
     interp = S.say("Neighbour", [
@@ -314,7 +315,7 @@ def village_events():
         "and you should take a coat."])
     interp += S.narrate(["The dog has not made a sound."])
     interp += S.say("Neighbour", ["He says it again. Louder."])
-    dog = add(S.npc(15, "Dog Interpreter", 9, 27, interp, "People1", 1))
+    dog = add(S.npc(15, "Dog Interpreter", 10, 28, interp, "People1", 1))
     dog["pages"].append(PG.interpreter_page(dog["pages"][0]))        # P4b
 
     # -- 16: the farmer, who is Bram's actual boss -----------------------------
@@ -357,7 +358,7 @@ def village_events():
                       "The barrel belongs to the innkeeper."])
     loot += [R.play_se("Item1"), R.gain_item(db.IT_POTION, 3), S.trope(),
              R.self_switch("A", True)]
-    add(R.event(19, "Innkeeper's Barrel", 11, 22, [
+    add(R.event(19, "Innkeeper's Barrel", 9, 24, [
         R.page(loot, img=R.image(""), trigger=0, priority=1,
                direction_fix=True, through=True),
         R.page(S.narrate(["You have already robbed this barrel."]),
@@ -365,7 +366,7 @@ def village_events():
                through=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
-    add(S.sign(20, "The Other Barrel", 12, 22, [
+    add(S.sign(20, "The Other Barrel", 10, 24, [
         "Rainwater. Half a boot.",
         "Nothing a hero could use."]))
 
@@ -388,7 +389,7 @@ def village_events():
     add(S.npc(22, "Market Stall", 23, 14, stall, "People2", 4, direction=8))
 
     # -- 23: point of no return ------------------------------------------------
-    add(S.sign(23, "Ominous Sign", 21, 4, [
+    add(S.sign(23, "Ominous Sign", 21, 2, [
         "\\C[2]POINT OF NO RETURN\\C[0]",
         "Somebody has added, in smaller letters:",
         "'not really, you can come back whenever,",
@@ -409,7 +410,7 @@ def village_events():
         direction_fix=True, step_anime=True, walk_anime=False)]))
 
     # -- 25: a hole in the turnip rows, for Wren (WRE-5) ------------------------
-    add(q_wren.bramus(25, 15, 27))
+    add(q_wren.bramus(25, 16, 27))
 
     # -- 26-28: the smithy's anvil on the grass, and two under it (HOB-3) ------
     for ev in q_hob.outside_events(26, ANVIL_OUTSIDE,
@@ -815,7 +816,7 @@ def hall_events():
     arg2 += S.narrate(["Nobody is listening to him.",
                        "Remember him."])
     arg2 += [S.trope()]
-    fenn = S.npc(5, "Committee Member (Clause Twelve)", 14, 11, arg2,
+    fenn = S.npc(5, "Committee Member (Clause Twelve)", 14, 10, arg2,
                  "People4", 2, direction=4)
     fenn["pages"] += q_piper.fenn_pages(fenn["pages"][0])           # PIP-5
     evs.append(fenn)
@@ -827,14 +828,14 @@ def hall_events():
     wall["pages"] += q_piper.wall_page(wall["pages"][0])            # PIP-1
     evs.append(wall)
 
-    records = S.prop(7, "Committee Records", 7, 4, [
+    records = S.prop(7, "Committee Records", 5, 7, [
         "Minutes of the meeting at which you were",
         "Chosen. Under 'apologies for absence':",
         "your name, and one goat."], "", 0, extra=[S.trope()])
     records["pages"] += q_piper.records_pages(records["pages"][0])  # PIP-5
     evs.append(records)
 
-    minutes = fete_minutes(8, 6, 4)
+    minutes = fete_minutes(8, 8, 3)
     minutes["pages"] += q_piper.minutes_pages(minutes["pages"][0],  # PIP-5
                                               minutes["pages"][-1])
     evs.append(minutes)
@@ -864,7 +865,7 @@ WALL_PORTRAITS = [((3, 2), "Portrait B"), ((4, 2), "Portrait A"),
                   ((3, 3), "Portrait A")]
 WALL = (3, 3)
 FRAME = (4, 3)
-MINUTE_BOOK = (14, 12)
+MINUTE_BOOK = (14, 11)
 
 
 # PIP-5's archive: a room in the black east of Prophecy Hall, reached only
@@ -873,13 +874,13 @@ MINUTE_BOOK = (14, 12)
 # (October 2026); you face it from the floor below. Ten columns of black
 # between the archive and the hall, so that from the edge of either the
 # other is off the screen (Mike, October 2026).
-CURTAIN = (16, 3)
+CURTAIN = (14, 3)
 ARCHIVE = (29, 5, 33, 8, 31)                # x1, y1, x2, y2, door_x
 ARCHIVE_IN = (31, 8)
 ARCHIVE_DOOR = (31, 9)
 ARCHIVE_BOX = (31, 5)
 # PIP-1: Ambrosine Quill, at the Committee's paperwork by the door.
-AMBROSINE = (7, 12)
+AMBROSINE = (7, 11)
 
 
 def archive_room(g):
@@ -1341,7 +1342,9 @@ def chapel_map():
     g.blit(12, 3, 2, K.IN_PIPE_ORGAN)
     g.column(9, 2, 2, K.IN_STAINED_GLASS)
     g.column(4, 3, 2, K.IN_BOOKSHELF)     # was half of `Bookshelf B`
-    g.column(14, 7, 2, K.IN_SHELF_JARS)
+    # The basin of free water. It was `IN_SHELF_JARS`, which is `Sundries
+    # Shelf A` - teddy bears and a pink rabbit - under a line about water.
+    g.set(14, 8, 2, K.sf_tile("Inside_C", "Large Basin"))
     # Pews: square stools side by side, which read as benches. They were
     # broken stools, and there were scrolls on top of the organ.
     for y in (7, 9, 11):
@@ -1654,7 +1657,8 @@ def store_events():
     # NIX-4: the eleven longest loans, and the book closed (q_nix.py).
     ledger["pages"] += q_nix.ledger_pages(ledger["pages"][0])
     ledger["pages"] += q_nix.nix1_ledger_pages(ledger["pages"][0])  # NIX-1
-    evs.append(ledger)
+    # open on the bottom of the cabinet, which is otherwise one more cabinet
+    evs.append(S.pin_note(ledger, K.INC_OPEN_BOOK))
     return evs
 
 

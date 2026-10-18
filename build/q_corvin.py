@@ -581,6 +581,10 @@ def drowned_street_map():
                  (15, 11), (16, 11), (16, 12)]:
         g.set(x, y, 0, LAKEWATER)
     g.fill(2, STREET_ROWS[0], w - 3, STREET_ROWS[1], 0, OLD_STREET)
+    # The old road up to the shore leaves the street south, under the way
+    # out, and reaches the map edge.
+    g.fill(DROWNED_ARRIVE[0], STREET_ROWS[1] + 1, DROWNED_ARRIVE[0] + 1, h - 1,
+           0, OLD_STREET)
     for x1, y1, x2, y2 in (ANCHOR_PLOT, ASH_PLOT, SCHOOL_PLOT):
         g.fill(x1, y1, x2, y2, 0, OLD_FLOOR)
     g.set(*STEP_AT, 0, DOORSTEP)

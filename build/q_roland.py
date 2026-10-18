@@ -1029,21 +1029,23 @@ def snug_card_event(event_id):
     back, with Roland; and the pencil under it, for everybody."""
     met = {"switch1Valid": True, "switch1Id": db.SW_ROL1_DONE}
     card = S.narrate(["A card on the snug table: RESERVED. R. FAIRWEATHER."])
+    # The card is drawn once it is there: `Note A (H)`, beside the mug.
+    shown = R.image(tile_id=K.sf_tile("Inside_C", "Note A (H)"))
     return R.event(event_id, "The Snug's Card", *places.SNUG_CARD, [
         R.page([], img=R.image(""), priority=0, through=True),
-        R.page(card, img=R.image(""), conditions=met),
-        R.page(_rol2_card(), img=R.image(""),
+        R.page(card, img=shown, conditions=met),
+        R.page(_rol2_card(), img=shown,
                conditions=dict(met, actorValid=True, actorId=db.ROLAND)),
         R.page(card + S.narrate([
             "On the back, under the prophecy, in pencil: GONE TO SEE."]),
-            img=R.image(""), conditions={"switch1Valid": True,
-                                         "switch1Id": db.SW_ROL2_ON}),
+            img=shown, conditions={"switch1Valid": True,
+                                   "switch1Id": db.SW_ROL2_ON}),
         R.page(card + S.narrate([
             "On the back, under the prophecy, in pencil: GONE TO SEE.",
             "And under that, in the same pencil: DONE. (R.F.) It took",
             "an afternoon."]),
-            img=R.image(""), conditions={"switch1Valid": True,
-                                         "switch1Id": db.SW_ROL2_DONE}),
+            img=shown, conditions={"switch1Valid": True,
+                                   "switch1Id": db.SW_ROL2_DONE}),
     ])
 
 

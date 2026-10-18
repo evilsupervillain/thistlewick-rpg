@@ -63,10 +63,95 @@ MOUNTAIN_DOOR = {
     (31, 20): (A(22), 0, 203), (32, 20): (A(29), 0, 0),
     (29, 21): (A(22), 210, 0), (30, 21): (210, 211, 20),
     (31, 21): (211, 0, 0), (32, 21): (A(29), 0, 0),
-    (29, 22): (0, 0, 0), (30, 22): (0, 0, 95),
+    (29, 22): (0, 0, 95), (30, 22): (0, 0, 0),
     (31, 22): (0, 0, 0), (32, 22): (A(29), 0, 0),
-    (29, 23): (0, 0, 0), (30, 23): (0, 0, 116),
-    (31, 23): (0, 0, 117), (32, 23): (A(29), 0, 0),
+    (29, 23): (0, 0, 116), (30, 23): (0, 0, 117),
+    (31, 23): (0, 0, 0), (32, 23): (A(29), 0, 0),
+    (29, 24): (A(29), 0, 0), (30, 24): (A(29), 0, 0),
+    (31, 24): (A(29), 0, 0), (32, 24): (A(29), 0, 0),
+}
+
+
+# Mike's seventh round in the editor (15 Oct 2026), diffed in here: every cell
+# of all four tile layers as he left it. The lake west of Upper Clanging grown
+# down into the hills, the Mountain (Rock) shoulder at (41,70), Thistlewick's
+# shore at (49,79) given back as dirt, and four road ends straightened (23,75),
+# (32,111) and (47,117), and the inlet under Hithermost's new road filled
+# in. The village's own move is in `MOUNTAIN_DOOR` above.
+# Autotiles are re-shaped by `settle`, which reproduces his shapes.
+ROUND7 = {
+    (30, 24): (2816, 3473, 0, 0),
+    (31, 24): (2816, 3473, 0, 0),
+    (32, 24): (2816, 3479, 0, 0),
+    (30, 25): (2844, 0, 0, 0),
+    (31, 25): (2844, 0, 0, 0),
+    (32, 25): (2844, 0, 0, 0),
+    (31, 26): (2069, 0, 0, 0),
+    (35, 46): (2856, 0, 0, 0),
+    (36, 46): (2824, 0, 0, 0),
+    (32, 47): (2056, 0, 0, 0),
+    (33, 47): (2048, 0, 0, 0),
+    (34, 47): (2050, 0, 0, 0),
+    (35, 47): (2084, 0, 0, 0),
+    (36, 47): (2832, 0, 0, 0),
+    (31, 48): (2852, 0, 0, 0),
+    (32, 48): (2088, 0, 0, 0),
+    (33, 48): (2056, 0, 0, 0),
+    (34, 48): (2052, 0, 0, 0),
+    (35, 48): (2086, 0, 0, 0),
+    (36, 48): (2832, 0, 0, 0),
+    (31, 49): (2818, 3149, 0, 0),
+    (32, 49): (2852, 0, 0, 0),
+    (33, 49): (2088, 0, 0, 0),
+    (34, 49): (2073, 0, 0, 0),
+    (35, 49): (2850, 3138, 0, 0),
+    (36, 49): (2817, 3124, 0, 0),
+    (32, 50): (2818, 0, 0, 0),
+    (33, 50): (2852, 0, 0, 0),
+    (34, 50): (2080, 0, 0, 0),
+    (35, 50): (2832, 3120, 0, 0),
+    (32, 51): (2820, 0, 0, 97),
+    (33, 51): (2854, 0, 0, 0),
+    (34, 51): (2080, 0, 0, 0),
+    (35, 51): (2832, 3120, 0, 0),
+    (32, 52): (2840, 0, 0, 105),
+    (33, 52): (2091, 0, 0, 0),
+    (34, 52): (2087, 0, 0, 0),
+    (35, 52): (2832, 3120, 0, 0),
+    (32, 53): (2818, 0, 0, 0),
+    (33, 53): (2836, 0, 0, 0),
+    (34, 53): (2836, 3147, 0, 0),
+    (35, 53): (2817, 3133, 0, 0),
+    (40, 70): (3708, 3902, 0, 0),
+    (41, 70): (3692, 3909, 0, 0),
+    (40, 71): (2852, 3477, 0, 0),
+    (41, 71): (3724, 3916, 0, 0),
+    (23, 75): (3200, 3477, 0, 0),
+    (25, 75): (3200, 0, 0, 0),
+    (26, 75): (3200, 0, 0, 0),
+    (23, 76): (3200, 3481, 0, 0),
+    (24, 76): (3200, 3473, 0, 0),
+    (25, 76): (3200, 3473, 0, 0),
+    (26, 76): (3200, 3463, 0, 0),
+    (49, 78): (3306, 0, 0, 0),
+    (50, 78): (3316, 0, 0, 0),
+    (48, 79): (2093, 0, 0, 0),
+    (49, 79): (3336, 0, 0, 13),
+    (50, 79): (3324, 0, 0, 13),
+    (32, 111): (2816, 3472, 0, 0),
+    (35, 111): (2816, 0, 0, 0),
+    (36, 111): (2816, 0, 0, 0),
+    (32, 112): (2816, 3481, 0, 0),
+    (33, 112): (2816, 3473, 0, 0),
+    (34, 112): (2816, 3473, 0, 0),
+    (35, 112): (2816, 3473, 0, 0),
+    (36, 112): (2816, 3473, 0, 0),
+    (47, 117): (3216, 0, 0, 0),
+    (48, 117): (3204, 3472, 0, 0),
+    (48, 118): (3225, 3472, 0, 0),
+    (47, 119): (3716, 3460, 0, 0),
+    (48, 119): (3232, 3466, 0, 0),
+    (49, 119): (3712, 0, 0, 0),
 }
 
 
@@ -305,10 +390,13 @@ def main(argv):
     print("the mountain door: %s" % F.add_site(
         w, (30, 21), 'World_B/Tunnel', 'The Door into the Mountain', 'tunnel'))
     print("Chapel of Continuance: %s" % F.add_site(
-        w, (30, 22), 'World_B/Temple C', 'Chapel of Continuance', 'chapel'))
+        w, (29, 22), 'World_B/Temple C', 'Chapel of Continuance', 'chapel'))
     for (x, y), tiles in MOUNTAIN_DOOR.items():
         for z, t in zip((1, 2, 3), tiles):
             w.g.set(x, y, z, t)
+    # Mike moved the village and the chapel one west, off the column the
+    # tunnel is in, and ran a road under them (October 2026).
+    print("Hithermost: doors at %s" % (F.move_site(w, 'Hithermost', (29, 23)),))
 
     # Restwell is "a crossroads town of one street and nineteen inns", and the
     # road merely arrived at it from the north-west and stopped. So: road on all
@@ -462,6 +550,11 @@ def main(argv):
     # map and the installed map behave the same; `generated.json` is never
     # edited, so this is the only place the generated twenty-one can be reached.
     print("placeholder doors made inert: %d" % F.make_doors_inert(w))
+
+    for (x, y), tiles in ROUND7.items():
+        for z, t in enumerate(tiles):
+            w.g.set(x, y, z, t)
+    print("Mike's round seven: %d cells" % len(ROUND7))
 
     w.settle()
     quiet = ([(55 + i, 83) for i in range(4)]            # the Isle

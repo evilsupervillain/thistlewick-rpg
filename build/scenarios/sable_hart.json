@@ -87,8 +87,9 @@
 
     {"comment": "Blackwood, by the fire.",
      "key": "ArrowRight", "times": 3, "gap": 30},
-    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [10, 6, 6],
-     "label": "beside Blackwood, facing him"},
+    {"key": "ArrowUp", "times": 1, "gap": 30},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [11, 6, 8],
+     "label": "below Blackwood, facing him"},
     {"key": "Enter"},
     {"frames": 60},
     {"check": "$gameMap._interpreter.eventId()", "expect": 6, "label": "Kit Blackwood"},
@@ -96,8 +97,7 @@
     {"advance": 20},
 
     {"comment": "Over the rug to the two notices on the north wall.",
-     "key": "ArrowUp", "times": 1, "gap": 30},
-    {"key": "ArrowRight", "times": 4, "gap": 30},
+     "key": "ArrowRight", "times": 3, "gap": 30},
     {"key": "ArrowUp", "times": 2, "gap": 30},
     {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [14, 4, 8],
      "label": "under the league table, facing it"},

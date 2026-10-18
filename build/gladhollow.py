@@ -110,7 +110,7 @@ BACK = (24, 4, 28, 6)
 # corner, one step wide, the way Mike drew the Slain Wyvern's cellar stairs
 # (`mapkit.stairs_up`): the way up is the top step, and you arrive at the foot.
 BACK_ARRIVE = (28, 6)
-STAIRS = (28, 4)
+STAIRS = (28, 3)
 LEDGER = (24, 4)
 SACK = (25, 4)
 CAP = (24, 6)

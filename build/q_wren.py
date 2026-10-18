@@ -933,9 +933,12 @@ def subscription_event(event_id, x, y):
     c += R.shop([(0, iid, 0, 0) for iid in db.IT_SUBSCRIPTIONS],
                 purchase_only=True)
     nothing = dict(img=R.image(""), trigger=0, priority=0, through=True)
+    # The list is a sheet on the desk while it is out (`Note A (H)`), and
+    # gone into the monograph once it is closed.
+    sheet = R.image(tile_id=K.sf_tile("Inside_C", "Note A (H)"))
     return R.event(event_id, "The Subscription List", x, y, [
         R.page([], **nothing),
-        R.page(c, img=R.image(""), trigger=0, priority=1, direction_fix=True,
+        R.page(c, img=sheet, trigger=0, priority=1, direction_fix=True,
                conditions={"switch1Valid": True, "switch1Id": db.SW_WRE1_ON}),
         R.page(S.narrate(["The subscription list is closed, and bound in at",
                           "the back of the monograph."]),

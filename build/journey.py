@@ -49,6 +49,7 @@ import dunnage as DUN
 import pottering as POT
 from places import (MAP_VILLAGE, MAP_WORLD, MAP_GLOAMWOOD, MAP_GLOAM_DEEP,
                     MAP_TOWER, MAP_SUMMIT, VILLAGE_GATE, WORLD_VILLAGE,
+                    WORLD_SOPPING, WORLD_CLANGING,
                     WORLD_GLOAMWOOD, WORLD_TOWER,
                     WORLD_SIGN_SOUTH, WORLD_SIGN_NORTH,
                     REG_SOUTH, REG_NORTH, REG_COAST, REG_CLANG,
@@ -217,6 +218,13 @@ def world_map():
     m["events"].append(q_zephyrine.fen_road_event(len(m["events"])))  # ZEPH-4
     m["events"].append(q_roland.understudy_at_door(len(m["events"])))  # ROL-5
     m["events"].append(q_roland.carn_drey_door(len(m["events"])))      # ROL-2
+    # Three towns are stamped two cells wide and were entered from one of the
+    # two; the other cell is town as well, so it goes in too (October 2026).
+    for (x, y), dx in [(WORLD_VILLAGE, 1), (WORLD_SOPPING, 1),
+                       (WORLD_CLANGING, -1)]:
+        way_in = next(e["id"] for e in m["events"][1:]
+                      if (e["x"], e["y"]) == (x, y))
+        S.widen_exit(m["events"], way_in, [(x + dx, y)])
     return m
 
 
@@ -550,6 +558,11 @@ def deep_map():
     K.paint_regions(g, K.TS_OUTSIDE, 1)
     m["data"] = g.data
     m["events"] = [None] + deep_events()
+    # The path is one cell of dirt in a clearing three wide, at both ends.
+    S.widen_exit(m["events"], 1, [(DW_IN[0] - 1, DW_IN[1] + 1),
+                                  (DW_IN[0] + 1, DW_IN[1] + 1)])
+    S.widen_exit(m["events"], 2, [(DW_OUT[0] - 1, DW_OUT[1] - 1),
+                                  (DW_OUT[0] + 1, DW_OUT[1] - 1)])
     return m
 
 
@@ -788,7 +801,8 @@ def tower_events():
                        ["Found \\I[99]\\C[3]Beatrice II\\C[0] and",
                         "\\I[179]\\C[3]Elixir\\C[0]."]))
 
-    evs.append(S.sign(8, "Plaque By The Door", 14, 29, [
+    # on the foot of the obelisk beside the door; it was the floor next to it
+    evs.append(S.sign(8, "Plaque By The Door", 13, 28, [
         "\\C[6]THE OBLIGATORY TOWER\\C[0]",
         "Est. approx. 4,800 years ago",
         "'UNDER THE SAME MANAGEMENT'"]))
@@ -842,10 +856,12 @@ def tower_events():
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
 
-    evs.append(S.sign(10, "Notice In The Stairwell", 18, 6, [
+    # Nailed to the rock face at the head of the stairwell, read from the
+    # floor below it. It was an invisible thing on the floor beside the wall.
+    evs.append(S.pin_note(S.sign(10, "Notice In The Stairwell", 18, 4, [
         "A notice, nailed up at eye level:",
         "'MIND THE STEP. I MEAN IT. THE STEP HAS",
-        "TAKEN MORE OF YOU THAN I HAVE.' - G."]))
+        "TAKEN MORE OF YOU THAN I HAVE.' - G."])))
     return evs
 
 

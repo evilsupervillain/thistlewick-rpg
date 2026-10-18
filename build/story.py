@@ -4,6 +4,7 @@ running gag that counts clichés.
 The point of `say` is that dialogue in the map scripts reads as dialogue -
 a speaker, a face, and the lines - instead of as a pile of command dicts.
 """
+import copy
 import os
 import sys
 
@@ -576,13 +577,25 @@ def got(lines, indent=0):
 
 # ------------------------------------------------------------------ doors ---
 def door_page(target_map, tx, ty, direction=2, se="Open1"):
-    """The commands behind a door sprite: open it, step through, transfer."""
+    """The commands behind a door sprite: open it, step through, transfer -
+    and then shut it again behind you.
+
+    The opening route ends Through ON with the sprite on its open frame, and
+    nothing in the engine undoes either: a door into another map gets away
+    with it because the transfer throws the event away, but a door into a
+    room on the *same* map (the Wyvern's back room) stayed open and walkable
+    for the rest of the game, so its "medics only" page was walked straight
+    over. So after the transfer the door turns Through OFF and faces down,
+    its shut frame. On another map `character(0)` is null once the map has
+    changed and the route is skipped, so it costs those doors nothing."""
     cmds = [R.play_se(se)]
     cmds += R.move_route(0, K.door_animation(), repeat=False, wait_flag=True)
     cmds += R.move_route(-1, [{"code": 12}], repeat=False, skippable=True,
                          wait_flag=True)
     cmds += [R.play_se("Move1"),
              R.transfer(target_map, tx, ty, direction, 0)]
+    cmds += R.move_route(0, [{"code": 38}, {"code": 16}], repeat=False,
+                         skippable=True)
     return cmds
 
 
@@ -606,6 +619,35 @@ def exit_tile(event_id, name, x, y, target_map, tx, ty, direction=2):
     return R.event(event_id, name, x, y, [R.page(
         [R.play_se("Move1"), R.transfer(target_map, tx, ty, direction, 0)],
         img=R.image(""), trigger=1, priority=0, through=True)])
+
+
+def widen_exit(events, event_id, cells):
+    """The way out at `event_id`, copied onto the rest of the road's width.
+
+    A road two or three cells wide that leaves a town by one of them is a
+    road the player walks off the side of: the other cells are the edge of
+    the map and nothing happens there (Mike, October 2026). Each copy is the
+    whole event - every page and condition, so a gate that asks questions
+    asks them on every cell - and is appended, so it takes the next id and
+    no id already in the list moves. Call it on the map's finished list,
+    after anything else that appends to it."""
+    for x, y in cells:
+        twin = copy.deepcopy(events[event_id])
+        twin["id"], twin["x"], twin["y"] = len(events), x, y
+        events.append(twin)
+    return events
+
+
+def pin_note(event, tile=K.E_NOTE):
+    """Give every page of `event` a card for a picture, pinned to whatever is
+    drawn under it - so a window, a barrel or a door that has something to
+    read on it looks like one. The default is `mapkit.E_NOTE`, right for the
+    Outside, Collegium and Dungeon tilesets; pass `mapkit.INC_SCROLL` on
+    Inside. A page that should show nothing (a thing not there yet) is the
+    caller's to blank afterwards."""
+    for page in event["pages"]:
+        page["image"] = R.image(tile_id=tile)
+    return event
 
 
 def sign(event_id, name, x, y, lines, sheet="", index=0):

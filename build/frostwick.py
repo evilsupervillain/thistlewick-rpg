@@ -569,7 +569,8 @@ def cold_room_map():
     g.set(SCHEDULE[0] + 1, SCHEDULE[1], 3, K.INC_BOOK)
 
     # The larder, which is next January, and the rest of the trade.
-    g.column(LARDER_X, y1 - 1, 2, K.IN_SHELF_JARS)
+    # `Simple Shelf A (Jars)`: it was `IN_SHELF_JARS`, which is not jars.
+    g.set(LARDER_X, y1, 2, K.sf_tile("Inside_B", "Simple Shelf A (Jars)"))
     g.column(LARDER_X + 1, y1 - 1, 2, K.IN_BOOKSHELF)
     g.column(4, y1 - 2, 3, K.IN_WINDOW)
     g.set(3, y2, 2, K.IN_CRATE)

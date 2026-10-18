@@ -324,7 +324,7 @@ def court_events():
         R.page(first, **PAGE), R.page(later, conditions=LATER, **PAGE)]))
     board = R.event(8, "In and Out", *BOARD, [R.page(board_pages(), **PAGE)])
     board["pages"].append(q_zephyrine.board_page(board["pages"][0]))  # ZEPH-1
-    evs.append(board)
+    evs.append(S.pin_note(board))                   # the board, on the wall
 
     # 9: keep off the grass, 10: Congregation's notices.
     evs.append(R.event(9, "The Lawn", *LAWN_SIGN,
@@ -378,7 +378,7 @@ PREWITT = (4, 6)
 REGISTER = (5, 7)               # the ledger on the desk, read from below
 PENNOCK = (6, 7)                # ZEPH-1: the Registrar's clerk, desk's end
 REVIEWERS = [(5, 10), (2, 10)]  # WRE-1: Mott and Furze, either end of the table
-SUBSCRIPTION_LIST = (3, 7)      # WRE-1: on the desk, by the hourglass
+SUBSCRIPTION_LIST = (4, 7)      # WRE-1: on the desk, by the hourglass
 APPEAL = (3, 3)                 # a notice on the wall face, read from below
 APPEAL_BUCKET = (2, 4)
 MONOGRAPHS = 8                  # a Bookshelf A against the north wall
