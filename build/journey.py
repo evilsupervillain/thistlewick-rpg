@@ -24,6 +24,7 @@ import q_roland
 import q_wren
 import q_zephyrine
 import story as S
+import tower as T
 import wilds as W
 import field as F
 import handdrawn as HD
@@ -95,14 +96,13 @@ DW, DH = 30, 30
 DW_IN = (15, DH - 2)
 DW_OUT = (15, 1)
 
-# The tower
-TW, TH = 33, 34
-TOWER_IN = (16, 30)
-TOWER_STAIR = (16, 5)
+# The tower: `tower.py` draws it, and its plans say where things are
+TOWER_IN = T.at(1, "a")                     # in at the door, facing up
+BARRED = T.at(4, "D")                       # the door up to the summit
+STONE_DOOR = R.image("!Door1", 6, direction=2, pattern=2)
 
 # The summit
-SW_, SH = 25, 23
-SUMMIT_IN = (12, 19)
+SUMMIT_IN = T.SUMMIT_IN
 
 
 def tint(tone, duration=30):
@@ -647,67 +647,19 @@ def deep_events():
 
 # ======================================================= the Obligatory Tower ==
 def tower_map():
-    """Solid rock, carved into rooms. `dungeon_walls` handles the wall faces
-    afterwards, so the carving below only has to describe the shape.
-
-    Rooms are kept at least two tiles apart: a one-tile wall between two rooms
-    renders as a pillar rather than a wall, and the whole floor then reads as
-    one big room with columns in it."""
-    g = K.Canvas(TW, TH)
-    g.fill(0, 0, TW - 1, TH - 1, 0, K.DG_WALL_TOP)
-
-    rooms = [
-        (12, 26, 20, 31),      # entrance hall
-        (14, 5, 18, 24),       # the long climb, all the way up
-        (3, 18, 10, 24),       # west store room
-        (22, 18, 29, 24),      # east guard room
-        (3, 7, 10, 13),        # west gallery
-        (22, 7, 29, 13),       # east gallery
-    ]
-    for x1, y1, x2, y2 in rooms:
-        g.fill(x1, y1, x2, y2, 0, K.DG_FLOOR)
-    corridors = [
-        (16, 24, 16, 27),      # entrance up into the climb
-        (11, 21, 13, 21), (19, 21, 21, 21),
-        (11, 10, 13, 10), (19, 10, 21, 10),
-    ]
-    for x1, y1, x2, y2 in corridors:
-        g.fill(min(x1, x2), min(y1, y2), max(x1, x2), max(y1, y2), 0,
-               K.DG_FLOOR)
-    # A landing halfway up and another at the top, in different flagstones,
-    # so the climb has a middle and an end you can see coming.
-    g.fill(14, 15, 18, 18, 0, K.DG_FLOOR2)
-    g.fill(14, 5, 18, 8, 0, K.DG_FLOOR2)
-
-    g.dungeon_walls(K.DG_WALL_TOP, K.DG_WALL_FACE)
-    g.autotile(0)
-
-    for x, y in [(13, 28), (19, 28), (13, 17), (19, 17)]:
-        g.column(x, y - 1, 3, K.DGB_PILLAR)
-    g.scatter([(4, 19), (9, 23), (23, 23), (28, 19)], 3, K.DGB_RUBBLE)
-    g.scatter([(6, 23), (26, 23), (4, 12), (29, 12)], 3, K.DGB_BONES)
-    g.scatter([(8, 19), (24, 19)], 3, K.DGB_SKULLS)
-    g.column(4, 8, 3, K.DGB_STATUE_ANGEL)
-    g.column(29, 8, 3, K.DGB_STATUE_DEMON)
-    g.column(15, 12, 3, K.DGB_OBELISK)
-    g.scatter([(17, 20), (15, 23)], 3, K.DGB_ROCK)
-    g.set(16, 16, 3, K.DGE_BASIN)       # the Basin event's; it was bare floor
-    # Built, so the rooms keep their lines; but the rock ends, and beyond it
-    # is dark, as Mike has the outside of a map (October 2026).
-    evs = tower_events()
-    K.naturalise_cave(g, MAP_TOWER, keep=[(e["x"], e["y"]) for e in evs],
-                      rough=False)
-
+    """Four floors of a tower, drawn from `tower.PLANS`; the summit is the
+    fifth, Map 12."""
+    g = T.draw()
+    g.set(*T.at(3, "b"), 3, K.DGE_BASIN)    # the Basin event's
     K.paint_regions(g, K.TS_DUNGEON, 1)
-
-    m = K.new_map(TW, TH, K.TS_DUNGEON, name="The Obligatory Tower",
+    m = K.new_map(T.MAP_W, T.MAP_H, K.TS_DUNGEON, name="The Obligatory Tower",
                   bgm="Dungeon5", encounter_step=30,
                   battleback=("Stone1", "Ruins1"),
                   encounters=[(db.TR_SKELETONS, 5, [1]),
                               (db.TR_TOWER_MIX, 4, [1]),
                               (db.TR_GARGOYLES, 3, [1])])
     m["data"] = g.data
-    m["events"] = [None] + evs
+    m["events"] = [None] + tower_events()
     return m
 
 
@@ -719,10 +671,12 @@ def tower_events():
         ["Yes", "No"],
         [[R.play_se("Move1")] + tint(CLEAR, 1) +
          [R.transfer(MAP_WORLD, TOWER_DOOR[0], TOWER_DOOR[1] + 1, 2, 0)], []])
-    evs.append(R.event(1, "Tower Door", TOWER_IN[0], TOWER_IN[1] + 1, [R.page(
+    evs.append(R.event(1, "Tower Door", *T.at(1, "e"), [R.page(
         leave, img=R.image(""), trigger=1, priority=0, through=True)]))
 
     # The barred door. Two ways through it, so no party can be locked out.
+    # It was `!Door2` 0, which is a red magic swirl and not a door; it is the
+    # carved stone door of `!Door1`, shut, and on its last frame once open.
     nix_picks = S.say("Nix", [
         "Bar's on the inside. Classic.",
         "Which means there's a gap, and a gap is just",
@@ -757,11 +711,11 @@ def tower_events():
                   [R.play_se("Key"),
                    R.control_switch(db.SW_TOWER_OPEN, True)],
                   the_mat))
-    evs.append(R.event(2, "Barred Door", 16, 9, [
-        R.page(barred, img=R.image("!Door2", 0, direction=2), trigger=0,
-               priority=1, direction_fix=True),
+    evs.append(R.event(2, "Barred Door", *T.at(4, "D"), [
+        R.page(barred, img=STONE_DOOR, trigger=0, priority=1,
+               direction_fix=True),
         R.page([R.play_se("Move1"), R.transfer(MAP_SUMMIT, *SUMMIT_IN, 8, 0)],
-               img=R.image("!Door2", 0, direction=2, pattern=2), trigger=1,
+               img=dict(STONE_DOOR, direction=8), trigger=1,
                priority=1, direction_fix=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_TOWER_OPEN}),
@@ -780,34 +734,34 @@ def tower_events():
                     "Somewhere upstairs, someone is being",
                     "unaccountably thoughtful."]),
          []])
-    evs.append(R.event(3, "Basin", 16, 16, [R.page(
+    evs.append(R.event(3, "Basin", *T.at(3, "b"), [R.page(
         shrine, img=R.image(""), trigger=0, priority=1, direction_fix=True)]))
 
-    evs.append(S.chest(4, "West Store Room", 5, 21,
+    evs.append(S.chest(4, "West Store Room", *T.at(1, "c"),
                        [R.gain_weapon(db.WP_BROADSWORD, 1),
                         R.gain_item(db.IT_HI_POTION, 3)],
                        ["Found \\I[123]\\C[3]Broadsword\\C[0] and",
                         "\\I[176]\\C[3]Hi-Potion x3\\C[0]."]))
-    evs.append(S.chest(5, "East Guard Room", 27, 21,
+    evs.append(S.chest(5, "East Guard Room", *T.at(2, "c"),
                        [R.gain_armor(db.AR_PLATE, 1), R.gain_gold(600)],
                        ["Found \\I[137]\\C[3]Family Plate\\C[0] and 600\\G."]))
-    evs.append(S.chest(6, "West Gallery", 5, 10,
+    evs.append(S.chest(6, "West Gallery", *T.at(3, "c"),
                        [R.gain_weapon(db.WP_STARFALL, 1)],
                        ["Found \\I[118]\\C[3]Unlicensed Starfall\\C[0].",
                         "The College would like a word."]))
-    evs.append(S.chest(7, "East Gallery", 27, 10,
+    evs.append(S.chest(7, "East Gallery", *T.at(4, "c"),
                        [R.gain_weapon(db.WP_WORLDBREAKER, 1),
                         R.gain_item(db.IT_ELIXIR, 1)],
                        ["Found \\I[99]\\C[3]Beatrice II\\C[0] and",
                         "\\I[179]\\C[3]Elixir\\C[0]."]))
 
-    # on the foot of the obelisk beside the door; it was the floor next to it
-    evs.append(S.sign(8, "Plaque By The Door", 13, 28, [
+    # on the foot of the obelisk beside the door
+    evs.append(S.sign(8, "Plaque By The Door", *T.at(1, "p"), [
         "\\C[6]THE OBLIGATORY TOWER\\C[0]",
         "Est. approx. 4,800 years ago",
         "'UNDER THE SAME MANAGEMENT'"]))
 
-    evs.append(S.sign(9, "The Obelisk", 15, 13, [
+    evs.append(S.sign(9, "The Obelisk", *T.at(3, "o"), [
         "An obelisk, covered in very small writing.",
         "It is a list. Forty-seven entries. Each one is",
         "a date and a name and the word RENEWED.",
@@ -847,7 +801,7 @@ def tower_events():
         "OPENED THIS CUPBOARD. IT IS SIX FEET FROM",
         "THE STAIRS. I DO NOT UNDERSTAND ANY OF YOU.'"])
     cache += [S.trope(), R.self_switch("A", True)]
-    evs.append(R.event(11, "Contingency Cache", 14, 7, [
+    evs.append(R.event(11, "Contingency Cache", *T.at(4, "k"), [
         R.page(cache, img=R.image("!Chest", 0, direction=2, pattern=1),
                trigger=0, priority=1, direction_fix=True),
         R.page(S.narrate(["Seven empty hooks and a very smug note."]),
@@ -856,53 +810,34 @@ def tower_events():
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
 
-    # Nailed to the rock face at the head of the stairwell, read from the
-    # floor below it. It was an invisible thing on the floor beside the wall.
-    evs.append(S.pin_note(S.sign(10, "Notice In The Stairwell", 18, 4, [
+    # Nailed to the wall beside the first flight up, read from the floor
+    # below it.
+    evs.append(S.pin_note(S.sign(10, "Notice In The Stairwell", *T.at(1, "N"), [
         "A notice, nailed up at eye level:",
         "'MIND THE STEP. I MEAN IT. THE STEP HAS",
         "TAKEN MORE OF YOU THAN I HAVE.' - G."])))
-    return evs
+    return evs + T.stairs_events(12, MAP_TOWER)
 
 
 # ================================================================== the end ==
 def summit_map():
-    """The top of the tower: a round chamber with a dais, and a portal at the
-    back that has been renewing the same contract for four thousand years."""
-    g = K.Canvas(SW_, SH)
-    g.fill(0, 0, SW_ - 1, SH - 1, 0, K.DG_WALL_TOP)
-    g.blob(12, 10, 9, 7, 0, K.DG_FLOOR)
-    g.fill(10, 16, 14, 21, 0, K.DG_FLOOR)         # the stair up from below
-    g.fill(8, 6, 16, 12, 0, K.DG_FLOOR2)          # the dais
-    g.dungeon_walls(K.DG_WALL_TOP, K.DG_WALL_FACE)
-    g.autotile(0)
-
-    for x in (6, 18):
-        g.column(x, 7, 3, K.DGB_PILLAR_WHITE)
-        g.column(x, 12, 3, K.DGB_PILLAR_WHITE)
-    g.column(12, 3, 2, K.DGB_PORTAL)              # where clause twelve lives
-    g.column(9, 4, 3, K.DGB_STATUE_DEMON)
-    g.column(15, 4, 3, K.DGB_STATUE_DEMON)
-    g.scatter([(8, 14), (16, 14)], 3, K.DGB_SKULLS)
-    g.scatter([(7, 16), (17, 16)], 3, K.DGB_BONES)
-    g.scatter([(10, 15), (14, 15)], 3, K.DGB_RUBBLE)
-    evs = summit_events()
-    K.naturalise_cave(g, MAP_SUMMIT, keep=[(e["x"], e["y"]) for e in evs],
-                      rough=False)
-
-    m = K.new_map(SW_, SH, K.TS_DUNGEON,
+    """The top of the tower, drawn by `tower.summit_draw`: the throne on its
+    dais, the portal behind it that has been renewing the same contract for
+    four thousand years, and the stairs up from the barred door."""
+    m = K.new_map(T.SUMMIT_W, T.SUMMIT_H, K.TS_DUNGEON,
                   name="The Obligatory Tower - Summit", bgm="Dungeon7",
                   battleback=("DemonCastle1", "DemonCastle1"))
-    m["data"] = g.data
-    m["events"] = [None] + evs
+    m["data"] = T.summit_draw().data
+    m["events"] = [None] + summit_events()
     return m
 
 
 def summit_events():
     """The two-phase finale. Everything here runs off one long event so the
     beats stay in order: Grimspite, the relief, the Prophecy, the annulment."""
-    evs = [R.event(1, "Back Down", SUMMIT_IN[0], SUMMIT_IN[1] + 1, [R.page(
-        [R.play_se("Move1"), R.transfer(MAP_TOWER, 16, 10, 2, 0)],
+    evs = [R.event(1, "Back Down", *T.SUMMIT_WELL, [R.page(
+        [R.play_se("Move1"), R.transfer(MAP_TOWER, BARRED[0], BARRED[1] + 1,
+                                        2, 0)],
         img=R.image(""), trigger=1, priority=0, through=True)])]
 
     evs.append(finale_event(2, 12, 8))

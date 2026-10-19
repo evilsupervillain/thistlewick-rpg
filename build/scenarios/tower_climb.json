@@ -1,0 +1,44 @@
+{
+  "query": "?map=11&x=19&y=27&frames=90",
+  "steps": [
+    {"comment": "The Obligatory Tower as a tower (October 2026): four floors side by side on Map 11 and the summit on Map 12. Every flight is climbed with the arrow keys and come back down, and each lands above itself: up puts you on the landing above the well upstairs, facing on up, and one step down from there is the foot of the same flight. Walking between flights on a floor is the flood's job, not this.",
+     "eval": "$gameSystem.disableEncounter()"},
+    {"check": "$gameMap.displayName()", "expect": "The Obligatory Tower", "label": "in at the door"},
+
+    {"goto": [11, 31, 10]},
+    {"key": "ArrowUp", "times": 3, "gap": 30},
+    {"until": "$gamePlayer.x === 79 && $gamePlayer.y === 4", "frames": 600},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [79, 4, 8], "label": "up from the hall, onto the guard floor's landing"},
+    {"key": "ArrowDown", "times": 1, "gap": 30},
+    {"until": "$gamePlayer.x === 31 && $gamePlayer.y === 9", "frames": 600},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [31, 9, 2], "label": "and one step down is the foot of the same flight"},
+
+    {"goto": [11, 55, 23]},
+    {"key": "ArrowUp", "times": 3, "gap": 30},
+    {"until": "$gamePlayer.x === 103 && $gamePlayer.y === 17", "frames": 600},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [103, 17, 8], "label": "up from the guard floor, the right-hand column, onto the chapel floor"},
+    {"key": "ArrowDown", "times": 1, "gap": 30},
+    {"until": "$gamePlayer.x === 55 && $gamePlayer.y === 22", "frames": 600},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [55, 22], "label": "and back down in the same column"},
+
+    {"goto": [11, 122, 15]},
+    {"key": "ArrowUp", "times": 3, "gap": 30},
+    {"until": "$gamePlayer.x === 170 && $gamePlayer.y === 9", "frames": 600},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [170, 9, 8], "label": "up from the chapel floor onto the top floor"},
+    {"key": "ArrowDown", "times": 1, "gap": 30},
+    {"until": "$gamePlayer.x === 122 && $gamePlayer.y === 14", "frames": 600},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [122, 14], "label": "and back down"},
+
+    {"eval": "$gameSwitches.setValue(6, true)"},
+    {"goto": [11, 153, 5]},
+    {"key": "ArrowUp", "times": 1, "gap": 30},
+    {"until": "$gameMap.mapId() === 12 && !$gamePlayer.isTransferring()", "frames": 900},
+    {"frames": 60},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [12, 12, 16, 8], "label": "through the barred door and up to the summit, at the head of the stairs"},
+    {"shot": "tower_summit_stairs.png"},
+    {"key": "ArrowDown", "times": 1, "gap": 30},
+    {"until": "$gameMap.mapId() === 11 && !$gamePlayer.isTransferring()", "frames": 900},
+    {"frames": 60},
+    {"check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [11, 153, 5, 2], "label": "and back down in front of the door, facing away from it"}
+  ]
+}

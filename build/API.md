@@ -138,7 +138,7 @@ choice_block(options, branches, cancel=None, default=0, position=2, background=0
 
 Tile vocabulary and drawing helpers for The Obligatory Quest.
 
-**Tile constants (367)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
+**Tile constants (369)** - names only. What each one actually is, off the sheet's own `.txt`, is in `build/TILENAMES.md`; regenerate it with `tools/tileaudit.py`. The `SF_*` constants are not among them because they are not written as numbers: they look their tile up by the sheet's own name at import time, so they cannot be wrong and the definition below is already the answer.
 
 ```
 GRASS                   PATH                    COBBLE                  PAVING
@@ -232,7 +232,8 @@ SF_IN_WALL_PATTERN      SF_IN_FACE_PATTERN      SF_IN_WALL_PATTERN_B    SF_IN_FA
 SF_IN_WALL_BRICK        SF_IN_FACE_BRICK        SF_IN_WALL_WOOD         SF_IN_FACE_WOOD
 SF_FLOOR_RESIN          SF_FLOOR_TILE           SF_FLOOR_DECO           SF_FLOOR_WOOD
 SF_FLOOR_CARPET         SF_FLOOR_MARBLE         SF_FLOOR_LINO           SF_THRESHOLD
-IN_FLIGHT               IN_STEP                 DG_BLACK
+IN_FLIGHT               IN_STEP                 DG_FLIGHT               DG_STEP
+DG_BLACK
 ```
 
 **Everything else.**
@@ -448,8 +449,8 @@ recolour_sheet(sheet, out, cells, hues, hue, sat, renames=()) Writes `img/tilese
 paint_regions(g, tileset_id, value=1, layer=5)       Region-tag every tile the player can actually stand on.
 new_map(width, height, tileset, name='', bgm='Town1', bgm_volume=70, encounters=(), encounter_step=30, battleback=None, scroll_type=0, parallax='', disable_dashing=False) A map record with everything the editor expects, and nothing surprising.
 interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR, floor_alt=None, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, void=IN_VOID, threshold=None, outside=None, tileset=TS_INSIDE) A room in black space, tiled the way the stock interiors are.
-stairs_up(g, x, y1, rows=3, width=2, piers=(True, True)) A flight going up through a room's north wall, the way Mike drew the
-stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, sides=(True, True)) The top of a flight that `stairs_up` drew on the floor below: the
+stairs_up(g, x, y1, rows=3, width=2, piers=(True, True), flight=IN_FLIGHT, step=IN_STEP) A flight going up through a room's north wall, the way Mike drew the
+stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, sides=(True, True), flight=IN_FLIGHT, step=IN_STEP) The top of a flight that `stairs_up` drew on the floor below: the
 naturalise_cave(g, seed, keep=(), rough=True, top=DG_WALL_TOP, face=DG_WALL_FACE, dark=DG_BLACK) Make a carved cave read as rock rather than as boxes, the way Mike
 guest_room(g, x1, y1, x2, y2, door_x, wall_top=IN_WALL_TOP, wall_face=IN_WALL_FACE, floor=None) Wall off a room inside an interior that `interior()` has drawn: the
 wide(g, x, y, z, piece)                              Lay a piece that is several columns wide - `IN_SUNDRIES_CABINET` - with

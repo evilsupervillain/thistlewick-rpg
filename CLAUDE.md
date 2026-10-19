@@ -284,6 +284,14 @@ in each of the four states.
                      header and events to it. It is on tileset 8,
                      `mapkit.TS_OVERWORLD` - tileset 1 with Fenmarch Hall's
                      stamp recoloured; `worldmap.json` stays on tileset 1
+      tower.py       the Obligatory Tower's floors (Mike, October 2026): four
+                     floors side by side on Map 11, black between them like
+                     the lighthouse, each drawn from a character plan, and the
+                     summit, Map 12, the fifth. A flight up comes out above
+                     itself on the floor above (the plans assert it), so the
+                     stairs are in a different place on every floor.
+                     `journey.tower_events` asks `tower.at(floor, letter)`
+                     where each event is
       south.py       Maps 13-18: Nether Sopping, the Slain Wyvern, the Guild,
                      the outfitters, #45's cottage, the lighthouse. **The
                      Wyvern's patrons sit at tables**: `WYVERN_SEATS` is who
@@ -756,6 +764,9 @@ makes eight passes over it cost less than the single pass did before.
 | `journey` | Gloamwood, the Thing that blocks the way, and the tower door |
 | `tower_door` | a party without Nix finds the key under the mat; the Cache arms all seven |
 | `nix_door` | Nix opens the same door without it |
+| `tower_climb` | every flight in the tower climbed with the arrow keys and come
+  back down, each landing above itself; through the barred door to the head
+  of the summit's stairs, and back down in front of the door |
 | `battle_mook` | a random encounter at level 6 is a fight, not a formality |
 | `finale` | the throne-room scene runs and the Grimspite fight starts |
 | `finale_ending` | the ending, in eight passes over the same command list.

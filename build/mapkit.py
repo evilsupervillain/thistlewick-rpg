@@ -1581,6 +1581,10 @@ def interior(width, height, x1, y1, x2, y2, door_x=None, floor=IN_WOOD_FLOOR,
 # the one a one-wide flight is made of. All flagged up-and-down only.
 IN_FLIGHT = (a5(88), a5(90))
 IN_STEP = a5(91)
+# The Dungeon sheet's: `Stairs I (Stone, Left)` and `(Right)`, open up and
+# down and blocked on their outer side, and `Stairs I (Stone)` for one wide.
+DG_FLIGHT = (a5(72), a5(74))
+DG_STEP = a5(75)
 
 # Shadow-layer bits: a cell's four quarters, top-left 1, top-right 2,
 # bottom-left 4, bottom-right 8.
@@ -1591,14 +1595,14 @@ def _kind_of(g, x, y):
     return A(R.autotile_kind(g.get(x, y, 0)))
 
 
-def _floor_like(g, cx, cy, from_y):
+def _floor_like(g, cx, cy, from_y, stairs=IN_FLIGHT + (IN_STEP,)):
     """The room's floor for cell (cx, cy), read off the floor from row
     `from_y` down: the nearest floor cell an even step away, so a two-tone
-    floor carries its checkerboard into a cell that was wall."""
+    floor carries its checkerboard into a cell that was wall. `stairs` are
+    the treads, which are not floor."""
     def floor(t):
         return (R.TILE_ID_A1 <= t < R.TILE_ID_A4
-                or (R.TILE_ID_A5 < t < R.TILE_ID_A1
-                    and t not in IN_FLIGHT and t != IN_STEP))
+                or (R.TILE_ID_A5 < t < R.TILE_ID_A1 and t not in stairs))
     best = None
     for r in range(from_y, min(from_y + 4, g.height)):
         for c in range(max(cx - 3, 0), min(cx + 4, g.width)):
@@ -1614,7 +1618,8 @@ def _floor_like(g, cx, cy, from_y):
     return best[1]
 
 
-def stairs_up(g, x, y1, rows=3, width=2, piers=(True, True)):
+def stairs_up(g, x, y1, rows=3, width=2, piers=(True, True),
+              flight=IN_FLIGHT, step=IN_STEP):
     """A flight going up through a room's north wall, the way Mike drew the
     Slain Wyvern's (Map 14, October 2026) and its cellar's - the single
     `Stairs A (Up)` tile laid over the boards "does not work visually".
@@ -1631,9 +1636,13 @@ def stairs_up(g, x, y1, rows=3, width=2, piers=(True, True)):
     The floor in the stairwell is copied from the room below the flight, so
     a two-tone floor keeps its checkerboard. The way up - a transfer, or
     something that says why not - is the caller's event: nothing here stops
-    the player walking up the flight into the stairwell."""
+    the player walking up the flight into the stairwell.
+
+    `flight` is a two-wide flight's (left, right) treads and `step` a
+    one-wide one's; the defaults are the Inside sheet's, and the Dungeon
+    sheet's are `DG_FLIGHT` and `DG_STEP`."""
     top, face = _kind_of(g, x, y1 - 3), _kind_of(g, x, y1 - 2)
-    treads = IN_FLIGHT if width == 2 else (IN_STEP,) * width
+    treads = flight if width == 2 else (step,) * width
     for i in range(width):
         for y in range(y1 - 2, y1 + rows):
             for z in (1, 2, 3):
@@ -1641,7 +1650,8 @@ def stairs_up(g, x, y1, rows=3, width=2, piers=(True, True)):
             if y >= y1:
                 g.set(x + i, y, 0, treads[i])
             else:
-                g.set(x + i, y, 0, _floor_like(g, x + i, y, y1 + rows))
+                g.set(x + i, y, 0, _floor_like(g, x + i, y, y1 + rows,
+                                               flight + (step,)))
                 g.set(x + i, y, 4, SHADOW_FULL)
         g.set(x + i, y1, 4, 7 if i == 0 else 3)
     for y in range(y1 + 1, y1 + rows):
@@ -1656,7 +1666,8 @@ def stairs_up(g, x, y1, rows=3, width=2, piers=(True, True)):
 
 
 def stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP,
-              wall_face=IN_WALL_FACE, sides=(True, True)):
+              wall_face=IN_WALL_FACE, sides=(True, True), flight=IN_FLIGHT,
+              step=IN_STEP):
     """The top of a flight that `stairs_up` drew on the floor below: the
     Slain Wyvern's upstairs (Map 72, Mike, October 2026). The treads, two
     rows from y, sit in a well walled off the floor round three sides and
@@ -1667,7 +1678,8 @@ def stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP,
 
     The way down is the caller's event on the well's top row; arrival from
     below is the landing above it, y - 1. A side that is already the room's
-    wall wants `sides` False there."""
+    wall wants `sides` False there. `flight` and `step` are the treads, as
+    for `stairs_up`."""
     def wall(c, r):
         return R.autotile_kind(g.get(c, r, 0)) in (
             R.autotile_kind(wall_top), R.autotile_kind(wall_face))
@@ -1675,7 +1687,7 @@ def stairwell(g, x, y, width=2, wall_top=IN_WALL_TOP,
         for r in (y, y + 1):
             for z in (1, 2, 3):
                 g.set(x + i, r, z, 0)
-            g.set(x + i, r, 0, IN_FLIGHT[i] if width == 2 else IN_STEP)
+            g.set(x + i, r, 0, flight[i] if width == 2 else step)
     g.set(x, y, 4, SHADOW_LEFT)
     g.set(x, y + 1, 4, SHADOW_LEFT)
     for side, wanted in zip((x - 1, x + width), sides):

@@ -464,4 +464,6 @@ dresser is `Closet / Sundries Shelf A`.
 | --- | --- | --- |
 | `IN_FLIGHT` | A5 88, A5 90 | Neon Floor / Interior Floor F (Tile Carpet, Ruins) |
 | `IN_STEP` | A5 91 | Ledge (Demonic Ground) |
+| `DG_FLIGHT` | A5 72, A5 74 | Stairs E (Carpet, Left) / Stairs E (Carpet, Right) |
+| `DG_STEP` | A5 75 | Stairs E (Carpet) |
 | `DG_BLACK` | A2 k22 | Ground D (Black Floor) |
