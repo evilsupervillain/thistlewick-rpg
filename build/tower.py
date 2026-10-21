@@ -23,14 +23,26 @@ floor is a plan below, one character a cell:
          (`mapkit.stairwell`), at the same x as that flight and two rows
          up, so its landing is over the wall the flight went into
     'x'  floor under rubble
+    ':'  the steps down from the door, outside the tower (the ground floor)
     a-z  floor, with an event on it, named in `SPOTS`
     A-Z  wall, with an event on it
 
-The events are `journey.tower_events`, which asks `at` where they are."""
+The events are `journey.tower_events`, which asks `at` where they are.
+
+The ground floor is Mike's (19 October 2026): he put a cell of black round the
+whole map, rounded the tower off further, and gave the hall an outer wall
+with the steps up to its door, three rows deeper than the floors above. Map
+11 is frozen (`handdrawn.py`) from then on, so the tiles are his; the plans
+are what the events and the stairs are placed by, and floor 1's was read
+back off his tiles. Floors 2-4 were rounded to the same outline, and then
+(20 October) he walled them as well and reworked the top floor, so theirs
+were read back off his tiles too, and the summit, Map 12, is frozen with
+them."""
 import mapkit as K
 import rmmzdata as R
 
-FLOOR_W, FLOOR_H, FLOOR_GAP = 40, 30, 8
+FLOOR_W, FLOOR_GAP = 40, 8
+BORDER = 1          # black round the edge of the map, as Mike drew it
 
 # Wall I (Stone) on the Dungeon sheet: grey dressed stone, which is a building
 # and not a cave. The floor is `Cobblestones D`; `,` lays `Ground Cracks`
@@ -44,89 +56,95 @@ PLANS = [
     # north-east room, which the passage from the hall does not reach: the
     # way through it fell in, and the way round is through the east room.
     [
+        "        ########################        ",
         "     ##############################     ",
-        "    ################################    ",
         "   ##################################   ",
         "  ####################################  ",
-        " #######...############################ ",
-        "#####..........#########################",
-        "#####..........###################N#####",
-        "#####..........############...#^^#...###",
-        "####...........############...#^^#...###",
+        "  ######...######.......##############  ",
+        " ####..........##.......#######..###### ",
+        " ####..........########.#######..#N#### ",
+        " ####..........########.###...#^^#...## ",
+        "####...........########.###...#^^#...###",
         "####......................xx..#^^#...###",
         "#####.....................xx.........###",
-        "#####..############..######..........###",
+        "######.############..######..........###",
         "######.############..######.........####",
         "######.############..############..#####",
         "#####..############..############..#####",
         "###c.....##########..############..#####",
         "###......###...............###.......###",
-        "###.....###.................##.......###",
-        "##......##..................##........##",
-        "##......##.................##.........##",
-        "###....###...........................###",
-        "###.....##...........................###",
-        "###.........................##.....xx###",
-        "####........................##......x###",
+        "###.....###................###.......###",
+        "##.....###.................###........##",
+        "##.....###.................##.........##",
+        "###....###.................#.........###",
+        "####....##...........................###",
+        "####...............................xx###",
+        "####.........................#......x###",
         "###......##.................##.......###",
         " ######.###.................##.......## ",
-        "  #########......p..........##########  ",
-        "   ################a#################   ",
-        "    ###############e################    ",
-        "     ##############################     ",
+        " ##########......p..........########### ",
+        " ##################a################### ",
+        "  #################e##################  ",
+        "  #################:##################  ",
+        "   ################:#################   ",
+        "     ##############:###############     ",
+        "        ########################        ",
     ],
     # 2 - the guard floor: the barracks round the stairwell, three cells
     # behind bars along the corridor, a mess hall, the guard room, an armoury
     # that ends in a fall of stone, and the flight on up in the south-west
     # corner. A landing is open to the north, so the barracks has a row 3.
     [
+        "        ########################        ",
         "     ##############################     ",
-        "    ################################    ",
         "   ##################################   ",
-        "  ########################........####  ",
-        " ##......##...#...#...####....#..#....# ",
-        "###......##...#...#...####....#vv#....##",
-        "###......##===#===#===####....#vv#....##",
-        "###......##===#===#===####....####....##",
+        "  ########################.....#######  ",
+        "  #########...#...#...####.......#####  ",
+        " ###.....##...#...#...####.......#..### ",
+        " ##.......#===#===#===####....#vv#...## ",
+        " ##.......#===#===#===####....#vv#...## ",
         "###...........................####....##",
         "###...........................####....##",
-        "###......########..#######............##",
-        "###......########..########..........###",
-        "###..,,..########..########..........###",
-        "###.,xx,.###..............#..........###",
+        "###.......#######..########...####....##",
+        "###.......#######..########...........##",
+        "###..,,...#######..########...........##",
+        "####,xx,.###..............#...........##",
         "############..............#######..#####",
         "############..............#######..#####",
         "############..............#######..#####",
         "############..............###........###",
-        "############..............###........###",
-        "############.........................###",
+        "######..####..............###........###",
+        "######..####.........................###",
         "###..#^^#..#.........................###",
         "###..#^^#..#..............###......c.###",
-        "###..#^^#..#.........########........###",
-        "###..................########........###",
-        "###..................########........###",
-        " ##........#.........########........## ",
+        "###..#^^#..#..............###........###",
+        "###.......................###........###",
+        "###.......................###........###",
+        " ###.......#..............###.......### ",
+        " ###########..............############# ",
+        " ###########..............############# ",
+        "  ####################################  ",
         "  ####################################  ",
         "   ##################################   ",
-        "    ################################    ",
         "     ##############################     ",
+        "        ########################        ",
     ],
     # 3 - the chapel floor: a gallery along the north with the obelisk in
     # it, the west gallery behind it, the chapel with the basin, the crypt
     # along the south, and the flight on up in the east hall.
     [
+        "        ########################        ",
         "     ##############################     ",
-        "    ################################    ",
         "   ##################################   ",
         "  ####################################  ",
-        " ##..........##......................## ",
-        "###..........##......o...............###",
-        "###..................................###",
-        "###.c................................###",
+        "  ####.......#....................####  ",
+        " ###.........#.......o..............### ",
+        " ##..................................## ",
+        " ##.c................................## ",
         "###..........#####..####################",
         "###..........#####..####################",
-        "##################..####################",
-        "###############........#################",
+        "##################..######..############",
+        "###############........###..############",
         "###############........###^^#........###",
         "###..........##....b...###^^#........###",
         "###....................###^^#........###",
@@ -140,61 +158,72 @@ PLANS = [
         "###..####....#.......................###",
         "###..........,.......................###",
         "###..........,.......................###",
-        " ##..........#.......................## ",
+        " ###.........#......................### ",
+        " #############......................### ",
+        " #############...................###### ",
+        "  ####################################  ",
         "  ####################################  ",
         "   ##################################   ",
-        "    ################################    ",
         "     ##############################     ",
+        "        ########################        ",
     ],
-    # 4 - the top floor: the landing, the library, the long hall along the
-    # south that the roof came in on, the east gallery, and up the west
-    # passage the antechamber with the barred door in its north wall.
+    # 4 - the top floor: the landing, the library, the antechamber, and down
+    # the west passage the long hall along the south that the roof came in
+    # on, with the barred door in its north wall - Mike's (20 October), so
+    # that the way up to the summit arrives at the summit's south end.
     [
+        "        ########################        ",
         "     ##############################     ",
-        "    ################################    ",
         "   ##################################   ",
-        "  ####################################  ",
-        " ########D############################# ",
-        "####.........k.################......###",
-        "####...........###............#......###",
-        "####...........###...................###",
-        "####...........###...................###",
-        "####...........###.......#..#.#......###",
-        "####...........###.......#vv#.#......###",
-        "#####..###########.......#vv#.#......###",
-        "#####..#############.....####.#......###",
-        "#####..#############.....####.#......###",
-        "#####..#############.....####.#......###",
-        "#####..#############..........#......###",
-        "#####..###########............##########",
-        "#####..###########............##########",
-        "#####..###########............##########",
-        "#####..###############..################",
-        "#####..###############..################",
-        "#####..###############..################",
-        "###........,,,,............##........###",
-        "###.......,,xx,,.....................###",
-        "###........,,,,......................###",
-        " ##........................##....c...## ",
+        "  #######......###..........##########  ",
+        "  #######...................##########  ",
+        " ###....#...................###......## ",
+        " ###....#......###..........#........## ",
+        " ###...........###...................## ",
+        "####....#......###...................###",
+        "####....#......###..,,,,.#..#........###",
+        "####....#......###.,,xx,,#vv#........###",
+        "#####..###########..,,,,.#vv#........###",
+        "#####..###########.......####........###",
+        "#####..###########.......####........###",
+        "#####..#.........#.......####........###",
+        "#####..#.........#..........#........###",
+        "#####..#.........#..........#........###",
+        "#####..#.........############........###",
+        "#####..#.........############........###",
+        "#####..#################################",
+        "#####..#################################",
+        "#####..############D####################",
+        "###.......##............k..##........###",
+        "###..................................###",
+        "###..................................###",
+        " ###......##...............##....c..### ",
+        " ###########...............############ ",
+        " ###########...............############ ",
+        "  ##########...............###########  ",
         "  ####################################  ",
         "   ##################################   ",
-        "    ################################    ",
         "     ##############################     ",
+        "        ########################        ",
     ],
 ]
 
-MAP_W = len(PLANS) * FLOOR_W + (len(PLANS) - 1) * FLOOR_GAP
-MAP_H = FLOOR_H
+MAP_W = 2 * BORDER + len(PLANS) * FLOOR_W + (len(PLANS) - 1) * FLOOR_GAP
+MAP_H = 36                      # his size: the ground floor's 33, and black
+assert MAP_H >= BORDER + max(len(p) for p in PLANS)
 
 
 def origin(floor):
     """Where floor `floor` (1 is the ground) starts on the map."""
-    return (floor - 1) * (FLOOR_W + FLOOR_GAP)
+    return BORDER + (floor - 1) * (FLOOR_W + FLOOR_GAP)
+
+
+TOP = BORDER                    # every floor's first row
 
 
 def _cells(floor, ch):
     ox = origin(floor)
-    return [(ox + x, y) for y, row in enumerate(PLANS[floor - 1])
+    return [(ox + x, TOP + y) for y, row in enumerate(PLANS[floor - 1])
             for x, c in enumerate(row) if c == ch]
 
 
@@ -224,10 +253,14 @@ def well(floor):
     return _corner(floor, "v")
 
 
+# A flight comes out above itself: the well upstairs is at the same x, and
+# its top tread two rows up, over the wall the flight went into - or one,
+# where Mike set the guard floor's well a row further south (20 October).
 for _f in range(1, len(PLANS)):
     _up, _down = flight_up(_f), well(_f + 1)
-    assert _down == (_up[0] + FLOOR_W + FLOOR_GAP, _up[1] - 2), (
-        "floor %d's flight does not come out above itself" % _f)
+    assert _down[0] == _up[0] + FLOOR_W + FLOOR_GAP and \
+        _up[1] - 2 <= _down[1] <= _up[1] - 1, (
+            "floor %d's flight does not come out above itself" % _f)
 
 
 def draw():
@@ -239,7 +272,7 @@ def draw():
         for y, row in enumerate(plan):
             for x, c in enumerate(row):
                 if c not in " #" and not c.isupper():
-                    g.set(ox + x, y, 0, FLOOR)
+                    g.set(ox + x, TOP + y, 0, FLOOR)
     # Outside the tower is wall while the faces are worked out, so that the
     # tower's outer wall is all top: a wall shows a face only to the floor
     # below it, and the dark is not floor.
@@ -247,7 +280,7 @@ def draw():
     outside = {(x, y) for x in range(MAP_W) for y in range(MAP_H)}
     for f, plan in enumerate(PLANS, 1):
         ox = origin(f)
-        outside -= {(ox + x, y) for y, row in enumerate(plan)
+        outside -= {(ox + x, TOP + y) for y, row in enumerate(plan)
                     for x, c in enumerate(row) if c != " "}
     for x, y in outside:
         g.set(x, y, 0, VOID)
@@ -262,7 +295,7 @@ def draw():
         for x, y in _cells(f, ","):
             g.set(x, y, 1, CRACKS)
         for x1, y1, x2, y2 in RUGS.get(f, ()):
-            g.fill(origin(f) + x1, y1, origin(f) + x2, y2, 1, RUG)
+            g.fill(origin(f) + x1, TOP + y1, origin(f) + x2, TOP + y2, 1, RUG)
     g.autotile(1)
     for f in range(1, len(PLANS) + 1):
         for x, y in _cells(f, "x"):
@@ -280,11 +313,11 @@ def dress(g, floor):
     ox = origin(floor)
     for x, y, z, piece in PROPS.get(floor, ()):
         if isinstance(piece, int):
-            g.set(ox + x, y, z, piece)
+            g.set(ox + x, TOP + y, z, piece)
         elif isinstance(piece[0], int):
-            g.column(ox + x, y, z, piece)
+            g.column(ox + x, TOP + y, z, piece)
         else:
-            g.blit(ox + x, y, z, piece)
+            g.blit(ox + x, TOP + y, z, piece)
 
 
 def _b(name):
@@ -339,10 +372,10 @@ CRACKS = K.A(23)                                # `Ground Cracks`
 RUG = K.A(35)                                   # `Rug A`, red
 
 # The runners, (x1, y1, x2, y2) in plan coordinates: up the hall from the
-# door, and from the barred door down the antechamber.
+# door, and from the barred door down across the long hall.
 RUGS = {
     1: [(18, 17, 20, 26)],
-    4: [(8, 5, 10, 9)],
+    4: [(18, 22, 20, 26)],
 }
 
 
@@ -399,7 +432,7 @@ PROPS = {
            (3, 6, 3, ARMOUR), (3, 9, 3, ARMOUR), (8, 6, 3, SWORDS),
            (8, 10, 3, CRATE), (7, 12, 3, BONES_B)]
         # the barracks round the stairwell
-        + _row((26, 28, 35, 37), 4, 3, BED)
+        + _row((26, 28, 35), 4, 3, BED)
         + _row((28, 30, 34, 36), 11, 3, BED)
         + [(27, 8, 3, DRAWERS), (37, 8, 3, CLOSET)]
         # the mess hall: two long tables, and benches of stools
@@ -413,10 +446,10 @@ PROPS = {
         # the guard room: lockers, a table, the rack
         + [(29, 17, 3, CLOSET), (30, 17, 3, CLOSET), (36, 17, 3, CLOCK),
            (32, 21, 3, TABLE), (33, 21, 3, TABLE), (31, 21, 3, STOOL),
-           (34, 21, 3, STOOL), (36, 24, 3, SWORDS), (29, 25, 3, CRATE)]
+           (34, 21, 3, STOOL), (35, 24, 3, SWORDS), (29, 25, 3, CRATE)]
         # the stair room
-        + [(3, 20, 3, CRATE), (10, 20, 3, POT), (3, 25, 3, BARREL),
-           (4, 25, 3, CRATE)]
+        + [(3, 20, 3, CRATE), (10, 20, 3, POT), (4, 25, 3, BARREL),
+           (5, 25, 3, CRATE)]
     ),
     3: (
         # the west gallery: three statues and a window between each
@@ -441,8 +474,8 @@ PROPS = {
            (14, 22, 3, WEB)]
     ),
     4: (
-        # the antechamber: the door up, a statue either side of it
-        [(9, 4, 3, DOORWAY), (7, 5, 3, DEMON), (11, 5, 3, DEMON),
+        # the antechamber, and the door up in the long hall's north wall
+        [(19, 21, 3, DOORWAY), (7, 5, 3, DEMON), (11, 5, 3, DEMON),
          (5, 3, 3, TAPESTRY),
          (13, 3, 3, TAPESTRY), (14, 9, 3, BONES)]
         # the landing
@@ -456,7 +489,7 @@ PROPS = {
            (31, 14, 3, OPEN_BOOK), (36, 15, 3, GLOBE)]
         # the long hall, where the roof came in
         + [(7, 22, 3, PILLAR_BROKEN), (18, 23, 3, PILLAR_BROKEN),
-           (3, 25, 3, BONES), (24, 25, 3, BONES_B), (20, 25, 3, PILLAR_BROKEN)]
+           (4, 25, 3, BONES), (24, 25, 3, BONES_B), (20, 25, 3, PILLAR_BROKEN)]
         # the east gallery
         + [(30, 22, 3, STATUE), (36, 22, 3, STATUE), (30, 25, 3, POT)]
     ),
@@ -489,30 +522,38 @@ def stairs_events(first_id, map_id):
 # one room, roofed - the Prophecy comes down out of its ceiling, and the
 # bomb brings a piece of that ceiling down - with the throne on a dais at the
 # north end and the stairs up from below arriving at the south, one wide.
+# Mike's from 20 October 2026, and frozen: a cell of black round it as Map 11
+# has, an outer wall to the south, the stair a step in it. The plan is his
+# outline, read back off his tiles; `summit_draw` is what it was drawn from
+# before that, moved over by his one cell.
 SUMMIT_PLAN = [
-    "    #################    ",
-    "  #####################  ",
-    " ####################### ",
-    "#########################",
-    "#####...............#####",
-    "####.................####",
-    "###...................###",
-    "###...................###",
-    "###...................###",
-    "###...................###",
-    "###...................###",
-    "###...................###",
-    "###...................###",
-    "###...................###",
-    "####.................####",
-    "#####...............#####",
-    "######.....#.#.....######",
-    "############v############",
-    "############v############",
-    "#########################",
-    " ####################### ",
-    "  #####################  ",
-    "    #################    ",
+    "                           ",
+    "      ###############      ",
+    "    ###################    ",
+    "   #####################   ",
+    "  #######################  ",
+    "  #####.............#####  ",
+    " ####.................#### ",
+    " ###...................### ",
+    " ###...................### ",
+    " ##.....................## ",
+    " ##.....................## ",
+    " ##.....................## ",
+    " ##.....................## ",
+    " ##.....................## ",
+    " ##.....................## ",
+    " ##.....................## ",
+    " ##.....................## ",
+    " ##.....................## ",
+    " ###...................### ",
+    " ###...................### ",
+    " ####.................#### ",
+    " ######.....#.#.....###### ",
+    "  ###########v###########  ",
+    "  #######################  ",
+    "   #####################   ",
+    "    ###################    ",
+    "      ###############      ",
 ]
 SUMMIT_W, SUMMIT_H = len(SUMMIT_PLAN[0]), len(SUMMIT_PLAN)
 SUMMIT_WELL = min((x, y) for y, row in enumerate(SUMMIT_PLAN)
@@ -528,7 +569,7 @@ def summit_draw():
     for y, row in enumerate(SUMMIT_PLAN):
         for x, c in enumerate(row):
             g.set(x, y, 0, WALL_TOP if c in " #" else FLOOR)
-    g.fill(8, 4, 16, 8, 0, DAIS)
+    g.fill(9, 5, 17, 9, 0, DAIS)
     g.dungeon_walls(WALL_TOP, WALL_FACE)
     for y, row in enumerate(SUMMIT_PLAN):
         for x, c in enumerate(row):
@@ -537,17 +578,17 @@ def summit_draw():
     K.stairwell(g, *SUMMIT_WELL, width=1, wall_top=WALL_TOP,
                 wall_face=WALL_FACE, flight=K.DG_FLIGHT, step=K.DG_STEP)
     g.autotile(0)
-    g.fill(11, 9, 13, 15, 1, RUG)
+    g.fill(12, 10, 14, 20, 1, RUG)
     g.autotile(1)
-    g.blit(11, 4, 3, PORTAL)
-    g.blit(11, 7, 3, THRONE)
-    for x, y, piece in [(9, 5, DEMON), (15, 5, DEMON),
-                        (6, 6, PILLAR), (18, 6, PILLAR),
-                        (6, 11, PILLAR), (18, 11, PILLAR),
-                        (7, 2, WINDOW), (17, 2, WINDOW),
-                        (9, 2, TAPESTRY), (15, 2, TAPESTRY)]:
+    g.blit(12, 5, 3, PORTAL)
+    g.blit(12, 8, 3, THRONE)
+    for x, y, piece in [(10, 6, DEMON), (16, 6, DEMON),
+                        (7, 7, PILLAR), (19, 7, PILLAR),
+                        (7, 16, PILLAR), (19, 16, PILLAR),
+                        (8, 3, WINDOW), (18, 3, WINDOW),
+                        (10, 3, TAPESTRY), (16, 3, TAPESTRY)]:
         g.column(x, y, 3, piece)
-    g.scatter([(5, 13), (19, 13)], 3, BONES)
-    g.scatter([(4, 9), (20, 10)], 3, BONES_B)
-    g.scatter([(8, 14), (16, 14)], 3, PILLAR_BROKEN)
+    g.scatter([(3, 12), (23, 12)], 3, BONES)
+    g.scatter([(5, 10), (21, 11)], 3, BONES_B)
+    g.scatter([(10, 18), (16, 18)], 3, PILLAR_BROKEN)
     return g

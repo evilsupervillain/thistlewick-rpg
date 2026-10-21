@@ -1,5 +1,5 @@
 {
-  "query": "?map=11&x=153&y=5&frames=90",
+  "query": "?map=11&x=164&y=23&frames=90",
   "steps": [
     {
       "eval": "$gameParty.members().forEach(a => a.changeLevel(9, false))"
@@ -10,7 +10,7 @@
       "label": "the door starts barred"
     },
     {
-      "eval": "$gamePlayer.locate(153, 5); $gameMap.event(2).start()"
+      "eval": "$gamePlayer.locate(164, 23); $gameMap.event(2).start()"
     },
     {
       "advance": 25
@@ -26,7 +26,7 @@
       "label": "finding it is not the same as using it"
     },
     {
-      "eval": "$gamePlayer.locate(153, 5); $gameMap.event(2).start()"
+      "eval": "$gamePlayer.locate(164, 23); $gameMap.event(2).start()"
     },
     {
       "advance": 25
@@ -37,7 +37,7 @@
       "label": "the spare key unbars the door"
     },
     {
-      "eval": "$gamePlayer.locate(157, 6); $gameMap.event(11).start()"
+      "eval": "$gamePlayer.locate(168, 23); $gameMap.event(11).start()"
     },
     {
       "advance": 25
@@ -56,7 +56,7 @@
       "label": "the Contingency Cache holds one weapon per Chosen One"
     },
     {
-      "eval": "$gamePlayer.locate(153, 5); $gameMap.event(2).start()"
+      "eval": "$gamePlayer.locate(164, 23); $gameMap.event(2).start()"
     },
     {
       "advance": 25

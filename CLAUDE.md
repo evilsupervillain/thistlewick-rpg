@@ -291,7 +291,13 @@ in each of the four states.
                      itself on the floor above (the plans assert it), so the
                      stairs are in a different place on every floor.
                      `journey.tower_events` asks `tower.at(floor, letter)`
-                     where each event is
+                     where each event is. Maps 11 and 12 are frozen since
+                     his edits of 19-20 Oct (a black border, every floor
+                     rounded and walled, the barred door moved to floor 4's
+                     south hall, the summit's stair to its south wall); all
+                     the plans were read back off his tiles, so a frozen-map
+                     edit that moves a room or a stair means updating its
+                     plan to match
       south.py       Maps 13-18: Nether Sopping, the Slain Wyvern, the Guild,
                      the outfitters, #45's cottage, the lighthouse. **The
                      Wyvern's patrons sit at tables**: `WYVERN_SEATS` is who

@@ -1,5 +1,5 @@
 {
-  "query": "?map=11&x=153&y=5&frames=90",
+  "query": "?map=11&x=164&y=23&frames=90",
   "steps": [
     {
       "eval": "$gameParty.addActor(5)"
@@ -13,7 +13,7 @@
       "label": "Nix came along"
     },
     {
-      "eval": "$gamePlayer.locate(153, 5); $gameMap.event(2).start()"
+      "eval": "$gamePlayer.locate(164, 23); $gameMap.event(2).start()"
     },
     {
       "advance": 25

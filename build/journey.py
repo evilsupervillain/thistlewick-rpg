@@ -840,7 +840,7 @@ def summit_events():
                                         2, 0)],
         img=R.image(""), trigger=1, priority=0, through=True)])]
 
-    evs.append(finale_event(2, 12, 8))
+    evs.append(finale_event(2, 13, 9))
     return evs
 
 
