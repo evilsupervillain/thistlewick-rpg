@@ -81,7 +81,9 @@ ENCOUNTER_STEP = 36
 # The three places on the world map you can walk into, and the tiles beside
 # them that the player actually stands on.
 WOOD_MOUTH = WORLD_GLOAMWOOD                 # south end of the Gloamwood
-WOOD_NORTH = (52, 55)                        # where the wood spits you out
+WOOD_NORTH = (52, 57)                        # where the wood spits you out
+# Mike moved it two south (22 Oct 2026), to where the road meets the trees,
+# so the wood now lets you out one cell *north* of it, facing up the road.
 TOWER_DOOR = WORLD_TOWER
 SHRINE = (63, 50)                            # the wayshrine, `+ (35,35)`
 
@@ -575,7 +577,7 @@ def deep_events():
     # The way north, which only opens once the Thing is dealt with.
     out = S.narrate(["Out of the trees, and north."])
     out += [R.play_se("Move1")] + tint(CLEAR, 1)
-    out += [R.transfer(MAP_WORLD, WOOD_NORTH[0], WOOD_NORTH[1] + 1, 2, 0)]
+    out += [R.transfer(MAP_WORLD, WOOD_NORTH[0], WOOD_NORTH[1] - 1, 8, 0)]
     evs.append(q_nix.north_out(R.event(                             # NIX-5
         2, "North Out Of The Wood", DW_OUT[0], DW_OUT[1] - 1, [
         R.page(S.narrate(["Something enormous is in the way."]),

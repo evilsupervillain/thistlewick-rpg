@@ -710,8 +710,8 @@ WYVERN_LONG_TABLE            (9, 9, 5, 2)
 WYVERN_DINNER                ...
 COLDBARROW_MAP_AT_LARGE      'Coldbarrow_Map_AtLarge'
 FOURTH_FOLLOWS               ...
-ASHCOMBE_LAKE                (104, 54)
-LAKE_SHORE_STEP              (104, 55)
+ASHCOMBE_LAKE                (105, 55)
+LAKE_SHORE_STEP              (105, 56)
 MAP_POTTERING                68
 MAP_POTTERING_IN             69
 POTTERING_STEP               (60, 62)

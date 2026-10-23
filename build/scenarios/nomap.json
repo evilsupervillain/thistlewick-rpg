@@ -47,8 +47,8 @@
     ],
     [
      "Ashcombe Lake",
-     104,
-     54,
+     105,
+     55,
      false
     ],
     [
@@ -250,15 +250,15 @@
    "label": "Cinder Fen has happened, and says so in its own self switch"
   },
   {
-   "comment": "Wrong Dragon: from (110,113), one press onto (110,114) - Somebody Large. Cave B here is open from the north and nowhere else.",
+   "comment": "Wrong Dragon: from (110,115), one press onto (110,114) - Somebody Large. Mike's round eleven (22 Oct 2026) brought the road up to the cave from the south.",
    "goto": [
     8,
     110,
-    113
+    115
    ]
   },
   {
-   "key": "ArrowDown",
+   "key": "ArrowUp",
    "times": 1,
    "gap": 30
   },
@@ -381,11 +381,11 @@
    "label": "and she was paid two crowns"
   },
   {
-   "comment": "Ashcombe Lake: from (104,55), one press onto (104,54) - not this week.",
+   "comment": "Ashcombe Lake: from (105,56), one press onto (105,55) - not this week.",
    "goto": [
     8,
-    104,
-    55
+    105,
+    56
    ]
   },
   {
@@ -399,8 +399,8 @@
   {
    "check": "[$gamePlayer.x, $gamePlayer.y]",
    "expect": [
-    104,
-    54
+    105,
+    55
    ],
    "label": "standing on Ashcombe Lake"
   },

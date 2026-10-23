@@ -366,7 +366,7 @@ STUDY_MARKS = (44, 3)           # the height marks, on the north wall face
 # COR-2's drowned street (`../QUESTS.md` D2): old Ashcombe, under the lake,
 # for the week it is let down. A map in no place, drawn by `q_corvin.py`.
 # The way in is Ashcombe Lake's world-map cell, which `worldmap.json` puts at
-# (104, 54) and `nomap.py` asserts; the way out is one south of it, checked
+# (105, 55) and `nomap.py` asserts; the way out is one south of it, checked
 # open four ways (0x600) against the finished `data/Map008.json` with nothing
 # standing on it.
 MAP_DROWNED_STREET = 66
@@ -423,8 +423,8 @@ FOURTH_FOLLOWS = {
     MAP_WEEPING_BOTTOM: (17, 22),   # in at (15, 24), off the track
     MAP_DUNNAGE: (19, 26),          # in at (17, 26), inside the gate
 }
-ASHCOMBE_LAKE = (104, 54)
-LAKE_SHORE_STEP = (104, 55)
+ASHCOMBE_LAKE = (105, 55)       # Mike moved it, 22 Oct 2026
+LAKE_SHORE_STEP = (105, 56)
 
 # SPA-4 (QUESTS.md F3): Much Pottering, which was worldgen's "Village 1" -
 # the last placeholder on the world map, held back by SITES.md step 9 for

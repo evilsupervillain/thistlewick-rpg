@@ -28,6 +28,7 @@ import rmmzdata as R                                           # noqa: E402
 
 GENERATED = os.path.join(HERE, 'generated.json')
 OUT = os.path.join(HERE, 'worldmap.json')
+ROUND11 = os.path.join(HERE, 'round11.json')
 
 # The Former Premises: the castle row of Mike's floating island, the two cells
 # an airship sets down on. Named up here because `sink_islets` has to be told
@@ -173,7 +174,7 @@ def main(argv):
         w, [o(x, y) for y in range(33, 38) for x in range(6, 11)]))
 
     # The range, between the Gloamwood's two mouths - (52,62) south and (52,55)
-    # north - so the tunnel pierces it instead of sitting beside it. The 50x50's
+    # north, which Mike's round eleven moved to (52,57) - so the tunnel pierces it instead of sitting beside it. The 50x50's
     # version was `MM.MM.MM` on a fixed period and read as a fence.
     spine = [(40, 62), (46, 60), (52, 58), (64, 57), (74, 59), (86, 56)]
     print("range drawn:    %d cells" % F.draw_range(
@@ -302,8 +303,14 @@ def main(argv):
     for c in [(105, 51), (104, 52), (105, 52), (106, 52),
               (104, 53), (105, 53), (106, 53)]:
         w.put_sea(*c)
+    #
+    # Mike's round eleven (22 Oct 2026) reshaped the lake and moved the door
+    # one east and one south, to (105,55) on the shore the road comes up to.
+    # That cell is still water until `ROUND11` is laid below, so the door goes
+    # down unchecked here; `nomap.py` and `places.LAKE_SHORE_STEP` check it
+    # against the finished map instead.
     print("Ashcombe Lake:  door at %s" % F.add_site(
-        w, (104, 54), None, 'Ashcombe Lake', 'lake'))
+        w, (105, 55), None, 'Ashcombe Lake', 'lake', check=False))
 
     # The Duck's Pond, for ZEPH-2. `COMPANIONS.md` puts it "four miles from the
     # Collegium" (112,38) and the Duck is an honorary Fellow who holds a chair
@@ -556,7 +563,23 @@ def main(argv):
             w.g.set(x, y, z, t)
     print("Mike's round seven: %d cells" % len(ROUND7))
 
+
     w.settle()
+
+    # Mike's round eleven (22 Oct 2026), the same thing again and larger: road
+    # changes all over, tiles made truer to what stands there (the Wreck and
+    # the Barrow lose their `Cave (Collapsed)`, as do both Gloamwood mouths),
+    # Ashcombe Lake redrawn round its new door. Every cell he changed, all
+    # four tile layers as he left it; too long to read as code, so it is data.
+    # Laid *after* `settle`, unlike round seven: along the bottom edge the
+    # editor shapes autotiles differently from `settle`, and his shapes win.
+    with open(ROUND11) as f:
+        round11 = json.load(f)
+    for x, y, tiles in round11:
+        for z, t in enumerate(tiles):
+            w.g.set(x, y, z, t)
+    print("Mike's round eleven: %d cells" % len(round11))
+
     quiet = ([(55 + i, 83) for i in range(4)]            # the Isle
              + [(37 + i, 40) for i in range(3)]          # Attempt 112's stack
              + [(82 + dx, 65 + dy) for dy in range(3) for dx in range(2)]
@@ -569,7 +592,7 @@ def main(argv):
     print("encounter entries widened to snow and desert: %d"
           % F.point_at(w, F.REG_NORTH, (F.REG_SNOW, F.REG_DESERT)))
 
-    w.save()
+    w.save(settle=False)                # keeps round eleven's shapes
     print("wrote %s" % OUT)
 
     if '--stage' in argv:

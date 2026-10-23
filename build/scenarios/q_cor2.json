@@ -1,5 +1,5 @@
 {
- "query": "?map=8&x=104&y=56&frames=90",
+ "query": "?map=8&x=105&y=57&frames=90",
  "comment": "QUESTS.md D2, COR-2 Ashcombe (Old). The lake is let down in the week of the Flood Dinner, so with Corvin and COR-1 done it is the week. 'Not now', then down to the drowned street: the strongbox waits, the doorstep (simply sad; MIND THE STEP, the sword's name; the sunken ruin, one trope), the Anchor, and the report card (the laugh). Out, and afterwards for everybody: the lake and Mr Weir.",
  "steps": [
   {
@@ -15,8 +15,8 @@
   {
    "goto": [
     8,
-    104,
-    55
+    105,
+    56
    ]
   },
   {
@@ -367,8 +367,8 @@
   {
    "check": "[$gamePlayer.x, $gamePlayer.y]",
    "expect": [
-    104,
-    55
+    105,
+    56
    ],
    "label": "on places.LAKE_SHORE_STEP"
   },

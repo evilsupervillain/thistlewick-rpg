@@ -115,8 +115,11 @@ class World:
         for z in (0, 1):
             self.g.autotile(z)
 
-    def save(self, path=None):
-        self.settle()
+    def save(self, path=None, settle=True):
+        """`settle=False` for a caller that has settled already and then laid
+        hand-shaped autotiles that a second pass would re-shape."""
+        if settle:
+            self.settle()
         self.map["data"] = self.g.data
         json.dump(self.map, open(path or self.path, "w"), ensure_ascii=False)
 
@@ -307,7 +310,11 @@ def add_site(world, at, stamp_name, name, kind, note=None, check=True):
     round ponds rather than a lake, which is only visible in a screenshot. The
     three air-only rocks are the same category the other way up: events on bare
     ground. So the door goes down, nothing is drawn, and the caller draws the
-    landmark out of terrain."""
+    landmark out of terrain.
+
+    `check=False` puts a door on every cell of the footprint, open or not, for
+    a site whose ground is drawn by a later pass - the caller then answers for
+    it being standable on the finished map."""
     stamp = _catalogue().stamp(stamp_name) if stamp_name else None
     cells = [(at[0] + dx, at[1] + dy)
              for dy in range(stamp.h) for dx in range(stamp.w)] if stamp \
@@ -322,7 +329,7 @@ def add_site(world, at, stamp_name, name, kind, note=None, check=True):
     if stamp:
         restamp(world, at, stamp_name)
     flags = _openness(world)
-    doors = [c for c in cells if flags[c[1]][c[0]]]
+    doors = [c for c in cells if flags[c[1]][c[0]]] if check else cells
     if check and not doors:
         raise ValueError("%s at %s: no walkable cell for a door - the stamp "
                          "blocks every cell of its own footprint, or the "

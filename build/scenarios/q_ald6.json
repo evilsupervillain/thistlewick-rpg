@@ -1,5 +1,5 @@
 {
- "query": "?map=8&x=110&y=113&frames=90",
+ "query": "?map=8&x=110&y=115&frames=90",
  "comment": "QUESTS.md E8, ALD-6 The Wrong Dragon. The published first stop with Aldric, word for word; the cave's second look with him - Press on, then the visit with ALD-4 undone and done (Horace was the horse); the lamp and the report; afterwards with and without him.",
  "steps": [
   {
@@ -24,7 +24,7 @@
    "eval": "window._mark(); window._pick = 0"
   },
   {
-   "key": "ArrowDown",
+   "key": "ArrowUp",
    "gap": 30
   },
   {

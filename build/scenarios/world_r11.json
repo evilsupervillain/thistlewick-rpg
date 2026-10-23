@@ -1,0 +1,46 @@
+{
+  "query": "?map=8&x=52&y=56&frames=90",
+  "steps": [
+    {"comment": "Mike's world map round eleven (22 Oct 2026): the Gloamwood's north mouth moved to the foot of the road at (52,57), and three doors he redrew as blocking tiles - the Wreck's Hole, the Bottomless Pit's Pit - are walked into from beside them. Attempt 112's is in airship_lands, Ashcombe Lake's in nomap and q_cor2.",
+     "eval": "$gameSystem.disableEncounter()"},
+    {"check": "[$gameMap.event(3).x, $gameMap.event(3).y]", "expect": [52, 57],
+     "label": "the north mouth is at the foot of the road"},
+    {"eval": "$gameSwitches.setValue(3, true)"},
+    {"key": "ArrowDown", "times": 1, "gap": 30},
+    {"frames": 30},
+    {"check": "$gameMap._interpreter.eventId()", "expect": 3,
+     "label": "walking down the road into the trees is the north mouth"},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [52, 57]},
+    {"frames": 240},
+    {"choose": 1},
+    {"frames": 60},
+    {"check": "$gameMap.isEventRunning()", "expect": false,
+     "label": "and 'Leave it' leaves it"},
+
+    {"goto": [8, 41, 44]},
+    {"key": "ArrowUp", "times": 1, "gap": 30},
+    {"frames": 30},
+    {"check": "$gameMap._interpreter.eventId()", "expect": 26,
+     "label": "the Wreck: walking into the rent in the crag is the event"},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [41, 44],
+     "label": "from the track, without standing in the hole"},
+    {"advance": 20},
+
+    {"goto": [8, 43, 71]},
+    {"key": "ArrowUp", "times": 1, "gap": 30},
+    {"frames": 30},
+    {"check": "$gameMap._interpreter.eventId()", "expect": 10,
+     "label": "the Bottomless Pit: walking into the pit is the event"},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [43, 71]},
+    {"advance": 20},
+
+    {"goto": [10, 15, 1]},
+    {"eval": "$gameSwitches.setValue(3, true)"},
+    {"key": "ArrowUp", "times": 1, "gap": 30},
+    {"advance": 20},
+    {"until": "$gameMap.mapId() === 8 && !$gamePlayer.isTransferring()", "frames": 600},
+    {"frames": 60},
+    {"check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]", "expect": [52, 56, 8],
+     "label": "out of the deep wood: on the road one north of the mouth, facing up it"}
+  ]
+}

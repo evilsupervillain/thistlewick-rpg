@@ -170,9 +170,11 @@ def crag_door(event_id):
         ["Climb up", "Carry on"],
         [[R.play_se("Move1"),
           R.transfer(MAP_CRAG, CRAG_IN[0], CRAG_IN[1], 8, 0)], []])
+    # Mike drew the rent as a `Hole` (22 Oct 2026), which blocks, so the door
+    # is walked *into* from the track below: same as characters.
     return R.event(event_id, "The Wreck Of The 199th",
                    WORLD_CRAG[0], WORLD_CRAG[1], [R.page(
-                       look, img=R.image(""), trigger=1, priority=0,
+                       look, img=R.image(""), trigger=1, priority=1,
                        through=True)])
 
 
@@ -260,11 +262,15 @@ def attempt_112(event_id):
     again = S.narrate([
         "Attempt 112. Everything else on her is",
         "bolted to the rock and staying there."])
+    # She stands in the crater she made (Mike's `Hole`, 22 Oct 2026), which
+    # blocks, so she is walked into from the bare square the airship sets down
+    # on: same as characters. A bump is player touch, not the action button,
+    # so the landed airship does not take it first.
     return R.event(event_id, "Attempt One Hundred And Twelve",
                    WORLD_STACK[0] + 1, WORLD_STACK[1], [
         R.page(wreck + [R.self_switch("A", True)],
-               img=R.image("Vehicle", 3), trigger=1, priority=0),
-        R.page(again, img=R.image("Vehicle", 3), trigger=1, priority=0,
+               img=R.image("Vehicle", 3), trigger=1, priority=1),
+        R.page(again, img=R.image("Vehicle", 3), trigger=1, priority=1,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ], note=AIR_ONLY_NOTE)
 

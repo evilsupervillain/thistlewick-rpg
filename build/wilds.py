@@ -240,15 +240,17 @@ def pit_turnstile(event_id):
         [[R.play_se("Move1"),
           R.transfer(MAP_PIT, PIT_IN[0], PIT_IN[1], 8, 0)], []])
 
+    # Mike drew it as the `Pit` autotile (22 Oct 2026), which blocks, so it
+    # is walked *into* from the road below: same as characters.
     return R.event(event_id, "The Bottomless Pit", *WORLD_PIT, [
-        R.page(intro, img=img, trigger=1, priority=0, through=True),
-        R.page(entry, img=img, trigger=1, priority=0, through=True,
+        R.page(intro, img=img, trigger=1, priority=1, through=True),
+        R.page(entry, img=img, trigger=1, priority=1, through=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_PIT_ASKED}),
-        R.page(payout, img=img, trigger=1, priority=0, through=True,
+        R.page(payout, img=img, trigger=1, priority=1, through=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_PIT_CLEARED}),
-        R.page(free, img=img, trigger=1, priority=0, through=True,
+        R.page(free, img=img, trigger=1, priority=1, through=True,
                conditions={"switch1Valid": True, "switch1Id": db.SW_PIT_PAID}),
     ])
 
