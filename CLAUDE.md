@@ -371,8 +371,11 @@ in each of the four states.
                      (the tops' edge shapes, and `shape_faces`, the faces'
                      trim the editor's way), `match_windows` (an
                      interior's south wall gets the windows its building
-                     has on the street), `door_holes` (a dark doorway under
-                     every door sprite), `cast_shadows`; then System.json
+                     has on the street), `dress_shut_doors` (every event
+                     `story.shut` marked gets its door sprite on every page,
+                     appended ones included, and stops being Through),
+                     `door_holes` (a dark doorway under every door sprite),
+                     `cast_shadows`; then System.json
                      and MapInfos. A room that splits off a bedroom uses
                      `mapkit.guest_room`; stairs between floors are
                      `mapkit.stairs_up` below and `mapkit.stairwell` above
@@ -1021,6 +1024,12 @@ makes eight passes over it cost less than the single pass did before.
   not called away, the drawn sword kept at the door, ROL-3 started, ROL-5
   told after the ending, his pitch with Maud's news, and ROL-4's mark with
   the sword handed back |
+| `shut_doors` | **a door that does not open is a door** (Mike, October
+  2026). Every one used to be Outside_B's `Large Window C`, which is shutters
+  and read as a window, so `mapkit.DOOR_SHUT` is not a door and a new one is
+  `story.shut_door`. Walked up to one of each kind - a push that does not go
+  through, the action button, and the reason it gives - then every page of
+  all twenty-nine, appended pages included, is a `!Door1` and solid |
 | `blushes` | the whole of `NORTH.md` section 3, in one walk: room four, the
   house register, Sops, both travellers, Perpetua and Gerald, the fete
   minutes, the washstand, Wren's three specimens and the second notice at the

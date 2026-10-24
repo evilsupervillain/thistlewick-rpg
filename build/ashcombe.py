@@ -125,7 +125,6 @@ def ashcombe_map():
     g.column(CHURCH_DOOR[0], FRONT_Y - 1, 3, K.DOOR_DOUBLE)
     g.column(CHURCH_DOOR[0] - 2, FRONT_Y - 1, 3, K.WINDOW_GLASS)
     g.column(CHURCH_DOOR[0] + 2, FRONT_Y - 1, 3, K.WINDOW_GLASS)
-    g.column(SCHOOL_DOOR[0], FRONT_Y - 1, 3, K.DOOR_SHUT)
     for x in (12, 16):
         g.set(x, FRONT_Y, 3, K.WINDOW)
     g.set(ASH_DOOR[0] + 2, FRONT_Y, 3, K.WINDOW)
@@ -133,7 +132,6 @@ def ashcombe_map():
     g.set(MUSEUM_DOOR[0] - 1, FRONT_Y - 1, 3, K.SIGN_SUN)
     for x in (28, 32):
         g.set(x, FRONT_Y, 3, K.WINDOW)
-    g.column(POST_DOOR[0], POST_DOOR[1] - 1, 3, K.DOOR_SHUT)
     g.set(POST_DOOR[0] + 1, POST_DOOR[1] - 1, 3, K.SIGN_RING)   # the sack
     g.set(POST_DOOR[0] + 2, POST_DOOR[1], 3, K.WINDOW)
     g.chimney_beside(*ASH_HOUSE[:2])
@@ -336,14 +334,15 @@ def ashcombe_events():
     school += S.narrate([
         "Through the window: rows of new desks, a globe, and a map",
         "of the world on the wall with Ashcombe marked on it twice."])
-    evs.append(R.event(7, "The School", *SCHOOL_DOOR, [R.page(school, **page)]))
+    evs.append(S.shut(R.event(7, "The School", *SCHOOL_DOOR,
+                              [R.page(school, **page)])))
 
     # 8: the post office, which answers its correspondence.
     post = S.narrate([
         "POST OFFICE. A card in the window says ALL LETTERS",
         "ANSWERED, and under it, in the same hand, WE MEAN IT."])
-    evs.append(R.event(8, "The Post Office", *POST_DOOR,
-                       [R.page(post, **page)]))
+    evs.append(S.shut(R.event(8, "The Post Office", *POST_DOOR,
+                              [R.page(post, **page)])))
 
     # 9: the Flood Dinner. The speaker is COR-1's, and is not confirmed.
     notice = S.narrate([

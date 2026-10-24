@@ -156,7 +156,7 @@ ARMS = (14, 25)                 # on the range's front, read from the road
 ANTHEM = (12, 17)
 NINE_WORKS = (23, 17)
 FIRST_MAYOR = (18, 17)          # `Statue A`, 1x2, a knight on a plinth
-COTTER = (5, 7)                 # at the Iron Company's gate
+COTTER = (6, 7)                 # at the Iron Company's gate, beside it
 POSKITT = (20, 18)
 PLUMMER = (6, 14)
 DUCHESS = (2, 15)               # at her stable door
@@ -211,7 +211,6 @@ def town_map():
     # The works: shut gates and chimneys, two stacks apiece.
     for b, gate_x, stacks in [(IRONWORKS, 5, (2, 7)), (FOUNDRY, 29, (26, 32))]:
         fy = b[1] + b[3] - 1
-        g.column(gate_x, fy - 1, 3, K.DOOR_SHUT)
         for x in (gate_x - 2, gate_x + 2):
             g.set(x, fy - 1, 3, K.WINDOW)
         for cx in stacks:
@@ -275,7 +274,31 @@ def town_map():
                                *CULVERT_STEP, [R.page(
         [], img=R.image(tile_id=GRATE, pattern=0), priority=0, through=True)]))
     assert m["events"][-1]["id"] == 20
+    m["events"] += works_gates(len(m["events"]))
     return m
+
+
+def works_gates(first_id):
+    """The Iron Company's gate and the foundry's, which do not open, and
+    say why: iron doors, `!Door1` pattern 2. They were shutters until
+    October 2026, and read as windows (`story.shut`); appended after the
+    grate, so no id above moved."""
+    company = S.narrate([
+        "THE IRON COMPANY. The gate is barred, and a brass plate",
+        "on it says NO ADMITTANCE EXCEPT ON BUSINESS."])
+    company += S.narrate([
+        "A smaller plate under it, newer, says HEROES ARE NOT",
+        "BUSINESS. Somebody has had a hero in, once."])
+    foundry = S.narrate([
+        "The foundry gate, shut, with a board wired to it:",
+        "'NO VISITORS. THE CRUCIBLES ARE NOT MIMICS. THE MOULDS",
+        "ARE NOT MIMICS. NOTHING IN HERE IS A MIMIC.'"])
+    foundry += S.narrate(["'PLEASE STOP HITTING THINGS TO CHECK.'"])
+    return [S.shut_door(first_id + i, name, x, b[1] + b[3] - 1, cmds,
+                        pattern=2)
+            for i, (name, b, x, cmds) in enumerate([
+                ("The Iron Company's Gate", IRONWORKS, 5, company),
+                ("The Foundry Gate", FOUNDRY, 29, foundry)])]
 
 
 def watchman_pages():

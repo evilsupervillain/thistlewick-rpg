@@ -132,14 +132,12 @@ def restwell_map():
     g.set(EIGHT_DOOR[0] + 1, EIGHT_DOOR[1], 3, K.WINDOW)
     g.set(EIGHT_DOOR[0] + 2, EIGHT_DOOR[1], 3, K.WINDOW)
 
-    g.column(SEVEN_FRONT[0], SEVEN_FRONT[1] - 1, 3, K.DOOR_SHUT)
     g.set(SEVEN_FRONT[0] - 1, SEVEN_FRONT[1], 3, K.SIGN_INN)
     g.set(SEVEN_FRONT[0] + 1, SEVEN_FRONT[1], 3, K.WINDOW)
 
     g.set(INN_N[0] + 1, INN_N[1] + INN_N[3] - 1, 3, K.SIGN_INN)
     g.set(INN_N[0] + 2, INN_N[1] + INN_N[3] - 1, 3, K.WINDOW)
 
-    g.column(REST_FRONT[0], REST_FRONT[1] - 1, 3, K.DOOR_SHUT)
     g.set(REST_FRONT[0] - 1, REST_FRONT[1], 3, K.SIGN_INN)
     g.set(REST_FRONT[0] + 2, REST_FRONT[1], 3, K.WINDOW)
 
@@ -263,9 +261,9 @@ def restwell_events():
         "hangs under the first:",
         "",
         "        'BACK IN EIGHT HOURS.'"])
-    evs.append(R.event(8, "The Seven Hours", *SEVEN_FRONT, [R.page(
+    evs.append(S.shut(R.event(8, "The Seven Hours", *SEVEN_FRONT, [R.page(
         seven, img=R.image(""), trigger=0, priority=1, through=True,
-        direction_fix=True)]))
+        direction_fix=True)])))
 
     # 9: and the one on the south side, which has solved expansion.
     rest = S.narrate([
@@ -276,9 +274,9 @@ def restwell_events():
     rest += S.narrate([
         "All three of them are over the same door,",
         "and it is the only door there is."])
-    evs.append(R.event(9, "The Traveller's Rest", *REST_FRONT, [R.page(
+    evs.append(S.shut(R.event(9, "The Traveller's Rest", *REST_FRONT, [R.page(
         rest, img=R.image(""), trigger=0, priority=1, through=True,
-        direction_fix=True)]))
+        direction_fix=True)])))
 
     # 10: a guest, on his way out, at four in the afternoon. This is the
     # premise stated once on the street so that the inn does not have to.

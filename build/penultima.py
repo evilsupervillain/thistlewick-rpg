@@ -97,7 +97,6 @@ def penultima_map():
     g.set(SHOPPE_DOOR[0] - 1, SHOPPE_DOOR[1], 3, K.SIGN_POTION)
 
     # The rival's door is shut and has been for some time.
-    g.column(RIVAL_DOOR[0], RIVAL_DOOR[1] - 1, 3, K.DOOR_SHUT)
     g.set(RIVAL_DOOR[0] - 1, RIVAL_DOOR[1], 3, K.SIGN_ARMOR)
 
     g.set(HOUSE_W[0] + 1, HOUSE_W[1] + HOUSE_W[3] - 1, 3, K.WINDOW)
@@ -212,9 +211,9 @@ def penultima_events():
         "A card in the window, in a different hand:",
         "'THANK YOU PENULTIMA FOR NINE WONDERFUL",
         "MONTHS.' It has been there some years."])
-    evs.append(R.event(5, "Ultimate Outfitters", *RIVAL_DOOR, [R.page(
+    evs.append(S.shut(R.event(5, "Ultimate Outfitters", *RIVAL_DOOR, [R.page(
         rival, img=R.image(""), trigger=0, priority=1, through=True,
-        direction_fix=True)]))
+        direction_fix=True)])))
 
     # 6: the notice a town like this puts up about itself, on the barrel at
     # (15, 14) it says it is pinned to - it was on the grass above it (P2).

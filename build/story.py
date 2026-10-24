@@ -608,6 +608,33 @@ def door(event_id, name, x, y, target_map, tx, ty, direction=2, sheet="!Door1",
         img=R.image(sheet, index, direction=2), trigger=1, priority=1)])
 
 
+SHUT_DOOR = "<shutdoor %s %d %d>"
+
+
+def shut(event, sheet="!Door1", index=0, pattern=1):
+    """Mark a town-wall event as a door that does not open, and hand it back.
+
+    Until October 2026 such a door was drawn as `Large Window C`, which is
+    shutters, and the player took it for a window (Mike). Now it is a door
+    sprite like every other door, which `build_game.dress_shut_doors` puts on
+    **every** page after all the modules have run - pages other modules
+    append (NIX-3's, ALD-2's, the post-game's) included - and makes solid,
+    since `door_holes` puts an open doorway tile under it. The words are the
+    event's own: a door the player cannot open says why when tried."""
+    event["note"] = (event.get("note", "") +
+                     SHUT_DOOR % (sheet, index, pattern))
+    return event
+
+
+def shut_door(event_id, name, x, y, commands, sheet="!Door1", index=0,
+              pattern=1):
+    """A new door that does not open, on a house wall: the action button
+    reads `commands`, which say why. See `shut`."""
+    return shut(R.event(event_id, name, x, y, [R.page(
+        commands, img=R.image(sheet, index, direction=2, pattern=pattern),
+        trigger=0, priority=1, direction_fix=True)]), sheet, index, pattern)
+
+
 def exit_tile(event_id, name, x, y, target_map, tx, ty, direction=2):
     """An invisible way out of an interior - stand on it and you are outside.
 

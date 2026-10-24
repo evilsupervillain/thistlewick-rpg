@@ -185,7 +185,6 @@ def valley_map():
     fy = HOUSE_DOOR[1]
     for x in (11, 13, 19, 21):
         g.set(x, fy, 3, K.WINDOW)
-    g.column(CHAPEL_DOOR[0], CHAPEL_DOOR[1] - 1, 3, K.DOOR_DOUBLE)
     g.column(CHAPEL_DOOR[0] + 2, CHAPEL_DOOR[1] - 1, 3, K.WINDOW_GLASS)
 
     # The rock weeps: moss and fern down every face of it.
@@ -304,8 +303,9 @@ def valley_events():
                     WARD_DOOR_X, WARD[3] + 1))
 
     # 5: the chapel, locked, and set out for the symposium.
-    evs.append(R.event(5, "The Chapel", *CHAPEL_DOOR,
-                       [R.page(chapel_pages(), **PAGE)]))
+    evs.append(S.shut(R.event(5, "The Chapel", *CHAPEL_DOOR,
+                              [R.page(chapel_pages(), **PAGE)]),
+                      index=2, pattern=0))          # arched, with a fanlight
     evs[-1]["pages"] += q_aldric.chapel_pages(evs[-1]["pages"][0])      # ALD-2
 
     # 6: the founder's stone, and the site's trope.

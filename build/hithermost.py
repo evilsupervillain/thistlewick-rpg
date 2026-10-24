@@ -149,7 +149,6 @@ def hithermost_map():
     # does teas, because people keep coming back down.
     for i, (x, y, bw, bh) in enumerate(HOUSES):
         fy = y + bh - 1
-        g.column(x + 2, fy - 1, 3, K.DOOR_SHUT)
         g.set(x + 4, fy, 3, K.WINDOW)
         g.chimney_beside(x, y)
     g.set(HOUSES[2][0] + 1, HOUSES[2][1] + HOUSES[2][3] - 1, 3, K.SIGN_PLATE)
@@ -173,7 +172,43 @@ def hithermost_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Hithermost", bgm="Town2")
     m["data"] = g.data
     m["events"] = [None] + hithermost_events()
+    m["events"] += shut_doors(len(m["events"]))
     return m
+
+
+def shut_doors(first_id):
+    """The four houses' front doors, which do not open, and say why. They
+    were shutters until October 2026, and read as windows (`story.shut`);
+    appended after everything else, so no id above moved."""
+    at = [(x + 2, y + bh - 1) for x, y, bw, bh in HOUSES]
+    knocker = S.narrate([
+        "Locked. A card on the knocker, in a firm hand:",
+        "'GONE UP THE MOUNTAIN. BACK SHORTLY.'"])
+    knocker += S.narrate([
+        "Pinned under it are eleven more cards in the same hand,",
+        "all saying the same thing. He always does come back.",
+        "Usually in through the chapel porch, looking puzzled."])
+    saved = S.narrate([
+        "You knock. A voice inside calls 'Not today, thank you,'",
+        "in the tone of a house that has been saved four times",
+        "this year and is still finding the bits."])
+    saved += S.narrate(["The door stays shut. You hear a cupboard being locked."])
+    teas = S.narrate([
+        "TEAS. A card in the window says CLOSED, and under it,",
+        "smaller: 'THE KETTLE IS AT THE CHAPEL AGAIN.'"])
+    teas += S.narrate([
+        "Brother Quillon makes a great deal of tea. Most of it",
+        "has been made in this kettle."])
+    pots = S.narrate([
+        "Locked. There is no key under the mat. There is no key",
+        "under the pot. Under the other pot there is a note:"])
+    pots += S.narrate([
+        "'THERE IS NO KEY UNDER ANY OF THE POTS.",
+        "PLEASE PUT THE POTS BACK.'"])
+    return [S.shut_door(first_id + i, name, *xy, cmds) for i, (name, xy, cmds)
+            in enumerate(zip(["The Mountaineer's Door", "A Front Door",
+                              "The Tea Room Door", "The Door With the Pots"],
+                             at, [knocker, saved, teas, pots]))]
 
 
 def door_into_the_mountain():

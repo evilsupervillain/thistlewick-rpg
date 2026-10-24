@@ -1,0 +1,772 @@
+{
+ "query": "?map=50&x=12&y=12&frames=60",
+ "comment": "The shut doors (October 2026): every door that does not open was drawn as Outside_B's `Large Window C`, which is shutters, and read as a window. Each is now a `!Door1` event (`story.shut`, `build_game.dress_shut_doors`). Walked: up to one of each kind, a push that does not go through, the action button, and the reason it gives; then every page of all twenty-nine, appended pages included, is a door sprite and not Through.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }"
+  },
+  {
+   "comment": "Little Gore's end house",
+   "goto": [
+    50,
+    19,
+    11
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    19,
+    10,
+    8
+   ],
+   "label": "Little Gore's end house: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(13).characterName(), $gameMap.event(13).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 13,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"decent enough not to come to the door\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Hithermost's door with the pots",
+   "goto": [
+    33,
+    20,
+    29
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    20,
+    28,
+    8
+   ],
+   "label": "Hithermost's door with the pots: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(11).characterName(), $gameMap.event(11).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 11,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"PLEASE PUT THE POTS BACK\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Sump's parish hut",
+   "goto": [
+    51,
+    10,
+    10
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    10,
+    9,
+    8
+   ],
+   "label": "Sump's parish hut: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(11).characterName(), $gameMap.event(11).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 11,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"ADMITTANCE ON A MOTION OF THE CHAIR\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Great Dunnage's Iron Company gate, with Cotter beside it now rather than in front",
+   "goto": [
+    61,
+    5,
+    8
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    5,
+    7,
+    8
+   ],
+   "label": "Great Dunnage's Iron Company gate, with Cotter beside it now rather than in front: up against it, facing it"
+  },
+  {
+   "check": "[$gameMap.event(21).characterName(), $gameMap.event(21).isThrough(), $gameMap.event(12).x]",
+   "expect": [
+    "!Door1",
+    false,
+    6
+   ],
+   "label": "a solid door, and Cotter at x 6"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 21,
+   "label": "the action button reaches the gate, not Cotter"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"HEROES ARE NOT\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Great Dunnage's foundry gate",
+   "goto": [
+    61,
+    29,
+    8
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    29,
+    7,
+    8
+   ],
+   "label": "Great Dunnage's foundry gate: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(22).characterName(), $gameMap.event(22).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 22,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"NOTHING IN HERE IS A MIMIC\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Much Pottering's pig's door",
+   "goto": [
+    68,
+    34,
+    13
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    34,
+    12,
+    8
+   ],
+   "label": "Much Pottering's pig's door: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(23).characterName(), $gameMap.event(23).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 23,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"the pig has right of way\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Olde Evermore's elven door",
+   "goto": [
+    38,
+    5,
+    14
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    5,
+    13,
+    8
+   ],
+   "label": "Olde Evermore's elven door: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(14).characterName(), $gameMap.event(14).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 14,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"It opens for those it expects\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Gladhollow's end house",
+   "goto": [
+    40,
+    25,
+    10
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    25,
+    9,
+    8
+   ],
+   "label": "Gladhollow's end house: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(18).characterName(), $gameMap.event(18).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 18,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"WE HAVE CHECKED\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Nether Sopping's boat shed, an old door with its old words",
+   "goto": [
+    13,
+    36,
+    17
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    36,
+    16,
+    8
+   ],
+   "label": "Nether Sopping's boat shed, an old door with its old words: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(13).characterName(), $gameMap.event(13).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 13,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"eleven boats\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "comment": "Weeping Bottom's chapel, likewise",
+   "goto": [
+    54,
+    6,
+    19
+   ]
+  },
+  {
+   "key": "ArrowUp",
+   "times": 2,
+   "gap": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    6,
+    18,
+    8
+   ],
+   "label": "Weeping Bottom's chapel, likewise: up against it, facing it, and it did not let him through"
+  },
+  {
+   "check": "[$gameMap.event(5).characterName(), $gameMap.event(5).isThrough()]",
+   "expect": [
+    "!Door1",
+    false
+   ],
+   "label": "and it is a door, and solid"
+  },
+  {
+   "eval": "window._lines = []"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap._interpreter.eventId()",
+   "expect": 5,
+   "label": "the action button reaches it"
+  },
+  {
+   "advance": 6
+  },
+  {
+   "check": "window._lines.join(' ').includes(\"SYMPOSIUM THE ELEVENTH\")",
+   "expect": true,
+   "label": "and it says why it does not open"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map"
+  },
+  {
+   "goto": [
+    13,
+    33,
+    18
+   ]
+  },
+  {
+   "check": "[13, 14, 16].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Map 13: every page of [13, 14, 16] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    29,
+    14,
+    14
+   ]
+  },
+  {
+   "check": "[5].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true
+   ],
+   "label": "Map 29: every page of [5] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    31,
+    12,
+    14
+   ]
+  },
+  {
+   "check": "[8, 9].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "Map 31: every page of [8, 9] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    33,
+    12,
+    22
+   ]
+  },
+  {
+   "check": "[8, 9, 10, 11].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "Map 33: every page of [8, 9, 10, 11] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    38,
+    12,
+    22
+   ]
+  },
+  {
+   "check": "[14, 15, 16].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Map 38: every page of [14, 15, 16] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    40,
+    15,
+    11
+   ]
+  },
+  {
+   "check": "[17, 18].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "Map 40: every page of [17, 18] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    44,
+    8,
+    14
+   ]
+  },
+  {
+   "check": "[8].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true
+   ],
+   "label": "Map 44: every page of [8] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    50,
+    12,
+    12
+   ]
+  },
+  {
+   "check": "[11, 12, 13].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Map 50: every page of [11, 12, 13] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    51,
+    10,
+    11
+   ]
+  },
+  {
+   "check": "[10, 11, 12].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Map 51: every page of [10, 11, 12] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    52,
+    16,
+    15
+   ]
+  },
+  {
+   "check": "[7, 8].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "Map 52: every page of [7, 8] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    54,
+    8,
+    19
+   ]
+  },
+  {
+   "check": "[5].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true
+   ],
+   "label": "Map 54: every page of [5] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    61,
+    16,
+    10
+   ]
+  },
+  {
+   "check": "[21, 22].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "Map 61: every page of [21, 22] is a door sprite and solid"
+  },
+  {
+   "goto": [
+    68,
+    24,
+    14
+   ]
+  },
+  {
+   "check": "[21, 22, 23].map(i => $dataMap.events[i].pages.every(p => p.image.characterName === '!Door1' && !p.through))",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Map 68: every page of [21, 22, 23] is a door sprite and solid"
+  }
+ ]
+}

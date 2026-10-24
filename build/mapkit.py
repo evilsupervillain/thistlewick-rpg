@@ -193,11 +193,14 @@ SIGN_SUN = b_tile(6, 9)
 # somebody lives in, and a bare black square reads as a hole the tiler left.
 # DOORWAY_DARK is the inside of an opening and needs a frame drawn round it.
 DOORWAY_DARK = b_tile(12, 0)      # flat black; only ever inside something
-DOOR_SHUT = (b_tile(2, 14), b_tile(2, 15))       # closed boarded door, 2 tall
+# NOT a door: `Large Window C`, a shuttered window two tall. It stood in for
+# every door that does not open until October 2026, and the player read it
+# as a window (Mike). A door that does not open is `story.shut_door`.
+DOOR_SHUT = (b_tile(2, 14), b_tile(2, 15))
 DOORWAY_ARCH = (b_tile(4, 14), b_tile(4, 15))    # tall arched black opening
 WINDOW = b_tile(0, 12)            # window with a flower box
 WINDOW_GLASS = (b_tile(3, 14), b_tile(3, 15))    # stained glass, 2 tall
-DOOR_DOUBLE = (b_tile(2, 14), b_tile(2, 15))     # grand double doors, 2 tall
+DOOR_DOUBLE = DOOR_SHUT                          # the same shutters; not a door either
 
 # ------------------------------------------------- Inside tileset (id = 3) ---
 IN_WOOD_FLOOR = A(16)

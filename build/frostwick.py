@@ -157,9 +157,9 @@ def frostwick_events():
         "a card in the window, in two hands:",
         "   AT THE RIBBON. - P.",
         "   BACK FOR TEA. - I."])
-    evs.append(R.event(8, "The Staggs' House", *STAGGS_DOOR, [R.page(
+    evs.append(S.shut(R.event(8, "The Staggs' House", *STAGGS_DOOR, [R.page(
         staggs, img=R.image(""), trigger=0, priority=1,
-        direction_fix=True)]))
+        direction_fix=True)])))
 
     # 9: Perce, who broke it. 7.3's correction is the scene: Bram is a real
     # Chosen One, and Perce tells him quietly, and only him, that he is not.

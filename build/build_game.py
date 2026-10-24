@@ -10,6 +10,7 @@ output, not source.
 import copy
 import math
 import os
+import re
 import sys
 
 GAME = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -438,6 +439,31 @@ DOORWAY_BY_HAND = {
     mapkit.TS_OUTSIDE: {mapkit.DOORWAY_DARK - 1},
     mapkit.TS_COLLEGIUM: {mapkit.DOORWAY_DARK - 1},
 }
+
+
+def dress_shut_doors():
+    """Every event `story.shut` marked gets its door sprite on every page,
+    and stops being Through. Runs after every module, so pages appended to
+    a shut door from anywhere - NIX-3's on the Nether Sopping doors, ALD-2's
+    on Weeping Bottom's chapel, the post-game's - are dressed too, and before
+    `door_holes`, which then sees a door and lays the doorway under it. The
+    doorway is open ground, so a door left Through would be walked into."""
+    mark = re.compile(r"<shutdoor (\S+) (\d+) (\d+)>")
+    for map_id, _, _ in MAP_NAMES:
+        m = R.load_map(map_id)
+        changed = False
+        for ev in m["events"]:
+            found = ev and mark.search(ev.get("note", ""))
+            if not found:
+                continue
+            sheet, index, pattern = found.group(1), *map(int, found.groups()[1:])
+            for p in ev["pages"]:
+                p["image"] = R.image(sheet, index, direction=2, pattern=pattern)
+                p["through"] = False
+                p["directionFix"] = True
+            changed = True
+        if changed:
+            R.save_map(map_id, m)
 
 
 def door_holes():
@@ -1032,6 +1058,7 @@ def main():
     new_tables()
     shape_wall_tops()
     match_windows()
+    dress_shut_doors()
     door_holes()
     cast_shadows()
     check_wide_pieces()

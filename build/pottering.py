@@ -83,7 +83,39 @@ def pottering_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Much Pottering", bgm="Town1")
     m["data"] = data
     m["events"] = [None] + pottering_events()
+    m["events"] += shut_doors(len(m["events"]))
     return m
+
+
+def shut_doors(first_id):
+    """Three of the four front doors, which do not open, and say why. They
+    were shutters until October 2026, and read as windows (`story.shut`);
+    appended after the volcano, so no id above moved."""
+    dibble = S.narrate([
+        "Mr Dibble's front door. A card on it says WET PAINT, and",
+        "the door is locked as well, which in Much Pottering is",
+        "very nearly an event."])
+    dibble += S.narrate([
+        "Nothing has ever happened here. Mr Dibble would like it",
+        "to stay that way, and so would his hall carpet."])
+    motto = S.narrate([
+        "Locked. A card in the window, done in poker-work:",
+        "'NOBODY HOME. NOTHING HAPPENING. NO QUESTS.'"])
+    motto += S.narrate([
+        "It is the village motto, more or less. Heroes knock",
+        "anyway, in case. Heroes always knock in case."])
+    pig = S.narrate([
+        "Shut. A sign on it says the pig has right of way.",
+        "It does not say you have."])
+    pig += S.narrate([
+        "Somebody inside is having a quiet afternoon. You can",
+        "hear it from here: a clock, a kettle, and nothing",
+        "whatever happening."])
+    return [S.shut_door(first_id + i, name, x, FRONT_Y, cmds)
+            for i, (name, x, cmds) in enumerate([
+                ("Mr Dibble's Door", 14, dibble),
+                ("A Door With a Motto", 25, motto),
+                ("The Pig's Door", 34, pig)])]
 
 
 def _pair(first, later):

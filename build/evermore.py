@@ -183,7 +183,6 @@ def evermore_map():
 
     for x, y, bw, bh in HOUSES:
         fy = y + bh - 1
-        g.column(x + 2, fy - 1, 3, K.DOOR_SHUT)
         g.set(x + 4, fy, 3, K.WINDOW)
         g.chimney_beside(x, y)
 
@@ -203,7 +202,33 @@ def evermore_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Olde Evermore", bgm="Town4")
     m["data"] = g.data
     m["events"] = [None] + evermore_events()
+    m["events"] += shut_doors(len(m["events"]))
     return m
+
+
+def shut_doors(first_id):
+    """The three houses' front doors, which do not open, and say why. They
+    were shutters until October 2026, and read as windows (`story.shut`);
+    appended after everything else, so no id above moved."""
+    at = [(x + 2, y + bh - 1) for x, y, bw, bh in HOUSES]
+    elven = S.narrate([
+        "A carved elven door, with no handle, no lock and no",
+        "keyhole. It opens for those it expects.",
+        "It does not expect you. It has not expected anybody for",
+        "four thousand years, and has got very good at it."])
+    ladder = S.narrate([
+        "Shut, with a note on it in flowing script, and under",
+        "that, in careful capitals for visitors:"])
+    ladder += S.narrate([
+        "'AT THE ARCHIVE. SENT UP THE LADDER FOR GRANDMOTHER.",
+        "BACK WHEN SHE REMEMBERS WHAT SHE WANTED.'"])
+    cosy = S.narrate([
+        "A front door in a knitted cosy. So is the knocker, and",
+        "so is the handle, and so, you suspect, is the key, which",
+        "would be why nobody has been able to find it."])
+    return [S.shut_door(first_id + i, name, *xy, cmds) for i, (name, xy, cmds)
+            in enumerate(zip(["An Elven Door", "A Note on a Door",
+                              "A Knitted Door"], at, [elven, ladder, cosy]))]
 
 
 def evermore_events():

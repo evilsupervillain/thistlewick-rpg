@@ -141,12 +141,10 @@ def gladhollow_map():
     g.autotile(0)
 
     # Fronts. The mayor's door is an event; the other two are shut.
-    g.column(GRANNY_DOOR_X, FRONT_Y - 1, 3, K.DOOR_SHUT)
     g.set(GRANNY_DOOR_X + 2, FRONT_Y - 1, 3, K.WINDOW)
     g.set(MAYOR_DOOR[0] - 2, FRONT_Y, 3, K.WINDOW)
     g.set(MAYOR_DOOR[0] + 2, FRONT_Y, 3, K.WINDOW)
     g.set(MAYOR_DOOR[0] - 3, FRONT_Y - 1, 3, K.SIGN_SUN)
-    g.column(HOUSE_B[0] + 2, FRONT_Y - 1, 3, K.DOOR_SHUT)
     g.set(HOUSE_B[0] + 4, FRONT_Y, 3, K.WINDOW)
     for b in (GRANNY_B, MAYOR_B, HOUSE_B):
         g.chimney_beside(*b[:2])
@@ -182,7 +180,33 @@ def gladhollow_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Gladhollow", bgm="Town2")
     m["data"] = g.data
     m["events"] = [None] + gladhollow_events()
+    m["events"] += shut_doors(len(m["events"]))
     return m
+
+
+def shut_doors(first_id):
+    """Granny Wendle's door and the end house's, which do not open, and
+    say why. They were shutters until October 2026, and read as windows
+    (`story.shut`); appended after the courier, so no id above moved."""
+    china = S.narrate([
+        "Granny Wendle's front door. It is locked, she says from",
+        "beside it, because there is nothing in there but her",
+        "good china, and she has met heroes."])
+    china += S.narrate([
+        "'Every pot off the dresser and smashed on the floor",
+        "before I'd the kettle on, dear. Looking for coppers.",
+        "There's never coppers in a pot. Ask anyone.'"])
+    checked = S.narrate([
+        "Locked. A card in the window:",
+        "'NO HEROES, PLEASE. THERE IS NOTHING IN THE CUPBOARDS,",
+        "NOTHING IN THE BARRELS AND NOTHING UNDER THE BED.'"])
+    checked += S.narrate([
+        "'WE HAVE CHECKED. SO HAVE THE LAST NINE OF YOU.'"])
+    return [
+        S.shut_door(first_id, "Granny Wendle's Door",
+                    GRANNY_DOOR_X, FRONT_Y, china),
+        S.shut_door(first_id + 1, "The End House's Door",
+                    HOUSE_B[0] + 2, FRONT_Y, checked)]
 
 
 # The fourteen, in order: what he does, and what he says while he does it.

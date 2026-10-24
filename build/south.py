@@ -305,6 +305,10 @@ def sopping_events():
     ]
     for i, ((name, lines), (x, y)) in enumerate(zip(shut, SHED_DOORS)):
         evs.append(S.sign(13 + i, name, x, y + 1, lines))
+    # The other three were drawn as shutters, and read as windows; they are
+    # doors now, which do not open (Mike, October 2026). See `story.shut`.
+    for ev in (evs[-4], evs[-3], evs[-1]):
+        S.shut(ev)
     # Ambrose Fitch's is a real door, not the shutters the others are drawn
     # with, since clause nineteen's key opens it (Mike, October 2026). Every
     # page after this one is dressed like it.

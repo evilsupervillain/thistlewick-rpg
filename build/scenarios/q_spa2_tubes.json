@@ -1,5 +1,5 @@
 {
-  "query": "?map=61&x=5&y=8&frames=90",
+  "query": "?map=61&x=6&y=8&frames=90",
   "comment": "QUESTS.md F4, SPA-2 Ninety Tubes. Cotter at the Iron Company's gate, Map 61 event 12: without Spare today's pages; with Spare and Hob, HOB-1's page carried first; the meeting, not now; the short ask and down; SPARE.md 3's swap into the culvert, Map 70, in the dark; up again early and the party restored; down again and walked: the counting, a crown, Mr Pocock, the paddle; out, everybody there, done; and afterwards, with and without him.",
   "steps": [
     {
@@ -239,7 +239,7 @@
     {
       "goto": [
         61,
-        5,
+        6,
         8
       ]
     },
@@ -558,7 +558,7 @@
     {
       "goto": [
         61,
-        5,
+        6,
         8
       ]
     },

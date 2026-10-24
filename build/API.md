@@ -475,6 +475,8 @@ companion_story(actor_id, indent=0)                  A companion quest is finish
 got(lines, indent=0)                                 The 'you found a thing' message, in the colour things are found in.
 door_page(target_map, tx, ty, direction=2, se='Open1') The commands behind a door sprite: open it, step through, transfer -
 door(event_id, name, x, y, target_map, tx, ty, direction=2, sheet='!Door1', index=0) An outward-facing door on a house wall. Player-touch, because a door
+shut(event, sheet='!Door1', index=0, pattern=1)      Mark a town-wall event as a door that does not open, and hand it back.
+shut_door(event_id, name, x, y, commands, sheet='!Door1', index=0, pattern=1) A new door that does not open, on a house wall: the action button
 exit_tile(event_id, name, x, y, target_map, tx, ty, direction=2) An invisible way out of an interior - stand on it and you are outside.
 widen_exit(events, event_id, cells)                  The way out at `event_id`, copied onto the rest of the road's width.
 pin_note(event, tile=K.E_NOTE)                       Give every page of `event` a card for a picture, pinned to whatever is

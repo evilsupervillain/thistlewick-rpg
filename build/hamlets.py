@@ -96,8 +96,6 @@ def gore_map():
     g.building(*EAST, wall=K.WALL_PLANK, roof=K.ROOF_BROWN)
     g.autotile(0)
 
-    for x, y in (VANES_DOOR, COPES_DOOR, EAST_DOOR):
-        g.column(x, y - 1, 3, K.DOOR_SHUT)
     g.set(VANES_DOOR[0] + 2, VANES_DOOR[1], 3, K.WINDOW)
     g.set(VANES_DOOR[0] + 3, VANES_DOOR[1], 3, K.WINDOW)
     g.set(COPES_DOOR[0] + 1, COPES_DOOR[1], 3, K.WINDOW)
@@ -130,7 +128,36 @@ def gore_map():
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Little Gore", bgm="Town6")
     m["data"] = g.data
     m["events"] = [None] + q_aldric.with_follower(gore_events(), MAP_LITTLE_GORE)  # ALD-5
+    m["events"] += gore_doors(len(m["events"]))
     return m
+
+
+def gore_doors(first_id):
+    """The three front doors on the street, which do not open, and say why.
+    They were shutters until October 2026, and read as windows
+    (`story.shut`); appended after the Fourth, so no id above moved."""
+    vanes = S.narrate([
+        "The Vanes' front door. Mrs Vane is in the garden, three",
+        "yards away, watching you pleasantly.",
+        "You find, on reflection, that you are not the kind of",
+        "Chosen One who lets himself into people's houses."])
+    field = S.narrate([
+        "A neat door, with a card on it in the Order's lettering:",
+        "'KNIGHT IN THE FIELD. DO NOT DISTURB.'"])
+    field += S.narrate([
+        "Dame Winifred is standing four feet from it. As far as",
+        "the Chapter is concerned, this is the field."])
+    waves = S.narrate([
+        "Locked. Through the window, a man in an armchair waves",
+        "at you in a friendly way and goes back to his paper."])
+    waves += S.narrate([
+        "He has nothing whatever to say to a Chosen One, and is",
+        "decent enough not to come to the door and say it."])
+    return [S.shut_door(first_id + i, name, *xy, cmds) for i, (name, xy, cmds)
+            in enumerate(zip(["The Vanes' Door", "Dame Winifred's Door",
+                              "The End House's Door"],
+                             [VANES_DOOR, COPES_DOOR, EAST_DOOR],
+                             [vanes, field, waves]))]
 
 
 def _pair(first, later):
@@ -325,7 +352,38 @@ def sump_map():
     m["autoplayBgs"] = True
     m["data"] = data
     m["events"] = [None] + sump_events()
+    m["events"] += sump_doors(len(m["events"]))
     return m
+
+
+def sump_doors(first_id):
+    """The parish hut's door and two front doors, which do not open, and
+    say why. They were shutters until October 2026, and read as windows
+    (`story.shut`); appended last, so no id above moved. Nothing here joins
+    the wasps to the headaches; that is MER-5's."""
+    sleep = S.narrate([
+        "Locked, with the curtains drawn, and a card on the door:",
+        "'QUIET PLEASE. TRYING TO SLEEP.'"])
+    sleep += S.narrate([
+        "It is an old card. Nobody in Sump sleeps; it is the",
+        "curse. They put the card up anyway, in hope."])
+    hut = S.narrate([
+        "The parish hut. A notice on the door:",
+        "'PARISH IN SESSION. ADMITTANCE ON A MOTION OF THE CHAIR.'"])
+    hut += S.narrate([
+        "The Parish Clerk, outside it, is the chair. He has not",
+        "moved that you be admitted."])
+    callers = S.narrate([
+        "A front door, and on it a card in a tidy hand:",
+        "'NO CALLERS. NO HAWKERS. NO CHOSEN ONES.'"])
+    callers += S.narrate([
+        "Under it, smaller: 'THE CURSE IS QUITE ENOUGH TO BE",
+        "GOING ON WITH, THANK YOU.'"])
+    return [S.shut_door(first_id + i, name, *xy, cmds) for i, (name, xy, cmds)
+            in enumerate(zip(["A Sleepless Door", "The Parish Hut",
+                              "A Door With a Card"],
+                             [WEST_DOOR, HUT_DOOR, EAST_DOOR_S],
+                             [sleep, hut, callers]))]
 
 
 def thurle_pages():
