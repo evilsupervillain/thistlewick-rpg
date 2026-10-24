@@ -522,7 +522,8 @@ def gloamwood_events():
     evs.append(R.event(5, "Chest (Definitely A Chest)", 12, 12, [
         R.page(mimic, img=R.image("!Chest", 0, direction=2, pattern=1),
                trigger=0, priority=1, direction_fix=True),
-        R.page(S.narrate(["Just splinters now."]), img=R.image(""),
+        R.page(S.narrate(["Just splinters now."]),
+               img=R.image(SPLINTERS_SHEET, 0, direction=2),
                trigger=0, priority=1, through=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
@@ -1486,3 +1487,33 @@ def build():
     R.save_map(MAP_GLOAM_DEEP, deep_map())
     R.save_map(MAP_TOWER, tower_map())
     R.save_map(MAP_SUMMIT, summit_map())
+
+
+
+# =================================================================== art ==
+# What is left of the mimic: `Dungeon_B`'s `Scrap Wood`, cut out as a `!$`
+# object so the Gloamwood, on the Outside tileset, can show it (Mike, 23
+# October 2026).
+SPLINTERS_SHEET = "!$Splinters"     # 48x48
+SCRAP_WOOD = 125                    # `Dungeon_B`'s `Scrap Wood`
+
+
+def draw_art():
+    """Writes `SPLINTERS_SHEET`. Not part of the data build, like
+    `postgame.draw_art()`: run this module to redraw it."""
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..",
+                                    "tools", "chargen"))
+    import numpy as np
+    import png
+    game = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+    sheet = png.read(os.path.join(game, "img", "tilesets", "Dungeon_B.png"))
+    x = ((SCRAP_WOOD // 128) % 2 * 8 + SCRAP_WOOD % 8) * 48
+    y = ((SCRAP_WOOD % 256) // 8 % 16) * 48
+    out = np.tile(sheet[y:y + 48, x:x + 48], (4, 3, 1))
+    path = os.path.join(game, "img", "characters", SPLINTERS_SHEET + ".png")
+    png.write(path, out.astype(np.uint8))
+    print("wrote", os.path.normpath(path))
+
+
+if __name__ == "__main__":
+    draw_art()

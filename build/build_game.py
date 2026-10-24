@@ -431,6 +431,13 @@ DOORWAY = {
     mapkit.TS_CLANGING: mapkit.sf_tile("SF_Outside_B", "Entrance A"),
     mapkit.TS_INSIDE: mapkit.IN_DOOR_OPENING,
 }
+# Doorways Mike draws himself, which `door_holes` leaves alone: Outside_B's
+# `Entrance A`, the id before `DOORWAY_DARK` (`Entrance A (Extend)`) - the
+# church door in Ashcombe, 23 October 2026.
+DOORWAY_BY_HAND = {
+    mapkit.TS_OUTSIDE: {mapkit.DOORWAY_DARK - 1},
+    mapkit.TS_COLLEGIUM: {mapkit.DOORWAY_DARK - 1},
+}
 
 
 def door_holes():
@@ -462,7 +469,8 @@ def door_holes():
             cell = ev["y"] * w + ev["x"]
             if not R.TILE_ID_A3 <= data[cell] < R.TILE_ID_MAX:
                 continue
-            if hole in (data[z * w * h + cell] for z in (1, 2, 3)):
+            if {hole, *DOORWAY_BY_HAND.get(m["tilesetId"], ())} & {
+                    data[z * w * h + cell] for z in (1, 2, 3)}:
                 continue                # drawn by hand already
             free = [z for z in (3, 2, 1) if data[z * w * h + cell] == 0]
             if not free:

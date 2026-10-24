@@ -65,6 +65,8 @@ is left of it - and **`SITES.md` is that queue**: the ordered list of the
 twenty-eight sites still to build, one step per session, with the working rules
 for the effort. Penultima (Maps 29-30) is the first and is done.
 
+`ART-TODO.md` lists every picture Mike still owes the game - what, where, what size, and what it has to show - and what has been put in. Keep it current: a new row whenever a map edit or a line of text asks for art that no sheet has.
+
 `AUDIT.md` is the queue in front of `SITES.md` section 4 and of the companion
 quests: Mike's list of faces and dialogue that disagree with the game, worked
 through one item per session. Its section 0 is the rule that decides every

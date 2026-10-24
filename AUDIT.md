@@ -917,6 +917,8 @@ step moves the row into the table above. Spare's two are not provisional.
 
 #### Pictures, not faces - added 10 October 2026
 
+**Now tracked in `ART-TODO.md`**, with everything else still waiting on art; this table is kept as it was.
+
 Mike's round of map edits asked for three pieces of art no sheet has. Each is
 a prop on the wall, read with the action button from the floor below it, and
 each is already in the game as an event that a picture can be given to.

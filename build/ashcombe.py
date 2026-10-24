@@ -70,6 +70,8 @@ MUSEUM = (27, 7, 7, 6)
 POST = (17, 18, 5, 5)
 
 CHURCH_DOOR = (5, FRONT_Y)
+CHURCH_ROPE = (6, FRONT_Y)           # Mike's bell rope, beside the door
+ROPE_FOOT = 35                       # Outside_B `Rope`, its bottom end
 SCHOOL_DOOR = (14, FRONT_Y)
 ASH_DOOR = (22, FRONT_Y)
 MUSEUM_DOOR = (30, FRONT_Y)
@@ -319,9 +321,11 @@ def ashcombe_events():
         R.page(later, conditions={"selfSwitchValid": True,
                                   "selfSwitchCh": "A"}, **page)]))
 
-    # 6: the church door, and the bell the lake says they took with them.
-    evs.append(R.event(6, "The Church", *CHURCH_DOOR,
-                       [R.page(church_pages(), **page)]))
+    # 6: the bell rope, and the bell the lake says they took with them. The
+    # rope's foot is the event's own picture (Outside_B `Rope`).
+    evs.append(R.event(6, "The Church", *CHURCH_ROPE, [R.page(
+        church_pages(), **dict(page, img=R.image(tile_id=ROPE_FOOT,
+                                                 pattern=0)))]))
 
     # 7: the school, which is very good.
     school = S.narrate([
@@ -373,6 +377,18 @@ def ashcombe_events():
         11, "Mrs Dimmock", DIMMOCK,
         R.image(*S.FACES["Mrs Dimmock"], direction=2), *dimmock_pages())))
     evs.append(q_spare.courier("ashcombe", 23, 22))                # SPA-1
+
+    # 13: the church door, which Mike hung on 23 October and which does not
+    # open. Nothing in the game is behind it.
+    shut = S.narrate([
+        "The church door is locked. A card is pinned to it:",
+        "\\C[6]SERVICE AT SIX. KEY WITH THE BELL.\\C[0]"])
+    shut += S.narrate([
+        "The bell is at the top of the tower. So, presumably,",
+        "is the key."])
+    evs.append(R.event(13, "The Church Door", *CHURCH_DOOR, [R.page(
+        shut, img=R.image("!Door1", 0, direction=2), trigger=0, priority=1,
+        direction_fix=True)]))
     return evs
 
 

@@ -29,10 +29,12 @@ from places import (MAP_WORLD, MAP_SOPPING, MAP_LIGHTHOUSE, MAP_PIT,
                     WORLD_HERMIT, WORLD_CRAB, WORLD_CAMP, WORLD_SIGN_COAST)
 
 PIT_W, PIT_H = 26, 24
-PIT_IN = (12, 20)
+PIT_IN = (12, 22)               # on the floor at the foot of the rope (Mike, 23 Oct)
+PIT_ROPE = (12, 21)             # the rope's foot; walked into, never stood on
 
 BARROW_W, BARROW_H = 30, 26
-BARROW_IN = (14, 22)
+HOUND_DISH = 814                # Inside_C `Beef Stew`, the hound's dish
+BARROW_IN = (14, 24)            # Mike moved the mouth to the map's edge, 23 Oct
 
 
 # ------------------------------------------------------ the events out there --
@@ -482,8 +484,10 @@ def pit_events():
         ["Yes", "No"],
         [[R.play_se("Move1"),
           R.transfer(MAP_WORLD, WORLD_PIT[0], WORLD_PIT[1] + 1, 2, 0)], []])
-    evs.append(R.event(1, "Up The Rope", PIT_IN[0], PIT_IN[1] + 1, [R.page(
-        out, img=R.image(""), trigger=1, priority=0, through=True)]))
+    # Same as characters, so it is the rope's foot that blocks: the party
+    # walks into it from the floor and cannot climb past it onto the wall.
+    evs.append(R.event(1, "Up The Rope", *PIT_ROPE, [R.page(
+        out, img=R.image(""), trigger=1, priority=1)]))
 
     # A pale board lying face up is `Notes B (V)`; nothing on the Dungeon
     # sheets is a painted board.
@@ -553,7 +557,7 @@ def pit_events():
         "", 0, extra=[S.trope()]))
 
     # NORTH.md 3.4, three of three, and the one that needs a cave to be in.
-    evs.append(S.specimen(8, "Something In The Crack", 21, 5, [
+    evs.append(S.specimen(8, "Something In The Crack", 19, 2, [
         "A crack in the wall, running back further",
         "than the lamp reaches.",
         "There is something asleep in it. It is not",
@@ -651,11 +655,16 @@ def barrow_events():
                        ["Found \\I[148]\\C[3]Plain Circlet\\C[0] and",
                         "\\I[185]\\C[3]Slightly Singed Feather x2\\C[0]."]))
 
-    evs.append(S.sign(5, "The Hound's Place", 21, 14, [
+    # Mike's alcove, set back into the wall (Entrance A over D), with the
+    # dish on the event: `Beef Stew`, from Inside_C.
+    evs.append(S.pin_note(S.sign(5, "The Hound's Place", 21, 12, [
         "A stone alcove with a dish in it, and a collar,",
         "and a name: BUDGE.",
         "Something is still using the alcove.",
-        "You have already met it, in the dark, twice."]))
+        "You have already met it, in the dark, twice."]), HOUND_DISH))
+    # The alcove's `Entrance D` is open ground, and a sign is walked through:
+    # this one blocks, so nobody climbs into the dog's bed.
+    evs[-1]["pages"][0]["through"] = False
 
     evs.append(forty_fourth(6, 14, 7))
     return evs
