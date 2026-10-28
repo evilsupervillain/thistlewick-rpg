@@ -33,7 +33,7 @@
     {"advance": 10},
 
     {"eval": "$gameSwitches.setValue(27, true)", "comment": "a Guild member (SW_GUILD_MEMBER), or the Barrow will not let you in"},
-    {"goto": [8, 68, 57]},
+    {"goto": [8, 76, 55]},
     {"key": "ArrowUp", "times": 1, "gap": 30},
     {"frames": 30},
     {"advance": 20},

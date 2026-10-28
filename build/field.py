@@ -33,7 +33,7 @@ import story as S
 from places import (CLANGING_GATE, MAP_CLANGING, MAP_WORLD, MAP_LONG_FIELD,
                     MAP_CRAG, WORLD_CLANGING, WORLD_LONG_FIELD, WORLD_CRAG,
                     WORLD_LONG_FIELD_STEP, WORLD_CRAG_STEP,
-                    WORLD_JUNCTION, WORLD_ISLE, WORLD_STACK, WORLD_MIDDLE,
+                    WORLD_JUNCTION, WORLD_ISLE, WORLD_STACK, WORLD_MIDDLE, WORLD_MIDDLE_BENCH,
                     WORLD_TOWER, WORLD_STONES)
 
 # `validate.py` reads this note off the finished data and asserts two things:
@@ -304,7 +304,7 @@ def the_bench(event_id):
         "put it up."])
     look += R.choice_block(["Sit on it", "Stand about"], [sit, []])
     return R.event(event_id, "The Middle Distance",
-                   WORLD_MIDDLE[0], WORLD_MIDDLE[1] + 2, [
+                   *WORLD_MIDDLE_BENCH, [
         R.page(look, img=R.image(""), trigger=1, priority=0, through=True)],
         note=AIR_ONLY_NOTE)
 

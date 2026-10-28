@@ -556,7 +556,7 @@ Ninian                The Copyist
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-169 constants.
+170 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -596,7 +596,7 @@ WORLD_SOPPING_STEP           (71, 83)
 WORLD_LIGHTHOUSE             (79, 80)
 WORLD_LIGHTHOUSE_STEP        (78, 80)
 WORLD_PIT                    (43, 70)
-WORLD_BARROW                 (68, 56)
+WORLD_BARROW                 (76, 54)
 WORLD_STONES                 (46, 53)
 WORLD_HERMIT                 (75, 64)
 WORLD_CRAB                   (55, 81)
@@ -623,6 +623,7 @@ WORLD_STACK                  (37, 40)
 WORLD_STACK_PAD              (39, 40)
 WORLD_MIDDLE                 (82, 65)
 WORLD_MIDDLE_PAD             (83, 66)
+WORLD_MIDDLE_BENCH           (82, 65)
 MAP_MEADOW                   28
 WORLD_MEADOW                 (55, 74)
 WORLD_MEADOW_STEP            (56, 74)

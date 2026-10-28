@@ -68,7 +68,7 @@ def main(map_id=941):
         return ts[0]
     ROCKS={'the Isle':[(55+i,83) for i in range(4)],
            "Attempt 112's stack":[(37+i,40) for i in range(3)],
-           'the Middle Distance':[(82+dx,65+dy) for dy in range(3) for dx in range(2)],
+           'the Middle Distance':[(82+dx,65+dy) for dy in range(3) for dx in range(2)]+[(84,66)],
            'The Former Premises':[(79,88),(80,88),(81,88)]}
     for name,cells in ROCKS.items():
         std=[c for c in cells if (flags(*c)&0x0F)==0]

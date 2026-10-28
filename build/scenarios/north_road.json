@@ -57,7 +57,7 @@
         41,
         44
       ],
-      "label": "the crag track reaches the wreck of the 199th"
+      "label": "the crag can still be walked to, with its track taken up"
     },
     {
       "eval": "$gamePlayer.locate(44, 50)"

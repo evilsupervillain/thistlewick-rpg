@@ -20,7 +20,7 @@
      "label": "though not the rock she came down on"},
     {"check": "$gameMap.isAirshipLandOk(83, 66)", "expect": true,
      "label": "and the Hermit's middle distance"},
-    {"check": "$gameMap.isAirshipLandOk(82, 65)", "expect": false,
+    {"check": "$gameMap.isAirshipLandOk(83, 65)", "expect": false,
      "label": "though not the hill on top of it"},
 
     {"key": "ArrowUp", "times": 1},
@@ -138,8 +138,8 @@
     {"frames": 120},
     {"check": "$gamePlayer.isInAirship()", "expect": false,
      "label": "the thing the Hermit has been looking at for nineteen years"},
-    {"key": "ArrowDown", "times": 1, "gap": 30},
     {"key": "ArrowLeft", "times": 1, "gap": 30},
+    {"key": "ArrowUp", "times": 1, "gap": 30},
     {"frames": 60},
     {"check": "$gameMap._interpreter.eventId()", "expect": 23,
      "label": "there is a bench on it, and it is nobody's, and it has no plaque"},

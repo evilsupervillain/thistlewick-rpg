@@ -133,6 +133,9 @@ Four things were true of the specification and are worth not rediscovering:
       round11.json    Mike's editor pass of 22 Oct 2026, every cell he changed
                       on all four tile layers; `run_finish.py` lays it after
                       `settle`, so his autotile shapes are kept as drawn
+      round12.json    his pass of 27 Oct 2026, laid the same way after it: the
+                      Barrow moved east to (76,54), the sea and the Middle
+                      Distance reshaped, the road to the Crag taken up
       worldmap.json   the finished map. **This is Map 8**: `journey.world_map`
                       loads it, so a rebuild of the game picks up whatever
                       `run_finish.py` last wrote. Never edited by hand

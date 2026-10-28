@@ -75,7 +75,7 @@ WORLD_SOPPING_STEP = (71, 83)   # was (36,45), one SOUTH; the spur is north now
 WORLD_LIGHTHOUSE = (79, 80)
 WORLD_LIGHTHOUSE_STEP = (78, 80)
 WORLD_PIT = (43, 70)            # was (8,35); the redraw buried it and it was dug out
-WORLD_BARROW = (68, 56)         # was (33,21)
+WORLD_BARROW = (76, 54)         # Mike moved it east, 27 Oct; was (68,56)
 
 # World-map curiosities: things to look at rather than places to go into.
 WORLD_STONES = (46, 53)         # was (11,18); the plaque, between the four rocks
@@ -136,8 +136,9 @@ WORLD_ISLE = (55, 83)           # the Isle of Uncertain Ownership: 4 tiles east
 WORLD_ISLE_PAD = (57, 83)       # the one square with nothing standing on it
 WORLD_STACK = (37, 40)          # Attempt 112, on its sea stack: 3 tiles east
 WORLD_STACK_PAD = (39, 40)
-WORLD_MIDDLE = (82, 65)         # the Hermit's middle distance: 2 by 3
+WORLD_MIDDLE = (82, 65)         # the Hermit's middle distance: 2 by 3, and (84,66)
 WORLD_MIDDLE_PAD = (83, 66)
+WORLD_MIDDLE_BENCH = (82, 65)   # Mike, 27 Oct: the top of the rock; was (82,67)
 
 # ------------------------------------------------------ Firstfield Meadow --
 # The optional tutorial, `meadow.py`. The rainbow stands on the grass west of

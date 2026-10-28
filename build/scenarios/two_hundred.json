@@ -7,8 +7,8 @@
     {"check": "$gameMap.airship()._mapId", "expect": 0,
      "label": "and the Two Hundred is on map 0, which is nowhere"},
 
-    {"key": "ArrowUp", "times": 5},
-    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [12, 11],
+    {"key": "ArrowUp", "times": 3, "gap": 30},
+    {"check": "[$gamePlayer.x, $gamePlayer.y]", "expect": [12, 13],
      "label": "the gap amidships is walkable, and walking into it says something"},
     {"advance": 12},
     {"check": "$gameSwitches.value(48)", "expect": false,

@@ -28,15 +28,15 @@
       "label": "and nothing is still called Village 1"
     },
     {
-      "comment": "The air-only events, asserted off the data: validate.py proves none of them can be walked to. The Former Premises' two are real doors now and not placeholders, and they still carry the note - drop it from a real door and validate.py silently stops making that assertion, which is SITES.md section 1's first trap.",
+      "comment": "The air-only events, asserted off the data: validate.py proves none of them can be walked to. The Former Premises' door is real now and not a placeholder, and it and the retired second one still carry the note - drop it from a real door and validate.py silently stops making that assertion, which is SITES.md section 1's first trap.",
       "check": "$dataMap.events.filter(e => e && (e.note||'').indexOf('<aironly>') >= 0).length",
       "expect": 6,
       "label": "six <aironly> events: the Isle's two, Attempt 112, the Middle Distance, and the Former Premises' two real doors"
     },
     {
       "check": "$dataMap.events.filter(e => e && e.name === 'The Former Premises' && (e.note||'').indexOf('<aironly>') >= 0 && (e.note||'').indexOf('-site') < 0 && e.pages[0].list.length > 1).length",
-      "expect": 2,
-      "label": "and those two are the real doors, with commands, and not placeholders"
+      "expect": 1,
+      "label": "and one of them is the real door, with commands, and not a placeholder (the second was retired on 17 Oct and keeps its id)"
     }
   ]
 }

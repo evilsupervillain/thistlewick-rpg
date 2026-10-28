@@ -701,8 +701,9 @@ def works_map():
 # conversations with the chief engineer is the cheapest honest way to spend
 # that time. She does not hand the fourth generation of the experiment to
 # somebody who has said hello.
-CHALK_LINE = (12, 11)           # the gap amidships, between the two runs of
-                                # frame; the player walks up the shed through it
+CHALK_LINE = (12, 13)           # the gap in the painted line across the shed
+                                # floor; the player walks up the shed through it
+                                # (Mike's rearrangement, 27 Oct; was (12, 11))
 
 
 def _still_wants(indent=0):
@@ -1148,6 +1149,13 @@ def attempt_200():
                     "switch1Id": db.SW_TWO_HUNDRED_FLEW})]
 
 
+DRAWINGS = [
+    "Drawings, pinned four deep.",
+    "The one on top is this spring's main spar.",
+    "The one under it is last spring's main spar,",
+    "with one dimension crossed out and redrawn."]
+
+
 def works_events():
     evs = [way_out(MAP_WORKS, "Works Door")]
 
@@ -1257,7 +1265,7 @@ def works_events():
 
     # -- 3: Nib, the fortieth apprentice
     evs.append(q_nix.returned("nib", talker(                       # NIX-4
-        3, "Nib", 16, 10, "Nib",
+        3, "Nib", 15, 10, "Nib",
         S.say("Nib", [
             "I am the apprentice.",
             "There has been an apprentice here",
@@ -1275,7 +1283,7 @@ def works_events():
 
     # -- 4: the Two Hundred, in frame. The airship itself is section 5; what
     # is here is the shape of it and the chalk line, which is the town.
-    evs.append(S.sign(4, "The Two Hundred", 11, 11, [
+    evs.append(S.sign(4, "The Two Hundred", 11, 14, [
         "The Two Hundred, in frame.",
         "There is a great deal of her, and most of it",
         "is air, and the air is not in anything yet.",
@@ -1303,11 +1311,7 @@ def works_events():
     evs.append(log)
 
     # -- 6: the drawings
-    evs.append(S.sign(6, "The Drawings", 7, 3, [
-        "Drawings, pinned four deep.",
-        "The one on top is this spring's main spar.",
-        "The one under it is last spring's main spar,",
-        "with one dimension crossed out and redrawn."]))
+    evs.append(S.sign(6, "The Drawings", 7, 3, DRAWINGS))
 
     # -- 7: the chalk line amidships, which is where the quest is asked for
     evs.append(chalk_line(7))
@@ -1337,7 +1341,7 @@ def works_events():
     ])
     t_sheet, t_index = S.FACES["Tappet"]
     evs.append(talker(
-        9, "Tappet Cotterill", 14, 13, "Tappet",
+        9, "Tappet Cotterill", 14, 14, "Tappet",
         S.say("Tappet", [
             "Castings. Six crates.",
             "Where do you want them?",
@@ -1365,7 +1369,12 @@ def works_events():
                                   "switch1Id": db.SW_AIRSHIP,
                                   "selfSwitchValid": True,
                                   "selfSwitchCh": "A"})]))
-    evs.append(q_spare.dinner_hour(10, 12, 13))                    # F2
+    evs.append(q_spare.dinner_hour(10, 13, 14))                    # F2
+
+    # -- 11, 12: the drawings again. Mike widened the board to three cells
+    # (27 Oct), so it answers from all three; the same words as 6.
+    evs.append(S.sign(11, "The Drawings", 8, 3, DRAWINGS))
+    evs.append(S.sign(12, "The Drawings", 9, 3, DRAWINGS))
     return evs
 
 

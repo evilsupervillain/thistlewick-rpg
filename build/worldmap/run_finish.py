@@ -29,6 +29,7 @@ import rmmzdata as R                                           # noqa: E402
 GENERATED = os.path.join(HERE, 'generated.json')
 OUT = os.path.join(HERE, 'worldmap.json')
 ROUND11 = os.path.join(HERE, 'round11.json')
+ROUND12 = os.path.join(HERE, 'round12.json')
 
 # The Former Premises: the castle row of Mike's floating island, the two cells
 # an airship sets down on. Named up here because `sink_islets` has to be told
@@ -537,6 +538,8 @@ def main(argv):
     # layer 1 is autotiled terrain that differs almost everywhere on purpose,
     # so a diff of it reports the whole new world. The rocks are checked by
     # name in `review.py` instead.
+    # Round twelve (below) reshapes it again by hand: hills at (83,65) and
+    # (84,66), five cells of grass, the bench on (82,65).
     for c in [o(47, 30), o(48, 30)]:
         if w.relief(*c) is None:
             print("Middle Distance: hill restored at %s" % (c,))
@@ -580,9 +583,21 @@ def main(argv):
             w.g.set(x, y, z, t)
     print("Mike's round eleven: %d cells" % len(round11))
 
+    # Mike's round twelve (27 Oct 2026), laid the same way: the Barrow moved
+    # east to (76,54), more or less north of the Middle Distance; the sea
+    # brought up round the Middle Distance, which is reshaped; and the road
+    # to the Crag taken up, because the Crag is a wreck, not a destination.
+    with open(ROUND12) as f:
+        round12 = json.load(f)
+    for x, y, tiles in round12:
+        for z, t in enumerate(tiles):
+            w.g.set(x, y, z, t)
+    print("Mike's round twelve: %d cells" % len(round12))
+
     quiet = ([(55 + i, 83) for i in range(4)]            # the Isle
              + [(37 + i, 40) for i in range(3)]          # Attempt 112's stack
              + [(82 + dx, 65 + dy) for dy in range(3) for dx in range(2)]
+             + [(84, 66)]                                # round twelve's hill
              + sorted(ISLAND))                           # and the castle in the sky
     counts = F.paint_regions(w, spine, quiet=quiet)
     print("regions painted: %s" % ", ".join(
@@ -592,7 +607,7 @@ def main(argv):
     print("encounter entries widened to snow and desert: %d"
           % F.point_at(w, F.REG_NORTH, (F.REG_SNOW, F.REG_DESERT)))
 
-    w.save(settle=False)                # keeps round eleven's shapes
+    w.save(settle=False)                # keeps rounds eleven and twelve's shapes
     print("wrote %s" % OUT)
 
     if '--stage' in argv:
