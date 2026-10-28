@@ -4496,22 +4496,146 @@ visitors' book (0) is the same too, with new pages appended after them.
 * **Looked at**: the Hall after the ending with the lectern by the door,
   Quy's cottage, and the Premises.
 
+**P4d, the lamp, the Door and the Stair, done** (28 Oct 2026). `POSTGAME.md`
+9 and 10, everything except the bottom, which is P4e. All of it is in
+`build/mountain.py`, with `js/plugins/TOQ_Mountain.js` as the engine side. No
+published line changed. Every old page of Sir Dunstable (Map 33 event 4), the
+Door (event 6) and the world map's door is byte for byte what it was, with new
+pages appended. The one old page that grew is P4c's lectern, through
+`amended_lines()`, which was always where these lines were meant to go.
+
+* **The lamp** (item 75, "The Lamp (Borrowed)", a key item). Dunstable's page
+  2 is on `SW_WON`. If he has not been met, it is his introduction first,
+  which is now `hithermost.dunstable_intro()` and shared with page 0. Then
+  the loan: "He does not say which quarter past four." It sets self switch B.
+  Page 3, afterwards, is the loan repeated. On `SW_CONTINUED` he adds "Came
+  in by the porch, did you?"
+* **The Door into the Mountain** gets two pages after its published refusal:
+  one with the lamp, and one with the lamp plus `SW_STAIR_IN` ("again"). Both
+  set `SW_STAIR_IN` and transfer to Map 73 (19,2). The world map's door gets
+  the same pages.
+* **The Stair** (Maps 73-77, `places.MAP_STAIR`: "The Stair", "- Further
+  Down", "- Half Way", "- Still Going", "- D. 212").
+  * Each map is a hand-written plan in `mountain.PLANS`, drawn by `_plan()`
+    in the Dungeon rock-cave family: ragged galleries, oval pools and holes,
+    seeded dark-floor blobs, and a reach pass that reverts rock until every
+    mark and way is walkable. Flights are a5 treads, which only move
+    vertically. `mountain.check_plans()` asserts the reach.
+  * The map notes carry `<lamplight>` and `<continuance>` in place of the
+    switch POSTGAME.md proposed, so leaving cannot leave either on.
+  * The plugin draws the dark at 0.94 with a flickering soft hole round the
+    player. The hole is radius 84 inside and 210 outside.
+* **Dunstable's chalk marks** (`MARKS`, 24 of them, from D. 1 to D. 212, with
+  D. 61 the tea). They are frames of `!Chalk`, which `mountain.draw_art()`
+  writes along with `!$Half_Way`, the carved HALF WAY with "NOT." chalked
+  under it.
+  * The tea is a cup on its saucer on Map 74: "It is still warm. Nobody is
+    drinking it."
+  * D. 212, on Map 77, has a second page: "Below it, nothing."
+  * Map 77's way down says "You turn back. Not yet." That is P4e's door.
+* **The Schedule of Hazards** (the notice inside the Door). Its five items
+  are the five new enemies, 60-64:
+  * The Dark (Some Of It)
+  * The Draught, whose skill is "Puts the Lamp Out"
+  * The Echo
+  * Somebody Coming Up
+  * The Half-Way Warden
+
+  Troops are 55-60, one encounter every 30 steps, deeper ones further down,
+  with battleback RockCave and BGM Dungeon3. Balanced for level 20, these are
+  the hardest regular fights in the game: a group is 4,400-6,000 HP and about
+  two turns, and Somebody Coming Up one-shots a level-15 Spare.
+* **The warden** (Map 75, blocks (35,24); `Monster` index 3). It has three
+  pages:
+  * the first speech plus the fight (self switch A);
+  * "You again" plus the fight;
+  * gone, on `SW_WARDEN`.
+
+  Winning sets `SW_WARDEN`, and it is then sitting at (37,22). The fight is
+  can-lose, and its lose branch calls common event 7.
+* **Continuance** (common event 7, `CE_CONTINUANCE`, plugin parameters
+  34/7/13).
+  * A lost random battle on a `<continuance>` map is not Game Over.
+    `BattleManager.processDefeat` sets can-lose, and the party comes back in
+    through the chapel porch. `Scene_Map.checkGameover` has the same rule for
+    any death on the map.
+  * The common event recovers everyone and says "You come back in through
+    the porch." If the Book has been signed, it adds Brother Quillon's
+    enormous tact. The first time, it pays a trope and sets `SW_CONTINUED`.
+* **The account**: `mountain.account_lines()`, three `if_then` lines, on
+  `SW_STAIR_IN`, `SW_WARDEN` and `SW_CONTINUED`.
+* **Ids**:
+  * item 75;
+  * switches 219-221 (`SW_STAIR_IN`, `SW_CONTINUED`, `SW_WARDEN`);
+  * common event 7;
+  * skills 185-190;
+  * enemies 60-64;
+  * troops 55-60 (59 is the warden's fight only);
+  * maps 73-77.
+* **Tally**: three new trope sites, each paid once: the warden's first
+  speech, D. 212 and the first continuance. A fourth, Dunstable's
+  introduction when he is first met after the ending, is the same trope as
+  his old one and pays once. That is **+3 reachable** for G1's re-cut. No
+  blushes. Nothing new for `TIMELINE.md`. Dunstable's dates are in days,
+  and nothing here says whether he is alive.
+* **Scenarios**:
+  * **`pg_mountain`, new, 26 checks.** It covers:
+    * before and after the ending, the introduction and the loan;
+    * the Door going in;
+    * the lamplight and continuance meta;
+    * the schedule;
+    * a flight walked on foot;
+    * D. 2, and maps 74 and back;
+    * the warden stopping you, and losing to it: the porch, restored, the
+      trope and `SW_CONTINUED`, with no Quillon line for a party that never
+      signed;
+    * Dunstable's porch line;
+    * "You again", with no second trope;
+    * winning, and the warden out of the flight;
+    * a lost random encounter coming back the same way, with Quillon this
+      time and no second trope;
+    * D. 212 and the turn back;
+    * a battle lost on the world map still being Game Over.
+
+    It found the one real bug of the step: the plugin reserved the porch's
+    common event *before* calling the engine's `processDefeat`, which ends
+    in `endBattle`, which clears every common event reservation. A lost
+    random fight put the party on the porch at 1 HP and nothing ran. The
+    reservation now goes after. (The warden's loss never showed it: its lose
+    branch calls the common event itself.)
+
+    It auto-advances messages through a patched `Window_Message.
+    isTriggered`, and kills a party with `addState(1)` rather than `die()`,
+    because `die()` adds no death state and `checkBattleEnd` then never ends
+    the battle.
+  * **`pg_account`, extended to 27 checks**: the bare account says nothing
+    of the Stair, and the three lines come after the tea and before clause
+    twelve, in order.
+  * **Rerun**: `hithermost`.
+* **Looked at**:
+  * all five maps stitched, with the dark hidden;
+  * the Door, the tea, Half Way, the warden and D. 212 with the lamp lit.
+
 ---
 
 ## Restart prompt
 
-**Start with P4d** (`POSTGAME.md` sections 9 and 10): the Mountain - Sir
-Dunstable's lamp and the Door first, then the Stair, the continuance
-override and the bottom, probably over two sessions. **P4a, P4b and P4c are
-done** (the last three Done paragraphs in section 3). The finale hands back
+**Start with P4e** (`POSTGAME.md` section 9's bottom, "Something
+Unscheduled"): Map 78 on, through Map 77's way down, which today says "You
+turn back. Not yet." (`mountain._ways`, the "d" on plan 4). **P4a-P4d are
+done** (the last four Done paragraphs in section 3). The finale hands back
 to Bram's house; Thistlewick, the pension, Fitch's cottage (Map 71) and
 Roland are built; Prophecy Hall's lectern reads the tally again as "THE
-OBLIGATORY QUEST, as amended" from `journey.tally(amended=True)`, Quy has his
-afternoon and Hollowell his notice. **A line about the lamp or the Stair for
-the account goes in `postgame.amended_lines()`**, which only the lectern
-reads. Then G0 and G1. G0, the quest log,
+OBLIGATORY QUEST, as amended"; Quy has his afternoon and Hollowell his
+notice; Sir Dunstable lends the lamp, and the Door opens onto the Stair
+(Maps 73-77, `mountain.py`, `js/plugins/TOQ_Mountain.js`). **A new Stair map
+gets `mountain.NOTE`** (`<lamplight>` and `<continuance>`), so it is dark and
+a lost fight goes back to the porch for free; a scripted fight on it is
+can-lose with its lose branch calling common event 7, the way `_warden` does.
+The bottom's line for the account goes in `mountain.account_lines()`. Do not
+settle whether Dunstable is alive, or anything about the spine. Then G0 and G1. G0, the quest log,
 follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct);
-`apidigest.py --check` passes as of P4c, so `build/API.md` already has
+`apidigest.py --check` passes as of P4d, so `build/API.md` already has
 `rmmzdata.read_plugins`/`write_plugins`/`upsert_plugin`. Last come G1's counter re-cuts,
 the one full suite, Mike's playthrough, and the push. Settled 28 Oct: the
 three P4a tally lines stand; buffs and debuffs carry their turns in value1
@@ -4519,9 +4643,9 @@ three P4a tally lines stand; buffs and debuffs carry their turns in value1
 answer. For G1's re-cut: nine `S.prop(..., extra=[S.trope()])` props (four
 in `south.py`, four in `village.py`, one in `wilds.py`) bump the trope on
 **every** reading, not once - fix them with a self-switch guard before
-counting. Next free:
-switch 219, variable 33, item 75 (the lamp), weapon 44, armour 49, common event
-7, map 72, state 45, `Gen_People16` 2. Anything that runs the finale's list
+counting. Trope sites to add to the re-cut: P4d's three (+3 reachable). Next free:
+switch 222, variable 33, item 77, weapon 44, armour 49, common event 8, map
+78, state 45, enemy 65, troop 61, skill 191, `Gen_People16` 2. Anything that runs the finale's list
 directly must skip 201 as well as 354. A post-game page on a ladder that
 cannot be waited on goes through `postgame._owing`.
 
@@ -4552,12 +4676,13 @@ byte. `validate.py`, and `apidigest.py . --write`. The finale's own scenario,
 then the suite.
 
 Where things stand: tropes **+51 fixed** and 2-9 from PIP-2; blushes **+13
-fixed** and 0-1 from PIP-2 - the totals G1 re-cuts against. Next free: switch
-214, variable 33 (`build_game.py` sizes the list at 33, so **the next
-variable needs it grown**), item 75, weapon 44, armour 49, armour type 15,
-weapon type 14, element 11, class 13, common event 7, state 45 (past the
-40-44 block, which P1 filled), enemy 60,
-troop 55, skill 185, map 71, `Gen_People16` 2. Spare is actor 11; his story
+fixed** and 0-1 from PIP-2 - the totals G1 re-cuts against, plus the
+post-game's own (P4d's three tropes, and whatever P4e adds). Next free (as of
+P4d): switch 222, variable 33 (`build_game.py` sizes the list at 33, so **the
+next variable needs it grown**), item 77, weapon 44, armour 49, armour type
+15, weapon type 14, element 11, class 13, common event 8, state 45 (past the
+40-44 block, which P1 filled), enemy 65,
+troop 61, skill 191, map 78, `Gen_People16` 2. Spare is actor 11; his story
 switch is 110 and is on after F2. Cotter (Map 61 event 12) has six pages now;
 Map 70 is the culvert.
 

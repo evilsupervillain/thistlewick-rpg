@@ -171,6 +171,24 @@ readings get it. `SW_VISITORS_BOOK` still means "signed at the top": after
 the ending Hollowell's tour stops short of the slip and gives the notice of
 termination instead (`postgame.hollowell_pages`).
 
+**P4d opened the Door into the Mountain** (`mountain.py`, Maps 73-77). After
+the ending Sir Dunstable lends the lamp (item 75; his pages 2-3, Map 34 event
+4, self switch B) and the Door - on Hithermost's map and on the world map -
+has a page on the item after its published refusal. Behind it is the Stair,
+five maps of rock cave, each a plan of boxes in `mountain.PLANS` that
+`check_plans` floods before the build is allowed to write it. **Two things
+are switched by tags in a map's note, not by switches**, so leaving cannot
+forget to turn them off: `<lamplight>`, the dark with a circle of light round
+the party, and `<continuance>`, a random encounter lost there sending the
+party back in through the chapel porch instead of to Game Over. Both are
+`js/plugins/TOQ_Mountain.js`, the game's own plugin, registered by
+`build_game.py` with `rmmzdata.upsert_plugin`; the porch is **common event
+7**, `mountain.continuance()`, which a scripted fight's lose branch calls
+itself (the warden's does). Only a battle with no event behind it is
+overridden. Dunstable's chalk marks are `!Chalk`, one numbered frame per mark,
+and `!$Half_Way` the carving - `python3 build/mountain.py` redraws both. The
+bottom of the Stair is P4e's: until then, past D. 212 the party turns back.
+
 Anything that runs the finale's list directly must skip code **201** as well
 as 354, or the run lands in Bram's house. Both harnesses (`finale_ending`'s
 `SKIP_SLOW` and `premises`') do.
@@ -360,6 +378,10 @@ in each of the four states.
                      like `penultima.py`. **Touches the spine**: the horse in
                      the margin sits beside clause twelve, and the game never
                      says why; the docstring says what it may not contradict
+      mountain.py    Maps 73-77: the Stair behind the Door into the Mountain
+                     (P4d) - five plans of rock cave, Dunstable's chalk marks
+                     and the art for them, the warden, the porch (common event
+                     7), and the lamp and Door pages `hithermost.py` appends
       penultima.py   Maps 29-30: Penultima and Ye Final Shoppe, and the
                      **real** door events on Map 8 that replace the two
                      placeholders worldmap.json ships for that site. It is the
@@ -438,7 +460,14 @@ Append instead.
   letter is Map 2 event 8, the frame and the minute book Map 3 events 13-14.
   P4c: the amended account is Map 3 event 15; Quy's afternoon is his pages
   3-5 (Map 17 event 2, self switch B) and Hollowell's notice his pages 2-3
-  (Map 42 event 2, self switch B), with the visitors' book's page 1 |
+  (Map 42 event 2, self switch B), with the visitors' book's page 1.
+  P4d: **item 75** The Lamp (Borrowed); **switches 219-221** through the
+  Door, back in through the porch, the warden told; **common event 7** the
+  porch; **Enemies 60-64** the Stair's scheduled hazards, **Troops 55-60**
+  (59 is the warden, met, not random; 60 runs one past the companion block),
+  **Skills 185-190**; Dunstable's pages 2-3 (Map 34 event 4, self switch B),
+  the Door's pages 1-2 (Map 33 event 6, and its world-map event); **Maps
+  73-77** |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -591,6 +620,12 @@ Append instead.
   `places.MAP_WYVERN_UP`. In and out by the stairs in the bar's north-east
   corner, `places.WYVERN_STAIRS` - Mike's, and the model for any other
   staircase (`../TILES-AND-ASSETS.md`) |
+| Maps 73-77 | The Stair, behind the Door into the Mountain (P4d): `mountain.py`,
+  `places.MAP_STAIR`, children of Hithermost in the tree. Rock cave on the
+  Dungeon tileset, one map a few hundred feet of descent, each in by a flight
+  at the top and out by one at the bottom. Their notes carry `<lamplight>` and
+  `<continuance>`. In by the Door with the lamp to (19, 2) on Map 73; out at
+  the top to `mountain.DOOR_STEP` on Hithermost. Map 77's way down is P4e's |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -1040,7 +1075,18 @@ makes eight passes over it cost less than the single pass did before.
   there after it; every line of the finale's tally, read out of Map 12's data,
   in the amended account; walked to and read bare, then with each switched
   line, in order; Quy's afternoon both ways in, with and without the cup, and
-  the pot next door; Hollowell's notice both ways in, and the signed book |
+  the pot next door; Hollowell's notice both ways in, and the signed book; and (P4d) the
+  Stair's three lines, absent bare and between the tea and clause twelve |
+| `pg_mountain` | `POSTGAME.md` P4d: Sir Dunstable before and after the ending,
+  never met (introduced, the trope, the lamp) and again; the Door with the
+  lamp, in, in the dark but for it; the schedule; the first flight on foot,
+  D. 2, down one map and back up; **the warden lost**, which is back through
+  the porch restored with the lamp and no Quillon beat unsigned, and
+  Dunstable knowing it; the warden won and out of the way; **a random
+  encounter lost on the Stair** with the Book signed; D. 212 and past it;
+  and **a battle lost on the world map still Game Over**. Its message window
+  auto-advances (`_auto`) through speeches that end in a battle, which
+  `advance` cannot do without playing the battle |
 | `pg_roland` | `POSTGAME.md` P4b, Roland: he leaves at the door with nothing
   on and the door is then its own page; after the ending, rehired at his
   table in his own shield and shirt, struck off and back, up the tower and

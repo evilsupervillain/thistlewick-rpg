@@ -463,3 +463,10 @@ WYVERN_STAIRS_UP = 5            # the bar: the flight's middle row, going up
 WYVERN_STAIRS_FOOT = 7          # the bar's floor row below the flight
 WYVERN_STAIRS_DOWN = 6          # upstairs: the stairwell's top row
 WYVERN_UP_LANDING = 5           # upstairs, the row above the stairwell
+
+# P4d (POSTGAME.md 9): the Stair, behind the Door into the Mountain at the top
+# of Hithermost. Five maps going down, drawn by `mountain.py`, each of them
+# dark but for the lamp and none of them Game Over (their notes carry
+# `<lamplight>` and `<continuance>`, read by `js/plugins/TOQ_Mountain.js`).
+# The bottom is P4e's, and is not here yet.
+MAP_STAIR = (73, 74, 75, 76, 77)

@@ -45,6 +45,7 @@ import fenmarch  # noqa: E402
 import collegium  # noqa: E402
 import dunnage  # noqa: E402
 import pottering  # noqa: E402
+import mountain  # noqa: E402
 import nomap  # noqa: E402,F401  world-map events only; journey reads SITES
 import places  # noqa: E402
 import q_corvin  # noqa: E402  draws COR-2's drowned street, Map 66
@@ -122,6 +123,8 @@ MAP_NAMES = [
     (places.MAP_CULVERT, "The Bottom Lock", dunnage.MAP_DUNNAGE),
     (places.MAP_DROWNED_STREET, "Old Ashcombe", journey.MAP_WORLD),
     (places.MAP_CARN_DREY, "Under Carn Drey", journey.MAP_WORLD),
+    ] + [(map_id, name, hithermost.MAP_HITHERMOST)
+         for map_id, name in zip(places.MAP_STAIR, mountain.NAMES)] + [
     (places.MAP_POTTERING, "Much Pottering", journey.MAP_WORLD),
     (places.MAP_POTTERING_IN, "The Gotobeds' Cottage", places.MAP_POTTERING),
     (south.MAP_SOPPING, "Nether Sopping", 0),
@@ -939,7 +942,10 @@ def build_system():
             (db.SW_COTTAGE_SEEN, "P4: been in Ambrose Fitch's cottage"),
             (db.SW_ROLAND_BACK, "P4: Roland rehired after the ending"),
             (db.SW_ROL5_LATE, "ROL-5: told after the ending"),
-            (db.SW_DRAWN_LEFT, "ROL-2: the drawn sword handed on")]:
+            (db.SW_DRAWN_LEFT, "ROL-2: the drawn sword handed on"),
+            (db.SW_STAIR_IN, "P4d: through the Door into the Mountain"),
+            (db.SW_CONTINUED, "P4d: back in through the chapel porch"),
+            (db.SW_WARDEN, "P4d: the warden told it is not half way")]:
         switches[sid] = name
 
     variables = [""] * 33
@@ -1053,6 +1059,7 @@ def main():
     q_roland.build()                    # ROL-2's dungeon under Carn Drey
     pottering.build()                   # SPA-4's village, Maps 68-69
     q_spare.build()                     # SPA-2's culvert, Map 70
+    mountain.build()                    # P4d: the Stair, Maps 73-77
     q_spare.check_couriers()            # F2's courier ids are the towns'
     lay_frozen()
     new_tables()
@@ -1064,6 +1071,13 @@ def main():
     check_wide_pieces()
     build_map_infos()
     build_system()
+    # P4d: the Stair's lamplight and continuance (POSTGAME.md 9).
+    R.upsert_plugin(GAME, "TOQ_Mountain",
+                    "The Stair under the mountain: a circle of lamplight, "
+                    "and no Game Over.",
+                    {"commonEvent": str(db.CE_CONTINUANCE),
+                     "mapId": str(places.MAP_CONTINUANCE),
+                     "x": str(mountain.PORCH[0]), "y": str(mountain.PORCH[1])})
 
     print("built The Obligatory Quest")
     print("  %d maps, %d playable characters, %d skills"

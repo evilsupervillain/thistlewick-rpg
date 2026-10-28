@@ -1,0 +1,589 @@
+{
+ "query": "?map=34&x=7&y=12&frames=90",
+ "comment": "POSTGAME.md P4d, the lamp, the Door and the Stair. Sir Dunstable before and after the ending: never met, introduced and the lamp lent (trope); again, in no hurry. The Door with the lamp: in, at the top of the Stair, in the dark but for the lamp. The schedule. The first flight walked on foot; D. 2. Down off one map onto the next and back up. The warden: lost, which is back in through the porch restored with the lamp (the trope, and no Quillon beat unsigned), Dunstable knowing it; then won, out of the way. A random encounter lost on the Stair with the Book signed: the porch, and Quillon not looking up. D. 212 and its trope; past it, not yet. And a battle lost on the world map is still Game Over.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._lines = []; window._tropes = $gameVariables.value(2); }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._dt = () => $gameVariables.value(2) - window._tropes;"
+  },
+  {
+   "eval": "window._auto = false; const t = Window_Message.prototype.isTriggered; Window_Message.prototype.isTriggered = function () { return window._auto || t.call(this); };"
+  },
+  {
+   "check": "[$gameMap.mapId(), $gameMap.event(4).findProperPageIndex(), $gameParty.hasItem($dataItems[75])]",
+   "expect": [
+    34,
+    0,
+    false
+   ],
+   "label": "before the ending: Sir Dunstable is his first page, and nobody has the lamp"
+  },
+  {
+   "check": "!!(SceneManager._scene._spriteset._lamplight && !SceneManager._scene._spriteset._lamplight.visible)",
+   "expect": true,
+   "label": "no lamplight in the chapel"
+  },
+  {
+   "eval": "$gameSwitches.setValue(5, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 2,
+   "label": "after it, he has a page with the lamp on it"
+  },
+  {
+   "goto": [
+    34,
+    5,
+    13
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8); window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 4,
+   "label": "walked up to him and spoke"
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has('Dunstable. Sir. Of the Vale.'), window._has(\"Then you'll want the lamp.\"), window._has('which quarter past four'), $gameParty.hasItem($dataItems[75]), $gameSelfSwitches.value([34, 4, 'A']), $gameSelfSwitches.value([34, 4, 'B']), window._dt()]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    1
+   ],
+   "label": "never met: introduced (and the trope), then the lamp, lent"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[$gameMap.event(4).findProperPageIndex(), window._has('Lamp all right?'), window._has('Came in by the porch'), window._dt()]",
+   "expect": [
+    3,
+    true,
+    false,
+    0
+   ],
+   "label": "again: in no hurry for it"
+  },
+  {
+   "goto": [
+    33,
+    17,
+    6
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap.event(6).findProperPageIndex()",
+   "expect": 1,
+   "label": "the Door has a page for a party with a lamp"
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowUp"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "advance": 40
+  },
+  {
+   "until": "$gameMap.mapId() === 73 && !$gamePlayer.isTransferring()",
+   "frames": 900
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gameSwitches.value(219), window._has('You have a lamp.')]",
+   "expect": [
+    73,
+    19,
+    2,
+    true,
+    true
+   ],
+   "label": "walked into the Door with the lamp: in, at the top of the Stair"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[SceneManager._scene._spriteset._lamplight.visible, $dataMap.meta.continuance]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "dark but for the lamp, and continuance on"
+  },
+  {
+   "goto": [
+    73,
+    18,
+    2
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8); window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('SCHEDULE OF HAZARDS'), window._has('NOT ANTICIPATED'), window._has('All present and correct')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "the schedule, item six included"
+  },
+  {
+   "goto": [
+    73,
+    19,
+    2
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "key": "ArrowDown",
+   "times": 9,
+   "gap": 30
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y]",
+   "expect": [
+    19,
+    11
+   ],
+   "label": "down the first flight on foot"
+  },
+  {
+   "goto": [
+    73,
+    14,
+    11
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8); window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('D. 2. Bit further.'), $gameMap.event($gameMap.eventIdXy(14, 10)).characterName()]",
+   "expect": [
+    true,
+    "!Chalk"
+   ],
+   "label": "D. 2, chalked on the wall above the hall"
+  },
+  {
+   "goto": [
+    73,
+    31,
+    45
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "key": "ArrowDown"
+  },
+  {
+   "until": "$gameMap.mapId() === 74 && !$gamePlayer.isTransferring()",
+   "frames": 900
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    31,
+    2,
+    2
+   ],
+   "label": "down off the bottom of the first map onto the second"
+  },
+  {
+   "key": "ArrowUp"
+  },
+  {
+   "until": "$gameMap.mapId() === 73 && !$gamePlayer.isTransferring()",
+   "frames": 900
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+   "expect": [
+    31,
+    45,
+    8
+   ],
+   "label": "and back up onto the first"
+  },
+  {
+   "goto": [
+    75,
+    35,
+    23
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark(); $gameParty.members().forEach(a => a.setHp(1)); window._auto = true"
+  },
+  {
+   "key": "ArrowDown"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Battle'",
+   "frames": 4000
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "check": "[$gameTroop.troop().id, window._has('HALT. HALF WAY.'), window._dt()]",
+   "expect": [
+    59,
+    true,
+    1
+   ],
+   "label": "the warden stops you, and the fight is the warden"
+  },
+  {
+   "eval": "$gameParty.members().forEach(a => a.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "$gameMap.mapId() === 34 && !$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 3000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gameParty.members().every(a => a.hp === a.mhp), $gameParty.hasItem($dataItems[75]), $gameSwitches.value(220), window._has('You come back in through the porch.'), window._has('enormous tact'), window._dt()]",
+   "expect": [
+    34,
+    7,
+    13,
+    true,
+    true,
+    true,
+    true,
+    false,
+    2
+   ],
+   "label": "lost to the warden: back in through the porch, restored, with the lamp; never signed, so nobody looks up"
+  },
+  {
+   "check": "$gameMap.event(4).findProperPageIndex()",
+   "expect": 3,
+   "label": "Sir Dunstable still has the lamp out"
+  },
+  {
+   "goto": [
+    34,
+    5,
+    13
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8); window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "window._has('Came in by the porch, did you?')",
+   "expect": true,
+   "label": "and knows how you came in"
+  },
+  {
+   "goto": [
+    75,
+    35,
+    23
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark(); window._auto = true"
+  },
+  {
+   "key": "ArrowDown"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Battle'",
+   "frames": 4000
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "check": "[window._has('You again.'), window._has('HALT. HALF WAY.'), window._dt()]",
+   "expect": [
+    true,
+    false,
+    0
+   ],
+   "label": "second time: 'You again', and no second trope"
+  },
+  {
+   "eval": "$gameTroop.members().forEach(e => e.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "$gameMap.mapId() === 75 && !$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 3000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "check": "[$gameSwitches.value(221), window._has('reconsidering a great many things'), $gameMap.event($gameMap.eventIdXy(35, 24)).findProperPageIndex()]",
+   "expect": [
+    true,
+    true,
+    2
+   ],
+   "label": "beaten: told it is not half way"
+  },
+  {
+   "check": "[$gamePlayer.canPass(35, 23, 2)]",
+   "expect": [
+    true
+   ],
+   "label": "and out of the way of the flight"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([34, 2, 'A'], true)"
+  },
+  {
+   "goto": [
+    76,
+    22,
+    2
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark(); BattleManager.setup(57, true, false); $gamePlayer.makeEncounterCount(); SceneManager.push(Scene_Battle); window._auto = true"
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "eval": "$gameParty.members().forEach(a => a.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "$gameMap.mapId() === 34 && window._has('You come back in through the porch.') && !$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 3000,
+   "comment": "the porch is a reserved common event: it starts on the map's first update after the transfer, so wait for its line, not for the map"
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "check": "[SceneManager._scene.constructor.name, $gamePlayer.x, $gamePlayer.y, $gameParty.members().every(a => a.hp === a.mhp), window._has('You come back in through the porch.'), window._has('enormous tact'), window._dt()]",
+   "expect": [
+    "Scene_Map",
+    7,
+    13,
+    true,
+    true,
+    true,
+    0
+   ],
+   "label": "a random encounter lost on the Stair: back through the porch, Quillon not looking up; no trope the second time"
+  },
+  {
+   "check": "SceneManager._scene._spriteset._lamplight.visible",
+   "expect": false,
+   "label": "and out of the dark"
+  },
+  {
+   "goto": [
+    77,
+    34,
+    39
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "$gamePlayer.setDirection(8); window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has('D. 212. Bit further than yesterday.'), window._has('nobody has written'), window._dt()]",
+   "expect": [
+    true,
+    true,
+    1
+   ],
+   "label": "D. 212, the last mark, and the trope"
+  },
+  {
+   "goto": [
+    77,
+    28,
+    47
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowDown"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "advance": 30
+  },
+  {
+   "frames": 40
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, window._has('You turn back. Not yet.')]",
+   "expect": [
+    77,
+    28,
+    47,
+    true
+   ],
+   "label": "past it: not yet (P4e)"
+  },
+  {
+   "goto": [
+    8,
+    30,
+    25
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "BattleManager.setup(1, true, false); SceneManager.push(Scene_Battle); window._auto = true"
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "eval": "$gameParty.members().forEach(a => a.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Gameover'",
+   "frames": 4000
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Gameover",
+   "label": "a battle lost on the world map is still Game Over"
+  }
+ ]
+}

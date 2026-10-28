@@ -92,6 +92,15 @@
    "label": "reading it counts nothing"
   },
   {
+   "check": "[\"Sir Dunstable lent the lamp\", \"warden of the half-way landing\", \"chapel porch at least\"].map(s => window._has(s))",
+   "expect": [
+    false,
+    false,
+    false
+   ],
+   "label": "the bare account says nothing of the Stair"
+  },
+  {
    "eval": "$gameSwitches.setValue(21, true); $gameSwitches.setValue(204, true)"
   },
   {
@@ -140,6 +149,25 @@
    "check": "window._order.every((v, i, a) => i === 0 || a[i - 1] < v)",
    "expect": true,
    "label": "in order: Hollowell, the tea, clause twelve, Quy, the end"
+  },
+  {
+   "eval": "$gameSwitches.setValue(219, true); $gameSwitches.setValue(221, true); $gameSwitches.setValue(220, true)"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(15).start()"
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "(() => { const f = s => window._lines.findIndex(l => l.includes(s)); const s = [\"Sir Dunstable lent the lamp\", \"warden of the half-way landing\", \"chapel porch at least\"].map(f); return [s.every(i => i >= 0), f('It was just tea.') < s[0], s[0] < s[1] && s[1] < s[2], s[2] < f('Thistlewick struck clause twelve')]; })()",
+   "expect": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "P4d: through the Door, the warden told, back by the porch - after the tea, before clause twelve"
   },
   {
    "eval": "$gameSwitches.setValue(217, false); $gameSwitches.setValue(216, false); $gameSwitches.setValue(88, false); $gameSwitches.setValue(214, false); $gameSwitches.setValue(43, false); $gameSwitches.setValue(21, false); $gameSwitches.setValue(204, false)"

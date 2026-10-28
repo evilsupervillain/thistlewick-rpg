@@ -45,6 +45,8 @@ import mapkit as K
 import rmmzdata as R
 
 import story as S
+import db
+import mountain
 import q_hob
 from places import MAP_WORLD, MAP_HITHERMOST, MAP_CONTINUANCE, HITHERMOST_STEP
 
@@ -272,9 +274,14 @@ def hithermost_events():
 
     # 6: the Door into the Mountain. Same as characters and player-touch, so
     # walking into it is what reads it and nobody ends up standing in it.
+    # P4d: with the lamp, it goes in (`mountain.door_pages`), on pages after
+    # the published refusal.
     evs.append(R.event(6, "The Door into the Mountain", *MOUNTAIN_AT, [R.page(
         door_into_the_mountain(), img=R.image(""), trigger=1, priority=1,
-        direction_fix=True)]))
+        direction_fix=True)] + [R.page(
+            c, img=R.image(""), trigger=1, priority=1, direction_fix=True,
+            conditions=cond)
+            for c, cond in mountain.door_pages(mountain.door_in())]))
 
     # 7: somebody who lives here, by the well.
     local = S.say("Villager", [
@@ -461,6 +468,37 @@ def chapel_events():
 
     # 4: Sir Dunstable of the Vale, just in from the porch. It is a quarter
     # past four. His tea was poured at ten past.
+    knight = dunstable_intro()
+
+    back = S.narrate([
+        "Sir Dunstable has just come in through the porch.",
+        "He is very slightly more singed than he was."])
+    back += S.say("Sir Dunstable", [
+        "Just signing in.",
+        "Just in case."])
+    back += S.narrate([
+        "He explains, with some warmth, that nothing",
+        "happened."])
+    dimg = R.image("Gen_People2", 1, direction=8)
+    evs.append(R.event(4, "Sir Dunstable of the Vale", *DUNSTABLE, [
+        R.page(knight, img=dimg, trigger=0, priority=1),
+        R.page(back, img=dimg, trigger=0, priority=1,
+               conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
+        # P4d: after the ending, the lamp; and then, lent.
+        R.page(R.if_then(R.condition_self_switch("A", False),
+                         dunstable_intro()) + mountain.lamp_offer(),
+               img=dimg, trigger=0, priority=1,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_WON}),
+        R.page(mountain.lamp_lent(), img=dimg, trigger=0, priority=1,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_WON,
+                           "selfSwitchValid": True, "selfSwitchCh": "B"}),
+    ]))
+    return evs
+
+
+def dunstable_intro():
+    """Sir Dunstable's first page: met, and the trope. Page 0, and again in
+    front of the lamp after the ending if he has not been met (P4d)."""
     knight = S.narrate([
         "A knight, in armour that has been polished a great",
         "many times and scorched very slightly more."])
@@ -482,23 +520,7 @@ def chapel_events():
         "The fellow's a mind-reader."])
     knight += S.narrate(["Brother Quillon says nothing, with enormous tact."])
     knight += [S.trope(), R.self_switch("A", True)]
-
-    back = S.narrate([
-        "Sir Dunstable has just come in through the porch.",
-        "He is very slightly more singed than he was."])
-    back += S.say("Sir Dunstable", [
-        "Just signing in.",
-        "Just in case."])
-    back += S.narrate([
-        "He explains, with some warmth, that nothing",
-        "happened."])
-    dimg = R.image("Gen_People2", 1, direction=8)
-    evs.append(R.event(4, "Sir Dunstable of the Vale", *DUNSTABLE, [
-        R.page(knight, img=dimg, trigger=0, priority=1),
-        R.page(back, img=dimg, trigger=0, priority=1,
-               conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
-    ]))
-    return evs
+    return knight
 
 
 # ================================================================ the doors ==
@@ -538,10 +560,15 @@ def _chapel_doors(base_id, cells):
 
 
 def _mountain_doors(base_id, cells):
-    """The Door into the Mountain says no, and does not go anywhere yet."""
+    """The Door into the Mountain says no without the lamp, and with it goes
+    in (P4d, `mountain.door_pages`)."""
     return [R.event(base_id + i, MOUNTAIN, x, y, [R.page(
         door_into_the_mountain(), img=R.image(""), trigger=1, priority=0,
-        through=True)]) for i, (x, y) in enumerate(sorted(cells))]
+        through=True)] + [R.page(
+            c, img=R.image(""), trigger=1, priority=0, through=True,
+            conditions=cond)
+            for c, cond in mountain.door_pages(mountain.door_in())])
+        for i, (x, y) in enumerate(sorted(cells))]
 
 
 # One claim per name the world map carries - `journey.world_map` merges this

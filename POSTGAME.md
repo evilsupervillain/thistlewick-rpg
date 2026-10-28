@@ -366,9 +366,13 @@ the scenarios the step reaches.
   `QUESTS.md` section 3). The lectern in Prophecy
   Hall, built from the tally's function. Quy's afternoon and Hollowell's notice.
   Scenarios: a new `pg_account`, plus `premises` again for Hollowell.
-* **P4d, P4e - the Mountain.** The lamp and the door first, then the Stair, the
-  continuance override, and the bottom. Probably two sessions. Scenarios: a new
-  `pg_mountain`, and `hithermost`.
+* **P4d - the lamp, the Door, the Stair and continuance** (**done**, 28 Oct
+  2026; `QUESTS.md` section 3). Dunstable's lamp, the Door's pages, Maps 73-77
+  with the chalk marks, the schedule and the warden, the lamplight and the
+  continuance plugin (`js/plugins/TOQ_Mountain.js`, keyed by map-note tags
+  rather than a switch). Scenarios: a new `pg_mountain`, and `hithermost`.
+* **P4e - the bottom.** Past D. 212 on Map 77: Something Unscheduled, item
+  six on the schedule, and its line in the account. Map 78 on.
 * **G0, the quest log**, adds the post-game quests (the letter, the cottage,
   Quy, the lamp, the Stair) to `quests.py`. **G1** then does only the re-cut,
   the suite, Mike's playthrough, and the push.

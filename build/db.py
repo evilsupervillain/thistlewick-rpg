@@ -528,7 +528,18 @@ SW_ROLAND_BACK = 216            # Roland rehired after the ending, at least once
 SW_ROL5_LATE = 217              # ROL-5 told after the ending; nobody at the door
 SW_DRAWN_LEFT = 218             # the sword out of Carn Drey has been handed on
 IT_COTTAGE_KEY = 76             # clause nineteen's key; 75 is P4d's lamp
-PENSION = 1000                  # one quarter, in advance, paid once
+# P4d: the lamp, the Door and the Stair (mountain.py)
+IT_LAMP = 75                    # the lamp off the hook, lent by Sir Dunstable
+SW_STAIR_IN = 219               # through the Door into the Mountain, once
+SW_CONTINUED = 220              # come back in through the porch, once
+SW_WARDEN = 221                 # the half-way warden has been told
+CE_CONTINUANCE = 7              # the porch: lost on the Stair, and back
+EN_DARK, EN_DRAUGHT, EN_ECHO, EN_COMING_UP, EN_WARDEN = 60, 61, 62, 63, 64
+TR_DARK, TR_DRAUGHT, TR_ECHO, TR_COMING_UP = 55, 56, 57, 58
+TR_WARDEN, TR_PASSING = 59, 60
+SK_CLOSES_IN, SK_TAKES_EDGES, SK_GUST = 185, 186, 187
+SK_SAYS_IT_BACK, SK_COMING_THROUGH, SK_INSPECTION = 188, 189, 190
+PENSION = 1000                 # one quarter, in advance, paid once
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
 AR_STICK, AR_STRAIGHTER_STICK, AR_CERTIFICATE = 30, 31, 32
@@ -2686,6 +2697,7 @@ def build():
     build_worm()
     build_spare()
     build_mothballs()
+    build_mountain()
 
 
 # ================================================= the companion quests ======
@@ -3357,4 +3369,122 @@ def build_mothballs():
     upsert(ce, {"id": CE_MOTHBALLS, "name": "Mothballs (P1)",
                 "switchId": 1, "trigger": 0,
                 "list": airing + [{"code": 0, "indent": 0, "parameters": []}]})
+    save("CommonEvents.json", ce)
+
+
+def build_mountain():
+    """P4d, the Door into the Mountain (POSTGAME.md 9; mountain.py).
+
+    * **The lamp** is the one off the hook by the Door, which Sir Dunstable
+      borrowed and lends on, after the ending, with lovely manners.
+    * **The Stair's five hazards are scheduled.** The board inside the Door
+      lists them by order of the parish, one to five, and they are the
+      hardest regular fights in the game, tuned with `balance.py` above the
+      north's salvage and the Barrow: every group is 4,400 to 6,000 HP, about
+      two turns for `balance.py`'s strong four at level 20 (one for the
+      north's crag mix), and Somebody Coming Up drops Spare in one hit at
+      level 15 - so a party that does not heal is sent back up. Item six on the board is "anything else:
+      NOT ANTICIPATED", and that is P4e's.
+    * **Losing one is not Game Over**: `js/plugins/TOQ_Mountain.js` sends the
+      party back in through the chapel porch, to `CE_CONTINUANCE`, whose body
+      is `mountain.continuance()`."""
+    sk = R.load("Skills.json")
+    upsert(sk, skill(SK_CLOSES_IN, "Closes In", "", "a.mat * 3 - b.mdf * 1.5",
+                     scope=8, hit_type=2, element=EL_DARK, animation=58,
+                     message="The dark closes in."))
+    upsert(sk, skill(SK_TAKES_EDGES, "Takes the Edges", "", "0", dmg_type=0,
+                     hit_type=2, animation=58, effects=[effect(21, 5, 0.6)],
+                     message="%1 takes the edges off everything."))
+    upsert(sk, skill(SK_GUST, "Puts the Lamp Out", "",
+                     "a.atk * 2.5 - b.def * 1.2", scope=8, element=EL_WIND,
+                     animation=29,
+                     message="%1 gusts. The lamp gutters and comes back."))
+    upsert(sk, skill(SK_SAYS_IT_BACK, "Says It Back", "",
+                     "a.mat * 4 - b.mdf * 2", hit_type=2, animation=58,
+                     message="%1 says it back, louder."))
+    upsert(sk, skill(SK_COMING_THROUGH, "Pardon, Coming Through", "",
+                     "a.atk * 5 - b.def * 2", animation=1,
+                     message="%1 comes through, apologising."))
+    upsert(sk, skill(SK_INSPECTION, "Inspection", "",
+                     "a.atk * 3 - b.def * 1.5", scope=8, animation=1,
+                     message="%1 inspects everybody, thoroughly."))
+    save("Skills.json", sk)
+
+    it = R.load("Items.json")
+    upsert(it, item(IT_LAMP, "The Lamp (Borrowed)",
+                    "Off the hook by the Door into the Mountain. Lent by Sir "
+                    "Dunstable, who borrowed it. Back directly.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=212))
+    save("Items.json", it)
+
+    en = R.load("Enemies.json")
+    base = [trait(22, 0, 0.95), trait(22, 1, 0.05)]
+    upsert(en, enemy(
+        EN_DARK, "The Dark (Some Of It)", "SF_Shadow", 0,
+        [2600, 160, 66, 44, 74, 60, 40, 20], 620, 380,
+        [action(SK_ATTACK, 4), action(SK_CLOSES_IN, 5),
+         action(SK_TAKES_EDGES, 3)],
+        traits=base + [trait(11, EL_LIGHT, 2.0), trait(11, EL_DARK, 0.1),
+                       trait(11, EL_PHYSICAL, 0.8)],
+        drops=[drop(0, IT_ETHER, 4)],
+        note="Schedule of Hazards, item one. The reason the board on the "
+             "Door says what it says."))
+    upsert(en, enemy(
+        EN_DRAUGHT, "The Draught", "SF_Kamaitachi", 0,
+        [2200, 60, 80, 36, 40, 44, 74, 20], 560, 340,
+        [action(SK_ATTACK, 5), action(SK_GUST, 4)],
+        traits=base + [trait(22, 1, 0.2), trait(11, EL_WIND, 0.2),
+                       trait(11, EL_EARTH, 1.6)],
+        drops=[drop(0, IT_HI_POTION, 4)],
+        note="Schedule of Hazards, item two: puts lamps out. It is a weasel, "
+             "it turns out, made of wind."))
+    upsert(en, enemy(
+        EN_ECHO, "The Echo", "SF_Hannyamask", 0,
+        [2400, 240, 50, 50, 82, 80, 44, 30], 600, 360,
+        [action(SK_SAYS_IT_BACK, 5), action(SK_ATTACK, 3)],
+        traits=base + [trait(22, 5, 0.3), trait(11, EL_PHYSICAL, 1.3),
+                       trait(11, EL_THUNDER, 0.5)],
+        drops=[drop(0, IT_ETHER, 4)],
+        note="Schedule of Hazards, item three: do not answer it. Everybody "
+             "does."))
+    upsert(en, enemy(
+        EN_COMING_UP, "Somebody Coming Up", "Darkelf", 0,
+        [3000, 80, 86, 50, 40, 50, 52, 30], 680, 460,
+        [action(SK_ATTACK, 5), action(SK_COMING_THROUGH, 4)],
+        traits=base,
+        drops=[drop(0, IT_HI_POTION, 3)],
+        note="Schedule of Hazards, item four. The Stair is one wide, the "
+             "dark is total, and neither of you can see who it is."))
+    upsert(en, enemy(
+        EN_WARDEN, "The Half-Way Warden", "Gatekeeper", 0,
+        [4400, 100, 92, 70, 40, 60, 30, 20], 980, 700,
+        [action(SK_ATTACK, 5), action(SK_INSPECTION, 4)],
+        traits=base + [trait(11, EL_THUNDER, 1.6), trait(11, EL_PHYSICAL, 0.7),
+                       trait(14, ST_SLEEP, 1)],
+        drops=[drop(0, IT_ELIXIR, 6)],
+        note="Schedule of Hazards, item five: the warden of the half-way "
+             "landing. Nobody has told it that it is not half way."))
+    save("Enemies.json", en)
+
+    tr = R.load("Troops.json")
+    upsert(tr, troop(TR_DARK, "The Dark*2",
+                     [(EN_DARK, 260, 360), (EN_DARK, 540, 390)]))
+    upsert(tr, troop(TR_DRAUGHT, "The Draught, The Dark",
+                     [(EN_DRAUGHT, 250, 330), (EN_DARK, 520, 390)]))
+    upsert(tr, troop(TR_ECHO, "The Echo, The Echo",
+                     [(EN_ECHO, 270, 350), (EN_ECHO, 530, 350)]))
+    upsert(tr, troop(TR_COMING_UP, "Somebody Coming Up*2",
+                     [(EN_COMING_UP, 280, 380), (EN_COMING_UP, 520, 360)]))
+    upsert(tr, troop(TR_WARDEN, "The Half-Way Warden",
+                     [(EN_WARDEN, 400, 400)]))
+    upsert(tr, troop(TR_PASSING, "Somebody Coming Up, The Echo",
+                     [(EN_COMING_UP, 280, 390), (EN_ECHO, 540, 340)]))
+    save("Troops.json", tr)
+
+    import mountain          # it imports this module
+    ce = R.load("CommonEvents.json")
+    upsert(ce, {"id": CE_CONTINUANCE, "name": "Continuance (P4d)",
+                "switchId": 1, "trigger": 0,
+                "list": mountain.continuance() +
+                [{"code": 0, "indent": 0, "parameters": []}]})
     save("CommonEvents.json", ce)

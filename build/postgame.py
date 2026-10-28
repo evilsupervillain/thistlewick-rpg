@@ -344,10 +344,12 @@ def amended_lines():
     """What only the post-game can add to the account, read at the lectern
     before clause twelve is struck (`journey.tally`). P4d-P4e's lamp and
     Stair go here."""
-    return R.if_then(R.condition_switch(db.SW_GRIMSPITE_TEA), S.narrate([
+    c = R.if_then(R.condition_switch(db.SW_GRIMSPITE_TEA), S.narrate([
         "Grimspite the Inevitable has retired, and stays on",
         "in the tower with a kettle. One Chosen One has had a",
         "cup. It was just tea."]))
+    import mountain
+    return c + mountain.account_lines()
 
 
 # ============================================================ the hand-back ==
