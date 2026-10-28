@@ -156,6 +156,21 @@ line in `journey.finale_event`:
   telling after the ending (on `SW_ROL5_ON` and `SW_WON`) is shown only while
   it is owed.
 
+**P4c made the tally a function**, `journey.tally(amended=False)`, which
+returns `(at, commands)` from "THE OBLIGATORY QUEST" to the walk to Quy, `at`
+being clause twelve, where Hollowell's line is spliced. The finale calls it
+with nothing and its pages are byte for byte what they were. **Prophecy Hall's
+lectern** (Map 3 event 15, `postgame.account_event`) calls it with
+`amended=True`: the same account against the game as it stands, headed "as
+amended", Hollowell's line read off `SW_VISITORS_BOOK` rather than a page,
+ROL-5 told late and Roland back in `postgame.rol5_line(True)`, and
+`postgame.amended_lines()` before clause twelve, which is **where P4d-P4e's
+lamp and Stair go**. It ends "The account ends there, for the present"
+rather than THE END. A new line for the tally goes in `tally()`, and both
+readings get it. `SW_VISITORS_BOOK` still means "signed at the top": after
+the ending Hollowell's tour stops short of the slip and gives the notice of
+termination instead (`postgame.hollowell_pages`).
+
 Anything that runs the finale's list directly must skip code **201** as well
 as 354, or the run lands in Bram's house. Both harnesses (`finale_ending`'s
 `SKIP_SLOW` and `premises`') do.
@@ -420,7 +435,10 @@ Append instead.
   **switches 215-218** been in Fitch's cottage, Roland rehired after the
   ending, ROL-5 told after it, the sword out of Carn Drey handed on; **item
   76** A Key, Labelled (75 is P4d's lamp, still free); **Map 71**; the
-  letter is Map 2 event 8, the frame and the minute book Map 3 events 13-14 |
+  letter is Map 2 event 8, the frame and the minute book Map 3 events 13-14.
+  P4c: the amended account is Map 3 event 15; Quy's afternoon is his pages
+  3-5 (Map 17 event 2, self switch B) and Hollowell's notice his pages 2-3
+  (Map 42 event 2, self switch B), with the visitors' book's page 1 |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -1018,6 +1036,11 @@ makes eight passes over it cost less than the single pass did before.
   walked to, the minute book's SEE BRAM, the Regular, the front door into
   Ambrose Fitch's cottage and everything in it walked to, and Ysolde - with
   NIX-4's, NIX-3's and Ysolde's owed beats each asserted to play first |
+| `pg_account` | `POSTGAME.md` P4c: the lectern absent before the ending and
+  there after it; every line of the finale's tally, read out of Map 12's data,
+  in the amended account; walked to and read bare, then with each switched
+  line, in order; Quy's afternoon both ways in, with and without the cup, and
+  the pot next door; Hollowell's notice both ways in, and the signed book |
 | `pg_roland` | `POSTGAME.md` P4b, Roland: he leaves at the door with nothing
   on and the door is then its own page; after the ending, rehired at his
   table in his own shield and shirt, struck off and back, up the tower and

@@ -362,7 +362,8 @@ the scenarios the step reaches.
   departure (section 3a), with a new `pg_roland` that rehires him, walks him
   up the tower, and starts one of his undone quests. Scenarios: whatever already walks Maps 1-7 and 13,
   chosen as `QUESTS.md` 0.1 says, plus a new `pg_home`.
-* **P4c - the amended account, Quy and Hollowell.** The lectern in Prophecy
+* **P4c - the amended account, Quy and Hollowell** (**done**, 28 Oct 2026;
+  `QUESTS.md` section 3). The lectern in Prophecy
   Hall, built from the tally's function. Quy's afternoon and Hollowell's notice.
   Scenarios: a new `pg_account`, plus `premises` again for Hollowell.
 * **P4d, P4e - the Mountain.** The lamp and the door first, then the Stair, the

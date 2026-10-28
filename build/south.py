@@ -2190,7 +2190,7 @@ def quy_event(event_id, x, y):
         "what he said, because I've been",
         "waiting thirty years to hear it."])
 
-    return R.event(event_id, "Halbert Quy (#45)", x, y, [
+    ev = R.event(event_id, "Halbert Quy (#45)", x, y, [
         R.page(first + [R.self_switch("A", True)], img=img, trigger=0,
                priority=1),
         R.page(ask, img=img, trigger=0, priority=1,
@@ -2198,6 +2198,8 @@ def quy_event(event_id, x, y):
         R.page(after, img=img, trigger=0, priority=1,
                conditions={"switch1Valid": True, "switch1Id": db.SW_MET_QUY}),
     ])
+    ev["pages"] += PG.quy_pages(ev["pages"][0])                     # P4c
+    return ev
 
 
 # =============================================================== the lighthouse ==

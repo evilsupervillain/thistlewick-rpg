@@ -313,13 +313,41 @@ def companion_lines():
     return c
 
 
-def rol5_line():
+def rol5_line(amended=False):
     """ROL-5's candidate, after "...who thinks about this one". Inside the
-    `SW_ROLAND_GONE` branch, so it is never read without the line it follows."""
-    return R.if_then(R.condition_switch(db.SW_ROL5_DONE), S.narrate([
+    `SW_ROLAND_GONE` branch, so it is never read without the line it follows.
+
+    `amended` is the lectern's reading (P4c). Maud told after the ending
+    (`SW_ROL5_LATE`) did not wait at the door - nobody did - so she gets the
+    line for what she did instead, which is go and see the bit after. And a
+    Roland engaged again since (`SW_ROLAND_BACK`) is not only being
+    marvellous in somebody else's story, and would like that noted."""
+    told = S.narrate([
         "Somebody saw the end of this one. She is sixteen,",
         "and she waited at the door, and she has gone to",
-        "tell him how it ends."]))
+        "tell him how it ends."])
+    if not amended:
+        return R.if_then(R.condition_switch(db.SW_ROL5_DONE), told)
+    late = S.narrate([
+        "Somebody was told the end of this one afterwards,",
+        "over a pie. She is sixteen, and she has gone to see",
+        "one for herself. Not the end: the bit after."])
+    back = S.narrate([
+        "He has since been engaged again, between",
+        "engagements, and has asked that the account say so."])
+    return (R.if_then(R.condition_switch(db.SW_ROL5_LATE), late,
+                      R.if_then(R.condition_switch(db.SW_ROL5_DONE), told))
+            + R.if_then(R.condition_switch(db.SW_ROLAND_BACK), back))
+
+
+def amended_lines():
+    """What only the post-game can add to the account, read at the lectern
+    before clause twelve is struck (`journey.tally`). P4d-P4e's lamp and
+    Stair go here."""
+    return R.if_then(R.condition_switch(db.SW_GRIMSPITE_TEA), S.narrate([
+        "Grimspite the Inevitable has retired, and stays on",
+        "in the tower with a kettle. One Chosen One has had a",
+        "cup. It was just tea."]))
 
 
 # ============================================================ the hand-back ==
@@ -779,23 +807,181 @@ def roland_pages(sheet, index):
     return [table, with_you]
 
 
+# ===================================================================== P4c ==
+# The amended account, Quy and Hollowell (POSTGAME.md 6 and 8).
+WON_B = dict(WON, selfSwitchValid=True, selfSwitchCh="B")
+
+
+def account_event(event_id, x, y, account):
+    """The lectern in Prophecy Hall (Map 3): nothing before the ending; after
+    it, "THE OBLIGATORY QUEST, as amended". `account` is
+    `journey.tally(amended=True)`, the finale's own tally read against the
+    game as it stands, so a quest finished in the post-game shows up here
+    and nowhere else, and so do its tropes and blushes."""
+    c = S.narrate([
+        "A lectern by the door, which was not there last week.",
+        "On it, a ledger in the Committee's best hand, open at",
+        "the first page, with a pen on a chain beside it."])
+    c += account
+    return R.event(event_id, "The Amended Account", x, y, [
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True),
+        R.page(c, img=R.image(LECTERN_SHEET, 0, direction=2), trigger=0,
+               priority=1, direction_fix=True, conditions=WON),
+    ])
+
+
+# ------------------------------------------------------------ Halbert Quy --
+def _afternoon(intro):
+    """Telling Quy what Grimspite said. The tally has already narrated this
+    ("all of it, in order, including the part about the tea. It took most of
+    an afternoon."), so the scene says what the tally says, and no more."""
+    c = list(intro)
+    c += S.narrate([
+        "You tell him what Grimspite said, all of it, in order,",
+        "including the part about the tea."])
+    c += [R.fadeout_screen(), R.wait(60), R.fadein_screen()]
+    c += S.narrate(["It takes most of an afternoon."])
+    cup = S.say("Halbert Quy", ["What was it like?"])
+    cup += S.narrate(["You tell him that it was just tea."])
+    cup += S.say("Halbert Quy", ["Just tea.", "Thirty years."])
+    cup += S.narrate(["He fills the kettle and puts it on, and gets down",
+                      "two cups."])
+    none = S.narrate(["When you have finished, he sits for a while with",
+                      "his hands flat on the table."])
+    none += S.say("Halbert Quy", [
+        "Thank you. Somebody had to listen",
+        "to the whole of it.",
+        "I'm glad it was one of us."])
+    c += R.if_then(R.condition_switch(db.SW_GRIMSPITE_TEA), cup, none)
+    c += [R.control_switch(db.SW_MET_QUY, True), R.self_switch("B", True)]
+    return c
+
+
+def quy_pages(dress):
+    """Halbert Quy's pages after the ending (`south.quy_event`), appended
+    over his three: met and sent north (`SW_MET_QUY`), the afternoon the
+    tally promised; met only after the ending, the same afternoon from his
+    "You want to know what he's like", because Bram has already met him; and
+    then his own line from the first visit, and the cottage next door.
+
+    `SW_MET_QUY` is set by the afternoon either way, so the amended account
+    prints Quy's paragraph for anybody who has sat through it."""
+    sent = S.narrate([
+        "Halbert Quy looks up from the kitchen table, sees who",
+        "it is, and puts the trowel down."])
+    sent += S.say("Halbert Quy", ["Forty-eight. You went up.",
+                                  "Well. Sit down. Tell me."])
+    unsent = S.say("Halbert Quy", ["You want to know what he's like."])
+    unsent += S.narrate(["You have met him. You say so."])
+    unsent += S.say("Halbert Quy", ["...Have you, now. Sit down.",
+                                    "Tell me."])
+    after = S.say("Halbert Quy", ["Forty-eight. Sit down, you're",
+                                  "blocking the light."])
+    after += R.if_then(R.condition_switch(db.SW_COTTAGE_SEEN), S.say(
+        "Halbert Quy", [
+            "You've been in Ambrose's, then.",
+            "Next door. He watered that pot every",
+            "morning for as long as I knew him.",
+            "Nothing grew then, either."]))
+    return [
+        _like(dress, _afternoon(unsent),
+              dict(WON, selfSwitchValid=True, selfSwitchCh="A")),
+        _like(dress, _afternoon(sent),
+              dict(WON, switch2Valid=True, switch2Id=db.SW_MET_QUY)),
+        _like(dress, after, WON_B),
+    ]
+
+
+# ----------------------------------- Hollowell, the Former Premises (Map 42) --
+NOTICE = [
+    "\\C[14]NOTICE OF TERMINATION\\C[0]",
+    "The Engagement is concluded. The Premises are",
+    "released from retention. No further action is",
+    "required."]
+
+
+def hollowell_pages(dress, tour, upto):
+    """Mr Hollowell after the ending (`premises.hall_events`): the notice of
+    termination has come in the post, and he has filed it, and he has nothing
+    else to file. A party that has never been gets the tour as far as the
+    visitors' book and the notice in place of the rest - the incumbent it
+    would have asked them to find is gone, so the slip is never handed over
+    and `SW_VISITORS_BOOK` still means the book was signed at the top of the
+    tower."""
+    met = S.narrate([
+        "Mr Hollowell is at the lectern with a letter. It has",
+        "been read a great many times since breakfast."])
+    met += S.say("Hollowell", ["Visitors! Oh, it's you. Come and",
+                               "look at this. It came in the post."])
+    new = list(tour[:upto]) + [S.trope()]
+    new += S.say("Hollowell", ["And THIS came in the post, this",
+                               "very morning. Come and look."])
+    notice = S.narrate(NOTICE)
+    notice += S.say("Hollowell", [
+        "No further action. I've filed it.",
+        "Under N, for Notice, and under T,",
+        "and under C, in case. That took me",
+        "until about half past nine."])
+    notice += S.narrate(["He looks round the hall. It is very clean."])
+    notice += S.say("Hollowell", [
+        "I've nothing else to file.",
+        "Four thousand eight hundred years,",
+        "and that's the file."])
+    notice += R.if_then(R.condition_switch(db.SW_VISITORS_BOOK), S.say(
+        "Hollowell", [
+            "But the book's got one in it now.",
+            "One! It's in the record, and nobody",
+            "can take it out of the record."]))
+    first = R.if_then(R.condition_self_switch("A"), met, new) + notice
+    first += [R.self_switch("A", True), R.self_switch("B", True)]
+    again = S.say("Hollowell", [
+        "Take the lift! Any time you like.",
+        "It's still running. I can't think",
+        "who would stop it."])
+    return [_like(dress, first, WON), _like(dress, again, WON_B)]
+
+
+def visitors_book_page(dress):
+    """The visitors' book (`premises.hall_events`) once Grimspite's slip is
+    pasted in: after the ending, with the book asked for. Its own page
+    rather than a branch, so the published page stays as it is."""
+    c = S.narrate([
+        "The visitors' book, open on the lectern. On the first",
+        "page, pasted in square and ruled to match, one entry."])
+    c += S.narrate([
+        "NAME: GRIMSPITE THE INEVITABLE. FROM: HERE.",
+        "REMARKS: Never been. Heard marvellous things",
+        "about the lift."])
+    c += S.narrate([
+        "Beside it, face up, the notice of termination, in a",
+        "folder of its own."])
+    return _like(dress, c, dict(WON, switch2Valid=True,
+                                switch2Id=db.SW_VISITORS_BOOK))
+
+
 # =================================================================== art ==
 # The two character sheets `draw_art()` writes. `!$`: an object, one to a
 # sheet, so the frame can be any size.
 FRAME_SHEET = "!$Hall_Frame"        # 48x48: the forty-eighth frame, empty
 LETTER_SHEET = "!$Mat_Letter"       # 48x48: `Inside_C`'s Envelope, on the mat
 CHAIR_SHEET = "!$Fitch_Chair"       # 48x96: a chair, from behind
+LECTERN_SHEET = "!$Hall_Lectern"    # 48x48: `Table E` with an open book
 PORTRAIT_B = 133                    # `Inside_B`'s gilt frame
 CHAIR_A = (101, 109)                # `Inside_B`'s `Chair A (Wood)`, 1x2
 ENVELOPE = 81                       # `Inside_C`'s `Envelope`
+TABLE_E = 123                       # `Inside_B`'s, with the purple cloth
+OPEN_BOOK = 324                     # `Inside_C`'s `Open Book A (V)`
 
 
 def draw_art():
-    """Writes `FRAME_SHEET`, `CHAIR_SHEET` and `LETTER_SHEET`. Not part of the data build,
+    """Writes `FRAME_SHEET`, `CHAIR_SHEET`, `LETTER_SHEET` and
+    `LECTERN_SHEET`. Not part of the data build,
     like `fenmarch.draw_art()`: run this module to redraw them.
 
     * The frame is `Portrait B`'s gilt frame with nothing in it - the
       canvas painted out to plain board - and a small white card.
+    * The lectern (P4c) is `Table E` with `Open Book A` laid on it, the way
+      the hall's own tables carry their books on layer 3.
     * The letter is `Inside_C`'s `Envelope`, as it is: a sprite, so that it
       does not lend the mat its blocked passage (`letter_event`).
     * The stock `Chair A` only faces south. Seen from behind, a high-backed
@@ -842,9 +1028,15 @@ def draw_art():
         return np.clip(out, 0, 255).round().astype(np.uint8)
 
     letter = tile(ENVELOPE, sheet_c)
+    lectern = tile(TABLE_E)
+    book = tile(OPEN_BOOK, sheet_c)
+    a = book[..., 3:] / 255.0
+    lectern[..., :3] = book[..., :3] * a + lectern[..., :3] * (1 - a)
+    lectern[..., 3] = np.maximum(lectern[..., 3], book[..., 3])
     for name, img in [(FRAME_SHEET, one(frame, 48, 48)),
                       (LETTER_SHEET, one(letter, 48, 48)),
-                      (CHAIR_SHEET, one(chair, 48, 96))]:
+                      (CHAIR_SHEET, one(chair, 48, 96)),
+                      (LECTERN_SHEET, one(lectern, 48, 48))]:
         path = os.path.join(game, "img", "characters", name + ".png")
         png.write(path, img)
         print("wrote", os.path.normpath(path))

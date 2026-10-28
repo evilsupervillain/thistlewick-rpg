@@ -4436,26 +4436,83 @@ finale's four pages differ only by one new branch in `hand_back` (below).
 * **Looked at**: the Hall before and after (portraits, the frame, the book),
   the letter on its mat, the front door, and the cottage.
 
+**P4c, the account, Quy and the notice, done** (28 Oct 2026). `POSTGAME.md`
+6, 8 and 10. No published line changed. Map 12's four pages are byte for byte
+what they were, and every old page of Quy (0-2), Hollowell (0-1) and the
+visitors' book (0) is the same too, with new pages appended after them.
+
+* **The tally is a function**, `journey.tally(amended=False)`. It returns
+  `(at, commands)` from "THE OBLIGATORY QUEST" to the walk to Quy, where `at`
+  is clause twelve, the place Hollowell's line is spliced in. The finale calls
+  it with no argument. `hollowell_framed()` is the Hollowell box, shared by
+  the signature pages and the account.
+* **THE OBLIGATORY QUEST, as amended** (Map 3 event 15, `postgame.
+  account_event`, at `village.LECTERN` (12,13), by the door). It is a lectern
+  that appears on `SW_WON`: Table E with Open Book A composited on top, as
+  the character sheet `!$Hall_Lectern`, which `postgame.draw_art()` writes.
+  It reads `tally(amended=True)` against the game as it stands now:
+  * Hollowell's line comes off `SW_VISITORS_BOOK`.
+  * `rol5_line(True)` covers ROL-5 told late ("over a pie... Not the end:
+    the bit after") and Roland engaged again.
+  * `amended_lines()` adds Grimspite's retirement and the cup (on
+    `SW_GRIMSPITE_TEA`). It is also where P4d-P4e's lamp and Stair go.
+  * It ends "The account ends there, for the present. There is a good deal
+    of ruled paper after it." Reading it counts nothing.
+* **Quy's afternoon** (Map 17 event 2, pages 3-5, self switch B). There are
+  two ways in: unsent ("You want to know what he's like." / "You have met
+  him."), or sent on `SW_MET_QUY` ("Forty-eight. You went up."). Either way,
+  the telling takes most of an afternoon behind a fade. On
+  `SW_GRIMSPITE_TEA` he asks "What was it like?" and gets "just tea... Thirty
+  years", and the kettle goes on for two. Without the cup he thanks you for
+  listening to the whole of it. The afternoon sets `SW_MET_QUY`, so the
+  account's last line agrees with it. Afterwards he says "Sit down, you're
+  blocking the light", and on `SW_COTTAGE_SEEN` he adds the pot next door:
+  "Nothing grew then, either."
+* **Hollowell's notice of termination** (Map 42 event 2, pages 2-3, self
+  switch B). If he has not been met, it is his tour up to the visitors'
+  question (the trope, as before) and then the post. If he has, "Oh, it's
+  you." Then: "The Premises are released from retention." He files it under
+  N, T and C, which takes until half past nine. "Four thousand eight hundred
+  years, and that's the file." On `SW_VISITORS_BOOK` he adds "But the book's
+  got one in it now." Afterwards, the lift is still running. **The tour after
+  the ending never reaches the slip**, so `SW_VISITORS_BOOK` still means
+  signed at the top. The visitors' book's page 1 shows Grimspite's entry with
+  the notice in its own folder beside it.
+* **Tally**: tropes **+51 fixed** for the finale, unchanged. One new trope
+  site, Hollowell's tour when he is first met after the ending. It is the
+  same trope as his old tour, which only one of them can pay, so it counts
+  once and the reachable total is unchanged. Blushes **+13 fixed**, none new. Nothing new
+  for `TIMELINE.md`: Quy's thirty years are his own.
+* **Scenarios**:
+  * **`pg_account`, new, 25 checks, passes.** The lectern is absent before
+    the ending and there after it. Every line of the finale's tally is read
+    out of Map 12's data and asserted in the amended account, which is what
+    keeps the two readings agreeing word for word. The account is walked to
+    and read bare, then with each switched line in order. Quy is run both
+    ways in, with and without the cup, plus the pot. Hollowell is run both
+    ways in, plus the signed book.
+  * **Rerun**: `premises` (38).
+  * The finale's data did not change, so `finale_ending` was not rerun.
+* **Looked at**: the Hall after the ending with the lectern by the door,
+  Quy's cottage, and the Premises.
+
 ---
 
 ## Restart prompt
 
-**Start with P4c** (`POSTGAME.md` section 10): the amended account, Quy and
-Hollowell. **P4a and P4b are done** (the last two Done paragraphs in section
-3). The finale hands back to Bram's house; the letter, the pension, the key,
-Thistlewick's lines, the frame and the minute book, Ambrose Fitch's cottage
-(Map 71) and Roland, rehireable after the ending, are built. P4c is the
-lectern in Prophecy Hall with "THE OBLIGATORY QUEST, as amended", built by the
-same Python function as the finale's tally so the two cannot drift; Quy's
-afternoon on `SW_MET_QUY` and `SW_WON`, which must agree word for word with the
-tally, with "What was it like?" on `SW_GRIMSPITE_TEA`; and Hollowell's notice.
-Read `POSTGAME.md` 6 and 8 once. P4b left two notes for it: the tally's ROL-5
-line is wrong for `SW_ROL5_LATE` (Maud told after the ending), and Quy lives
-next door to Fitch's cottage. Then P4d-P4e, the Mountain. G0, the quest log,
-follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct); its
-first act is `python3 ../tools/apidigest.py . --write`, because the plugin
-work added `rmmzdata.read_plugins`/`write_plugins`/`upsert_plugin` and left
-`build/API.md` stale. Last come G1's counter re-cuts,
+**Start with P4d** (`POSTGAME.md` sections 9 and 10): the Mountain - Sir
+Dunstable's lamp and the Door first, then the Stair, the continuance
+override and the bottom, probably over two sessions. **P4a, P4b and P4c are
+done** (the last three Done paragraphs in section 3). The finale hands back
+to Bram's house; Thistlewick, the pension, Fitch's cottage (Map 71) and
+Roland are built; Prophecy Hall's lectern reads the tally again as "THE
+OBLIGATORY QUEST, as amended" from `journey.tally(amended=True)`, Quy has his
+afternoon and Hollowell his notice. **A line about the lamp or the Stair for
+the account goes in `postgame.amended_lines()`**, which only the lectern
+reads. Then G0 and G1. G0, the quest log,
+follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct);
+`apidigest.py --check` passes as of P4c, so `build/API.md` already has
+`rmmzdata.read_plugins`/`write_plugins`/`upsert_plugin`. Last come G1's counter re-cuts,
 the one full suite, Mike's playthrough, and the push. Settled 28 Oct: the
 three P4a tally lines stand; buffs and debuffs carry their turns in value1
 (P1 note); the Guild's shield was the indoor one, and all three file columns

@@ -57,6 +57,7 @@ import rmmzdata as R
 import db
 import story as S
 from places import MAP_WORLD, MAP_PREMISES, PREMISES_LAND, PREMISES_STEP
+import postgame as PG
 import q_spare
 
 # The name `worldmap.json`'s door events carry.
@@ -200,6 +201,9 @@ def hollowell_pages():
         "put in a lift. Courtyard to the",
         "battlements. It works beautifully.",
         "It always has."])
+    # P4c: a party that comes after the ending hears the tour this far, and
+    # then the notice of termination (`postgame.hollowell_pages`).
+    upto = len(t)
     t += S.narrate([
         "You ask whether anybody has visited, in four",
         "thousand eight hundred years."])
@@ -230,7 +234,7 @@ def hollowell_pages():
     again = S.say("Hollowell", [
         "Take the lift! Any time you like.",
         "It's always running. Beautifully."])
-    return t, again
+    return t, again, upto
 
 
 def hall_events():
@@ -257,13 +261,16 @@ def hall_events():
     evs = [out]
 
     # 2: Mr Prosper Hollowell, facing the door, as he has been for some time.
-    tour, again = hollowell_pages()
+    tour, again, upto = hollowell_pages()
     img = R.image("Gen_People2", 6, direction=2)
-    evs.append(R.event(2, "Hollowell", *HOLLOWELL_AT, [
+    hollowell = R.event(2, "Hollowell", *HOLLOWELL_AT, [
         R.page(tour, img=img, trigger=0, priority=1),
         R.page(again, img=img, trigger=0, priority=1,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
-    ]))
+    ])
+    hollowell["pages"] += PG.hollowell_pages(                        # P4c
+        hollowell["pages"][0], tour, upto)
+    evs.append(hollowell)
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 
@@ -286,8 +293,11 @@ def hall_events():
         "It is dated this spring. It is from the Prophecy",
         "Committee, and it has been sent to him as a matter",
         "of course."])
-    evs.append(R.event(3, "The Visitors' Book", *LECTERN,
-                       [R.page(book, **page)]))
+    visitors = R.event(3, "The Visitors' Book", *LECTERN,
+                       [R.page(book, **page)])
+    visitors["pages"].append(PG.visitors_book_page(                 # P4c
+        visitors["pages"][0]))
+    evs.append(visitors)
 
     # 4: the deeds.
     deeds = S.narrate([

@@ -23,6 +23,7 @@ import rmmzdata as R
 import story as S
 import q_aldric
 import handdrawn as HD
+import journey
 import postgame as PG
 from places import (MAP_VILLAGE, MAP_HOME, MAP_HALL, MAP_INN, MAP_CHAPEL,
                     MAP_SMITHY, MAP_STORE, MAP_WORLD, VILLAGE_GATE,
@@ -854,6 +855,8 @@ def hall_events():
     book["pages"][0]["image"] = R.image(tile_id=K.INC_SCROLLS)
     evs.append(book)
     evs[1]["pages"].append(PG.wispel_page(evs[1]["pages"][-1]))     # P4b
+    # P4c: the amended account, on a lectern just inside the door.
+    evs.append(PG.account_event(15, *LECTERN, journey.tally(amended=True)[1]))
     return evs
 
 
@@ -866,6 +869,7 @@ WALL_PORTRAITS = [((3, 2), "Portrait B"), ((4, 2), "Portrait A"),
 WALL = (3, 3)
 FRAME = (4, 3)
 MINUTE_BOOK = (14, 11)
+LECTERN = (12, 13)
 
 
 # PIP-5's archive: a room in the black east of Prophecy Hall, reached only

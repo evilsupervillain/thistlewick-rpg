@@ -1,0 +1,407 @@
+{
+ "query": "?map=3&x=10&y=12&frames=90",
+ "comment": "POSTGAME.md P4c, the amended account, Quy and Hollowell. Prophecy Hall's lectern: absent before the ending; after it, every line of the finale's own tally (read out of Map 12's data) is in it; walked up to and read; bare, it has no THE END and none of the switched lines; ROL-5 told at the door reads as the finale does, told after the ending reads 'over a pie', and Roland back, the signed book, the tea and Quy's afternoon each add their line, in order. Quy: met first after the ending, the afternoon from his own question, with the cup; SW_MET_QUY set by it; his after-page and the pot next door; met before, the afternoon without the cup. Hollowell: never visited, the tour to the book then the notice, no slip; visited and signed, the notice and the entry; the visitors' book with Grimspite in it.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._lines = []; window._tropes = $gameVariables.value(2); }; window._mark(); window._has = s => window._lines.some(l => l.includes(s));"
+  },
+  {
+   "check": "[$gameMap.event(15).event().name, $gameMap.event(15).findProperPageIndex(), $gameMap.event(15).characterName(), $gameMap.event(15).isThrough()]",
+   "expect": [
+    "The Amended Account",
+    0,
+    "",
+    true
+   ],
+   "label": "before the ending: no lectern, and its square is open"
+  },
+  {
+   "eval": "$gameSwitches.setValue(5, true)"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "[$gameMap.event(15).findProperPageIndex(), $gameMap.event(15).characterName()]",
+   "expect": [
+    1,
+    "!$Hall_Lectern"
+   ],
+   "label": "after it: the lectern, by the door"
+  },
+  {
+   "eval": "const x = new XMLHttpRequest(); x.open('GET', 'data/Map012.json', false); x.send(); const L = JSON.parse(x.responseText).events[2].pages[0].list.filter(c => c.code === 401).map(c => c.parameters[0]); const a = L.findIndex(t => t.includes('THE OBLIGATORY QUEST')); const b = L.findIndex(t => t.includes('It took most of an afternoon.')); window._finale = L.slice(a + 1, b + 1); window._lectern = $gameMap.event(15).event().pages[1].list.filter(c => c.code === 401).map(c => c.parameters[0]);"
+  },
+  {
+   "check": "[window._finale.length > 100, window._finale.filter(t => !window._lectern.includes(t))]",
+   "expect": [
+    true,
+    []
+   ],
+   "label": "every line of the finale's tally is in the amended account"
+  },
+  {
+   "goto": [
+    3,
+    12,
+    12
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2); window._mark()"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "check": "$gameMap.isEventRunning() && $gameMap._interpreter.eventId()",
+   "expect": 15,
+   "label": "walked up to it from the carpet and read it"
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has(\"A lectern by the door\"), window._has(\"THE OBLIGATORY QUEST, as amended\"), window._has(\"Thistlewick struck clause twelve\"), window._has(\"The account ends there\"), window._has(\"He came back with all of them.\"), window._has(\"THE END\"), window._has(\"she waited at the door\"), window._has(\"most of an afternoon\"), window._has(\"quarterly report\"), window._has(\"It was just tea.\")]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "label": "a bare account: no THE END, and none of the switched lines"
+  },
+  {
+   "check": "$gameVariables.value(2) - window._tropes",
+   "expect": 0,
+   "label": "reading it counts nothing"
+  },
+  {
+   "eval": "$gameSwitches.setValue(21, true); $gameSwitches.setValue(204, true)"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(15).start()"
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has(\"who thinks about this one\"), window._has(\"she waited at the door\"), window._has(\"over a pie\"), window._has(\"engaged again\")]",
+   "expect": [
+    true,
+    true,
+    false,
+    false
+   ],
+   "label": "ROL-5 told before the ending: the finale's own line"
+  },
+  {
+   "eval": "$gameSwitches.setValue(217, true); $gameSwitches.setValue(216, true); $gameSwitches.setValue(88, true); $gameSwitches.setValue(214, true); $gameSwitches.setValue(43, true)"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(15).start()"
+  },
+  {
+   "advance": 80
+  },
+  {
+   "check": "[window._has(\"she waited at the door\"), window._has(\"over a pie\"), window._has(\"the bit after\"), window._has(\"engaged again\"), window._has(\"quarterly report\"), window._has(\"It was just tea.\"), window._has(\"most of an afternoon\"), window._has(\"The account ends there\")]",
+   "expect": [
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "everything since: Maud told late, Roland back, the book signed, the tea, Quy"
+  },
+  {
+   "eval": "window._order = ['quarterly report', 'It was just tea.', 'Thistlewick struck clause twelve', 'most of an afternoon', 'The account ends there'].map(s => window._lines.findIndex(l => l.includes(s)))"
+  },
+  {
+   "check": "window._order.every((v, i, a) => i === 0 || a[i - 1] < v)",
+   "expect": true,
+   "label": "in order: Hollowell, the tea, clause twelve, Quy, the end"
+  },
+  {
+   "eval": "$gameSwitches.setValue(217, false); $gameSwitches.setValue(216, false); $gameSwitches.setValue(88, false); $gameSwitches.setValue(214, false); $gameSwitches.setValue(43, false); $gameSwitches.setValue(21, false); $gameSwitches.setValue(204, false)"
+  },
+  {
+   "goto": [
+    17,
+    11,
+    9
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 0,
+   "label": "Quy, met for the first time after the ending: his first page"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([17, 2, 'A'], true); $gameMap.refresh()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "and then, unsent, the afternoon from his question"
+  },
+  {
+   "eval": "$gameSwitches.setValue(214, true)"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has(\"You want to know what he's like.\"), window._has(\"You have met him.\"), window._has(\"all of it, in order,\"), window._has(\"It takes most of an afternoon.\"), window._has(\"What was it like?\"), window._has(\"it was just tea.\"), window._has(\"two cups\")]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "the afternoon, with the cup: what was it like - just tea"
+  },
+  {
+   "check": "[$gameSwitches.value(43), $gameSelfSwitches.value([17, 2, 'B']), $gameMap.event(2).findProperPageIndex()]",
+   "expect": [
+    true,
+    true,
+    5
+   ],
+   "label": "SW_MET_QUY is set by it, so the account prints his paragraph; and he has his after-page"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has(\"blocking the light\"), window._has(\"Ambrose's\")]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "afterwards: sit down, you're blocking the light"
+  },
+  {
+   "eval": "$gameSwitches.setValue(215, true)"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has(\"blocking the light\"), window._has(\"You've been in Ambrose's, then.\"), window._has(\"Nothing grew then, either.\")]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "and with the cottage seen, the pot next door"
+  },
+  {
+   "eval": "$gameSwitches.setValue(214, false); $gameSwitches.setValue(215, false)"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([17, 2, 'B'], false); $gameMap.refresh()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 4,
+   "label": "met before the ending: the afternoon he asked for"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has(\"Forty-eight. You went up.\"), window._has(\"It takes most of an afternoon.\"), window._has(\"What was it like?\"), window._has(\"I'm glad it was one of us.\")]",
+   "expect": [
+    true,
+    true,
+    false,
+    true
+   ],
+   "label": "without the cup: no question, and thanks"
+  },
+  {
+   "eval": "$gameSwitches.setValue(43, false)"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([42, 2, 'A'], false); $gameSelfSwitches.setValue([42, 2, 'B'], false)"
+  },
+  {
+   "goto": [
+    42,
+    10,
+    10
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[$gameMap.event(2).findProperPageIndex(), $gameMap.event(3).findProperPageIndex()]",
+   "expect": [
+    2,
+    0
+   ],
+   "label": "the Premises after the ending, never visited: Hollowell's notice page; the book unsigned"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has(\"Visitors! Oh, VISITORS.\"), window._has(\"The tour starts here.\"), window._has(\"NOTICE OF TERMINATION\"), window._has(\"Under N, for Notice\"), window._has(\"that's the file.\"), window._has(\"Would you ask the current incumbent\"), window._has(\"book's got one\")]",
+   "expect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false
+   ],
+   "label": "the tour as far as the book, then the notice; nobody asked to find an incumbent"
+  },
+  {
+   "check": "[$gameSwitches.value(88), $gameVariables.value(2) - window._tropes, $gameMap.event(2).findProperPageIndex()]",
+   "expect": [
+    false,
+    1,
+    3
+   ],
+   "label": "no slip handed over, the tour's trope counted, and his short page next"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has(\"I can't think\"), window._has(\"NOTICE\")]",
+   "expect": [
+    true,
+    false
+   ],
+   "label": "afterwards: the lift, still running"
+  },
+  {
+   "eval": "$gameSwitches.setValue(88, true)"
+  },
+  {
+   "eval": "$gameSelfSwitches.setValue([42, 2, 'A'], true); $gameSelfSwitches.setValue([42, 2, 'B'], false); $gameMap.refresh()"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[window._has(\"Oh, it's you.\"), window._has(\"The tour starts here.\"), window._has(\"NOTICE OF TERMINATION\"), window._has(\"book's got one in it now.\")]",
+   "expect": [
+    true,
+    false,
+    true,
+    true
+   ],
+   "label": "visited and signed: the notice, and the one entry"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 1,
+   "label": "the visitors' book has its post-game page"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(3).start()"
+  },
+  {
+   "frames": 30
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[window._has(\"GRIMSPITE THE INEVITABLE\"), window._has(\"marvellous things\"), window._has(\"folder of its own\")]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "Grimspite's entry, pasted in"
+  },
+  {
+   "check": "SceneManager._scene.constructor.name",
+   "expect": "Scene_Map",
+   "label": "still on the map"
+  }
+ ]
+}

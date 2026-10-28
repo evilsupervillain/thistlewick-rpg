@@ -1049,9 +1049,50 @@ def finale_event(event_id, x, y):
         "Say: there isn't a forty-nine."])
     c += [R.fadeout_screen(), R.wait(60), R.play_bgm("Theme6", 80)]
 
-    # The trope counter, cashed in.
+    # The trope counter, cashed in: the tally, which Prophecy Hall's
+    # lectern reads again after the ending (`tally`, P4c).
+    at, more = tally()
+    tally_at = len(c) + at
+    c += more
+    c += S.narrate(["\\}\\C[6]THE END\\C[0]"])
+    # P4a: not the end of the game any more. The next morning.
+    c += [R.wait(90)] + PG.hand_back()
+
+    return R.event(event_id, "Grimspite", x, y, [
+        R.page(c, img=R.image("Evil", 6, direction=2), trigger=0, priority=1,
+               direction_fix=True),
+        # Carrying the crate. Last page wins, so this beats the finale above
+        # for as long as ITEM 1 is in the party's hands, and the SW_WON page
+        # below beats both afterwards.
+        R.page(c[:split] + item_one_scene() + c[split:],
+               img=R.image("Evil", 6, direction=2), trigger=0, priority=1,
+               direction_fix=True,
+               conditions={"itemValid": True, "itemId": db.IT_ITEM_ONE}),
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True,
+               conditions={"switch1Valid": True, "switch1Id": db.SW_WON}),
+    ] + visitors_book_pages(c, sig, split, tally_at)
+      # P4a: page 6, afterwards. Last page wins, so it beats every empty
+      # SW_WON page above it.
+      + [PG.grimspite_afterwards()])
+
+
+def tally(amended=False):
+    """The finale's tally, from "THE OBLIGATORY QUEST" to the walk to Quy, as
+    `(at, commands)`, where `at` is the index of "Thistlewick struck clause
+    twelve" - the place the Former Premises' line is spliced in.
+
+    P4c (`POSTGAME.md` 8): Prophecy Hall's lectern reads it again after the
+    ending, built by this function so that the two cannot drift. `amended`
+    is that reading. It is the same account, against the state the game is
+    in now, plus what only the post-game can make true: Hollowell's line
+    read off its switch rather than off a page, ROL-5 told after the ending,
+    Roland engaged again, and `postgame.amended_lines()`. The finale passes
+    nothing and its lists are unchanged, word for word and byte for byte."""
+    head = ("\\}\\C[6]THE OBLIGATORY QUEST, as amended\\C[0]" if amended
+            else "\\}\\C[6]THE OBLIGATORY QUEST\\C[0]")
+    c = []
     c += S.narrate([
-        "\\}\\C[6]THE OBLIGATORY QUEST\\C[0]",
+        head,
         "Bram Thistle, Chosen One #48, went north",
         "with \\C[3]\\V[1]\\C[0] companions."])
     c += R.if_then(
@@ -1060,7 +1101,7 @@ def finale_event(event_id, x, y):
             "He came back with all of them but one, who",
             "had somewhere to be, and who is at this",
             "moment being marvellous in somebody else's",
-            "story, and who thinks about this one."]) + PG.rol5_line(),
+            "story, and who thinks about this one."]) + PG.rol5_line(amended),
         S.narrate(["He came back with all of them."]))
     c += S.narrate([
         "Along the way he walked into \\C[3]\\V[2]\\C[0] well-worn",
@@ -1252,7 +1293,11 @@ def finale_event(event_id, x, y):
             "and has put Bram down as a reference."]))
     # G1 (POSTGAME.md 7): one line per companion with a story, and the count.
     c += PG.companion_lines()
-    tally = len(c)
+    at = len(c)
+    if amended:
+        c += R.if_then(R.condition_switch(db.SW_VISITORS_BOOK),
+                       hollowell_framed())
+        c += PG.amended_lines()
     c += S.narrate([
         "Thistlewick struck clause twelve from the",
         "records and replaced it with a note reading",
@@ -1270,26 +1315,21 @@ def finale_event(event_id, x, y):
             "and told him what Grimspite said, all of it,",
             "in order, including the part about the tea.",
             "It took most of an afternoon."]))
-    c += S.narrate(["\\}\\C[6]THE END\\C[0]"])
-    # P4a: not the end of the game any more. The next morning.
-    c += [R.wait(90)] + PG.hand_back()
+    if amended:
+        c += S.narrate([
+            "The account ends there, for the present. There is a",
+            "good deal of ruled paper after it."])
+    return at, c
 
-    return R.event(event_id, "Grimspite", x, y, [
-        R.page(c, img=R.image("Evil", 6, direction=2), trigger=0, priority=1,
-               direction_fix=True),
-        # Carrying the crate. Last page wins, so this beats the finale above
-        # for as long as ITEM 1 is in the party's hands, and the SW_WON page
-        # below beats both afterwards.
-        R.page(c[:split] + item_one_scene() + c[split:],
-               img=R.image("Evil", 6, direction=2), trigger=0, priority=1,
-               direction_fix=True,
-               conditions={"itemValid": True, "itemId": db.IT_ITEM_ONE}),
-        R.page([], img=R.image(""), trigger=0, priority=0, through=True,
-               conditions={"switch1Valid": True, "switch1Id": db.SW_WON}),
-    ] + visitors_book_pages(c, sig, split, tally)
-      # P4a: page 6, afterwards. Last page wins, so it beats every empty
-      # SW_WON page above it.
-      + [PG.grimspite_afterwards()])
+
+def hollowell_framed():
+    """The Former Premises' line in the tally, once the book has been signed
+    (`visitors_book_pages`)."""
+    return S.narrate([
+        "Mr Prosper Hollowell, Caretaker (Retained), has",
+        "pasted the first signature in four thousand eight",
+        "hundred years into the visitors' book, and has written",
+        "it up in his quarterly report. It runs to forty pages."])
 
 
 def visitors_book_pages(c, sig, split, tally):
@@ -1337,11 +1377,7 @@ def visitors_book_pages(c, sig, split, tally):
         "",
         "   Never been. Heard marvellous things",
         "   about the lift."])
-    framed = S.narrate([
-        "Mr Prosper Hollowell, Caretaker (Retained), has",
-        "pasted the first signature in four thousand eight",
-        "hundred years into the visitors' book, and has written",
-        "it up in his quarterly report. It runs to forty pages."])
+    framed = hollowell_framed()
 
     def signed(bomb):
         return (c[:sig] + book + c[sig:split] + bomb + c[split:tally]
