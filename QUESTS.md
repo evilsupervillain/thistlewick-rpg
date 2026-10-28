@@ -4006,7 +4006,12 @@ asked the right question of it (below, "And then it wants airing").
   turns; **a potion or two at a third of her HP, 93-99%** in nine or ten.
   Epic Finale's flat 30 MP is why a higher-level Piper finds it easier.
   Losing still costs nothing.
-* **Found, not fixed - Mike's call.** Every buff and debuff in `db.py` is
+* **Found here, fixed 28 Oct at Mike's word ("fix it everywhere").** Every
+  `effect(31/32, ...)` now has its turns in value1, the rates are gone (a
+  debuff has no rate of its own: its chance is the target's debuff rate
+  times luck), and `db.effect` asserts it. Party buffs last their 3-5
+  turns; the two enemy debuffs below wear off after 3 instead of lasting
+  the battle. The original finding: every buff and debuff in `db.py` was
   written `effect(31 or 32, param, 0 or a rate, turns)`, but the engine
   reads a buff's **turns from value1** (`itemEffectAddBuff`), not value2. A
   0-turn buff is removed at the end of its holder's next action
@@ -4163,6 +4168,9 @@ part one, in the order given, one commit each. **P2 is finished.**
   the floor-art layer, in the doorway - and is "below characters", searched
   by standing on it, where it was an invisible wall at (8,10). Outside, the
   Guild's second sign was the **eatery's plate**; it is `Shop Sign (Crest)`.
+  (28 Oct: Mike confirms he meant the shield indoors, and asked that every
+  column of the files answer - three bookcase cells, (12,4)-(14,4), events
+  6, 8 and 9 with one text, the trope counted once on event 6's self switch.)
   Positions are `south.GUILD_*`. Cropped with `propsheet.py` after: twenty
   tiles, each what it is named. **If Mike meant the shield as something
   else** - the crest sign outside is a shield-like badge too - it is one line.
@@ -4283,7 +4291,8 @@ byte for byte what they were.
   certified the party fit to travel, which makes this the first properly
   documented attempt in four thousand years." That is contract years, said by
   the tally, which is the Prophecy's side. **Mike: these three are new
-  wording.**
+  wording** - and on 28 Oct he left the wording to judgement; all three
+  stand as written.
 * **The hand-back.** After THE END and its wait: the music fades, "The next
   morning there are still turnips.", recover all, and a transfer with no fade
   (the screen is already black) to Bram's house at the new-game start, Map 2
@@ -4447,11 +4456,13 @@ follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct); its
 first act is `python3 ../tools/apidigest.py . --write`, because the plugin
 work added `rmmzdata.read_plugins`/`write_plugins`/`upsert_plugin` and left
 `build/API.md` stale. Last come G1's counter re-cuts,
-the one full suite, Mike's playthrough, and the push. Still open for Mike, and
-not part of P4 unless he says so: three P4a tally lines are new wording (WRE-5,
-SPA-4, MER-2); every buff and debuff in `db.py` puts its turns in value2 and
-the engine reads value1 (P1); and whether P2's "shield standing in for a sign"
-meant the crest sign outside the Guild (one line in `south.py`). Next free:
+the one full suite, Mike's playthrough, and the push. Settled 28 Oct: the
+three P4a tally lines stand; buffs and debuffs carry their turns in value1
+(P1 note); the Guild's shield was the indoor one, and all three file columns
+answer. For G1's re-cut: nine `S.prop(..., extra=[S.trope()])` props (four
+in `south.py`, four in `village.py`, one in `wilds.py`) bump the trope on
+**every** reading, not once - fix them with a self-switch guard before
+counting. Next free:
 switch 219, variable 33, item 75 (the lamp), weapon 44, armour 49, common event
 7, map 72, state 45, `Gen_People16` 2. Anything that runs the finale's list
 directly must skip 201 as well as 354. A post-game page on a ladder that

@@ -1648,13 +1648,26 @@ def guild_events():
         "The review is scheduled.",
         "The review has been scheduled for forty years."]))
 
-    evs.append(S.prop(6, "The Filing", *GUILD_FILING, [
+    # The files are three bookcase columns and any of them answers, or the
+    # two that said nothing read as furniture and the joke is missed. The
+    # trope is counted once between them, on the first one's self switch.
+    filing = [
         "Every party that ever went north, filed by",
         "surname of the least important member,",
         "because that was the rule when the rule was",
-        "made and nobody has been able to unmake it."],
-        "", 0, extra=[S.trope()]))
+        "made and nobody has been able to unmake it."]
+    first = "[%d, 6, 'A']" % MAP_GUILD
+    counted = R.if_then(
+        R.condition_script("!$gameSelfSwitches.value(%s)" % first),
+        [S.trope()] + R.script(["$gameSelfSwitches.setValue(%s, true);"
+                                % first]))
+    evs.append(S.prop(6, "The Filing", *GUILD_FILING, filing, "", 0,
+                      extra=counted))
     evs.append(q_nix.lorrimer_guild(7, *LORRIMER_GUILD))            # NIX-3
+    # Appended, never renumbered: the other two columns of the files.
+    for event_id, x in ((8, GUILD_FILING[0] - 1), (9, GUILD_FILING[0] + 1)):
+        evs.append(S.prop(event_id, "The Filing (%d)" % x, x, GUILD_FILING[1],
+                          filing, "", 0, extra=counted))
     return evs
 
 
