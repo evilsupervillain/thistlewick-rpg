@@ -1,0 +1,28 @@
+{
+  "query": "?map=22&x=12&y=10&frames=90",
+  "steps": [
+    {"comment": "Mike's round 12 follow-up, 28 Oct: the Two Hundred's shadow over the Works floor until she flies, and the Middle Distance bench, now eleven squares south of the Barrow's."},
+    {"check": "[$gameMap.event(13).characterName(), $gameMap.event(13).isThrough(), $gameMap.event(13)._priorityType]",
+     "expect": ["!$AirshipShadow", true, 0],
+     "label": "the shadow is on the floor, under everybody, and in nobody's way"},
+    {"check": "[$gameMap.event(13).x, $gameMap.event(13).y]", "expect": [12, 16],
+     "label": "standing on the floor's bottom row, in its middle column"},
+    {"eval": "$gameSwitches.setValue(53, true)"},
+    {"frames": 10},
+    {"check": "$gameMap.event(13).characterName()", "expect": "",
+     "label": "and gone once the Two Hundred flies"},
+    {"goto": [8, 82, 66]},
+    {"eval": "window._said = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._said.push(t); add.call(this, t); }; $gameMap.event(23).start()"},
+    {"advance": 12},
+    {"check": "[window._said.includes('It is very old. It has no plaque. Nobody'), window._said.some(t => /mound|north|south|east/.test(t))]",
+     "expect": [true, false],
+     "label": "before the Barrow's bench: old, and older than nothing in particular"},
+    {"eval": "window._said = []; $gameSwitches.setValue(40, true); $gameMap.event(23).start()"},
+    {"advance": 12},
+    {"check": "[window._said.includes('It is older than the one on the mound to the'), window._said.includes('north. It has no plaque. Nobody remembers who'), window._said.includes('north, facing the same water.')]",
+     "expect": [true, true, true],
+     "label": "after it: older than the one to the north, and sitting, the other one to the north"},
+    {"check": "window._said.some(t => /east|south/.test(t))", "expect": false,
+     "label": "and nothing says east or south any more"}
+  ]
+}

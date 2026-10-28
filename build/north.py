@@ -1375,6 +1375,21 @@ def works_events():
     # (27 Oct), so it answers from all three; the same words as 6.
     evs.append(S.sign(11, "The Drawings", 8, 3, DRAWINGS))
     evs.append(S.sign(12, "The Drawings", 9, 3, DRAWINGS))
+
+    # -- 13: the Two Hundred's shadow, across the whole shed floor, until she
+    # flies. Mike's picture is one screen, 17 by 13 squares, and an event's
+    # frame is drawn at whatever size its sheet divides into, standing on its
+    # square: so it stands on the floor's bottom row, (12, 16), and reaches
+    # exactly to the top row, with its middle column the floor's middle one.
+    # Below characters, so it darkens the floor and what stands on it and not
+    # the people; through, with nothing to say, so it is never in anybody's
+    # way. The second page is empty: `SW_AIRSHIP` is the gantry going empty.
+    shadow = R.image("!$AirshipShadow")
+    evs.append(R.event(13, "The Shadow of the Two Hundred", 12, 16, [
+        R.page([], img=shadow, priority=0, through=True, direction_fix=True),
+        R.page([], priority=0, through=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_AIRSHIP})]))
     return evs
 
 

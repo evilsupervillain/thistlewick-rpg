@@ -4,7 +4,7 @@ Pictures the game needs that no stock sheet has. Mike draws them and I put them 
 **Keep this file current**: add a row when a map edit or a line of text asks for
 a picture that does not exist, and move it to *Done* when the picture is in.
 
-Last updated 27 October 2026.
+Last updated 28 October 2026.
 
 ## How to hand them over
 
@@ -59,14 +59,13 @@ channel that runs down to the Middle Distance.
 | The north road has "nowhere for them to sit down for **four miles**" | Ambrose | there's nothing to check, as long as the road passes near the mound |
 | The Barrow bench **faces the sea** | Ambrose; the build text; the empty chamber; Ysolde | yes: it faces south, down the channel |
 | The Middle Distance bench faces "**the same water**" as the Barrow's | the Middle Distance, after sitting, if the Barrow bench is built | **yes**: both look on to the same channel |
-| The Barrow is "**the mound in the east**", seen from the Middle Distance | the Middle Distance | **no**: the Barrow is north of it, a little west. This is a text error, not a map one |
-| The Barrow bench is "**a long way south**" of the Middle Distance | the Middle Distance, after sitting | **no**: it is north, about 11 cells away. Also a text error |
+| The Barrow is "**the mound to the north**", seen from the Middle Distance | the Middle Distance, once the Barrow bench is built | **yes**: fixed 28 Oct (it said "in the east") |
+| The Barrow bench is "**to the north**" of the Middle Distance | the Middle Distance, after sitting | **yes**: fixed 28 Oct (it said "a long way south") |
 | "a mound in the **eastern hills**" | the ending | the Barrow is at x 68 of 120, a little east of centre, in hills. It's true enough |
-| "a mound out **east**" | Ysolde, in the Slain Wyvern | it's true from the Slain Wyvern |
+| "a mound out **east**" | Ysolde, in the Slain Wyvern | **loosely**: from the village at (60, 79) the Barrow is 16 east and 25 north, so it is north-east. Not a bench line, so unchanged |
 
-I haven't changed the two text errors: those lines are finished content. Tell me
-which way round you want them once the map is settled, and I'll fix just those
-words.
+The two text errors were fixed on 28 October, at your request, by changing only
+the direction words, and the comparison now waits for the Barrow bench.
 
 ### The Barrow bench (item 6): the text
 
@@ -137,13 +136,17 @@ words.
 *The Middle Distance* (world map event 23, reached by airship):
 > The middle distance. / It is a hill. Grass, a view of the sea, and / nothing else of any description whatever.
 >
-> There is a bench on it. / It is older than the one on the mound in the / east. It has no plaque. Nobody remembers who / put it up.
+*before the Barrow bench is built:*
+> There is a bench on it. / It is very old. It has no plaque. Nobody / remembers who put it up.
+
+*after it is built:*
+> There is a bench on it. / It is older than the one on the mound to the / north. It has no plaque. Nobody remembers who / put it up.
 
 *sitting on it* (choice: Sit on it / Stand about):
 > You sit on it. / Nothing happens. / The sea does what the sea does.
 
 *and, only if the Barrow bench was built:*
-> There is another one of these a long way / south, facing the same water.
+> There is another one of these to the / north, facing the same water.
 
 **What this means for the drawing:**
 - It's a bench on a grassy hill, looking out to sea.
@@ -152,9 +155,8 @@ words.
 - The Hermit sees it from seven cells west, so it faces away from him, towards the sea. If it is
   to face "the same water" as the Barrow's, that is north, up the channel towards the mound.
 
-Note that the Middle Distance's "older than the one on the mound" is said even
-before the Barrow bench exists. It's a small slip in the text too; I can make it
-conditional when I fix the directions.
+Until 28 October the Middle Distance said "older than the one on the mound"
+before the Barrow bench existed. That comparison now waits for `SW_BENCH_DONE`.
 
 ## Would be better, if you feel like it
 
@@ -175,4 +177,5 @@ The game uses stand-ins for these, and the stand-ins are acceptable.
 | the bell rope by the church door | Ashcombe (Map 52), (6, 12) | Mike: Outside_B `Rope` down from a bell box, with a real door beside it (locked: "SERVICE AT SIX. KEY WITH THE BELL.") | 23 Oct |
 | the hound's alcove | the Barrow (Map 20), (21, 12) | Mike: `Entrance A` over `Entrance D` set back into the wall, with Inside_C `Beef Stew` as the dish | 23 Oct |
 | the splintered chest | the Gloamwood (Map 9), the mimic at (12, 12) | Dungeon_B `Scrap Wood`, cut out to `img/characters/!$Splinters.png` by `journey.draw_art()` | 23 Oct |
+| the Two Hundred's shadow over the Works floor | the Hoyle Works (Map 22), event 13 at (12, 16) | Mike: `airship-shadow-big.png`, 816x624, kept as `build/supplied/airship_shadow.png` and made into `img/characters/!$AirshipShadow.png` by `build/supplied.py`. Below characters and through; gone once `SW_AIRSHIP` is on | 28 Oct |
 | the crack in the pit wall | the Bottomless Pit (Map 19), (19, 2) | Mike: Dungeon_B `Fissures D` | 23 Oct |

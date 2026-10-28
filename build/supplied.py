@@ -3,7 +3,8 @@
 `AUDIT.md` item 1's list, "The faces Mike supplies": each came as a 144x144
 portrait, kept as he gave it in `build/supplied/`, and this puts them into one
 face sheet of this game's own, `img/faces/Supplied.png`, in the cells
-`story.FACES` names. Not part of the data build, like `art.py`: run it when a
+`story.FACES` names - and the whole pictures in `SPRITES` into character
+sheets of their own. Not part of the data build, like `art.py`: run it when a
 portrait is added or replaced. **Append; never move anybody** - the index is
 what the data points at.
 """
@@ -23,7 +24,28 @@ PORTRAITS = [
 ]
 
 
+# Whole pictures that become an event's sprite: (sheet, file). Each is a
+# `!$` sheet, so its one frame is repeated in all twelve cells and the event
+# looks the same whichever way it faces. The frame is the picture at its own
+# size - the engine draws an event's frame at whatever size the sheet divides
+# into, so a screen-sized picture is a screen-sized event.
+SPRITES = [
+    ("!$AirshipShadow", "airship_shadow.png"),  # the Hoyle Works, north.py
+]
+
+
+def sprites():
+    for sheet, name in SPRITES:
+        src = os.path.join(HERE, "supplied", name)
+        row = ["(", src, src, src, "+append", ")"]
+        path = os.path.join(HERE, "..", "img", "characters", sheet + ".png")
+        subprocess.run(["convert", "-background", "none"] + row * 4
+                       + ["-append", "+repage", "PNG32:" + path], check=True)
+        print("wrote", os.path.normpath(path))
+
+
 def main():
+    sprites()
     args = ["convert", "-size", "576x288", "xc:none"]
     for cell, name in PORTRAITS:
         x, y = cell % 4 * 144, cell // 4 * 144

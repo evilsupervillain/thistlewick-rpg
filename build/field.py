@@ -282,7 +282,12 @@ def the_bench(event_id):
     It is a hill. There is a bench on it. You sit on it and nothing happens,
     and that is the entire event, and it should be the last thing in the game
     anybody finds. NORTH.md 5.6 allows exactly one extra line if the bench on
-    the mound in the east got built, and one is what it gets."""
+    the mound got built, and one is what it gets.
+
+    The mound is the Barrow, about eleven squares north across the channel
+    since Mike's round 12, and the two benches face each other up and down
+    it. Before the Barrow's bench exists there is nothing for this one to be
+    older than, so that comparison waits for it too."""
     sit = S.narrate([
         "You sit on it.",
         "Nothing happens.",
@@ -290,18 +295,24 @@ def the_bench(event_id):
     sit += R.if_then(
         R.condition_switch(db.SW_BENCH_DONE),
         S.narrate([
-            "There is another one of these a long way",
-            "south, facing the same water."]))
+            "There is another one of these to the",
+            "north, facing the same water."]))
 
     look = S.narrate([
         "The middle distance.",
         "It is a hill. Grass, a view of the sea, and",
         "nothing else of any description whatever."])
-    look += S.narrate([
-        "There is a bench on it.",
-        "It is older than the one on the mound in the",
-        "east. It has no plaque. Nobody remembers who",
-        "put it up."])
+    look += R.if_then(
+        R.condition_switch(db.SW_BENCH_DONE),
+        S.narrate([
+            "There is a bench on it.",
+            "It is older than the one on the mound to the",
+            "north. It has no plaque. Nobody remembers who",
+            "put it up."]),
+        S.narrate([
+            "There is a bench on it.",
+            "It is very old. It has no plaque. Nobody",
+            "remembers who put it up."]))
     look += R.choice_block(["Sit on it", "Stand about"], [sit, []])
     return R.event(event_id, "The Middle Distance",
                    *WORLD_MIDDLE_BENCH, [
