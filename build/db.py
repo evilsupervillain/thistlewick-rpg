@@ -642,6 +642,13 @@ def trait(code, data_id, value):
 
 
 def effect(code, data_id=0, value1=0, value2=0):
+    # Add Buff / Add Debuff (31, 32): the engine reads the turns from value1
+    # and nothing from value2, and a debuff has no rate of its own - its
+    # chance is the target's debuff rate times the luck rate. Every buff in
+    # the game had its turns in value2 until P4, so lasted no turns at all.
+    if code in (31, 32):
+        assert value2 == 0 and isinstance(value1, int) and value1 > 0, \
+            f"buff/debuff {data_id}: turns go in value1, as a whole number"
     return {"code": code, "dataId": data_id, "value1": value1, "value2": value2}
 
 
@@ -1052,7 +1059,7 @@ def build_skills():
         SK_PLOT_ARMOR, "Plot Armor",
         "The party is briefly too important to the story to be hurt properly.",
         "0", dmg_type=0, scope=8, mp=10, animation=53, icon=81, hit_type=0,
-        effects=[effect(31, 3, 0, 3), effect(31, 5, 0, 3)],
+        effects=[effect(31, 3, 3), effect(31, 5, 3)],
         message="%1 is clearly the main character!"))
     upsert(sk, skill(
         SK_SECOND_WIND, "Heroic Second Wind",
@@ -1135,7 +1142,7 @@ def build_skills():
         SK_QUENCH, "Quench",
         "Braces up. Raises his own defence sharply and steadies him.",
         "0", dmg_type=0, scope=11, tp=25, animation=51, icon=81, hit_type=0,
-        effects=[effect(31, 3, 0, 4), effect(21, 15, 1.0)],
+        effects=[effect(31, 3, 4), effect(21, 15, 1.0)],
         message="%1 quenches the blade."))
     upsert(sk, skill(
         SK_REFORGE, "Reforge The Moment",
@@ -1200,7 +1207,7 @@ def build_skills():
         SK_VANISH, "Vanish",
         "Becomes markedly harder to hit and slightly harder to find.",
         "0", dmg_type=0, scope=11, tp=30, animation=52, icon=82, hit_type=0,
-        effects=[effect(31, 6, 0, 4), effect(21, 21, 1.0)],
+        effects=[effect(31, 6, 4), effect(21, 21, 1.0)],
         message="%1 is suddenly not there."))
     upsert(sk, skill(
         SK_COUP, "Coup de Grace",
@@ -1219,7 +1226,7 @@ def build_skills():
         SK_OATH, "Oath of Nearly-Certain Victory",
         "Raises the party's defence, at some length.",
         "0", dmg_type=0, scope=8, mp=14, animation=53, icon=81, hit_type=0,
-        effects=[effect(31, 3, 0, 4)], message="%1 swears an oath!"))
+        effects=[effect(31, 3, 4)], message="%1 swears an oath!"))
     upsert(sk, skill(
         SK_CHARGE, "Righteous Charge",
         "A charge, in a direction that is at least approximately correct.",
@@ -1229,7 +1236,7 @@ def build_skills():
         SK_RALLY, "Rally",
         "Raises the party's attack with a short and very sincere speech.",
         "0", dmg_type=0, scope=8, mp=16, animation=51, icon=80, hit_type=0,
-        effects=[effect(31, 2, 0, 4), effect(21, ST_INSPIRED, 1.0)],
+        effects=[effect(31, 2, 4), effect(21, ST_INSPIRED, 1.0)],
         message="%1 rallies the party!"))
     upsert(sk, skill(
         SK_CHIVALRIC, "Chivalric Finisher",
@@ -1242,13 +1249,13 @@ def build_skills():
         SK_BALLAD, "Ballad of Adequacy",
         "Raises the party's attack. The lyrics are honest about the odds.",
         "0", dmg_type=0, scope=8, mp=10, animation=36, icon=80, hit_type=0,
-        stype=STYPE_MAGIC, effects=[effect(31, 2, 0, 4)],
+        stype=STYPE_MAGIC, effects=[effect(31, 2, 4)],
         message="%1 strikes up a ballad!"))
     upsert(sk, skill(
         SK_DISCORD, "Discordant Note",
         "One truly awful chord. Every enemy's defence suffers for it.",
         "a.mat - b.mdf", scope=2, mp=8, animation=34, icon=85, hit_type=2,
-        stype=STYPE_MAGIC, effects=[effect(32, 3, 1.0, 4)],
+        stype=STYPE_MAGIC, effects=[effect(32, 3, 4)],
         message="%1 plays something unforgivable."))
     upsert(sk, skill(
         SK_RECAP, "Previously, On This Quest",
@@ -1261,7 +1268,7 @@ def build_skills():
         SK_FORESHADOW, "Foreshadowing",
         "Hints ominously at what is coming. The party braces accordingly.",
         "0", dmg_type=0, scope=8, mp=12, animation=53, icon=81, hit_type=0,
-        stype=STYPE_MAGIC, effects=[effect(31, 5, 0, 4), effect(31, 6, 0, 4)],
+        stype=STYPE_MAGIC, effects=[effect(31, 5, 4), effect(31, 6, 4)],
         message="%1 foreshadows!"))
     upsert(sk, skill(
         SK_LULLABY, "Lullaby of Mild Tedium",
@@ -1282,7 +1289,7 @@ def build_skills():
         "Says nothing, meaningfully. His attack rises, his guard drops, and "
         "the moment finds him ready.",
         "0", dmg_type=0, scope=11, mp=0, animation=52, icon=82, hit_type=0,
-        effects=[effect(31, 2, 0, 4), effect(32, 3, 0, 4),
+        effects=[effect(31, 2, 4), effect(32, 3, 4),
                  effect(21, ST_BROODING, 1.0), effect(13, 0, 30)],
         message="%1 broods."))
     upsert(sk, skill(
@@ -1296,7 +1303,7 @@ def build_skills():
         "Says something about the coming dark to nobody in particular. Every "
         "enemy attacks worse for a while.",
         "0", dmg_type=0, scope=2, mp=6, animation=34, icon=85, hit_type=2,
-        effects=[effect(32, 2, 0, 3), effect(32, 4, 0, 3)],
+        effects=[effect(32, 2, 3), effect(32, 4, 3)],
         message="%1 says something about the coming dark."))
     upsert(sk, skill(
         SK_OLD_WOUND, "Old Wound",
@@ -1331,7 +1338,7 @@ def build_skills():
         "Writes one enemy up properly. Being described accurately does "
         "measurable harm to a creature's defences.",
         "0", dmg_type=0, scope=1, mp=10, animation=54, icon=83, hit_type=2,
-        effects=[effect(32, 3, 0, 5), effect(32, 5, 0, 5),
+        effects=[effect(32, 3, 5), effect(32, 5, 5),
                  effect(21, ST_CATALOGUED, 1.0)],
         message="%1 takes notes on %2."))
     upsert(sk, skill(
@@ -1373,7 +1380,7 @@ def build_skills():
         "Heals the whole party and means every word of it. Guest characters "
         "always have one of these.",
         "a.mat * 2 + 80", dmg_type=3, scope=8, mp=24, animation=43, icon=72,
-        hit_type=0, stype=STYPE_MAGIC, effects=[effect(31, 2, 0, 3)],
+        hit_type=0, stype=STYPE_MAGIC, effects=[effect(31, 2, 3)],
         message="%1 tells everyone they are doing well."))
     upsert(sk, skill(
         SK_FLOURISH, "Unnecessary Flourish",
@@ -1396,7 +1403,7 @@ def build_skills():
                      element=EL_EARTH, message="%1 grabs at everyone!"))
     upsert(sk, skill(SK_SHRIEK, "Portentous Shriek", "", "0", dmg_type=0,
                      scope=2, animation=34, hit_type=2,
-                     effects=[effect(32, 2, 0.6, 3)],
+                     effects=[effect(32, 2, 3)],
                      message="%1 shrieks something about doom."))
     upsert(sk, skill(SK_EMBER, "Ember", "", "a.mat * 3 - b.mdf * 2",
                      animation=66, hit_type=2, element=EL_FIRE,
@@ -1407,7 +1414,7 @@ def build_skills():
     upsert(sk, skill(SK_DOOM_MONOLOGUE, "Doom Monologue", "",
                      "a.mat * 2 - b.mdf", scope=2, animation=104, hit_type=2,
                      element=EL_DARK,
-                     effects=[effect(32, 3, 0.5, 3)],
+                     effects=[effect(32, 3, 3)],
                      message="%1 explains the plan at length."))
     upsert(sk, skill(SK_INEVITABILITY, "Inevitability", "",
                      "a.atk * 4 - b.def * 2", scope=2, animation=39,
@@ -1422,7 +1429,7 @@ def build_skills():
                      message="%1 issues an erratum."))
     upsert(sk, skill(SK_SMALL_PRINT, "The Small Print", "", "0", dmg_type=0,
                      scope=11, animation=51, hit_type=0,
-                     effects=[effect(31, 2, 0, 5), effect(31, 3, 0, 5)],
+                     effects=[effect(31, 2, 5), effect(31, 3, 5)],
                      message="%1 refers to the small print."))
 
     upsert(sk, skill(SK_PINCH, "Pinch", "", "a.atk * 3 - b.def * 2",
@@ -1435,7 +1442,7 @@ def build_skills():
                      message="%1 takes something owed."))
     upsert(sk, skill(SK_WHATS_DONE, "It Is What Is Done", "",
                      "a.atk * 4 - b.def * 2", scope=2, animation=25,
-                     effects=[effect(32, 3, 0, 3)],
+                     effects=[effect(32, 3, 3)],
                      message="%1 does what is done."))
     upsert(sk, skill(SK_RUMMAGE, "Rummage", "", "a.atk * 2 - b.def",
                      animation=21, message="%1 rummages through %2."))
@@ -1444,7 +1451,7 @@ def build_skills():
                      message="%1 has a strong opinion about this."))
     upsert(sk, skill(SK_TRIBUTE, "Demand Tribute", "", "a.atk * 2 - b.def",
                      scope=2, animation=37,
-                     effects=[effect(32, 2, 0, 3)],
+                     effects=[effect(32, 2, 3)],
                      message="%1 demands tribute, with a syllabus."))
 
     # -- the north -----------------------------------------------------------
@@ -1462,7 +1469,7 @@ def build_skills():
                      message="%1 gets a foot off the ground."))
     upsert(sk, skill(SK_SHED_A_PART, "Take A Part Off", "",
                      "a.atk * 2 - b.def", animation=21,
-                     effects=[effect(32, 3, 0, 3), effect(21, ST_SLOWED, 0.6)],
+                     effects=[effect(32, 3, 3), effect(21, ST_SLOWED, 0.6)],
                      message="%1 takes a part off %2."))
     upsert(sk, skill(SK_OVERPRESSURE, "Overpressure", "",
                      "a.atk * 3 - b.def", scope=2, animation=68,
@@ -2847,11 +2854,11 @@ def build_monograph():
     each one a fight she objects to and conducts anyway, and the list."""
     sk = R.load("Skills.json")
     upsert(sk, skill(SK_STARTLE, "Startle", "", "0", dmg_type=0, hit_type=2,
-                     animation=0, effects=[effect(32, 2, 0, 3)],
+                     animation=0, effects=[effect(32, 2, 3)],
                      message="%1 does something sudden at %2."))
     upsert(sk, skill(SK_BOLT, "Bolts For Cover", "", "0", scope=11,
                      dmg_type=0, hit_type=0, animation=0,
-                     effects=[effect(31, 6, 0, 3)],
+                     effects=[effect(31, 6, 3)],
                      message="%1 bolts for cover, and is somewhere else."))
     upsert(sk, skill(SK_BITE_NOTES, "Bites The Note-Taker", "",
                      "a.atk * 5 - b.def * 2", animation=0,
@@ -3187,8 +3194,8 @@ def build_spare():
         "does not show it to just anybody.",
         "a.agi * 3 + 200", dmg_type=3, scope=13, tp=100, icon=196,
         animation=45, hit_type=0,
-        effects=[effect(22, ST_DEAD, 1.0), effect(31, 2, 0, 4),
-                 effect(31, 6, 0, 4), effect(13, 0, 100)],
+        effects=[effect(22, ST_DEAD, 1.0), effect(31, 2, 4),
+                 effect(31, 6, 4), effect(13, 0, 100)],
         message="%1 takes out the drawing, and shows everybody."))
     for s in bag:
         s["requiredWtypeId1"] = WT_BAG
