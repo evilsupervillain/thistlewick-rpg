@@ -1381,12 +1381,12 @@ def works_events():
     # frame is drawn at whatever size its sheet divides into, standing on its
     # square: so it stands on the floor's bottom row, (12, 16), and reaches
     # exactly to the top row, with its middle column the floor's middle one.
-    # Below characters, so it darkens the floor and what stands on it and not
-    # the people; through, with nothing to say, so it is never in anybody's
+    # Above characters (Mike, 28 Oct), so it falls across the people as well
+    # as the floor; through, with nothing to say, so it is never in anybody's
     # way. The second page is empty: `SW_AIRSHIP` is the gantry going empty.
     shadow = R.image("!$AirshipShadow")
     evs.append(R.event(13, "The Shadow of the Two Hundred", 12, 16, [
-        R.page([], img=shadow, priority=0, through=True, direction_fix=True),
+        R.page([], img=shadow, priority=2, through=True, direction_fix=True),
         R.page([], priority=0, through=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_AIRSHIP})]))
