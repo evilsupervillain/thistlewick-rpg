@@ -1358,3 +1358,19 @@ puts game content in the map file and is what 7.6 exists to forbid.
   and that was abandoned for being impossible to reach. Islands are 7.5 item 5
   and remain deferred. The sea is still mostly empty and that is still an open
   question, just a smaller one.
+* **The Cinder Fen's tile (47,118).** Mike placed `House (Desert)`, layer 3
+  (`round11.json`, `[47,118,[3240,0,0,142]]`), on a one-cell strip of cracked
+  mud between rock, two roads and the lake. **Kept as it is (28 Oct 2026);
+  Mike may experiment with it later.** What was tried, on a scratch copy only:
+  * A1 kind 4, `Poison Swamp`, on layer 0 at (47,116)-(47,118), with layers 1
+    and 3 cleared on those cells and `autotile(0, kinds=[4])`, reads as a fen
+    strip. The best of three mockups added `Forest (Dead Trees)` (A2 kind 12,
+    id kind 28) on layer 1 at (45,117), (46,117) and (46,118), with
+    `autotile(1, kinds=[28])`: three dead trees on the rock beside it. Both are
+    walkable.
+  * **What does not work.** A1 kind 5, `Dead Trees`, is waterfall-format, so
+    it draws as a hard purple square unless it sits inside a swamp at least
+    3x3, and there is no room for one here. A wider swamp (2x3, or an L)
+    shows sand-coloured edge rims against the Rocky Land.
+  * To apply it, edit the cells in `build/worldmap/round11.json` (replace
+    (47,118), add the others) and rebuild.
