@@ -372,7 +372,8 @@ the scenarios the step reaches.
   continuance plugin (`js/plugins/TOQ_Mountain.js`, keyed by map-note tags
   rather than a switch). Scenarios: a new `pg_mountain`, and `hithermost`.
 * **P4e - the bottom.** Past D. 212 on Map 77: Something Unscheduled, item
-  six on the schedule, and its line in the account. Map 78 on.
+  six on the schedule, and its line in the account. Map 78 on. **Agreed in
+  full, section 12** (29 Oct 2026): the build brief.
 * **G0, the quest log**, adds the post-game quests (the letter, the cottage,
   Quy, the lamp, the Stair) to `quests.py`. **G1** then does only the re-cut,
   the suite, Mike's playthrough, and the push.
@@ -401,3 +402,127 @@ recommendation:
 Still open from before and not part of P4 unless Mike says so: the value1/value2
 turn count on every buff and debuff in `db.py`, and whether P2's "shield
 standing in for a sign" meant the crest sign outside the Guild.
+
+## 12. P4e, the bottom - agreed (Mike, 29 Oct 2026)
+
+Option (a) of section 9, with its open questions answered. This section is
+the whole brief for P4e; the draft lines below are approved as written
+(Mike: "they work"), and anything new beyond them is still new writing.
+
+**Map 78, the Bottom** (`mountain.py`, `places.MAP_STAIR` stays the five;
+add `MAP_BOTTOM = 78`). Map 77's "d" (28, 48) stops being "You turn back.
+Not yet." and becomes a way down, the same `_way` the other maps use; the
+old page's text is P4d's and was never pushed, so it can go. One more flight
+down, then a chamber that is **lit**: lamps on every ledge, dozens, all
+burning, because it has been getting ready for company. The note is
+`<continuance>` only - no `<lamplight>` - so the dark stops, and a lost
+fight still goes to the porch. Same rock-cave family and `_plan` idiom as
+73-77 (it can be a plan in `PLANS`'s style but outside the list, or the list
+grown with care: `stair_map`, `ENCOUNTERS`, `BGS`, `NAMES` and `_ways` all
+index by it). No random encounters on Map 78. Register the map in
+`build_game.MAP_NAMES` and the build, as P4d did.
+
+**Something Unscheduled.** Stock `Kraken` battler (big-eyed octopus; looks
+pleased to see you). Map sprite: whatever stock character reads as large and
+friendly, or `Monster`; check with a shot. Enemy 65, troop 61, skills from
+191: three or four with eager names, heavy hits spread across the party so
+the healer is busy. About **36,000 HP**, roughly ten turns for
+`balance.py`'s strong four at level 25 (Prophecy 9,000, Grimspite 7,000,
+warden 4,400); tune with a Monte Carlo of the engine's rules as PIP-3's was
+(`QUESTS.md`, the P1 Done paragraph), not by `balance.py` alone. Can lose;
+the lose branch calls `CE_CONTINUANCE`, exactly as `mountain._warden` does.
+Can't escape.
+
+**The draft lines** (approved):
+
+> The stair ends. The dark stops all at once, like a door shutting behind
+> you. Lamps, dozens of them, on every ledge, and every one is lit.
+> **Something Unscheduled:** OH. Oh! Visitors! Come in, come in!
+> I'm not on anything. I asked. Not in the Prophecy, not on the board.
+> Item six.
+> Nobody is obliged to fight me. So nobody ever has. ...Would you? Only if
+> you've got the afternoon.
+> *(Fight / Not today)*
+> After winning: ...Thank you. That was the best afternoon I've ever had.
+> Nobody made you.
+
+Break them to the 47/60-character widths with `S.say`; a trope on the first
+meeting (self switch, once). Its thank-you is for a *visit*, Grimspite's
+(`journey.py`, "...Thank you.") was for an *ending*; keep them apart.
+
+**Rematch: yes** (Mike). After a win, every later visit it asks "Again?"
+(Fight / Not today). No second bounty card.
+
+**The way home: it takes you up** (Mike). After every win - and on "Not
+today" too is a sensible choice, decide when writing - it sees the party up:
+fade, transfer to Hithermost's `mountain.DOOR_STEP` (17, 6) on Map 33.
+
+**The schedule board** inside the Door (Map 73, `mountain.schedule()`): once
+it is beaten, a new page above the old shows the same board with a chalk
+line beside item six in the party's hand - "Anticipated." (not "- D.":
+Dunstable never got this far, and nothing may settle him). P4d is unpushed,
+so this is free to change.
+
+**The keepsake is paperwork** (Mike's idea, the design below agreed):
+
+* After the first win it shyly hands over a card it has kept ready a very
+  long time - a bounty it wrote on itself:
+  `BOUNTY: SOMETHING UNSCHEDULED / Lives at the bottom of the Stair. Would
+  love to meet you. / Reward: on production of a witness.`
+* The contradiction is the joke. Narrated, the game's idiom for the party:
+  "You point out that it said it wasn't on anything." It: "I'm not! Nobody
+  would put me on anything. So I did it myself." / "It isn't official. It
+  wants a stamp. ...I didn't know where you'd get one." It is still in no
+  prophecy, contract or schedule; needing to write its own card is the proof.
+* **Registrar Pell** at the Guild (Map 15, `south.pell_event`, event 2;
+  pages: intro, unregistered on `SW_GUILD_ASKED`, member on
+  `SW_GUILD_MEMBER`). A new page appended on the member switch **and** the
+  card item: he examines it, for some time. Nobody issued it; no authority;
+  there is no form for this. Then, after a pause: there is. He has kept it
+  forty years in case - **Form Z, Matters Not Anticipated** (item six of the
+  Stair's schedule, at the other end of the paperwork). Never used. He is
+  quietly as thrilled as the monster was. He stamps the card DISCHARGED and
+  gives it back, and takes the Guild Card (Provisional) and hands back one
+  without "(Provisional)". That is the whole reward - every other bounty
+  paid gold; this one pays in status, which Pell regards as the larger sum.
+  The page must still offer the member page's roster amendment afterwards
+  (or be followed by a page that does), because it shadows that page.
+* **Unregistered party**: the unregistered page is untouched, so the card
+  waits; Pell, if it needs a line, says a bounty is claimed by a member.
+* **The bounty board** (Map 15 event 3, `south.bounty_board`): published
+  page 2 reads "Two cards. There are usually two cards." A page appended on
+  the stamped switch: "Three cards. There are usually two." The third is a
+  copy, pinned up, stamped DISCHARGED; the crab and Crooke choices as before.
+* `VAR_BOUNTIES` is **not** bumped: the finale's numbers are the ending
+  moment's (section 8).
+* The Guild Card (item 27, `db.IT_GUILD_CARD`) is checked nowhere but its own
+  gain in `pell_event` - membership is `SW_GUILD_MEMBER` - so swapping it for
+  a new item is safe; grep again before doing it.
+
+**The account** (`mountain.account_lines()`, after the Stair's three): on
+the beaten switch, "Something Unscheduled was met at the bottom of the
+Stair, and fought, because nobody had to." and, on the stamped switch, "Its
+bounty was discharged on Form Z." (wrap to width; extend `pg_account`).
+
+**Ids:** switch 222 `SW_UNSCHEDULED` (beaten), 223 `SW_FORM_Z` (stamped);
+first meeting is a self switch. Items: 77 the card as handed over
+("Bounty (Something Unscheduled)"), 78 the same card stamped ("Bounty,
+Discharged"), swapped by Pell - an item's description cannot change, so it
+is two items - and 79 "Guild Card", swapped for 27. All key items. Enemy 65,
+troop 61, skills 191+, map 78. Grep `db.py` for every new constant name
+before using it. Variables: none needed.
+
+**Also in P4e:** `AUDIT.md` item 1 (enemy art) gains the six mountain
+enemies - P4d's five (The Dark, The Draught, The Echo, Somebody Coming Up,
+the Half-Way Warden) were meant to go on it and did not - and Something
+Unscheduled.
+
+**Scenario `pg_bottom`:** from Map 77 down to 78; the meeting (trope once);
+"Not today"; the fight won (set the troop dead as `q_ald2`/E18 do) - the
+switch, the card, the ride up to (17, 6) on Map 33; a rematch offered with
+no second card; a fight lost going to the porch (Map 34, wait on "You come
+back in through the porch."); the schedule's new page; Pell stamping
+(card swapped, Guild Card swapped, switch 223); the board's third card; the
+account's two lines. Rerun `pg_mountain` (Map 77 changed), `pg_account`,
+and whatever walks the Guild (`guild` and any scenario touching Map 15:
+grep `scenarios/` for `15,`).

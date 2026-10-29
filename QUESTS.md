@@ -4622,7 +4622,13 @@ pages appended. The one old page that grew is P4c's lectern, through
 
 **Start with P4e** (`POSTGAME.md` section 9's bottom, "Something
 Unscheduled"): Map 78 on, through Map 77's way down, which today says "You
-turn back. Not yet." (`mountain._ways`, the "d" on plan 4). **P4a-P4d are
+turn back. Not yet." (`mountain._ways`, the "d" on plan 4). **The design is
+agreed in full in `POSTGAME.md` section 12** (Mike, 29 Oct 2026) - the lit
+chamber, the Kraken superboss, rematch, the ride up, the schedule's chalk
+line, and the keepsake: a bounty it wrote on itself, stamped by Registrar
+Pell on Form Z, Matters Not Anticipated, who swaps the Guild Card
+(Provisional) for a full one. Read section 12 and build from it; its draft
+lines are approved. **P4a-P4d are
 done** (the last four Done paragraphs in section 3). The finale hands back
 to Bram's house; Thistlewick, the pension, Fitch's cottage (Map 71) and
 Roland are built; Prophecy Hall's lectern reads the tally again as "THE
