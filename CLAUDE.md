@@ -381,7 +381,9 @@ in each of the four states.
       mountain.py    Maps 73-77: the Stair behind the Door into the Mountain
                      (P4d) - five plans of rock cave, Dunstable's chalk marks
                      and the art for them, the warden, the porch (common event
-                     7), and the lamp and Door pages `hithermost.py` appends
+                     7), and the lamp and Door pages `hithermost.py` appends;
+                     and Map 78, the bottom (P4e): the lit chamber, its
+                     lamps, and Something Unscheduled
       penultima.py   Maps 29-30: Penultima and Ye Final Shoppe, and the
                      **real** door events on Map 8 that replace the two
                      placeholders worldmap.json ships for that site. It is the
@@ -467,7 +469,11 @@ Append instead.
   (59 is the warden, met, not random; 60 runs one past the companion block),
   **Skills 185-190**; Dunstable's pages 2-3 (Map 34 event 4, self switch B),
   the Door's pages 1-2 (Map 33 event 6, and its world-map event); **Maps
-  73-77** |
+  73-77**. P4e: **switches 222-223** Something Unscheduled fought, its bounty
+  discharged on Form Z; **items 77-79** the bounty card, the same card
+  stamped, the Guild Card (not provisional, swapped for 27); **enemy 65**,
+  **troop 61**, **skills 191-194**; **Map 78**; Pell's pages 3-5 and the
+  board's page 2 (Map 15 events 2-3), the schedule's page 1 (Map 73 event 9) |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -625,7 +631,13 @@ Append instead.
   Dungeon tileset, one map a few hundred feet of descent, each in by a flight
   at the top and out by one at the bottom. Their notes carry `<lamplight>` and
   `<continuance>`. In by the Door with the lamp to (19, 2) on Map 73; out at
-  the top to `mountain.DOOR_STEP` on Hithermost. Map 77's way down is P4e's |
+  the top to `mountain.DOOR_STEP` on Hithermost. Map 77's way down goes on
+  to Map 78 |
+| Map 78 | The Bottom of the Stair (P4e): `mountain.py`, `places.MAP_BOTTOM`,
+  plan 5 of `mountain.PLANS` (`mountain.MAPS` is the six), a child of Map 77.
+  Lit, so its note is `<continuance>` alone; no encounters. Something
+  Unscheduled is event 3; win or decline, it sends the party up to
+  `mountain.DOOR_STEP` |
 | Map 99 | the tile sampler, not part of the game |
 | **Firstfield** | fresh blocks, because `SPARE.md` has spoken for the free ends
   of the north's (Enemy 28, Troop 29, Weapon 34, Armor 27, Items 33-34, Skills
@@ -1076,7 +1088,8 @@ makes eight passes over it cost less than the single pass did before.
   in the amended account; walked to and read bare, then with each switched
   line, in order; Quy's afternoon both ways in, with and without the cup, and
   the pot next door; Hollowell's notice both ways in, and the signed book; and (P4d) the
-  Stair's three lines, absent bare and between the tea and clause twelve |
+  Stair's three lines, absent bare and between the tea and clause twelve,
+  and (P4e) the bottom's two after them |
 | `pg_mountain` | `POSTGAME.md` P4d: Sir Dunstable before and after the ending,
   never met (introduced, the trope, the lamp) and again; the Door with the
   lamp, in, in the dark but for it; the schedule; the first flight on foot,
@@ -1087,6 +1100,13 @@ makes eight passes over it cost less than the single pass did before.
   and **a battle lost on the world map still Game Over**. Its message window
   auto-advances (`_auto`) through speeches that end in a battle, which
   `advance` cannot do without playing the battle |
+| `pg_bottom` | `POSTGAME.md` P4e: down past D. 212 to Map 78, lit and
+  without encounters; Something Unscheduled met (the trope), "Not today" and
+  seen up to the Door; back, fought and won (the card, the ride up); the
+  schedule's "Anticipated."; a rematch with no second card; a loss to the
+  porch; Pell refusing a non-member the card, then stamping it on Form Z and
+  swapping both cards; the not-provisional page and its roster amendment; the
+  board's third card; the account's two lines |
 | `pg_roland` | `POSTGAME.md` P4b, Roland: he leaves at the door with nothing
   on and the door is then its own page; after the ending, rehired at his
   table in his own shield and shirt, struck off and back, up the tower and

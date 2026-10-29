@@ -51,7 +51,12 @@ import rmmzdata as R
 
 import db
 import story as S
-from places import MAP_STAIR, MAP_HITHERMOST, MAP_CONTINUANCE
+from places import MAP_STAIR, MAP_BOTTOM, MAP_HITHERMOST, MAP_CONTINUANCE
+
+# The Stair's five maps and the bottom (P4e), which is drawn the same way and
+# indexed with them: plan 5 is Map 78.
+MAPS = MAP_STAIR + (MAP_BOTTOM,)
+BOTTOM = len(MAP_STAIR)
 
 # The Dungeon sheet's rock cave, all one family (`Wall B`, `Ground C`, `Dark
 # Ground C`, `Stairs B`, `Hole C`, `Water D`, all "(Rock Cave)").
@@ -278,10 +283,22 @@ PLANS = [
           (33, 31, 33, 38, "="),
           (26, 39, 36, 41, "c"), (34, 38, "E"),
           (28, 42, 28, 49, "="), (28, 48, "d"), seed=7305),
+
+    # 78, the Bottom (P4e). One more flight, and the dark stops: a round
+    # chamber, lit, with lamps on every ledge, and in the middle of it the
+    # one thing on the schedule nobody anticipated, which has been getting
+    # ready for company for a very long time.
+    _plan(40, 30,
+          (20, 0, 20, 7, "="), (20, 1, "u"),
+          (18, 8, 22, 9, "."),
+          (11, 9, 29, 27, ".", "oval"),
+          (20, 19, "m"), seed=7306),
 ]
 
 NAMES = ["The Stair", "The Stair - Further Down", "The Stair - Half Way",
-         "The Stair - Still Going", "The Stair - D. 212"]
+         "The Stair - Still Going", "The Stair - D. 212",
+         "The Bottom of the Stair"]
+BOTTOM_NAME = NAMES[BOTTOM]
 
 # What a random encounter is, map by map: the schedule's items one to four,
 # deeper ones further down. The warden is not among them; there is one of
@@ -293,9 +310,12 @@ ENCOUNTERS = [
     [(db.TR_ECHO, 3), (db.TR_COMING_UP, 4), (db.TR_PASSING, 4)],
     [(db.TR_COMING_UP, 4), (db.TR_PASSING, 4), (db.TR_DRAUGHT, 3),
      (db.TR_DARK, 3)],
+    [],                                 # the bottom: nothing comes down
 ]
 ENCOUNTER_STEP = 30
-BGS = ["Darkness", "Darkness", "Wind1", "Drips", "Darkness"]
+BGS = ["Darkness", "Darkness", "Wind1", "Drips", "Darkness", ""]
+BOTTOM_BGM = "Town5"                    # lit, and warm, and expecting you
+BOTTOM_NOTE = "<continuance>"           # no <lamplight>: the dark stops
 
 def cells(i, ch):
     """Every cell of plan `i` (0 is Map 73) holding `ch`."""
@@ -305,7 +325,7 @@ def cells(i, ch):
 
 def at(i, ch):
     found = cells(i, ch)
-    assert len(found) == 1, (MAP_STAIR[i], ch, found)
+    assert len(found) == 1, (MAPS[i], ch, found)
     return found[0]
 
 
@@ -340,6 +360,8 @@ def draw(i):
         g.set(x, y, 3, tile)
     keep = [(x, y) for y, row in enumerate(plan) for x, c in enumerate(row)
             if c.isalpha() or c == "="]
+    if i == BOTTOM:
+        keep += [c for group in lamps() for c in group]
     K.naturalise_cave(g, seed=7300 + i, keep=keep, top=ROCK, face=FACE)
     return g
 
@@ -406,6 +428,8 @@ def props(i):
         rock(x + dx, y + dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1)) >= 5]
     rng.shuffle(nooks)
     blocked, wanted = set(), _wanted(i)
+    if i == BOTTOM:                     # swept, for company
+        nooks = []
     for x, y in nooks:
         if len(blocked) >= 6:
             break
@@ -421,15 +445,52 @@ def check_plans():
     """Every wall event is the lower row of a face, and everything that has
     to be reached is reached from the way in."""
     for i, plan in enumerate(PLANS):
-        assert len({len(r) for r in plan}) == 1, MAP_STAIR[i]
+        assert len({len(r) for r in plan}) == 1, MAPS[i]
         h = len(plan)
         for y, row in enumerate(plan):
             for x, c in enumerate(row):
                 if c.isupper():
                     assert y + 1 < h and plan[y + 1][x] in ".,", (
-                        MAP_STAIR[i], c, x, y)
+                        MAPS[i], c, x, y)
         missing = _wanted(i) - _reach(i)
-        assert not missing, (MAP_STAIR[i], sorted(missing))
+        assert not missing, (MAPS[i], sorted(missing))
+    lamps()                             # asserts the bottom's lamps block nothing
+
+
+def lamps():
+    """The bottom's lamps, dozens, every one lit: one on the wall over every
+    other cell of the chamber's north side, where the rock has a face to
+    hang it on, and a standing lamp on every other cell round the rest of
+    its edge - none of them where it cuts anything off, beside the foot of
+    the stair, or in the way of what lives here. Returns (wall, standing)."""
+    plan = PLANS[BOTTOM]
+    h, w = len(plan), len(plan[0])
+    sx, _ = at(BOTTOM, "u")
+    mx, my = at(BOTTOM, "m")
+
+    def floor(x, y):
+        return 0 <= x < w and 0 <= y < h and plan[y][x] in ".,"
+
+    def rock(x, y):
+        return not (0 <= x < w and 0 <= y < h) or plan[y][x] == "#"
+    face = sorted((x, y) for y in range(1, h - 1) for x in range(w)
+                  if rock(x, y) and rock(x, y - 1) and floor(x, y + 1)
+                  and abs(x - sx) > 2)
+    wall = face[::2]
+    import math
+    edge = [(x, y) for y in range(h) for x in range(w)
+            if floor(x, y) and not rock(x, y - 1)
+            and any(rock(x + dx, y + dy)
+                    for dx, dy in ((1, 0), (-1, 0), (0, 1)))
+            and not (abs(x - sx) <= 3 and y <= 11)
+            and not (abs(x - mx) <= 2 and abs(y - my) <= 2)]
+    edge.sort(key=lambda c: math.atan2(c[1] - h / 2, c[0] - w / 2))
+    standing, wanted = [], _wanted(BOTTOM)
+    for c in edge[::2]:
+        if wanted <= _reach(BOTTOM, set(standing) | {c}):
+            standing.append(c)
+    assert len(wall) + len(standing) >= 24, (len(wall), len(standing))
+    return wall, standing
 
 
 # ===================================================================== art ==
@@ -579,6 +640,7 @@ MARKS = [
      "D": (211, ["D. 211. Bit further than yesterday."]),
      "E": (212, ["D. 212. Bit further than yesterday.",
                  "Back directly."])},
+    {},                                 # the bottom: he never got this far
 ]
 # D. 61 is not on a wall. It is on the flat rock where he has his tea, which
 # is an event of its own on Map 74.
@@ -628,28 +690,19 @@ def _way(event_id, name, xy, to_map, to_xy, direction):
 
 def _ways(i):
     """Up and down. Up from the first map is out through the Door; down from
-    the last is P4e's, and until then it is the line the Door had."""
+    D. 212 is one more flight, to the bottom (P4e), which has no way down."""
     evs = []
     if i == 0:
         evs.append(_way(1, "The Door", at(i, "u"), MAP_HITHERMOST, DOOR_STEP,
                         2))
     else:
         dx, dy = at(i - 1, "d")
-        evs.append(_way(1, "The Stair Up", at(i, "u"), MAP_STAIR[i - 1],
+        evs.append(_way(1, "The Stair Up", at(i, "u"), MAPS[i - 1],
                         (dx, dy - 1), 8))
     if i + 1 < len(PLANS):
         ux, uy = at(i + 1, "u")
-        evs.append(_way(2, "The Stair Down", at(i, "d"), MAP_STAIR[i + 1],
+        evs.append(_way(2, "The Stair Down", at(i, "d"), MAPS[i + 1],
                         (ux, uy + 1), 2))
-    else:
-        on = S.narrate([
-            "The stair goes on down, past the last chalk mark, into",
-            "a dark that does not stop."])
-        on += S.narrate(["You turn back. Not yet."])
-        on += R.move_route(-1, [{"code": 4, "parameters": []}],
-                           repeat=False, wait_flag=True)
-        evs.append(R.event(2, "The Stair Down", *at(i, "d"), [R.page(
-            on, img=R.image(""), trigger=1, priority=0, through=True)]))
     return evs
 
 
@@ -663,7 +716,10 @@ def _wall(event_id, name, i, ch, commands, img=None):
         direction_fix=True, walk_anime=False)])
 
 
-def schedule():
+def schedule(anticipated=False):
+    """The board inside the Door. `anticipated` is its page once Something
+    Unscheduled has been met and fought (P4e): the party's own chalk beside
+    item six. Not "- D.": he never got that far."""
     c = S.narrate([
         "A board, nailed up inside the Door:",
         "",
@@ -677,6 +733,11 @@ def schedule():
     c += S.narrate([
         "   5. The warden of the half-way landing.",
         "   6. Anything else: NOT ANTICIPATED."])
+    if anticipated:
+        c += S.narrate([
+            "Chalked beside item six, in your own hand:",
+            "",
+            "   'Anticipated.'"])
     c += S.narrate([
         "Chalked under it, in a cheerful hand:",
         "",
@@ -744,6 +805,128 @@ def _warden(event_id, other_id):
     return [warden, sitting]
 
 
+# ============================================================= the bottom ==
+UNSCHEDULED = "Something Unscheduled"
+UNSCHEDULED_IMG = ("$BigMonster1", 0, 6)    # the purple one, facing you
+
+
+def _it(lines):
+    return S.say(UNSCHEDULED, lines, face=False)
+
+
+def _arrival(event_id):
+    """The first time down: the dark stops, and somebody has seen you."""
+    c = S.narrate([
+        "The stair ends. The dark stops all at once, like a door",
+        "shutting behind you. Lamps, dozens of them, on every",
+        "ledge, and every one is lit."])
+    c += _it(["OH. Oh! Visitors! Come in, come in!"])
+    c += [R.self_switch("A", True)]
+    x, y = at(BOTTOM, "u")
+    return R.event(event_id, "The Dark Stops", x, y + 1, [
+        R.page(c, img=R.image(""), trigger=3, priority=0, through=True),
+        R.page([], img=R.image(""), priority=0, through=True,
+               conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
+    ])
+
+
+def _see_you_up():
+    """It takes the party up, every time: out under the Door at Hithermost."""
+    c = S.narrate([
+        "It sees you up the Stair, all of it. It takes no time at",
+        "all, and afterwards none of you can say how."])
+    c += [R.fadeout_screen(),
+          R.transfer(MAP_HITHERMOST, *DOOR_STEP, 2, 2),
+          R.wait(20), R.fadein_screen()]
+    c += S.narrate([
+        "You are standing under the Door into the Mountain. From",
+        "somewhere a very long way down, something waves."])
+    return c
+
+
+def _unscheduled(event_id):
+    """Item six on the schedule: anything else, not anticipated. It is on
+    nothing - no prophecy, no board - so nobody has ever been obliged to fight
+    it, and nobody ever has. The first win is thanked for and paid in a card
+    it wrote on itself; every later visit it asks "Again?". Win or decline,
+    it sees you up; lose, and it is the porch, as anywhere on the Stair."""
+    x, y = at(BOTTOM, "m")
+
+    def fight(won):
+        c = [R.battle(db.TR_UNSCHEDULED, can_escape=False, can_lose=True)]
+        lost = _it(["Oh! Oh no. Was that too much?",
+                    "I'm sorry. I don't get the practice."])
+        lost += [R.call_common_event(db.CE_CONTINUANCE)]
+        for code, body in [(601, won), (603, lost)]:
+            c += [{"code": code, "indent": 0, "parameters": []}]
+            c += R.shift(body, 1)
+            c += [{"code": 0, "indent": 1, "parameters": []}]
+        c += [{"code": 604, "indent": 0, "parameters": []}]
+        return c
+
+    first_win = _it(["...Thank you.",
+                     "That was the best afternoon I've ever had.",
+                     "Nobody made you."])
+    first_win += S.narrate([
+        "It rummages somewhere about itself and brings out a card,",
+        "very carefully, by one corner. It has been kept ready for",
+        "a very long time."])
+    first_win += S.narrate([
+        "   \\C[6]BOUNTY: SOMETHING UNSCHEDULED\\C[0]",
+        "   Lives at the bottom of the Stair.",
+        "   Would love to meet you.",
+        "   Reward: on production of a witness."])
+    first_win += S.narrate([
+        "You point out that it said it wasn't on anything."])
+    first_win += _it(["I'm not!", "Nobody would put me on anything.",
+                      "So I did it myself."])
+    first_win += _it(["It isn't official. It wants a stamp.",
+                      "...I didn't know where you'd get one."])
+    first_win += [R.play_se("Item3"), R.gain_item(db.IT_BOUNTY_CARD, 1)]
+    first_win += S.got([
+        "Received \\I[194]\\C[3]Bounty (Something Unscheduled)\\C[0]."])
+    first_win += [R.control_switch(db.SW_UNSCHEDULED, True)]
+    first_win += _see_you_up()
+
+    again_win = _it(["...Thank you.", "Nobody made you that time either."])
+    again_win += _see_you_up()
+
+    first = _it(["I'm not on anything. I asked.",
+                 "Not in the Prophecy, not on the board.",
+                 "Item six."])
+    first += _it(["Nobody is obliged to fight me.",
+                  "So nobody ever has.",
+                  "...Would you? Only if you've got the afternoon."])
+    first += [S.trope(), R.self_switch("A", True)]
+    not_today = _it(["Oh! No, of course. Nobody's obliged.",
+                     "I'll see you up. It's a long way."]) + _see_you_up()
+    first += R.choice_block(["Fight", "Not today"],
+                            [fight(first_win), not_today], cancel=1)
+
+    back = _it(["You came back!",
+                "...Would you? Only if you've got the afternoon."])
+    back += R.choice_block(["Fight", "Not today"],
+                           [fight(first_win), not_today], cancel=1)
+
+    again = _it(["Again?"])
+    again += R.choice_block(
+        ["Fight", "Not today"],
+        [fight(again_win),
+         _it(["Of course. Another afternoon.", "I'll see you up."]) +
+         _see_you_up()], cancel=1)
+
+    sheet, index, d = UNSCHEDULED_IMG
+    kw = dict(img=R.image(sheet, index, direction=d), trigger=0, priority=1,
+              step_anime=True, direction_fix=True)
+    return R.event(event_id, UNSCHEDULED, x, y, [
+        R.page(first, **kw),
+        R.page(back, conditions={"selfSwitchValid": True,
+                                 "selfSwitchCh": "A"}, **kw),
+        R.page(again, conditions={"switch1Valid": True,
+                                  "switch1Id": db.SW_UNSCHEDULED}, **kw),
+    ])
+
+
 def stair_events(i):
     evs = _ways(i)
 
@@ -752,8 +935,13 @@ def stair_events(i):
     for letter in sorted(MARKS[i]):
         evs.append(mark_event(nid(), i, letter))
     if i == 0:
-        evs.append(S.pin_note(_wall(nid(), "The Schedule", i, "S",
-                                    schedule())))
+        board = _wall(nid(), "The Schedule", i, "S", schedule())
+        board["pages"].append(R.page(
+            schedule(anticipated=True), trigger=0, priority=1,
+            direction_fix=True, walk_anime=False,
+            conditions={"switch1Valid": True,
+                        "switch1Id": db.SW_UNSCHEDULED}))
+        evs.append(S.pin_note(board))
         evs.append(_wall(nid(), "Another Hook", i, "H", S.narrate([
             "Another hook, with another board over it: LAMP ON HOOK.",
             "There is no lamp on this one either. Chalked beside it:",
@@ -785,6 +973,19 @@ def stair_events(i):
         evs += _warden(nid(), nid() + 1)
         evs.append(_chest(nid(), i, "a", [R.gain_item(db.IT_ELIXIR, 2)],
                           ["Found \\I[179]\\C[3]Elixir x2\\C[0]."]))
+    elif i == BOTTOM:
+        evs.append(_arrival(nid()))
+        evs.append(_unscheduled(nid()))
+        wall, standing = lamps()
+        for x, y in wall:
+            evs.append(R.event(nid(), "Lamp (%d,%d)" % (x, y), x, y, [R.page(
+                [], img=R.image("!Flame", 0, direction=2), priority=1,
+                step_anime=True, direction_fix=True, walk_anime=False)]))
+        for k, (x, y) in enumerate(standing):
+            evs.append(R.event(nid(), "Lamp (%d,%d)" % (x, y), x, y, [R.page(
+                [], img=R.image("!Flame", 1, direction=(4, 6)[k % 2]),
+                priority=1, step_anime=True, direction_fix=True,
+                walk_anime=False)]))
     elif i == 3:
         evs.append(_chest(nid(), i, "a",
                           [R.gain_item(db.IT_SMELLING_SALTS, 3),
@@ -904,27 +1105,35 @@ def account_lines():
         "They came back in through the chapel porch at least",
         "once. Brother Quillon does not remember it. The Order",
         "forbids it."]))
+    c += R.if_then(R.condition_switch(db.SW_UNSCHEDULED), S.narrate([
+        "Something Unscheduled was met at the bottom of the",
+        "Stair, and fought, because nobody had to."]))
+    c += R.if_then(R.condition_switch(db.SW_FORM_Z), S.narrate([
+        "Its bounty was discharged on Form Z."]))
     return c
 
 
 # ================================================================== build ==
 def stair_map(i):
     g = draw(i)
+    bottom = i == BOTTOM
     m = K.new_map(g.width, g.height, K.TS_DUNGEON, name=NAMES[i],
-                  bgm=STAIR_BGM, battleback=("RockCave", "RockCave"),
+                  bgm=BOTTOM_BGM if bottom else STAIR_BGM,
+                  battleback=("RockCave", "RockCave"),
                   encounters=[(t, w, []) for t, w in ENCOUNTERS[i]],
                   encounter_step=ENCOUNTER_STEP)
     m["data"] = g.data
-    m["note"] = NOTE
-    m["autoplayBgs"] = True
-    m["bgs"] = {"name": BGS[i], "pan": 0, "pitch": 100, "volume": 40}
+    m["note"] = BOTTOM_NOTE if bottom else NOTE
+    if BGS[i]:
+        m["autoplayBgs"] = True
+        m["bgs"] = {"name": BGS[i], "pan": 0, "pitch": 100, "volume": 40}
     m["events"] = [None] + stair_events(i)
     return m
 
 
 def build():
     check_plans()
-    for i, map_id in enumerate(MAP_STAIR):
+    for i, map_id in enumerate(MAPS):
         R.save_map(map_id, stair_map(i))
 
 

@@ -125,6 +125,7 @@ MAP_NAMES = [
     (places.MAP_CARN_DREY, "Under Carn Drey", journey.MAP_WORLD),
     ] + [(map_id, name, hithermost.MAP_HITHERMOST)
          for map_id, name in zip(places.MAP_STAIR, mountain.NAMES)] + [
+    (places.MAP_BOTTOM, mountain.BOTTOM_NAME, places.MAP_STAIR[-1]),
     (places.MAP_POTTERING, "Much Pottering", journey.MAP_WORLD),
     (places.MAP_POTTERING_IN, "The Gotobeds' Cottage", places.MAP_POTTERING),
     (south.MAP_SOPPING, "Nether Sopping", 0),
@@ -945,7 +946,9 @@ def build_system():
             (db.SW_DRAWN_LEFT, "ROL-2: the drawn sword handed on"),
             (db.SW_STAIR_IN, "P4d: through the Door into the Mountain"),
             (db.SW_CONTINUED, "P4d: back in through the chapel porch"),
-            (db.SW_WARDEN, "P4d: the warden told it is not half way")]:
+            (db.SW_WARDEN, "P4d: the warden told it is not half way"),
+            (db.SW_UNSCHEDULED, "P4e: Something Unscheduled, fought"),
+            (db.SW_FORM_Z, "P4e: its bounty discharged on Form Z")]:
         switches[sid] = name
 
     variables = [""] * 33

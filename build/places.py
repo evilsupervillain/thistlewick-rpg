@@ -468,5 +468,8 @@ WYVERN_UP_LANDING = 5           # upstairs, the row above the stairwell
 # of Hithermost. Five maps going down, drawn by `mountain.py`, each of them
 # dark but for the lamp and none of them Game Over (their notes carry
 # `<lamplight>` and `<continuance>`, read by `js/plugins/TOQ_Mountain.js`).
-# The bottom is P4e's, and is not here yet.
+# The bottom is P4e's, `MAP_BOTTOM`.
 MAP_STAIR = (73, 74, 75, 76, 77)
+# P4e (POSTGAME.md 12): the bottom of it, one more flight down. Lit - it has
+# been getting ready for company - so its note is `<continuance>` alone.
+MAP_BOTTOM = 78

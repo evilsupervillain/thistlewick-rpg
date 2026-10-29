@@ -4616,30 +4616,188 @@ pages appended. The one old page that grew is P4c's lectern, through
   * all five maps stitched, with the dark hidden;
   * the Door, the tea, Half Way, the warden and D. 212 with the lamp lit.
 
+**P4e, the bottom of the Stair, done** (29 Oct 2026). `POSTGAME.md` section
+12, built as briefed except where this paragraph says otherwise. It is in
+`build/mountain.py` (Map 78, Something Unscheduled, the schedule's page, the
+account), `db.build_bottom` (the records) and `south.py` (Pell and the board).
+No published line changed. The pages that grew are P4d's, which were never
+pushed: Map 77's way down, the schedule, and the account. Every old page of
+Pell (Map 15 event 2), the board (event 3) and the schedule (Map 73 event 9)
+is byte for byte what it was, with new pages appended. Maps 74-76 did not
+change.
+
+* **Map 78, "The Bottom of the Stair"** (`places.MAP_BOTTOM`). Its plan is
+  the sixth in `mountain.PLANS`, indexed with the Stair through
+  `mountain.MAPS`, so `_ways`, `check_plans` and `build` treat it as one more
+  map. `BOTTOM` is its index.
+  * Map 77's "d" is an ordinary `_way` now. "You turn back. Not yet." is gone.
+  * One more flight, then a round chamber, an oval 19 by 19. The first
+    drawing was 29 by 25, and the screenshot was a field of empty floor with
+    lamps round the rim, so it was shrunk.
+  * The note is `BOTTOM_NOTE`, `<continuance>` only, so the chamber is lit.
+  * There are no encounters, no boulders and no BGS. The BGM is Town5.
+  * **The lamps.** `mountain.lamps()` puts a `!Flame` 0 sconce on every other
+    north face cell of the chamber, and a standing `!Flame` 1 lamp on every
+    other cell round the rest of its edge, alternating lantern and
+    candelabra. Each standing lamp is checked against `_reach`.
+    `check_plans` asserts at least 24 of them. `draw` keeps them clear of
+    `naturalise_cave`.
+* **The arrival** (event 2, an autorun on the cell below the flight, once,
+  on its self switch A). It plays the approved lines: "The stair ends. The
+  dark stops all at once..." and "OH. Oh! Visitors! Come in, come in!".
+* **Something Unscheduled** (event 3, at (20,19)). Its map sprite is
+  `$BigMonster1` 0, facing right, which is the purple many-armed one, the
+  nearest to the Kraken battler. It speaks faceless, as the warden does.
+  * **Page 0, first meeting.** The approved lines ("I'm not on anything. I
+    asked. / ... Item six.", then "Nobody is obliged to fight me..."), the
+    **trope**, and self switch A. Then Fight / Not today.
+  * **Page 1, self switch A.** "You came back!" and the same offer. No second
+    trope.
+  * **Page 2, on `SW_UNSCHEDULED`.** "Again?" and the rematch. There is no
+    second card.
+  * **First win.** The approved thank-you. Then the card, read out, with the
+    agreed exchange: "You point out that it said it wasn't on anything.";
+    "I'm not! / Nobody would put me on anything. / So I did it myself."; "It
+    isn't official. It wants a stamp. / ...I didn't know where you'd get
+    one." The party gets item 77, and `SW_UNSCHEDULED` is set.
+  * **Later wins** say "...Thank you. / Nobody made you that time either."
+  * **Not today** says "Oh! No, of course. Nobody's obliged. / I'll see you
+    up. It's a long way." The rematch's version is "Of course. Another
+    afternoon."
+  * **Win or decline, it sees you up** (`_see_you_up`). A narrated line,
+    then a fade and a transfer to `DOOR_STEP` (17,6) on Map 33, then "From
+    somewhere a very long way down, something waves."
+  * **Lose**: "Oh! Oh no. Was that too much? / I'm sorry. I don't get the
+    practice.", then `CE_CONTINUANCE`, the porch.
+  * The fight is can-lose and cannot be escaped.
+* **The fight** is enemy 65, troop 61, battler `Kraken`.
+  * Its params are `[30000, 999, 125, 60, 105, 60, 50, 30]`, exp 3,000 and
+    no gold. It acts twice a turn (trait 61).
+  * Its skills are 191-194:
+    * A Hug, single, `atk*5`;
+    * Waves All Its Arms, the whole party;
+    * Shows You Round, three at random;
+    * Overexcited, magic, dark, the whole party, below half HP only.
+  * **The HP is 30,000, not the brief's 36,000.** The 36,000 came from
+    `balance.py`'s ceiling of about 3,900 a turn for the strong four. A Monte
+    Carlo of the engine's rules shows nobody sustains that once MP runs out.
+    It modelled rating selection, two actions, variance, hit and evasion, TP
+    by damage, tgr targeting, a healer healing below half, and MP and TP
+    costs. The script was a scratch file and was not kept.
+  * At level 25 with starting kit and no potions, 30,000 gives:
+
+    | party | wins | median turns |
+    | --- | --- | --- |
+    | Bram/Merribell/Hob/Aldric | 100% | 13 |
+    | Bram/Merribell/Zephyrine/Aldric | 100% | 9 |
+    | Bram/Merribell/Piper/Wren | 86% | 12 |
+    | Hob/Aldric/Roland/Spare | 100% | 18 |
+
+  * At level 20 it is a real fight: 45-69% with a healer and no potions, and
+    the weakest party all but loses.
+* **Found while tuning, not fixed: every boss's "below X% HP" action is a
+  turn condition.**
+  * `db.action(..., condition=1, p1=50)` writes `conditionType` 1, which the
+    engine reads as **Turn**, not HP: `meetsTurnCondition(50, 0)` is "on
+    turn 50 exactly". The HP condition is type 2, with `p1`/`p2` as 0-1
+    fractions, the way Mrs Cotterill's are written.
+  * So these never fire in practice:
+    * the Thing in the Woods's Portentous Shriek;
+    * The Small Print, for Grimspite and the Prophecy;
+    * Inevitability, for the Crab, Crooke and the Forty-Fourth;
+    * Attempt Eighty-Four's Make Good.
+  * It is game-wide and would make seven boss fights harder, so it is **left
+    for Mike**, as the buff turns were. Something Unscheduled's own
+    below-half skill is written as type 2.
+* **The schedule** (Map 73 event 9) gets page 1, on `SW_UNSCHEDULED`. It is
+  `schedule(anticipated=True)`: the same board, plus "Chalked beside item
+  six, in your own hand: 'Anticipated.'" before D.'s "All present and
+  correct". It does not say "- D.".
+* **Pell** (Map 15 event 2). Three pages are appended after his published
+  three.
+  * **Page 3**, `SW_GUILD_ASKED` plus item 77: "A bounty card. A bounty is
+    claimed by a member, in person, at this desk. You are not a member." Then
+    the unregistered conversation as it was.
+  * **Page 4**, `SW_FORM_Z`: "Registered. Not provisionally." Then the
+    member page's lines and roster amendment.
+  * **Page 5**, `SW_GUILD_MEMBER` plus item 77, the stamping:
+    * "Nobody issued it. ... There is no form for this.";
+    * he examines it, for some time;
+    * the drawer, and "Form Z. Matters Not Anticipated. I have kept it forty
+      years. In case.", "Never once used...";
+    * item 77 out and 78 in; then "A member with a completed engagement is
+      not provisional.";
+    * item 27 out and 79 in, with Fanfare2;
+    * "The first in forty years. I shall mention it to the review. When it
+      sits." and "He does not smile, quite. It is a near thing.";
+    * `SW_FORM_Z`.
+  * The card is gone after the stamping, so the next visit is page 4. That
+    page carries the roster amendment, which the brief asked for.
+* **The board** (Map 15 event 3) gets page 2, on `SW_FORM_Z`: "Three cards.
+  There are usually two." It has a third choice, "The third card": the copy
+  in Pell's hand, stamped DISCHARGED, "Witnessed. Form Z.". The crab and
+  Crooke are as before. `VAR_BOUNTIES` is not touched.
+* **The account**: `account_lines()` gains "Something Unscheduled was met at
+  the bottom of the / Stair, and fought, because nobody had to." on 222, and
+  "Its bounty was discharged on Form Z." on 223.
+* **Ids**:
+  * switches 222 `SW_UNSCHEDULED` and 223 `SW_FORM_Z`;
+  * items 77 `IT_BOUNTY_CARD`, 78 `IT_BOUNTY_STAMPED` and 79
+    `IT_GUILD_CARD_FULL`, all key items;
+  * enemy 65, troop 61, skills 191-194 (`SK_HUG`, `SK_ALL_ARMS`,
+    `SK_SHOWS_ROUND`, `SK_INK`);
+  * map 78.
+
+  No variable or common event.
+* **Tally**: **+1 reachable trope**, the first meeting, paid once. No blushes.
+  Nothing for `TIMELINE.md`; "forty years" is the Guild's published age.
+  Nothing settles Dunstable: the schedule's chalk is the party's.
+* **`AUDIT.md` item 1** gains six optional enemy-art rows: P4d's five, which
+  were meant to go on it and did not, and Something Unscheduled. Each fights
+  as a stock battler now.
+* **Scenarios**:
+  * **`pg_bottom`, new, 20 checks.** It covers:
+    * down past D. 212 to Map 78, the arrival, lit, no encounters,
+      continuance;
+    * the meeting, its trope, "Not today", and the ride up;
+    * back down, "You came back!", won: the card and the ride up;
+    * the schedule's chalk;
+    * the rematch, with no second card;
+    * a loss, back through the porch, restored;
+    * Pell refusing a non-member, then stamping, with both swaps and
+      `SW_FORM_Z`;
+    * the not-provisional page with its roster amendment;
+    * the board's third card, with `VAR_BOUNTIES` at 0;
+    * the account's two lines.
+  * **`pg_mountain`**: its "Not yet" check is now the walk down to Map 78.
+  * **`pg_account`**: the bare account lacks the two lines, and with both
+    switches on they follow the Stair's three, before clause twelve.
+  * **Rerun**: `guild` and `q_nix3`, the two that visit Map 15. All five
+    pass.
+* **Looked at**: the first chamber, 29 by 25, was mostly empty floor with
+  lamps only round the rim. The shrunk one fills the screen, has lamps on
+  every side, and has Something Unscheduled in the middle.
+
 ---
 
 ## Restart prompt
 
-**Start with P4e** (`POSTGAME.md` section 9's bottom, "Something
-Unscheduled"): Map 78 on, through Map 77's way down, which today says "You
-turn back. Not yet." (`mountain._ways`, the "d" on plan 4). **The design is
-agreed in full in `POSTGAME.md` section 12** (Mike, 29 Oct 2026) - the lit
-chamber, the Kraken superboss, rematch, the ride up, the schedule's chalk
-line, and the keepsake: a bounty it wrote on itself, stamped by Registrar
-Pell on Form Z, Matters Not Anticipated, who swaps the Guild Card
-(Provisional) for a full one. Read section 12 and build from it; its draft
-lines are approved. **P4a-P4d are
-done** (the last four Done paragraphs in section 3). The finale hands back
+**Start with G0, the quest log.** **P4a-P4e are done** (the last five Done
+paragraphs in section 3). The finale hands back
 to Bram's house; Thistlewick, the pension, Fitch's cottage (Map 71) and
 Roland are built; Prophecy Hall's lectern reads the tally again as "THE
 OBLIGATORY QUEST, as amended"; Quy has his afternoon and Hollowell his
 notice; Sir Dunstable lends the lamp, and the Door opens onto the Stair
-(Maps 73-77, `mountain.py`, `js/plugins/TOQ_Mountain.js`). **A new Stair map
+(Maps 73-77, `mountain.py`, `js/plugins/TOQ_Mountain.js`), at the bottom of
+which (Map 78, P4e) Something Unscheduled is fought because nobody has to,
+and its self-written bounty is stamped by Pell on Form Z. **A new Stair map
 gets `mountain.NOTE`** (`<lamplight>` and `<continuance>`), so it is dark and
 a lost fight goes back to the porch for free; a scripted fight on it is
-can-lose with its lose branch calling common event 7, the way `_warden` does.
-The bottom's line for the account goes in `mountain.account_lines()`. Do not
-settle whether Dunstable is alive, or anything about the spine. Then G0 and G1. G0, the quest log,
+can-lose with its lose branch calling common event 7, the way `_warden` and
+`_unscheduled` do. Do not
+settle whether Dunstable is alive, or anything about the spine. **Open for
+Mike** (P4e Done paragraph): every boss's "below X% HP" action is written as a
+turn condition and never fires; fixing it moves seven boss fights. G0, the quest log,
 follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct);
 `apidigest.py --check` passes as of P4d, so `build/API.md` already has
 `rmmzdata.read_plugins`/`write_plugins`/`upsert_plugin`. Last come G1's counter re-cuts,
@@ -4649,9 +4807,10 @@ three P4a tally lines stand; buffs and debuffs carry their turns in value1
 answer. For G1's re-cut: nine `S.prop(..., extra=[S.trope()])` props (four
 in `south.py`, four in `village.py`, one in `wilds.py`) bump the trope on
 **every** reading, not once - fix them with a self-switch guard before
-counting. Trope sites to add to the re-cut: P4d's three (+3 reachable). Next free:
-switch 222, variable 33, item 77, weapon 44, armour 49, common event 8, map
-78, state 45, enemy 65, troop 61, skill 191, `Gen_People16` 2. Anything that runs the finale's list
+counting. Trope sites to add to the re-cut: P4d's three and P4e's one (+4
+reachable). Next free:
+switch 224, variable 33, item 80, weapon 44, armour 49, common event 8, map
+79, state 45, enemy 66, troop 62, skill 195, `Gen_People16` 2. Anything that runs the finale's list
 directly must skip 201 as well as 354. A post-game page on a ladder that
 cannot be waited on goes through `postgame._owing`.
 
@@ -4683,12 +4842,12 @@ then the suite.
 
 Where things stand: tropes **+51 fixed** and 2-9 from PIP-2; blushes **+13
 fixed** and 0-1 from PIP-2 - the totals G1 re-cuts against, plus the
-post-game's own (P4d's three tropes, and whatever P4e adds). Next free (as of
-P4d): switch 222, variable 33 (`build_game.py` sizes the list at 33, so **the
-next variable needs it grown**), item 77, weapon 44, armour 49, armour type
+post-game's own (P4d's three tropes and P4e's one). Next free (as of
+P4e): switch 224, variable 33 (`build_game.py` sizes the list at 33, so **the
+next variable needs it grown**), item 80, weapon 44, armour 49, armour type
 15, weapon type 14, element 11, class 13, common event 8, state 45 (past the
-40-44 block, which P1 filled), enemy 65,
-troop 61, skill 191, map 78, `Gen_People16` 2. Spare is actor 11; his story
+40-44 block, which P1 filled), enemy 66,
+troop 62, skill 195, map 79, `Gen_People16` 2. Spare is actor 11; his story
 switch is 110 and is on after F2. Cotter (Map 61 event 12) has six pages now;
 Map 70 is the culvert.
 

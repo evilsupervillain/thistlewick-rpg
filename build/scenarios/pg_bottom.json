@@ -1,0 +1,562 @@
+{
+ "query": "?map=77&x=28&y=46&frames=90",
+ "comment": "POSTGAME.md 12, P4e, the bottom of the Stair. Down past D. 212 to Map 78: lit, no encounters, the arrival once. Something Unscheduled met (trope once), 'Not today' and seen up to the Door. Back down: 'You came back!', fought and won - the switch, the card, the ride up. The schedule's 'Anticipated.'. A rematch, 'Again?', no second card. A loss: the porch. Pell: not a member, the card waits; a member, stamped on Form Z, both cards swapped, switch 223, and the not-provisional page with the roster amendment. The board's third card. The account's two lines.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._lines = []; window._tropes = $gameVariables.value(2); }; window._mark(); window._has = s => window._lines.some(l => l.includes(s)); window._dt = () => $gameVariables.value(2) - window._tropes;"
+  },
+  {
+   "eval": "window._auto = false; const t = Window_Message.prototype.isTriggered; Window_Message.prototype.isTriggered = function () { return window._auto || t.call(this); };"
+  },
+  {
+   "eval": "$gameSwitches.setValue(5, true); $gameSwitches.setValue(25, true)",
+   "comment": "after the ending; Pell has explained Form A-1, but the party is not a member yet"
+  },
+  {
+   "goto": [
+    77,
+    28,
+    47
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark()"
+  },
+  {
+   "key": "ArrowDown"
+  },
+  {
+   "until": "$gameMap.mapId() === 78 && !$gamePlayer.isTransferring()",
+   "frames": 900
+  },
+  {
+   "advance": 30
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, window._has('The dark stops all at once'), window._has('Visitors! Come in, come in!'), $gameMap.event(2).findProperPageIndex()]",
+   "expect": [
+    78,
+    20,
+    2,
+    true,
+    true,
+    1
+   ],
+   "label": "down past D. 212: one more flight, the dark stops, and somebody has seen you"
+  },
+  {
+   "check": "[$dataMap.note, $gameMap.encounterList().length, SceneManager._scene._spriteset._lamplight.visible]",
+   "expect": [
+    "<continuance>",
+    0,
+    false
+   ],
+   "label": "lit, no encounters, still continuance"
+  },
+  {
+   "shot": "pg_bottom_top.png"
+  },
+  {
+   "goto": [
+    78,
+    20,
+    18
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "shot": "pg_bottom_monster.png"
+  },
+  {
+   "check": "[$gameMap.event(3).event().name, $gameMap.event(3).findProperPageIndex()]",
+   "expect": [
+    "Something Unscheduled",
+    0
+   ],
+   "label": "it is in the middle of the room"
+  },
+  {
+   "eval": "window._mark(); $gamePlayer.setDirection(2)"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene._messageWindow && SceneManager._scene._messageWindow._choiceListWindow.active",
+   "frames": 4000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "choose": 1
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "$gameMap.mapId() === 33 && !$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 4000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, window._has(\"I'm not on anything. I asked.\"), window._has('Item six.'), window._has(\"Nobody's obliged.\"), window._has('something waves'), $gameSelfSwitches.value([78, 3, 'A']), $gameSwitches.value(222), window._dt()]",
+   "expect": [
+    33,
+    17,
+    6,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    1
+   ],
+   "label": "the meeting (trope); not today; it sees you up, under the Door"
+  },
+  {
+   "goto": [
+    78,
+    20,
+    18
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[$gameMap.event(2).findProperPageIndex(), $gameMap.event(3).findProperPageIndex(), $gameMessage.isBusy()]",
+   "expect": [
+    1,
+    1,
+    false
+   ],
+   "label": "back down: no second arrival, and it remembers you"
+  },
+  {
+   "eval": "window._mark(); $gamePlayer.setDirection(2)"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene._messageWindow && SceneManager._scene._messageWindow._choiceListWindow.active",
+   "frames": 4000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "choose": 0
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Battle'",
+   "frames": 4000
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "check": "[$gameTroop.troop().id, $gameTroop.members()[0].mhp, BattleManager.canEscape(), BattleManager.canLose(), window._has('You came back!'), window._dt()]",
+   "expect": [
+    61,
+    30000,
+    false,
+    true,
+    true,
+    0
+   ],
+   "label": "you came back; the fight is Something Unscheduled; no escape, can lose"
+  },
+  {
+   "eval": "$gameTroop.members().forEach(e => e.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "$gameMap.mapId() === 33 && !$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 5000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gameSwitches.value(222), $gameParty.numItems($dataItems[77]), window._has(\"That was the best afternoon I've ever had.\"), window._has('Nobody made you.'), window._has(\"You point out that it said it wasn't on anything.\"), window._has('So I did it myself.'), window._has(\"I didn't know where you'd get one.\"), window._dt()]",
+   "expect": [
+    33,
+    17,
+    6,
+    true,
+    1,
+    true,
+    true,
+    true,
+    true,
+    true,
+    0
+   ],
+   "label": "won: thank you, the card it wrote on itself, and up"
+  },
+  {
+   "goto": [
+    73,
+    18,
+    2
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark(); $gamePlayer.setDirection(8)"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[$gameMap.event($gameMap.eventIdXy(18, 1)).findProperPageIndex(), window._has('NOT ANTICIPATED.'), window._has(\"'Anticipated.'\"), window._has('in your own hand'), window._has('All present and correct. - D.')]",
+   "expect": [
+    1,
+    true,
+    true,
+    true,
+    true
+   ],
+   "label": "the schedule: 'Anticipated.' chalked beside item six"
+  },
+  {
+   "goto": [
+    78,
+    20,
+    18
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark(); $gamePlayer.setDirection(2)"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene._messageWindow && SceneManager._scene._messageWindow._choiceListWindow.active",
+   "frames": 4000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "choose": 0
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Battle'",
+   "frames": 4000
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "check": "[$gameTroop.troop().id, window._has('Again?')]",
+   "expect": [
+    61,
+    true
+   ],
+   "label": "a rematch: 'Again?'"
+  },
+  {
+   "eval": "$gameTroop.members().forEach(e => e.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "$gameMap.mapId() === 33 && !$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 5000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "check": "[$gameMap.mapId(), $gameParty.numItems($dataItems[77]), window._has('Nobody made you that time either.'), window._has('BOUNTY'), window._dt()]",
+   "expect": [
+    33,
+    1,
+    true,
+    false,
+    0
+   ],
+   "label": "won again: thanked, no second card, and up"
+  },
+  {
+   "goto": [
+    78,
+    20,
+    18
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark(); $gamePlayer.setDirection(2)"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene._messageWindow && SceneManager._scene._messageWindow._choiceListWindow.active",
+   "frames": 4000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "choose": 0
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Battle'",
+   "frames": 4000
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "eval": "$gameParty.members().forEach(a => a.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "$gameMap.mapId() === 34 && window._has('You come back in through the porch.') && !$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 5000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "check": "[SceneManager._scene.constructor.name, $gamePlayer.x, $gamePlayer.y, $gameParty.members().every(a => a.hp === a.mhp), window._has(\"I don't get the practice.\"), $gameSwitches.value(222)]",
+   "expect": [
+    "Scene_Map",
+    7,
+    13,
+    true,
+    true,
+    true
+   ],
+   "label": "lost: sorry, and the porch, restored"
+  },
+  {
+   "goto": [
+    15,
+    9,
+    11
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 3,
+   "label": "Pell, not a member, card in hand"
+  },
+  {
+   "eval": "window._mark(); $gamePlayer.locate(9, 7); $gameMap.event(2).start()"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[window._has('You are not a member.'), $gameParty.numItems($dataItems[77]), $gameSwitches.value(223)]",
+   "expect": [
+    true,
+    1,
+    false
+   ],
+   "label": "a bounty is claimed by a member: the card waits"
+  },
+  {
+   "eval": "$gameSwitches.setValue(26, true); $gameSwitches.setValue(27, true); $gameParty.gainItem($dataItems[27], 1)",
+   "comment": "registered, provisionally, as guild.json does it"
+  },
+  {
+   "frames": 5
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 5,
+   "label": "a member with the card: the stamping page"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start()"
+  },
+  {
+   "advance": 60
+  },
+  {
+   "check": "[$gameParty.numItems($dataItems[77]), $gameParty.numItems($dataItems[78]), $gameParty.numItems($dataItems[27]), $gameParty.numItems($dataItems[79]), $gameSwitches.value(223), window._has('Form Z. Matters Not Anticipated.'), window._has('There is no form for this.'), window._has('not provisional.'), window._dt()]",
+   "expect": [
+    0,
+    1,
+    0,
+    1,
+    true,
+    true,
+    true,
+    true,
+    0
+   ],
+   "label": "Pell stamps it DISCHARGED on Form Z; the Guild Card, not provisional"
+  },
+  {
+   "check": "$gameMap.event(2).findProperPageIndex()",
+   "expect": 4,
+   "label": "and after it, a member not provisionally"
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(2).start(); window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene._messageWindow && SceneManager._scene._messageWindow._choiceListWindow.active",
+   "frames": 3000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "choose": 1
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Registered. Not provisionally.'), window._has('Form C-12(S)')]",
+   "expect": [
+    true,
+    true
+   ],
+   "label": "with the roster amendment still offered"
+  },
+  {
+   "check": "$gameMap.event(3).findProperPageIndex()",
+   "expect": 2,
+   "label": "the board has a page for three cards"
+  },
+  {
+   "eval": "window._mark(); $gamePlayer.locate(4, 5); $gameMap.event(3).start(); window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene._messageWindow && SceneManager._scene._messageWindow._choiceListWindow.active",
+   "frames": 3000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "choose": 2
+  },
+  {
+   "advance": 20
+  },
+  {
+   "check": "[window._has('Three cards. There are usually two.'), window._has('Lives at the bottom of the Stair.'), window._has('Witnessed. Form Z.'), $gameVariables.value(5)]",
+   "expect": [
+    true,
+    true,
+    true,
+    0
+   ],
+   "label": "three cards; the third is its bounty, discharged; VAR_BOUNTIES untouched"
+  },
+  {
+   "goto": [
+    3,
+    12,
+    12
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "window._mark(); $gameMap.event(15).start()"
+  },
+  {
+   "advance": 120
+  },
+  {
+   "check": "[window._has('Something Unscheduled was met at the bottom of the'), window._has('Stair, and fought, because nobody had to.'), window._has('Its bounty was discharged on Form Z.')]",
+   "expect": [
+    true,
+    true,
+    true
+   ],
+   "label": "the account: met, fought, and discharged"
+  }
+ ]
+}

@@ -371,11 +371,14 @@ the scenarios the step reaches.
   with the chalk marks, the schedule and the warden, the lamplight and the
   continuance plugin (`js/plugins/TOQ_Mountain.js`, keyed by map-note tags
   rather than a switch). Scenarios: a new `pg_mountain`, and `hithermost`.
-* **P4e - the bottom.** Past D. 212 on Map 77: Something Unscheduled, item
-  six on the schedule, and its line in the account. Map 78 on. **Agreed in
-  full, section 12** (29 Oct 2026): the build brief.
+* **P4e - the bottom** (**done**, 29 Oct 2026; `QUESTS.md` section 3). Past
+  D. 212 on Map 77: Something Unscheduled, item six on the schedule, and its
+  line in the account. Map 78. **Agreed in full, section 12** (29 Oct 2026):
+  the build brief. Built from it as written, but with two deviations: 30,000 HP
+  where the brief said about 36,000 (the Monte Carlo is in the Done
+  paragraph), and the chamber's size.
 * **G0, the quest log**, adds the post-game quests (the letter, the cottage,
-  Quy, the lamp, the Stair) to `quests.py`. **G1** then does only the re-cut,
+  Quy, the lamp, the Stair, and the bottom with Form Z) to `quests.py`. **G1** then does only the re-cut,
   the suite, Mike's playthrough, and the push.
 
 **Ids** (next free): switches from 214, item 75 (lamp) and 76 (cottage key),

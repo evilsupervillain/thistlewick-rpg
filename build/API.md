@@ -556,7 +556,7 @@ Ninian                The Copyist
 
 Map ids and the handful of coordinates that two maps have to agree on.
 
-171 constants.
+172 constants.
 
 ```
 MAP_VILLAGE                  1
@@ -730,6 +730,7 @@ WYVERN_STAIRS_FOOT           7
 WYVERN_STAIRS_DOWN           6
 WYVERN_UP_LANDING            5
 MAP_STAIR                    (73, 74, 75, 76, 77)
+MAP_BOTTOM                   78
 ```
 
 
@@ -737,7 +738,7 @@ MAP_STAIR                    (73, 74, 75, 76, 77)
 
 The whole database of The Obligatory Quest.
 
-644 constants.
+655 constants.
 
 ```
 BRAM                         1
@@ -1333,6 +1334,17 @@ SK_GUST                      187
 SK_SAYS_IT_BACK              188
 SK_COMING_THROUGH            189
 SK_INSPECTION                190
+SW_UNSCHEDULED               222
+SW_FORM_Z                    223
+IT_BOUNTY_CARD               77
+IT_BOUNTY_STAMPED            78
+IT_GUILD_CARD_FULL           79
+EN_UNSCHEDULED               65
+TR_UNSCHEDULED               61
+SK_HUG                       191
+SK_ALL_ARMS                  192
+SK_SHOWS_ROUND               193
+SK_INK                       194
 PENSION                      1000
 SPARE_ARGUING_LEVEL          12
 AR_STICK                     30

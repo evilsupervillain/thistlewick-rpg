@@ -539,6 +539,14 @@ TR_DARK, TR_DRAUGHT, TR_ECHO, TR_COMING_UP = 55, 56, 57, 58
 TR_WARDEN, TR_PASSING = 59, 60
 SK_CLOSES_IN, SK_TAKES_EDGES, SK_GUST = 185, 186, 187
 SK_SAYS_IT_BACK, SK_COMING_THROUGH, SK_INSPECTION = 188, 189, 190
+# P4e: the bottom of the Stair, and item six (POSTGAME.md 12; mountain.py)
+SW_UNSCHEDULED = 222            # Something Unscheduled met, fought and beaten
+SW_FORM_Z = 223                 # its bounty discharged by Pell, on Form Z
+IT_BOUNTY_CARD = 77             # the bounty it wrote on itself, unstamped
+IT_BOUNTY_STAMPED = 78          # the same card, stamped DISCHARGED
+IT_GUILD_CARD_FULL = 79         # the Guild Card, no longer provisional
+EN_UNSCHEDULED, TR_UNSCHEDULED = 65, 61
+SK_HUG, SK_ALL_ARMS, SK_SHOWS_ROUND, SK_INK = 191, 192, 193, 194
 PENSION = 1000                 # one quarter, in advance, paid once
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
@@ -3488,3 +3496,71 @@ def build_mountain():
                 "list": mountain.continuance() +
                 [{"code": 0, "indent": 0, "parameters": []}]})
     save("CommonEvents.json", ce)
+    build_bottom()
+
+
+def build_bottom():
+    """P4e, the bottom of the Stair (POSTGAME.md 12; mountain.py).
+
+    * **Something Unscheduled** is item six on the schedule, "anything else:
+      NOT ANTICIPATED", and it is not on anything else either. Nobody is
+      obliged to fight it, so nobody ever has. It hits hard and all over the
+      party, twice a turn, so the healer is busy; and it gets overexcited
+      below half. Tuned by a Monte Carlo of the engine's rules (rating
+      selection, two actions, variance, hit and evasion, TP by damage, tgr):
+      at level 25 a party with a healer wins it nearly every time in 9-13
+      turns, Hob/Aldric/Roland/Spare in about 18; at level 20 it is a real
+      fight, 45-70% with a healer and no potions. The brief's 36,000 HP was
+      `balance.py`'s ceiling (3,900 a turn), which no party sustains once MP
+      runs out, so it is 30,000. Losing costs nothing: the porch.
+    * **The keepsake is paperwork.** The card it wrote on itself (77), the
+      same card stamped by Pell (78) - a description cannot change, so it is
+      two items - and the Guild Card that is no longer provisional (79),
+      swapped for item 27 on the same afternoon."""
+    sk = R.load("Skills.json")
+    upsert(sk, skill(SK_HUG, "A Hug", "", "a.atk * 5 - b.def * 2",
+                     animation=1,
+                     message="%1 hugs somebody. It goes on a bit."))
+    upsert(sk, skill(SK_ALL_ARMS, "Waves All Its Arms", "",
+                     "a.atk * 3 - b.def * 1.5", scope=8, animation=1,
+                     message="%1 waves all its arms at once. Hello!"))
+    upsert(sk, skill(SK_SHOWS_ROUND, "Shows You Round", "",
+                     "a.atk * 4 - b.def * 2", scope=5, animation=1,
+                     message="%1 shows you round. Briskly."))
+    upsert(sk, skill(SK_INK, "Overexcited", "", "a.mat * 3 - b.mdf * 1.5",
+                     scope=8, hit_type=2, element=EL_DARK, animation=58,
+                     message="%1 gets overexcited. Ink."))
+    save("Skills.json", sk)
+
+    it = R.load("Items.json")
+    upsert(it, item(IT_BOUNTY_CARD, "Bounty (Something Unscheduled)",
+                    "Lives at the bottom of the Stair. Would love to meet "
+                    "you. Reward: on production of a witness. Not stamped.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=194))
+    upsert(it, item(IT_BOUNTY_STAMPED, "Bounty, Discharged",
+                    "The same card, stamped DISCHARGED on Form Z, Matters "
+                    "Not Anticipated. Official.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=194))
+    upsert(it, item(IT_GUILD_CARD_FULL, "Guild Card",
+                    "Certifies the holder as an adventurer. Not provisional. "
+                    "The first the Guild has issued in forty years.",
+                    itype=2, consumable=False, scope=0, occasion=3, icon=194))
+    save("Items.json", it)
+
+    en = R.load("Enemies.json")
+    upsert(en, enemy(
+        EN_UNSCHEDULED, "Something Unscheduled", "Kraken", 0,
+        [30000, 999, 125, 60, 105, 60, 50, 30], 3000, 0,
+        [action(SK_ATTACK, 3), action(SK_HUG, 5), action(SK_ALL_ARMS, 4),
+         action(SK_SHOWS_ROUND, 5),
+         action(SK_INK, 4, condition=2, p1=0, p2=0.5)],
+        traits=[trait(22, 0, 0.95), trait(22, 1, 0.05),
+                trait(14, ST_SLEEP, 1), trait(14, 6, 1), trait(61, 0, 1)],
+        note="Schedule of Hazards, item six: anything else. Not anticipated. "
+             "Delighted."))
+    save("Enemies.json", en)
+
+    tr = R.load("Troops.json")
+    upsert(tr, troop(TR_UNSCHEDULED, "Something Unscheduled",
+                     [(EN_UNSCHEDULED, 408, 400)]))
+    save("Troops.json", tr)

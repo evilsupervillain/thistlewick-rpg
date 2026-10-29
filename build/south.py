@@ -1791,6 +1791,73 @@ def pell_event(event_id, x, y):
         [S.roster_amendment(S.COMPANIONS_SOUTH, clerk="Pell"),
          S.say("Pell", ["Quite right. Filing is a discipline."])])
 
+    # P4e (POSTGAME.md 12): the bounty Something Unscheduled wrote on itself,
+    # at the bottom of the Stair, and wanted stamped. Appended pages, so the
+    # three above are as they were: a member with the card is stamped; after
+    # that he is a member without "provisionally"; and a party that is not
+    # registered is told who claims a bounty and has the unregistered page.
+    card = {"switch1Valid": True, "switch1Id": db.SW_GUILD_ASKED,
+            "itemValid": True, "itemId": db.IT_BOUNTY_CARD}
+    not_yet = S.say("Pell", [
+        "A bounty card. A bounty is claimed by",
+        "a member, in person, at this desk.",
+        "You are not a member."]) + unregistered
+
+    stamp = S.narrate(["You put the card on the desk."])
+    stamp += S.say("Pell", ["A bounty.", "...Who issued this?"])
+    stamp += S.narrate(["You explain who issued it."])
+    stamp += S.say("Pell", [
+        "Nobody issued it. It has no authority.",
+        "It has no number. It has a drawing of",
+        "an octopus on the back.",
+        "There is no form for this."])
+    stamp += S.narrate(["He examines the card, for some time."])
+    stamp += S.say("Pell", ["There is no form for this."])
+    stamp += S.narrate([
+        "He says it again, more slowly. Then he unlocks a drawer",
+        "you had not noticed, and takes out a single sheet,",
+        "yellow at the edges."])
+    stamp += S.say("Pell", [
+        "Form Z. Matters Not Anticipated.",
+        "I have kept it forty years. In case."])
+    stamp += S.say("Pell", [
+        "Never once used. In forty years every",
+        "matter has been anticipated. By somebody.",
+        "On something."])
+    stamp += S.narrate([
+        "He fills it in. His hand is not quite steady. He stamps",
+        "the card DISCHARGED and gives it back, and then holds",
+        "out his hand for your Guild Card."])
+    stamp += [R.play_se("Book1"), R.gain_item(db.IT_BOUNTY_CARD, -1),
+              R.gain_item(db.IT_BOUNTY_STAMPED, 1)]
+    stamp += S.say("Pell", [
+        "A discharged bounty is a completed",
+        "engagement. A member with a completed",
+        "engagement is not provisional."])
+    stamp += S.narrate([
+        "He takes the Guild Card (Provisional), and gives you",
+        "back one without."])
+    stamp += [R.gain_item(db.IT_GUILD_CARD, -1),
+              R.gain_item(db.IT_GUILD_CARD_FULL, 1), R.play_me("Fanfare2")]
+    stamp += S.narrate(["Got \\I[194]\\C[3]Guild Card\\C[0]."])
+    stamp += S.say("Pell", [
+        "The first in forty years.",
+        "I shall mention it to the review.",
+        "When it sits."])
+    stamp += S.narrate([
+        "He does not smile, quite. It is a near thing."])
+    stamp += [R.control_switch(db.SW_FORM_Z, True)]
+
+    full = S.say("Pell", [
+        "Registered. Not provisionally.",
+        "Bounties on the board. Barrow's open.",
+        "And I hold Form C-12(S), if you need",
+        "to let one of the southern lot go."])
+    full += R.choice_block(
+        ["Amend the southern roster", "Nothing today"],
+        [S.roster_amendment(S.COMPANIONS_SOUTH, clerk="Pell"),
+         S.say("Pell", ["Quite right. Filing is a discipline."])])
+
     return R.event(event_id, "Registrar Pell", x, y, [
         R.page(intro, img=img, trigger=0, priority=1),
         R.page(unregistered, img=img, trigger=0, priority=1,
@@ -1799,6 +1866,12 @@ def pell_event(event_id, x, y):
         R.page(member, img=img, trigger=0, priority=1,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_GUILD_MEMBER}),
+        R.page(not_yet, img=img, trigger=0, priority=1, conditions=card),
+        R.page(full, img=img, trigger=0, priority=1,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_FORM_Z}),
+        R.page(stamp, img=img, trigger=0, priority=1,
+               conditions=dict(card, switch1Id=db.SW_GUILD_MEMBER)),
     ])
 
 
@@ -1899,6 +1972,23 @@ def bounty_board(event_id, x, y):
         ["The crab", "The bandit chief", "Step away from the board"],
         [claim_crab, claim_crooke, []])
 
+    # P4e: once Pell has stamped Something Unscheduled's card on Form Z, a
+    # copy of it is pinned up beside the other two.
+    third = S.narrate([
+        "\\C[6]BOUNTY: SOMETHING UNSCHEDULED\\C[0]",
+        "Lives at the bottom of the Stair.",
+        "Would love to meet you.",
+        "Reward: on production of a witness."])
+    third += S.narrate([
+        "A copy, in Pell's hand, stamped DISCHARGED across it.",
+        "Under that, smaller: 'Witnessed. Form Z.'"])
+    three = S.narrate(["\\C[6]THE BOARD\\C[0]",
+                       "Three cards. There are usually two."])
+    three += R.choice_block(
+        ["The crab", "The bandit chief", "The third card",
+         "Step away from the board"],
+        [claim_crab, claim_crooke, third, []])
+
     return R.event(event_id, "Bounty Board", x, y, [
         R.page(closed, img=R.image(""), trigger=0, priority=1,
                direction_fix=True, through=True),
@@ -1906,6 +1996,10 @@ def bounty_board(event_id, x, y):
                direction_fix=True, through=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_GUILD_MEMBER}),
+        R.page(three, img=R.image(""), trigger=0, priority=1,
+               direction_fix=True, through=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_FORM_Z}),
     ])
 
 

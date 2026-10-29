@@ -1,6 +1,6 @@
 {
  "query": "?map=34&x=7&y=12&frames=90",
- "comment": "POSTGAME.md P4d, the lamp, the Door and the Stair. Sir Dunstable before and after the ending: never met, introduced and the lamp lent (trope); again, in no hurry. The Door with the lamp: in, at the top of the Stair, in the dark but for the lamp. The schedule. The first flight walked on foot; D. 2. Down off one map onto the next and back up. The warden: lost, which is back in through the porch restored with the lamp (the trope, and no Quillon beat unsigned), Dunstable knowing it; then won, out of the way. A random encounter lost on the Stair with the Book signed: the porch, and Quillon not looking up. D. 212 and its trope; past it, not yet. And a battle lost on the world map is still Game Over.",
+ "comment": "POSTGAME.md P4d, the lamp, the Door and the Stair. Sir Dunstable before and after the ending: never met, introduced and the lamp lent (trope); again, in no hurry. The Door with the lamp: in, at the top of the Stair, in the dark but for the lamp. The schedule. The first flight walked on foot; D. 2. Down off one map onto the next and back up. The warden: lost, which is back in through the porch restored with the lamp (the trope, and no Quillon beat unsigned), Dunstable knowing it; then won, out of the way. A random encounter lost on the Stair with the Book signed: the porch, and Quillon not looking up. D. 212 and its trope; past it, one more flight down to the bottom (P4e). And a battle lost on the world map is still Game Over.",
  "steps": [
   {
    "eval": "$gameSystem.disableEncounter()"
@@ -538,23 +538,21 @@
    "key": "ArrowDown"
   },
   {
-   "frames": 20
+   "until": "$gameMap.mapId() === 78 && !$gamePlayer.isTransferring()",
+   "frames": 900
   },
   {
    "advance": 30
   },
   {
-   "frames": 40
-  },
-  {
-   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, window._has('You turn back. Not yet.')]",
+   "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, window._has('The dark stops all at once')]",
    "expect": [
-    77,
-    28,
-    47,
+    78,
+    20,
+    2,
     true
    ],
-   "label": "past it: not yet (P4e)"
+   "label": "past it: one more flight, to the bottom (P4e; pg_bottom has the rest)"
   },
   {
    "goto": [

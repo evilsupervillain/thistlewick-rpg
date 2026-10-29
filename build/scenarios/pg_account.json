@@ -92,13 +92,15 @@
    "label": "reading it counts nothing"
   },
   {
-   "check": "[\"Sir Dunstable lent the lamp\", \"warden of the half-way landing\", \"chapel porch at least\"].map(s => window._has(s))",
+   "check": "[\"Sir Dunstable lent the lamp\", \"warden of the half-way landing\", \"chapel porch at least\", \"Something Unscheduled was met\", \"discharged on Form Z\"].map(s => window._has(s))",
    "expect": [
+    false,
+    false,
     false,
     false,
     false
    ],
-   "label": "the bare account says nothing of the Stair"
+   "label": "the bare account says nothing of the Stair or its bottom"
   },
   {
    "eval": "$gameSwitches.setValue(21, true); $gameSwitches.setValue(204, true)"
@@ -151,7 +153,7 @@
    "label": "in order: Hollowell, the tea, clause twelve, Quy, the end"
   },
   {
-   "eval": "$gameSwitches.setValue(219, true); $gameSwitches.setValue(221, true); $gameSwitches.setValue(220, true)"
+   "eval": "$gameSwitches.setValue(219, true); $gameSwitches.setValue(221, true); $gameSwitches.setValue(220, true); $gameSwitches.setValue(222, true); $gameSwitches.setValue(223, true)"
   },
   {
    "eval": "window._mark(); $gameMap.event(15).start()"
@@ -160,14 +162,14 @@
    "advance": 80
   },
   {
-   "check": "(() => { const f = s => window._lines.findIndex(l => l.includes(s)); const s = [\"Sir Dunstable lent the lamp\", \"warden of the half-way landing\", \"chapel porch at least\"].map(f); return [s.every(i => i >= 0), f('It was just tea.') < s[0], s[0] < s[1] && s[1] < s[2], s[2] < f('Thistlewick struck clause twelve')]; })()",
+   "check": "(() => { const f = s => window._lines.findIndex(l => l.includes(s)); const s = [\"Sir Dunstable lent the lamp\", \"warden of the half-way landing\", \"chapel porch at least\", \"Something Unscheduled was met\", \"discharged on Form Z\"].map(f); return [s.every(i => i >= 0), f('It was just tea.') < s[0], s[0] < s[1] && s[1] < s[2] && s[2] < s[3] && s[3] < s[4], s[4] < f('Thistlewick struck clause twelve')]; })()",
    "expect": [
     true,
     true,
     true,
     true
    ],
-   "label": "P4d: through the Door, the warden told, back by the porch - after the tea, before clause twelve"
+   "label": "P4d: through the Door, the warden told, back by the porch - after the tea, before clause twelve (and P4e's two, after them)"
   },
   {
    "eval": "$gameSwitches.setValue(217, false); $gameSwitches.setValue(216, false); $gameSwitches.setValue(88, false); $gameSwitches.setValue(214, false); $gameSwitches.setValue(43, false); $gameSwitches.setValue(21, false); $gameSwitches.setValue(204, false)"

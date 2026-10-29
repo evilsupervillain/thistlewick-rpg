@@ -869,6 +869,19 @@ label item 1 calls "deliberately unseen" - which of the two is Mike's call.
 | **Duchess** | F | not needed now: she never speaks - ALD-4 (`QUESTS.md` B2) made the reunion wordless. A face only if a quest gives her lines; her sprite is `Vehicle` 4 | a grey mare in harness, effectively a partner | |
 | **Mr Dray** (B3) | F | **Delivered 5 Oct 2026.** Real enemy art for `img/sv_enemies/Septimus_Dray.png`, one still image facing right, replacing `art.py`'s stand-in (it is never overwritten once real art is there). Enemy 41, troop 41, Map 65 | his generated face and sprite, `Gen_People12` 7: grey hair and beard, brown coat - and a serpent, the S-shaped bass horn | a modern instrument |
 | **Miss Moon** (B3) | F | **Delivered 5 Oct 2026** (redrawn to Mr Dray's scale). Real enemy art for `img/sv_enemies/Lettice_Moon.png`, the same way. Enemy 42 | `Gen_People13` 0: long black hair, black dress, a sheaf of verses, a handkerchief | cheerfulness |
+| **The Dark (Some Of It)** (P4d) | F | **Optional**: real enemy art for `img/enemies/`, one still image, replacing the stock `SF_Shadow` it fights as now. Enemy 60, the Stair's random encounters (Maps 73-77), schedule item one | "the reason the board on the Door says what it says": darkness with some shape to it | a face; anything that settles what is down there |
+| **The Draught** (P4d) | F | **Optional**, the same way, replacing stock `SF_Kamaitachi`. Enemy 61, item two, "puts lamps out" | a weasel made of wind (its note says so) | |
+| **The Echo** (P4d) | F | **Optional**, replacing stock `SF_Hannyamask`. Enemy 62, item three, "do not answer it" | something that only says things back | |
+| **Somebody Coming Up** (P4d) | F | **Optional**, replacing stock `Darkelf`. Enemy 63, item four | somebody on a stair one wide, in total dark, whom nobody can see: lovely manners | a recognisable person - it must not settle who, or whether it is Sir Dunstable |
+| **The Half-Way Warden** (P4d) | F | **Optional**, replacing stock `Gatekeeper`; its map sprite is `Monster` 3 and can stay. Enemy 64, Map 75 | black armour, a hook on its belt with nothing on the hook | |
+| **Something Unscheduled** (P4e) | F | **Optional**, replacing stock `Kraken`; its map sprite is `$BigMonster1` 0 facing right (the purple one), with no face - it speaks faceless. Enemy 65, troop 61, Map 78 | big-eyed, many-armed and **delighted to see you**: it has been getting ready for company for a very long time | menace; teeth, if it can be helped (the stock sprite has some) |
+
+**Added 29 October 2026 (P4e): the mountain's six enemies.** P4d meant to
+put its five here and did not; P4e adds them with its own. All six fight as
+stock battlers that look right enough, so every row is optional - real art
+replaces a stock image the way Mr Dray's replaced `art.py`'s stand-in, and
+nothing else changes. Nobody on the Stair speaks with a face but Sir
+Dunstable, who has one.
 
 Installing a supplied face: a sheet of its own in `img/faces/` (8 cells of
 144x144, or one), `story.FACES` pointed at it, and - for a speaker with a
