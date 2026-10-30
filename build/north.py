@@ -426,12 +426,12 @@ def clanging_events():
         14, "Ferrule Cotterill", 11, 40, "Ferrule",
         S.say("Ferrule", [
             "I am Ferrule. I am sixteen.",
-            "I am in charge until six.",
+            "I am in charge from six.",
         ]) + S.narrate([
             "You ask what happens at six.",
         ]) + S.say("Ferrule", [
-            "Da wakes up. Then he is in charge",
-            "and I get to sit down.",
+            "Da goes to work. Then I am in charge",
+            "and nobody gets to sit down.",
         ]) + S.say("Ferrule", [
             "Mam is not to lift anything.",
             "She lifts things the moment I turn round.",

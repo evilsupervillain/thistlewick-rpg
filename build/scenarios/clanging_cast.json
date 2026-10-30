@@ -93,7 +93,7 @@
     {"eval": "$gameMap.event(14).start()"},
     {"advance": 40},
     {"check": "$gameVariables.value(7)", "expect": 4,
-     "label": "Ferrule is in charge until six, and that is all she is"},
+     "label": "Ferrule is in charge from six, and that is all she is"},
 
     {"eval": "$gameMap.event(15).start()"},
     {"advance": 40},
