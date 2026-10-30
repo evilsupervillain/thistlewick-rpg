@@ -494,7 +494,7 @@ def summit_props(first_id):
 
     late = S.narrate([
         "A tall mirror in a purple frame, with a little",
-        "carved demon on the top, looking down into it."])
+        "carved gargoyle on the top, looking down into it."])
     late += S.narrate(["Your reflection looks back at you.",
                        "It is a moment late doing it."])
     late += S.narrate([
