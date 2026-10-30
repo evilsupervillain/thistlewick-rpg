@@ -37,14 +37,16 @@ SPRITES = [
     ("!$AirshipShadow", "airship_shadow.png", 0, False),  # the Hoyle Works
     # ART-TODO.md, delivered 28 October. The portrait and the plates are
     # Mike's smaller second goes (29 Oct), and the plates his third, with a
-    # shadow round them; the earlier goes are beside them, unused.
+    # shadow round them; the earlier goes are beside them, unused. The
+    # `_wall` files are those plates moved to the far side of their cells
+    # (30 Oct), on the wall beside the fireplace rather than on its pillars.
     ("!$ThistlePortrait", "thistle_portrait_small.png", 48, False),  # village.py
     # The goose's body is rows 17-30 of its cell; 72 sets it on the mantel
     # shelf, which is the top 4 pixels of the fireplace's upper row; Mike
     # asked for it 3 pixels lower (29 Oct), so it sits just into the shelf.
     ("!$GooseTrophy", "goose_trophy.png", 69, False),          # south.py
-    ("!$PlaqueLeft", "plaque_left_shadow2.png", 0, False),        # south.py
-    ("!$PlaqueRight", "plaque_right_shadow.png", 0, False),       # q_wren.py
+    ("!$PlaqueLeft", "plaque_left_wall.png", 0, False),         # south.py
+    ("!$PlaqueRight", "plaque_right_wall.png", 0, False),       # q_wren.py
     ("!$BottomlessBoard", "bottomless_board.png", 0, False),   # wilds.py
     ("!$SocksPlain", "socks_plain.png", 0, False),             # (the other)
     ("!$SocksOutlined", "socks_outlined.png", 0, False),       # wilds.py

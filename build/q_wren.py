@@ -64,7 +64,7 @@ assert PLATE_PRICE == 128, PLATE_PRICE
 
 # Mike's drawings (ART-TODO.md, 28 October), made into sheets by
 # `supplied.py`: the goose, lifted onto the mantel shelf above its event,
-# and the two plates, each drawn to the fire's side of its own cell.
+# and the two plates, each drawn to the wall's side of its own cell.
 GOOSE_SHEET = "!$GooseTrophy"
 PLAQUE_SHEETS = ("!$PlaqueLeft", "!$PlaqueRight")
 
