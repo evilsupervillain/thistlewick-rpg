@@ -547,6 +547,18 @@ IT_BOUNTY_STAMPED = 78          # the same card, stamped DISCHARGED
 IT_GUILD_CARD_FULL = 79         # the Guild Card, no longer provisional
 EN_UNSCHEDULED, TR_UNSCHEDULED = 65, 61
 SK_HUG, SK_ALL_ARMS, SK_SHOWS_ROUND, SK_INK = 191, 192, 193, 194
+# P4f, SPA-3 The Tenth (QUESTS.md Part G; q_spare.py). In order: the ninth
+# letter, from the Stair; "yes" said on waking, and the family all indoors;
+# Spare gone in with Bessie; the morning after, and ten.
+SW_SPA3_LETTER = 224            # "Dear Mam. Is it spring yet? Spare."
+SW_SPA3_SPRING = 225            # it is; every Cotterill indoors till it is over
+SW_SPA3_INSIDE = 226            # Spare has gone in; out of the party
+SW_SPA3_DONE = 227              # Washer; everybody back out
+SW_SPA3_STEP = 228              # Spare has told you on the step, once
+VAR_SPA3_ASKS = 33              # how many mornings he has asked
+CE_MORNING = 8                  # the end of every sleep, at every bed
+SK_BIG_BROTHER = 195            # learned on the step, the morning after
+ST_BIG_BROTHER = 45             # substitute, for three turns
 PENSION = 1000                 # one quarter, in advance, paid once
 SPARE_ARGUING_LEVEL = 12        # fixed, so the argument is tuned once
 
@@ -3168,6 +3180,16 @@ def build_spare():
         ST_BRUSHED, "Brushed Through", 224, traits=[trait(21, 3, 0.6)],
         auto_removal=0, max_turns=1, min_turns=1,
         message1="%1 has been gone through with a brush."))
+    # SPA-3 (P4f): They Never Hit Me turned round. Substitute (special flag
+    # 2) covers an ally below a quarter of their HP from anything that is not
+    # a certain hit, which is "an ally in danger" in the engine's own words;
+    # the physical damage rate is so that he is still standing after.
+    upsert(st, state(
+        ST_BIG_BROTHER, "Big Brother", 81,
+        traits=[trait(62, 2, 0), trait(23, 6, 0.6)],
+        max_turns=3, min_turns=3,
+        message1="%1 is keeping an eye on everybody.",
+        message4="%1 has stopped keeping an eye on everybody."))
     save("States.json", st)
 
     sk = R.load("Skills.json")
@@ -3220,6 +3242,14 @@ def build_spare():
     for s in bag:
         s["requiredWtypeId1"] = WT_BAG
         upsert(sk, s)
+    # SPA-3's, from the step the morning after. Not out of the bag: it is him.
+    upsert(sk, skill(
+        SK_BIG_BROTHER, "Big Brother",
+        "Three turns in which he takes the hits meant for anybody about to "
+        "fall, and they hurt him less. He is new at it.",
+        "0", dmg_type=0, scope=11, mp=10, icon=81, animation=51, hit_type=0,
+        effects=[effect(21, ST_BIG_BROTHER, 1.0), effect(31, 3, 3)],
+        message="%1 stands in front of everybody."))
 
     # Mrs Cotterill's four. Mothers do not miss: every one is a certain hit.
     upsert(sk, skill(SK_YOU_ARE_NINE, "You Are Nine", "", "b.mhp * 0.34",
@@ -3272,6 +3302,10 @@ def build_spare():
     upsert(ce, {"id": CE_SPA1_COPIES, "name": "Spare's Copies (SPA-1)",
                 "switchId": 1, "trigger": 0,
                 "list": q_spare.copies() +
+                [{"code": 0, "indent": 0, "parameters": []}]})
+    upsert(ce, {"id": CE_MORNING, "name": "The Morning (SPA-3)",
+                "switchId": 1, "trigger": 0,
+                "list": q_spare.morning() +
                 [{"code": 0, "indent": 0, "parameters": []}]})
     save("CommonEvents.json", ce)
 

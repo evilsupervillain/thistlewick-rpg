@@ -564,7 +564,8 @@ def home_events():
         ["Sleep", "Get on with it"],
         [[R.fadeout_screen(), R.play_me("Inn1"), R.recover_all(), R.wait(60),
           R.fadein_screen()] + S.narrate(["You wake up.",
-                                          "You are still the Chosen One."]),
+                                          "You are still the Chosen One."])
+         + [R.call_common_event(db.CE_MORNING)],                       # SPA-3
          S.narrate(["You get on with it."])])
     # Same as characters, not below: the bed tiles block, so nobody can ever
     # stand on this one, and an action-button event is only triggered from the
@@ -1116,7 +1117,8 @@ def prudence_event(event_id, x, y):
                 [R.lose_gold(20), R.fadeout_screen(), R.play_me("Inn1"),
                  R.recover_all(), R.wait(90), R.fadein_screen()] +
                 S.narrate(["The party wakes restored.",
-                           "Breakfast was turnip."]) + [S.trope()],
+                           "Breakfast was turnip."]) + [S.trope(),
+                                                        R.call_common_event(db.CE_MORNING)],
                 S.say("Prudence", ["Come back when you've got 20."]))],
             cancel=None)
         return cmds

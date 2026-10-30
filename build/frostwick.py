@@ -301,6 +301,7 @@ def eleven_days_events():
             "You sleep under three quilts. In the morning",
             "it has snowed four inches, exactly, and not",
             "on the path."])
+        stay += [R.call_common_event(db.CE_MORNING)]               # SPA-3: is it spring yet
         cmds = S.say("Mrs Marchpane", lines)
         cmds += R.choice_block(
             ["Take a room (11cr)", "Not just now"],

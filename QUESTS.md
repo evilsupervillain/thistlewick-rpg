@@ -555,7 +555,8 @@ in before the ending, in this order. One step per session, as before.
   Sir Dunstable's lamp at a quarter past four, and what is behind the door.
   G1's ending lines are written in the same pass, because they live in the
   finale event that now hands back to the world.
-* **P4f. SPA-3 The Tenth** - **agreed with Mike, 30 Oct 2026**, and it
+* **P4f. SPA-3 The Tenth** - **agreed with Mike, 30 Oct 2026, and built
+  the same day** (its Done paragraph is in section 3, after P4e's), and it
   reverses the 5 Oct deferral below: the post-game now reaches spring, for
   the Cotterills and nobody else (`POSTGAME.md` 1 is amended to match).
   Before G0, so the log has it from the start, and before G1, whose re-cut
@@ -4841,6 +4842,76 @@ change.
   lamps only round the rim. The shrunk one fills the screen, has lamps on
   every side, and has Something Unscheduled in the middle.
 
+**P4f, SPA-3 The Tenth, done** (30 Oct 2026). Built as agreed in Part G's
+P4f bullet, in `build/q_spare.py` (its last section) with one line in each
+place module. No published line changed: every old page of every event it
+touches is byte for byte what it was, with pages appended, and the nine beds
+each gained one Call Common Event at the end of their sleep branch.
+
+* **The ninth letter.** Map 73 event 13, the courier, at (17, 3) on the
+  landing inside the Door (`mountain.STAIR_COURIER`), last on the map. Blank;
+  then himself on Spare in the party and `SW_SPA1_DONE`; then blank again on
+  his self switch A, because he "goes on down the Stair, into the dark,
+  without a lamp". "Dear Mam. Is it spring yet? Spare." sets switch 224.
+* **The morning** is common event 8, `q_spare.morning`. If Spare is indoors
+  it is the birth, wherever the party slept: 225 and 226 off, 227 on, and
+  "Somewhere up the valley, while you were asleep, there have come to be
+  ten." Otherwise, after `SW_WON`, with Spare, and before 227, it counts the
+  ask in variable 33 and answers it: urging if 225 is on, yes if 208, 213,
+  210 and 224 are all on, not yet otherwise. Not yet has four answers and
+  the urging three, taken in turn by the count. The yes sets 225 and is the
+  quest's **trope** (the deadline: "the first one in the whole of your
+  adventure that you could actually miss").
+* **The beds** are Bram's (Map 2), the Gilded Turnip (4), the wayshrine
+  (world map), the Slain Wyvern (14), the Safety Valve (23), the Eight Hours
+  (32), the Eleven Days (45), the Bell (65) and Fitch's cottage (71).
+  `q_spare.check_mornings`, run at the end of `build_game.py`, finds every
+  fade-out, Inn ME and Recover All in the game's events and fails the build
+  if the call does not follow it in the same branch, or if it finds fewer
+  than nine.
+* **Upper Clanging.** On 225 every Cotterill in town - the doorstep, Bessie,
+  Rivet, Gudgeon, Tappet and Grommet - has a blank page, and Bessie stands at
+  the Cotterills' door, (13, 40) beside (12, 39), as Map 21 event 22. She
+  says nothing (Mike). Spare does: "I have to go in now. / Come back in the
+  morning. Not before. Mam said." He leaves the party as a form desk would
+  remove him (recruit switch 90 off, `VAR_COMPANIONS` down one) and 226 goes
+  on, which blanks Bessie at the door and Spare's own event (his recruit
+  switch is off, so his argument pages would otherwise show).
+* **The morning after.** Mrs and Mr Cotterill, Ferrule, Clevis, Shim, Bessie,
+  Rivet, Gudgeon, Winnie and Cotter each have two new pages
+  (`q_spare.SPA3_LINES`): the full one, on 227 and their met switch A, which
+  sets self switch C, and a short one on C. Shim's needs B, her washer, so a
+  washer still in her tin is still offered. Bessie's and Cotter's play
+  NIX-4's and HOB-1's quest pages instead whenever those are the ones that
+  would have shown (`cotter`'s rule, through `q_piper._pip4_test`). Tappet
+  and Grommet only go indoors; they have no new line.
+* **Spare on the step** (Map 21 event 13, pages 8-10): "It is a baby." /
+  "I am not the youngest any more. I am a big brother." Then he rejoins with
+  Change Party Member **without initialise**, levelled up to the party if he
+  is behind it, recovered, recruit and known switches on, and learns **Big
+  Brother**. With a full party he waits ("I will wait. I am extremely good at
+  it.") and switch 228 makes the next ask short.
+* **Big Brother**, skill 195: the user, 10 MP, no bag needed. It adds state
+  45 for three turns - special flag 2, **substitute**, so he takes any hit
+  that is not a certain hit meant for an ally below a quarter of their HP -
+  with physical damage at 60%, and a DEF buff for three turns. Icon and
+  animation are Interpose's. `balance.py` is unchanged by it, since it does
+  no damage. On the Stair his 389 HP still drops to a single 342 Attack, so
+  it is a sacrifice, which is the point.
+* **The name is Washer.** Clevis pays "most of Upper Clanging" at twenty to
+  one; Mrs Cotterill: "Spare got to it first. / He said call it Washer, and I
+  was tired." Gudgeon enters it, Bessie says six o'clock on the hooter,
+  Rivet says Da came off nights for it, and Cotter goes home on Saturday.
+  The baby is never placed, so it reads the same with no picture, a cradle
+  or a bundle (`ART-TODO.md`).
+* **Ids**: switches 224-228, variable 33, common event 8, skill 195, state
+  45. **The variable list is sized 40 now**: the engine silently ignores
+  Control Variables on an id past the end of `System.json`'s list, which is
+  how the first run of the scenario found it.
+* **Scenarios**: `q_spa3_tenth`, new. Not yet run: `clanging_cast`, the
+  Spare scenarios that cross Map 21 (`q_spa0_*`, `q_spa1_letters`,
+  `q_spa2_tubes`) and `pg_mountain`, which wait for Mike's word.
+
 **Music, after P4e** (29 Oct 2026, Mike's choices from a list of every map's
 track). Map 78 is Dungeon4 and its fight Battle8, as above. Old Ashcombe
 (Map 66) had no music and now plays Theme1; the Bottom Lock (Map 70) keeps
@@ -4860,9 +4931,9 @@ Scene7-9, Theme5.
 
 ## Restart prompt
 
-**Start with P4f, SPA-3 The Tenth** (agreed 30 Oct 2026, Part G), **then G0,
-the quest log.** **P4a-P4e are done** (the last five Done
-paragraphs in section 3). The finale hands back
+**Start with G0, the quest log.** **P4a-P4f are done** (the last six Done
+paragraphs in section 3; P4f, SPA-3 The Tenth, was built 30 Oct 2026 and
+its four older scenarios wait for Mike's word). The finale hands back
 to Bram's house; Thistlewick, the pension, Fitch's cottage (Map 71) and
 Roland are built; Prophecy Hall's lectern reads the tally again as "THE
 OBLIGATORY QUEST, as amended"; Quy has his afternoon and Hollowell his
@@ -4886,10 +4957,11 @@ three P4a tally lines stand; buffs and debuffs carry their turns in value1
 answer. For G1's re-cut: nine `S.prop(..., extra=[S.trope()])` props (four
 in `south.py`, four in `village.py`, one in `wilds.py`) bump the trope on
 **every** reading, not once - fix them with a self-switch guard before
-counting. Trope sites to add to the re-cut: P4d's three and P4e's one (+4
-reachable). Next free:
-switch 224, variable 33, item 80, weapon 44, armour 49, common event 8, map
-79, state 45, enemy 66, troop 62, skill 195, `Gen_People16` 2. Anything that runs the finale's list
+counting. Trope sites to add to the re-cut: P4d's three, P4e's one and
+P4f's one, the yes on waking (+5 reachable). Next free:
+switch 229, variable 34 (the list is sized 40), item 80, weapon 44, armour
+49, common event 9, map 79, state 46, enemy 66, troop 62, skill 196,
+`Gen_People16` 2. A new bed calls common event 8 or the build fails. Anything that runs the finale's list
 directly must skip 201 as well as 354. A post-game page on a ladder that
 cannot be waited on goes through `postgame._owing`.
 
@@ -4922,12 +4994,11 @@ then the suite.
 
 Where things stand: tropes **+51 fixed** and 2-9 from PIP-2; blushes **+13
 fixed** and 0-1 from PIP-2 - the totals G1 re-cuts against, plus the
-post-game's own (P4d's three tropes and P4e's one). Next free (as of
-P4e): switch 224, variable 33 (`build_game.py` sizes the list at 33, so **the
-next variable needs it grown**), item 80, weapon 44, armour 49, armour type
-15, weapon type 14, element 11, class 13, common event 8, state 45 (past the
-40-44 block, which P1 filled), enemy 66,
-troop 62, skill 195, map 79, `Gen_People16` 2. Spare is actor 11; his story
+post-game's own (P4d's three tropes, P4e's one and P4f's one). Next free
+(as of P4f): switch 229, variable 34 (`build_game.py` sizes the list at 40;
+**an id past its end is silently ignored by the engine**), item 80, weapon
+44, armour 49, armour type 15, weapon type 14, element 11, class 13, common
+event 9, state 46, enemy 66, troop 62, skill 196, map 79, `Gen_People16` 2. Spare is actor 11; his story
 switch is 110 and is on after F2. Cotter (Map 61 event 12) has six pages now;
 Map 70 is the culvert.
 

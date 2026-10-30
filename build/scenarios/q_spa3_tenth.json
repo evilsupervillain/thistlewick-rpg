@@ -1,0 +1,271 @@
+{
+  "query": "?map=2&x=8&y=8&frames=90",
+  "comment": "QUESTS.md P4f, SPA-3 The Tenth. After the ending, with Spare and everything of his done but the ninth letter: Bram's bed asks and the answer is not yet; the courier on the Stair (Map 73) takes the ninth; the Safety Valve's bed is yes; Fitch's bed is an urging; Upper Clanging is empty of Cotterills and Bessie is at their door; Spare goes in and out of the party; the wayshrine's Rest is the birth; everybody is back with new pages, Cotter too; Spare rejoins from the step with his level and kit, and Big Brother; and a bed after that asks nothing.",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; window._mark = () => { window._tropes = $gameVariables.value(2); window._lines = []; }; window._has = s => window._lines.some(l => l.includes(s)); window._page = (n) => $gameMap.event(n).findProperPageIndex(); window._spare = () => $gameActors.actor(11); window._inParty = () => $gameParty._actors.includes(11);"
+    },
+    {
+      "comment": "The post-game, Spare with you at level 30 wearing Shim's washer, SPA-1, SPA-2 and SPA-4 done, everybody met (his gate needs it); no ninth letter yet."
+    },
+    {
+      "eval": "$gameParty.gainGold(1000); $gameParty.addActor(11); const s = window._spare(); s.changeLevel(30, false); s.learnSkill(155); $gameParty.gainItem($dataArmors[27], 1); s.changeEquipById(5, 27); $gameSwitches.setValue(5, true); $gameSwitches.setValue(90, true); $gameSwitches.setValue(92, true); $gameSwitches.setValue(110, true); $gameSwitches.setValue(208, true); $gameSwitches.setValue(210, true); $gameSwitches.setValue(213, true); $gameVariables.setValue(1, 1); [[21,11],[21,12],[21,14],[21,15],[21,16],[21,17],[23,4],[23,5],[25,4],[22,9],[24,4],[61,12]].forEach(([m,e]) => $gameSelfSwitches.setValue([m,e,'A'], true)); $gameSelfSwitches.setValue([21,16,'B'], true); window._kit = s.equips().map(e => e ? e.id : 0); $gameMap.requestRefresh(); window._mark()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "[$gameMap.mapId(), window._inParty(), window._kit]",
+      "expect": [2, true, [34, 0, 0, 0, 27]],
+      "label": "Bram's house, Spare in the party with the bag and the washer"
+    },
+    {
+      "comment": "Bram's bed: sleep, and he asks. The trigger is not met, so not yet."
+    },
+    {
+      "eval": "$gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('You wake up.'), window._has('Is it spring yet?'), window._has('You tell him not yet.'), $gameVariables.value(33), $gameSwitches.value(225)]",
+      "expect": [true, true, true, 1, false],
+      "label": "the published waking, then the first ask, not yet"
+    },
+    {
+      "comment": "The Stair, Map 73: the courier on the landing, only with Spare and SPA-1 done."
+    },
+    {
+      "goto": [73, 19, 3]
+    },
+    {
+      "check": "window._page(13)",
+      "expect": 1,
+      "label": "the courier is there"
+    },
+    {
+      "eval": "$gameSwitches.setValue(208, false); $gameMap.requestRefresh()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "check": "window._page(13)",
+      "expect": 0,
+      "label": "without SPA-1 done, nobody"
+    },
+    {
+      "eval": "$gameSwitches.setValue(208, true); $gameMap.requestRefresh(); window._mark()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y]",
+      "expect": [18, 3],
+      "label": "walked to him on the landing"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('Dear Mam. Is it spring yet? Spare.'), window._has('entirely true'), $gameSwitches.value(224), window._page(13)]",
+      "expect": [true, true, true, 2],
+      "label": "the ninth letter, posted; he has gone on down"
+    },
+    {
+      "comment": "The Safety Valve's bed: everything of Spare's is done now, so yes."
+    },
+    {
+      "goto": [23, 10, 13]
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('six o\\'clock'), window._has('Then I have to go home.'), $gameSwitches.value(225), $gameVariables.value(33), $gameVariables.value(2) - window._tropes]",
+      "expect": [true, true, true, 2, 1],
+      "label": "Mr Kell's morning, then yes: spring, and the deadline's trope"
+    },
+    {
+      "check": "[window._page(5), window._page(4)]",
+      "expect": [2, 1],
+      "label": "Rivet is indoors for the day; Winnie is not a Cotterill"
+    },
+    {
+      "comment": "Fitch's cottage, the next night: an urging."
+    },
+    {
+      "goto": [71, 6, 10]
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('You can hear the sea.'), window._has('Mam will not wait.'), $gameVariables.value(33)]",
+      "expect": [true, true, 3],
+      "label": "every waking from now is him hurrying you"
+    },
+    {
+      "comment": "Upper Clanging: every Cotterill is indoors, and Bessie is at their door."
+    },
+    {
+      "goto": [21, 15, 42]
+    },
+    {
+      "check": "[11, 12, 14, 15, 16, 17].map(window._page)",
+      "expect": [5, 2, 2, 2, 4, 4],
+      "label": "the doorstep is empty"
+    },
+    {
+      "check": "[window._page(22), window._page(13)]",
+      "expect": [1, 6],
+      "label": "Bessie at the Cotterills' door; Spare with you"
+    },
+    {
+      "key": "ArrowUp",
+      "times": 2,
+      "gap": 30
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 2,
+      "gap": 30
+    },
+    {
+      "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
+      "expect": [14, 40, 4],
+      "label": "facing her"
+    },
+    {
+      "eval": "window._mark(); window._comp = $gameVariables.value(1)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('Not before. Mam said.'), window._inParty(), $gameSwitches.value(90), $gameSwitches.value(226), window._page(22), window._page(13)]",
+      "expect": [true, false, false, true, 2, 7],
+      "label": "they go in; Spare is out of the party and off the step"
+    },
+    {
+      "comment": "A different bed for the night: the wayshrine on the world map. It is the birth, and nobody asks."
+    },
+    {
+      "goto": [8, 63, 51]
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(5).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('Nothing eats them.'), window._has('have come to be ten'), window._has('Is it'), $gameSwitches.value(225), $gameSwitches.value(226), $gameSwitches.value(227)]",
+      "expect": [true, true, false, false, false, true],
+      "label": "the birth, wherever the party is"
+    },
+    {
+      "comment": "Great Dunnage: Cotter has heard."
+    },
+    {
+      "goto": [61, 6, 8]
+    },
+    {
+      "check": "window._page(12)",
+      "expect": 6,
+      "label": "Cotter's new page"
+    },
+    {
+      "goto": [21, 15, 42]
+    },
+    {
+      "check": "[11, 12, 14, 15, 16, 17, 22, 13].map(window._page)",
+      "expect": [6, 3, 3, 3, 5, 5, 0, 8],
+      "label": "everybody back out, Bessie home, Spare on the step"
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(11).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('He said call it Washer,'), window._page(11)]",
+      "expect": [true, 7],
+      "label": "Mrs Cotterill: Washer, and then her short line"
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(15).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "window._has('twenty to one')",
+      "expect": true,
+      "label": "Clevis pays out"
+    },
+    {
+      "comment": "Spare, on the step: rejoins without initialise, at his level, in his kit, with Big Brother."
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(13).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('I am a big brother.'), window._inParty(), window._spare().level >= 30, window._spare().equips().map(e => e ? e.id : 0), window._spare().isLearnedSkill(195), window._spare().isLearnedSkill(155), $gameSwitches.value(90), $gameVariables.value(1) - window._comp, window._page(13)]",
+      "expect": [true, true, true, [34, 0, 0, 0, 27], true, true, true, 0, 9],
+      "label": "back, nothing lost, one new skill, gone from the step"
+    },
+    {
+      "check": "(() => { const s = window._spare(); s.addState(45); const r = [s.isSubstitute(), s.pdr]; s.removeState(45); return r; })()",
+      "expect": [true, 0.6],
+      "label": "Big Brother's state is the substitute flag"
+    },
+    {
+      "comment": "And a bed after that: the morning asks nothing any more."
+    },
+    {
+      "goto": [2, 8, 8]
+    },
+    {
+      "eval": "window._mark(); $gameMap.event(2).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('You wake up.'), window._has('Is it'), window._has('ten'), $gameVariables.value(33)]",
+      "expect": [true, false, false, 3],
+      "label": "spring is over; nobody asks"
+    }
+  ]
+}

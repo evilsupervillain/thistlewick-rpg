@@ -210,6 +210,8 @@ def clanging_map():
     # the cobbles are five wide, columns 15 to 19
     S.widen_exit(m["events"], 2, [(CLANGING_GATE[0] + dx, CLANGING_GATE[1])
                                   for dx in (-2, -1, 1, 2)])
+    # SPA-3: Bessie at the Cotterills' door (12, 39), on the one day.
+    m["events"].append(q_spare.bessie_at_the_door(len(m["events"]), 13, 40))
     return m
 
 
@@ -303,7 +305,7 @@ def clanging_events():
     # player's. Mrs Cotterill is **proud**. She is not complaining and she is
     # not confessing; she is answering a polite question from a polite young
     # man, which is 1.4 exactly.
-    evs.append(talker(
+    evs.append(q_spare.spa3("mam", talker(
         11, "Mrs Cotterill", 12, 40, "Mrs Cotterill",
         S.say("Mrs Cotterill", [
             "These are ours.",
@@ -331,12 +333,12 @@ def clanging_events():
         ]),
         extra=[R.control_switch(db.SW_COTTERILL, True)], direction=4,
         pages=q_spare.mam_pages(R.image(*S.FACES["Mrs Cotterill"],      # F2
-                                        direction=4))))
+                                        direction=4)))))
 
     # Mr Cotterill is the reaction shot and deliberately does **not** bump the
     # counter: it is one joke, told three times by three people, and counting
     # it three times would be the game explaining it. See 1.5's fourth test.
-    evs.append(talker(
+    evs.append(q_spare.spa3("da", talker(
         12, "Mr Cotterill", 10, 41, "Mr Cotterill",
         S.say("Mr Cotterill", [
             "Nights.",
@@ -353,7 +355,7 @@ def clanging_events():
         S.say("Mr Cotterill", [
             "Six o'clock. Every day.",
             "Sunday and all.",
-        ]), direction=8))
+        ]), direction=8)))
 
     # Spare Cotterill, aged nine, with a packed bag. Four beats, in this order
     # on purpose: the last one is the one that repeats for the rest of the
@@ -404,7 +406,8 @@ def clanging_events():
             "The bag is still packed.",
         ]),
     ], direction=8,
-        pages=q_spare.spare_pages(R.image(*S.FACES["Spare"], direction=8))))  # F1
+        pages=q_spare.spare_pages(R.image(*S.FACES["Spare"], direction=8))  # F1
+        + q_spare.spare_spa3_pages(R.image(*S.FACES["Spare"], direction=2))))
 
     # -- 14-17: the rest of the doorstep ------------------------------------
     #
@@ -422,7 +425,7 @@ def clanging_events():
     # material is clean**, because the house had three events and two of
     # Spare's four beats were blushes, and the fix for that is more family
     # rather than fewer jokes. Nothing already written is touched.
-    evs.append(talker(
+    evs.append(q_spare.spa3("ferrule", talker(
         14, "Ferrule Cotterill", 11, 40, "Ferrule",
         S.say("Ferrule", [
             "I am Ferrule. I am sixteen.",
@@ -446,11 +449,11 @@ def clanging_events():
         ]),
         S.say("Ferrule", [
             "Do not encourage Clevis.",
-        ]), direction=2))
+        ]), direction=2)))
 
     # Clevis is thirteen and is running a book on the tenth one's name, which
     # is the whole fastener gag handed to somebody who thinks it is a market.
-    evs.append(talker(
+    evs.append(q_spare.spa3("clevis", talker(
         15, "Clevis Cotterill", 8, 41, "Clevis",
         S.say("Clevis", [
             "Do you want to put money on the name?",
@@ -468,13 +471,13 @@ def clanging_events():
         ]),
         S.say("Clevis", [
             "Gib has shortened. I would get in now.",
-        ]), direction=2, move_type=1))
+        ]), direction=2, move_type=1)))
 
     # Shim is eleven and gets the quiet one, thrown away rather than landed.
     # Two lines re-read a bag that has been packed for two years without one
     # syllable of Spare's ladder being touched: he is not running away to be
     # a hero, he is the youngest of nine and is about to stop being it.
-    evs.append(talker(
+    evs.append(q_spare.spa3("shim", talker(
         16, "Shim Cotterill", 7, 41, "Shim",
         S.say("Shim", [
             "I collect things.",
@@ -498,7 +501,7 @@ def clanging_events():
             "You can hold the bearing if you like.",
         ]), direction=2, move_type=1,
         pages=q_spare.shim_pages(R.image(*S.FACES["Shim"], direction=2),
-                                 move_type=1)))        # F1
+                                 move_type=1))))        # F1
 
     # Bessie is the eldest son's wife and does four jobs in one event: she is
     # where Cotter is, she is the Marsden marriage, she is the reason Winnie
@@ -519,7 +522,7 @@ def clanging_events():
     # made leaving and coming back the way round the family rather than a walk
     # down it. Out here at the far end she is the last of the ten instead of
     # the first, which is also the order she joined them in.
-    evs.append(q_nix.returned("bessie", talker(                    # NIX-4
+    evs.append(q_spare.spa3("bessie", q_nix.returned("bessie", talker(  # NIX-4
         17, "Bessie Marsden", 5, 40, "Bessie",
         S.say("Bessie", [
             "Bessie Marsden. Cotterill, now.",
@@ -544,7 +547,7 @@ def clanging_events():
         S.say("Bessie", [
             "Second Saturday she has her dinner.",
             "I get the house to myself.",
-        ]), direction=2)))
+        ]), direction=2)), keep=(2, 3)))
     return evs
 
 
@@ -1340,7 +1343,7 @@ def works_events():
         "Six crates. Same place as always.",
     ])
     t_sheet, t_index = S.FACES["Tappet"]
-    evs.append(talker(
+    evs.append(q_spare.spa3("tappet", talker(
         9, "Tappet Cotterill", 14, 14, "Tappet",
         S.say("Tappet", [
             "Castings. Six crates.",
@@ -1368,7 +1371,7 @@ def works_events():
                       conditions={"switch1Valid": True,
                                   "switch1Id": db.SW_AIRSHIP,
                                   "selfSwitchValid": True,
-                                  "selfSwitchCh": "A"})]))
+                                  "selfSwitchCh": "A"})])))
     evs.append(q_spare.dinner_hour(10, 13, 14))                    # F2
 
     # -- 11, 12: the drawings again. Mike widened the board to three cells
@@ -1431,7 +1434,7 @@ def valve_events():
             S.say("Mr Kell", [
                 "You slept through the six o'clock",
                 "hooter. Nobody does that.",
-            ]),
+            ]) + [R.call_common_event(db.CE_MORNING)],     # SPA-3
             S.say("Mr Kell", ["Come back with %d." % BED_PRICE]))],
         cancel=None)
 
@@ -1495,7 +1498,7 @@ def valve_events():
     # by somebody with no idea what she is telling you - which is why she
     # does **not** bump the counter. It is one joke. Counting it twice would
     # be the game explaining it, and 1.5's fourth test forbids that.
-    evs.append(talker(
+    evs.append(q_spare.spa3("winnie", talker(
         4, "Winnie Marsden", 13, 8, "Winnie",
         S.say("Winnie", [
             "Class of 'Nineteen.",
@@ -1519,7 +1522,7 @@ def valve_events():
                       conditions={"switch1Valid": True,
                                   "switch1Id": db.SW_COTTERILL,
                                   "selfSwitchValid": True,
-                                  "selfSwitchCh": "A"})]))
+                                  "selfSwitchCh": "A"})])))
 
     # -- 5: Rivet Cotterill, twenty-two, the second of the nine ------------
     #
@@ -1532,7 +1535,7 @@ def valve_events():
     # No blush anywhere in it. This is a son being fond of his father and a
     # man of twenty-two who has never been in a room by himself, and the
     # house needed somebody in it who is simply pleasant company.
-    evs.append(talker(
+    evs.append(q_spare.spa3("rivet", talker(
         5, "Rivet Cotterill", 8, 10, "Rivet",
         S.say("Rivet", [
             "Days. Da does nights.",
@@ -1556,7 +1559,7 @@ def valve_events():
         S.say("Rivet", [
             "Half an hour. Then bed.",
             "Then it is Tuesday.",
-        ]), direction=6))
+        ]), direction=6)))
     return evs
 
 
@@ -1726,7 +1729,7 @@ def forge_events():
     # together. The meeting fires the moment Hob walks into this room, so a
     # party with Hob in it standing in the forge has necessarily seen it -
     # which makes the actor condition exactly equivalent and costs no state.
-    evs.append(talker(
+    evs.append(q_spare.spa3("grommet", talker(
         4, "Grommet Cotterill", 7, 11, "Grommet",
         S.say("Grommet", [
             "I am the apprentice. Six months in.",
@@ -1759,7 +1762,7 @@ def forge_events():
                       conditions={"actorValid": True, "actorId": db.HOB,
                                   "selfSwitchValid": True,
                                   "selfSwitchCh": "A"})]
-        + q_hob.grommet_pages(R.image(*S.FACES["Grommet"], direction=8))))
+        + q_hob.grommet_pages(R.image(*S.FACES["Grommet"], direction=8)))))
     return evs
 
 
@@ -2026,7 +2029,7 @@ def parish_events():
     # the arithmetic - she notices the *silence*, which is a thing that
     # genuinely happens to her at that point in the list. The game still has
     # not said it; the player's head said it and Gudgeon heard the pause.
-    evs.append(talker(
+    evs.append(q_spare.spa3("gudgeon", talker(
         4, "Gudgeon Cotterill", 11, 6, "Gudgeon",
         S.say("Gudgeon", [
             "I copy the register.",
@@ -2062,7 +2065,7 @@ def parish_events():
             "Everybody gets it wrong.",
         ]), direction=6,
         pages=q_spare.gudgeon_pages(
-            R.image(*S.FACES["Gudgeon"], direction=6))))     # F1
+            R.image(*S.FACES["Gudgeon"], direction=6)))))     # F1
     return evs
 
 

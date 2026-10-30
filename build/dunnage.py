@@ -1169,6 +1169,7 @@ def dewhirst_pages():
         stay += S.narrate([
             "In the morning everybody is whole, and warm, and rested.",
             "The panel has marked breakfast. Breakfast got a seven."])
+        stay += [R.call_common_event(db.CE_MORNING)]               # SPA-3: is it spring yet
         cmds = S.say("Mrs Dewhirst", lines)
         cmds += R.choice_block(
             ["Take a room (%dcr)" % PRICE, "Not just now"],

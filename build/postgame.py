@@ -680,7 +680,8 @@ def fitch_events(threshold, bed, chair, pot, note, cupboard):
         ["Sleep", "Not now"],
         [[R.fadeout_screen(), R.play_me("Inn1"), R.recover_all(),
           R.wait(60), R.fadein_screen()] +
-         S.narrate(["You wake up. You can hear the sea."]),
+         S.narrate(["You wake up. You can hear the sea."]) +
+         [R.call_common_event(db.CE_MORNING)],                         # SPA-3
          []], cancel=1)
     evs.append(R.event(2, "The Bed", *bed, [R.page(
         sleep, img=R.image(""), trigger=0, priority=1, direction_fix=True,

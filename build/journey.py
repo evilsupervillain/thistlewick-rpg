@@ -306,7 +306,8 @@ def world_events():
         ["Rest", "Read the visitors' book", "Move on"],
         [[R.fadeout_screen(), R.play_me("Inn2"), R.recover_all(), R.wait(60),
           R.fadein_screen()] + S.narrate(["The party rests. Nothing eats them.",
-                                          "A small mercy, well taken."]),
+                                          "A small mercy, well taken."])
+         + [R.call_common_event(db.CE_MORNING)],                       # SPA-3
          S.narrate(["Forty-seven names.",
                     "The last entry reads: 'Feeling good about",
                     "this one!' and is dated a hundred years ago.",

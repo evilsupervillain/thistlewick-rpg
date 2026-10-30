@@ -1421,7 +1421,372 @@ def cotter(ev):
         R.page(after, conditions=dict(terminal, switch1Valid=True,
                                       switch1Id=db.SW_SPA2_DONE), **look),
     ]
+    return spa3("cotter", ev, keep=(2, 3))      # SPA-3: HOB-1 still plays
+
+
+# ====================================================== SPA-3, The Tenth ==
+# P4f (QUESTS.md Part G, agreed with Mike 30 Oct 2026). Spring comes in the
+# post-game, for the Cotterills and nobody else. Everything of Spare's done
+# and a ninth letter from the Stair is the trigger; he asks on waking (the
+# morning common event, which every bed calls); "yes" sends every Cotterill
+# indoors and Bessie to the door; he goes in; the next sleep anywhere, there
+# are ten, and he is on the step with a new skill.
+_SPA3_SPRING = {"switch1Valid": True, "switch1Id": db.SW_SPA3_SPRING}
+_SPA3_INSIDE = {"switch1Valid": True, "switch1Id": db.SW_SPA3_INSIDE}
+_SPA3_DONE = {"switch1Valid": True, "switch1Id": db.SW_SPA3_DONE}
+_SPA3_BLANK = dict(img=R.image(""), trigger=0, priority=0, through=True)
+SPA3_TRIGGER = (db.SW_SPA1_DONE, db.SW_SPA2_DONE, db.SW_SPA4_DONE,
+                db.SW_SPA3_LETTER)
+
+
+def _spa3_letter():
+    """The courier on the Stair. He never explains, and nobody asks him."""
+    c = S.narrate([
+        "At the edge of the lamplight, on a stair under a",
+        "mountain that has been shut for longer than anybody",
+        "can remember, is a man in a red coat and a flat cap."])
+    c += S.narrate(["Nobody says anything. Nobody can think of anything",
+                    "that would help."])
+    c += S.say(COURIER, ["Post?"])
+    c += S.say("Spare", ["One for Upper Clanging.", "Mrs Cotterill."])
+    c += S.narrate(["He writes it on his knee, in the lamplight, and lets",
+                    "you read it first. It does not take long."])
+    c += S.narrate(["Dear Mam. Is it spring yet? Spare."])
+    c += S.narrate(["It is the first one he has sent that is entirely true."])
+    c += S.say(COURIER, ["Upper Clanging. Dinner hour."])
+    c += S.narrate(["He touches his cap to Spare, and goes on down the",
+                    "Stair, into the dark, without a lamp."])
+    c += S.narrate(["Somebody asks how he got in, and somebody else asks",
+                    "how he is going to see. Nobody has an answer to",
+                    "either."])
+    return c + [R.control_switch(db.SW_SPA3_LETTER, True), R.self_switch("A")]
+
+
+def stair_courier(event_id, x, y):
+    """The courier on the first Stair map, for `mountain.py` to append: there
+    only with Spare, only once the eight are home (`SW_SPA1_DONE`), so the
+    eight letters' digits are untouched; gone once he has the ninth."""
+    img = R.image(*S.FACES[COURIER], direction=6)
+    return R.event(event_id, "The Courier", x, y, [
+        R.page([], **_SPA3_BLANK),
+        R.page(_spa3_letter(), img=img, trigger=0, priority=1,
+               conditions={"actorValid": True, "actorId": db.SPARE,
+                           "switch1Valid": True,
+                           "switch1Id": db.SW_SPA1_DONE}),
+        R.page([], conditions={"selfSwitchValid": True,
+                               "selfSwitchCh": "A"}, **_SPA3_BLANK),
+    ])
+
+
+def _spa3_by_count(variants):
+    """One of `variants` by how many mornings he has asked, in turn."""
+    c = []
+    for k, body in enumerate(variants):
+        c += R.if_then(R.condition_script(
+            "$gameVariables.value(%d) %% %d === %d"
+            % (db.VAR_SPA3_ASKS, len(variants), (k + 1) % len(variants))),
+            body)
+    return c
+
+
+def _spa3_not_yet():
+    ask = S.say("Spare", ["Is it spring yet?"])
+    return _spa3_by_count([
+        ask + S.narrate(["You tell him not yet."]) + S.say("Spare", ["Right."])
+        + S.narrate(["He takes it extremely well."]),
+        ask + S.narrate(["Somebody says soon."]) + S.say("Spare", [
+            "How soon?"]) + S.narrate([
+                "Nobody knows how soon. You tell him soon."]),
+        ask + S.narrate(["You say not yet. He looks at the sky as if it",
+                         "were late with something."]),
+        ask + S.narrate(["Not yet."]) + S.say("Spare", [
+            "I will ask tomorrow."]) + S.narrate(["He will."]),
+    ])
+
+
+def _spa3_yes():
+    c = S.say("Spare", ["Is it spring yet?"])
+    c += S.narrate(["You go and look. The light is a different colour this",
+                    "morning, and the air smells green, and something is",
+                    "singing that was not singing yesterday."])
+    c += S.narrate(["You tell him yes."])
+    c += S.say("Spare", ["Then I have to go home."])
+    c += S.say("Spare", ["Mam said ten in the spring.",
+                         "It is the spring."])
+    c += S.narrate(["He has the bag on before you have finished saying it."])
+    c += S.narrate(["Every quest has a deadline, and you have dawdled",
+                    "through all of them. This is the first one in the whole",
+                    "of your adventure that you could actually miss."])
+    return c + [S.trope(), R.control_switch(db.SW_SPA3_SPRING, True)]
+
+
+def _spa3_hurry():
+    return _spa3_by_count([
+        S.say("Spare", ["Is it Upper Clanging yet?"]) + S.narrate([
+            "It is not. He has been up for an hour, and is",
+            "standing by the door with the bag."]),
+        S.say("Spare", ["We have to hurry. I cannot miss this.",
+                        "I have never been a big brother."]),
+        S.say("Spare", ["Mam will not wait.",
+                        "She has never once waited for",
+                        "anything."]) + S.narrate([
+            "He says it with enormous pride."]),
+    ])
+
+
+def morning():
+    """Common event 8: the end of every sleep, at every bed (`check_mornings`
+    holds every bed to it). After the ending, with Spare: is it spring yet.
+    With him indoors: the birth, wherever the party is."""
+    born = [R.control_switch(db.SW_SPA3_INSIDE, False),
+            R.control_switch(db.SW_SPA3_SPRING, False),
+            R.control_switch(db.SW_SPA3_DONE, True)]
+    born += S.narrate(["Somewhere up the valley, while you were asleep, there",
+                       "have come to be ten."])
+    ready = " && ".join("$gameSwitches.value(%d)" % s for s in SPA3_TRIGGER)
+    asks = [R.control_variable_add(db.VAR_SPA3_ASKS, 1)]
+    asks += R.if_then(R.condition_switch(db.SW_SPA3_SPRING), _spa3_hurry(),
+                      R.if_then(R.condition_script(ready), _spa3_yes(),
+                                _spa3_not_yet()))
+    after = R.if_then(R.condition_switch(db.SW_WON), R.if_then(
+        R.condition_actor_in_party(db.SPARE), R.if_then(
+            R.condition_switch(db.SW_SPA3_DONE, False), asks)))
+    return R.if_then(R.condition_switch(db.SW_SPA3_INSIDE), born, after)
+
+
+def bessie_at_the_door(event_id, x, y):
+    """Map 21: Bessie at the Cotterills' door, not her own, for the one day -
+    no speech (Mike): she holds the door, and the two of them go in."""
+    c = S.narrate([
+        "Bessie Marsden is standing at the Cotterills' door, not",
+        "her own. The street is empty, and every window in the",
+        "house is lit."])
+    c += S.narrate(["She sees Spare, and opens the door, and holds it."])
+    c += S.say("Spare", ["I have to go in now."])
+    c += S.say("Spare", ["Come back in the morning.", "Not before. Mam said."])
+    c += S.narrate(["He goes in with the bag. Bessie goes in after him, and",
+                    "the door shuts."])
+    c += [R.fadeout_screen(), R.change_party(db.SPARE, add=False),
+          R.control_switch(db.SW_SPARE_JOINED, False),
+          R.control_variable_add(db.VAR_COMPANIONS, -1),
+          R.control_switch(db.SW_SPA3_INSIDE, True),
+          R.wait(30), R.fadein_screen()]
+    c += R.text(["\\C[3]Spare\\C[0] has gone home for the spring."])
+    img = R.image(*S.FACES["Bessie"], direction=2)
+    return R.event(event_id, "Bessie, at the Door", x, y, [
+        R.page([], **_SPA3_BLANK),
+        R.page(c, img=img, trigger=0, priority=1, conditions=_SPA3_SPRING),
+        R.page([], conditions=_SPA3_INSIDE, **_SPA3_BLANK),
+    ])
+
+
+def _spa3_rejoin():
+    full = S.say("Spare", ["You have got three already."]) + S.say("Spare", [
+        "I will wait. I am extremely good at it."])
+    come = S.say("Spare", ["Jumper on. Do not go in first.", "Write."])
+    come += [R.change_party(db.SPARE, add=True, initialize=False)]
+    come += R.script([
+        "const s = $gameActors.actor(%d);" % db.SPARE,
+        "const lv = Math.max(s.level, $gameParty.highestLevel());",
+        "if (lv > s.level) s.changeLevel(lv, false);",
+        "s.recoverAll();",
+    ])
+    come += [R.learn_skill(db.SPARE, db.SK_BIG_BROTHER),
+             R.control_switch(db.SW_SPARE_JOINED, True),
+             R.control_switch(db.SW_SPARE_KNOWN, True),
+             R.control_variable_add(db.VAR_COMPANIONS, 1), R.play_me("Item")]
+    come += R.text(["\\C[3]Spare\\C[0] joined the party!"])
+    come += R.text(["\\C[3]Spare\\C[0] learned \\C[3]Big Brother\\C[0]."])
+    come += S.companion_story(db.SPARE)
+    return R.if_then(
+        R.condition_script("$gameParty.size() < %d" % S.PARTY_LIMIT),
+        come, full)
+
+
+def _spa3_step():
+    """Spare on the step, the morning after."""
+    told = S.say("Spare", ["It is a baby."])
+    told += S.narrate(["You say that you had heard."])
+    told += S.say("Spare", ["It is very small. It got hold of my",
+                            "finger and it would not give it",
+                            "back."])
+    told += S.say("Spare", ["I am not the youngest any more.",
+                            "I am a big brother."])
+    told += S.narrate(["He says it the way other people say they have been",
+                       "knighted."])
+    told += S.say("Spare", ["I can come again now.", "Mam says, same terms."])
+    told += [R.control_switch(db.SW_SPA3_STEP, True)]
+    again = S.say("Spare", ["Can I come yet?"]) + S.narrate([
+        "The bag is still packed. It was never unpacked."])
+    return R.if_then(R.condition_switch(db.SW_SPA3_STEP), again,
+                     told) + _spa3_rejoin()
+
+
+def spare_spa3_pages(img):
+    """Pages 8-10 for Spare (Map 21, event 13): gone while he is indoors
+    (his recruit switch is off, so the argument's pages would show), on the
+    step the morning after, and gone again once he is back with you."""
+    return [
+        R.page([], conditions=_SPA3_INSIDE, **_SPA3_BLANK),
+        R.page(_spa3_step(), img=img, trigger=0, priority=1,
+               conditions=_SPA3_DONE),
+        R.page([], conditions=dict(_SPA3_DONE, switch2Valid=True,
+                                   switch2Id=db.SW_SPARE_JOINED),
+               **_SPA3_BLANK),
+    ]
+
+
+# Everybody's new lines: the first time, and the line after it. Every
+# Cotterill in Upper Clanging is indoors for the day as well (`INDOORS`);
+# Winnie is not a Cotterill and Cotter is in Great Dunnage.
+SPA3_LINES = {
+    "mam": ("Mrs Cotterill",
+            S.say("Mrs Cotterill", ["Ten."]) + S.narrate([
+                "You ask what it is called."]) + S.say("Mrs Cotterill", [
+                    "Washer."]) + S.narrate([
+                        "You ask what happened to not Washer."])
+            + S.say("Mrs Cotterill", ["Spare got to it first."])
+            + S.say("Mrs Cotterill", ["He said call it Washer,",
+                                      "and I was tired."]),
+            S.say("Mrs Cotterill", ["Ten.", "Mr Cotterill is very pleased.",
+                                    "He says that is all of them."])),
+    "da": ("Mr Cotterill",
+           S.say("Mr Cotterill", ["Ten."]) + S.narrate([
+               "He is very pleased. He does not say so. He does not",
+               "need to."]) + S.say("Mr Cotterill", ["I said not Washer."])
+           + S.narrate(["He says it with no hope at all, and great",
+                        "contentment."]),
+           S.say("Mr Cotterill", ["Washer.", "I have stopped saying not."])),
+    "ferrule": ("Ferrule",
+                S.say("Ferrule", ["Mam is to stay sat down for a week."])
+                + S.say("Ferrule", ["She has been up four times.",
+                                    "I have counted."]),
+                S.say("Ferrule", ["Nobody gets to sit down.",
+                                  "Except Mam. Mam has to."])),
+    "clevis": ("Clevis",
+               S.say("Clevis", ["Washer came in at twenty to one."])
+               + S.say("Clevis", ["Half the works had a farthing on it",
+                                  "because Da said not Washer."])
+               + S.say("Clevis", ["I have had to pay out most of",
+                                  "Upper Clanging."]),
+               S.say("Clevis", ["The book is closed. Mam says there",
+                                "is not going to be another one."])),
+    "shim": ("Shim",
+             S.say("Shim", ["I am going to give it a washer.",
+                            "When it is bigger. Not yet."])
+             + S.say("Shim", ["Mam said not yet."]),
+             S.say("Shim", ["When it is bigger."])),
+    "bessie": ("Bessie",
+               S.say("Bessie", ["Washer. Six o'clock this morning,",
+                                "on the hooter."])
+               + S.say("Bessie", ["Mrs Cotterill says it is the only",
+                                  "one of them that was ever on time."]),
+               S.say("Bessie", ["Mine is in the summer.",
+                                "I am going to be on time as well."])),
+    "rivet": ("Rivet",
+              S.say("Rivet", ["Da came off nights for it.",
+                              "First time in twenty-two years."])
+              + S.say("Rivet", ["We passed at the door at six,",
+                                "the both of us going in."]),
+              S.say("Rivet", ["Half an hour. Then bed.",
+                              "Then it is the spring."])),
+    "gudgeon": ("Gudgeon",
+                S.say("Gudgeon", ["Washer Cotterill. Entered in the",
+                                  "register this morning, in ink."])
+                + S.say("Gudgeon", ["Two t's and two l's.",
+                                    "Everybody gets it wrong."]),
+                S.say("Gudgeon", ["Ten. The column was full.",
+                                  "I have had to rule another one."])),
+    "winnie": ("Winnie",
+               S.say("Winnie", ["Ten, then."]) + S.say("Winnie", [
+                   "I have been to the plan. There is",
+                   "a column for it now."]) + S.say("Winnie", [
+                       "I drew it in myself. In pencil."]),
+               S.say("Winnie", ["Second Saturday.",
+                                "There will be a high chair."])),
+    "cotter": ("Cotter",
+               S.say("Cotter", ["It's spring. I'm going home on",
+                                "Saturday, for good."])
+               + S.say("Cotter", ["Bessie wrote. Washer. Da said",
+                                  "not Washer."])
+               + S.narrate(["He looks very pleased about it anyway."]),
+               S.say("Cotter", ["Saturday. I've asked for the day,",
+                                "and they've given me the rest."])),
+}
+INDOORS = {"mam", "da", "ferrule", "clevis", "shim", "bessie", "rivet",
+           "gudgeon", "tappet", "grommet"}
+
+
+def spa3(who, ev, keep=None):
+    """Append SPA-3's pages to one of the family's built events and hand it
+    back: blank for the day if they are indoors, then their lines about the
+    baby, first time and after (self switch C, which none of them has used).
+    The full page needs A - they have been met - except Shim's, which needs
+    B, her washer, so that a washer still in her tin is still offered.
+    `keep` is (quest, after): page indices whose page still plays instead
+    whenever it is the one the engine would have shown, `cotter`'s rule."""
+    pages = ev["pages"]
+    for p in pages:
+        for c in p["list"]:
+            assert not (c["code"] == 123 and c["parameters"][0] == "C"), who
+        assert p["conditions"]["selfSwitchCh"] != "C" or \
+            not p["conditions"]["selfSwitchValid"], who
+    if who in INDOORS:
+        pages.append(R.page([], conditions=_SPA3_SPRING, **_SPA3_BLANK))
+    if who not in SPA3_LINES:
+        return ev
+    from q_piper import _pip4_test as holds   # the engine's page choice
+    _, full, short = SPA3_LINES[who]
+    full = full + [R.self_switch("C", True)]
+    if keep:
+        quest, after = (pages[i] for i in keep)
+        shows = R.condition_script("(%s) && !(%s)" % (
+            holds(quest["conditions"]), holds(after["conditions"])))
+        full = R.if_then(shows, copy.deepcopy(quest["list"][:-1]), full)
+        short = R.if_then(shows, copy.deepcopy(quest["list"][:-1]), short)
+    look = pages[1]
+    kw = dict(img=look["image"], trigger=0, priority=1,
+              move_type=look["moveType"])
+    ss = "B" if who == "shim" else "A"
+    pages.append(R.page(full, conditions=dict(
+        _SPA3_DONE, selfSwitchValid=True, selfSwitchCh=ss), **kw))
+    pages.append(R.page(short, conditions=dict(
+        _SPA3_DONE, selfSwitchValid=True, selfSwitchCh="C"), **kw))
     return ev
+
+
+def check_mornings():
+    """Every bed calls the morning (common event 8). A sleep is a fade out,
+    the inn's music and Recover All, which is how all nine are written; the
+    call has to follow it in the same branch. A tenth bed that forgets it
+    fails the build here."""
+    beds = 0
+    for info in R.load("MapInfos.json"):
+        if not info:
+            continue
+        map_id = info["id"]
+        m = R.load_map(map_id)
+        for ev in m["events"]:
+            for p in (ev or {"pages": []})["pages"]:
+                cmds = p["list"]
+                for i in range(1, len(cmds) - 1):
+                    me = cmds[i]
+                    if not (me["code"] == 249 and cmds[i - 1]["code"] == 221
+                            and cmds[i + 1]["code"] == 314
+                            and me["parameters"][0]["name"] in ("Inn1", "Inn2")):
+                        continue
+                    beds += 1
+                    called = False
+                    for c in cmds[i:]:
+                        if c["indent"] < me["indent"]:
+                            break
+                        if c["code"] == 117 and c["indent"] == me["indent"] \
+                                and c["parameters"][0] == db.CE_MORNING:
+                            called = True
+                            break
+                    assert called, ("a bed with no morning", map_id,
+                                    ev["id"], ev["name"])
+    assert beds >= 9, beds
 
 
 def build():

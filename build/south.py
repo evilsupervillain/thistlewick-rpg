@@ -878,7 +878,8 @@ def dorcas_event(event_id, x, y):
                     "Twelve hours you slept. Twelve!",
                     "And up like new. Adventurers.",
                     "It's the bedding I mind. You lot heal",
-                    "in it and it never recovers."]),
+                    "in it and it never recovers."]) +
+                [R.call_common_event(db.CE_MORNING)],      # SPA-3
                 S.say("Dorcas", ["Come back with 25."]))],
             cancel=None)
         return cmds

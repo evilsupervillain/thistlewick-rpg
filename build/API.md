@@ -738,7 +738,7 @@ MAP_BOTTOM                   78
 
 The whole database of The Obligatory Quest.
 
-655 constants.
+664 constants.
 
 ```
 BRAM                         1
@@ -1345,6 +1345,15 @@ SK_HUG                       191
 SK_ALL_ARMS                  192
 SK_SHOWS_ROUND               193
 SK_INK                       194
+SW_SPA3_LETTER               224
+SW_SPA3_SPRING               225
+SW_SPA3_INSIDE               226
+SW_SPA3_DONE                 227
+SW_SPA3_STEP                 228
+VAR_SPA3_ASKS                33
+CE_MORNING                   8
+SK_BIG_BROTHER               195
+ST_BIG_BROTHER               45
 PENSION                      1000
 SPARE_ARGUING_LEVEL          12
 AR_STICK                     30

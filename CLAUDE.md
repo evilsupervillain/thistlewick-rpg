@@ -475,7 +475,15 @@ Append instead.
   discharged on Form Z; **items 77-79** the bounty card, the same card
   stamped, the Guild Card (not provisional, swapped for 27); **enemy 65**,
   **troop 61**, **skills 191-194**; **Map 78**; Pell's pages 3-5 and the
-  board's page 2 (Map 15 events 2-3), the schedule's page 1 (Map 73 event 9) |
+  board's page 2 (Map 15 events 2-3), the schedule's page 1 (Map 73 event 9).
+  P4f, SPA-3 The Tenth: **switches 224-228** the ninth letter, spring (every
+  Cotterill indoors), Spare gone in, Washer (done), told on the step;
+  **variable 33** mornings he has asked (the variable list is sized 40 now -
+  the engine ignores an id past its end); **common event 8** the morning,
+  which every bed calls (`q_spare.check_mornings` fails the build on one that
+  does not); **skill 195** Big Brother, **state 45** its substitute; the
+  courier is Map 73 event 13, Bessie at the door Map 21 event 22, and every
+  Cotterill's pages past their own are SPA-3's (`q_spare.spa3`) |
 | Skills 1-2 | engine-reserved Attack and Guard |
 | Skills 10-19 | Bram |
 | Skills 20-29 | Merribell |
@@ -788,6 +796,9 @@ prophecy that was a glove). The sheet is 16 icons to a row: row 6 is weapons in
 | 31 | SPA-2: the party, set aside while Spare is in the culvert |
 | 32 | **`$gameParty.steps()` when a twist of Mothballs was last used** - the
      airing: another is given back until 75 steps after (`db.build_mothballs`) |
+| 33 | SPA-3: mornings Spare has asked whether it is spring yet; picks the
+     answer in turn. **`build_game.py` sizes the list at 40** - Control
+     Variables on an id past the list's end is silently ignored |
 
 ## Verifying
 

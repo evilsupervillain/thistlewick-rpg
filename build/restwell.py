@@ -39,6 +39,7 @@ import handdrawn as HD
 import mapkit as K
 import rmmzdata as R
 
+import db
 import story as S
 from places import (MAP_WORLD, MAP_RESTWELL, MAP_EIGHT_HOURS, RESTWELL_STEP)
 import q_spare
@@ -335,6 +336,7 @@ def eight_hours_events():
             "Breakfast is on the bar. It is always on the",
             "bar."])
         stay += [S.trope()]
+        stay += [R.call_common_event(db.CE_MORNING)]               # SPA-3: is it spring yet
         cmds = S.say("Mrs Ashbury", lines)
         cmds += R.choice_block(
             ["Take a room (10cr)", "Not just now"],

@@ -178,6 +178,7 @@ when it does, in a round year.
 | 1994 | Aldric reaches Thistlewick and cannot find the north gate; Perpetua Small wakes on the beach. That winter his horse walks into Plummer's yard at Great Dunnage on her own, saddled ("six years", ALD-4) | `db.build_actors`, `village`; `dunnage.plummer_pages`, `q_aldric` | P |
 | 1996 | Mr Pilbeam rescues Rosamund from the eagle. Merribell leaves the Sisterhouse at twenty-two, because it has begun holding symposia (MER-1) | `fairholme`, `q_merribell` | F |
 | 1997 | Much Pottering twins with Upper Clanging - Mrs Throssell chose it off the map as the most different place she could find, and neither village has ever visited the other - and the twinning pairs one child of six from each as pen pals: Effie Gotobed and Spare Cotterill. They write ever since, untruthfully, and meet in 2000 (SPA-4) | `pottering`, `q_spare` (SPA-4) | F |
+| 2000 | the spring, after the Prophecy, and only in Upper Clanging: the tenth Cotterill, **Washer**, born at six in the morning on the hooter, the night after Spare's ninth letter from the Stair says "Is it spring yet?" Mr Cotterill off nights for it, the first time in twenty-two years; Spare named it; Clevis's book paid out at twenty to one; Cotter home from Great Dunnage that Saturday (SPA-3) | `q_spare` (SPA-3) | F |
 
 ## 5. Ages stated
 
@@ -194,7 +195,7 @@ when it does, in a round year.
 | Mrs Emberthwaite | seventy (Rosamund's word) | `fairholme` |
 | Maud Penhallow | sixteen (in the yard since nine) | `q_roland` (ROL-5) |
 | Corvin Ash | thirty (nineteen, and eleven years in the corner) | `south` |
-| the Cotterills | Cotter 24, Rivet 22, Gudgeon 20, Tappet 18, Ferrule 16, Grommet 15, Clevis 13, Shim 11, Spare 9, and one due in the spring | `north` (Gudgeon's register) |
+| the Cotterills | Cotter 24, Rivet 22, Gudgeon 20, Tappet 18, Ferrule 16, Grommet 15, Clevis 13, Shim 11, Spare 9, and one due in the spring - Washer, born in it (SPA-3, after the ending) | `north` (Gudgeon's register), `q_spare` |
 | Spare Cotterill | nine; brushing the boiler's ninety tubes since six (1997); the bag packed two years (1998); out of a boiler nine times, by his mother's count | `q_spare` (F1) |
 | Effie Gotobed | nine (a pen pal since six, 1997) | `pottering`, `q_spare` (SPA-4) |
 | Pemberton-Gore IV | nineteen; found the gate at ten | `fenmarch` |

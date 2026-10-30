@@ -50,6 +50,7 @@ import mapkit as K
 import rmmzdata as R
 
 import db
+import q_spare
 import story as S
 from places import MAP_STAIR, MAP_BOTTOM, MAP_HITHERMOST, MAP_CONTINUANCE
 
@@ -82,6 +83,7 @@ DOOR_STEP = (17, 6)
 # Where the porch puts you, in the Chapel of Continuance: inside its door,
 # facing the lectern (`hithermost.ROOM`).
 PORCH = (7, 13)
+STAIR_COURIER = (17, 3)     # SPA-3: the west end of the landing, off the way
 
 
 # ================================================================== plans ==
@@ -965,6 +967,9 @@ def stair_events(i):
                           ["Found \\I[176]\\C[3]Hi-Potion x3\\C[0]."]))
         evs.append(_chest(nid(), i, "b", [R.gain_item(db.IT_ETHER, 3)],
                           ["Found \\I[178]\\C[3]Ether x3\\C[0]."]))
+        # SPA-3 (P4f): the courier, on the landing inside the Door, for
+        # the ninth letter. Last on the map, so nothing above moves.
+        evs.append(q_spare.stair_courier(nid(), *STAIR_COURIER))
     elif i == 1:
         tea = S.narrate([
             "A cup of tea on a saucer, set down on the floor of the",

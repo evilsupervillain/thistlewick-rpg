@@ -935,7 +935,10 @@ takes him home for it. Nothing before then settles the baby.
 post-game. The trigger is everything of Spare's done plus a ninth letter,
 posted from the Stair; he asks on waking, not on every map; Bessie fetches
 him at the door, the street is empty for a day, and he rejoins with Big
-Brother. The tenth is named after all: **Washer**.
+Brother. The tenth is named after all: **Washer**. *Built 30 Oct 2026*
+(`QUESTS.md` P4f's Done paragraph): nine beds ask, the courier takes the
+ninth letter on the landing inside the Door, and Washer is born at six on
+the hooter.
 
 **SPA-4. The Pen Pal.** *(cliche: the childhood friend)* Added 5 Oct 2026 at
 Mike's word, for **Village 1** at (60,61), which `SITES.md` held back for

@@ -948,10 +948,15 @@ def build_system():
             (db.SW_CONTINUED, "P4d: back in through the chapel porch"),
             (db.SW_WARDEN, "P4d: the warden told it is not half way"),
             (db.SW_UNSCHEDULED, "P4e: Something Unscheduled, fought"),
-            (db.SW_FORM_Z, "P4e: its bounty discharged on Form Z")]:
+            (db.SW_FORM_Z, "P4e: its bounty discharged on Form Z"),
+            (db.SW_SPA3_LETTER, "SPA-3: the ninth letter, from the Stair"),
+            (db.SW_SPA3_SPRING, "SPA-3: it is spring; all indoors"),
+            (db.SW_SPA3_INSIDE, "SPA-3: Spare gone in with Bessie"),
+            (db.SW_SPA3_DONE, "SPA-3: Washer; everybody back out"),
+            (db.SW_SPA3_STEP, "SPA-3: Spare has told you on the step")]:
         switches[sid] = name
 
-    variables = [""] * 33
+    variables = [""] * 40
     variables[db.VAR_COMPANIONS] = "companions recruited"
     variables[db.VAR_TROPES] = "tropes encountered"
     variables[db.VAR_TURNIPS] = "turnips eaten"
@@ -984,6 +989,7 @@ def build_system():
     variables[db.VAR_SPA4_TOUR] = "SPA-4: Effie's tour (4 is done)"
     variables[db.VAR_SPA2_PARTY] = "SPA-2: the party, set aside"
     variables[db.VAR_MOTHBALLS] = "P1: party steps when mothballs last used"
+    variables[db.VAR_SPA3_ASKS] = "SPA-3: mornings he has asked"
 
     system.update({
         "gameTitle": "The Obligatory Quest",
@@ -1074,6 +1080,7 @@ def main():
     check_wide_pieces()
     build_map_infos()
     build_system()
+    q_spare.check_mornings()            # P4f: every bed calls the morning
     # P4d: the Stair's lamplight and continuance (POSTGAME.md 9).
     R.upsert_plugin(GAME, "TOQ_Mountain",
                     "The Stair under the mountain: a circle of lamplight, "
