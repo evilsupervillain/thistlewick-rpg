@@ -2334,7 +2334,7 @@ def build_enemies():
              "Tired in a way that does not show up on a stat block."))
 
     upsert(en, enemy(
-        EN_PROPHECY, "THE PROPHECY", "Evilbook", 0,
+        EN_PROPHECY, "THE PROPHECY", "Prophecy", 0,
         [9000, 999, 50, 52, 72, 58, 40, 30], 2500, 4000,
         [action(SK_CLAUSE_TWELVE, 5), action(SK_ERRATUM, 4),
          action(SK_DOOM_MONOLOGUE, 3),

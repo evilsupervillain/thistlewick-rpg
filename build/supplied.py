@@ -57,6 +57,7 @@ SPRITES = [
 # Battlers, copied into `img/sv_enemies/` (the game is side view) as they came: (battler name, file).
 BATTLERS = [
     ("Grimspite", "grimspite_battler.png"),  # db.EN_GRIMSPITE (29 Oct)
+    ("Prophecy", "prophecy_battler.png"),    # db.EN_PROPHECY (29 Oct)
 ]
 
 
