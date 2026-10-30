@@ -457,7 +457,9 @@ Append instead.
   **variable 31** the party set aside while Spare is in the culvert alone
   (an array; 0 otherwise), on **Map 70**; Cotter's pages 5-6 (Map 61 event 12).
   **The post-game** (`POSTGAME.md`): **switch 214** `SW_GRIMSPITE_TEA`, Bram
-  had the cup at the top (P4a); Grimspite's page 6 (Map 12 event 2). P4b:
+  had the cup at the top (P4a); Grimspite's page 6 (Map 12 event 2);
+  the summit's props to look at after the ending, and its four skeletons,
+  Map 12 events 3-19 (`postgame.summit_props`, Mike, 30 Oct). P4b:
   **switches 215-218** been in Fitch's cottage, Roland rehired after the
   ending, ROL-5 told after it, the sword out of Carn Drey handed on; **item
   76** A Key, Labelled (75 is P4d's lamp, still free); **Map 71**; the
@@ -1125,6 +1127,10 @@ makes eight passes over it cost less than the single pass did before.
   line on, and on later visits; Rosamund's Tower is Castle3 and Old Ashcombe
   Theme1; Map 78 is Dungeon4, and its fight is Battle8, with the battle music
   back to Battle2 after a win and after a loss |
+| `pg_summit_props` | the summit after the ending: before it a skeleton is
+  bones and the tablet is scenery; after it the tablet, both statues, both
+  mirrors, both seeing-orbs (and the top cells of each tall one) and the four
+  plaster skeletons, each reached by the action button from a standable cell |
 | `pg_roland` | `POSTGAME.md` P4b, Roland: he leaves at the door with nothing
   on and the door is then its own page; after the ending, rehired at his
   table in his own shield and shirt, struck off and back, up the tower and

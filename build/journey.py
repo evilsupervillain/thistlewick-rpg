@@ -846,6 +846,8 @@ def summit_events():
         img=R.image(""), trigger=1, priority=0, through=True)])]
 
     evs.append(finale_event(2, 13, 9))
+    # Looking round the room: the props, and the bones (Mike, 30 Oct).
+    evs += PG.summit_props(3)
     return evs
 
 

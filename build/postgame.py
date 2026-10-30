@@ -413,6 +413,201 @@ def grimspite_afterwards():
                   conditions={"switch1Valid": True, "switch1Id": db.SW_WON})
 
 
+# ======================================================== the summit's props ==
+# Mike, 30 Oct 2026: while the kettle is on there is time to look round the
+# room. Every prop is Mike's, on his frozen Map 12; these are the events that
+# sit on them. A tall prop's top cell is a star tile the player can stand
+# beside, so it gets a twin of its event and is answered from either side.
+# The skeletons alone have a page from before the fight - bones, taken at
+# their word - so that afterwards there is something to have been wrong about.
+# Forty-seven Chosen Ones came up these stairs and all of them won.
+def _from_the_throne(lines):
+    return (S.narrate(["From the throne, without looking up:"])
+            + S.say("Grimspite", lines))
+
+
+def _look(eid, name, cells, pages):
+    """One event per cell in `cells`, all with the same `pages`: what you
+    read, with no sprite, because the scenery tile is the thing."""
+    evs = []
+    for i, (x, y) in enumerate(cells):
+        twin = "" if i == 0 else " (Top)" if y < cells[0][1] else " (Side)"
+        evs.append(R.event(eid + i, name + twin, x, y, copy.deepcopy(pages)))
+    return evs
+
+
+def _won_page(commands):
+    return R.page(commands, img=R.image(""), trigger=0, priority=1,
+                  direction_fix=True, through=True, conditions=WON)
+
+
+def _bones_page(commands):
+    return R.page(commands, img=R.image(""), trigger=0, priority=1,
+                  direction_fix=True, through=True)
+
+
+def summit_props(first_id):
+    """The tablet behind the throne, the two statues, the two mirrors, the
+    two seeing-orbs and the four skeletons, as events numbered from
+    `first_id`."""
+    tablet = S.narrate([
+        "The tablet behind the throne. A dark jewel is set",
+        "in the top of it, and under that, very small",
+        "writing, in a hand that has had a lot of practice."])
+    tablet += S.narrate(["It is not a curse. It is a rota."])
+    tablet += S.narrate([
+        "\\C[2]DARK LORD ON DUTY:\\C[0] Grimspite.",
+        "\\C[2]RELIEF:\\C[0] -",
+        "\\C[2]NEXT LEAVE:\\C[0] -",
+        "Filled in a week at a time, for 4,800 years."])
+    tablet += S.narrate([
+        "Under the last week, in chalk: \\C[2]RETIRED.\\C[0]",
+        "And under that, on a little plaque of the kind",
+        "they sell at the bottom of towers:",
+        "\\C[2]LIVE. LAUGH. LOOM.\\C[0]"])
+    tablet += _from_the_throne([
+        "That was a present.",
+        "From the Prophecy. Year one.",
+        "It was the only joke it ever made."])
+
+    aunt = S.narrate([
+        "A statue of a demon: winged, terrible, holding a",
+        "dark flame in one claw."])
+    aunt += S.narrate(["The plaque on the plinth reads:",
+                       "\\C[2]AUNT MORWENNA. WITH LOVE.\\C[0]"])
+    aunt += _from_the_throne([
+        "She sat for it. She would not stop",
+        "talking. You can see it in the mouth."])
+
+    again = S.narrate([
+        "The same demon. The same claw, the same flame.",
+        "Somebody has hung a tea towel on the flame to",
+        "dry."])
+    again += S.narrate([
+        "The plaque reads: \\C[2]AUNT MORWENNA, SECOND",
+        "ATTEMPT.\\C[0] The sculptor has been tactful about",
+        "the chin."])
+    again += _from_the_throne([
+        "She didn't like the first one.",
+        "She didn't like that one either.",
+        "You don't throw away an aunt."])
+
+    late = S.narrate([
+        "A tall mirror in a purple frame, with a little",
+        "carved demon on the top, looking down into it."])
+    late += S.narrate(["Your reflection looks back at you.",
+                       "It is a moment late doing it."])
+    late += S.narrate([
+        "It catches up, and looks as though it would",
+        "rather you hadn't noticed."])
+    late += _from_the_throne(["It's the altitude.",
+                              "The light takes longer up here."])
+
+    sea = S.narrate([
+        "The other mirror. The room in it is this room,",
+        "except that Grimspite is not on his throne."])
+    sea += S.narrate([
+        "In the mirror he is at a little window in the",
+        "wall behind you, which is not there, looking out",
+        "at the sea, which is not either."])
+    sea += _from_the_throne([
+        "That one shows where you'd",
+        "rather be. It has for four thousand",
+        "years. I've put my name down",
+        "for a bungalow."])
+
+    orb = S.narrate([
+        "A seeing-orb on a pillar, the old kind: a ball",
+        "of red glass that shows you things far away."])
+    orb += S.narrate(["You look into it."])
+    orb += S.narrate([
+        "Far away, at a terrible height, somebody is",
+        "bent over a seeing-orb of their own. All you",
+        "can see of them is the back of their head."])
+    orb += S.narrate(["You wave. They wave."])
+    orb += S.narrate([
+        "It is you. The other orb is across the room,",
+        "and the two of them have been pointed at each",
+        "other since before anybody can remember."])
+    orb += _from_the_throne([
+        "I can't turn them. They're very old",
+        "and very heavy, and they only show",
+        "each other. Four thousand years of",
+        "the back of my own head."])
+
+    eye = S.narrate(["The other seeing-orb. You look into it."])
+    eye += S.narrate([
+        "Something looks back: a great eye, lidless and",
+        "wreathed in flame, at the top of a tower a very",
+        "long way from here."])
+    eye += S.narrate(["It looks at you for a long moment.",
+                      "Then it sees the throne behind you."])
+    eye += S.say("The Eye", ["...Sorry. Wrong tower."])
+    eye += S.narrate(["The orb goes back to showing the back of your",
+                      "own head."])
+    eye += _from_the_throne([
+        "Him. He's got a set as well, and he",
+        "thinks they're private. Every so often",
+        "somebody small picks up one of his by",
+        "accident, and he has to sit through it."])
+
+    # The bones. Before: what they look like. After: what they are.
+    bones = [
+        ((5, 10), "Skeleton By The Wall",
+         ["A skeleton, sprawled where it fell.",
+          "Somebody got this far."],
+         S.narrate([
+             "You look at the skeleton properly. It is",
+             "plaster. There is a seam down the middle of it,",
+             "and a price on the pelvis, in pencil."])
+         + _from_the_throne(["Adds to the ambiance."])),
+        ((21, 11), "Skeleton Reaching",
+         ["Another one. It is reaching for the stairs."],
+         S.narrate([
+             "This one is plaster as well. It has been",
+             "reaching for the stairs for four thousand years",
+             "because it came in a box marked REACHING."])),
+        ((20, 17), "Skeleton With Extra",
+         ["Bones. A great many of them, for one person.",
+          "There are three left feet."],
+         S.narrate([
+             "The three left feet are explained. It is a",
+             "plaster set, put together by somebody in a",
+             "hurry from instructions in a language nobody",
+             "reads any more."])
+         + _from_the_throne(["There was a foot over.",
+                             "It seemed a shame."])),
+        ((6, 18), "Skeleton Curled Up",
+         ["A skeleton, curled up, as though it was waiting",
+          "for something."],
+         S.narrate(["A plaster skeleton. Somebody has knitted it a",
+                    "scarf."])
+         + _from_the_throne([
+             "Nobody has ever died up here.",
+             "Forty-seven of them, and they all won.",
+             "Do you know how that looks, to the",
+             "forty-eighth? Somebody had to try."])),
+    ]
+
+    evs = []
+    eid = first_id
+    for name, cells, cmds in [
+            ("The Tablet", [(13, 6), (12, 6), (14, 6)], tablet),
+            ("Demon Statue", [(10, 7), (10, 6)], aunt),
+            ("Demon Statue Again", [(16, 7), (16, 6)], again),
+            ("The Late Mirror", [(8, 4)], late),
+            ("The Mirror Of The Sea", [(18, 4)], sea),
+            ("Seeing-Orb", [(3, 13), (3, 12)], orb),
+            ("The Other Seeing-Orb", [(23, 13), (23, 12)], eye)]:
+        evs += _look(eid, name, cells, [_won_page(cmds)])
+        eid += len(cells)
+    for (x, y), name, before, after in bones:
+        evs += _look(eid, name, [(x, y)],
+                     [_bones_page(S.narrate(before)), _won_page(after)])
+        eid += 1
+    return evs
+
+
 # ===================================================================== P4b ==
 # Thistlewick, the pension, and Roland (POSTGAME.md 3a-5). Thistlewick is
 # delighted, proud, and very keen that Bram should enjoy the coast, and

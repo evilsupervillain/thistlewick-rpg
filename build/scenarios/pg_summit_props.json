@@ -1,0 +1,381 @@
+{
+  "query": "?map=12&x=13&y=20&frames=90",
+  "comment": "The summit's props after the ending (Mike, 30 Oct 2026): before it the skeletons are bones and nothing else answers; after it, the tablet, both statues, both mirrors, both seeing-orbs and their top cells, and four plaster skeletons, each reached by the action button from a cell the player can stand on.",
+  "steps": [
+    {
+      "eval": "$gameSystem.disableEncounter()"
+    },
+    {
+      "eval": "window._lines = []; const add = Game_Message.prototype.add; Game_Message.prototype.add = function (t) { window._lines.push(t); return add.call(this, t); }; const st = Game_Event.prototype.start; Game_Event.prototype.start = function () { window._ev = this.event().name; return st.call(this); }; window._has = s => window._lines.some(l => l.includes(s)); window._look = (x, y, d) => { $gamePlayer.locate(x, y); $gamePlayer.setDirection(d); window._lines = []; window._ev = null; };"
+    },
+    {
+      "comment": "Before the ending: the bones are bones, and the rest of the room says nothing."
+    },
+    {
+      "eval": "window._look(6, 10, 4)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 20
+    },
+    {
+      "check": "[window._ev, window._has('Somebody got this far.'), window._has('plaster')]",
+      "expect": [
+        "Skeleton By The Wall",
+        true,
+        false
+      ],
+      "label": "before: a skeleton, taken at its word"
+    },
+    {
+      "eval": "window._look(13, 7, 8)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "frames": 30
+    },
+    {
+      "check": "[window._ev, $gameMap.isEventRunning()]",
+      "expect": [
+        null,
+        false
+      ],
+      "label": "before: the tablet is just scenery"
+    },
+    {
+      "comment": "After the ending."
+    },
+    {
+      "eval": "$gameSwitches.setValue(5, true); $gameMap.requestRefresh()"
+    },
+    {
+      "frames": 10
+    },
+    {
+      "eval": "window._look(13, 7, 8)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"LIVE. LAUGH. LOOM.\"), window._has(\"Year one.\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "The Tablet",
+        true,
+        true,
+        false
+      ],
+      "label": "after: The Tablet"
+    },
+    {
+      "eval": "window._look(12, 7, 8)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"It is a rota.\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "The Tablet (Side)",
+        true,
+        false
+      ],
+      "label": "after: The Tablet (Side)"
+    },
+    {
+      "eval": "window._look(10, 8, 8)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"AUNT MORWENNA. WITH LOVE.\"), window._has(\"in the mouth\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Demon Statue",
+        true,
+        true,
+        false
+      ],
+      "label": "after: Demon Statue"
+    },
+    {
+      "eval": "window._look(9, 6, 6)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"AUNT MORWENNA. WITH LOVE.\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Demon Statue (Top)",
+        true,
+        false
+      ],
+      "label": "after: Demon Statue (Top)"
+    },
+    {
+      "eval": "window._look(16, 8, 8)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"tea towel\"), window._has(\"throw away an aunt\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Demon Statue Again",
+        true,
+        true,
+        false
+      ],
+      "label": "after: Demon Statue Again"
+    },
+    {
+      "eval": "window._look(8, 5, 8)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"a moment late\"), window._has(\"altitude\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "The Late Mirror",
+        true,
+        true,
+        false
+      ],
+      "label": "after: The Late Mirror"
+    },
+    {
+      "eval": "window._look(18, 5, 8)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"bungalow\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "The Mirror Of The Sea",
+        true,
+        false
+      ],
+      "label": "after: The Mirror Of The Sea"
+    },
+    {
+      "eval": "window._look(4, 13, 4)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"You wave. They wave.\"), window._has(\"the back of my own head\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Seeing-Orb",
+        true,
+        true,
+        false
+      ],
+      "label": "after: Seeing-Orb"
+    },
+    {
+      "eval": "window._look(4, 12, 4)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"You wave. They wave.\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Seeing-Orb (Top)",
+        true,
+        false
+      ],
+      "label": "after: Seeing-Orb (Top)"
+    },
+    {
+      "eval": "window._look(22, 13, 6)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"Wrong tower.\"), window._has(\"somebody small\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "The Other Seeing-Orb",
+        true,
+        true,
+        false
+      ],
+      "label": "after: The Other Seeing-Orb"
+    },
+    {
+      "eval": "window._look(22, 12, 6)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"Wrong tower.\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "The Other Seeing-Orb (Top)",
+        true,
+        false
+      ],
+      "label": "after: The Other Seeing-Orb (Top)"
+    },
+    {
+      "eval": "window._look(6, 10, 4)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"price on the pelvis\"), window._has(\"Adds to the ambiance.\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Skeleton By The Wall",
+        true,
+        true,
+        false
+      ],
+      "label": "after: Skeleton By The Wall"
+    },
+    {
+      "eval": "window._look(20, 11, 6)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"REACHING\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Skeleton Reaching",
+        true,
+        false
+      ],
+      "label": "after: Skeleton Reaching"
+    },
+    {
+      "eval": "window._look(20, 16, 2)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"three left feet are explained\"), window._has(\"foot over\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Skeleton With Extra",
+        true,
+        true,
+        false
+      ],
+      "label": "after: Skeleton With Extra"
+    },
+    {
+      "eval": "window._look(7, 18, 4)"
+    },
+    {
+      "key": "Enter",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "advance": 30
+    },
+    {
+      "check": "[window._ev, window._has(\"knitted\"), window._has(\"they all won\"), $gameMap.isEventRunning()]",
+      "expect": [
+        "Skeleton Curled Up",
+        true,
+        true,
+        false
+      ],
+      "label": "after: Skeleton Curled Up"
+    },
+    {
+      "check": "[$gameSwitches.value(214), $gameMap.mapId(), SceneManager._scene.constructor.name]",
+      "expect": [
+        false,
+        12,
+        "Scene_Map"
+      ],
+      "label": "nothing set, still at the top"
+    }
+  ]
+}
