@@ -471,8 +471,8 @@ def summit_props(first_id):
         "It was the only joke it ever made."])
 
     aunt = S.narrate([
-        "A statue of a demon: winged, terrible, holding a",
-        "dark flame in one claw."])
+        "A tall statue: winged, terrible, holding a dark",
+        "flame aloft."])
     aunt += S.narrate(["The plaque on the plinth reads:",
                        "\\C[2]AUNT MORWENNA. WITH LOVE.\\C[0]"])
     aunt += _from_the_throne([
@@ -480,7 +480,7 @@ def summit_props(first_id):
         "talking. You can see it in the mouth."])
 
     again = S.narrate([
-        "The same demon. The same claw, the same flame.",
+        "The same statue. The same wings, the same flame.",
         "Somebody has hung a tea towel on the flame to",
         "dry."])
     again += S.narrate([
@@ -593,8 +593,8 @@ def summit_props(first_id):
     eid = first_id
     for name, cells, cmds in [
             ("The Tablet", [(13, 6), (12, 6), (14, 6)], tablet),
-            ("Demon Statue", [(10, 7), (10, 6)], aunt),
-            ("Demon Statue Again", [(16, 7), (16, 6)], again),
+            ("Statue", [(10, 7), (10, 6)], aunt),
+            ("Statue Again", [(16, 7), (16, 6)], again),
             ("The Late Mirror", [(8, 4)], late),
             ("The Mirror Of The Sea", [(18, 4)], sea),
             ("Seeing-Orb", [(3, 13), (3, 12)], orb),

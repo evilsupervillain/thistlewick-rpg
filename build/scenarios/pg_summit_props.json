@@ -114,12 +114,12 @@
     {
       "check": "[window._ev, window._has(\"AUNT MORWENNA. WITH LOVE.\"), window._has(\"in the mouth\"), $gameMap.isEventRunning()]",
       "expect": [
-        "Demon Statue",
+        "Statue",
         true,
         true,
         false
       ],
-      "label": "after: Demon Statue"
+      "label": "after: Statue"
     },
     {
       "eval": "window._look(9, 6, 6)"
@@ -135,11 +135,11 @@
     {
       "check": "[window._ev, window._has(\"AUNT MORWENNA. WITH LOVE.\"), $gameMap.isEventRunning()]",
       "expect": [
-        "Demon Statue (Top)",
+        "Statue (Top)",
         true,
         false
       ],
-      "label": "after: Demon Statue (Top)"
+      "label": "after: Statue (Top)"
     },
     {
       "eval": "window._look(16, 8, 8)"
@@ -155,12 +155,12 @@
     {
       "check": "[window._ev, window._has(\"tea towel\"), window._has(\"throw away an aunt\"), $gameMap.isEventRunning()]",
       "expect": [
-        "Demon Statue Again",
+        "Statue Again",
         true,
         true,
         false
       ],
-      "label": "after: Demon Statue Again"
+      "label": "after: Statue Again"
     },
     {
       "eval": "window._look(8, 5, 8)"
