@@ -436,11 +436,14 @@ def study_events(first_id):
         "Corvin stands against the wall, under the last mark. It",
         "is exactly the top of his head. She drew where he would",
         "be."])
+    # Mike's pencil (ART-TODO.md, 29 October), on the wall face's lower row;
+    # nothing on the blank page, so they are there only once he has been home.
+    marks = dict(wall, img=R.image("!$HeightMarks"))
     evs.append(R.event(first_id + 3, "The Height Marks", *STUDY_MARKS, [
         copy.deepcopy(blank),
-        R.page(_cor1_marks(), conditions=home, **wall),
+        R.page(_cor1_marks(), conditions=home, **marks),
         R.page(_cor1_marks() + stood, conditions=_cor1_corvin(**home),
-               **wall)]))
+               **marks)]))
     return evs
 
 

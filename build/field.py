@@ -316,7 +316,8 @@ def the_bench(event_id):
     look += R.choice_block(["Sit on it", "Stand about"], [sit, []])
     return R.event(event_id, "The Middle Distance",
                    *WORLD_MIDDLE_BENCH, [
-        R.page(look, img=R.image(""), trigger=1, priority=0, through=True)],
+        R.page(look, img=R.image("!$MiddleBench"), trigger=1, priority=0,
+               through=True)],
         note=AIR_ONLY_NOTE)
 
 

@@ -62,15 +62,21 @@ PLATE = [
 PLATE_PRICE = sum(c.isalpha() for line in PLATE for c in line)
 assert PLATE_PRICE == 128, PLATE_PRICE
 
+# Mike's drawings (ART-TODO.md, 28 October), made into sheets by
+# `supplied.py`: the goose, lifted onto the mantel shelf above its event,
+# and the two plates, each drawn to the fire's side of its own cell.
+GOOSE_SHEET = "!$GooseTrophy"
+PLAQUE_SHEETS = ("!$PlaqueLeft", "!$PlaqueRight")
+
 
 def _goose_page(cmds, extra_conditions):
-    """A page on the goose, in the goose's own dress: no image, through,
+    """A page on the goose, in the goose's own dress: its picture, through,
     direction fixed, action button. Every one needs its self switch A - the
     story told once - and Wren."""
     conditions = {"selfSwitchValid": True, "selfSwitchCh": "A",
                   "actorValid": True, "actorId": db.WREN}
     conditions.update(extra_conditions)
-    return R.page(cmds, img=R.image(""), trigger=0, priority=1,
+    return R.page(cmds, img=R.image(GOOSE_SHEET), trigger=0, priority=1,
                   direction_fix=True, through=True, conditions=conditions)
 
 
@@ -173,14 +179,14 @@ def goose_pages():
 
 def second_plaque(event_id, x, y):
     """The plaque on the right of the fireplace (Map 14), the mirror of event
-    18 on its left. Like that one it is a place to read rather than a
-    sprite, and it has no page at all until it has been put up."""
+    18 on its left. Like that one it is Mike's drawing of a brass plate,
+    and it has no page at all until it has been put up."""
     read = S.narrate(["A second brass plaque, on the other side of the",
                       "fire from the first:"])
     read += S.narrate(["'" + PLATE[0]] + PLATE[1:-1] + [PLATE[-1] + "'"])
     read += S.narrate(["Somebody has polished this one too."])
     return R.event(event_id, "The Second Plaque", x, y, [
-        R.page(read, img=R.image(""), trigger=0, priority=1,
+        R.page(read, img=R.image(PLAQUE_SHEETS[1]), trigger=0, priority=1,
                direction_fix=True, through=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_WRE2_UP}),

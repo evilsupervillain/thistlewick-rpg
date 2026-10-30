@@ -3,8 +3,8 @@
   "steps": [
     {"comment": "Mike's round 12 follow-up, 28 Oct: the Two Hundred's shadow over the Works floor until she flies, and the Middle Distance bench, now eleven squares south of the Barrow's."},
     {"check": "[$gameMap.event(13).characterName(), $gameMap.event(13).isThrough(), $gameMap.event(13)._priorityType]",
-     "expect": ["!$AirshipShadow", true, 0],
-     "label": "the shadow is on the floor, under everybody, and in nobody's way"},
+     "expect": ["!$AirshipShadow", true, 2],
+     "label": "the shadow falls across everybody (Mike, 28 Oct), and is in nobody's way"},
     {"check": "[$gameMap.event(13).x, $gameMap.event(13).y]", "expect": [12, 16],
      "label": "standing on the floor's bottom row, in its middle column"},
     {"eval": "$gameSwitches.setValue(53, true)"},

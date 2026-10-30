@@ -621,11 +621,14 @@ def home_events():
         "You take some turnips, because they are yours."],
         "", 0, extra=[R.gain_item(db.IT_TURNIP, 5), R.play_se("Item1")]))
 
+    # Mike's painting (ART-TODO.md, 28 October), lifted by `supplied.py` on
+    # to the wall at (8,2) above the event. The stock one-person portrait
+    # that hung there is gone from the frozen tiles.
     evs.append(S.sign(6, "Family Portrait", 8, 3, [
         "Six generations of Thistles, all holding",
         "turnips.",
         "Not one of them is holding a sword.",
-        "You are going to be the odd one out."]))
+        "You are going to be the odd one out."], "!$ThistlePortrait"))
 
     # The sword itself, on the wall above the mantel (P2: there was nothing
     # there to take). Event 4 is where it is taken from, on the hearth below,

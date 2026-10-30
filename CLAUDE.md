@@ -391,8 +391,10 @@ in each of the four states.
                      room behind its door, and the shape every other one
                      should copy - `WORLDMAP.md` 7.6
       supplied.py    the faces Mike drew, from `build/supplied/`, into
-                     `img/faces/Supplied.png`. Not part of the data build;
-                     run it when a portrait is added. Append, never move
+                     `img/faces/Supplied.png`, and his pictures (ART-TODO.md)
+                     into `!$` sheets, a wall picture lifted above its event.
+                     Not part of the data build; run it when a picture is
+                     added. Append, never move
       art.py         generated character art: which settings file is in which
                      cell of which `Gen_*` sheet. Not part of the data build;
                      run it when a look changes. See "Generated characters"

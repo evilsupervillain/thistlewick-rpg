@@ -24,23 +24,49 @@ PORTRAITS = [
 ]
 
 
-# Whole pictures that become an event's sprite: (sheet, file). Each is a
-# `!$` sheet, so its one frame is repeated in all twelve cells and the event
-# looks the same whichever way it faces. The frame is the picture at its own
-# size - the engine draws an event's frame at whatever size the sheet divides
-# into, so a screen-sized picture is a screen-sized event.
+# Whole pictures that become an event's sprite: (sheet, file, lift, clean).
+# Each is a `!$` sheet, so its one frame is repeated in all twelve cells and
+# the event looks the same whichever way it faces. The frame is the picture at
+# its own size - the engine draws an event's frame at whatever size the sheet
+# divides into, so a screen-sized picture is a screen-sized event - with
+# `lift` pixels of nothing under it: a frame stands on the bottom of its
+# event's cell, so that is how a picture on a wall hangs above the cell the
+# player reads it from. `clean` drops pixels below a fifth opaque, for a
+# drawing delivered with a faint frame round the edge of its cell.
 SPRITES = [
-    ("!$AirshipShadow", "airship_shadow.png"),  # the Hoyle Works, north.py
+    ("!$AirshipShadow", "airship_shadow.png", 0, False),  # the Hoyle Works
+    # ART-TODO.md, delivered 28 October. The portrait and the plates are
+    # Mike's smaller second goes (29 Oct); the first are beside them, unused.
+    ("!$ThistlePortrait", "thistle_portrait_small.png", 48, False),  # village.py
+    # The goose's body is rows 17-30 of its cell; 72 sets it on the mantel
+    # shelf, which is the top 4 pixels of the fireplace's upper row.
+    ("!$GooseTrophy", "goose_trophy.png", 72, False),          # south.py
+    ("!$PlaqueLeft", "plaque_left_small.png", 0, False),        # south.py
+    ("!$PlaqueRight", "plaque_right_small.png", 0, False),       # q_wren.py
+    ("!$BottomlessBoard", "bottomless_board.png", 0, False),   # wilds.py
+    ("!$SocksPlain", "socks_plain.png", 0, False),             # (the other)
+    ("!$SocksOutlined", "socks_outlined.png", 0, False),       # wilds.py
+    ("!$BarrowBench", "barrow_bench.png", 0, True),            # wilds.py
+    ("!$MiddleBench", "middle_distance_bench.png", 0, True),   # field.py
+    ("!$HeightMarks", "height_marks.png", 0, False),           # q_corvin.py
 ]
 
 
 def sprites():
-    for sheet, name in SPRITES:
+    for sheet, name, lift, clean in SPRITES:
         src = os.path.join(HERE, "supplied", name)
-        row = ["(", src, src, src, "+append", ")"]
+        frame = ["(", src]
+        if clean:
+            frame += ["-channel", "A", "-fx", "u<0.2?0:u", "+channel"]
+        if lift:
+            frame += ["-gravity", "south", "-splice", "0x%d" % lift,
+                      "+gravity"]
+        frame += [")"]
+        row = ["("] + frame * 3 + ["+append", ")"]
         path = os.path.join(HERE, "..", "img", "characters", sheet + ".png")
         subprocess.run(["convert", "-background", "none"] + row * 4
-                       + ["-append", "+repage", "PNG32:" + path], check=True)
+                       + ["-append", "+repage", "PNG32:" + path], check=True,
+                       stdout=subprocess.DEVNULL)  # -fx says "list"
         print("wrote", os.path.normpath(path))
 
 

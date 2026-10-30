@@ -36,6 +36,11 @@ BARROW_W, BARROW_H = 30, 26
 HOUND_DISH = 814                # Inside_C `Beef Stew`, the hound's dish
 BARROW_IN = (14, 24)            # Mike moved the mouth to the map's edge, 23 Oct
 
+# Mike's drawings (ART-TODO.md, 28 October), made into sheets by
+# `supplied.py`. The socks came two ways, outlined in black and not.
+SOCKS_SHEET = "!$SocksOutlined"  # or "!$SocksPlain"
+BARROW_BENCH_SHEET = "!$BarrowBench"
+
 
 # ------------------------------------------------------ the events out there --
 def south_events(next_id):
@@ -356,7 +361,8 @@ def barrow_top(event_id):
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_BENCH_ASKED,
                            "itemValid": True, "itemId": db.IT_BENCH}),
-        R.page(done, img=img, trigger=1, priority=0, through=True,
+        R.page(done, img=R.image(BARROW_BENCH_SHEET), trigger=1,
+               priority=0, through=True,
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_BENCH_DONE}),
     ])
@@ -489,13 +495,12 @@ def pit_events():
     evs.append(R.event(1, "Up The Rope", *PIT_ROPE, [R.page(
         out, img=R.image(""), trigger=1, priority=1)]))
 
-    # A pale board lying face up is `Notes B (V)`; nothing on the Dungeon
-    # sheets is a painted board.
-    evs.append(S.pin_note(S.sign(2, "The Board At The Bottom", 15, 19, [
+    # Mike's painted board (ART-TODO.md, 28 October); it was `Notes B (V)`.
+    evs.append(S.sign(2, "The Board At The Bottom", 15, 19, [
         "A painted board, at the bottom of the pit,",
         "facing up at the visitors:",
         "\\C[6]BOTTOMLESS (APPROX.)\\C[0]",
-        "Somebody has added: 'YOU ARE STANDING ON IT'."]), K.E_BOARD))
+        "Somebody has added: 'YOU ARE STANDING ON IT'."], "!$BottomlessBoard"))
 
     # The Thing At The Bottom.
     badger = S.narrate([
@@ -542,12 +547,16 @@ def pit_events():
                         "\\I[179]\\C[3]Elixir\\C[0] in a hamper marked",
                         "'PROPERTY OF THE 39TH - DO NOT TOUCH'."]))
 
-    evs.append(S.sign(6, "The Socks", 10, 9, [
+    # Mike's drift (ART-TODO.md, 28 October), in two styles: `SOCKS_SHEET`
+    # is the one in use. Four feet of socks is not walked through.
+    socks = S.sign(6, "The Socks", 10, 9, [
         "A drift of odd socks four feet deep, which is",
         "to say: as deep as the pit.",
         "Nether Sopping has been losing one sock at a",
         "time for two hundred years and they have all",
-        "come here, and none of them match."]))
+        "come here, and none of them match."], SOCKS_SHEET)
+    socks["pages"][0]["through"] = False
+    evs.append(socks)
 
     evs.append(S.prop(7, "A Hamper", 17, 9, [
         "A picnic hamper with a note in it:",

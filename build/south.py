@@ -841,7 +841,7 @@ def wyvern_events():
         "'SLAIN BY H. VANCE, CHOSEN ONE #41,",
         "IN THE MARSHES, AFTER A LONG STRUGGLE.'",
         "Somebody has polished it recently."],
-        "", 0, extra=[S.trope()]))
+        q_wren.PLAQUE_SHEETS[0], 0, extra=[S.trope()]))
     # WRE-2: the other side of the fire. No page until it is put up.
     evs.append(q_wren.second_plaque(21, 15, 3))
     evs += q_roland.alumni_events(22)       # ROL-3: the dinner, while it is on
@@ -1295,11 +1295,11 @@ def the_wyvern(event_id, x, y):
         R.condition_actor_in_party(db.WREN), wren_says, others)
     cmds += story
     return R.event(event_id, "The Wyvern (A Goose)", x, y, [
-        R.page(cmds + [R.self_switch("A", True)], img=R.image(""), trigger=0,
+        R.page(cmds + [R.self_switch("A", True)], img=R.image(q_wren.GOOSE_SHEET), trigger=0,
                priority=1, direction_fix=True, through=True),
         R.page(S.narrate(["The wyvern. Wings out. Jaws open.",
                           "Sixty years of everybody agreeing."]),
-               img=R.image(""), trigger=0, priority=1, direction_fix=True,
+               img=R.image(q_wren.GOOSE_SHEET), trigger=0, priority=1, direction_fix=True,
                through=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ] + q_wren.goose_pages())
