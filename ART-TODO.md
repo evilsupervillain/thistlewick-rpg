@@ -4,7 +4,7 @@ Pictures the game needs that no stock sheet has. Mike draws them and I put them 
 **Keep this file current**: add a row when a map edit or a line of text asks for
 a picture that does not exist, and move it to *Done* when the picture is in.
 
-Last updated 29 October 2026.
+Last updated 30 October 2026.
 
 ## How to hand them over
 
@@ -159,6 +159,7 @@ The game uses stand-ins for these, and the stand-ins are acceptable.
 | a bird's nest in a tree fork | the Gloamwood (Map 9) | a nest | `Wall Fern` |
 | an arrow carved in a trunk | the Gloamwood (Map 9) | a carved arrow | `Wall Vines` |
 | a shed snakeskin | the deep wood (Map 10) | a shed skin | `Wall Vines` |
+| Mrs Cotterill holding the baby (`cotterill_washer.png`), **or** a cradle by the door (`cradle.png`) | Upper Clanging (Map 21), on the doorstep: she is at (12, 40), facing west; the door is behind the family. Only after SPA-3's birth (`QUESTS.md` P4f) | the tenth Cotterill, Washer, born the night before | none: the baby is talked about and not seen. For her, one 48x48 frame in her `SF_People1` look (dark side braid, mustard cardigan) facing left, with a bundle; for the cradle, one 48x48 cell |
 
 ## Done
 
