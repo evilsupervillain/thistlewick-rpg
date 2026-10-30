@@ -555,6 +555,63 @@ in before the ending, in this order. One step per session, as before.
   Sir Dunstable's lamp at a quarter past four, and what is behind the door.
   G1's ending lines are written in the same pass, because they live in the
   finale event that now hands back to the world.
+* **P4f. SPA-3 The Tenth** - **agreed with Mike, 30 Oct 2026**, and it
+  reverses the 5 Oct deferral below: the post-game now reaches spring, for
+  the Cotterills and nobody else (`POSTGAME.md` 1 is amended to match).
+  Before G0, so the log has it from the start, and before G1, whose re-cut
+  counts its trope. The shape, in order:
+  * **The trigger is everything of Spare's done**: `SW_SPA1_DONE`,
+    `SW_SPA2_DONE`, `SW_SPA4_DONE`, and **a ninth letter, posted from the
+    Stair**. The courier is standing on the first Stair map (Map 73), in the
+    dark, inside the lamplight, as though it were a town; there only while
+    Spare is in the party and only once `SW_SPA1_DONE` is on, so the eight
+    letters' digit scheme in `VAR_SPA1_ORDER` is untouched. He never
+    explains (he never has); the party's bewilderment is narrated. The
+    letter is the first entirely true one: "Dear Mam. Is it spring yet?
+    Spare." A new switch, the first of the block.
+  * **The asking happens on waking, nowhere else.** After `SW_WON`, while
+    Spare is in the party, every sleep - **any bed in the game** - ends with
+    him asking whether it is spring yet. Until the trigger is met the
+    answer is the party's, narrated, varied by an ask counter: "not yet",
+    "soon". The first waking after it is met, the answer is yes, and from
+    then until the party reaches Upper Clanging every waking is him urging
+    them on: let's hurry, he cannot miss this. The beds are a shared
+    morning common event called at the end of each sleep branch - Bram's
+    bed, the Thistlewick inn, the south's, the Safety Valve, Great Dunnage,
+    Frostwick, Restwell, the wayshrine's Rest and the Nether Sopping cottage,
+    nine as of today, found by grepping the sleep choices - and a build-time
+    check that every one of them calls it, so a tenth bed cannot be missed.
+    It adds commands only; no published line moves.
+  * **Upper Clanging, the day.** Bessie is waiting by the **Cotterills'**
+    door, not her own, for Spare; she does **not** make the "watch how it is
+    done" speech (Mike) - a short fetch, at most, and the two of them go in.
+    Spare leaves the party. Every Cotterill in town (the doorstep, Gudgeon,
+    the houses) has a blank page for that day: they are all inside.
+  * **The next morning** is the next sleep anywhere (the same morning event).
+    Everybody is back out with new pages about the baby; Spare is on the
+    step and rejoins **without initialise** (`SW_SPARE_KNOWN` - the rule in
+    `CLAUDE.md`), with a new skill: **Big Brother**, skill 195 - self, three
+    turns, he takes the hits for an ally in danger (the substitute flag) with
+    a DEF boost; *They Never Hit Me* turned round. `balance.py` before it is
+    committed.
+  * **The name is Washer** (Mike). Clevis had it at twenty to one "because
+    Da has said not Washer", and has to pay out; Mrs Cotterill's "He said
+    call it Washer, and I was tired" is Spare's naming over again.
+  * **The baby art** is Mike's to try (`ART-TODO.md`): Mrs Cotterill holding
+    a bundle, or a cradle by the door. He may have nothing, so **every line
+    is written to work with no picture at all**, and art replaces nothing
+    when it comes.
+  * **New pages after the birth, appended only**: Mrs and Mr Cotterill,
+    Ferrule, Clevis, Shim, Gudgeon, Rivet, Winnie, Bessie, and Cotter in
+    Great Dunnage, whose job ran "until the spring". `TIMELINE.md` gets the
+    spring of 2000 and the tenth, in the same commit as the lines.
+  * **Ids**: switches from 224, variable 33 (the ask count), common event 8
+    (the morning), skill 195, state 45 if Big Brother needs one.
+  * **Scenarios**: a new `q_spa3` (the Stair letter, a "not yet" waking, the
+    yes, an urging, the empty street, a different bed for the night, the
+    morning, the rejoin with his level and kit intact, the skill), plus
+    `clanging_cast`, the Spare scenarios that cross Map 21, and
+    `pg_mountain` - when Mike says.
 * **The quest log (G0)** has no dependency on P1-P4. The plugin (Q0-Q7) can
   be built in a parallel session at any time, and adoption follows it.
   Post-game quests are added to `quests.py` when they are built.
@@ -592,7 +649,8 @@ it, and none of it belongs in `tools/questlog/`.
   writing and get Mike's eye, the way every published line does. A quest
   that is finished gets a closing description, keyed on its done switch.
 * **Spoilers.** An objective that names a twist is `"hidden": "omit"` until
-  its `visible` switch is on. SPA-3 is past the ending and does not appear.
+  its `visible` switch is on. SPA-3 is past the ending and does not appear. (*Amended 30 Oct 2026:* it is
+  P4f now, built before this step, so it goes in the log with the others.)
 * **The menu entry is there from the start** (Mike, 7 Oct 2026): Bram has
   the log from the first screen, so no `menuSwitch`. There are no spoilers,
   because a quest is not listed until it is started. The only care needed is
@@ -646,7 +704,9 @@ Dunstable at a quarter past four - is not a companion quest. It stays owed.
 **SPA-3 The Tenth** moves to the extension past the current ending (Mike, 5 Oct
 2026): spring comes *after* the Prophecy is beaten, and the party takes Spare
 home for it. Nothing in this effort may settle the baby - G1's line for Spare
-included.
+included. *Amended 30 Oct 2026 (Mike):* it is now in this effort, as **P4f**
+in Part G above - still after the ending, so the ending still settles
+nothing; the post-game is what reaches spring.
 
 ---
 
@@ -4800,7 +4860,8 @@ Scene7-9, Theme5.
 
 ## Restart prompt
 
-**Start with G0, the quest log.** **P4a-P4e are done** (the last five Done
+**Start with P4f, SPA-3 The Tenth** (agreed 30 Oct 2026, Part G), **then G0,
+the quest log.** **P4a-P4e are done** (the last five Done
 paragraphs in section 3). The finale hands back
 to Bram's house; Thistlewick, the pension, Fitch's cottage (Map 71) and
 Roland are built; Prophecy Hall's lectern reads the tally again as "THE
@@ -4844,7 +4905,8 @@ paragraph in section 3 names its candidates - and one closing line on
 `VAR_COMPANION_STORIES`; `finale_ending` extended to assert them. Then both
 counters re-cut against the finished totals (below), the comments above both
 branches updated, and `CLAUDE.md` "The ending" amended. Nothing may settle
-Spare's baby (SPA-3 is owed, past the ending). **Then the full suite, once**,
+Spare's baby *in the ending* - the tally is before spring; SPA-3 is P4f,
+after it. **Then the full suite, once**,
 `../tools/scenarios.sh .` in the background, budgeted at eight hours. Then
 Mike plays it; nothing is pushed until he has.
 

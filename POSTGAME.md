@@ -34,6 +34,10 @@ This is a design that the steps in section 9 read once each, the same split
   post-game is the same season, a few days on. **It never reaches spring**, so
   SPA-3 and Spare's baby stay unsettled. Mrs Cotterill's "Ten in the spring"
   is still the last word on it.
+  *Amended 30 Oct 2026 (Mike):* **it reaches spring for the Cotterills** -
+  SPA-3 is `QUESTS.md` P4f. Spring comes when everything of Spare's is done
+  and the party next wakes; only the Cotterills mark it, and Thistlewick
+  still notices nothing. The ending itself still settles nothing.
 * **Roland leaves at the tower door, and comes back after the ending** (Mike,
   8 Oct 2026). Before the tower he cannot be hired again, as `journey.
   guest_leaves` says: "a guest star you can re-hire after he has made his

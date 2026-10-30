@@ -931,6 +931,11 @@ is still running the book.
 *Amended 5 Oct 2026 (Mike):* **not in this effort.** Spring comes after the
 Prophecy is beaten, in the extension past the current ending, and the party
 takes him home for it. Nothing before then settles the baby.
+*Amended 30 Oct 2026 (Mike):* **back in, as `QUESTS.md` P4f**, in the
+post-game. The trigger is everything of Spare's done plus a ninth letter,
+posted from the Stair; he asks on waking, not on every map; Bessie fetches
+him at the door, the street is empty for a day, and he rejoins with Big
+Brother. The tenth is named after all: **Washer**.
 
 **SPA-4. The Pen Pal.** *(cliche: the childhood friend)* Added 5 Oct 2026 at
 Mike's word, for **Village 1** at (60,61), which `SITES.md` held back for
