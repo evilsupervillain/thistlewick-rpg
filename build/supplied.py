@@ -1,4 +1,4 @@
-"""The faces Mike drew, which the Character Generator cannot make.
+"""The faces (and pictures, and battlers) Mike drew, which the Character Generator cannot make.
 
 `AUDIT.md` item 1's list, "The faces Mike supplies": each came as a 144x144
 portrait, kept as he gave it in `build/supplied/`, and this puts them into one
@@ -43,7 +43,7 @@ SPRITES = [
     # shelf, which is the top 4 pixels of the fireplace's upper row; Mike
     # asked for it 3 pixels lower (29 Oct), so it sits just into the shelf.
     ("!$GooseTrophy", "goose_trophy.png", 69, False),          # south.py
-    ("!$PlaqueLeft", "plaque_left_shadow.png", 0, False),        # south.py
+    ("!$PlaqueLeft", "plaque_left_shadow2.png", 0, False),        # south.py
     ("!$PlaqueRight", "plaque_right_shadow.png", 0, False),       # q_wren.py
     ("!$BottomlessBoard", "bottomless_board.png", 0, False),   # wilds.py
     ("!$SocksPlain", "socks_plain.png", 0, False),             # (the other)
@@ -52,6 +52,20 @@ SPRITES = [
     ("!$MiddleBench", "middle_distance_bench.png", 0, True),   # field.py
     ("!$HeightMarks", "height_marks.png", 0, False),           # q_corvin.py
 ]
+
+
+# Battlers, copied into `img/sv_enemies/` (the game is side view) as they came: (battler name, file).
+BATTLERS = [
+    ("Grimspite", "grimspite_battler.png"),  # db.EN_GRIMSPITE (29 Oct)
+]
+
+
+def battlers():
+    for battler, name in BATTLERS:
+        path = os.path.join(HERE, "..", "img", "sv_enemies", battler + ".png")
+        subprocess.run(["convert", os.path.join(HERE, "supplied", name),
+                        "PNG32:" + path], check=True)
+        print("wrote", os.path.normpath(path))
 
 
 def sprites():
@@ -74,6 +88,7 @@ def sprites():
 
 def main():
     sprites()
+    battlers()
     args = ["convert", "-size", "576x288", "xc:none"]
     for cell, name in PORTRAITS:
         x, y = cell % 4 * 144, cell // 4 * 144

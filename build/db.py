@@ -2322,7 +2322,7 @@ def build_enemies():
              "it is in the woods and it is a thing."))
 
     upsert(en, enemy(
-        EN_GRIMSPITE, "Grimspite the Inevitable", "Demoncount", 0,
+        EN_GRIMSPITE, "Grimspite the Inevitable", "Grimspite", 0,  # Mike's
         [7000, 400, 58, 48, 52, 48, 34, 24], 2000, 3000,
         [action(SK_ATTACK, 5), action(SK_INEVITABILITY, 4),
          action(SK_DOOM_MONOLOGUE, 4),

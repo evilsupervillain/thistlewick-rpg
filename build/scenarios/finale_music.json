@@ -10,13 +10,13 @@
      "label": "Grimspite's fight is Scene1"},
     {"eval": "$gameTroop.members().forEach(e => e.addState(1)); BattleManager.checkBattleEnd()"},
     {"until": "SceneManager._scene.constructor.name === 'Scene_Map'", "frames": 3000},
-    {"check": "$gameSystem.battleBgm().name", "expect": "Battle2", "label": "and the system's music is back after it"},
+    {"until": "$gameSystem.battleBgm().name === 'Battle2'", "frames": 600, "comment": "and the system's music is back after it"},
     {"until": "SceneManager._scene.constructor.name === 'Scene_Battle' || ($gameMessage.isBusy() && (Input._currentState.ok = !Input._currentState.ok, false))", "frames": 6000},
     {"until": "BattleManager._phase === 'input'", "frames": 600},
     {"check": "AudioManager._currentBgm && AudioManager._currentBgm.name", "expect": "Battle1",
      "label": "the Prophecy's fight is Battle1"},
     {"eval": "$gameTroop.members().forEach(e => e.addState(1)); BattleManager.checkBattleEnd()"},
     {"until": "SceneManager._scene.constructor.name === 'Scene_Map'", "frames": 3000},
-    {"check": "$gameSystem.battleBgm().name", "expect": "Battle2", "label": "and back again after that"}
+    {"until": "$gameSystem.battleBgm().name === 'Battle2'", "frames": 600, "comment": "and back again after that"}
   ]
 }

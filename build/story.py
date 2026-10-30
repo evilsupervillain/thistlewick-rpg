@@ -37,6 +37,7 @@ FACES = {
     # a red hood. Hithermost's villager is never given a pronoun and keeps it.
     "Gossip": ("Gen_People6", 5),
     "Neighbour": ("People1", 1),
+    "Dog": ("Nature", 0),                 # Mike, 29 Oct
     "Councillor": ("People1", 3),
     "Councillor Fenn": ("People4", 2),
     "Old Man": ("People4", 4),

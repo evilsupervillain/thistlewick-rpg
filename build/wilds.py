@@ -496,11 +496,16 @@ def pit_events():
         out, img=R.image(""), trigger=1, priority=1)]))
 
     # Mike's painted board (ART-TODO.md, 28 October); it was `Notes B (V)`.
-    evs.append(S.sign(2, "The Board At The Bottom", 15, 19, [
-        "A painted board, at the bottom of the pit,",
-        "facing up at the visitors:",
-        "\\C[6]BOTTOMLESS (APPROX.)\\C[0]",
-        "Somebody has added: 'YOU ARE STANDING ON IT'."], "!$BottomlessBoard"))
+    # Below characters: it lies on the floor and is stood on, and as a sign
+    # (same as characters) it was drawn over whoever stood on it (Mike, 29 Oct).
+    evs.append(R.event(2, "The Board At The Bottom", 15, 19, [R.page(
+        S.narrate([
+            "A painted board, at the bottom of the pit,",
+            "facing up at the visitors:",
+            "\\C[6]BOTTOMLESS (APPROX.)\\C[0]",
+            "Somebody has added: 'YOU ARE STANDING ON IT'."]),
+        img=R.image("!$BottomlessBoard", 0, direction=2),
+        trigger=0, priority=0, direction_fix=True, through=True)]))
 
     # The Thing At The Bottom.
     badger = S.narrate([

@@ -309,7 +309,7 @@ def village_events():
 
     # -- 14/15: the dog, and the man who speaks for him ------------------------
     add(S.npc(14, "Dog", 10, 29,
-              S.narrate(["\\C[6]Dog:\\C[0] Woof."]),
+              S.say("Dog", ["Woof."]),
               "Nature", 0, move_type=1, move_frequency=2))
     interp = S.say("Neighbour", [
         "He says the north road is dangerous",
