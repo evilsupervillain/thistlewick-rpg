@@ -30,6 +30,7 @@ import field as F
 import handdrawn as HD
 import meadow as M
 import penultima as P
+import mountain as MTN
 import restwell as RW
 import hithermost as HM
 import fairholme as FH
@@ -847,6 +848,10 @@ def summit_events():
     return evs
 
 
+GRIMSPITE_BGM = "Scene1"               # Mike, 29 Oct
+PROPHECY_BGM = "Battle1"               # Mike, 29 Oct; Battle7 did not fit
+
+
 def finale_event(event_id, x, y):
     c = []
     c += [R.play_bgm("Scene6", 80)]
@@ -971,7 +976,11 @@ def finale_event(event_id, x, y):
     # four windows later he says this one is new, so the crate has to land
     # after the line, not before it.
     split = len(c)
-    c += [R.battle(db.TR_GRIMSPITE, can_escape=False, can_lose=False),
+    # Each fight has its own music (Mike, 29 Oct). Change Battle BGM is saved
+    # state, so the system's goes back after each; a loss is a game over.
+    c += [MTN._battle_bgm(GRIMSPITE_BGM),
+          R.battle(db.TR_GRIMSPITE, can_escape=False, can_lose=False),
+          MTN._battle_bgm(MTN.SYSTEM_BATTLE_BGM),
           R.control_switch(db.SW_GRIMSPITE, True)]
 
     # -- the turn -----------------------------------------------------------
@@ -1016,8 +1025,11 @@ def finale_event(event_id, x, y):
         "Read it. Out loud. All of it.",
         "A contract that has been read in full has",
         "never once survived the experience."])
-    c += [R.play_bgm("Battle7", 85), R.wait(20)]
-    c += [R.battle(db.TR_PROPHECY, can_escape=False, can_lose=False)]
+    # The same track on the map and in the battle, so it carries straight on.
+    c += [R.play_bgm(PROPHECY_BGM, 85), R.wait(20)]
+    c += [MTN._battle_bgm(PROPHECY_BGM),
+          R.battle(db.TR_PROPHECY, can_escape=False, can_lose=False),
+          MTN._battle_bgm(MTN.SYSTEM_BATTLE_BGM)]
 
     # -- the ending ---------------------------------------------------------
     c += [R.fadeout_bgm(3), R.tint_screen(CLEAR, 60, True), R.wait(40),

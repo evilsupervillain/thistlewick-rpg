@@ -1,0 +1,22 @@
+{
+  "query": "?map=12&x=12&y=12&frames=90",
+  "steps": [
+    {"comment": "Mike, 29 Oct: both summit fights played Battle2. Grimspite is Scene1, the Prophecy Battle1, and the system's battle music is back afterwards."},
+    {"eval": "$gameParty.addActor(2); $gameParty.addActor(3); $gameParty.addActor(4); $gameParty.members().forEach(a => a.changeLevel(30, false))"},
+    {"eval": "$gameMap.event(2).start()"},
+    {"until": "SceneManager._scene.constructor.name === 'Scene_Battle' || ($gameMessage.isBusy() && (Input._currentState.ok = !Input._currentState.ok, false))", "frames": 6000},
+    {"until": "BattleManager._phase === 'input'", "frames": 600},
+    {"check": "[$gameTroop._troopId, AudioManager._currentBgm && AudioManager._currentBgm.name]", "expect": [22, "Scene1"],
+     "label": "Grimspite's fight is Scene1"},
+    {"eval": "$gameTroop.members().forEach(e => e.addState(1)); BattleManager.checkBattleEnd()"},
+    {"until": "SceneManager._scene.constructor.name === 'Scene_Map'", "frames": 3000},
+    {"check": "$gameSystem.battleBgm().name", "expect": "Battle2", "label": "and the system's music is back after it"},
+    {"until": "SceneManager._scene.constructor.name === 'Scene_Battle' || ($gameMessage.isBusy() && (Input._currentState.ok = !Input._currentState.ok, false))", "frames": 6000},
+    {"until": "BattleManager._phase === 'input'", "frames": 600},
+    {"check": "AudioManager._currentBgm && AudioManager._currentBgm.name", "expect": "Battle1",
+     "label": "the Prophecy's fight is Battle1"},
+    {"eval": "$gameTroop.members().forEach(e => e.addState(1)); BattleManager.checkBattleEnd()"},
+    {"until": "SceneManager._scene.constructor.name === 'Scene_Map'", "frames": 3000},
+    {"check": "$gameSystem.battleBgm().name", "expect": "Battle2", "label": "and back again after that"}
+  ]
+}
