@@ -1595,7 +1595,7 @@ def _spa3_rejoin():
              R.control_switch(db.SW_SPARE_JOINED, True),
              R.control_switch(db.SW_SPARE_KNOWN, True),
              R.control_variable_add(db.VAR_COMPANIONS, 1), R.play_me("Item")]
-    come += R.text(["\\C[3]Spare\\C[0] joined the party!"])
+    come += R.text(["\\C[3]Spare\\C[0] rejoined the party!"])
     come += R.text(["\\C[3]Spare\\C[0] learned \\C[3]Big Brother\\C[0]."])
     come += S.companion_story(db.SPARE)
     return R.if_then(
@@ -1618,8 +1618,14 @@ def _spa3_step():
     told += [R.control_switch(db.SW_SPA3_STEP, True)]
     again = S.say("Spare", ["Can I come yet?"]) + S.narrate([
         "The bag is still packed. It was never unpacked."])
+    # A choice, the same two words as every other companion's (story.recruit):
+    # the step is where he waits, and he will go on waiting.
+    later = S.say("Spare", ["Then I will mind Washer.",
+                            "Somebody has to."])
     return R.if_then(R.condition_switch(db.SW_SPA3_STEP), again,
-                     told) + _spa3_rejoin()
+                     told) + R.choice_block(
+        ["Come back with me", "Not right now"], [_spa3_rejoin(), later],
+        cancel=1)
 
 
 def spare_spa3_pages(img):

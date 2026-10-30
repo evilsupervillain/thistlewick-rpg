@@ -4911,6 +4911,12 @@ each gained one Call Common Event at the end of their sleep branch.
 * **Scenarios**: `q_spa3_tenth`, new. Not yet run: `clanging_cast`, the
   Spare scenarios that cross Map 21 (`q_spa0_*`, `q_spa1_letters`,
   `q_spa2_tubes`) and `pg_mountain`, which wait for Mike's word.
+* **Amended after Mike's first try (30 Oct 2026):** Spare on the step no
+  longer rejoins on talking. It is a choice, the two words every companion's
+  is (`story.recruit`): *Come back with me* / *Not right now* ("Then I will
+  mind Washer. Somebody has to."), and he stays on the step to be asked again.
+  The yes coming on the first waking after the ninth letter is as agreed: the
+  not-yets are only the mornings before the trigger is met.
 
 **Music, after P4e** (29 Oct 2026, Mike's choices from a list of every map's
 track). Map 78 is Dungeon4 and its fight Battle8, as above. Old Ashcombe

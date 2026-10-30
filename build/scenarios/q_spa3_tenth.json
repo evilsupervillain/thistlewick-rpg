@@ -232,7 +232,21 @@
       "label": "Clevis pays out"
     },
     {
-      "comment": "Spare, on the step: rejoins without initialise, at his level, in his kit, with Big Brother."
+      "comment": "Spare, on the step: told, and then a choice. Not right now first: he stays on the step."
+    },
+    {
+      "eval": "window._mark(); const sc = Game_Message.prototype.setChoices; Game_Message.prototype.setChoices = function (c, d, k) { Game_Message.prototype.setChoices = sc; return sc.call(this, c, 1, k); }; $gameMap.event(13).start()"
+    },
+    {
+      "advance": 40
+    },
+    {
+      "check": "[window._has('I am a big brother.'), window._has('Then I will mind Washer.'), window._inParty(), $gameSwitches.value(228), window._page(13)]",
+      "expect": [true, true, false, true, 8],
+      "label": "not right now: he minds Washer and stays on the step"
+    },
+    {
+      "comment": "Then come back with me: rejoins without initialise, at his level, in his kit, with Big Brother."
     },
     {
       "eval": "window._mark(); $gameMap.event(13).start()"
@@ -241,7 +255,7 @@
       "advance": 40
     },
     {
-      "check": "[window._has('I am a big brother.'), window._inParty(), window._spare().level >= 30, window._spare().equips().map(e => e ? e.id : 0), window._spare().isLearnedSkill(195), window._spare().isLearnedSkill(155), $gameSwitches.value(90), $gameVariables.value(1) - window._comp, window._page(13)]",
+      "check": "[window._has('Can I come yet?') && window._has('rejoined the party'), window._inParty(), window._spare().level >= 30, window._spare().equips().map(e => e ? e.id : 0), window._spare().isLearnedSkill(195), window._spare().isLearnedSkill(155), $gameSwitches.value(90), $gameVariables.value(1) - window._comp, window._page(13)]",
       "expect": [true, true, true, [34, 0, 0, 0, 27], true, true, true, 0, 9],
       "label": "back, nothing lost, one new skill, gone from the step"
     },
