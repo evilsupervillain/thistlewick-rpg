@@ -1107,6 +1107,11 @@ makes eight passes over it cost less than the single pass did before.
   porch; Pell refusing a non-member the card, then stamping it on Form Z and
   swapping both cards; the not-provisional page and its roster amendment; the
   board's third card; the account's two lines |
+| `music` | The music changes of 29 Oct, read off `AudioManager`: the lair
+  plays Dungeon4 until Mrs Emberthwaite has spoken and Town4 from her first
+  line on, and on later visits; Rosamund's Tower is Castle3 and Old Ashcombe
+  Theme1; Map 78 is Dungeon4, and its fight is Battle8, with the battle music
+  back to Battle2 after a win and after a loss |
 | `pg_roland` | `POSTGAME.md` P4b, Roland: he leaves at the door with nothing
   on and the door is then its own page; after the ending, rehired at his
   table in his own shield and shirt, struck off and back, up the tower and

@@ -1,0 +1,247 @@
+{
+ "query": "?map=35&x=11&y=13&frames=90",
+ "comment": "The music changes of 29 Oct 2026, heard rather than read off the data. Mrs Emberthwaite's lair plays Dungeon4 until she has spoken and Town4 from her first line on, including on every later visit; Rosamund's Tower is Castle3, Old Ashcombe Theme1; the bottom of the Stair is Dungeon4 and Something Unscheduled's fight Battle8, with the battle music put back to the system's afterwards.",
+ "steps": [
+  {
+   "eval": "$gameSystem.disableEncounter()"
+  },
+  {
+   "eval": "window._auto = false; const t = Window_Message.prototype.isTriggered; Window_Message.prototype.isTriggered = function () { return window._auto || t.call(this); };"
+  },
+  {
+   "goto": [
+    37,
+    10,
+    15
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[AudioManager._currentBgm && AudioManager._currentBgm.name, $gameSelfSwitches.value([37, 5, 'A'])]",
+   "expect": [
+    "Dungeon4",
+    false
+   ],
+   "label": "the lair, before she has spoken: a dragon's lair"
+  },
+  {
+   "eval": "$gameMap.event(5).start()",
+   "comment": "started by hand; the walk to her is fairholme.json's"
+  },
+  {
+   "advance": 40
+  },
+  {
+   "check": "[AudioManager._currentBgm.name, $gameSelfSwitches.value([37, 5, 'A'])]",
+   "expect": [
+    "Town4",
+    true
+   ],
+   "label": "her first line puts the map's own music back"
+  },
+  {
+   "goto": [
+    35,
+    11,
+    13
+   ]
+  },
+  {
+   "goto": [
+    37,
+    10,
+    15
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "AudioManager._currentBgm.name",
+   "expect": "Town4",
+   "label": "and it stays put on the next visit"
+  },
+  {
+   "goto": [
+    36,
+    5,
+    5
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "AudioManager._currentBgm.name",
+   "expect": "Castle3",
+   "label": "Rosamund's Tower"
+  },
+  {
+   "goto": [
+    66,
+    10,
+    10
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "[AudioManager._currentBgm.name, $dataMap.autoplayBgm]",
+   "expect": [
+    "Theme1",
+    true
+   ],
+   "label": "Old Ashcombe"
+  },
+  {
+   "eval": "$gameSwitches.setValue(5, true); $gameSelfSwitches.setValue([78, 2, 'A'], true)",
+   "comment": "after the ending, and the arrival already seen - before the transfer, or its autorun starts"
+  },
+  {
+   "goto": [
+    78,
+    20,
+    18
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "check": "AudioManager._currentBgm.name",
+   "expect": "Dungeon4",
+   "label": "the bottom of the Stair"
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene._messageWindow && SceneManager._scene._messageWindow._choiceListWindow.active",
+   "frames": 4000,
+   "comment": "advance would take the default, which is not Fight"
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "choose": 0
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Battle'",
+   "frames": 4000
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "check": "[$gameTroop.troop().id, $gameSystem.battleBgm().name, AudioManager._currentBgm.name]",
+   "expect": [
+    61,
+    "Battle8",
+    "Battle8"
+   ],
+   "label": "Something Unscheduled's fight has its own music"
+  },
+  {
+   "eval": "$gameTroop.members().forEach(e => e.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Map' && $gameSystem.battleBgm().name === 'Battle2'",
+   "frames": 3000,
+   "label": "and the battle music is put back after a win"
+  },
+  {
+   "until": "$gameMap.mapId() === 33 && !$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 5000
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "goto": [
+    78,
+    20,
+    18
+   ]
+  },
+  {
+   "frames": 30
+  },
+  {
+   "eval": "$gamePlayer.setDirection(2)"
+  },
+  {
+   "key": "Enter"
+  },
+  {
+   "frames": 10
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene._messageWindow && SceneManager._scene._messageWindow._choiceListWindow.active",
+   "frames": 4000,
+   "comment": "advance would take the default, which is not Fight"
+  },
+  {
+   "eval": "window._auto = false"
+  },
+  {
+   "frames": 20
+  },
+  {
+   "choose": 0
+  },
+  {
+   "eval": "window._auto = true"
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Battle'",
+   "frames": 4000
+  },
+  {
+   "until": "BattleManager._phase === 'input'",
+   "frames": 2000
+  },
+  {
+   "check": "$gameSystem.battleBgm().name",
+   "expect": "Battle8",
+   "label": "the rematch too"
+  },
+  {
+   "eval": "$gameParty.members().forEach(a => a.addState(1)); BattleManager.checkBattleEnd()"
+  },
+  {
+   "until": "SceneManager._scene.constructor.name === 'Scene_Map' && $gameSystem.battleBgm().name === 'Battle2'",
+   "frames": 3000,
+   "label": "and after a loss"
+  },
+  {
+   "until": "!$gameMap.isEventRunning() && !$gameMessage.isBusy()",
+   "frames": 5000
+  },
+  {
+   "eval": "window._auto = false"
+  }
+ ]
+}

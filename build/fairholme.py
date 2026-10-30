@@ -386,7 +386,7 @@ def tower_map():
     events are built here."""
     w, h = TOWER[0], TOWER[1]
     data = HD.load(MAP_ROSAMUND, w, h, K.TS_INSIDE)
-    m = K.new_map(w, h, K.TS_INSIDE, name="Rosamund's Tower", bgm="Town3")
+    m = K.new_map(w, h, K.TS_INSIDE, name="Rosamund's Tower", bgm="Castle3")
     m["data"] = data
     m["events"] = [None] + tower_events()
     return m
@@ -511,12 +511,23 @@ def lair_map():
     K.naturalise_cave(g, MAP_LAIR, keep=[(e["x"], e["y"]) for e in evs])
 
     m = K.new_map(w, h, K.TS_DUNGEON, name="Mrs Emberthwaite's Lair",
-                  bgm="Town5", battleback=("Cave1", "Cave1"))
+                  bgm="Town4", battleback=("Cave1", "Cave1"))
     m["data"] = g.data
     m["events"] = [None] + evs
     # the floor runs a cell past the daylight either side of the mouth
     S.widen_exit(m["events"], 1, [(MOUTH[0][0] - 1, MOUTH[0][1]),
                                   (MOUTH[-1][0] + 1, MOUTH[-1][1])])
+
+    # The suspense: until she has spoken, the cave plays like a dragon's
+    # lair, and her first line puts the map's own music back. Appended after
+    # widen_exit's two so no existing id moves.
+    spoken = "$gameSelfSwitches.value([%d, 5, 'A'])" % MAP_LAIR
+    dread = R.if_then(R.condition_script("!" + spoken),
+                      [R.play_bgm("Dungeon4", 70)])
+    m["events"].append(R.event(
+        len(m["events"]), "Before She Speaks", *LAIR_ARRIVE, [R.page(
+            dread + [R.erase_event()], img=R.image(""), trigger=4,
+            priority=0)]))
     return m
 
 
@@ -543,6 +554,7 @@ def lair_events():
     first = S.narrate([
         "A dragon, very large and very red, with a pair of",
         "reading spectacles on a chain round her neck."])
+    first += [R.play_bgm("Town4", 70)]       # the map's own; see "Before She Speaks"
     first += S.say("Mrs Emberthwaite", [
         "Oh! A visitor. Come in,",
         "come in, mind the gold, it gets everywhere."])
@@ -606,6 +618,7 @@ def lair_events():
                        HIS_CHAIR[1] + 1, [R.page(
                            chair, img=R.image(""), trigger=0, priority=1,
                            direction_fix=True)]))
+
     return evs
 
 

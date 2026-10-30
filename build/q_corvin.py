@@ -616,7 +616,7 @@ def drowned_street_map():
     for x, y in [(4, 11), (16, 12)]:
         g.set(x, y, 3, LILY)
 
-    m = K.new_map(w, h, K.TS_OUTSIDE, name="Old Ashcombe", bgm="")
+    m = K.new_map(w, h, K.TS_OUTSIDE, name="Old Ashcombe", bgm="Theme1")
     m["bgs"] = {"name": "Drips", "pan": 0, "pitch": 100, "volume": 60}
     m["data"] = g.data
     m["events"] = [None] + _cor2_events()

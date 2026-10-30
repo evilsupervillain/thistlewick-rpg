@@ -4635,7 +4635,10 @@ change.
     drawing was 29 by 25, and the screenshot was a field of empty floor with
     lamps round the rim, so it was shrunk.
   * The note is `BOTTOM_NOTE`, `<continuance>` only, so the chamber is lit.
-  * There are no encounters, no boulders and no BGS. The BGM is Town5.
+  * There are no encounters, no boulders and no BGS. The BGM is Dungeon4, and
+    the fight's is Battle8 (`BOTTOM_BATTLE_BGM`), set by Change Battle BGM
+    and put back to Battle2 at the top of both result branches. Both were
+    Mike's choice on 29 Oct; the first build had Town5.
   * **The lamps.** `mountain.lamps()` puts a `!Flame` 0 sconce on every other
     north face cell of the chamber, and a standing `!Flame` 1 lamp on every
     other cell round the rest of its edge, alternating lantern and
@@ -4777,6 +4780,21 @@ change.
 * **Looked at**: the first chamber, 29 by 25, was mostly empty floor with
   lamps only round the rim. The shrunk one fills the screen, has lamps on
   every side, and has Something Unscheduled in the middle.
+
+**Music, after P4e** (29 Oct 2026, Mike's choices from a list of every map's
+track). Map 78 is Dungeon4 and its fight Battle8, as above. Old Ashcombe
+(Map 66) had no music and now plays Theme1; the Bottom Lock (Map 70) keeps
+only its drips, on purpose. Rosamund's Tower (Map 36) is Castle3, not Town3.
+Mrs Emberthwaite's Lair (Map 37) was Town5, the tavern music, and is Town4.
+Until she has first spoken it plays Dungeon4 instead, because the cave looks
+like a dragon's lair until she opens her mouth. That is event 9, "Before She
+Speaks", a parallel that plays Dungeon4 while her self switch A is off and
+then erases itself. Her first page plays Town4 straight after the narration
+that describes her. It is event 9, not 7, so `widen_exit`'s two mouth cells
+keep their ids. No line changed. Scenario `music`.
+
+Still never used anywhere: Battle1, 3-6, Field2, Field3, Scene1, Scene5,
+Scene7-9, Theme5.
 
 ---
 

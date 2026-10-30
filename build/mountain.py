@@ -314,7 +314,8 @@ ENCOUNTERS = [
 ]
 ENCOUNTER_STEP = 30
 BGS = ["Darkness", "Darkness", "Wind1", "Drips", "Darkness", ""]
-BOTTOM_BGM = "Town5"                    # lit, and warm, and expecting you
+BOTTOM_BGM = "Dungeon4"                 # Mike's choice; the lamps do the warmth
+BOTTOM_BATTLE_BGM = "Battle8"           # its own fight, not the encounter music
 BOTTOM_NOTE = "<continuance>"           # no <lamplight>: the dark stops
 
 def cells(i, ch):
@@ -844,6 +845,15 @@ def _see_you_up():
     return c
 
 
+SYSTEM_BATTLE_BGM = "Battle2"           # build_game's System.json battleBgm
+
+
+def _battle_bgm(name, volume=85):
+    """Change Battle BGM (code 132)."""
+    return {"code": 132, "indent": 0, "parameters": [
+        {"name": name, "pan": 0, "pitch": 100, "volume": volume}]}
+
+
 def _unscheduled(event_id):
     """Item six on the schedule: anything else, not anticipated. It is on
     nothing - no prophecy, no board - so nobody has ever been obliged to fight
@@ -853,8 +863,12 @@ def _unscheduled(event_id):
     x, y = at(BOTTOM, "m")
 
     def fight(won):
-        c = [R.battle(db.TR_UNSCHEDULED, can_escape=False, can_lose=True)]
-        lost = _it(["Oh! Oh no. Was that too much?",
+        # Change Battle BGM is saved state, so it goes back to the
+        # system's on either side of the result.
+        c = [_battle_bgm(BOTTOM_BATTLE_BGM),
+             R.battle(db.TR_UNSCHEDULED, can_escape=False, can_lose=True)]
+        won = [_battle_bgm(SYSTEM_BATTLE_BGM)] + won
+        lost = [_battle_bgm(SYSTEM_BATTLE_BGM)] + _it(["Oh! Oh no. Was that too much?",
                     "I'm sorry. I don't get the practice."])
         lost += [R.call_common_event(db.CE_CONTINUANCE)]
         for code, body in [(601, won), (603, lost)]:
