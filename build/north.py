@@ -210,8 +210,10 @@ def clanging_map():
     # the cobbles are five wide, columns 15 to 19
     S.widen_exit(m["events"], 2, [(CLANGING_GATE[0] + dx, CLANGING_GATE[1])
                                   for dx in (-2, -1, 1, 2)])
-    # SPA-3: Bessie at the Cotterills' door (12, 39), on the one day.
-    m["events"].append(q_spare.bessie_at_the_door(len(m["events"]), 13, 40))
+    # SPA-3: Bessie at the Cotterills' door, on the one day. Mike swapped
+    # the two houses (30 Oct): theirs is the big one now, door (11, 39), and
+    # (13, 40) is the end of Mrs Cotterill's bench.
+    m["events"].append(q_spare.bessie_at_the_door(len(m["events"]), 11, 40))
     return m
 
 
@@ -275,12 +277,13 @@ def clanging_events():
     notices["pages"] += q_merribell.notices_pages(notices["pages"][0])
     evs.append(notices)
 
-    # -- 10: Old Sowerby, on the bench. He is the town's memory and he is
+    # -- 10: Old Sowerby, on the bench (Mike moved it up one, 30 Oct, out of
+    # Ollerenshaw's doorway). He is the town's memory and he is
     # entirely cheerful about what he remembers, which is the north in one
     # man - see 4.1. No blush: this is the other register and it is doing
     # different work.
     evs.append(q_nix.returned("sowerby", talker(                   # NIX-4
-        10, "Old Sowerby", 14, 30, "Sowerby",
+        10, "Old Sowerby", 14, 29, "Sowerby",
         S.say("Sowerby", [
             "Sixty years I gave that works.",
             "Started on the rivets.",
@@ -331,9 +334,9 @@ def clanging_events():
             "Ten in the spring.",
             "Mr Cotterill is very pleased.",
         ]),
-        extra=[R.control_switch(db.SW_COTTERILL, True)], direction=4,
+        extra=[R.control_switch(db.SW_COTTERILL, True)], direction=2,
         pages=q_spare.mam_pages(R.image(*S.FACES["Mrs Cotterill"],      # F2
-                                        direction=4)))))
+                                        direction=2)))))
 
     # Mr Cotterill is the reaction shot and deliberately does **not** bump the
     # counter: it is one joke, told three times by three people, and counting

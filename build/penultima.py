@@ -98,6 +98,8 @@ def penultima_map():
 
     # The rival's door is shut and has been for some time.
     g.set(RIVAL_DOOR[0] - 1, RIVAL_DOOR[1], 3, K.SIGN_ARMOR)
+    # And a window, for the card in it that the door reads out (Mike, 30 Oct).
+    g.set(RIVAL_DOOR[0] + 2, RIVAL_DOOR[1], 3, K.WINDOW)
 
     g.set(HOUSE_W[0] + 1, HOUSE_W[1] + HOUSE_W[3] - 1, 3, K.WINDOW)
     g.set(HOUSE_E[0] + 4, HOUSE_E[1] + HOUSE_E[3] - 1, 3, K.WINDOW)

@@ -111,6 +111,7 @@ DRAGON = (10, 7)
 CARD_TABLE = (12, 7)
 HIS_CHAIR = (12, 5)             # the back; the seat is (12, 6)
 TABLET = (8, 13)
+SPARE_ROOM = (12, 2)             # the mouth of the passage Mike drew (30 Oct)
 
 D_TABLE = K.sf_tile("Dungeon_C", "Table")
 D_STOOL = K.sf_tile("Dungeon_C", "Stool")
@@ -498,7 +499,7 @@ def lair_map():
 
     # The parlour: a dish cabinet, a clock, a shelf of books, a tapestry.
     g.column(14, 3, 3, D_CABINET)
-    g.column(15, 3, 3, D_CLOCK)
+    g.column(15, 2, 3, D_CLOCK)           # on the wall (Mike, 30 Oct)
     g.column(16, 3, 3, D_BOOKS)
     g.column(9, 2, 3, D_TAPESTRY)
     g.set(17, 11, 3, POT)
@@ -528,7 +529,31 @@ def lair_map():
         len(m["events"]), "Before She Speaks", *LAIR_ARRIVE, [R.page(
             dread + [R.erase_event()], img=R.image(""), trigger=4,
             priority=0)]))
+    # 10: the passage Mike drew at the back (30 Oct), to the spare room she
+    # made up. Narration only: it can be looked into before she is met.
+    m["events"].append(R.event(
+        len(m["events"]), "The Spare Room", *SPARE_ROOM, [R.page(
+            spare_room(), img=R.image(""), trigger=0, priority=1,
+            direction_fix=True)]))
     return m
+
+
+def spare_room():
+    cmds = S.narrate([
+        "A short passage, swept, and at the end of it a little",
+        "room cut into the rock: a bed made up with clean sheets,",
+        "a washstand, a rag rug, and curtains hung neatly over",
+        "no window at all, because a room ought to have curtains."])
+    cmds += S.narrate([
+        "On the pillow, a card in a round, firm hand:",
+        "",
+        "   \\C[14]ROSAMUND\\C[0] - Thursdays. Aired Wednesdays.",
+        "   No eels in the house. Tea at four, not stewed."])
+    cmds += S.narrate([
+        "She has never once stayed the night. She walks home",
+        "after the whist. There is a hot-water bottle in the",
+        "bed all the same, and it is warm."])
+    return cmds
 
 
 def lair_events():

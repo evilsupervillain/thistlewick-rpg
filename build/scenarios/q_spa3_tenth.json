@@ -143,18 +143,18 @@
       "label": "Bessie at the Cotterills' door; Spare with you"
     },
     {
+      "key": "ArrowLeft",
+      "times": 4,
+      "gap": 30
+    },
+    {
       "key": "ArrowUp",
       "times": 2,
       "gap": 30
     },
     {
-      "key": "ArrowLeft",
-      "times": 2,
-      "gap": 30
-    },
-    {
       "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
-      "expect": [14, 40, 4],
+      "expect": [11, 41, 8],
       "label": "facing her"
     },
     {

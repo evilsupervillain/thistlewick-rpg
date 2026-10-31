@@ -306,6 +306,9 @@ in each of the four states.
                      <n>` inserts n black columns at x in a frozen file; move
                      the builder's width and the events east of x to match.
                      The build's post-passes skip frozen maps.
+                     30 Oct 2026 froze Hithermost (33), the Counting House
+                     (63) and the Stair (73-76, 78) as well, and re-froze 21,
+                     35 and 37; `ls build/handdrawn/` is the full list
                      `handdrawn.py check` says whether data still matches
       darkwood.py    the Gloamwood's dark-forest style as a kit - `Forest A`
                      as a wall, trunks along every north edge, undergrowth,

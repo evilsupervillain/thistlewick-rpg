@@ -4871,7 +4871,8 @@ each gained one Call Common Event at the end of their sleep branch.
   than nine.
 * **Upper Clanging.** On 225 every Cotterill in town - the doorstep, Bessie,
   Rivet, Gudgeon, Tappet and Grommet - has a blank page, and Bessie stands at
-  the Cotterills' door, (13, 40) beside (12, 39), as Map 21 event 22. She
+  the Cotterills' door, (11, 40) under (11, 39) since Mike swapped the houses
+  on 30 Oct (it was (13, 40) beside (12, 39)), as Map 21 event 22. She
   says nothing (Mike). Spare does: "I have to go in now. / Come back in the
   morning. Not before. Mam said." He leaves the party as a form desk would
   remove him (recruit switch 90 off, `VAR_COMPANIONS` down one) and 226 goes

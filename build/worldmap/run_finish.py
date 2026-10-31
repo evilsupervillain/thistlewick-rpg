@@ -30,6 +30,7 @@ GENERATED = os.path.join(HERE, 'generated.json')
 OUT = os.path.join(HERE, 'worldmap.json')
 ROUND11 = os.path.join(HERE, 'round11.json')
 ROUND12 = os.path.join(HERE, 'round12.json')
+ROUND13 = os.path.join(HERE, 'round13.json')
 
 # The Former Premises: the castle row of Mike's floating island, the two cells
 # an airship sets down on. Named up here because `sink_islets` has to be told
@@ -594,6 +595,16 @@ def main(argv):
             w.g.set(x, y, z, t)
     print("Mike's round twelve: %d cells" % len(round12))
 
+    # Mike's round thirteen (30 Oct 2026), laid the same way: the forests and
+    # mountain ranges near the middle of the continent made less symmetrical.
+    # Layer 1 only.
+    with open(ROUND13) as f:
+        round13 = json.load(f)
+    for x, y, tiles in round13:
+        for z, t in enumerate(tiles):
+            w.g.set(x, y, z, t)
+    print("Mike's round thirteen: %d cells" % len(round13))
+
     quiet = ([(55 + i, 83) for i in range(4)]            # the Isle
              + [(37 + i, 40) for i in range(3)]          # Attempt 112's stack
              + [(82 + dx, 65 + dy) for dy in range(3) for dx in range(2)]
@@ -607,7 +618,7 @@ def main(argv):
     print("encounter entries widened to snow and desert: %d"
           % F.point_at(w, F.REG_NORTH, (F.REG_SNOW, F.REG_DESERT)))
 
-    w.save(settle=False)                # keeps rounds eleven and twelve's shapes
+    w.save(settle=False)                # keeps rounds eleven to thirteen's shapes
     print("wrote %s" % OUT)
 
     if '--stage' in argv:

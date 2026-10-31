@@ -307,8 +307,9 @@ def village_events():
     add(PG.old_man(q_nix.returned("old_man", S.npc(              # NIX-4, P4b
         13, "Old Man", 11, 17, old, "People4", 4))))
 
-    # -- 14/15: the dog, and the man who speaks for him ------------------------
-    add(S.npc(14, "Dog", 10, 29,
+    # -- 14/15: the dog, and the man who speaks for him (Mike moved them out
+    # of the lane between the smithy and the Turnip's garden, 30 Oct) ----------
+    add(S.npc(14, "Dog", 24, 23,
               S.say("Dog", ["Woof."]),
               "Nature", 0, move_type=1, move_frequency=2))
     interp = S.say("Neighbour", [
@@ -316,7 +317,7 @@ def village_events():
         "and you should take a coat."])
     interp += S.narrate(["The dog has not made a sound."])
     interp += S.say("Neighbour", ["He says it again. Louder."])
-    dog = add(S.npc(15, "Dog Interpreter", 10, 28, interp, "People1", 1))
+    dog = add(S.npc(15, "Dog Interpreter", 24, 22, interp, "People1", 1))
     dog["pages"].append(PG.interpreter_page(dog["pages"][0]))        # P4b
 
     # -- 16: the farmer, who is Bram's actual boss -----------------------------

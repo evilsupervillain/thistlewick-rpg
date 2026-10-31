@@ -136,6 +136,9 @@ Four things were true of the specification and are worth not rediscovering:
       round12.json    his pass of 27 Oct 2026, laid the same way after it: the
                       Barrow moved east to (76,54), the sea and the Middle
                       Distance reshaped, the road to the Crag taken up
+      round13.json    his pass of 30 Oct 2026, laid after that: the forests
+                      and ranges near the middle made less symmetrical
+                      (layer 1 only, 77 cells)
       worldmap.json   the finished map. **This is Map 8**: `journey.world_map`
                       loads it, so a rebuild of the game picks up whatever
                       `run_finish.py` last wrote. Never edited by hand
