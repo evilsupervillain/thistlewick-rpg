@@ -140,13 +140,17 @@ when it does, in a round year.
 | 1794 | Sump: wasps in the well; the Water Committee wound up. "Cursed 1794" | `hamlets` | F |
 | 1795 | Sump: "a general sense that things used to be better". The parish drafts its Standing Orders for the Lifting of the Curse, six clauses, never used until MER-5 | `hamlets`, `q_merribell` | F |
 | 1802 | the Hoyle Works' stores book begins; ITEM 1 | `field.stores_ledger` | P |
+| 1802 | Bond No. 40 goes into the Bonded Warehouse at Great Dunnage: one cabbage, very large, "for the show"; nobody has been brave enough to check on it since | `curios_c5` (Map 64) | P |
 | 1804 | an apprentice at the works since; Nib is the fortieth | `north.works_events` | P |
 | 1811 | Dame Honoria Pemberton-Gore's portrait | `fenmarch.portrait_pages` | F |
 | ~1800 | Nether Sopping starts throwing things down the Pit ("two hundred years") | `wilds` | P |
 | 1840 | Rollo, a dog, painted | `fenmarch.portrait_pages` | F |
 | 1841 | the Clanging clock goes four minutes fast | `north.clanging_events` | P |
 | 1860 | Attempt Eighty-Four comes down in the Long Field (1886 until `NORTH.md` 8.1b) | `field.eighty_four`, `db.build_enemies` | P, repaired |
+| 1890 | Mabel Thistle born, Bram's great-grandmother; grew a turnip as big as a chair (died 1979, the headstone) | `curios_c1` (Map 1) | P |
 | ~1900 | Attempt 112, "a hundred years dead", on her rock | `field` | P |
+| 1902 | Elspeth Moore born; she wins the Thistlewick turnip show forty-one years running, and the forty-second was fixed (died 1994, the headstone) | `curios_c1` (Map 1) | P |
+| 1908 | the crate of ship's biscuit in Saint Bother's store is stencilled with the year; the lighthouse's ship-in-a-bottle shelf runs to 1909 and then one lit lighthouse a year | `curios_c2` (Map 18) | P |
 | 1909 | the shipping stops; Bother's light is for the ones coming home | `south` (Bother) | P |
 | 1919 | Beatrice Grumnir born (the headstone) | `village.churchyard` | P |
 | 1930 | Mr Ottershaw (born 1910, "ninety in March") begins the animals: "seventy years. Three generations." Every case in the gallery is his, which is why none of them has a date on it | `fenmarch.ottershaw_pages` | F |
@@ -161,10 +165,12 @@ when it does, in a round year.
 | 1970 | Mr Tinder, the parish's last fire person, retires; the Cinder Fen is not burnt again, and the causeway to Great Dunnage goes a foot under. Zephyrine burns it, sanctioned, in triplicate, "thirty years" later (ZEPH-4) | `q_zephyrine` (ZEPH-4) | F |
 | 1970 | Mr Cobley starts fishing Much Pottering's duck pond for Old Tom, the biggest carp in the county, whom nobody has ever seen ("thirty years"). Old Tom turns over once, in 2000, in front of Spare (SPA-4) | `pottering`, `q_spare` (SPA-4) | F |
 | 1971 | Edith Pellow sees the Thing, and counts nine heads; The Sighting, issue forty-four | `q_wren` (WRE-3) | F |
+| 1972 | K and M marry, and carve it into the driftwood on Nether Sopping's beach; STILL is cut under it later | `curios_c2` (Map 13) | P |
 | 1974 | Walt Ashbury, twenty-six years at the Eight Hours | `restwell` | F |
 | 1977 | Roland Fairweather, eleven, page to Dame Florence Ickworth: the Wyrm of Ickworth, the first of his eleven parties ("since I was eleven", and thirty-four now) | `q_roland` (ROL-3) | P |
 | 1978 | Roland, twelve, is told his prophecy is nearly ready - a lineage, a stone, a sword in it and a sorcerer - and its preparation begins: "twenty-two years" of review meetings, a hundred and forty-one by 2000 (ROL-1, ROL-5). Fellow Blunt checks the stone under Carn Drey from the gate, quarterly, and never goes down; the Worm there has been asleep since before Roland was born, and is ended in an afternoon in 2000 (ROL-2) | `q_roland` (ROL-5, ROL-2) | F |
 | 1986 | Sir Hamo Tench comes to Weeping Bottom for the sea air | `weeping_bottom.hamo_pages` | F |
+| 1987 | the Committee starts meaning to water the Hall's potted plant (it is in the minutes); a good year for the Gilded Turnip's stored turnip (the '91 is not spoken of). Bryd Ollerenshaw wins BEST IN HALL at the Smiths' Hall in Great Dunnage; Hob does not enter, having a cold, and would have won | `curios_c1` (Maps 3, 4), `curios_c5` (Map 62) | P |
 | 1989 | Corvin, nineteen, sits down in the corner of the Slain Wyvern; Ashcombe floods "in his absence". Dame Winifred at Little Gore. Wat Pardle puts up the Standing Stones, if theory six is right, which it is. Bond No. 1 in the Bonded Warehouse: Nix, fifteen, puts gran's coat in bond till it fits, makes a speech from a crate, and pays the rent by post for eleven years sooner than come back (NIX-1). The same year Nix gives Hulda Bole her first job, a parcel to be delivered at twenty-six, which is also her last. Dr Pike takes a room | `south`, `ashcombe`, `hamlets`, `journey`, `dunnage`, `restwell`, `q_nix` | P/F |
 | 1989 | Beatrice Grumnir dies; the parish's plain headstone in the new churchyard, "1919 - 1989"; she has told Hob to make her a marker, and the village stops mentioning it ("eleven years") | `q_hob` (HOB-2), `village.churchyard` | P |
 | 1989 | Nix, fifteen, starts the ledger; the first page's eleven things are never sold, and go home in NIX-4 ("eleven years" for every one of them: Bram's mother's pie dish, the Old Man's chair, Hulda Bole's good boots). Hulda takes her first fetching job the same year, and Tolly buys a sheet of stamps | `q_nix`, `south` | P |
@@ -178,6 +184,7 @@ when it does, in a round year.
 | 1994 | Aldric reaches Thistlewick and cannot find the north gate; Perpetua Small wakes on the beach. That winter his horse walks into Plummer's yard at Great Dunnage on her own, saddled ("six years", ALD-4) | `db.build_actors`, `village`; `dunnage.plummer_pages`, `q_aldric` | P |
 | 1996 | Mr Pilbeam rescues Rosamund from the eagle. Merribell leaves the Sisterhouse at twenty-two, because it has begun holding symposia (MER-1) | `fairholme`, `q_merribell` | F |
 | 1997 | Much Pottering twins with Upper Clanging - Mrs Throssell chose it off the map as the most different place she could find, and neither village has ever visited the other - and the twinning pairs one child of six from each as pen pals: Effie Gotobed and Spare Cotterill. They write ever since, untruthfully, and meet in 2000 (SPA-4) | `pottering`, `q_spare` (SPA-4) | F |
+| 1997 | the edition of The Turnip Grower's Almanac on Bram's bedside table | `curios_c1` (Map 2) | P |
 | 2000 | the spring, after the Prophecy, and only in Upper Clanging: the tenth Cotterill, **Washer**, born at six in the morning on the hooter, the night after Spare's ninth letter from the Stair says "Is it spring yet?" Mr Cotterill off nights for it, the first time in twenty-two years; Spare named it; Clevis's book paid out at twenty to one; Cotter home from Great Dunnage that Saturday (SPA-3) | `q_spare` (SPA-3) | F |
 
 ## 5. Ages stated

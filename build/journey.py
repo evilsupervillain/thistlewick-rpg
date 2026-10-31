@@ -1233,8 +1233,13 @@ def tally(amended=False):
     # **Sixty** puts it back at two thirds. Four fifths, the blush tier's
     # rule, would be seventy-four, which is too fine a cut to take off a
     # total that is only known as "about".
+    #
+    # **Re-cut again on 31 October 2026 (CURIOS.md), top tier only.** The
+    # curios took the reachable total to about a hundred and forty, and
+    # sixty had fallen to well under half of it. **Ninety** is two thirds
+    # again; twenty stays for the same reason as before.
     c += R.if_then(
-        R.condition_variable(db.VAR_TROPES, 60, 1),
+        R.condition_variable(db.VAR_TROPES, 90, 1),
         S.narrate(["Very nearly all of them. He read the notice",
                    "board, he searched the barrels, he opened",
                    "things that were obviously not chests, and",

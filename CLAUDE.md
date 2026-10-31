@@ -110,7 +110,7 @@ is ever answered. He is never told the airship flew.
 reading `SW_ROLAND_GONE`, `SW_SOUTH`, `VAR_BOUNTIES` (two tiers, the lower
 nested in the higher's else), `SW_HISTORY_DONE`, `SW_LAMP_LIT`,
 `SW_BENCH_DONE`, `SW_TWO_HUNDRED_FLEW`, `SW_84_REBUILT`, `SW_ITEM_ONE_USED`,
-`SW_HOB_BRYD`, `VAR_TROPES` (60 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`,
+`SW_HOB_BRYD`, `VAR_TROPES` (90 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`,
 `SW_FF_GRADUATED` and `SW_MET_QUY`. Every one is additive: a new line here is a new block, and
 nothing that is already in the tally comes out or gets re-voiced.
 
@@ -199,7 +199,10 @@ and the totals had stopped moving. Anything that adds a `story.trope()` or a
 `story.blush()` site later has to come back here; the reasoning is in the
 comments above both branches in `journey.finale_event`.
 
-`VAR_TROPES` is **60 / 20** against about ninety-two reachable - 122 code-122
+`VAR_TROPES` is **90 / 20** against about a hundred and forty reachable since
+`CURIOS.md` (31 Oct 2026), whose look-at props added about fifty: ninety is
+two thirds of it again. Before that it was **60 / 20** against about
+ninety-two reachable - 122 code-122
 writes to variable 2 across 107 events, less repeat pages and branches that
 cannot both run. **The two tiers are different kinds of number, so only one
 moved.** Twenty is the player who goes straight north, a fact about the

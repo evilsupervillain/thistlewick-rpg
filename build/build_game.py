@@ -23,6 +23,7 @@ R.use_project(GAME)
 
 import db  # noqa: E402
 import handdrawn  # noqa: E402
+import curios  # noqa: E402
 import field  # noqa: E402
 import meadow  # noqa: E402
 import journey  # noqa: E402
@@ -1216,6 +1217,7 @@ def main():
     match_windows()
     dress_shut_doors()
     light_fires()
+    curios.build()                      # CURIOS.md: things to look at
     once_tropes()
     door_holes()
     cast_shadows()
