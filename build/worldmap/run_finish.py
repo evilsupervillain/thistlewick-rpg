@@ -605,6 +605,20 @@ def main(argv):
             w.g.set(x, y, z, t)
     print("Mike's round thirteen: %d cells" % len(round13))
 
+    # The Crab of Unusual Size's beach (Mike, 30 Oct 2026): the `Dirt` mound
+    # beside it, which read as a mountain and nothing worth investigating,
+    # is taken up, and a trail of tracks runs sideways along the beach from
+    # the east to the hollow it sits in. The tiles are this game's own D
+    # sheet (`thistlewick/build/tiles_d.py`, `mapkit.CRAB_*`), which World
+    # carries in its D slot; the crab's event is `places.WORLD_CRAB`.
+    crab_x, crab_y = 55, 81
+    assert w.g.get(crab_x - 1, crab_y, 3) == 13, "the mound has moved"
+    w.g.set(crab_x - 1, crab_y, 3, 0)
+    w.g.set(crab_x, crab_y, 3, R.TILE_ID_D + 3)             # the hollow
+    for x in range(crab_x + 1, crab_x + 4):
+        w.g.set(x, crab_y, 3, R.TILE_ID_D + 2)              # the tracks
+    print("the crab's beach: mound taken up, tracks laid")
+
     quiet = ([(55 + i, 83) for i in range(4)]            # the Isle
              + [(37 + i, 40) for i in range(3)]          # Attempt 112's stack
              + [(82 + dx, 65 + dy) for dy in range(3) for dx in range(2)]

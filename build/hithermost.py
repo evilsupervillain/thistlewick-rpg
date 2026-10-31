@@ -166,7 +166,7 @@ def hithermost_map():
               3, rocks)
     g.scatter([(9, 21), (21, 19), (8, 29)], 3, K.BARREL)
     g.scatter([(2, 15), (23, 21), (12, 28)], 3, K.BUSH)
-    g.scatter([(5, 14), (9, 14), (20, 28), (16, 21)], 3, K.FLOWERS2)
+    g.scatter([(5, 14), (9, 14), (16, 21)], 3, K.FLOWERS2)
     g.scatter([(19, 11), (7, 30)], 3, K.LOGS)
     for x, y in [(2, 9), (22, 12), (10, 23), (16, 25)]:
         g.blit(x, y, 3, K.TREE)

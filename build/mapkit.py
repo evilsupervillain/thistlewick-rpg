@@ -602,6 +602,16 @@ def borrowed(sheet, name):
     return ids[0] if len(ids) == 1 else ids
 
 
+# This game's own D sheet, on Outside and World (`build_game.build_tilesets`),
+# drawn by `tiles_d.py` because no stock sheet has these. All open, all under
+# characters.
+SHEET_D = "Thistlewick_D"
+DOORMAT = R.TILE_ID_D + 1
+CRAB_TRACKS_H = R.TILE_ID_D + 2   # sideways along a beach, east-west
+CRAB_HOLLOW = R.TILE_ID_D + 3     # where it sits; the trail comes in from the east
+CRAB_TRACKS_V = R.TILE_ID_D + 4
+
+
 # The Dungeon tileset has Inside_C in its E slot too (`build_game.build_tilesets`,
 # QUESTS.md P2): two things the Obligatory Tower and the Bottomless Pit have in
 # their text that the Dungeon sheets do not have at all.

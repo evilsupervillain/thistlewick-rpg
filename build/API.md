@@ -258,6 +258,11 @@ TS_CLANGING                  5
 TS_CLANGING_IN               6
 SF_CLOCK_TOWER               (12, 3)
 SF_ROOF                      (13, 12)
+SHEET_D                      'Thistlewick_D'
+DOORMAT                      R.TILE_ID_D + 1
+CRAB_TRACKS_H                R.TILE_ID_D + 2
+CRAB_HOLLOW                  R.TILE_ID_D + 3
+CRAB_TRACKS_V                R.TILE_ID_D + 4
 DGE_BASIN                    borrowed('Inside_C', 'Large Basin')
 DGE_HAMPER                   borrowed('Inside_C', 'Basket A')
 E_NOTE                       borrowed('Inside_C', 'Note A (V)')
