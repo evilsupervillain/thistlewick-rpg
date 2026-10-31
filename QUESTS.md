@@ -4773,6 +4773,14 @@ change.
   * It is game-wide and would make seven boss fights harder, so it is **left
     for Mike**, as the buff turns were. Something Unscheduled's own
     below-half skill is written as type 2.
+  * **Fixed 31 Oct 2026, at Mike's word.** All eight (Ambulant Salvage's Let
+    Go was the eighth) are type 2 now, `p2` the fraction, and `db.action`
+    asserts that an HP or MP condition is two fractions. Norbert's Telegraph
+    and Mrs Cotterill's You Are Nine are real turn conditions and stay type
+    1. Checked in the engine: `Game_Enemy.meetsCondition` offers each move at
+    39% HP and not at 100%. Each is about one turn in seven to nine once it
+    is live, and hits no harder than the boss's own moves; the largest
+    change is Attempt Eighty-Four's Make Good, about 1,100 HP.
 * **The schedule** (Map 73 event 9) gets page 1, on `SW_UNSCHEDULED`. It is
   `schedule(anticipated=True)`: the same board, plus "Chalked beside item
   six, in your own hand: 'Anticipated.'" before D.'s "All present and
@@ -4952,9 +4960,9 @@ gets `mountain.NOTE`** (`<lamplight>` and `<continuance>`), so it is dark and
 a lost fight goes back to the porch for free; a scripted fight on it is
 can-lose with its lose branch calling common event 7, the way `_warden` and
 `_unscheduled` do. Do not
-settle whether Dunstable is alive, or anything about the spine. **Open for
-Mike** (P4e Done paragraph): every boss's "below X% HP" action is written as a
-turn condition and never fires; fixing it moves seven boss fights. G0, the quest log,
+settle whether Dunstable is alive, or anything about the spine. Every boss's
+"below X% HP" action was written as a turn condition and never fired; fixed 31
+Oct (P4e Done paragraph). G0, the quest log,
 follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct);
 `apidigest.py --check` passes as of P4d, so `build/API.md` already has
 `rmmzdata.read_plugins`/`write_plugins`/`upsert_plugin`. Last come G1's counter re-cuts,

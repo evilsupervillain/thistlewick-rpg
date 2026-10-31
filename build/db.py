@@ -744,6 +744,9 @@ def armor(aid, name, desc, etype, atype, price, stats, traits=(), icon=131):
 
 
 def action(skill_id, rating=5, condition=0, p1=0, p2=0):
+    # Type 1 is Turn (p1 + p2 * X) and 2/3 are HP/MP between two fractions:
+    # eight bosses had "below 50%" written as turn 50, which never comes.
+    assert condition not in (2, 3) or 0 <= p1 <= p2 <= 1, (skill_id, p1, p2)
     return {"skillId": skill_id, "rating": rating, "conditionType": condition,
             "conditionParam1": p1, "conditionParam2": p2}
 
@@ -2325,7 +2328,7 @@ def build_enemies():
         EN_THING, "The Thing In The Woods", "Hydra", 0,
         [3600, 200, 44, 36, 34, 34, 24, 20], 900, 1400,
         [action(SK_ATTACK, 5), action(SK_ROOT_GRAB, 4),
-         action(SK_SHRIEK, 3, condition=1, p1=50)],
+         action(SK_SHRIEK, 3, condition=2, p2=0.5)],
         traits=base + [trait(11, EL_FIRE, 1.6), trait(11, EL_LIGHT, 1.3),
                        trait(23, 6, 0.85), trait(14, ST_SLEEP, 1),
                        trait(62, 3, 0)],
@@ -2338,7 +2341,7 @@ def build_enemies():
         [7000, 400, 58, 48, 52, 48, 34, 24], 2000, 3000,
         [action(SK_ATTACK, 5), action(SK_INEVITABILITY, 4),
          action(SK_DOOM_MONOLOGUE, 4),
-         action(SK_SMALL_PRINT, 3, condition=1, p1=40)],
+         action(SK_SMALL_PRINT, 3, condition=2, p2=0.4)],
         traits=base + [trait(11, EL_DARK, 0.2), trait(11, EL_LIGHT, 1.5),
                        trait(14, ST_SLEEP, 1), trait(14, 6, 1),
                        trait(62, 3, 0), trait(23, 6, 0.9)],
@@ -2350,7 +2353,7 @@ def build_enemies():
         [9000, 999, 50, 52, 72, 58, 40, 30], 2500, 4000,
         [action(SK_CLAUSE_TWELVE, 5), action(SK_ERRATUM, 4),
          action(SK_DOOM_MONOLOGUE, 3),
-         action(SK_SMALL_PRINT, 4, condition=1, p1=50)],
+         action(SK_SMALL_PRINT, 4, condition=2, p2=0.5)],
         traits=base + [trait(11, EL_PHYSICAL, 0.7), trait(11, EL_DARK, 0.1),
                        trait(11, EL_LIGHT, 1.4), trait(11, EL_FIRE, 1.6),
                        trait(14, ST_SLEEP, 1), trait(14, 6, 1), trait(14, 5, 1),
@@ -2372,7 +2375,7 @@ def build_enemies():
         EN_BIG_CRAB, "The Crab Of Unusual Size", "Crab", 220,
         [3000, 0, 52, 46, 10, 26, 18, 12], 620, 1100,
         [action(SK_ATTACK, 5), action(SK_PINCH, 5),
-         action(SK_INEVITABILITY, 3, condition=1, p1=50)],
+         action(SK_INEVITABILITY, 3, condition=2, p2=0.5)],
         traits=base + [trait(11, EL_PHYSICAL, 0.5), trait(11, EL_THUNDER, 1.8),
                        trait(23, 6, 0.75), trait(62, 3, 0)],
         drops=[drop(2, AR_OILSKIN, 1)],
@@ -2383,7 +2386,7 @@ def build_enemies():
         EN_CROOKE, "Meredith Crooke", "Actor3_2", 0,
         [3200, 120, 56, 38, 24, 28, 34, 20], 700, 1400,
         [action(SK_ATTACK, 5), action(SK_TRIBUTE, 4),
-         action(SK_INEVITABILITY, 3, condition=1, p1=40)],
+         action(SK_INEVITABILITY, 3, condition=2, p2=0.4)],
         traits=base + [trait(22, 1, 0.14), trait(61, 0, 1), trait(62, 3, 0)],
         drops=[drop(1, WP_GRUDGE, 2), drop(0, IT_HI_POTION, 1)],
         note="Runs the six-week banditry apprenticeship. Has a syllabus, a "
@@ -2394,7 +2397,7 @@ def build_enemies():
         [6400, 300, 62, 48, 36, 42, 30, 22], 1800, 2400,
         [action(SK_ATTACK, 5), action(SK_WHATS_DONE, 4),
          action(SK_GRAVE_DUTY, 3),
-         action(SK_INEVITABILITY, 4, condition=1, p1=40)],
+         action(SK_INEVITABILITY, 4, condition=2, p2=0.4)],
         traits=base + [trait(11, EL_DARK, 0.3), trait(11, EL_LIGHT, 1.4),
                        trait(14, ST_SLEEP, 1), trait(62, 3, 0),
                        trait(23, 6, 0.85)],
@@ -2436,7 +2439,7 @@ def build_enemies():
         EN_SALVAGE, "Ambulant Salvage", "Mechascorpion", 25,
         [1600, 0, 62, 52, 10, 34, 30, 12], 300, 300,
         [action(SK_ATTACK, 5), action(SK_SHED_A_PART, 4),
-         action(SK_SCALD, 3, condition=1, p1=40)],
+         action(SK_SCALD, 3, condition=2, p2=0.4)],
         traits=base + [trait(11, EL_PHYSICAL, 0.7), trait(11, EL_ICE, 1.4),
                        trait(11, EL_FIRE, 0.6),
                        trait(14, ST_POISON, 1), trait(14, ST_SLEEP, 1),
@@ -2450,7 +2453,7 @@ def build_enemies():
         [7600, 400, 70, 64, 16, 44, 26, 10], 2200, 3000,
         [action(SK_ATTACK, 5), action(SK_DUE_NORTH, 5),
          action(SK_OVERPRESSURE, 4),
-         action(SK_MAKE_GOOD, 4, condition=1, p1=45),
+         action(SK_MAKE_GOOD, 4, condition=2, p2=0.45),
          action(SK_SHED_A_PART, 3)],
         traits=base + [trait(11, EL_PHYSICAL, 0.7), trait(11, EL_FIRE, 0.4),
                        trait(11, EL_ICE, 1.5), trait(11, EL_WATER, 1.3),

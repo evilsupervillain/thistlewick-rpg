@@ -263,6 +263,9 @@ DOORMAT                      R.TILE_ID_D + 1
 CRAB_TRACKS_H                R.TILE_ID_D + 2
 CRAB_HOLLOW                  R.TILE_ID_D + 3
 CRAB_TRACKS_V                R.TILE_ID_D + 4
+NET_RACK                     (R.TILE_ID_D + 5, R.TILE_ID_D + 6)
+NET_WALL                     R.TILE_ID_D + 7
+D_BLOCKED                    {NET_RACK[0], NET_RACK[1], NET_WALL}
 DGE_BASIN                    borrowed('Inside_C', 'Large Basin')
 DGE_HAMPER                   borrowed('Inside_C', 'Basket A')
 E_NOTE                       borrowed('Inside_C', 'Note A (V)')
