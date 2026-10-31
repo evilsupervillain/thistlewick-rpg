@@ -1,0 +1,24 @@
+{
+  "query": "?map=4&x=12&y=12&frames=60",
+  "steps": [
+    {"eval": "$gameSystem.disableEncounter(); $gameVariables.setValue(2, 0)"},
+    {"eval": "$gameMap.event(6).start()"},
+    {"advance": 10},
+    {"check": "$gameVariables.value(2)", "expect": 1, "label": "the Turnip counts once"},
+    {"eval": "$gameMap.event(6).start()"},
+    {"advance": 10},
+    {"check": "$gameVariables.value(2)", "expect": 1, "label": "and not again"},
+    {"goto": [1, 10, 10]},
+    {"eval": "$gameVariables.setValue(2, 0); $gameSelfSwitches.setValue([1, 13, 'B'], false); $gameMap.event(13).refresh()"},
+    {"eval": "$gameMap.event(13).start()"},
+    {"advance": 10},
+    {"check": "$gameVariables.value(2)", "expect": 1, "label": "the Old Man counts once"},
+    {"eval": "$gameMap.event(13).start()"},
+    {"advance": 10},
+    {"eval": "$gameSelfSwitches.setValue([1, 13, 'B'], true); $gameMap.event(13).refresh()"},
+    {"check": "$gameMap.event(13)._pageIndex", "expect": 2, "label": "on his other page"},
+    {"eval": "$gameMap.event(13).start()"},
+    {"advance": 10},
+    {"check": "$gameVariables.value(2)", "expect": 1, "label": "the same joke still counts once"}
+  ]
+}

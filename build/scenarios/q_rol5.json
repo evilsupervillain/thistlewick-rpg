@@ -341,7 +341,7 @@
   {
    "goto": [
     8,
-    65,
+    64,
     44
    ]
   },
@@ -352,7 +352,7 @@
   {
    "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
    "expect": [
-    65,
+    64,
     44,
     8
    ],

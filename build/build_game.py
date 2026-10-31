@@ -517,6 +517,90 @@ def light_fires():
         R.save_map(map_id, m)
 
 
+def _trope_guarded(page, later, i):
+    """Whether the trope bump at `page["list"][i]` can only ever run once:
+    the list turns on a switch or self switch that a later page is conditioned
+    on, or the bump sits in a branch on a switch the list itself turns on
+    (taken while it is off), or in one of `once_tropes`' own guards."""
+    lst = page["list"]
+    ss = {c["parameters"][0] for c in lst
+          if c["code"] == 123 and c["parameters"][1] == 0}
+    sw = set()
+    for c in lst:
+        if c["code"] == 121 and c["parameters"][2] == 0:
+            sw.update(range(c["parameters"][0], c["parameters"][1] + 1))
+    for q in later:
+        k = q["conditions"]
+        if (k["selfSwitchValid"] and k["selfSwitchCh"] in ss) or \
+                (k["switch1Valid"] and k["switch1Id"] in sw) or \
+                (k["switch2Valid"] and k["switch2Id"] in sw):
+            return True
+    ind = lst[i]["indent"]
+    for j in range(i - 1, -1, -1):
+        c = lst[j]
+        if c["indent"] >= ind:
+            continue
+        ind, taken_if_on = c["indent"], True
+        if c["code"] == 411:                    # the else of the 111 above it
+            k = j - 1
+            while not (lst[k]["code"] == 111 and lst[k]["indent"] == c["indent"]):
+                k -= 1
+            c, taken_if_on = lst[k], False
+        if c["code"] != 111:
+            continue
+        p = c["parameters"]
+        if p[0] == 12 and "'T:" in p[1]:
+            return True
+        if p[0] in (0, 2) and (p[1] in sw if p[0] == 0 else p[1] in ss) and \
+                (p[2] == 0) != taken_if_on:     # the branch runs while it is off
+            return True
+    return False
+
+
+def once_tropes():
+    """`VAR_TROPES` counts jokes, once each, and the ending reads it back - but
+    a prop's narration with `S.trope()` on the end, an inn's morning line, a
+    sign, bumped it on every reading (found 31 Oct 2026; 46 of them). Every
+    bump on a map that `_trope_guarded` cannot show runs once is wrapped in a
+    self switch of its own, keyed on the text of the message just before it,
+    so a joke told on two pages of one event is still one joke. No line of
+    text changes, and a bump that was already once is left alone."""
+    import hashlib
+    wrapped = 0
+    for map_id, *_ in MAP_NAMES:
+        m = R.load_map(map_id)
+        changed = False
+        for e in m["events"]:
+            if not e:
+                continue
+            for pi, page in enumerate(e["pages"]):
+                lst = page["list"]
+                bumps = [i for i, c in enumerate(lst) if c["code"] == 122 and
+                         c["parameters"][:2] == [db.VAR_TROPES, db.VAR_TROPES]]
+                for n, i in reversed(list(enumerate(bumps))):
+                    if _trope_guarded(page, e["pages"][pi + 1:], i):
+                        continue
+                    text = []
+                    for j in range(i - 1, -1, -1):
+                        if lst[j]["code"] == 401:
+                            text.insert(0, lst[j]["parameters"][0])
+                        elif lst[j]["code"] == 101 and text:
+                            break
+                    seed = "\n".join(text) or "%d.%d" % (pi, n)
+                    key = "T:" + hashlib.md5(seed.encode()).hexdigest()[:8]
+                    sw = "[this._mapId, this._eventId, '%s']" % key
+                    bump = dict(lst[i], indent=0)
+                    lst[i:i + 1] = R.if_then(
+                        R.condition_script("!$gameSelfSwitches.value(%s)" % sw),
+                        [bump] + R.script(["$gameSelfSwitches.setValue(%s, true);" % sw]),
+                        indent=lst[i]["indent"])
+                    wrapped += 1
+                    changed = True
+        if changed:
+            R.save_map(map_id, m)
+    print("  once_tropes: %d trope bumps given a guard" % wrapped)
+
+
 def door_holes():
     """Puts a dark doorway under every door sprite set in a town wall. Runs
     after every module, like `shape_wall_tops`, so a door added anywhere gets
@@ -1132,6 +1216,7 @@ def main():
     match_windows()
     dress_shut_doors()
     light_fires()
+    once_tropes()
     door_holes()
     cast_shadows()
     check_wide_pieces()

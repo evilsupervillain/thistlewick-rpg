@@ -535,7 +535,8 @@ def trope(indent=0):
     """Bump the cliché counter. The ending reads the total back to the player,
     so every joke that lands on a well-worn RPG convention calls this exactly
     once - and, because it usually sits behind a self switch, only once per
-    playthrough."""
+    playthrough. One that does not (a prop's `extra`, an inn's morning) is
+    given a guard of its own by `build_game.once_tropes`."""
     return R.control_variable_add(db.VAR_TROPES, 1, indent=indent)
 
 

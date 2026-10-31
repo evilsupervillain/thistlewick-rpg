@@ -4969,10 +4969,11 @@ follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct);
 the one full suite, Mike's playthrough, and the push. Settled 28 Oct: the
 three P4a tally lines stand; buffs and debuffs carry their turns in value1
 (P1 note); the Guild's shield was the indoor one, and all three file columns
-answer. For G1's re-cut: nine `S.prop(..., extra=[S.trope()])` props (four
-in `south.py`, four in `village.py`, one in `wilds.py`) bump the trope on
-**every** reading, not once - fix them with a self-switch guard before
-counting. Trope sites to add to the re-cut: P4d's three, P4e's one and
+answer. For G1's re-cut: the trope bumps that ran on **every** reading
+(props, signs, inn mornings - 46 of them, not the nine first counted) are
+guarded since 31 Oct by `build_game.once_tropes`, a post-pass that gives each
+one it cannot prove once a self switch keyed on the joke's text; scenario
+`once_tropes`. Count each joke once. Trope sites to add to the re-cut: P4d's three, P4e's one and
 P4f's one, the yes on waking (+5 reachable). Next free:
 switch 229, variable 34 (the list is sized 40), item 80, weapon 44, armour
 49, common event 9, map 79, state 46, enemy 66, troop 62, skill 196,
