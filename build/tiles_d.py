@@ -1,4 +1,5 @@
-"""`img/tilesets/Thistlewick_D.png`: the few tiles no stock sheet has.
+"""`img/tilesets/Thistlewick_D.png`: the few tiles no stock sheet has, and
+`img/characters/!$LighthouseLamp.png`, a stock flame moved.
 
     python3 build/tiles_d.py
 
@@ -251,5 +252,28 @@ def build():
     print("wrote %s (%d tiles)" % (OUT, len(tiles)))
 
 
+LAMP = os.path.join(GAME, "img", "characters", "!$LighthouseLamp.png")
+LAMP_LIFT = 14
+
+
+def lighthouse_lamp():
+    """`!$LighthouseLamp.png`: the stock small flame (`!Flame` index 3, its
+    second row) drawn 14 pixels higher, in all four rows, in 48x96 frames. A character is
+    centred on its cell, which puts the flame halfway down the world map's
+    lighthouse; lifted, it burns in the lamp room at the top of the tower
+    (Mike, 30 Oct 2026). `wilds.lighthouse_lamp` shows it once it is lit."""
+    flame = png.read(os.path.join(GAME, "img", "characters", "!Flame.png"))
+    bx, by = 3 * TS * 3, 1 * TS                     # index 3, the second row
+    row = flame[by:by + TS, bx:bx + TS * 3]
+    # Frames twice as tall, so the lift clips nothing: a character's frame
+    # stands on the bottom of its cell, and the flame's tip reaches the top
+    # of the stock frame.
+    lifted = np.zeros((TS * 2, TS * 3, 4), dtype=row.dtype)
+    lifted[TS - LAMP_LIFT:TS * 2 - LAMP_LIFT] = row
+    png.write(LAMP, np.concatenate([lifted] * 4, axis=0))
+    print("wrote %s" % LAMP)
+
+
 if __name__ == "__main__":
     build()
+    lighthouse_lamp()

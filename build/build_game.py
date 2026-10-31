@@ -470,6 +470,57 @@ def dress_shut_doors():
             R.save_map(map_id, m)
 
 
+# The hearths with a fire in them (Mike, 31 Oct 2026): the firebox cell of each
+# stock fireplace - the lower one, the middle of a three-wide - where somebody
+# is at home, open or working. Not Ashcombe's oven, which shows no flame, and
+# not Tobias Frayne's grate: he has been revived eleven times and he does not
+# light fires. The Sable Hart and the Long Gallery build their own.
+FIRES = {
+    2: (10, 3),         # Bram's House
+    4: (9, 3),          # the Gilded Turnip
+    6: (11, 3),         # Grumnir's forge
+    14: (14, 3),        # the Slain Wyvern
+    17: (10, 3),        # Number Forty-Five's, by his sofa
+    23: (15, 3),        # the Safety Valve
+    24: (6, 3),         # Ollerenshaw's forge
+    32: (11, 3),        # the Eight Hours
+    45: (10, 3),        # the Eleven Days
+    69: (5, 3),         # the Gotobeds'
+}
+FIREBOXES = {("Inside_B", n) for n in range(194, 200)} | \
+    {("SF_Inside_C", n) for n in (179, 180, 181)}
+# The stone and brick stoves, whose mouth is only the bottom half of the cell:
+# they take the same fire facing up, which stands on the hearth instead of
+# hanging 10px above it (Mike, 31 Oct 2026).
+LOW_FIREBOXES = {("Inside_B", n) for n in (194, 195)}
+
+
+def light_fires():
+    """A fire in every hearth `FIRES` names: `!Flame` 3 facing left, the
+    middle-sized fire, as the Sable Hart's and the Long Gallery's are (facing
+    up in a `LOW_FIREBOXES` stove, the same fire set lower) - below characters, animated, no commands, so it neither blocks nor
+    answers. Appended after every other event, so no id moves, and refused
+    if the cell is not a fireplace, so a hearth moved in the editor is a
+    failed build rather than a fire burning on the floor."""
+    tilesets = R.load("Tilesets.json")
+    for map_id, (x, y) in sorted(FIRES.items()):
+        m = R.load_map(map_id)
+        w, h = m["width"], m["height"]
+        names = tilesets[m["tilesetId"]]["tilesetNames"]
+        found = set()
+        for z in (1, 2, 3):
+            t = m["data"][(z * h + y) * w + x]
+            if 0 < t < R.TILE_ID_E + 256:             # B-E only
+                found.add((names[5 + t // 256], t % 256))
+        assert found & FIREBOXES, "Map%03d (%d,%d) is not a hearth: %s" % (
+            map_id, x, y, sorted(found))
+        direction = 8 if found & LOW_FIREBOXES else 4
+        m["events"].append(R.event(len(m["events"]), "The Fire", x, y, [
+            R.page([], img=R.image("!Flame", 3, direction=direction), trigger=0,
+                   priority=0, step_anime=True, direction_fix=True)]))
+        R.save_map(map_id, m)
+
+
 def door_holes():
     """Puts a dark doorway under every door sprite set in a town wall. Runs
     after every module, like `shape_wall_tops`, so a door added anywhere gets
@@ -1084,6 +1135,7 @@ def main():
     shape_wall_tops()
     match_windows()
     dress_shut_doors()
+    light_fires()
     door_holes()
     cast_shadows()
     check_wide_pieces()

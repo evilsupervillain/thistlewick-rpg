@@ -228,6 +228,9 @@ def world_map():
         way_in = next(e["id"] for e in m["events"][1:]
                       if (e["x"], e["y"]) == (x, y))
         S.widen_exit(m["events"], way_in, [(x + dx, y)])
+    # The lighthouse, lit, seen from outside (30 Oct 2026); last, so that no
+    # id above moves.
+    m["events"].append(W.lighthouse_lamp(len(m["events"])))
     return m
 
 

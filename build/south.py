@@ -2359,7 +2359,7 @@ def lighthouse_events():
     # is the sea. See `WORLD_LIGHTHOUSE_STEP` in `places.py`.
     evs = [S.exit_tile(1, "Lighthouse Door", *LIGHTHOUSE_DOOR,
                        MAP_WORLD, *WORLD_LIGHTHOUSE_STEP)]
-    evs.append(bother_event(2, 8, 12))          # below the bar's last stool
+    evs.append(bother_event(2, 8, 11))          # on the bar's last stool (Mike, 31 Oct)
     evs.append(the_lamp(3, 133, 7))             # the stove on the lamp floor
 
     # On the book, on the desk in the log room at the top of the stairs.
@@ -2476,8 +2476,10 @@ def the_lamp(event_id, x, y):
         "somebody will get it, now that somebody has."])
 
     # Once it is burning the event carries the flame sprite, so the top of the
-    # lighthouse looks different from the bottom of the stairs.
-    flame = R.image("!Flame", 0, direction=2)
+    # lighthouse looks different from the bottom of the stairs. The big free
+    # flame, filling the lamp's window; it was the candle sconce, index 0,
+    # which was a small light in a big lamp (Mike, 31 Oct 2026).
+    flame = R.image("!Flame", 3, direction=2)
     return R.event(event_id, "The Lamp", x, y, [
         R.page(cold, img=R.image(""), trigger=0, priority=1,
                direction_fix=True),

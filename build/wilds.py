@@ -368,6 +368,22 @@ def barrow_top(event_id):
     ])
 
 
+def lighthouse_lamp(event_id):
+    """The world map's lighthouse, burning: nothing until the lamp is lit,
+    then the flame in the lamp room at the top of the tower - the cell above
+    the door, drawn over the party, animated (Mike, 30 Oct 2026). The sheet
+    is the stock small flame lifted into the lamp room (`tiles_d.py`)."""
+    x, y = WORLD_LIGHTHOUSE
+    return R.event(event_id, "The Lighthouse Lamp", x, y - 1, [
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True),
+        R.page([], img=R.image("!$LighthouseLamp", 0, direction=2),
+               trigger=0, priority=2, through=True, step_anime=True,
+               direction_fix=True,
+               conditions={"switch1Valid": True,
+                           "switch1Id": db.SW_LAMP_LIT}),
+    ])
+
+
 def crab_bounty(event_id):
     img = R.image("")
     fight = S.narrate([
