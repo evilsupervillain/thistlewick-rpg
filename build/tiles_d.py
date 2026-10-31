@@ -31,11 +31,15 @@ OUT = os.path.join(GAME, "img", "tilesets", SHEET + ".png")
 TS = 48
 
 DOORMAT, CRAB_H, CRAB_HOLLOW, CRAB_V = 1, 2, 3, 4
+NET_RACK_L, NET_RACK_R, NET_WALL = 5, 6, 7
 NAMES = {
     DOORMAT: "Doormat",
     CRAB_H: "Crab Tracks (H)",
     CRAB_HOLLOW: "Crab Tracks (Hollow)",
     CRAB_V: "Crab Tracks (V)",
+    NET_RACK_L: "Net Drying Rack (Left)",
+    NET_RACK_R: "Net Drying Rack (Right)",
+    NET_WALL: "Net (Wall)",
 }
 
 
@@ -46,7 +50,7 @@ def origin(n):
 
 def blend(cell, x, y, rgb, a):
     """Lay `rgb` at alpha `a` (0-255) over whatever is in the cell."""
-    if not (0 <= x < TS and 0 <= y < TS):
+    if not (0 <= x < cell.shape[1] and 0 <= y < cell.shape[0]):
         return
     src = np.array(list(rgb) + [a], dtype=float) / 255
     dst = cell[y, x].astype(float) / 255
@@ -140,6 +144,92 @@ def crab_hollow(rng):
     return c
 
 
+TWINE = (92, 84, 66)
+TWINE_LIT = (150, 140, 112)
+WOOD = (132, 90, 48)
+WOOD_LIT = (176, 128, 74)
+OUTLINE = (58, 38, 20)
+CORK = (196, 128, 58)
+
+
+def _net(c, top, bottom, x0, x1, rng, mesh=5):
+    """A hanging net between x0 and x1: its top edge follows `top(x)` and its
+    hem `bottom(x)`. Diamond mesh in twine, a heavier hem, and a little
+    shading so it reads as cloth with depth, not a grid."""
+    for x in range(x0, x1 + 1):
+        t, b = top(x), bottom(x)
+        for y in range(t, b + 1):
+            on = (x + y) % mesh == 0 or (x - y) % mesh == 0
+            if on:
+                shade = TWINE if (y - t) % 2 else TWINE_LIT
+                blend(c, x, y, shade, 225)
+            else:
+                blend(c, x, y, TWINE, 26)               # the gauze of it
+        for y in (b, b + 1):                            # the hem
+            blend(c, x, y, TWINE, 235)
+        blend(c, x, b + 2, (0, 0, 0), 45)
+
+
+def _float(c, x, y, rgb):
+    for dx in range(-2, 3):
+        for dy in range(-2, 3):
+            if dx * dx + dy * dy <= 5:
+                edge = dx * dx + dy * dy >= 4
+                blend(c, x + dx, y + dy, OUTLINE if edge else rgb, 255)
+    blend(c, x - 1, y - 1, (255, 236, 200), 200)
+
+
+def _post(c, x, y0, y1):
+    for y in range(y0, y1 + 1):
+        blend(c, x - 2, y, OUTLINE, 255)
+        blend(c, x - 1, y, WOOD_LIT, 255)
+        blend(c, x, y, WOOD, 255)
+        blend(c, x + 1, y, WOOD, 255)
+        blend(c, x + 2, y, OUTLINE, 255)
+    for dx in range(-2, 3):
+        blend(c, x + dx, y0 - 1, OUTLINE, 255)
+    for dx in range(-4, 6):                             # its shadow
+        blend(c, x + dx, y1 + 1, (0, 0, 0), 60)
+
+
+def net_rack(rng):
+    """Two cells: a pole on two posts on the sand, with a net hung over it to
+    dry - sagging between the posts, its hem weighted with cork floats."""
+    c = np.zeros((TS, TS * 2, 4), dtype=np.uint8)
+    xl, xr = 7, TS * 2 - 8
+    rail = 9
+    mid = (xl + xr) / 2
+    _net(c, lambda x: rail + 2,
+         lambda x: int(round(36 - 9 * ((x - mid) / (mid - xl)) ** 2)),
+         xl + 3, xr - 3, rng)
+    _post(c, xl, 6, 44)
+    _post(c, xr, 6, 44)
+    for x in range(xl - 3, xr + 4):                     # the pole
+        blend(c, x, rail - 1, OUTLINE, 255)
+        blend(c, x, rail, WOOD_LIT, 255)
+        blend(c, x, rail + 1, WOOD, 255)
+        blend(c, x, rail + 2, OUTLINE, 255)
+    for x in range(xl + 12, xr - 6, 14):
+        y = int(round(36 - 9 * ((x - mid) / (mid - xl)) ** 2)) + 1
+        _float(c, x, y, CORK)
+    return c[:, :TS].copy(), c[:, TS:].copy()
+
+
+def net_wall(rng):
+    """A net hung on a wall from two pegs, in a swag, with a green glass
+    float caught in it."""
+    c = np.zeros((TS, TS, 4), dtype=np.uint8)
+    _net(c, lambda x: int(round(14 + 6 * (1 - ((x - 24) / 18) ** 2))),
+         lambda x: int(round(42 - 8 * ((x - 24) / 18) ** 2)), 7, 41, rng)
+    for x in (6, 42):
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                blend(c, x + dx, 14 + dy, OUTLINE, 255)
+        blend(c, x, 14, WOOD_LIT, 255)
+    _float(c, 29, 32, (86, 168, 120))
+    return c
+
+
 def build():
     rng = np.random.default_rng(30_10_2026)
     sheet = np.zeros((TS * 16, TS * 16, 4), dtype=np.uint8)
@@ -149,6 +239,8 @@ def build():
         CRAB_HOLLOW: crab_hollow(rng),
     }
     tiles[CRAB_V] = np.transpose(crab_h(rng), (1, 0, 2))
+    tiles[NET_RACK_L], tiles[NET_RACK_R] = net_rack(rng)
+    tiles[NET_WALL] = net_wall(rng)
     for n, cell in tiles.items():
         x, y = origin(n)
         sheet[y:y + TS, x:x + TS] = cell

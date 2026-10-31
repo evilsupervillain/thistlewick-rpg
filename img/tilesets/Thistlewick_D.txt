@@ -3,9 +3,9 @@ Doormat|
 Crab Tracks (H)|
 Crab Tracks (Hollow)|
 Crab Tracks (V)|
-Transparent|
-Transparent|
-Transparent|
+Net Drying Rack (Left)|
+Net Drying Rack (Right)|
+Net (Wall)|
 Transparent|
 Transparent|
 Transparent|

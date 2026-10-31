@@ -710,11 +710,14 @@ def build_tilesets():
         tilesets[tid]["tilesetNames"][slot] = sheet
         tilesets[tid]["flags"][dst:dst + 256] = inside["flags"][src:src + 256]
     # This game's own D sheet (`tiles_d.py`, 30 Oct 2026): a doormat and a
-    # crab's tracks, which nothing in the box has. Outside's D slot and
-    # World's were empty; every tile on it is open and under characters.
+    # crab's tracks and nets, which nothing in the box has. Outside's D
+    # slot and World's were empty; all under characters, all open but the
+    # nets (`mapkit.D_BLOCKED`).
     for tid in (mapkit.TS_OUTSIDE, mapkit.TS_WORLD):
         tilesets[tid]["tilesetNames"][7] = mapkit.SHEET_D
         tilesets[tid]["flags"][R.TILE_ID_D:R.TILE_ID_D + 256] = [0] * 256
+        for t in mapkit.D_BLOCKED:
+            tilesets[tid]["flags"][t] = 0x0F
     # Two copies of stock tilesets with one sheet swapped for a recoloured
     # one, rewritten whole each build after the flags above, so the flags
     # follow: the Collegium's purple roofs (`mapkit.TS_COLLEGIUM`) and the

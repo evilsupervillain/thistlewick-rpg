@@ -603,13 +603,16 @@ def borrowed(sheet, name):
 
 
 # This game's own D sheet, on Outside and World (`build_game.build_tilesets`),
-# drawn by `tiles_d.py` because no stock sheet has these. All open, all under
-# characters.
+# drawn by `tiles_d.py` because no stock sheet has these. All under
+# characters; open, except what `D_BLOCKED` names.
 SHEET_D = "Thistlewick_D"
 DOORMAT = R.TILE_ID_D + 1
 CRAB_TRACKS_H = R.TILE_ID_D + 2   # sideways along a beach, east-west
 CRAB_HOLLOW = R.TILE_ID_D + 3     # where it sits; the trail comes in from the east
 CRAB_TRACKS_V = R.TILE_ID_D + 4
+NET_RACK = (R.TILE_ID_D + 5, R.TILE_ID_D + 6)    # two cells, left and right
+NET_WALL = R.TILE_ID_D + 7        # hung on a wall face, from two pegs
+D_BLOCKED = {NET_RACK[0], NET_RACK[1], NET_WALL}  # the rest are open
 
 
 # The Dungeon tileset has Inside_C in its E slot too (`build_game.build_tilesets`,
