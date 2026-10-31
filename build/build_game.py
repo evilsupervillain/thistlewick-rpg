@@ -489,16 +489,13 @@ FIRES = {
 }
 FIREBOXES = {("Inside_B", n) for n in range(194, 200)} | \
     {("SF_Inside_C", n) for n in (179, 180, 181)}
-# The stone and brick stoves, whose mouth is only the bottom half of the cell:
-# they take the same fire facing up, which stands on the hearth instead of
-# hanging 10px above it (Mike, 31 Oct 2026).
-LOW_FIREBOXES = {("Inside_B", n) for n in (194, 195)}
 
 
 def light_fires():
-    """A fire in every hearth `FIRES` names: `!Flame` 3 facing left, the
-    middle-sized fire, as the Sable Hart's and the Long Gallery's are (facing
-    up in a `LOW_FIREBOXES` stove, the same fire set lower) - below characters, animated, no commands, so it neither blocks nor
+    """A fire in every hearth `FIRES` names: `!Flame` 3 facing up, the
+    middle-sized fire set on the bottom of its cell, so it stands on the
+    hearth instead of hanging 10px above it (Mike, 31 Oct 2026) - below
+    characters, animated, no commands, so it neither blocks nor
     answers. Appended after every other event, so no id moves, and refused
     if the cell is not a fireplace, so a hearth moved in the editor is a
     failed build rather than a fire burning on the floor."""
@@ -514,9 +511,8 @@ def light_fires():
                 found.add((names[5 + t // 256], t % 256))
         assert found & FIREBOXES, "Map%03d (%d,%d) is not a hearth: %s" % (
             map_id, x, y, sorted(found))
-        direction = 8 if found & LOW_FIREBOXES else 4
         m["events"].append(R.event(len(m["events"]), "The Fire", x, y, [
-            R.page([], img=R.image("!Flame", 3, direction=direction), trigger=0,
+            R.page([], img=R.image("!Flame", 3, direction=8), trigger=0,
                    priority=0, step_anime=True, direction_fix=True)]))
         R.save_map(map_id, m)
 
