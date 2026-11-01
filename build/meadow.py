@@ -550,8 +550,18 @@ def dilys_event():
                  "QUESTS go in your QUEST LOG!"])
     yes += fizz(["...We haven't got a quest log.",
                  "Just remember it! Really hard!"])
-    yes += fizz_out()
+    # G0 (QUESTS.md, Mike 7 Oct 2026): the line stays and gets an answer.
+    # The switch moves up to here so the quest is in the log when the
+    # narration says it is; the banner follows when the scene ends.
     yes += [R.control_switch(db.SW_FF_SHEEP_ASKED, True)]
+    yes += S.narrate(["You point out that you do have a quest log,",
+                      "and that this quest has just appeared in it."])
+    yes += fizz(["...WHO GAVE YOU THAT?"])
+    yes += fizz(["Nobody tells ME anything."])
+    yes += fizz(["...Oh."])
+    yes += fizz(["Remember it anyway. Really hard.",
+                 "Just in case."])
+    yes += fizz_out()
     no = S.say("Dilys", ["But thou must!"])
     no += R.if_then(R.condition_self_switch("C", False),
                     [S.trope(), R.self_switch("C")])

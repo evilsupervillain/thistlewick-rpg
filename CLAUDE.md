@@ -411,6 +411,17 @@ in each of the four states.
                      world-map coordinate in it was re-cut for the 120x120
                      map**, and its docstring says which ones are not `+ (35,35)`
       story.py       shared dialogue helpers and the endgame
+      quests.py      the quest log (`QUESTS.md` G0): `data/Quests.json` and
+                     the workspace plugin `js/plugins/QuestLog.js`, installed
+                     through `../tools/questlog`. Every quest is bound to
+                     switches the game already sets; nothing in it changes
+                     an event. **A new quest, or a new step in one, gets a
+                     line here** - its start must not be a switch that can go
+                     off (`SW_RECRUIT`, or an "ends" switch that ends on a
+                     failure), and a finished quest's description must read
+                     on its own, because the log shows only the last entry
+                     that holds. `../tools/questlog/check.py .` (validate runs
+                     it) checks widths: 22 characters for a title
       build_game.py  runs all of the above, then the post-passes over every
                      interior: `new_tables` (every `Table D`/`Table A` becomes
                      the A2 table Mike chose, joined where tables touch;

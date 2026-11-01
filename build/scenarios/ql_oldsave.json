@@ -1,0 +1,25 @@
+{
+  "query": "?map=2&x=8&y=8&frames=60",
+  "steps": [
+    {"comment": "QUESTS.md G0: a live-rpg save from before the quest log. The state of a mid-game party is put in place with no log on the save at all, the way an old file loads; the plugin's first look must be silent (QUESTLOG.md 2.5), with every finished quest filed under Completed."},
+    {"eval": "$gameSystem.disableEncounter()"},
+    {"eval": "delete $gameSystem._questLog; [1, 2, 3, 24, 25, 26, 27, 32, 41, 81, 82, 83, 84, 85, 145, 111, 112, 113].forEach(n => $gameSwitches.setValue(n, true)); $gameVariables.setValue(4, 3); $gameSelfSwitches.setValue([8, 2, 'A'], true); window._r = QuestLog.refresh()"},
+    {"check": "window._r", "expect": [], "label": "the first look at an old save announces nothing"},
+    {"check": "QuestLog.listed('completed')", "expect": ["feud", "guild", "ff_sheep", "ff_quest_log", "ald4", "wre2", "wre5"],
+     "label": "the finished quests are under Completed, in file order"},
+    {"check": "QuestLog.listed('active')", "expect": ["obligatory", "bounty_crab", "bounty_crooke", "lighthouse", "history", "firstfield", "nix5"],
+     "label": "the unfinished ones are under Active, the main quest first"},
+    {"check": "QuestLog.listed('active').concat(QuestLog.listed('completed')).every(k => $gameSystem._questLog.seen[k])", "expect": true,
+     "label": "and none of them is marked as news"},
+    {"frames": 120},
+    {"check": "[QuestLog.pending(), SceneManager._scene._questBannerWindow.isShowing()]", "expect": [[], false],
+     "label": "two seconds later there is still no banner"},
+    {"eval": "$gameSwitches.setValue(33, true)"},
+    {"frames": 10},
+    {"check": "QuestLog.pending().map(c => c.kind + ' ' + c.key)", "expect": ["complete lighthouse"],
+     "label": "and the next thing the player does is news, as usual"},
+    {"until": "SceneManager._scene._questBannerWindow.isShowing()", "frames": 600},
+    {"frames": 30},
+    {"shot": "ql_oldsave_banner.png"}
+  ]
+}

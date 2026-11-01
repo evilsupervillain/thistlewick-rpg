@@ -52,6 +52,7 @@ import places  # noqa: E402
 import q_corvin  # noqa: E402  draws COR-2's drowned street, Map 66
 import q_roland  # noqa: E402  draws ROL-2's dungeon, Map 67
 import q_spare  # noqa: E402  checks F1's gate against the built town
+import quests  # noqa: E402  G0: the quest log, Quests.json and its plugin
 import south  # noqa: E402
 import village  # noqa: E402
 import wilds  # noqa: E402
@@ -1232,6 +1233,7 @@ def main():
                     {"commonEvent": str(db.CE_CONTINUANCE),
                      "mapId": str(places.MAP_CONTINUANCE),
                      "x": str(mountain.PORCH[0]), "y": str(mountain.PORCH[1])})
+    quests.build(GAME)                  # G0: the quest log (QUESTS.md)
 
     print("built The Obligatory Quest")
     print("  %d maps, %d playable characters, %d skills"

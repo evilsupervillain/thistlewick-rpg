@@ -619,7 +619,7 @@ in before the ending, in this order. One step per session, as before.
 * **Then G1's counter re-cuts, the one full suite, Mike's playthrough, and
   the push**, in that order. The re-cuts come last because P4 adds tropes.
 
-**G0. The quest log** (added 7 Oct 2026). Install the workspace's generic
+**G0. The quest log** (added 7 Oct 2026; **done 31 Oct 2026**, see section 3). Install the workspace's generic
 quest-log plugin (`../QUESTLOG.md`); its milestones Q0-Q7 are done (13 Oct
 2026), so this step can start whenever its turn comes. It goes
 **before G1** so that G1's one full suite and Mike's playtest cover it too;
@@ -4942,12 +4942,93 @@ keep their ids. No line changed. Scenario `music`.
 Still never used anywhere: Battle1, 3-6, Field2, Field3, Scene1, Scene5,
 Scene7-9, Theme5.
 
+**G0, the quest log - done** (31 Oct 2026). `build/quests.py` (new), called
+last from `build_game.main`. It installs `js/plugins/QuestLog.js` from
+`../tools/questlog` (the plugin is untouched) and writes `data/Quests.json`.
+The only event that changed is Dilys's, for Fizz's answer. No database id was
+spent. `check.py`: 72 quests, 0 errors, 0 warnings. `validate.py` is clean.
+
+* **72 quests**:
+  * one main;
+  * the eleven of the south: the Feud, Form A-1, both bounties, the
+    lighthouse, the Pit, the Forty-Fourth, the bench, Hosea, and Number
+    Forty-Five, which runs from Quy's question to the post-game afternoon;
+  * four of the north: the Two Hundred, ITEM 1, Eighty-Four, Form P-9;
+  * three in Firstfield, and the visitors' book;
+  * all 45 companion quests and SPA-1 to SPA-3;
+  * three post-game: Clause Nineteen, the Door, and Form Z.
+
+  The categories are `main`, `side`, `companion` and `postgame`. Only `main`
+  changes anything on screen.
+* **Bindings.** No quest reads `SW_RECRUIT`.
+  * A switch that ends at the finish, such as PIP-3's or ROL-1's "on", is
+    started as `any(on, done)`, and the plugin's latch holds the completion.
+  * NIX-5's escort switch also ends on a *failure*. Its start also reads the
+    mouth's self switch A, so a failed night keeps the quest; `ql_log` fails
+    one to prove it.
+  * The Feud starts on any of its three switches, because the jar's switch
+    goes off when the reply's goes on.
+* **Self switches read** (`quests.SELF_BINDINGS`), which `check.py` cannot
+  trace:
+  * Map 8 event 2 A: NIX-5's tale told.
+  * Map 2 event 8 A: the letter on the mat read, which starts Clause
+    Nineteen.
+  * Map 17 event 2 B: Quy's afternoon, which completes Number Forty-Five.
+* **Read off counters and the bag**:
+  * Shown as progress: tales (6), Dilys's sheep (3), HOB-1's owners, NIX-4's
+    returns, PIP-4's accounts, ROL-3's guests and WRE-1's specimens (11
+    each), NIX-3's list (3), and SPA-1's letters (8).
+  * Used as conditions: `VAR_COMPANIONS`, `VAR_FF_STATIONS` and
+    `VAR_SPA4_TOUR`.
+  * Items: the reference and "A Hat" (equipped counts), the lamp oil, the
+    duck, Aldric's letter, the brass plate, Dunstable's lamp and the bounty
+    card. ITEM 1 counts as done when it is off the crag and no longer carried,
+    which covers both of its endings.
+* **Fifteen quests arrive complete**, because their offer leaves nothing
+  behind to bind to:
+  * ALD-2, 3, 4, 5 and 6;
+  * ZEPH-3, 4 and 5;
+  * COR-4 and 5;
+  * PIP-2, WRE-5 and ROL-4;
+  * Eighty-Four, and "We haven't got a quest log".
+
+  The banner says "Quest complete" when the scene ends.
+* **Mike's two decisions, as built:**
+  * **No menu switch.** Bram has the log from the first screen, and
+    `ql_log` asserts the command is there.
+  * **Fizz's line has its answer**, both halves, in the order G0 gives:
+    "...WHO GAVE YOU THAT?" / "Nobody tells ME anything." / "...Oh." /
+    "Remember it anyway. Really hard. Just in case." `SW_FF_SHEEP_ASKED`
+    moved up, so the scenario asserts the switch is on when the narration
+    says the quest has appeared.
+* **One deviation: the title.** "We haven't got a quest log." is 27
+  characters, and the list is 22 wide. The quest is called **"Remember
+  Really Hard"** (Fizz's next words). The description is G0's, word for word.
+* **The tracker is off**, the plugin's default. Turning it on is one argument
+  to `install`, and it is Mike's call.
+* **Descriptions are new writing, for Mike's eye.** They are in the narrator's
+  register, with no blush and no new trope. The plugin shows only the last
+  entry that holds, so a finished quest's closing reads on its own. Lines
+  are reused from published text where possible, such as the visitors'-book
+  entry, the bounty cards and Prudence's "Do not shake it". None of them
+  repeats a G1 ending line.
+* **Scenarios**:
+  * `ql_log` (new): one quest from each part through its statuses, then
+    Fizz's line played for real, the banner, and the log on both tabs
+    (`ql_banner.png`, `ql_active_*.png`, `ql_completed*.png`).
+  * `ql_oldsave` (new): a mid-game state with no `_questLog`. It is silent,
+    files seven quests under Completed, marks nothing as news, and announces
+    the next change as usual.
+  * `firstfield`, rerun for Dilys.
+
 ---
 
 ## Restart prompt
 
-**Start with G0, the quest log.** **P4a-P4f are done** (the last six Done
-paragraphs in section 3; P4f, SPA-3 The Tenth, was built 30 Oct 2026 and
+**Start with G1, the ending re-cut.** **G0, the quest log, is done** (31 Oct
+2026, its Done paragraph is the last in section 3): a new quest, or a new step
+in one, gets a line in `build/quests.py`. **P4a-P4f are done** (the six Done
+paragraphs before it; P4f, SPA-3 The Tenth, was built 30 Oct 2026 and
 its four older scenarios wait for Mike's word). The finale hands back
 to Bram's house; Thistlewick, the pension, Fitch's cottage (Map 71) and
 Roland are built; Prophecy Hall's lectern reads the tally again as "THE
@@ -4962,10 +5043,7 @@ can-lose with its lose branch calling common event 7, the way `_warden` and
 `_unscheduled` do. Do not
 settle whether Dunstable is alive, or anything about the spine. Every boss's
 "below X% HP" action was written as a turn condition and never fired; fixed 31
-Oct (P4e Done paragraph). G0, the quest log,
-follows its plugin, which is built (`../QUESTLOG.md` Q0-Q7, 13 Oct);
-`apidigest.py --check` passes as of P4d, so `build/API.md` already has
-`rmmzdata.read_plugins`/`write_plugins`/`upsert_plugin`. Last come G1's counter re-cuts,
+Oct (P4e Done paragraph). Last come G1's counter re-cuts,
 the one full suite, Mike's playthrough, and the push. Settled 28 Oct: the
 three P4a tally lines stand; buffs and debuffs carry their turns in value1
 (P1 note); the Guild's shield was the indoor one, and all three file columns
