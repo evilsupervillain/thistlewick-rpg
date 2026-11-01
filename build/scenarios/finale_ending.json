@@ -58,6 +58,60 @@
       "label": "P4a: nobody has a companion story, so the count line is absent"
     },
     {
+      "comment": "G1: the two counters re-cut against the finished build (journey.py's comments above both branches). Each threshold is run either side of its edge: tropes 150 / 20, blushes 36."
+    },
+    {
+      "eval": "$gameVariables.setValue(2, 149); $gameVariables.setValue(7, 35); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "[window.saw(\"he went south, which nobody does.\"), window.saw(\"A respectable haul of cliches\"), window.saw(\"Remarkably few cliches\"), window.saw(\"in the room for very nearly all of them,\")]",
+      "expect": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "label": "G1: 149 tropes is a respectable haul and 35 blushes says nothing"
+    },
+    {
+      "eval": "$gameVariables.setValue(2, 150); $gameVariables.setValue(7, 36); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "[window.saw(\"he went south, which nobody does.\"), window.saw(\"A respectable haul of cliches\"), window.saw(\"Remarkably few cliches\"), window.saw(\"in the room for very nearly all of them,\")]",
+      "expect": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "label": "G1: 150 tropes is very nearly all of them, and so are 36 blushes"
+    },
+    {
+      "eval": "$gameVariables.setValue(2, 19); $gameVariables.setValue(7, 0); window.runFinale(window.SKIP_SLOW)"
+    },
+    {
+      "frames": 60
+    },
+    {
+      "check": "[window.saw(\"he went south, which nobody does.\"), window.saw(\"A respectable haul of cliches\"), window.saw(\"Remarkably few cliches\"), window.saw(\"in the room for very nearly all of them,\")]",
+      "expect": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "label": "G1: 19 tropes is remarkably few"
+    },
+    {
+      "eval": "$gameVariables.setValue(2, 12); $gameVariables.setValue(7, 0)"
+    },
+    {
       "comment": "Pass B. The two questions Ott can send you up here with are independent switches on independent branches, and the pair of passes that follow exist to prove that they are - a single `if_then` written at the wrong indent would make one of them carry the other, which reads on screen as Grimspite answering a question nobody put to him.",
       "eval": "$gameSwitches.setValue(65, true); $gameSwitches.setValue(70, false); $gameSwitches.setValue(68, false); $gameSwitches.setValue(71, false); $gameVariables.setValue(5, 0); window.runFinale(window.SKIP_SLOW)"
     },

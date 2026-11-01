@@ -110,7 +110,7 @@ is ever answered. He is never told the airship flew.
 reading `SW_ROLAND_GONE`, `SW_SOUTH`, `VAR_BOUNTIES` (two tiers, the lower
 nested in the higher's else), `SW_HISTORY_DONE`, `SW_LAMP_LIT`,
 `SW_BENCH_DONE`, `SW_TWO_HUNDRED_FLEW`, `SW_84_REBUILT`, `SW_ITEM_ONE_USED`,
-`SW_HOB_BRYD`, `VAR_TROPES` (90 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`,
+`SW_HOB_BRYD`, `VAR_TROPES` (150 / 20 / else), `SW_BALLAD_DONE`, `VAR_BLUSHES`,
 `SW_FF_GRADUATED` and `SW_MET_QUY`. Every one is additive: a new line here is a new block, and
 nothing that is already in the tally comes out or gets re-voiced.
 
@@ -194,14 +194,20 @@ as 354, or the run lands in Bram's house. Both harnesses (`finale_ending`'s
 `SKIP_SLOW` and `premises`') do.
 
 **Two counter thresholds are cut against totals, and were last re-cut in
-September 2026** (`SITES.md` section 4), once every site on that list was built
-and the totals had stopped moving. Anything that adds a `story.trope()` or a
+G1** (`QUESTS.md`, 31 Oct 2026), once every companion quest, site and curio
+was built and the totals had stopped moving; before that in September 2026
+(`SITES.md` section 4). Only what can be reached before the finale's tally
+counts: post-game tropes and blushes, behind `SW_WON` or on Maps 71-78, show
+up only in the amended account, which reads the same thresholds. Anything that adds a `story.trope()` or a
 `story.blush()` site later has to come back here; the reasoning is in the
 comments above both branches in `journey.finale_event`.
 
-`VAR_TROPES` is **90 / 20** against about a hundred and forty reachable since
-`CURIOS.md` (31 Oct 2026), whose look-at props added about fifty: ninety is
-two thirds of it again. Before that it was **60 / 20** against about
+`VAR_TROPES` is **150 / 20** against about **225** reachable, counted off
+`data/` in G1: 43 curio kinds, each once in the game, and 192 other jokes
+(one per event and line of text, so a joke repeated on a later page is one),
+less about ten branches that cannot both run. A hundred and fifty is two
+thirds. `CURIOS.md`'s 90 was two thirds of "about a hundred and forty", which
+had left out the companion quests' fifty-one and PIP-2's suggestions. Before that it was **60 / 20** against about
 ninety-two reachable - 122 code-122
 writes to variable 2 across 107 events, less repeat pages and branches that
 cannot both run. **The two tiers are different kinds of number, so only one
@@ -223,8 +229,11 @@ one, the founder's stone, Fenmarch Hall one, the portraits whose eyes follow
 you, the Collegium Arcanum one, REFERATUR, and Great Dunnage one, the watchman
 who has never heard of you.)
 
-`VAR_BLUSHES` is **26**, four fifths of **thirty-two** reachable - thirty-four
-until October 2026, when Hob and Bryd's meeting and spar afternoon stopped
+`VAR_BLUSHES` is **36**, four fifths of **forty-five** reachable, counted off
+`data/` in G1: 54 writes to variable 7 before the ending, less the travellers,
+the census and seven of MER-2's ten (one witness of eight), and every one runs
+once. The companion quests brought the thirteen. Before that it was **26**, four
+fifths of **thirty-two** - thirty-four until October 2026, when Hob and Bryd's meeting and spar afternoon stopped
 being blushes (`NORTH.md` 1.6). The 34 was
 proven by scenarios, each of which walks a moment and then asks again:
 `blushes` 11, `clanging_cast` 8, `two_hundred` 5 and `hob_and_bryd`'s spar

@@ -1238,8 +1238,22 @@ def tally(amended=False):
     # curios took the reachable total to about a hundred and forty, and
     # sixty had fallen to well under half of it. **Ninety** is two thirds
     # again; twenty stays for the same reason as before.
+    #
+    # **Re-cut in G1 (QUESTS.md, 31 October 2026), against the finished
+    # build, and only the top tier moved.** "About a hundred and forty" left
+    # out the companion quests' fifty-one and PIP-2's suggestions. Counted
+    # off `data/` this time: 43 curio kinds, each once in the game, and 192
+    # other jokes - one per event and line of text, so a joke repeated on a
+    # later page of the same event is one - less about ten branches that
+    # cannot both run (the sites' with- and without-companion pages, the
+    # chest's two answers, the turnip's nine of eleven): about 225. **A
+    # hundred and fifty** is two thirds. Twenty stays. Only what can be
+    # reached *before* this tally counts: the post-game's tropes (the Stair,
+    # the continuance, the morning) are on pages behind `SW_WON` or on Maps
+    # 71-78, and show up only in the amended account (POSTGAME.md 8), which
+    # reads the same thresholds.
     c += R.if_then(
-        R.condition_variable(db.VAR_TROPES, 90, 1),
+        R.condition_variable(db.VAR_TROPES, 150, 1),
         S.narrate(["Very nearly all of them. He read the notice",
                    "board, he searched the barrels, he opened",
                    "things that were obviously not chests, and",
@@ -1297,8 +1311,18 @@ def tally(amended=False):
     # when Hob and Bryd were rewritten as old rivals rather than as a blush:
     # the meeting (one of `clanging_cast`'s eight) and the spar afternoon no
     # longer count. Four fifths of thirty-two is 25.6.
+    #
+    # **Forty-five, and the tier is thirty-six** - re-cut in G1 (QUESTS.md,
+    # 31 October 2026) once every companion quest was built. Counted off
+    # `data/`: 54 code-122 writes to variable 7 before the ending, less the
+    # travellers and the census as above, less seven of MER-2's ten (the
+    # chest and the cough, then one witness of eight). Every one is behind a
+    # self switch, a switch its own page turns off, or a step counter its own
+    # page moves on, so none can be counted twice. Bessie's post-spring pages
+    # are behind `SW_SPA3_DONE` and count only in the amended account. Four
+    # fifths of forty-five is 36.
     c += R.if_then(
-        R.condition_variable(db.VAR_BLUSHES, 26, 1),
+        R.condition_variable(db.VAR_BLUSHES, 36, 1),
         S.narrate([
             "Very nearly all of them, which means he was",
             "in the room for very nearly all of them,",

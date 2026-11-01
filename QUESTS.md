@@ -689,7 +689,8 @@ it, and none of it belongs in `tools/questlog/`.
 * **Done paragraph** names the quest count, every self-switch binding, and
   what Mike decided for the menu switch and Fizz's line.
 
-**G1.** One `if_then` block per companion on `SW_<NAME>_STORY` (and Spare's),
+**G1.** (*Re-cut done 31 Oct 2026, see section 3; the suite waits for
+Mike.*) One `if_then` block per companion on `SW_<NAME>_STORY` (and Spare's),
 each choosing one line from its quests' candidates, and one closing line on
 `VAR_COMPANION_STORIES` (1.4), appended to `journey.finale_event`'s tally
 before THE END; `finale_ending` extended to assert them. Then **both counters
@@ -5021,12 +5022,52 @@ spent. `check.py`: 72 quests, 0 errors, 0 warnings. `validate.py` is clean.
     the next change as usual.
   * `firstfield`, rerun for Dilys.
 
+**G1, the ending - re-cut done, the suite waits for Mike's word** (31 Oct
+2026). The companion lines and the closing count were built in P4a
+(`postgame.companion_lines()`, `POSTGAME.md` 7), so G1 was only the re-cut.
+Both totals were counted off the built `data/`, not added up from the running
+tallies, and only what can be reached **before** the finale's tally counts:
+pages behind `SW_WON` or a post-game switch (214 and up), and Maps 71-78,
+count only in the amended account, which reads the same thresholds.
+
+* **`VAR_TROPES`: 150 / 20** (was 90 / 20). Reachable is about **225**. That
+  is 43 curio kinds, each counted once in the game, and 192 other jokes,
+  counting one per event and line of text so that a joke repeated on a later
+  page is one. Less about ten branches that cannot both run: the world-map
+  sites' with- and without-companion pages, the chest's two answers, Mr
+  Pennock's two, the Barred Door, the turnip's nine of eleven. The "about a
+  hundred and forty" that 90 was cut against (`CURIOS.md`, earlier the same
+  day) had left out the companion quests' +51 and PIP-2's suggestions, so 90
+  was two fifths, not two thirds. 150 is two thirds again. Twenty stays: it is
+  the critical path, and nothing since has been on it.
+* **`VAR_BLUSHES`: 36** (was 26). Reachable is **45**: 54 writes to variable
+  7 before the ending, less the travellers (one joke, two events), the census
+  (two pages, one guard), and seven of MER-2's ten (the chest and the cough,
+  then one witness of eight). Every bump is behind a self switch, a switch its
+  own page turns off, or a step counter it moves on (Ott's flying chain), so
+  none can be counted twice. Bessie's post-spring pages are behind
+  `SW_SPA3_DONE` and are excluded. The running tallies said 32 + 13 + 1 = 46;
+  the data says 45. Four fifths of 45 is 36.
+* **Changed**: the two thresholds and the comments above both branches in
+  `journey.finale_event` (so the finale, Map 12, and the lectern, Map 3,
+  which is built by the same function); `CLAUDE.md` "The ending". The data
+  diff is those two maps, and each is byte for byte HEAD's with 90 -> 150 and
+  26 -> 36.
+* **`finale_ending`** now runs the tally either side of each edge: 149 / 35
+  is a respectable haul and no blush line, 150 / 36 gets both "very nearly
+  all", 19 is remarkably few. It and `pg_account` (the lectern) pass.
+* **Next**: the full suite, `../tools/scenarios.sh .`, about eight hours,
+  in the background - when Mike says. Then his playthrough, then the push.
+
 ---
 
 ## Restart prompt
 
-**Start with G1, the ending re-cut.** **G0, the quest log, is done** (31 Oct
-2026, its Done paragraph is the last in section 3): a new quest, or a new step
+**G1's re-cut is done** (31 Oct 2026, the last Done paragraph in section 3):
+tropes 150 / 20, blushes 36. **Next is the full suite, once, when Mike says**
+(`../tools/scenarios.sh .` in the background, about eight hours), then his
+playthrough, then the push. **G0, the quest log, is done** (31 Oct
+2026, its Done paragraph is the one before G1's): a new quest, or a new step
 in one, gets a line in `build/quests.py`. **P4a-P4f are done** (the six Done
 paragraphs before it; P4f, SPA-3 The Tenth, was built 30 Oct 2026 and
 its four older scenarios wait for Mike's word). The finale hands back
@@ -5043,16 +5084,17 @@ can-lose with its lose branch calling common event 7, the way `_warden` and
 `_unscheduled` do. Do not
 settle whether Dunstable is alive, or anything about the spine. Every boss's
 "below X% HP" action was written as a turn condition and never fired; fixed 31
-Oct (P4e Done paragraph). Last come G1's counter re-cuts,
-the one full suite, Mike's playthrough, and the push. Settled 28 Oct: the
+Oct (P4e Done paragraph). Last come the one full suite, Mike's
+playthrough, and the push. Settled 28 Oct: the
 three P4a tally lines stand; buffs and debuffs carry their turns in value1
 (P1 note); the Guild's shield was the indoor one, and all three file columns
 answer. For G1's re-cut: the trope bumps that ran on **every** reading
 (props, signs, inn mornings - 46 of them, not the nine first counted) are
 guarded since 31 Oct by `build_game.once_tropes`, a post-pass that gives each
 one it cannot prove once a self switch keyed on the joke's text; scenario
-`once_tropes`. Count each joke once. Trope sites to add to the re-cut: P4d's three, P4e's one and
-P4f's one, the yes on waking (+5 reachable). Next free:
+`once_tropes`. The re-cut counted each joke once, and left out P4d's three,
+P4e's one and P4f's one: they are post-game, so by `POSTGAME.md` 8 they count
+only in the amended account. Next free:
 switch 229, variable 34 (the list is sized 40), item 80, weapon 44, armour
 49, common event 9, map 79, state 46, enemy 66, troop 62, skill 196,
 `Gen_People16` 2. A new bed calls common event 8 or the build fails. Anything that runs the finale's list
