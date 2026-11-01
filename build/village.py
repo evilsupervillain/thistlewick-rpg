@@ -37,14 +37,15 @@ VW, VH = 40, 36    # two rows deeper than the buildings need, so that
 # the last row of the building, and `building()` returns that y.
 HALL = (8, 4, 9, 7)
 CHAPEL = (24, 4, 8, 7)
-INN = (3, 18, 8, 6)
+INN = (2, 17, 8, 6)      # Mike moved it one up and one west, 31 Oct, to
+                         # open a way north between it and the field
 SMITHY = (3, 27, 7, 5)
 STORE = (25, 18, 8, 5)
 HOME = (25, 27, 7, 5)
 
 HALL_DOOR = (12, HALL[1] + HALL[3] - 1)
 CHAPEL_DOOR = (28, CHAPEL[1] + CHAPEL[3] - 1)
-INN_DOOR = (6, INN[1] + INN[3] - 1)
+INN_DOOR = (INN[0] + 3, INN[1] + INN[3] - 1)
 SMITHY_DOOR = (6, SMITHY[1] + SMITHY[3] - 1)
 STORE_DOOR = (28, STORE[1] + STORE[3] - 1)
 HOME_DOOR = (28, HOME[1] + HOME[3] - 1)
@@ -133,7 +134,7 @@ def village_map():
     g.set(STORE_DOOR[0] - 2, STORE_DOOR[1], 3, K.SIGN_ORB)
     g.set(STORE_DOOR[0] + 2, STORE_DOOR[1], 3, K.SIGN_RING)
     g.set(HOME_DOOR[0] - 2, HOME_DOOR[1], 3, K.WINDOW)
-    for x, y in [(9, 10), (15, 10), (5, 23), (9, 23), (32, 22),
+    for x, y in [(9, 10), (15, 10), (4, 22), (8, 22), (32, 22),
                  (26, 31), (31, 31), (4, 31), (25, 22)]:
         g.set(x, y, 3, K.WINDOW)
     for b in (INN, STORE, HOME, SMITHY):
@@ -308,8 +309,10 @@ def village_events():
         13, "Old Man", 11, 17, old, "People4", 4))))
 
     # -- 14/15: the dog, and the man who speaks for him (Mike moved them out
-    # of the lane between the smithy and the Turnip's garden, 30 Oct) ----------
-    add(S.npc(14, "Dog", 24, 23,
+    # of the lane between the smithy and the Turnip's garden, 30 Oct, and on
+    # 31 Oct round to the Turnip's west end, where the corner keeps the dog
+    # from wandering off) -------------------------------------------------------
+    add(S.npc(14, "Dog", 2, 24,
               S.say("Dog", ["Woof."]),
               "Nature", 0, move_type=1, move_frequency=2))
     interp = S.say("Neighbour", [
@@ -317,7 +320,7 @@ def village_events():
         "and you should take a coat."])
     interp += S.narrate(["The dog has not made a sound."])
     interp += S.say("Neighbour", ["He says it again. Louder."])
-    dog = add(S.npc(15, "Dog Interpreter", 24, 22, interp, "People1", 1))
+    dog = add(S.npc(15, "Dog Interpreter", 2, 23, interp, "People1", 1))
     dog["pages"].append(PG.interpreter_page(dog["pages"][0]))        # P4b
 
     # -- 16: the farmer, who is Bram's actual boss -----------------------------
@@ -360,7 +363,7 @@ def village_events():
                       "The barrel belongs to the innkeeper."])
     loot += [R.play_se("Item1"), R.gain_item(db.IT_POTION, 3), S.trope(),
              R.self_switch("A", True)]
-    add(R.event(19, "Innkeeper's Barrel", 9, 24, [
+    add(R.event(19, "Innkeeper's Barrel", 8, 23, [
         R.page(loot, img=R.image(""), trigger=0, priority=1,
                direction_fix=True, through=True),
         R.page(S.narrate(["You have already robbed this barrel."]),
@@ -368,7 +371,7 @@ def village_events():
                through=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
-    add(S.sign(20, "The Other Barrel", 10, 24, [
+    add(S.sign(20, "The Other Barrel", 9, 23, [
         "Rainwater. Half a boot.",
         "Nothing a hero could use."]))
 

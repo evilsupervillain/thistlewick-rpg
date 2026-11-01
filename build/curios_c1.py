@@ -194,18 +194,18 @@ THISTLEWICK = [
         "A painted sack, and NIX'S EMPORIUM. EST. RECENTLY. The sack is "
         "painted a little open, so you cannot see what is in it.",
         "This is, you suspect, the whole business model."]),
-    C("The Tankard Sign", (4, 23), "Shop Sign (Pub)", [
+    C("The Tankard Sign", (3, 22), "Shop Sign (Pub)", [
         "A tin tankard hangs on a bracket over the inn and creaks when "
         "the wind blows.",
         "It creaks in exactly the rhythm of the Gilded Turnip's "
         "favourite song, and has taught it to three generations of "
         "the village."]),
-    C("The Inn Sign", (8, 23), "Shop Sign (Inn)", [
+    C("The Inn Sign", (7, 22), "Shop Sign (Inn)", [
         "THE GILDED TURNIP. ROOMS. Somebody has given it a star in "
         "chalk.",
         "Somebody else has added four more stars in a different chalk, "
         "in Prudence's handwriting."]),
-    C("The Inn Window", (5, 23), "Window A", [
+    C("The Inn Window", (4, 22), "Window A", [
         "Through the window: the inside of the Gilded Turnip, warm and "
         "brown and loud.",
         "Somebody in there is singing about you. It is not entirely "
