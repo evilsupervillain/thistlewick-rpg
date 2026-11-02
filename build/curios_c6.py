@@ -72,8 +72,10 @@ GOTOBEDS = [
         "Two swords crossed on the wall, very well kept. A brass plate "
         "under them: H. GOTOBED - ADVENTURER (RETIRED).",
         "Tucked behind one hilt, a card in Mrs Gotobed's hand: HE CAME "
-        "THROUGH ON A QUEST TO RESCUE SOMEBODY ELSE. HE STAYED FOR TEA. "
-        "THE OTHER ONE WAS FINE."],
+        "THROUGH ON A QUEST TO RESCUE A LADY. HE KNOCKED ON THE WRONG "
+        "DOOR.",
+        "IT WAS MINE. HE HAS BEEN RESCUING ME EVER SINCE, MOSTLY FROM "
+        "SPIDERS, WHICH HE PUTS OUT OF THE WINDOW."],
       again=["The swords are oiled every Sunday and put back exactly "
              "crossed. Nothing in Much Pottering has needed slaying since. "
              "He puts this down to the swords."],
@@ -85,6 +87,14 @@ GOTOBEDS = [
         "Much Pottering is circled twice, and beside it, in the same red "
         "ink: FOUND IT."],
       trope="world_map"),
+    C("Necklace", (33, 9), "Necklace", [
+        "At the other end of the dresser, out on its stand where it can "
+        "be seen from the bed: a necklace, one green stone on a gold "
+        "chain.",
+        "A card tucked under the stand, in Mr Gotobed's hand: THE "
+        "REWARD, FOR WHOEVER RESCUED THE LADY. SHE GOT HERSELF OUT, AND "
+        "SENT IT ON TO ME.",
+        "SHE WROTE: GIVE IT TO THE ONE YOU DID RESCUE. I DID."]),
 ]
 
 ALL = {68: POTTERING, 69: GOTOBEDS}

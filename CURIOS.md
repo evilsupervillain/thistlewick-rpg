@@ -272,8 +272,8 @@ Most common free objects across the game:
 * `crystal_ball`.
 
 **In use (C7, at Mike's suggestion):**
-* `retired_hero` (Mr Gotobed's swords: he came to rescue somebody else
-  and stayed for tea).
+* `retired_hero` (Mr Gotobed's swords: he came to rescue a lady, knocked
+  on the wrong door, and it was Mrs Gotobed's).
 
 **Candidates still unclaimed:** the rest of this table.
 
@@ -843,9 +843,12 @@ Ollerenshaw's BEST IN HALL; Hob had a cold) are in.
 **Mr Gotobed (Map 69), at Mike's suggestion.** The crossed swords in
 the upstairs alcove and the world map over the bedroom drawers were the
 two props on the map with no curio. They are now Mr Gotobed's youth:
-ADVENTURER (RETIRED), who came through on a quest to rescue somebody
-else and stayed for tea, and a red line to every edge of the map and
-back to Much Pottering, circled: FOUND IT. A new kind, `retired_hero`.
+ADVENTURER (RETIRED), who came through on a quest to rescue a lady,
+knocked on the wrong door, and it was Mrs Gotobed's; and a red line to
+every edge of the map and back to Much Pottering, circled: FOUND IT.
+The necklace on its stand at the far end of the dresser (2 Nov, at
+Mike's suggestion) closes it: the reward, sent on by the lady who got
+herself out, GIVE IT TO THE ONE YOU DID RESCUE. I DID. A new kind, `retired_hero`.
 
 **The trope tier** is 90 (rule 9, `journey.py`).
 
