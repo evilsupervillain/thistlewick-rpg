@@ -50,5 +50,5 @@ She still brings the castings up on Tuesdays. The keel of the Two Hundred and Fi
 
 - <a href="The_Cotterills">The Cotterills</a>
 - <a href="Ott_Hoyle">Ott Hoyle</a>
-- <a class="new" href="Nib">Nib</a>, who had Thursday
+- <a href="Nib">Nib</a>, who had Thursday
 - <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>

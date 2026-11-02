@@ -34,7 +34,7 @@ She is the only person in the world, so far as I have been able to find, who has
 
 ## The Working Group
 
-The town is governed by the **Working Group on the Winter**, which has never had apologies for absence, because nobody in Frostwick has ever missed a meeting. It is chaired by **Mrs Wilhelmina Blagg**. She will tell you that the curse is an asset. It is on page one of the register, depreciating at four per cent a year, towards spring, eventually, which has been budgeted for. The auditor called it forward-looking. He came in August. It was snowing. He was very impressed.
+The town is governed by the **Working Group on the Winter**, which has never had apologies for absence, because nobody in Frostwick has ever missed a meeting. It is chaired by **<a href="../People/Wilhelmina_Blagg">Mrs Wilhelmina Blagg</a>**. She will tell you that the curse is an asset. It is on page one of the register, depreciating at four per cent a year, towards spring, eventually, which has been budgeted for. The auditor called it forward-looking. He came in August. It was snowing. He was very impressed.
 
 The register of assets reads: 1. The Winter (maintained); value, considerable. 2. The Ribbon (one). 3. The Lanterns (212). 4. Mr Stagg, which is struck through, and in the margin: NOT AN ASSET. A PERSON. - W.B.
 
@@ -54,15 +54,15 @@ The founding minutes are on the table, and I copy them as I found them:
 
 The peas are still deferred. There is a crate of bunting in the room marked BUNTING (CONTESTED), and the carol sheets each have a verse crossed out by the Working Group, on the grounds that it promised snow on the twelfth without consulting them.
 
-**Clem Blagg**, who was seven in the year 2000 and does the lanterns, knows all the minutes off by heart: item three, the winter, CARRIED. Clem's view, given to the Forty-Eighth unprompted, is that Nan says Mrs Stagg has never once been cold, not in forty winters, and that it must be Mr Stagg's lanterns, because he does ever such good lanterns. I was told that, when this was said, the committee found the ceiling very interesting, and that Mrs Blagg found it most interesting of all.
+**<a href="../People/Clem_Blagg">Clem Blagg</a>**, who was seven in the year 2000 and does the lanterns, knows all the minutes off by heart: item three, the winter, CARRIED. Clem's view, given to the Forty-Eighth unprompted, is that Nan says Mrs Stagg has never once been cold, not in forty winters, and that it must be Mr Stagg's lanterns, because he does ever such good lanterns. I was told that, when this was said, the committee found the ceiling very interesting, and that Mrs Blagg found it most interesting of all.
 
 ## Perce and Ida
 
-**Percival Stagg**, Perce, is an old man in a red coat with a white fur collar who stands beside the ribbon post as though it might need him. He is the man who broke the winter. He was not, he will tell you, a Chosen One. Nobody chose him. Everybody went north that year, the year of the Forty-Fourth: farmers, tinkers, a man with a goat. He got as far as Frostwick, and the winter was in the way, so he saw to it. He has never mentioned that he was not chosen, because nobody has ever asked, and they were all so pleased, and it is a lovely Festival.
+**<a href="../People/Perce_Stagg">Percival Stagg</a>**, Perce, is an old man in a red coat with a white fur collar who stands beside the ribbon post as though it might need him. He is the man who broke the winter. He was not, he will tell you, a Chosen One. Nobody chose him. Everybody went north that year, the year of the Forty-Fourth: farmers, tinkers, a man with a goat. He got as far as Frostwick, and the winter was in the way, so he saw to it. He has never mentioned that he was not chosen, because nobody has ever asked, and they were all so pleased, and it is a lovely Festival.
 
 When a lady with a basket goes by and says *Our Chosen One!* he does a face, warm and modest and very well practised. He does it again at noon on the twelfth, when he cuts the ribbon, and the whole town cheers, and he goes pink. The ribbon is in a gilt case at the Working Group's rooms, cut and tied so often it is mostly knots: THE RIBBON. 40 FESTIVALS. 1 RIBBON. There are forty-two now.
 
-**Ida Stagg** loves the Festival. She will tell you that he did one great thing forty years ago, and a great many things since, and none of those ever got a ribbon. She asks you not to tell him she said so, because he will only go pink again.
+**<a href="../People/Ida_Stagg">Ida Stagg</a>** loves the Festival. She will tell you that he did one great thing forty years ago, and a great many things since, and none of those ever got a ribbon. She asks you not to tell him she said so, because he will only go pink again.
 
 Their house has its door shut, and a card in the window in two hands: AT THE RIBBON. - P. BACK FOR TEA. - I. Through the window there are two armchairs drawn up very close to the fire, and two pairs of slippers warming on the fender, toes touching.
 

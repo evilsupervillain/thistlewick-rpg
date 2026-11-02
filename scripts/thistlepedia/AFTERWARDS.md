@@ -601,3 +601,52 @@ stock face that reads young pulls a birth year as late as the canon allows,
 so Dorcas and Prudence, Pell, Nabb, Tolly, Norbert and Dr Pike are younger
 than a first draft had them. Pell's forty years (since 1960) and the sisters'
 thirty (since 1970) are canon and set the floor.
+
+**Batch C: Fairholme, Gladhollow, the Former Premises, Upper Clanging,
+Frostwick, Coldbarrow, the Sable Hart.**
+
+* **King Aldous** (3 January 1932), king since 1961; married Isobel of the
+  Marches 1975, widowed 1983 (fever). **Rosamund** (14 February 1978):
+  eleven kidnappings 1986-1999 - five sorcerers, a wyrm, two lots of bandits,
+  a rival kingdom by mistake, a witch, and two men who left her on Mrs
+  Emberthwaite's doorstep (1999) - plus the eagle (1996). Osric rescued her
+  first; the Budges walked her home from the hill and are the eleventh share.
+  The bag began as a list made in the first tower. A twelfth volume of the
+  memoir, about Thursdays. **Mr Pilbeam is Everard** (26 September 1970),
+  traveller in buttons, hit the eagle with the sample case; now clerk to the
+  council, unpaid; minutes his own deferral; *He does not, on reflection,
+  particularly mind.* **Mrs Emberthwaite** hatched 9 May 1930; married 1951,
+  widowed 1984; retired by letter to the Heroes' Guild, 1990.
+* **Toby Wendle** (2 February 1990), Welcomer 1997-2001 after Ned; recovers
+  his granny's stockings (thirty-one). **Prosper Hollowell** writes his own
+  statement of service; his birth is *pending*, by his request; before the
+  removal he was under-steward in charge of the cushions.
+* **Winnie Marsden** née Platt (4 October 1919); the seating plan is Miss
+  Agnes Thewlis's alphabetical order of 1923, used since the first dinner in
+  1939; empty places keep their cards. **Mrs Tunnicliffe is Edna** née
+  Hargreaves (11 June 1919): eleven clerks since 1951, Gudgeon the eleventh;
+  helps Winnie with the urns on the second Saturday now. **Mr Kell is
+  Hector** (28 August 1968); the Kells have had the Valve since 1841; a
+  pencilled sixty-four from the night the company stayed; the china's card
+  now reads FOR WHEN SHE FLIES AGAIN. **Nib** (22 January 1986, apprenticed
+  1998) has no pronoun in Hosea's text and *she* in Ott's note, which says the
+  small can was lost in 1981 and that she asks for it on purpose.
+  **Eighty-Four** is in People at Ott's insistence: designed by Ott's
+  grandmother, laid down 14 April 1857, lifted and down 3 May 1860; cause
+  line blank on the plate (canon) and left so; Tappet carted her into bay 84;
+  Nib painted the 84 on the bay door.
+* **Perce Stagg** (1 March 1934), of Fenny Stretton; what he did at the top
+  of the town is not known even to him. **Ida** née Frome (9 December 1937),
+  married him the day after the first Festival; ties a plain blue ribbon under
+  his. **Mrs Blagg is Wilhelmina** née Thorley (30 April 1941), Clem's nan,
+  chair since 1979; took the founding minutes as her father's clerk.
+  **Clem** (3 January 1993; no pronoun) is co-opted, without a vote, to take
+  the minutes, and has revised the theory to *the fire*.
+* **Mordaunt is Ambrose** (17 February 1936), the porter's son; clerk since
+  1968. *Beautifully* is the only adverb in the Order's minutes since 1890.
+* **The Sable Hart** has one group page (they would not hear of five): Crake
+  (12 November 1931, Secretary since 1972, rota 1985; his rival died in 1971
+  and the widow sends cards), Veyle (31 October 1966; the scar is a garden
+  rake, 1988, by Mrs Garrow), Rook (6 April 1954), Morrow (20 December 1968,
+  *Overshadowed* since 1990), Blackwood (1 March 1979), Mrs Garrow (1962, keeps
+  the house since 1985, knitted the hoods).

@@ -19,7 +19,7 @@ title: Coldbarrow
 <tr><th>Ceremonial armour</th><td>Do not go on a quest in</td></tr>
 </table>
 
-<p class="lede"><b>Coldbarrow</b> is the Chapter House of the Order of the Errant, a hall in the snow of the far north where the Order keeps a great map of the island with a pin in it for every knight in the field. It is kept by the Order's clerk, **Mordaunt**, who reads the map the way other people read a will. One knight, one pin. That is the system.</p>
+<p class="lede"><b>Coldbarrow</b> is the Chapter House of the Order of the Errant, a hall in the snow of the far north where the Order keeps a great map of the island with a pin in it for every knight in the field. It is kept by the Order's clerk, **<a href="../People/Mordaunt">Mordaunt</a>**, who reads the map the way other people read a will. One knight, one pin. That is the system.</p>
 
 ## The map
 

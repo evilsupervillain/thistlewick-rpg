@@ -24,6 +24,8 @@ title: The Sable Hart
 
 ## The regulars
 
+<p class="hatnote">See also <a href="../People/The_Rivals_of_the_Sable_Hart">The Rivals of the Sable Hart</a>, with their dates.</p>
+
 They are, all of them, extremely nice. They tip beautifully and they put the chairs back. **Mrs Garrow**, who keeps the house, says they are no trouble, love: four in the corners and the young one by the fire, every night of the year, and the middle of the room empty as a church. A tinker sat in the middle once, in the rain. They were ever so nice to him. He left before his pie came. She buys the bottles with the gloomy labels because her regulars prefer them, and what is inside is elderflower cordial. The tankards on the shelf each have a small knitted hood over them, to keep the dust off.
 
 **Hollin Crake**, Secretary, stands up when you come in, which nobody brooding in a corner has ever done, and asks whether you are anybody's rival at all. He has the Secretary's corner, by the window, because somebody has to be able to read the rota. His tankard sits on a coaster he brought from home, so as not to mark the table.

@@ -59,5 +59,5 @@ She is still at the Parish Rooms, and is now the clerk, Mrs Tunnicliffe having b
 
 - <a href="The_Cotterills">The Cotterills</a>
 - <a href="Spare_Cotterill">Spare Cotterill</a>, section one
-- <a class="new" href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a>, who has had eleven
+- <a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a>, who has had eleven
 - <a href="../Places/Upper_Clanging">Upper Clanging</a>

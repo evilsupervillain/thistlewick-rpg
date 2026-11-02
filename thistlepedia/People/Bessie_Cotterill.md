@@ -4,7 +4,7 @@ title: Bessie Cotterill
 
 # Bessie Cotterill
 
-<p class="hatnote">"Bessie Marsden. Cotterill, now." For the family she married, see <a href="The_Cotterills">The Cotterills</a>. For the family she was born in, see <a class="new" href="Winnie_Marsden">Winnie Marsden</a>, her gran, who would like a word about the seating.</p>
+<p class="hatnote">"Bessie Marsden. Cotterill, now." For the family she married, see <a href="The_Cotterills">The Cotterills</a>. For the family she was born in, see <a href="Winnie_Marsden">Winnie Marsden</a>, her gran, who would like a word about the seating.</p>
 
 <table class="infobox">
 <caption>Bessie Cotterill</caption>
@@ -19,7 +19,7 @@ title: Bessie Cotterill
 <tr><th>Second-best at being on time</th><td>In the family</td></tr>
 </table>
 
-<p class="lede"><b>Bessie Cotterill</b>, born Bessie Marsden, is the wife of Cotter Cotterill, the eldest of the Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and the granddaughter of <a class="new" href="Winnie_Marsden">Winnie Marsden</a> of the Class of 'Nineteen. She has her grandmother's face, forty years on, which everybody in the town remarks on, and which Winnie says is the face's own business. She married into a family of ten and has her dinner with them every day, because there is always more than they need.</p>
+<p class="lede"><b>Bessie Cotterill</b>, born Bessie Marsden, is the wife of Cotter Cotterill, the eldest of the Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and the granddaughter of <a href="Winnie_Marsden">Winnie Marsden</a> of the Class of 'Nineteen. She has her grandmother's face, forty years on, which everybody in the town remarks on, and which Winnie says is the face's own business. She married into a family of ten and has her dinner with them every day, because there is always more than they need.</p>
 
 ## The Marsdens
 
@@ -56,6 +56,6 @@ She still has her dinner at the end of the street. She still has the house to he
 ## See also
 
 - <a href="Cotter_Cotterill">Cotter Cotterill</a>
-- <a class="new" href="Winnie_Marsden">Winnie Marsden</a>
+- <a href="Winnie_Marsden">Winnie Marsden</a>
 - <a href="The_Cotterills">The Cotterills</a>
 - <a href="Nix">Nix</a>, about whom nobody has said anything either

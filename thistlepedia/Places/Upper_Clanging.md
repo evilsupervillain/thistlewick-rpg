@@ -38,13 +38,13 @@ The town read the Prophecy two hundred years ago, believed every word of it, and
 
 ## The Safety Valve
 
-The inn, kept by **Mr Kell**, is named for the one part of a boiler whose entire job is to give up before anything else does. They are very proud of it. A plate under the sign reads IN THE EVENT OF PRESSURE, GO TO BED, and a plate on the foot of each bed reads IN CASE OF EMERGENCY, LIE DOWN, which is the whole philosophy of the house on one plate. Beds are thirty crowns. You will be dry, and up here that is worth thirty.
+The inn, kept by **<a href="../People/Mr_Kell">Mr Kell</a>**, is named for the one part of a boiler whose entire job is to give up before anything else does. They are very proud of it. A plate under the sign reads IN THE EVENT OF PRESSURE, GO TO BED, and a plate on the foot of each bed reads IN CASE OF EMERGENCY, LIE DOWN, which is the whole philosophy of the house on one plate. Beds are thirty crowns. You will be dry, and up here that is worth thirty.
 
 On the wall is a framed list in a very good hand, *Things That Are Not To Happen Again*, numbered to sixty-three. I give a selection: 7. THE GEESE. 19. NOT LIKE THAT. 31. HOT. 44. MR PADGETT'S HAT (AND MR PADGETT). 58. ANY OF IT. 61. OLLERENSHAW. Number sixty-three is one very long word, and nobody in the room will say it aloud. There is a commentary on the list, much longer, which is not allowed out of the inn. I have not seen it.
 
 On the dresser is the inn's best china, with a card on top, FOR WHEN SHE FLIES. It was dusted every week for as long as anybody can remember, and never used. I am told that it has now been used once, and dusted since, and put back.
 
-**Winnie Marsden** sits by the fire with a half of shandy on a doily embroidered CLASS OF '19. The Class of 'Nineteen is the town's Cold Winter year: the foundry was banked down for six weeks that January, there was no work, there was no heat in the whole town but what was in the houses, and two hundred and forty children were born the following autumn, near enough all together. They have had a dinner every year since, on the second Saturday, with a seating plan settled when they were four. You cannot get in. You had to be born in it. Mrs Tunnicliffe at the parish rooms keeps the census, and was born in June, and is not invited. I put down here only what the census says, which is dates.
+**<a href="../People/Winnie_Marsden">Winnie Marsden</a>** sits by the fire with a half of shandy on a doily embroidered CLASS OF '19. The Class of 'Nineteen is the town's Cold Winter year: the foundry was banked down for six weeks that January, there was no work, there was no heat in the whole town but what was in the houses, and two hundred and forty children were born the following autumn, near enough all together. They have had a dinner every year since, on the second Saturday, with a seating plan settled when they were four. You cannot get in. You had to be born in it. Mrs Tunnicliffe at the parish rooms keeps the census, and was born in June, and is not invited. I put down here only what the census says, which is dates.
 
 ## The forge
 
@@ -56,7 +56,7 @@ In the forge there is a certificate, BEST SMITH IN THE NORTH, awarded by B. Olle
 
 ## The parish rooms
 
-The Parish Rooms take births, deaths and whatever else nobody else will take on. **Mrs Tunnicliffe** keeps the register, the census, the counter, the tea, the urn and the hymn board; the rota says so, and under it, EVERYTHING ELSE - SEE ABOVE. There are three tea urns, for the three sizes of parish emergency: a funeral, a wedding and the fete. Every one of those is on a Saturday.
+The Parish Rooms take births, deaths and whatever else nobody else will take on. **<a href="../People/Mrs_Tunnicliffe">Mrs Tunnicliffe</a>** keeps the register, the census, the counter, the tea, the urn and the hymn board; the rota says so, and under it, EVERYTHING ELSE - SEE ABOVE. There are three tea urns, for the three sizes of parish emergency: a funeral, a wedding and the fete. Every one of those is on a Saturday.
 
 The parish register lies open at OCCUPATION, and every line of it reads AT THE WORKS, page after page, in one hand, for eighty years. One entry, dated 1802, reads AT THE WORKS (THINKING). Somebody has pencilled HOYLE in the margin beside it and then rubbed it out, because the register does not take marginal notes.
 
