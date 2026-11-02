@@ -348,3 +348,10 @@ Small inventions in the bios. All *wiki*.
 * **Dean Fenwold** has had the Hall measured; the room committee will
   consider it. ZEPH-1's ending is not touched.
 * **Mother Selvidge** has no bio: her link goes to Wayside Sights' Fair.
+* **From the Notebooks of P. Quill** prints only canon verse exactly (the
+  Gilded Turnip fragments, the ballad's last verse drafted and fixed, MER-2's
+  halibut fragment) and four new quatrains that state only canon facts: the
+  bench, Washer on the dot, the tea, and one for Hosea (boots, no climbing).
+  Verse forty-one is described, not printed (the struck verses are never
+  printed); verse seven is "very good". PIP-1's fixed cantos are left out,
+  because they exist only on one ending. The Contest set is not printed.
