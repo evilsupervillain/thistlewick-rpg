@@ -47,7 +47,7 @@ Of all the things done on the road, three were hers, and the Prophecy's own acco
 
 **The curse of Sump.** The village of <a href="../Places/Sump">Sump</a> had been cursed since 1794, with headaches, poor sleep and a general sense that things used to be better. She diagnosed it in nine seconds. There were wasps in the well and nobody had had any water for two hundred years. The curse was lifted by the Water Committee, one member, with a glass of water, and the minutes record an item three.
 
-She also called on <a class="new" href="Tobias_Frayne">Tobias Frayne</a>, who had been revived by passing adventurers eleven times, and declined to make it twelve. "There is nothing wrong with you, Mr Frayne. That's the trouble." She prescribed having the parish to tea, through the door, on purpose. He has not died since.
+She also called on <a href="Tobias_Frayne">Tobias Frayne</a>, who had been revived by passing adventurers eleven times, and declined to make it twelve. "There is nothing wrong with you, Mr Frayne. That's the trouble." She prescribed having the parish to tea, through the door, on purpose. He has not died since.
 
 ## The Healers' Table
 

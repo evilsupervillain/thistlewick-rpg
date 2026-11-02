@@ -53,7 +53,7 @@ It depends, very largely, on how far you live from the Committee. I have made so
 
 **Upper Clanging believes the text.** The Hoyle Works read "every hundred years" two hundred years ago and made an engineering programme of it, and has not counted since, because the document had done the counting for it. Noticing grows with distance, I find, but it is not guaranteed by it, and engineers who take a document literally are their own case.
 
-**In Frostwick, far to the north, there is one person who reads contracts**, Miss <a class="new" href="../People/Pargeter">Pargeter</a>, who keeps the winter there under a contract of her own - nine years, renewed on time. She read the Prophecy through, all the way, and found clause two, and read it out. She does not do the arithmetic for you, and does not see why she should.
+**In Frostwick, far to the north, there is one person who reads contracts**, Miss <a href="../People/Pargeter">Pargeter</a>, who keeps the winter there under a contract of her own - nine years, renewed on time. She read the Prophecy through, all the way, and found clause two, and read it out. She does not do the arithmetic for you, and does not see why she should.
 
 **The elves simply tell you.** Elder Faelan told the Forty-Eighth that the Forty-Seventh came off the ledge ten years ago, a lovely boy, and that the Committee will have told him it was a hundred. "It counts the way the Prophecy does. We count the way the sun does."
 

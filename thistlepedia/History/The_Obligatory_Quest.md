@@ -66,7 +66,7 @@ He did a good deal else in the south, and all of it is in Volume Two:
 
 ## The north
 
-North and west of the road is <a href="../Places/Upper_Clanging">Upper Clanging</a>, where the Hoyle Works had been trying for two hundred years to fly to the Tower. With the Forty-Eighth's help Miss <a class="new" href="../People/Ott_Hoyle">Ott Hoyle</a>'s two hundredth attempt reached it. The attempt log reads REACHED THE TOWER. LANDED ADJACENT. CAUSE: UNDER REVIEW. Clause seven requires a Chosen One to go on foot, and he did, from the grass beside the door, which was as far as the airship would set down. Attempt Eighty-Four, who had been repairing herself out of the wrecks either side of her since she came down in 1860, was stopped, and is being rebuilt. ITEM 1 came off its crag for the first time since 1802. Hob Grumnir met Bryd Ollerenshaw, and they went for a drink, and are still arguing about rivets.
+North and west of the road is <a href="../Places/Upper_Clanging">Upper Clanging</a>, where the Hoyle Works had been trying for two hundred years to fly to the Tower. With the Forty-Eighth's help Miss <a href="../People/Ott_Hoyle">Ott Hoyle</a>'s two hundredth attempt reached it. The attempt log reads REACHED THE TOWER. LANDED ADJACENT. CAUSE: UNDER REVIEW. Clause seven requires a Chosen One to go on foot, and he did, from the grass beside the door, which was as far as the airship would set down. Attempt Eighty-Four, who had been repairing herself out of the wrecks either side of her since she came down in 1860, was stopped, and is being rebuilt. ITEM 1 came off its crag for the first time since 1802. Hob Grumnir met Bryd Ollerenshaw, and they went for a drink, and are still arguing about rivets.
 
 ## The Tower
 

@@ -4,7 +4,7 @@ title: Frostwick
 
 # Frostwick
 
-<p class="hatnote">This article is about the town. For the woman who keeps its winter, see <a class="new" href="../People/Pargeter">Pargeter</a>. For clause two, which she read, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a> and <a href="../History/Two_Reckonings">Two Reckonings</a>.</p>
+<p class="hatnote">This article is about the town. For the woman who keeps its winter, see <a href="../People/Pargeter">Pargeter</a>. For clause two, which she read, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a> and <a href="../History/Two_Reckonings">Two Reckonings</a>.</p>
 
 <table class="infobox">
 <caption>Frostwick</caption>
@@ -82,7 +82,7 @@ The Forty-Eighth signed it too. The card has not been changed. I asked Mrs March
 
 ## See also
 
-- <a class="new" href="../People/Pargeter">Pargeter</a>
+- <a href="../People/Pargeter">Pargeter</a>
 - <a href="../History/Two_Reckonings">Two Reckonings</a>
 - <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>, clause two
 - <a href="Coldbarrow">Coldbarrow</a>, the nearest neighbour, west along the snow

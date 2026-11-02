@@ -67,4 +67,4 @@
 
 ## By the road
 
-Shrines, lay-bys, a fen, a fair, a pond with a Fellow on it, and a dragon that is a dragon only in the sense that the map says so: see <a href="Wayside_Sights">Wayside Sights</a>.
+Shrines, lay-bys, a fen, a fair, a pond with a Fellow on it, and a dragon that is a dragon only in the sense that the map says so: see <a href="Wayside_Sights">Wayside Sights</a>. And one cottage, on the coast road, with a ladder in it, which is in the article on the man who lives there, <a href="../People/Tobias_Frayne">Tobias Frayne</a>, because they are hard to take apart.

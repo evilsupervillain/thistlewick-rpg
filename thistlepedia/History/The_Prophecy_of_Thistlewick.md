@@ -40,7 +40,7 @@ The Prophecy has never been printed entire, and I have not attempted it here; Vo
 
 *"A hundred years" is a defined term. It means "such period as the Committee shall find convenient."*
 
-This is the most important sentence in the document, and for two thousand years nobody noticed it. It was found by Miss <a class="new" href="../People/Pargeter">Pargeter</a> of <a href="../Places/Frostwick">Frostwick</a>, who keeps the winter there under a contract of her own and reads contracts the way other people read weather. She went all the way through the Forty-Eighth's copy, which nobody had ever done, and turned back to clause two. The consequences are in [Two Reckonings](Two_Reckonings), which is a separate article because it needed one.
+This is the most important sentence in the document, and for two thousand years nobody noticed it. It was found by Miss <a href="../People/Pargeter">Pargeter</a> of <a href="../Places/Frostwick">Frostwick</a>, who keeps the winter there under a contract of her own and reads contracts the way other people read weather. She went all the way through the Forty-Eighth's copy, which nobody had ever done, and turned back to clause two. The consequences are in [Two Reckonings](Two_Reckonings), which is a separate article because it needed one.
 
 ### Clause four
 
@@ -54,7 +54,7 @@ Elder <a href="../People/Elder_Wispel">Wispel</a> gives the charge to every Chos
 
 The Chosen One goes on foot. <a href="../People/Grimspite_the_Inevitable">Grimspite</a> himself explained why, when he was asked: "Because a thing that flies over and drops something is not a story. It is a Tuesday."
 
-The town of <a href="../Places/Upper_Clanging">Upper Clanging</a> has spent two hundred years building ships that fly to the Tower, and kept the ones that did not in the <a href="../Places/The_Long_Field">Long Field</a>. Grimspite was of the view that Miss <a class="new" href="../People/Ott_Hoyle">Hoyle</a> would never get one off the ground in sight of his tower, and that it had nothing whatever to do with her spars. Her two hundredth attempt landed beside the Tower that same year, with a Chosen One aboard. As far as I know nobody has mentioned this to him, and I do not intend to be the first, in an encyclopedia or out of one.
+The town of <a href="../Places/Upper_Clanging">Upper Clanging</a> has spent two hundred years building ships that fly to the Tower, and kept the ones that did not in the <a href="../Places/The_Long_Field">Long Field</a>. Grimspite was of the view that Miss <a href="../People/Ott_Hoyle">Hoyle</a> would never get one off the ground in sight of his tower, and that it had nothing whatever to do with her spars. Her two hundredth attempt landed beside the Tower that same year, with a Chosen One aboard. As far as I know nobody has mentioned this to him, and I do not intend to be the first, in an encyclopedia or out of one.
 
 ### Clause eleven: fit to travel
 

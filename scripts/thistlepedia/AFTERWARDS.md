@@ -307,3 +307,24 @@ Small inventions in the bios. All *wiki*.
   wrote "it does not scan" in the margin of Piper's article.
 * **Sops** is given no pronoun: the potboy is "he" in the design notes and
   "her" in `QUESTS.md`, so the wiki uses neither.
+* **Ott Hoyle**: "Ottoline" is on the works deeds and nowhere else. Bram
+  carried Grimspite's "Tell her the work was good" back; she called it a poor
+  answer to a clear question, wrote it in the drawing office day book and
+  underlined *good*. The attempt log still says UNDER REVIEW. The Two Hundred
+  and First is "behind". She has never been told that Grimspite thinks she
+  could not fly one (nor has he been told she did).
+* **Bryd Ollerenshaw** has repainted two lines of his sign and not SAYS WHO.
+  The third rivet drawer is opened: "aye". Miss Hoyle's spring drawing, 2002,
+  is a spar. Nothing more is said between him and Hob (NORTH.md 1.2).
+* **The Cotterills**: Bessie's child is unnamed at Winnie's request; Ferrule
+  still in charge from six; Grommet two years at the forge; Tappet asked about
+  room on the Two Hundred and First; Shim's bearing still the best; Clevis is
+  not taking bets on Washer's first word. Pronouns as NORTH.md's table:
+  Ferrule, Clevis and Washer have none (Spare's article was mended for Clevis
+  and Washer, Hob's for Bryd).
+* **Pargeter** checked *Two Reckonings* ("correct; not asked for"). Her clause
+  for Hosea: he wrote "a hundred years" eleven times in Volume Two without
+  saying in whose years.
+* **Tobias Frayne** has had the parish to tea many times since; the yellowed
+  rung paper is burnt; he has started putting crowns back in the jar. His
+  cottage is in his article, not in Places.

@@ -95,4 +95,4 @@ Roland Fairweather came back to the Tower after the ending, with the party, and 
 - <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>
 - <a href="../History/The_Obligatory_Quest">The Obligatory Quest</a>
 - <a href="The_Gloamwood">The Gloamwood</a>
-- <a class="new" href="../People/Ott_Hoyle">Ott Hoyle</a>, for landing adjacent
+- <a href="../People/Ott_Hoyle">Ott Hoyle</a>, for landing adjacent

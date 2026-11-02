@@ -4,7 +4,7 @@ title: Spare Cotterill
 
 # Spare Cotterill
 
-<p class="hatnote">For the family, see <a class="new" href="The_Cotterills">The Cotterills</a>. For the town, see <a href="../Places/Upper_Clanging">Upper Clanging</a>. For his letters to me, see below, and file accordingly.</p>
+<p class="hatnote">For the family, see <a href="The_Cotterills">The Cotterills</a>. For the town, see <a href="../Places/Upper_Clanging">Upper Clanging</a>. For his letters to me, see below, and file accordingly.</p>
 
 <table class="infobox">
 <caption>Spare Cotterill</caption>
@@ -27,7 +27,7 @@ title: Spare Cotterill
 
 ## Nine in a useful way
 
-The boiler of the Hoyle Works has ninety tubes in it, and they have to be brushed, and a man does not fit. Spare fits. He has been going into the boiler since he was six, and Miss <a class="new" href="Ott_Hoyle">Hoyle</a> pays him in buns. He has, he says, never once been frightened.
+The boiler of the Hoyle Works has ninety tubes in it, and they have to be brushed, and a man does not fit. Spare fits. He has been going into the boiler since he was six, and Miss <a href="Ott_Hoyle">Hoyle</a> pays him in buns. He has, he says, never once been frightened.
 
 Then he said the rest of it, which I print because he has given me leave to and because it is the truest thing anybody told the Forty-Eighth on the whole of the road:
 
@@ -67,7 +67,7 @@ His mother did more potatoes anyway.
 
 ## The tenth
 
-After the Quest, he asked the party every morning, on waking, whether it was spring yet. It was not. Then one morning it was, and Bessie Marsden came for him, and the street was empty for a day, and **Washer** Cotterill was born at six in the morning, on the hooter. His brother Clevis had been running a book on it, and it paid twenty to one.
+After the Quest, he asked the party every morning, on waking, whether it was spring yet. It was not. Then one morning it was, and Bessie Marsden came for him, and the street was empty for a day, and **Washer** Cotterill was born at six in the morning, on the hooter. Clevis had been running a book on it, and it paid twenty to one.
 
 Spare is not the littlest any more. He is a big brother. He came back to the party for a while afterwards, and was, I am told, very good at it.
 
@@ -85,11 +85,11 @@ has said a word. It was spring. Love, Spare.</p>
 
 It was also Spare who confirmed for me, by letter, that the twenty-first of March 2002 is the first day of spring, which is the date on which I have signed this volume. It is the only true thing he has ever written to me. I checked.
 
-<div class="marginalia">Washer has not said a word. I have checked that too. I am told he says a great many things, and none of them is a word yet, and that his brother is working on it.</div>
+<div class="marginalia">Washer has not said a word. I have checked that too. I am told that Washer says a great many things, none of them a word yet, and that Spare is working on it.</div>
 
 ## See also
 
-- <a class="new" href="The_Cotterills">The Cotterills</a>
+- <a href="The_Cotterills">The Cotterills</a>
 - <a href="../Places/Upper_Clanging">Upper Clanging</a>
 - <a href="../Places/Much_Pottering">Much Pottering</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

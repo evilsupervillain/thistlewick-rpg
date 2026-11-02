@@ -51,7 +51,7 @@ I asked in the village about Beatrice, and everybody I asked told me the same th
 
 ## Bryd Ollerenshaw
 
-<a class="new" href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a>, of Ollerenshaw's at Upper Clanging, was apprenticed alongside him, and they have been rivals ever since. She won Best in Hall at the Smiths' Hall in 1987, the year he did not enter, having a cold. They met again in 2000, and went for a drink, and are still arguing about rivets. Later the same year they made the tube plate for the Two Hundred's refit at Ollerenshaw's, in one heat, by four hands, which neither of them has mentioned since. Miss Hoyle says it will do. One of the Cotterill children says they do this every time.
+<a href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a>, of Ollerenshaw's at Upper Clanging, was apprenticed alongside him, and they have been rivals ever since. He won Best in Hall at the Smiths' Hall in 1987, the year he did not enter, having a cold. They met again in 2000, and went for a drink, and are still arguing about rivets. Later the same year they made the tube plate for the Two Hundred's refit at Ollerenshaw's, in one heat, by four hands, which neither of them has mentioned since. Miss Hoyle says it will do. One of the Cotterill children says they do this every time.
 
 I record that they are rivals. Both of them have read this sentence and both of them asked me to leave it exactly as it is.
 
@@ -65,7 +65,7 @@ In 2001 he and Bryd Ollerenshaw sat as joint judges of the Smiths' Hall prize at
 
 ## See also
 
-- <a class="new" href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a>
+- <a href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a>
 - <a class="new" href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>
 - [Roland Fairweather](Roland_Fairweather)
 - <a class="new" href="../Artefacts/The_Sky_Anvil">The Sky Anvil</a>

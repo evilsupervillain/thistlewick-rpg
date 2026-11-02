@@ -69,7 +69,7 @@ The Committee keeps a souvenir book, *The Forty-Seven*, with a portrait, a date 
 
 <div class="disputed">
 
-**Forty-seven, or forty-six.** Grimspite says he said "so, you have come at last" forty-seven times and was renewed forty-seven times, and the Obelisk in his tower lists forty-seven RENEWED. The Forty-Sixth says he got as far as the woods. Miss <a class="new" href="../People/Ott_Hoyle">Hoyle</a> of Upper Clanging, who counts for a living, counts forty-six that went up that road. I have all three numbers, and I have not been able to make them into one. I set them down here side by side, which is what an encyclopedia is for.
+**Forty-seven, or forty-six.** Grimspite says he said "so, you have come at last" forty-seven times and was renewed forty-seven times, and the Obelisk in his tower lists forty-seven RENEWED. The Forty-Sixth says he got as far as the woods. Miss <a href="../People/Ott_Hoyle">Hoyle</a> of Upper Clanging, who counts for a living, counts forty-six that went up that road. I have all three numbers, and I have not been able to make them into one. I set them down here side by side, which is what an encyclopedia is for.
 
 </div>
 

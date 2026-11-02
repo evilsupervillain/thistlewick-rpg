@@ -81,6 +81,6 @@ Spare's own article tells what Spare did. Here I will say only that there is a p
 - <a class="new" href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>
 - <a href="The_Long_Field">The Long Field</a>
 - <a href="../People/Spare_Cotterill">Spare Cotterill</a>
-- <a class="new" href="../People/Ott_Hoyle">Ott Hoyle</a>
-- <a class="new" href="../People/Bryd_Ollerenshaw">Bryd Ollerenshaw</a>
+- <a href="../People/Ott_Hoyle">Ott Hoyle</a>
+- <a href="../People/Bryd_Ollerenshaw">Bryd Ollerenshaw</a>
 - <a href="Much_Pottering">Much Pottering</a>, its twin

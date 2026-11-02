@@ -98,5 +98,5 @@ O. HOYLE.
 
 - <a href="Upper_Clanging">Upper Clanging</a>
 - <a class="new" href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>
-- <a class="new" href="../People/Ott_Hoyle">Ott Hoyle</a>
+- <a href="../People/Ott_Hoyle">Ott Hoyle</a>
 - <a href="The_Obligatory_Tower">The Obligatory Tower</a>, where the Two Hundred landed adjacent
