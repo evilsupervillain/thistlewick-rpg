@@ -29,6 +29,12 @@
 <figure><img src="../images/portraits/Halbert_Quy.png" alt="Halbert Quy"><figcaption><a href="Halbert_Quy">Halbert Quy</a></figcaption></figure>
 </div>
 
+And one who neither went up the road nor came home, and has an article because he was sitting down where I could find him:
+
+<div class="gallery">
+<figure><img src="../images/portraits/Godfrey_Stopford.png" alt="Godfrey Stopford"><figcaption><a href="Godfrey_Stopford">Godfrey Stopford</a>, the Forty-Sixth</figcaption></figure>
+</div>
+
 Two of the forty-seven have articles of their own, because they talked to me, or to the Forty-Eighth; the other forty-five are in <a href="../History/The_Chosen_Ones">The Chosen Ones</a>. The Forty-First has no portrait, and an article anyway: <a href="Halloran_Vance">Halloran Vance</a>, who made a wyvern.
 
 ## Thistlewick and the south
@@ -52,6 +58,24 @@ Two of the forty-seven have articles of their own, because they talked to me, or
 <figure><img src="../images/portraits/Tobias_Frayne.png" alt="Tobias Frayne"><figcaption><a href="Tobias_Frayne">Tobias Frayne</a></figcaption></figure>
 </div>
 
+### The Cotterills, one at a time
+
+Ten children, two parents and a daughter-in-law, in order of age, as Gudgeon would want. The ninth is above; the tenth has no portrait yet, and is at <a href="Washer_Cotterill">Washer Cotterill</a>.
+
+<div class="gallery">
+<figure><img src="../images/portraits/Nora_Cotterill.png" alt="Mrs Cotterill"><figcaption><a href="Nora_Cotterill">Mrs Cotterill</a></figcaption></figure>
+<figure><img src="../images/portraits/Ernest_Cotterill.png" alt="Mr Cotterill"><figcaption><a href="Ernest_Cotterill">Mr Cotterill</a></figcaption></figure>
+<figure><img src="../images/portraits/Cotter_Cotterill.png" alt="Cotter"><figcaption><a href="Cotter_Cotterill">Cotter</a></figcaption></figure>
+<figure><img src="../images/portraits/Bessie_Cotterill.png" alt="Bessie"><figcaption><a href="Bessie_Cotterill">Bessie</a></figcaption></figure>
+<figure><img src="../images/portraits/Rivet_Cotterill.png" alt="Rivet"><figcaption><a href="Rivet_Cotterill">Rivet</a></figcaption></figure>
+<figure><img src="../images/portraits/Gudgeon_Cotterill.png" alt="Gudgeon"><figcaption><a href="Gudgeon_Cotterill">Gudgeon</a></figcaption></figure>
+<figure><img src="../images/portraits/Tappet_Cotterill.png" alt="Tappet"><figcaption><a href="Tappet_Cotterill">Tappet</a></figcaption></figure>
+<figure><img src="../images/portraits/Ferrule_Cotterill.png" alt="Ferrule"><figcaption><a href="Ferrule_Cotterill">Ferrule</a></figcaption></figure>
+<figure><img src="../images/portraits/Grommet_Cotterill.png" alt="Grommet"><figcaption><a href="Grommet_Cotterill">Grommet</a></figcaption></figure>
+<figure><img src="../images/portraits/Clevis_Cotterill.png" alt="Clevis"><figcaption><a href="Clevis_Cotterill">Clevis</a></figcaption></figure>
+<figure><img src="../images/portraits/Shim_Cotterill.png" alt="Shim"><figcaption><a href="Shim_Cotterill">Shim</a></figcaption></figure>
+</div>
+
 ## The mountain, the elves and further out
 
 <div class="gallery">
@@ -62,6 +86,19 @@ Two of the forty-seven have articles of their own, because they talked to me, or
 <figure><img src="../images/portraits/Maud_Penhallow.png" alt="Maud Penhallow"><figcaption><a href="Maud_Penhallow">Maud Penhallow</a></figcaption></figure>
 <figure><img src="../images/portraits/Dean_Fenwold.png" alt="Dean Fenwold"><figcaption><a href="Dean_Fenwold">Dean Fenwold</a></figcaption></figure>
 </div>
+
+### Much Pottering
+
+<div class="gallery">
+<figure><img src="../images/portraits/Effie_Gotobed.png" alt="Effie Gotobed"><figcaption><a href="Effie_Gotobed">Effie Gotobed</a></figcaption></figure>
+<figure><img src="../images/portraits/Marjorie_Gotobed.png" alt="Marjorie Gotobed"><figcaption><a href="Marjorie_Gotobed">Mrs Gotobed</a></figcaption></figure>
+</div>
+
+And <a href="Humphrey_Gotobed">Humphrey Gotobed</a>, adventurer, retired, who was out.
+
+## Further back
+
+- <a href="Mother_Ursula_Pym">Mother Ursula Pym</a> (1659-1744), who founded the Order of Whatever Works, for the air
 
 ## In other hands
 
@@ -80,6 +117,6 @@ A great many more people are written up where they live, because they are hard t
 - **Mrs Blagg**, **Clem** and **Perce Stagg** at <a href="../Places/Frostwick">Frostwick</a>; **Mordaunt** at <a href="../Places/Coldbarrow">Coldbarrow</a>; five doomed rivals at <a href="../Places/The_Sable_Hart">the Sable Hart</a>
 - **Mrs Vane** and **Dame Winifred** at <a href="../Places/Little_Gore">Little Gore</a>; **Mr Gammage** at <a href="../Places/Sump">Sump</a>; **Mrs Ash** and **Mr Weir** at <a href="../Places/Ashcombe">Ashcombe</a>
 - **the Prioress** and **Sister Bewick** at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>; **Mr Ottershaw** and **the Fourth** at <a href="../Places/Fenmarch_Hall">Fenmarch Hall</a>
-- **the Mayor**, **Mr Tibbs**, **Mrs Harbottle** and **Mr Tweddle** at <a href="../Places/Great_Dunnage">Great Dunnage</a>; **Effie Gotobed** at <a href="../Places/Much_Pottering">Much Pottering</a>
+- **the Mayor**, **Mr Tibbs**, **Mrs Harbottle** and **Mr Tweddle** at <a href="../Places/Great_Dunnage">Great Dunnage</a>; <a href="Effie_Gotobed">Effie Gotobed</a> at <a href="../Places/Much_Pottering">Much Pottering</a>
 - **Mother Selvidge**, **Mr Meech**, **Dunnock** and the Drainage Commissioner in <a href="../Places/Wayside_Sights">Wayside Sights</a>
 - <a href="Hosea_Bellwether">Hosea Bellwether</a>, the compiler, who was persuaded that leaving himself out would be inaccurate

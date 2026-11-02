@@ -36,7 +36,7 @@ The Much Pottering Maze was planted on a Tuesday, and visitors are asked not to 
 
 ## Effie
 
-**Effie Gotobed** waits at her gate for the post. She is nine, in the year 2000, and was paired off at six with a boy in Upper Clanging for the twinning, and has written to him ever since. She told him that she was nearly a princess, and that Much Pottering had a volcano, and a sea serpent in the pond. He told her that he was six foot, and drove an airship called the Two Hundred, and was the foreman at the works. Neither of them had seen the other.
+**<a href="../People/Effie_Gotobed">Effie Gotobed</a>** waits at her gate for the post. She is nine, in the year 2000, and was paired off at six with a boy in Upper Clanging for the twinning, and has written to him ever since. She told him that she was nearly a princess, and that Much Pottering had a volcano, and a sea serpent in the pond. He told her that he was six foot, and drove an airship called the Two Hundred, and was the foreman at the works. Neither of them had seen the other.
 
 In the year 2000 Spare Cotterill came to Much Pottering with the Forty-Eighth, and the girl at the gate looked at him, and he looked at her, and neither said anything for some time. *You're not six foot.* *You're not a princess.* She had never said she was a princess; she had said she was nearly a princess; it is different; it is nearly. They knew each other at once, and they were both furious about it.
 

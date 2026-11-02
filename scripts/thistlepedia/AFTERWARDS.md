@@ -466,3 +466,79 @@ He has not seen the number in the Prophecy's tally, only "very nearly all of
 them"; by his count "a little over two hundred". Bram's worst was the pot
 labelled INSIDE OF POT, "because he had looked". The wrong dragon is not in
 the Bestiary; it was not asked, and would rather be in the library.
+
+## What unit 7b (more people) added
+
+Bios for the supporting cast, asked for by Mike on 2 November 2026 with
+leave to add depth, and **with dates**: every new bio's infobox has a
+**Born** row (and **Died** where it applies), a day, month and year of the
+Third Age. These are *wiki* unless `TIMELINE.md` has them. The rule for
+choosing one: an age the game states (`TIMELINE.md` 5) is an age in 2000 at
+the time of the Quest, which is the last of the winter, so **a birthday that
+would change it falls between New Year and mid-February**; Hosea's ages are
+2002's, on 21 March. Older bios get dates in a later pass, not this one.
+
+**Batch A: Mother Ursula Pym, the Forty-Sixth, the Cotterills, the Gotobeds.**
+
+* **Mother Ursula Pym** (2 February 1659 - 11 November 1744), born at Sallow
+  Cross, a dry market town in the middle of the island, a chandler's
+  daughter. Kept a little book of how she felt after four physicians'
+  remedies ("I do not think it was the remedy"); it is at Weeping Bottom.
+  Chose the valley off a map in 1701, arrived spring 1702 in the drizzle:
+  "Well, it is certainly air." The pamphlet's other three pages are blank on
+  purpose. The window is by Ezra Mapp, 1746, paid in soup; the socks are her
+  spare pair, kept dry in a tin for forty-two years, and the tin is empty.
+  Last words "Better, thank you", on the Order's cards. Buried at the top of
+  the valley path, above the fog. A plaque at Sallow Cross (1902): SHE WAS
+  RIGHT ABOUT THE WATER.
+* **The Forty-Sixth is Godfrey Stopford**, born 14 March 1956 in Thistlewick,
+  a thatcher's son, chosen at twenty-four; forty-six on 14 March 2002, a week
+  before Hosea writes. The name comes off Tolly's envelopes: G. STOPFORD,
+  ESQ. THE LOG. THE GLOAMWOOD. BY HAND. Armour by Beatrice Grumnir, never
+  struck. Asked Halbert Quy before setting out whether it was a long way.
+  Thistlewick has never visited ("he had set out"), which is why he did not
+  know about the Forty-Seventh. Nabb has no pronoun; Tolly is "she" (canon).
+  The Chosen Ones table and the Gloamwood now link him.
+* **The Cotterills, one page each.** Birthdays, all in January or February
+  but Washer's: Cotter 17 Jan 1976, Rivet 3 Feb 1978, Gudgeon 12 Jan 1980,
+  Tappet 28 Jan 1982, Ferrule 6 Feb 1984, Grommet 19 Jan 1985, Clevis 1 Feb
+  1987, Shim 9 Feb 1989, Spare (not yet on his page) 2 Jan 1991, **Washer
+  21 March 2000**, the first day of spring, so Washer is two on the day
+  Hosea signs. Pronouns per `NORTH.md`: Gudgeon, Tappet and Shim she; Cotter,
+  Rivet and Grommet he; **Ferrule, Clevis and Washer none**.
+  * **Mrs Cotterill is Nora**, née Sprag (30 August 1954), of Haggit's Bank,
+    a pit hamlet half way down the valley road; a sprag is a wagon wedge. Met
+    Ernest when he walked into her wagon and apologised to it. Had Washer in
+    reserve all along; she has been "tired" twice, and both times somebody
+    got named. Her four moves are Clevis's names for her skills.
+  * **Mr Cotterill is Ernest**, "Ern" (9 January 1951), born in the house;
+    nights since 1978, after Rivet, for a crown a week more; tried days for a
+    week in summer 2000 and asked to go back. "Mam." / "I know."
+  * **Cotter**: down the valley 1994-2000, lodging with Mrs Pettit, Cinder
+    Lane; about 620 walks. Now on days at the foundry with Rivet. Hob's
+    heel-irons "go where they are needed".
+  * **Bessie** is Elizabeth (5 May 1977), Winnie's only son's only child;
+    married Cotter 18 September 1999; lives two doors up; Winnie's cradle
+    went in 1989 (Nix's first ledger page) and came back labelled.
+  * **Rivet** has been alone in a room once, summer 2001, and did not care
+    for it. **Gudgeon** is the clerk now and Mrs Tunnicliffe her assistant,
+    at her own wish, for the urns; she is fair-copying the register from
+    1748. **Tappet** carts with the pony Gearbox; on the 201st's schedule in
+    pencil, CREW, with a question mark. **Ferrule** has been in charge from
+    six since 1996, aged twelve. **Grommet** knows a grommet is not a
+    fastener and has not brought it up. **Clevis** paid out with loans from
+    Gudgeon and Tappet; is offering six to four on the 201st flying in spring
+    2003. **Shim**'s tin is a toffee tin with a lighthouse on it; a second
+    washer is set aside, WASHER'S. **Washer** has not said a word; the tenth
+    tin cup has two handles.
+* **The Gotobeds.** **Effie** is Euphemia (2 October 1990), three months
+  older than Spare, the only child of six in the village in 1997. **Mrs
+  Gotobed is Marjorie**, née Thorne (23 April 1955), born in the cottage;
+  married 1984; a third tea cosy, knitted in 1997, put away. **Mr Gotobed is
+  Humphrey** (7 November 1944), of Brinkworth Halt; adventurer 1962-1983,
+  never took another man's quest (so never near the Tower); the lady in the
+  tower got herself out by the stairs. Out both times Hosea called.
+
+`TIMELINE.md` and this file disagree slightly about the ninth letter: the
+timeline has Washer born "the night after" it, while `q_spare.spa3` has
+mornings of asking in between. The wiki follows the game's events.

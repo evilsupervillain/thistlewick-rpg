@@ -4,7 +4,7 @@ title: The Gloamwood
 
 # The Gloamwood
 
-<p class="hatnote">For what lives in it, as opposed to what was said to, see Miss Halloway's <a href="../Bestiary/">Bestiary</a>. For the man on the log, see <a href="../History/The_Chosen_Ones">The Chosen Ones</a>, number forty-six.</p>
+<p class="hatnote">For what lives in it, as opposed to what was said to, see Miss Halloway's <a href="../Bestiary/">Bestiary</a>. For the man on the log, see <a href="../People/Godfrey_Stopford">Godfrey Stopford</a>, the Forty-Sixth.</p>
 
 <table class="infobox">
 <caption>The Gloamwood</caption>
@@ -13,7 +13,7 @@ title: The Gloamwood
 <tr><th>Ways through</th><td>One. The gap is the road</td></tr>
 <tr><th>Contents</th><td>Trees; mushrooms, named; beanstalks, dead; a chest</td></tr>
 <tr><th>The chest</th><td>A mimic. Everybody knows</td></tr>
-<tr><th>Residents</th><td>The Forty-Sixth, on a log</td></tr>
+<tr><th>Residents</th><td><a href="../People/Godfrey_Stopford">The Forty-Sixth</a>, on a log</td></tr>
 <tr><th>Things in it</th><td>Argued about for two hundred years. See below, and the Bestiary</td></tr>
 <tr><th>Society</th><td>The Gloamwood Society (1960), nine members</td></tr>
 <tr><th>Searched</th><td>Yes. The logs say so</td></tr>
@@ -79,6 +79,7 @@ Nix took him through. She halves encounters; it is a knack. With mothballs as we
 
 - <a href="Thistlewick">Thistlewick</a>, to the south
 - <a href="The_Obligatory_Tower">The Obligatory Tower</a>, to the north
-- <a href="../History/The_Chosen_Ones">The Chosen Ones</a>, for the Forty-Sixth
+- <a href="../People/Godfrey_Stopford">Godfrey Stopford</a>, the Forty-Sixth
+- <a href="../History/The_Chosen_Ones">The Chosen Ones</a>
 - <a href="../People/Wren_Halloway">Wren Halloway</a>
 - <a href="../Bestiary/">The Bestiary</a>

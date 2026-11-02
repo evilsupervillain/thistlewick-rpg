@@ -27,6 +27,10 @@ Each one ends with the checks in `README.md`, a commit, a push to
    Healers' Table carries Merribell's note), Wren's Bestiary in seven pages,
    two artefact articles and a catalogue with Nix's provenance column, and
    the glossary. No red links are owed.
+7b. **More people** (Mike, 2 November 2026): bios for the supporting cast,
+   with Born/Died dates in every new infobox. Batch A (Mother Ursula Pym,
+   Godfrey Stopford the Forty-Sixth, the Cotterills one by one, the
+   Gotobeds) done; B-D in progress. Older bios get dates in a later pass.
 8. **The final pass**: cross-links, the search index, and a browser check of
    every page.
 

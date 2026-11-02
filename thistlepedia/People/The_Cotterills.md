@@ -10,8 +10,8 @@ title: The Cotterills
 <caption>The Cotterills</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/The_Cotterills.png" alt="Mrs Cotterill" width="200"><span class="infobox-caption">Mrs Cotterill, who chose the names</span></td></tr>
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a>, the house at the end of the street, and most of the street</td></tr>
-<tr><th>Mam</th><td>Mrs Cotterill</td></tr>
-<tr><th>Da</th><td>Mr Cotterill, on nights</td></tr>
+<tr><th>Mam</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Da</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
 <tr><th>Children</th><td>Ten</td></tr>
 <tr><th>Named for</th><td>Fastenings, nearly</td></tr>
 <tr><th>Tin cups on the rain barrel</th><td>Ten, on ten nails</td></tr>
@@ -23,9 +23,9 @@ title: The Cotterills
 
 ## Mam and Da
 
-**Mrs Cotterill** chose the names, and has them off by heart. "Cotter, Rivet, Gudgeon, Tappet, Ferrule, Grommet, Clevis, Shim. And Spare. We had run out. He said call it Spare, and I was tired." She will ask you whether you have eaten. If you say yes she will feed you anyway, because she does more potatoes. She is the only person in the north who ever won an argument with Spare, and she won it a great many times, and then one day she stopped at a quarter, and he went, with the washer and his bag; that is in his article, and I will only say here that it was a fair fight, and that his mother is a formidable opponent and knew exactly what she was doing at every point of it, including the last.
+**<a href="Nora_Cotterill">Mrs Cotterill</a>** chose the names, and has them off by heart. "Cotter, Rivet, Gudgeon, Tappet, Ferrule, Grommet, Clevis, Shim. And Spare. We had run out. He said call it Spare, and I was tired." She will ask you whether you have eaten. If you say yes she will feed you anyway, because she does more potatoes. She is the only person in the north who ever won an argument with Spare, and she won it a great many times, and then one day she stopped at a quarter, and he went, with the washer and his bag; that is in his article, and I will only say here that it was a fair fight, and that his mother is a formidable opponent and knew exactly what she was doing at every point of it, including the last.
 
-**Mr Cotterill** is on nights: twelve on, twelve off, six days. "It is not the work I mind. It is the walk home in the dark." He thinks about that for a moment. "Mind, I have never once minded the walk home." He is always very glad to get home. Mrs Cotterill says so, and so does everybody on the street, and I have nothing to add.
+**<a href="Ernest_Cotterill">Mr Cotterill</a>** is on nights: twelve on, twelve off, six days. "It is not the work I mind. It is the walk home in the dark." He thinks about that for a moment. "Mind, I have never once minded the walk home." He is always very glad to get home. Mrs Cotterill says so, and so does everybody on the street, and I have nothing to add.
 
 ## The children
 
@@ -33,16 +33,16 @@ I have the ages from **Gudgeon**, who copies the parish register at the Parish R
 
 | Who | Age | |
 | --- | --- | --- |
-| **Cotter** | 26 | The eldest. Married to **Bessie Marsden**, Winnie's granddaughter. Was down the valley at the big foundry at Great Dunnage, at the Iron Company's gate, until the spring of 2000 |
-| **Rivet** | 24 | Days, while Da does nights. They pass at the door at six. He says "Rivet." Rivet says "Da." "That is a conversation, that is." Has shared a bed his whole life, and one of the people in it is Grommet, and he has never once been in a room by himself |
-| **Gudgeon** | 22 | Clerks at the Parish Rooms; copies the register; knew exactly which drawer Form P-9 was in, without looking. Read it aloud to the Forty-Eighth one section at a time |
-| **Tappet** | 20 | Brings the castings up to the works on Tuesdays, six crates, and watched the airship not fly for four years. She would still get in it. When it flew she stood under the empty gantry and said, "It flew," and that was all she said, grinning |
-| **Ferrule** | 18 | In charge from six, when Da goes to work, and then nobody gets to sit down |
-| **Grommet** | 17 | Apprenticed to Bryd Ollerenshaw at the forge, and put upon. Mr Ollerenshaw says he has got the makings, and says it slowly. Points out to the family every day that their names are wrong: a shim is a packing piece, and a ferrule is a collar, and fastens nothing, and only stops a split. Small enough to go inside a boiler, and has |
-| **Clevis** | 15 | Ran a book on the tenth one's name. Gib was evens; Cleat two to one; Washer twenty to one, because Da had said not Washer |
-| **Shim** | 13 | Collects things. A tin of washers, mostly, and three bolts, a doorknob and a bearing, and the bearing is the best one, because you can hold it and it goes round. Gave Spare a washer |
+| **<a href="Cotter_Cotterill">Cotter</a>** | 26 | The eldest. Married to **<a href="Bessie_Cotterill">Bessie Marsden</a>**, Winnie's granddaughter. Was down the valley at the big foundry at Great Dunnage, at the Iron Company's gate, until the spring of 2000 |
+| **<a href="Rivet_Cotterill">Rivet</a>** | 24 | Days, while Da does nights. They pass at the door at six. He says "Rivet." Rivet says "Da." "That is a conversation, that is." Has shared a bed his whole life, and one of the people in it is Grommet, and he has never once been in a room by himself |
+| **<a href="Gudgeon_Cotterill">Gudgeon</a>** | 22 | Clerks at the Parish Rooms; copies the register; knew exactly which drawer Form P-9 was in, without looking. Read it aloud to the Forty-Eighth one section at a time |
+| **<a href="Tappet_Cotterill">Tappet</a>** | 20 | Brings the castings up to the works on Tuesdays, six crates, and watched the airship not fly for four years. She would still get in it. When it flew she stood under the empty gantry and said, "It flew," and that was all she said, grinning |
+| **<a href="Ferrule_Cotterill">Ferrule</a>** | 18 | In charge from six, when Da goes to work, and then nobody gets to sit down |
+| **<a href="Grommet_Cotterill">Grommet</a>** | 17 | Apprenticed to Bryd Ollerenshaw at the forge, and put upon. Mr Ollerenshaw says he has got the makings, and says it slowly. Points out to the family every day that their names are wrong: a shim is a packing piece, and a ferrule is a collar, and fastens nothing, and only stops a split. Small enough to go inside a boiler, and has |
+| **<a href="Clevis_Cotterill">Clevis</a>** | 15 | Ran a book on the tenth one's name. Gib was evens; Cleat two to one; Washer twenty to one, because Da had said not Washer |
+| **<a href="Shim_Cotterill">Shim</a>** | 13 | Collects things. A tin of washers, mostly, and three bolts, a doorknob and a bearing, and the bearing is the best one, because you can hold it and it goes round. Gave Spare a washer |
 | **Spare** | 11 | The ninth. See <a href="Spare_Cotterill">his article</a> |
-| **Washer** | 2 this spring | The tenth, born in the spring of 2000, at six in the morning, on the hooter |
+| **<a href="Washer_Cotterill">Washer</a>** | 2 this spring | The tenth, born in the spring of 2000, at six in the morning, on the hooter |
 
 <div class="marginalia">Grommet asked me to print that the names are wrong. I have printed it. Mrs Cotterill asked me to print that the names are not wrong, they are what she called them. I have printed that as well. Mr Cotterill asked me to say that he had no view, and has not had one since about Ferrule.</div>
 
