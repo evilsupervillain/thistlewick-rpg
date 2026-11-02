@@ -24,7 +24,7 @@ title: Two Reckonings
 
 ## The calendar
 
-The years in this book, and in most books, are years of the **Third Age**, which is the elves' count. <a class="new" href="../Places/Olde_Evermore">Olde Evermore</a> counts in Ages, and has been where it is since the First; <a class="new" href="../People/Mirabel">Mirabel</a> has been making her prophecy about biscuits since the Second. The Hoyle Works' stores book was begun in 1802, Weeping Bottom was founded in 1702, the Collegium Arcanum in 1400, and the Forty-Eighth set out in 2000. Those are all the same kind of year, a year of the sun, and they add up.
+The years in this book, and in most books, are years of the **Third Age**, which is the elves' count. <a href="../Places/Olde_Evermore">Olde Evermore</a> counts in Ages, and has been where it is since the First; <a class="new" href="../People/Mirabel">Mirabel</a> has been making her prophecy about biscuits since the Second. The Hoyle Works' stores book was begun in 1802, Weeping Bottom was founded in 1702, the Collegium Arcanum in 1400, and the Forty-Eighth set out in 2000. Those are all the same kind of year, a year of the sun, and they add up.
 
 Thistlewick signed the Prophecy in the first year of the Third Age, and has said ever since that the Age began with it. It did not. What did begin it, I do not know, and Elder <a class="new" href="../People/Elder_Faelan">Faelan</a> would only tell me that the Age began with a great many things and the Prophecy was the one with a clerk present. I have not been able to find out what the others were. I suspect that nobody has ever asked, and I suspect that is the reason.
 
@@ -71,4 +71,4 @@ The rule I have used in this book is the one the world uses without meaning to. 
 - [The Prophecy of Thistlewick](The_Prophecy_of_Thistlewick)
 - [The Chosen Ones](The_Chosen_Ones)
 - <a href="../Places/Frostwick">Frostwick</a>
-- <a class="new" href="../Places/Olde_Evermore">Olde Evermore</a>
+- <a href="../Places/Olde_Evermore">Olde Evermore</a>

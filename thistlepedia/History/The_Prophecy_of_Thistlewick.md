@@ -24,7 +24,7 @@ It was never a prophecy. It is an employment contract, with numbered clauses, an
 
 ## The signing
 
-The Prophecy was signed in the first year of the Third Age, and Thistlewick has always held that the Age began with it. The elves of <a class="new" href="../Places/Olde_Evermore">Olde Evermore</a>, who were there, say the Age began with a great many things and that the Prophecy was the one with a clerk present. I have not been able to get either party to say more, and I record both.
+The Prophecy was signed in the first year of the Third Age, and Thistlewick has always held that the Age began with it. The elves of <a href="../Places/Olde_Evermore">Olde Evermore</a>, who were there, say the Age began with a great many things and that the Prophecy was the one with a clerk present. I have not been able to get either party to say more, and I record both.
 
 What is agreed is that the signing was ever so long. I have that from an eyewitness: <a class="new" href="../People/Mirabel">Mirabel</a>, the oracle of Olde Evermore, who attended as a child of about two thousand and was bored. Everybody had to sign it three times. So she drew a horse on it.
 

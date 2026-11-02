@@ -27,7 +27,7 @@ He reads. He was reading when every one of the forty-eight came up the stairs, a
 
 ## The post
 
-The post of Dark Lord was held, before the Prophecy, at the castle on the cloud that its caretaker now calls the <a class="new" href="../Places/The_Former_Premises">Former Premises</a>, which no hero could ever reach. Grimspite has never been there. "I've read the file. The drains were a disgrace, and the east wing faced the wrong way."
+The post of Dark Lord was held, before the Prophecy, at the castle on the cloud that its caretaker now calls the <a href="../Places/The_Former_Premises">Former Premises</a>, which no hero could ever reach. Grimspite has never been there. "I've read the file. The drains were a disgrace, and the east wing faced the wrong way."
 
 He holds, or held, the post at the Tower, under clause twelve of the [Prophecy](../History/The_Prophecy_of_Thistlewick#clause-twelve-the-renewal). Every hundred years, by the Committee's reckoning of a hundred years, a Chosen One came up the stairs, and he said, "So, you have come at last." He said it forty-seven times. "And I meant it the first time." They fought him and they won, and clause twelve renewed him. It is carved forty-seven times into the wall behind his throne: THE DARK LORD SHALL RISE AGAIN. "It isn't a threat. It's a renewal notice."
 

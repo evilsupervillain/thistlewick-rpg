@@ -64,7 +64,7 @@ The Committee keeps a souvenir book, *The Forty-Seven*, with a portrait, a date 
 | 44 | 1960 | <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a> | Pensioned to Nether Sopping and ignored for forty years, watering a pot with a dead thing in it every morning. Died about 1999. Thistlewick cut THISTLEWICK REMEMBERS over the door of his mound; somebody has chalked under it that Thistlewick did not write once. He asked for a bench. He has one now. |
 | 45 | 1970 | <a class="new" href="../People/Halbert_Quy">Halbert Quy</a> | Declined Grimspite's tea, because he thought it was a trick, and has thought about it ever since. Asked at the next meeting why there was always a next one. The cottage was ready by the Friday. He is next door to Fitch's. |
 | 46 | 1980 | Not given | Got as far as the <a href="../Places/The_Gloamwood">Gloamwood</a>, said the woods were enough, and sat down on a log, where he still is. His party said: fair. Two of them, Nabb and Tolly, write to him every month, and he reads every letter, and that is his answer. |
-| 47 | 1990 | Not given | The Old Man's boy. Came off the ledge at <a class="new" href="../Places/Olde_Evermore">Olde Evermore</a> and landed on his feet, for five point nine, the best score since the First Age. He did not come home to Thistlewick. |
+| 47 | 1990 | Not given | The Old Man's boy. Came off the ledge at <a href="../Places/Olde_Evermore">Olde Evermore</a> and landed on his feet, for five point nine, the best score since the First Age. He did not come home to Thistlewick. |
 | 48 | 2000 | <a href="../People/Bram_Thistle">Bram Thistle</a> | A turnip farmer, chosen asleep. Asked the question. See [The Obligatory Quest](The_Obligatory_Quest). |
 
 <div class="disputed">

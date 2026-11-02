@@ -34,4 +34,4 @@
 
 ## Further out
 
-The rest of the world is being written up as I am able to visit it, or as people come in out of the rain and tell me about it. It includes <a class="new" href="Great_Dunnage">Great Dunnage</a>, <a class="new" href="Olde_Evermore">Olde Evermore</a> and a great many villages with fewer than one inn.
+The rest of the world is being written up as I am able to visit it, or as people come in out of the rain and tell me about it. It includes <a class="new" href="Great_Dunnage">Great Dunnage</a>, <a href="Olde_Evermore">Olde Evermore</a> and a great many villages with fewer than one inn.
