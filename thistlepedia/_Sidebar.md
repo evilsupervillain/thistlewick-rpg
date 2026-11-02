@@ -15,6 +15,6 @@
 - <a href="History/The_Prophecy_of_Thistlewick">The Prophecy</a>
 - <a href="History/The_Chosen_Ones">The Chosen Ones</a>
 - <a href="History/The_Obligatory_Quest">The Quest of the Forty-Eighth</a>
-- <a class="new" href="People/Bram_Thistle">Bram Thistle</a>
-- <a class="new" href="People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>
+- <a href="People/Bram_Thistle">Bram Thistle</a>
+- <a href="People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>
 - <a href="History/Timeline">Timeline</a>

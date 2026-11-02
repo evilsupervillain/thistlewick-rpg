@@ -15,7 +15,7 @@ Each one ends with the checks in `README.md`, a commit, a push to
    (#1-#48), the Quest of the Forty-Eighth, Two Reckonings, a Timeline. Done.
 3. **The company**: Bram, the nine companions, Spare, Grimspite and Hosea,
    each with an infobox portrait and an Afterwards section that agrees with
-   `AFTERWARDS.md`.
+   `AFTERWARDS.md`. Done.
 4. **Places I**: Thistlewick, the road north and the Tower, and the south.
 5. **Places II**: the north, and the world-map sites.
 6. **Notable people**: the major characters who are not in the party.

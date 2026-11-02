@@ -4,7 +4,7 @@ title: The Obligatory Quest
 
 # The Obligatory Quest
 
-<p class="hatnote">This article is about the quest of the Forty-Eighth, in the year 2000. For the forty-seven before it, which went the same way as each other, see <a href="The_Chosen_Ones">The Chosen Ones</a>. For the man, see <a class="new" href="../People/Bram_Thistle">Bram Thistle</a>.</p>
+<p class="hatnote">This article is about the quest of the Forty-Eighth, in the year 2000. For the forty-seven before it, which went the same way as each other, see <a href="The_Chosen_Ones">The Chosen Ones</a>. For the man, see <a href="../People/Bram_Thistle">Bram Thistle</a>.</p>
 
 <table class="infobox">
 <caption>The Obligatory Quest</caption>
@@ -24,26 +24,26 @@ I have told the whole of it in Volume Two, from first-hand accounts, at length. 
 
 ## The choosing
 
-<a class="new" href="../People/Bram_Thistle">Bram Thistle</a> was a turnip farmer, and was asleep when the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> chose him. The minutes give his name under *apologies for absence*, with one goat. He woke chosen, took down a sword he did not seem entirely comfortable holding, and went to <a class="new" href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolled the Prophecy to the far wall and told him it had worked forty-seven times. He asked what had happened the other times. He was told that it had worked forty-seven times.
+<a href="../People/Bram_Thistle">Bram Thistle</a> was a turnip farmer, and was asleep when the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> chose him. The minutes give his name under *apologies for absence*, with one goat. He woke chosen, took down a sword he did not seem entirely comfortable holding, and went to <a class="new" href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolled the Prophecy to the far wall and told him it had worked forty-seven times. He asked what had happened the other times. He was told that it had worked forty-seven times.
 
-He was given five hundred crowns and three potions from the parish fund, and the Prophecy, which was, regrettably, free. His employer, a farmer, asked who was doing the west field. Nobody had an answer to that either.
+He was given five hundred crowns and three potions from the parish fund, and the Prophecy, which was, regrettably, free. A neighbour in the lane, a farmer, asked who was doing the west field. Nobody had an answer to that either.
 
 ## The company
 
 The clause allows a Chosen One three companions, and Bram, over the course of the Quest, went through rather more than three, though never more than three at once. In the order in which people generally list them, which is not the order in which anybody joined, they were:
 
-- <a class="new" href="../People/Merribell">Merribell</a>, Thistlewick's healer;
-- <a class="new" href="../People/Hob_Grumnir">Hob Grumnir</a>, its blacksmith;
-- <a class="new" href="../People/Zephyrine_Vance">Zephyrine Vance</a>, a hedge mage, with a history at the Collegium Arcanum;
-- <a class="new" href="../People/Nix">Nix</a>, in acquisitions;
-- <a class="new" href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>, a knight errant who could not find the north gate;
-- <a class="new" href="../People/Piper_Quill">Piper Quill</a>, a bard, who was writing it all down;
-- <a class="new" href="../People/Corvin_Ash">Corvin Ash</a>, a doomed rival, from a corner of the Slain Wyvern;
-- <a class="new" href="../People/Wren_Halloway">Wren Halloway</a>, a cataloguer, from another corner;
-- <a class="new" href="../People/Roland_Fairweather">Roland Fairweather</a>, a guest star, from a table near the door, who had somewhere to be;
-- and <a class="new" href="../People/Spare_Cotterill">Spare Cotterill</a>, the ninth of the Cotterills of Upper Clanging, aged nine, who joined after a discussion with his mother.
+- <a href="../People/Merribell">Merribell</a>, Thistlewick's healer;
+- <a href="../People/Hob_Grumnir">Hob Grumnir</a>, its blacksmith;
+- <a href="../People/Zephyrine_Vance">Zephyrine Vance</a>, a hedge mage, with a history at the Collegium Arcanum;
+- <a href="../People/Nix">Nix</a>, in acquisitions;
+- <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>, a knight errant who could not find the north gate;
+- <a href="../People/Piper_Quill">Piper Quill</a>, a bard, who was writing it all down;
+- <a href="../People/Corvin_Ash">Corvin Ash</a>, a doomed rival, from a corner of the Slain Wyvern;
+- <a href="../People/Wren_Halloway">Wren Halloway</a>, a cataloguer, from another corner;
+- <a href="../People/Roland_Fairweather">Roland Fairweather</a>, a guest star, from a table near the door, who had somewhere to be;
+- and <a href="../People/Spare_Cotterill">Spare Cotterill</a>, the ninth of the Cotterills of Upper Clanging, aged nine, who joined after a discussion with his mother.
 
-Which three of them were with him at the top of the Tower is a matter on which I have taken evidence from all of them, and every one of them has told me, kindly and firmly, that it was them. I have not adjudicated. I have noted that Roland Fairweather is the only one who does not claim it, because he left at the door, as he always does. See <a class="new" href="../People/Roland_Fairweather">his article</a> for why.
+Which three of them were with him at the top of the Tower is a matter on which I have taken evidence from all of them, and every one of them has told me, kindly and firmly, that it was them. I have not adjudicated. I have noted that Roland Fairweather is the only one who does not claim it, because he left at the door, as he always does. See <a href="../People/Roland_Fairweather">his article</a> for why.
 
 ## The road north
 
@@ -76,7 +76,7 @@ Inside is a plaque that says the building was established approximately four tho
 
 ## The top
 
-"Forty-eight," said <a class="new" href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>. "Right on time. Sit down. No? Fine. Standing is traditional."
+"Forty-eight," said <a href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>. "Right on time. Sit down. No? Fine. Standing is traditional."
 
 He had said "so, you have come at last" forty-seven times, he told them, and meant it the first time. Then the Forty-Eighth asked him why he did not stop.
 
@@ -129,5 +129,5 @@ The Quest is over, but it did not quite stop, and some of what came after is as 
 - [The Prophecy of Thistlewick](The_Prophecy_of_Thistlewick)
 - [The Chosen Ones](The_Chosen_Ones)
 - [Timeline](Timeline)
-- <a class="new" href="../People/Bram_Thistle">Bram Thistle</a>
-- <a class="new" href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>
+- <a href="../People/Bram_Thistle">Bram Thistle</a>
+- <a href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>

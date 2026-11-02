@@ -52,13 +52,13 @@ Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> gives the charge t
 
 ### Clause seven: on foot
 
-The Chosen One goes on foot. <a class="new" href="../People/Grimspite_the_Inevitable">Grimspite</a> himself explained why, when he was asked: "Because a thing that flies over and drops something is not a story. It is a Tuesday."
+The Chosen One goes on foot. <a href="../People/Grimspite_the_Inevitable">Grimspite</a> himself explained why, when he was asked: "Because a thing that flies over and drops something is not a story. It is a Tuesday."
 
 The town of <a class="new" href="../Places/Upper_Clanging">Upper Clanging</a> has spent two hundred years building ships that fly to the Tower, and kept the ones that did not in the <a class="new" href="../Places/The_Long_Field">Long Field</a>. Grimspite was of the view that Miss <a class="new" href="../People/Ott_Hoyle">Hoyle</a> would never get one off the ground in sight of his tower, and that it had nothing whatever to do with her spars. Her two hundredth attempt landed beside the Tower that same year, with a Chosen One aboard. As far as I know nobody has mentioned this to him, and I do not intend to be the first, in an encyclopedia or out of one.
 
 ### Clause eleven: fit to travel
 
-*A Chosen One is certified fit before departure.* It had been done forty-seven times. The Forty-Eighth's certificate was blank, because the Committee chose him while he was asleep, and nobody had examined a man who was asleep. <a class="new" href="../People/Merribell">Merribell</a> found the blank on a pad of works fitness forms in Upper Clanging and did it properly, on the road, with stamped scales borrowed from the fish stall at Nether Sopping, the light of a lit lighthouse, and a witness. He is certified fit to travel. He had, by then, travelled.
+*A Chosen One is certified fit before departure.* It had been done forty-seven times. The Forty-Eighth's certificate was blank, because the Committee chose him while he was asleep, and nobody had examined a man who was asleep. <a href="../People/Merribell">Merribell</a> found the blank on a pad of works fitness forms in Upper Clanging and did it properly, on the road, with stamped scales borrowed from the fish stall at Nether Sopping, the light of a lit lighthouse, and a witness. He is certified fit to travel. He had, by then, travelled.
 
 ### Clause twelve: the renewal
 

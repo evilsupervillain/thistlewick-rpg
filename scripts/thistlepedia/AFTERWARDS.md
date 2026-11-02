@@ -90,8 +90,10 @@ the letter came.
 **Nix** (she). *Canon:* the client identified and the coat fits; a RETURNED
 column with eleven lines; Lorrimer plays the Dark Lord in Nether Sopping,
 afternoons, and loses. *Wiki:* the back room is open; the ledger is into its
-second volume; the parcel for a client not yet identified is still on the
-shelf, and she will not say whose it is going to be.
+second volume, begun on the page after the coat. (The parcel "for a client
+not yet identified" is the ending's NIX-4 line for a game in which NIX-1 is
+not done. In the wiki every quest is done, so the parcel was opened, and the
+client was Nix at fifteen; nothing is left on the shelf.)
 
 **Sir Aldric Pemberton-Gore III**. *Canon:* the vigil kept; promoted Knight
 Errant, At Large; has a squire who finds the gates; Duchess a partner in
@@ -139,3 +141,36 @@ adjacent (canon); the Two Hundred and First is on the slip (wiki). *Maud
 Penhallow* (eighteen): either saw the end at the door and went to tell him,
 or was told it over a pie and went to see one for herself (canon, a player
 choice, so vague); is in the yard at Great Dunnage still, between (wiki).
+
+## What unit 3 (the company) added
+
+Small inventions in the bios, kept here so that later articles agree with them.
+All *wiki*.
+
+* **Bram** waters Fitch's pot each visit and nothing grows; declined the
+  Committee seat because it meets in planting time; asked Hosea not to print
+  his turnip count, or to tell the Committee he is not at the coast.
+* **Merribell** told Hosea to drink more water.
+* **Hob**: the churchyard latch has a spring now. He called the article fair
+  and Beatrice called it soft.
+* **Zephyrine** will not say how ZEPH-1 ended (a player choice); the
+  Collegium register and her own filed expulsion are both quoted, and she
+  will know what to use the vote for "when she sees it, not soon".
+* **Nix** once left Hosea a better pencil, "located".
+* **Sir Aldric** rode out from Fenmarch in 1991, aged thirty-seven, with the
+  invitation (`TIMELINE.md` 1991); found the gate at about eleven in the
+  morning of 9 June 2001.
+* **Piper** and Hosea meet at the Wyvern about monthly to disagree; her
+  notebooks are in double figures; she says verse seven "is very good".
+* **Corvin** sits at a table in the middle of the Wyvern now, and once at
+  Hosea's.
+* **Wren** has never examined Fenmarch's case forty, and will not discuss it.
+* **Roland** keeps a list of two further things finished; mostly no longer
+  leaves at doors. Maud's question (ROL-5) is never printed.
+* **Spare's** letters to Hosea: thirty-one, four lines each, untrue, filed
+  under Fiction; one printed (he has been made Mayor; the duck was against).
+  Washer has not yet said a word.
+* **Grimspite** returned his article uncorrected, with a kettle offered.
+  Merrow Halgate's apology at the bridge is canon (`south.py`).
+* **Hosea** has had a letter from Pargeter pointing out a clause, and has
+  bought a pair of boots this winter. He has not climbed anything.

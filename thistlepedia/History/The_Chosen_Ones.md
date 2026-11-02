@@ -4,7 +4,7 @@ title: The Chosen Ones
 
 # The Chosen Ones
 
-<p class="hatnote">For the document that chose them, see <a href="The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>. For the last of them, see <a class="new" href="../People/Bram_Thistle">Bram Thistle</a>.</p>
+<p class="hatnote">For the document that chose them, see <a href="The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>. For the last of them, see <a href="../People/Bram_Thistle">Bram Thistle</a>.</p>
 
 <table class="infobox">
 <caption>The Chosen Ones of Thistlewick</caption>
@@ -24,11 +24,11 @@ title: The Chosen Ones
 
 ## How a Chosen One is chosen
 
-By the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, in session, at a moment it finds convenient (see [Two Reckonings](Two_Reckonings)). The candidate does not need to be present, and the last one was not: the minutes of the meeting at which <a class="new" href="../People/Bram_Thistle">Bram Thistle</a> was chosen list, under *apologies for absence*, his name and one goat. He was asleep. The goat has not been found.
+By the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, in session, at a moment it finds convenient (see [Two Reckonings](Two_Reckonings)). The candidate does not need to be present, and the last one was not: the minutes of the meeting at which <a href="../People/Bram_Thistle">Bram Thistle</a> was chosen list, under *apologies for absence*, his name and one goat. He was asleep. The goat has not been found.
 
 The Chosen One is then summoned to <a class="new" href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolls the Prophecy until it reaches the far wall and gives the charge: take companions, up to three; go north; kill the Dark Lord; come home. "In that order, ideally." The Chosen One receives a copy of the Prophecy in triplicate, five hundred crowns and three potions from the parish fund, and a sword. Every one of them did the sword.
 
-What happened next was, for forty-seven of them, the same. They went north. They climbed the Tower. They found the Dark Lord, <a class="new" href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>, reading, and he put his bookmark in and said, "So, you have come at last," which he meant the first time. They fought him, and they won, and before they reached the stairs clause twelve renewed him. They came home and Thistlewick said that it had worked.
+What happened next was, for forty-seven of them, the same. They went north. They climbed the Tower. They found the Dark Lord, <a href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>, reading, and he put his bookmark in and said, "So, you have come at last," which he meant the first time. They fought him, and they won, and before they reached the stairs clause twelve renewed him. They came home and Thistlewick said that it had worked.
 
 "Forty-seven of us," <a class="new" href="../People/Halbert_Quy">Halbert Quy</a> told the Forty-Eighth. "We all did the sword. Not one of us ever asked the man why he doesn't stop."
 
@@ -65,7 +65,7 @@ The Committee keeps a souvenir book, *The Forty-Seven*, with a portrait, a date 
 | 45 | 1970 | <a class="new" href="../People/Halbert_Quy">Halbert Quy</a> | Declined Grimspite's tea, because he thought it was a trick, and has thought about it ever since. Asked at the next meeting why there was always a next one. The cottage was ready by the Friday. He is next door to Fitch's. |
 | 46 | 1980 | Not given | Got as far as the <a class="new" href="../Places/The_Gloamwood">Gloamwood</a>, said the woods were enough, and sat down on a log, where he still is. His party said: fair. Two of them, Nabb and Tolly, write to him every month, and he reads every letter, and that is his answer. |
 | 47 | 1990 | Not given | The Old Man's boy. Came off the ledge at <a class="new" href="../Places/Olde_Evermore">Olde Evermore</a> and landed on his feet, for five point nine, the best score since the First Age. He did not come home to Thistlewick. |
-| 48 | 2000 | <a class="new" href="../People/Bram_Thistle">Bram Thistle</a> | A turnip farmer, chosen asleep. Asked the question. See [The Obligatory Quest](The_Obligatory_Quest). |
+| 48 | 2000 | <a href="../People/Bram_Thistle">Bram Thistle</a> | A turnip farmer, chosen asleep. Asked the question. See [The Obligatory Quest](The_Obligatory_Quest). |
 
 <div class="disputed">
 
