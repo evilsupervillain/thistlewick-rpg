@@ -48,7 +48,7 @@ I do not know what clause four says. It appears on the back of the Committee's l
 
 ### The companions clause
 
-Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> gives the charge to every Chosen One, and includes this: *take companions, up to three.* "That is the clause," he says, "not my preference." I have not been able to find its number. The Tower has a cupboard on its fourth floor with ten hooks in it, each with a small brass label: CHOSEN ONE, HEALER, SMITH, MAGE, SPECIALIST, KNIGHT, MUSICIAN, and two added later in a cheaper brass, RIVAL and CATALOGUER. The tenth reads GUEST, and is always empty. So the clause is at least well provided for.
+Elder <a href="../People/Elder_Wispel">Wispel</a> gives the charge to every Chosen One, and includes this: *take companions, up to three.* "That is the clause," he says, "not my preference." I have not been able to find its number. The Tower has a cupboard on its fourth floor with ten hooks in it, each with a small brass label: CHOSEN ONE, HEALER, SMITH, MAGE, SPECIALIST, KNIGHT, MUSICIAN, and two added later in a cheaper brass, RIVAL and CATALOGUER. The tenth reads GUEST, and is always empty. So the clause is at least well provided for.
 
 ### Clause seven: on foot
 
@@ -64,7 +64,7 @@ The town of <a href="../Places/Upper_Clanging">Upper Clanging</a> has spent two 
 
 <div class="stamp">THE DARK LORD SHALL RISE AGAIN.</div>
 
-For two thousand years Thistlewick read this as a warning. It is not a warning. As Councillor <a class="new" href="../People/Councillor_Fenn">Fenn</a> of the Committee told his colleagues for years, to no effect: "That's not a warning. That's a subscription." Grimspite put it more shortly, and he had more right to: "It isn't a threat. It's a renewal notice."
+For two thousand years Thistlewick read this as a warning. It is not a warning. As Councillor <a href="../People/Councillor_Fenn">Fenn</a> of the Committee told his colleagues for years, to no effect: "That's not a warning. That's a subscription." Grimspite put it more shortly, and he had more right to: "It isn't a threat. It's a renewal notice."
 
 Every time a Chosen One beat the Dark Lord, clause twelve renewed him, "before you reach the stairs". It renewed him forty-seven times. The sentence is carved forty-seven times into the wall behind his throne, and on the Obelisk in the Tower there is a list of forty-seven dates and names, each ending in the word RENEWED, with room left at the bottom for a forty-eighth. In the copy issued to the Forty-Eighth, clause twelve has been underlined by somebody worried.
 
@@ -72,13 +72,13 @@ The Committee struck it in 2000, *nem. con.*, and in its place wrote a note: SEE
 
 ### Clause fourteen: the first meeting
 
-*The first meeting shall not go well.* I have this from <a class="new" href="../People/Merrow_Halgate">Merrow Halgate</a>, whose party of twenty - the best-equipped that ever went north - fought the Dark Lord at the bridge and lost, as the clause required, and as was written down in advance. He has made his peace with losing. He has not made his peace with the paperwork.
+*The first meeting shall not go well.* I have this from <a href="../People/Merrow_Halgate">Merrow Halgate</a>, whose party of twenty - the best-equipped that ever went north - fought the Dark Lord at the bridge and lost, as the clause required, and as was written down in advance. He has made his peace with losing. He has not made his peace with the paperwork.
 
 ### Clause nineteen: the Resettlement Clause
 
 *A returning Chosen One shall receive a pension, a cottage, and such distance from the village as is mutually agreeable.*
 
-It was added later, somewhere about the Ninth, when Thistlewick found that a hero who comes home is awkward: he knows what is at the top of the Tower, and he asks at meetings why the Committee is already drafting the next one. <a class="new" href="../People/Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, asked exactly that - "if it works every hundred years, why is there always a next one?" - and the cottage was ready by the Friday. The mutually agreeable distance turned out to be forty miles, which is how I come to be writing this in <a href="../Places/Nether_Sopping">Nether Sopping</a>, among most of the people in it. "They're not cruel," Mr Quy told the Forty-Eighth. "They're embarrassed."
+It was added later, somewhere about the Ninth, when Thistlewick found that a hero who comes home is awkward: he knows what is at the top of the Tower, and he asks at meetings why the Committee is already drafting the next one. <a href="../People/Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, asked exactly that - "if it works every hundred years, why is there always a next one?" - and the cottage was ready by the Friday. The mutually agreeable distance turned out to be forty miles, which is how I come to be writing this in <a href="../Places/Nether_Sopping">Nether Sopping</a>, among most of the people in it. "They're not cruel," Mr Quy told the Forty-Eighth. "They're embarrassed."
 
 It was applied to the Forty-Eighth the morning after he got home, by letter, on the mat: his pension, one quarter, in advance, with no mention of the next one, and the key to a cottage at Nether Sopping. *We trust Friday will suit.*
 

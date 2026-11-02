@@ -35,7 +35,7 @@ There was a sword on the wall above the grate. It had been there, his mother sai
 
 ## The choosing
 
-The minutes of the meeting give his name under *apologies for absence*, with one goat. He was not consulted, because he was asleep, and he was not woken, because the Committee did not think it would make a difference, and it did not. Elder <a class="new" href="Elder_Wispel">Wispel</a> gave him the charge in <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, the parish gave him five hundred crowns and three potions, and a neighbour in the lane asked him who was going to do the west field.
+The minutes of the meeting give his name under *apologies for absence*, with one goat. He was not consulted, because he was asleep, and he was not woken, because the Committee did not think it would make a difference, and it did not. Elder <a href="Elder_Wispel">Wispel</a> gave him the charge in <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, the parish gave him five hundred crowns and three potions, and a neighbour in the lane asked him who was going to do the west field.
 
 His own account of that morning, which I have had from him several times, is that he did not know what else to do, so he went. I have put this to forty-seven people who did the same and they all recognised it at once.
 
@@ -44,7 +44,7 @@ His own account of that morning, which I have had from him several times, is tha
 The whole of it is under [The Obligatory Quest](../History/The_Obligatory_Quest), and the longer version is Volume Two. What distinguishes him from the forty-seven is not what he did - they all went north and did the sword - but the things he did that were not on the way:
 
 - **He went south.** Nobody does. He came into the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, sat down with a room full of people the Committee would rather he had not met, and listened to six of them to the end. I paid him for it, and he found out the wyvern is a goose.
-- **He asked.** <a class="new" href="Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, told him what to ask at the top, and he asked it.
+- **He asked.** <a href="Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, told him what to ask at the top, and he asked it.
 - **He listened to the answer.** All of it. Grimspite had been waiting four thousand eight hundred contract years for somebody to.
 - **He read the document.** Out loud, in full, in the middle of a fight, because somebody he had just beaten told him to. It is the only recorded case of a Chosen One reading the Prophecy, and it was fatal to the Prophecy.
 
@@ -64,7 +64,7 @@ He does not like being written about. He comes south anyway, about once a month,
 
 ## Afterwards
 
-The next morning there were still turnips. There was also a letter on the mat: clause nineteen, one quarter's pension, and the key to <a class="new" href="Ambrose_Fitch">Ambrose Fitch</a>'s old cottage at <a href="../Places/Nether_Sopping">Nether Sopping</a>, with the Committee's trust that Friday would suit. Friday did not suit. He stayed at home and farmed, and six months later the Committee struck clause nineteen, after a meeting of eleven hours.
+The next morning there were still turnips. There was also a letter on the mat: clause nineteen, one quarter's pension, and the key to <a href="Ambrose_Fitch">Ambrose Fitch</a>'s old cottage at <a href="../Places/Nether_Sopping">Nether Sopping</a>, with the Committee's trust that Friday would suit. Friday did not suit. He stayed at home and farmed, and six months later the Committee struck clause nineteen, after a meeting of eleven hours.
 
 He kept the key. He uses the cottage when he comes south, which is about monthly, and every time he is in it he waters the pot on the sill, which has had something dead in it since Mr Fitch's day. Nothing has grown. I check.
 

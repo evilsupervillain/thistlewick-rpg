@@ -26,11 +26,11 @@ title: The Chosen Ones
 
 By the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, in session, at a moment it finds convenient (see [Two Reckonings](Two_Reckonings)). The candidate does not need to be present, and the last one was not: the minutes of the meeting at which <a href="../People/Bram_Thistle">Bram Thistle</a> was chosen list, under *apologies for absence*, his name and one goat. He was asleep. The goat has not been found.
 
-The Chosen One is then summoned to <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolls the Prophecy until it reaches the far wall and gives the charge: take companions, up to three; go north; kill the Dark Lord; come home. "In that order, ideally." The Chosen One receives a copy of the Prophecy in triplicate, five hundred crowns and three potions from the parish fund, and a sword. Every one of them did the sword.
+The Chosen One is then summoned to <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a href="../People/Elder_Wispel">Wispel</a> unrolls the Prophecy until it reaches the far wall and gives the charge: take companions, up to three; go north; kill the Dark Lord; come home. "In that order, ideally." The Chosen One receives a copy of the Prophecy in triplicate, five hundred crowns and three potions from the parish fund, and a sword. Every one of them did the sword.
 
 What happened next was, for forty-seven of them, the same. They went north. They climbed the Tower. They found the Dark Lord, <a href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>, reading, and he put his bookmark in and said, "So, you have come at last," which he meant the first time. They fought him, and they won, and before they reached the stairs clause twelve renewed him. They came home and Thistlewick said that it had worked.
 
-"Forty-seven of us," <a class="new" href="../People/Halbert_Quy">Halbert Quy</a> told the Forty-Eighth. "We all did the sword. Not one of us ever asked the man why he doesn't stop."
+"Forty-seven of us," <a href="../People/Halbert_Quy">Halbert Quy</a> told the Forty-Eighth. "We all did the sword. Not one of us ever asked the man why he doesn't stop."
 
 <div class="verse">
 <p>And forty-seven went before,<br>
@@ -58,11 +58,11 @@ The Committee keeps a souvenir book, *The Forty-Seven*, with a portrait, a date 
 | 10-38 | Closer and closer together, always in a round year | Not recorded | The Committee began to find shorter periods convenient. Nobody in Thistlewick has remarked on it. |
 | 39 | About 1930 | Not recorded | The cousin of a regular in the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, who will tell you so. |
 | 40 | Before 1940 | Not recorded | |
-| 41 | 1940 | <a class="new" href="../People/Halloran_Vance">Halloran Vance</a> | Came back from the marshes with nothing and a whole town waiting on the quay for a monster. So he brought them one: two days, with wire, and a goose. It has been a wyvern over the mantel of the Slain Wyvern for sixty years. He was a good man, and he needed it to be a wyvern. |
+| 41 | 1940 | <a href="../People/Halloran_Vance">Halloran Vance</a> | Came back from the marshes with nothing and a whole town waiting on the quay for a monster. So he brought them one: two days, with wire, and a goose. It has been a wyvern over the mantel of the Slain Wyvern for sixty years. He was a good man, and he needed it to be a wyvern. |
 | 42 | The 1940s or 1950s | Not recorded | He and his wife drink in the Slain Wyvern, and come every year for the anniversary. |
 | 43 | The 1940s or 1950s | Not recorded | |
-| 44 | 1960 | <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a> | Pensioned to Nether Sopping and ignored for forty years, watering a pot with a dead thing in it every morning. Died about 1999. Thistlewick cut THISTLEWICK REMEMBERS over the door of his mound; somebody has chalked under it that Thistlewick did not write once. He asked for a bench. He has one now. |
-| 45 | 1970 | <a class="new" href="../People/Halbert_Quy">Halbert Quy</a> | Declined Grimspite's tea, because he thought it was a trick, and has thought about it ever since. Asked at the next meeting why there was always a next one. The cottage was ready by the Friday. He is next door to Fitch's. |
+| 44 | 1960 | <a href="../People/Ambrose_Fitch">Ambrose Fitch</a> | Pensioned to Nether Sopping and ignored for forty years, watering a pot with a dead thing in it every morning. Died about 1999. Thistlewick cut THISTLEWICK REMEMBERS over the door of his mound; somebody has chalked under it that Thistlewick did not write once. He asked for a bench. He has one now. |
+| 45 | 1970 | <a href="../People/Halbert_Quy">Halbert Quy</a> | Declined Grimspite's tea, because he thought it was a trick, and has thought about it ever since. Asked at the next meeting why there was always a next one. The cottage was ready by the Friday. He is next door to Fitch's. |
 | 46 | 1980 | Not given | Got as far as the <a href="../Places/The_Gloamwood">Gloamwood</a>, said the woods were enough, and sat down on a log, where he still is. His party said: fair. Two of them, Nabb and Tolly, write to him every month, and he reads every letter, and that is his answer. |
 | 47 | 1990 | Not given | The Old Man's boy. Came off the ledge at <a href="../Places/Olde_Evermore">Olde Evermore</a> and landed on his feet, for five point nine, the best score since the First Age. He did not come home to Thistlewick. |
 | 48 | 2000 | <a href="../People/Bram_Thistle">Bram Thistle</a> | A turnip farmer, chosen asleep. Asked the question. See [The Obligatory Quest](The_Obligatory_Quest). |

@@ -61,7 +61,7 @@ The room at the top is furnished in the traditional manner, and he will tell you
 
 He is retired. He stays in the Tower, in his chair, with a kettle and the book at the bookmark. He is still on the same book. The forty-eighth carving will not be needed.
 
-He receives visitors and has about one a month, most of them people who would like to see the chair. Bram comes up once a year, on the day, and the kettle is on. Halbert Quy, told all of it, said no to the tea as well. "It's all right. The kettle's always on now." Mr Quy sends his regards up the hill.
+He receives visitors and has about one a month, most of them people who would like to see the chair. Bram comes up once a year, on the day, and the kettle is on. Halbert Quy, who said no to the tea thirty years ago, has been told all of it, the tea included, and has not been back up for a cup; the kettle is always on now, and he knows it. Mr Quy sends his regards up the hill.
 
 He writes to me, in a very beautiful hand, about my dates. He has corrected three of them in Volume Two, all of them correctly. I asked him how old he is. He said he had held the post for four thousand eight hundred years, and that how old he had been when he took it was his own affair.
 
@@ -72,5 +72,5 @@ He writes to me, in a very beautiful hand, about my dates. He has corrected thre
 - [The Prophecy of Thistlewick](../History/The_Prophecy_of_Thistlewick)
 - [The Chosen Ones](../History/The_Chosen_Ones)
 - [Bram Thistle](Bram_Thistle)
-- <a class="new" href="Halbert_Quy">Halbert Quy</a>
+- <a href="Halbert_Quy">Halbert Quy</a>
 - <a href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>

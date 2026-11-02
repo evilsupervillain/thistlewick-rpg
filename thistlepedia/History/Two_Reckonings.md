@@ -49,7 +49,7 @@ It depends, very largely, on how far you live from the Committee. I have made so
 
 **In Thistlewick nobody notices.** The village holds both reckonings at once, comfortably, like a man with a pie in each hand. The Old Man's boy was the Forty-Seventh. A regular in the Gilded Turnip will tell you his cousin was the Thirty-Ninth. They went a hundred years apart. Nobody in the village is over a hundred. I have put all of this to nobody in Thistlewick, because I like it there and should like to go back.
 
-**In Nether Sopping, everybody noticed, which is why they are in Nether Sopping.** <a class="new" href="../People/Halbert_Quy">Halbert Quy</a> asked at a meeting why, if it worked every hundred years, there was always a next one, and the cottage was ready by the Friday. Down here we talk in plain years, sixty and forty and thirty, and we do not make a point of it. We do not have to.
+**In Nether Sopping, everybody noticed, which is why they are in Nether Sopping.** <a href="../People/Halbert_Quy">Halbert Quy</a> asked at a meeting why, if it worked every hundred years, there was always a next one, and the cottage was ready by the Friday. Down here we talk in plain years, sixty and forty and thirty, and we do not make a point of it. We do not have to.
 
 **Upper Clanging believes the text.** The Hoyle Works read "every hundred years" two hundred years ago and made an engineering programme of it, and has not counted since, because the document had done the counting for it. Noticing grows with distance, I find, but it is not guaranteed by it, and engineers who take a document literally are their own case.
 

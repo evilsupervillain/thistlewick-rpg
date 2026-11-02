@@ -133,8 +133,10 @@ it was Spare who confirmed the date of spring.
 until Bram came back. *Wiki:* the last page of Volume Two is filled; Volume
 Three is this wiki.
 
-**Others.** *Halbert Quy* (#45): has heard all of it, tea included, and still
-says no to a cup, but sends his regards up the hill (wiki). *Prosper
+**Others.** *Halbert Quy* (#45): has heard all of it, tea included (canon);
+has not been back up the Tower for a cup, and sends his regards up the hill
+(wiki). What he said at the end of the afternoon depends on the cup, so the
+wiki does not say. *Prosper
 Hollowell*: served his notice (canon); stays on at the Former Premises,
 unpaid, "pending instructions" (wiki). *Ott Hoyle*: the Two Hundred landed
 adjacent (canon); the Two Hundred and First is on the slip (wiki). *Maud
@@ -271,3 +273,37 @@ way or was shown the fingerpost; which party went down the Stair.
   has gone off twice since, by letter.
 * **Carn Drey**: Roland has been down to the Worm again, after tea.
 * **Wayside Sights**: the eleven type specimens are Wren's and in the Bestiary.
+
+## What unit 6 (notable people) added
+
+Small inventions in the bios. All *wiki*.
+
+* **Elder Wispel** cannot say how long he has been Elder ("Oh, a good
+  while"), and never notices the reckonings. He chaired all eleven hours of
+  the clause-nineteen meeting. Asked by letter how many times the Prophecy has
+  worked, he wrote *Forty-seven times*, and later, in another ink, *And once
+  otherwise*. The Guild kept his character reference, framed beside the
+  Charter.
+* **Councillor Fenn** gave Hosea four pages on the original wording, which
+  Hosea does not print; the horse is left where it is. Fenn now says clause
+  nineteen was the problem too. The Optional Tower petition still has one
+  signature, on principle.
+* **Halbert Quy** has not been back up the Tower; sends regards by Bram once a
+  year; tells Bram he is blocking the light across the hedge.
+* **Ambrose Fitch**: Hosea has sat at the other end of his bench.
+* **Ysolde Marrow** is eighty. The kit came back, and she was very rude about
+  it, as promised. She has been out to the bench once and said nothing about
+  it. She chaired the Table in 2001 and will not retire.
+* **Merrow Halgate** does not say whose party the twenty were. Told about the
+  contract, he said it was a comfort the paperwork bothered the other fellow
+  too. He has sat on Ambrose's bench: "a good bench".
+* **Halloran Vance**: on the anniversary of the quay somebody leaves a half on
+  the mantel under the goose. Mrs Thrupp dusts both plaques the same morning.
+* **Cobb Lorrimer** has a long speech now, with "I will return"; keeps every
+  receipt for his tools and has not used them since; was offered an entry
+  under D.
+* **Ambrosine Quill** says either ending's line on different days (the
+  edition is a player choice); nods to Piper as one professional to another;
+  wrote "it does not scan" in the margin of Piper's article.
+* **Sops** is given no pronoun: the potboy is "he" in the design notes and
+  "her" in `QUESTS.md`, so the wiki uses neither.

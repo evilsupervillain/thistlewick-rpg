@@ -51,7 +51,7 @@ She also called on <a class="new" href="Tobias_Frayne">Tobias Frayne</a>, who ha
 
 ## The Healers' Table
 
-Every surviving party medic within forty miles meets once a year in the back room of the Slain Wyvern, under the chair of Mrs <a class="new" href="Ysolde_Marrow">Ysolde Marrow</a>, to compare the worst thing they ever had to improvise. Merribell was invited in the year of the Quest, the youngest at the Table by thirty-eight years, and asked to speak, and had nothing.
+Every surviving party medic within forty miles meets once a year in the back room of the Slain Wyvern, under the chair of Mrs <a href="Ysolde_Marrow">Ysolde Marrow</a>, to compare the worst thing they ever had to improvise. Merribell was invited in the year of the Quest, the youngest at the Table by thirty-eight years, and asked to speak, and had nothing.
 
 "I've never lost anybody," she told them. "I know what that means. It isn't a virtue. It's an average."
 
@@ -69,5 +69,5 @@ She is still Thistlewick's healer, still the only member of her order for eleven
 
 - <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>
 - <a href="../Places/Weeping_Bottom">Weeping Bottom</a>
-- <a class="new" href="Ysolde_Marrow">Ysolde Marrow</a>
+- <a href="Ysolde_Marrow">Ysolde Marrow</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

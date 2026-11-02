@@ -82,7 +82,7 @@ We are colleagues. We are rivals. She says my history is complete and not accura
 
 ## See also
 
-- <a class="new" href="Ambrosine_Quill">Ambrosine Quill</a>
+- <a href="Ambrosine_Quill">Ambrosine Quill</a>
 - <a class="new" href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>
 - <a href="../Places/Little_Gore">Little Gore</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

@@ -4,7 +4,7 @@ title: The Barrow of the Forty-Fourth
 
 # The Barrow of the Forty-Fourth
 
-<p class="hatnote">For the man, see <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a>. For his medic, see <a class="new" href="../People/Ysolde_Marrow">Ysolde Marrow</a>. For the dog, see the <a href="../Bestiary/">Bestiary</a>.</p>
+<p class="hatnote">For the man, see <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>. For his medic, see <a href="../People/Ysolde_Marrow">Ysolde Marrow</a>. For the dog, see the <a href="../Bestiary/">Bestiary</a>.</p>
 
 <table class="infobox">
 <caption>The Barrow of the Forty-Fourth</caption>
@@ -20,7 +20,7 @@ title: The Barrow of the Forty-Fourth
 <tr><th>On top</th><td>A bench, since the year 2000</td></tr>
 </table>
 
-<p class="lede">The <b>Barrow of the Forty-Fourth</b> is a long grass mound with a stone mouth in its side, in the eastern hills above the north road, where Thistlewick buried <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a>, Chosen One number forty-four, at some expense, within a fortnight of his death, after ignoring him for forty years. He did not ask for a mound. He asked for a bench. There is one on it now.</p>
+<p class="lede">The <b>Barrow of the Forty-Fourth</b> is a long grass mound with a stone mouth in its side, in the eastern hills above the north road, where Thistlewick buried <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>, Chosen One number forty-four, at some expense, within a fortnight of his death, after ignoring him for forty years. He did not ask for a mound. He asked for a bench. There is one on it now.</p>
 
 ## The sign
 
@@ -82,8 +82,8 @@ He had also asked the Forty-Eighth to tell her that he said she was right about 
 
 ## See also
 
-- <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a>
-- <a class="new" href="../People/Ysolde_Marrow">Ysolde Marrow</a>
+- <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>
+- <a href="../People/Ysolde_Marrow">Ysolde Marrow</a>
 - <a href="Nether_Sopping">Nether Sopping</a>, for Wick & Barrow, and for the cottage
 - <a class="new" href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>
 - <a href="../History/The_Chosen_Ones">The Chosen Ones</a>

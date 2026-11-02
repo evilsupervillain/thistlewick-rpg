@@ -43,7 +43,7 @@ She joined because the Tower was "a tower nobody's been inside for a hundred yea
 
 It was her gran's coat. It had gone down to her ankles. She would not wear it until it fitted, and would not sell it, so at fifteen she put it into the Bonded Warehouse, stood on a crate, and made a speech to the wharfinger, Mr Tibbs: *I shall return for it when I am somebody.* He wrote it in the margin. The rent came by post every quarter for eleven years, never late, no name, and she never went back, because he would have remembered the speech. He had. He unlocked the wardrobe. She put it on, and it fits. The first line of the ledger has a provenance now.
 
-**Professional courtesy.** <a class="new" href="Cobb_Lorrimer">Cobb Lorrimer</a> steals things, says so, and wears a hood about it, and finds her whole vocabulary an insult. He challenged her to a contest: a list, an afternoon, and a client. She won on paperwork, having got everything on the list with permission. He has since taken a position in Nether Sopping, afternoons, signed for, in which he plays the Dark Lord for the children, and loses.
+**Professional courtesy.** <a href="Cobb_Lorrimer">Cobb Lorrimer</a> steals things, says so, and wears a hood about it, and finds her whole vocabulary an insult. He challenged her to a contest: a list, an afternoon, and a client. She won on paperwork, having got everything on the list with permission. He has since taken a position in Nether Sopping, afternoons, signed for, in which he plays the Dark Lord for the children, and loses.
 
 **The Counting House.** Great Dunnage sealed its counting house in 1788, when the key was lost, and the Corporation wanted it opened by a licensed person, on Form L. She opened it in nine seconds while the Mayor was still reading the preamble. It held one chair and a note: WE SPENT IT. Form L remains blank.
 
@@ -59,5 +59,5 @@ The back room is open. The ledger is into its second volume, which began on the 
 
 - <a href="../Places/Nixs_Emporium">Nix's Emporium</a>
 - <a href="../Places/Great_Dunnage#the-bonded-warehouse">The Bonded Warehouse</a>
-- <a class="new" href="Cobb_Lorrimer">Cobb Lorrimer</a>
+- <a href="Cobb_Lorrimer">Cobb Lorrimer</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

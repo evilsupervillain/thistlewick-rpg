@@ -24,7 +24,7 @@ I have told the whole of it in Volume Two, from first-hand accounts, at length. 
 
 ## The choosing
 
-<a href="../People/Bram_Thistle">Bram Thistle</a> was a turnip farmer, and was asleep when the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> chose him. The minutes give his name under *apologies for absence*, with one goat. He woke chosen, took down a sword he did not seem entirely comfortable holding, and went to <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolled the Prophecy to the far wall and told him it had worked forty-seven times. He asked what had happened the other times. He was told that it had worked forty-seven times.
+<a href="../People/Bram_Thistle">Bram Thistle</a> was a turnip farmer, and was asleep when the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> chose him. The minutes give his name under *apologies for absence*, with one goat. He woke chosen, took down a sword he did not seem entirely comfortable holding, and went to <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a href="../People/Elder_Wispel">Wispel</a> unrolled the Prophecy to the far wall and told him it had worked forty-seven times. He asked what had happened the other times. He was told that it had worked forty-seven times.
 
 He was given five hundred crowns and three potions from the parish fund, and the Prophecy, which was, regrettably, free. A neighbour in the lane, a farmer, asked who was doing the west field. Nobody had an answer to that either.
 
@@ -61,8 +61,8 @@ He did a good deal else in the south, and all of it is in Volume Two:
 
 - he registered with the <a class="new" href="../Institutions/The_Adventurers_Guild">Adventurers' Guild (Provisional)</a>, on the strength of a character reference, a hat and the mat, and both of its bounty cards came off the board while he was there;
 - he got oil up to the <a href="../Places/The_Lighthouse_of_Saint_Bother">Lighthouse of Saint Bother</a>, which is lit again, and can be seen from the crossroads, which is the whole of what it is for;
-- he went down into the <a href="../Places/The_Barrow_of_the_Forty-Fourth">Barrow of the Forty-Fourth</a>, where <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a> was waiting to fight him, because that is what is done, and stopped when asked, which is not, and asked for a bench; and Bram built him one, facing the sea;
-- and he walked to the cottage of <a class="new" href="../People/Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, who told him the only thing he had come home with that was worth the trip. *Ask him why.*
+- he went down into the <a href="../Places/The_Barrow_of_the_Forty-Fourth">Barrow of the Forty-Fourth</a>, where <a href="../People/Ambrose_Fitch">Ambrose Fitch</a> was waiting to fight him, because that is what is done, and stopped when asked, which is not, and asked for a bench; and Bram built him one, facing the sea;
+- and he walked to the cottage of <a href="../People/Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, who told him the only thing he had come home with that was worth the trip. *Ask him why.*
 
 ## The north
 
@@ -120,7 +120,7 @@ Six months later, after a very long meeting, the Committee struck clause ninetee
 
 ## Afterwards
 
-The Quest is over, but it did not quite stop, and some of what came after is as much a part of it as the throne room. Bram has been in and out of the cottage clause nineteen gave him, which was <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a>'s. Roland Fairweather came back. <a class="new" href="../People/Sir_Dunstable">Sir Dunstable</a> lent Bram a lamp, and the party went down the Stair behind the Door into the Mountain at <a href="../Places/Hithermost">Hithermost</a>, which I have written up under <a href="../Places/The_Stair">the Stair</a>, and found something at the bottom of it that the Guild had a card for. In the spring, which he had asked about every morning, Spare Cotterill went home to Upper Clanging for the birth of the tenth Cotterill. And every year, on the day, Bram walks up to the top of the Tower, and the kettle is on.
+The Quest is over, but it did not quite stop, and some of what came after is as much a part of it as the throne room. Bram has been in and out of the cottage clause nineteen gave him, which was <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>'s. Roland Fairweather came back. <a class="new" href="../People/Sir_Dunstable">Sir Dunstable</a> lent Bram a lamp, and the party went down the Stair behind the Door into the Mountain at <a href="../Places/Hithermost">Hithermost</a>, which I have written up under <a href="../Places/The_Stair">the Stair</a>, and found something at the bottom of it that the Guild had a card for. In the spring, which he had asked about every morning, Spare Cotterill went home to Upper Clanging for the birth of the tenth Cotterill. And every year, on the day, Bram walks up to the top of the Tower, and the kettle is on.
 
 <div class="marginalia">Bram reads this article every time he comes south, and every time he corrects something in it, and every time it is the same thing, which is that he did not do any of it on his own. I have let it stand. He has asked me to add that it was a very long walk. It was.</div>
 
