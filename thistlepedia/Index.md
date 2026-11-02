@@ -25,7 +25,7 @@ His name was <a class="new" href="People/Bram_Thistle">Bram Thistle</a>. He was 
 
 Then I told him to go north, and that I would leave the last page blank until I heard how it went, and that coming back to tell me was the fee.
 
-He came back. He paid. This book is what he paid for.
+He came back. He paid. This book is what he paid for. That was two years ago, near enough, and in the two years since I have gone round again and asked everybody what became of them afterwards, which is a question nobody in the Slain Wyvern had ever been asked either. Their answers are at the end of their articles.
 
 ## The world, briefly
 
@@ -75,4 +75,4 @@ Where my sources agree, I have said so. Where they disagree I have given both si
 
 To the regulars of the Slain Wyvern, who told me nothing for years and then told the Forty-Eighth everything in a fortnight. To Dorcas Thrupp, for the table. To the goose. To Piper Quill, who was also writing it all down, and whose version has more rhymes in it and fewer footnotes, and whom I consider a colleague and, in the matter of scansion, a rival. And to Bram Thistle, Chosen One Number Forty-Eight, who came back and told me how it went - all of it, in order, including the part about the tea - and so paid the fee.
 
-<p class="signature">H. B.<br>The Slain Wyvern, Nether Sopping<br>Third Age, two thousand and something</p>
+<p class="signature">H. B.<br>The Slain Wyvern, Nether Sopping<br>The twenty-first of March, Third Age 2002,<br>which Spare Cotterill has confirmed by letter is spring</p>

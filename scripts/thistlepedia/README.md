@@ -22,6 +22,11 @@ the game. The skill that says how is `.claude/skills/staticpedia/SKILL.md`.
 * **Where the player chooses, he is vague.** Who climbed the Tower with Bram
   varies; everybody he asked says it was them. Every optional quest is
   resolved - the wiki is written as if all of it happened.
+* **He writes on the twenty-first of March, Third Age 2002**, two years after
+  the Quest. "Now" means that date and ages are 2002's. What became of
+  everybody in between is decided once, in `AFTERWARDS.md` next to this file,
+  which keeps the game's canon and the wiki's inventions in separate columns;
+  every bio ends with an "Afterwards" section that agrees with it.
 * The humour rules are `NORTH.md` 1.2-1.6, and they hold here too: clean,
   embarrassment never resentment, nobody diminished by their punchline.
 
