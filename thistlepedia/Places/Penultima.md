@@ -4,7 +4,7 @@ title: Penultima
 
 # Penultima
 
-<p class="hatnote">For the sword in the window, see <a class="new" href="../Artefacts/The_Sword_of_Ultimate_Ending">The Sword of Ultimate Ending</a>. For the actual last shop, see below; it is closed.</p>
+<p class="hatnote">For the sword in the window, see <a href="../Artefacts/The_Sword_of_Ultimate_Ending">The Sword of Ultimate Ending</a>. For the actual last shop, see below; it is closed.</p>
 
 <table class="infobox">
 <caption>Penultima</caption>
@@ -56,4 +56,4 @@ The road north has fewer Chosen Ones on it than it had, there being no clause tw
 ## See also
 
 - <a href="The_Obligatory_Tower">The Obligatory Tower</a>, two hundred yards further on, and then some
-- <a class="new" href="../Artefacts/The_Sword_of_Ultimate_Ending">The Sword of Ultimate Ending</a>
+- <a href="../Artefacts/The_Sword_of_Ultimate_Ending">The Sword of Ultimate Ending</a>
