@@ -12,7 +12,7 @@ Each one ends with the checks in `README.md`, a commit, a push to
 
 1. **The scaffold and Hosea's front page.** Done.
 2. **History**: The Prophecy of Thistlewick (its clauses), the Chosen Ones
-   (#1-#48), the Quest of the Forty-Eighth, Two Reckonings, a Timeline.
+   (#1-#48), the Quest of the Forty-Eighth, Two Reckonings, a Timeline. Done.
 3. **The company**: Bram, the nine companions, Spare, Grimspite and Hosea,
    each with an infobox portrait and an Afterwards section that agrees with
    `AFTERWARDS.md`.

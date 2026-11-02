@@ -229,6 +229,24 @@
 .sp-content .gallery img { width: 100%; height: auto; border: 1px solid var(--tp-rule); padding: 2px; background: var(--sp-surface); }
 .sp-content .gallery figcaption { display: block; font-size: .85em; font-style: normal; }
 
+/* Other hands. A piece Hosea commissioned and printed whole: the byline under
+   the title, and verse set as verse (Piper's, chiefly). */
+.sp-content .contributor {
+  margin: -.4em 0 1em; font-style: italic; color: var(--sp-text-muted);
+}
+.sp-content .contributor::before { content: "\2014\00a0"; }
+.sp-content .verse {
+  margin: 1.2em auto 1.2em 2em; padding: .2em 0 .2em 1em;
+  border-left: 3px double var(--tp-rule);
+  font-family: var(--sp-font-heading); font-style: italic; line-height: 1.55;
+}
+.sp-content .verse p { margin: 0 0 .8em; }
+.sp-content .verse p:last-child { margin-bottom: 0; }
+.sp-content .verse .attribution {
+  display: block; margin-top: .5em; font-style: normal; font-size: .9em;
+  color: var(--sp-text-muted);
+}
+
 /* The signature at the foot of the front page. */
 .sp-content .signature {
   text-align: right; font-family: var(--sp-font-heading); font-style: italic;
@@ -237,5 +255,6 @@
 
 @media (max-width: 720px) {
   .sp-content .marginalia { margin-left: .4em; }
+  .sp-content .verse { margin-left: .4em; }
   .sp-content .gallery figure { width: 7.5em; }
 }

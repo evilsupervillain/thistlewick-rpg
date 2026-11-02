@@ -37,11 +37,13 @@ every age is an age in 2002: add two to `TIMELINE.md` section 5.
 | 2000, spring | Washer Cotterill born at six on the hooter; Clevis's book pays twenty to one | canon |
 | 2000 | Bram walks south to Number Forty-Five and tells Halbert Quy all of it, including the tea | canon |
 | 2000, autumn | Thistlewick strikes clause nineteen, "six months later, after a very long meeting". The meeting was eleven hours; the minutes are mostly about the biscuits | canon / wiki |
-| 2000, winter | the forty-eighth frame on the Wall still reads "Portrait to follow. Sitter at the coast." The sitter is not at the coast. Nobody has changed the card | wiki |
+| 2000, winter | the forty-eighth frame on the Wall still reads "Portrait to follow. Sitter at the coast." The sitter is not at the coast. Nobody has changed the card, and in March 2002 nobody still has | wiki |
 | 2001 | Merribell addresses the Healers' Table, as the tally promised ("next year") | canon / wiki |
 | 2001 | the Gloamwood Society's walk, "expected to be very well attended", is: three hundred and twelve walkers, nothing found, minuted with satisfaction | wiki |
 | 2001 | Ott Hoyle lays the keel of the Two Hundred and First, to land *on* the tower | wiki |
 | 2001, harvest | Bram's first crop since the Quest; the best in the parish. The Committee asks whether it was prophesied. It was not | wiki |
+| since 2000 | the Committee keeps the Prophecy, rolled, in Prophecy Hall, with clauses twelve and nineteen struck; not binding on anybody; it is consulted at every meeting out of habit, and the consultation minuted (History) | wiki |
+| since 2000 | Grimspite has corrected three of Hosea's dates in Volume Two by letter, all correctly; asked his age by letter, he declined (Two Reckonings) | wiki |
 | 2002, the twenty-first of March | Hosea signs Volume Three | wiki |
 
 ## Who is where in March 2002
