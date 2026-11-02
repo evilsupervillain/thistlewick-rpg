@@ -18,7 +18,7 @@ title: The Prophecy of Thistlewick
 <tr><th>Status</th><td>Not binding, since the year 2000. Still kept</td></tr>
 </table>
 
-<p class="lede">The <b>Prophecy of Thistlewick</b> is a document of very great length, kept by the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> in <a class="new" href="../Places/Prophecy_Hall">Prophecy Hall</a>, which for very nearly two thousand years told the village of <a class="new" href="../Places/Thistlewick">Thistlewick</a> that every hundred years the Dark Lord would rise in the <a class="new" href="../Places/The_Obligatory_Tower">Obligatory Tower</a> and that somebody had better go. It was right every time. That should have been the first clue.</p>
+<p class="lede">The <b>Prophecy of Thistlewick</b> is a document of very great length, kept by the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> in <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, which for very nearly two thousand years told the village of <a href="../Places/Thistlewick">Thistlewick</a> that every hundred years the Dark Lord would rise in the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> and that somebody had better go. It was right every time. That should have been the first clue.</p>
 
 It was never a prophecy. It is an employment contract, with numbered clauses, and the post it filled was the Dark Lord's. That was not understood until the year 2000, and then only because a turnip farmer did the one thing nobody in Thistlewick had ever done with it, which was to read it.
 
@@ -78,7 +78,7 @@ The Committee struck it in 2000, *nem. con.*, and in its place wrote a note: SEE
 
 *A returning Chosen One shall receive a pension, a cottage, and such distance from the village as is mutually agreeable.*
 
-It was added later, somewhere about the Ninth, when Thistlewick found that a hero who comes home is awkward: he knows what is at the top of the Tower, and he asks at meetings why the Committee is already drafting the next one. <a class="new" href="../People/Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, asked exactly that - "if it works every hundred years, why is there always a next one?" - and the cottage was ready by the Friday. The mutually agreeable distance turned out to be forty miles, which is how I come to be writing this in <a class="new" href="../Places/Nether_Sopping">Nether Sopping</a>, among most of the people in it. "They're not cruel," Mr Quy told the Forty-Eighth. "They're embarrassed."
+It was added later, somewhere about the Ninth, when Thistlewick found that a hero who comes home is awkward: he knows what is at the top of the Tower, and he asks at meetings why the Committee is already drafting the next one. <a class="new" href="../People/Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, asked exactly that - "if it works every hundred years, why is there always a next one?" - and the cottage was ready by the Friday. The mutually agreeable distance turned out to be forty miles, which is how I come to be writing this in <a href="../Places/Nether_Sopping">Nether Sopping</a>, among most of the people in it. "They're not cruel," Mr Quy told the Forty-Eighth. "They're embarrassed."
 
 It was applied to the Forty-Eighth the morning after he got home, by letter, on the mat: his pension, one quarter, in advance, with no mention of the next one, and the key to a cottage at Nether Sopping. *We trust Friday will suit.*
 

@@ -10,7 +10,7 @@ title: Hosea Bellwether
 <caption>Hosea Bellwether</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Hosea_Bellwether.png" alt="Hosea Bellwether, a historian with ink on his hands" width="200"><span class="infobox-caption">With ink hands</span></td></tr>
 <tr><th>Known as</th><td>The historian at the table by the fire</td></tr>
-<tr><th>Of</th><td><a class="new" href="../Places/Nether_Sopping">Nether Sopping</a>, the <a class="new" href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, the table by the fire</td></tr>
+<tr><th>Of</th><td><a href="../Places/Nether_Sopping">Nether Sopping</a>, the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, the table by the fire</td></tr>
 <tr><th>Trade</th><td>Historian</td></tr>
 <tr><th>Work</th><td><i>A Complete And Accurate History Of The Obligatory Quest</i>, three volumes</td></tr>
 <tr><th>Complete</th><td>Going well</td></tr>
@@ -20,15 +20,15 @@ title: Hosea Bellwether
 <tr><th>Footnotes awarded</th><td>One</td></tr>
 </table>
 
-<p class="lede"><b>Hosea Bellwether</b> is a historian of <a class="new" href="../Places/Nether_Sopping">Nether Sopping</a>, and the compiler of <i>A Complete And Accurate History Of The Obligatory Quest</i>, of which this is the third volume. Complete is going well. Accurate is the problem. He has never been on a quest, and has written about little else.</p>
+<p class="lede"><b>Hosea Bellwether</b> is a historian of <a href="../Places/Nether_Sopping">Nether Sopping</a>, and the compiler of <i>A Complete And Accurate History Of The Obligatory Quest</i>, of which this is the third volume. Complete is going well. Accurate is the problem. He has never been on a quest, and has written about little else.</p>
 
 I did not want to write this article. An encyclopedia that leaves its compiler out is, I was told by everyone I asked, inaccurate, and they were right, and I have done it, in the third person where I could bear to and the first where I could not.
 
 ## Nether Sopping
 
-He is a Nether Sopping man, which is to say that he counts in plain years, sixty and forty and thirty, and that he lives forty miles from <a class="new" href="../Places/Thistlewick">Thistlewick</a>, among the people Thistlewick sent there. Clause nineteen of the Prophecy sends a returning Chosen One to a cottage at a mutually agreeable distance, and the distance has been Nether Sopping for most of a century, and Nether Sopping is consequently the only place in the world where everybody in the bar has been to the top of the Obligatory Tower except the historian.
+He is a Nether Sopping man, which is to say that he counts in plain years, sixty and forty and thirty, and that he lives forty miles from <a href="../Places/Thistlewick">Thistlewick</a>, among the people Thistlewick sent there. Clause nineteen of the Prophecy sends a returning Chosen One to a cottage at a mutually agreeable distance, and the distance has been Nether Sopping for most of a century, and Nether Sopping is consequently the only place in the world where everybody in the bar has been to the top of the Obligatory Tower except the historian.
 
-I have sat at the table by the fire in the <a class="new" href="../Places/The_Slain_Wyvern">Slain Wyvern</a> for most of my working life, under the goose, as it now is, with ink on my hands, listening. I have had a great many stories. I have had very few of them to the end.
+I have sat at the table by the fire in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> for most of my working life, under the goose, as it now is, with ink on my hands, listening. I have had a great many stories. I have had very few of them to the end.
 
 ## Volume Two
 
@@ -68,5 +68,5 @@ I am told that I am in Miss Quill's notebooks, at some length, in the third pers
 
 - <a href="../Index">The front page</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)
-- <a class="new" href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>
+- <a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>
 - [Piper Quill](Piper_Quill)

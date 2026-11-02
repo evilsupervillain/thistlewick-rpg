@@ -4,13 +4,13 @@ title: Roland Fairweather
 
 # Roland Fairweather
 
-<p class="hatnote">For the door he left at, see <a class="new" href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>. For his understudy, see <a class="new" href="Maud_Penhallow">Maud Penhallow</a>.</p>
+<p class="hatnote">For the door he left at, see <a href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>. For his understudy, see <a class="new" href="Maud_Penhallow">Maud Penhallow</a>.</p>
 
 <table class="infobox">
 <caption>Roland Fairweather</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Roland_Fairweather.png" alt="Roland Fairweather, magnificent, glowing, and very slightly apologetic" width="200"><span class="infobox-caption">Very sorry. Always very sorry</span></td></tr>
 <tr><th>Known as</th><td>The Guest Star</td></tr>
-<tr><th>Of</th><td>A table near the door of the Slain Wyvern, between engagements</td></tr>
+<tr><th>Of</th><td>A table by the fire in the Slain Wyvern, between engagements</td></tr>
 <tr><th>Trade</th><td>Being extremely good at this</td></tr>
 <tr><th>Since</th><td>The age of eleven (the Wyrm of Ickworth, 1977)</td></tr>
 <tr><th>Age</th><td>Thirty-six</td></tr>
@@ -22,7 +22,7 @@ title: Roland Fairweather
 <tr><th>Sword</th><td>Left at the door. Made in Thistlewick</td></tr>
 </table>
 
-<p class="lede"><b>Roland Fairweather</b> is the finest swordsman of his generation, magnificent, glowing and extremely good at everything, and for most of his life the protagonist of a much more expensive story than the one he was in. He joined the Forty-Eighth in the <a class="new" href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, carried more than his share all the way north, liked everybody, and left at the door of the <a class="new" href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, as he had warned them he would, and gave them his sword.</p>
+<p class="lede"><b>Roland Fairweather</b> is the finest swordsman of his generation, magnificent, glowing and extremely good at everything, and for most of his life the protagonist of a much more expensive story than the one he was in. He joined the Forty-Eighth in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, carried more than his share all the way north, liked everybody, and left at the door of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, as he had warned them he would, and gave them his sword.</p>
 
 He warned them in the first minute. "I have three things to tell you and you will only like two of them. One: I am extremely good at this. Genuinely. Embarrassingly. Two: I will come with you gladly, for nothing, and I will carry more than my share, and I will like you. Three: I cannot be there at the end."
 

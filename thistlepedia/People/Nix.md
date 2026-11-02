@@ -4,13 +4,13 @@ title: Nix
 
 # Nix
 
-<p class="hatnote">For the shop, see <a class="new" href="../Places/The_Emporium_of_Previously_Owned_Goods">The Emporium of Previously Owned Goods</a>. For the provenance of particular items, see the notes in <a href="../Artefacts/">Arms and Artefacts</a>, which are hers.</p>
+<p class="hatnote">For the shop, see <a href="../Places/Nixs_Emporium">Nix's Emporium</a>. For the provenance of particular items, see the notes in <a href="../Artefacts/">Arms and Artefacts</a>, which are hers.</p>
 
 <table class="infobox">
 <caption>Nix</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Nix.png" alt="Nix, in a coat, who did not take it, whatever it is" width="200"><span class="infobox-caption">She did not take it</span></td></tr>
 <tr><th>Known as</th><td>Nix; Acquisitions</td></tr>
-<tr><th>Of</th><td>The back room of the general store, <a class="new" href="../Places/Thistlewick">Thistlewick</a></td></tr>
+<tr><th>Of</th><td>The back room of the general store, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Trade</th><td>Locating things, ahead of schedule</td></tr>
 <tr><th>On behalf of</th><td>The party of the second part</td></tr>
 <tr><th>Ledger kept since</th><td>1989, at fifteen</td></tr>
@@ -21,7 +21,7 @@ title: Nix
 <tr><th>Coat</th><td>Fits</td></tr>
 </table>
 
-<p class="lede"><b>Nix</b> runs the back room of the general store in <a class="new" href="../Places/Thistlewick">Thistlewick</a>. She does not steal things. She <b>locates</b> them, ahead of schedule, on behalf of a client who has not yet been identified. "Everyone asks eventually," she told the Forty-Eighth, before he had asked. "I like to get ahead of it. Same as everything else."</p>
+<p class="lede"><b>Nix</b> runs the back room of the general store in <a href="../Places/Thistlewick">Thistlewick</a>. She does not steal things. She <b>locates</b> them, ahead of schedule, on behalf of a client who has not yet been identified. "Everyone asks eventually," she told the Forty-Eighth, before he had asked. "I like to get ahead of it. Same as everything else."</p>
 
 She is not a thief, and the distinction is not a joke to her, and I have come round to her view of it. Every single thing in the back room was got somehow, and she can tell you how, from the ledger, by date, and the telling is always in order and is sometimes magnificent.
 
@@ -57,7 +57,7 @@ The back room is open. The ledger is into its second volume, which began on the 
 
 ## See also
 
-- <a class="new" href="../Places/The_Emporium_of_Previously_Owned_Goods">The Emporium of Previously Owned Goods</a>
+- <a href="../Places/Nixs_Emporium">Nix's Emporium</a>
 - <a class="new" href="../Places/The_Bonded_Warehouse">The Bonded Warehouse</a>
 - <a class="new" href="Cobb_Lorrimer">Cobb Lorrimer</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

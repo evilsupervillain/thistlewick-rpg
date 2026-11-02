@@ -4,7 +4,7 @@ title: Grimspite the Inevitable
 
 # Grimspite the Inevitable
 
-<p class="hatnote">For the contract, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>. For the building, see <a class="new" href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>. For the forty-eight people who came up the stairs, see <a href="../History/The_Chosen_Ones">The Chosen Ones</a>.</p>
+<p class="hatnote">For the contract, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>. For the building, see <a href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>. For the forty-eight people who came up the stairs, see <a href="../History/The_Chosen_Ones">The Chosen Ones</a>.</p>
 
 <table class="infobox">
 <caption>Grimspite the Inevitable</caption>
@@ -21,7 +21,7 @@ title: Grimspite the Inevitable
 <tr><th>Kettle</th><td>On</td></tr>
 </table>
 
-<p class="lede"><b>Grimspite the Inevitable</b> was for four thousand eight hundred years, by the Prophecy's own count, the Dark Lord of the <a class="new" href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, against whom the village of <a class="new" href="../Places/Thistlewick">Thistlewick</a> sent forty-eight Chosen Ones. He did not want the job. It was an employment contract, and he could not get out of it, and every time a Chosen One beat him it renewed him before they reached the stairs. The forty-eighth asked him why he did not stop, and listened to the answer, and read the contract, and Grimspite has been retired since.</p>
+<p class="lede"><b>Grimspite the Inevitable</b> was for four thousand eight hundred years, by the Prophecy's own count, the Dark Lord of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, against whom the village of <a href="../Places/Thistlewick">Thistlewick</a> sent forty-eight Chosen Ones. He did not want the job. It was an employment contract, and he could not get out of it, and every time a Chosen One beat him it renewed him before they reached the stairs. The forty-eighth asked him why he did not stop, and listened to the answer, and read the contract, and Grimspite has been retired since.</p>
 
 He reads. He was reading when every one of the forty-eight came up the stairs, and he put the bookmark in every time. He is very tired and very polite, and he writes to me.
 
@@ -73,4 +73,4 @@ He writes to me, in a very beautiful hand, about my dates. He has corrected thre
 - [The Chosen Ones](../History/The_Chosen_Ones)
 - [Bram Thistle](Bram_Thistle)
 - <a class="new" href="Halbert_Quy">Halbert Quy</a>
-- <a class="new" href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>
+- <a href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>

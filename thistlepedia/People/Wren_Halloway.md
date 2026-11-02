@@ -33,7 +33,7 @@ The difficulty is the previous authority. Doctor Amias Rowbotham FRS spent forty
 
 ## The goose
 
-She was thrown out of the <a class="new" href="../Places/The_Slain_Wyvern">Slain Wyvern</a> for saying that the wyvern over its mantel is a goose. It is a goose. Halloran Vance, the Forty-First, brought it home from the marshes in 1940 and made it into a wyvern with wire, in two days, because a whole town was waiting on the quay for a monster and he had nothing to give them. Mrs Dorcas Thrupp keeps the Wyvern, and would not take the wyvern down, or have it corrected, because the Forty-First was a good man and brought back what he could, and that is where the conversation ends.
+She was thrown out of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> for saying that the wyvern over its mantel is a goose. It is a goose. Halloran Vance, the Forty-First, brought it home from the marshes in 1940 and made it into a wyvern with wire, in two days, because a whole town was waiting on the quay for a monster and he had nothing to give them. Mrs Dorcas Thrupp keeps the Wyvern, and would not take the wyvern down, or have it corrected, because the Forty-First was a good man and brought back what he could, and that is where the conversation ends.
 
 Miss Halloway was right, and she was right at length, and she was asked to leave for it. Of everything that happened to anybody in the company, it is the nearest thing to unfair.
 
@@ -60,5 +60,5 @@ She is welcome in the Slain Wyvern, which she affects not to care about. She sit
 - <a href="../Bestiary/">The Bestiary</a>, by W. Halloway
 - <a class="new" href="../Bestiary/The_Goose">The Goose</a>
 - <a class="new" href="../Bestiary/Bramus_agricola">Bramus agricola</a>
-- <a class="new" href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>
+- <a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

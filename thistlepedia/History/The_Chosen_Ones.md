@@ -18,7 +18,7 @@ title: The Chosen Ones
 <tr><th>Next</th><td>There isn't a forty-nine</td></tr>
 </table>
 
-<p class="lede">The <b>Chosen Ones</b> are the forty-eight people whom the village of <a class="new" href="../Places/Thistlewick">Thistlewick</a> sent north, under the <a href="The_Prophecy_of_Thistlewick">Prophecy</a>, to put down the Dark Lord in the <a class="new" href="../Places/The_Obligatory_Tower">Obligatory Tower</a>. It worked forty-seven times. Thistlewick will tell you so. Ask it what happened the other times, and it will tell you that it worked forty-seven times.</p>
+<p class="lede">The <b>Chosen Ones</b> are the forty-eight people whom the village of <a href="../Places/Thistlewick">Thistlewick</a> sent north, under the <a href="The_Prophecy_of_Thistlewick">Prophecy</a>, to put down the Dark Lord in the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>. It worked forty-seven times. Thistlewick will tell you so. Ask it what happened the other times, and it will tell you that it worked forty-seven times.</p>
 
 "Everyone tells you it's an honour," the father of the Forty-Seventh told the Forty-Eighth, on the morning he left. "Nobody tells you it's a rota."
 
@@ -26,7 +26,7 @@ title: The Chosen Ones
 
 By the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, in session, at a moment it finds convenient (see [Two Reckonings](Two_Reckonings)). The candidate does not need to be present, and the last one was not: the minutes of the meeting at which <a href="../People/Bram_Thistle">Bram Thistle</a> was chosen list, under *apologies for absence*, his name and one goat. He was asleep. The goat has not been found.
 
-The Chosen One is then summoned to <a class="new" href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolls the Prophecy until it reaches the far wall and gives the charge: take companions, up to three; go north; kill the Dark Lord; come home. "In that order, ideally." The Chosen One receives a copy of the Prophecy in triplicate, five hundred crowns and three potions from the parish fund, and a sword. Every one of them did the sword.
+The Chosen One is then summoned to <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolls the Prophecy until it reaches the far wall and gives the charge: take companions, up to three; go north; kill the Dark Lord; come home. "In that order, ideally." The Chosen One receives a copy of the Prophecy in triplicate, five hundred crowns and three potions from the parish fund, and a sword. Every one of them did the sword.
 
 What happened next was, for forty-seven of them, the same. They went north. They climbed the Tower. They found the Dark Lord, <a href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a>, reading, and he put his bookmark in and said, "So, you have come at last," which he meant the first time. They fought him, and they won, and before they reached the stairs clause twelve renewed him. They came home and Thistlewick said that it had worked.
 
@@ -44,7 +44,7 @@ and that is all the old record.</p>
 
 ## What became of them
 
-They came home, and they were awkward. A Chosen One who has come back knows what is at the top of the Tower, and says so at meetings, and asks why the Committee is already drafting the next one. Somewhere about the Ninth, Thistlewick wrote [clause nineteen](The_Prophecy_of_Thistlewick#clause-nineteen-the-resettlement-clause), and from then on a returning hero received a pension, a cottage, and such distance from the village as was mutually agreeable, which was forty miles, to <a class="new" href="../Places/Nether_Sopping">Nether Sopping</a>. That is where they are, those of them who are anywhere. Most of them drink in the <a class="new" href="../Places/The_Slain_Wyvern">Slain Wyvern</a>. Thistlewick does not write.
+They came home, and they were awkward. A Chosen One who has come back knows what is at the top of the Tower, and says so at meetings, and asks why the Committee is already drafting the next one. Somewhere about the Ninth, Thistlewick wrote [clause nineteen](The_Prophecy_of_Thistlewick#clause-nineteen-the-resettlement-clause), and from then on a returning hero received a pension, a cottage, and such distance from the village as was mutually agreeable, which was forty miles, to <a href="../Places/Nether_Sopping">Nether Sopping</a>. That is where they are, those of them who are anywhere. Most of them drink in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>. Thistlewick does not write.
 
 ## The forty-eight
 
@@ -56,14 +56,14 @@ The Committee keeps a souvenir book, *The Forty-Seven*, with a portrait, a date 
 | 2-8 | A century apart | Not recorded | The Committee found a hundred years convenient, at first. |
 | 9 | About the year 900 | Not recorded | Came home, and was awkward. Clause nineteen was written somewhere about him. |
 | 10-38 | Closer and closer together, always in a round year | Not recorded | The Committee began to find shorter periods convenient. Nobody in Thistlewick has remarked on it. |
-| 39 | About 1930 | Not recorded | The cousin of a regular in the <a class="new" href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, who will tell you so. |
+| 39 | About 1930 | Not recorded | The cousin of a regular in the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, who will tell you so. |
 | 40 | Before 1940 | Not recorded | |
 | 41 | 1940 | <a class="new" href="../People/Halloran_Vance">Halloran Vance</a> | Came back from the marshes with nothing and a whole town waiting on the quay for a monster. So he brought them one: two days, with wire, and a goose. It has been a wyvern over the mantel of the Slain Wyvern for sixty years. He was a good man, and he needed it to be a wyvern. |
 | 42 | The 1940s or 1950s | Not recorded | He and his wife drink in the Slain Wyvern, and come every year for the anniversary. |
 | 43 | The 1940s or 1950s | Not recorded | |
 | 44 | 1960 | <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a> | Pensioned to Nether Sopping and ignored for forty years, watering a pot with a dead thing in it every morning. Died about 1999. Thistlewick cut THISTLEWICK REMEMBERS over the door of his mound; somebody has chalked under it that Thistlewick did not write once. He asked for a bench. He has one now. |
 | 45 | 1970 | <a class="new" href="../People/Halbert_Quy">Halbert Quy</a> | Declined Grimspite's tea, because he thought it was a trick, and has thought about it ever since. Asked at the next meeting why there was always a next one. The cottage was ready by the Friday. He is next door to Fitch's. |
-| 46 | 1980 | Not given | Got as far as the <a class="new" href="../Places/The_Gloamwood">Gloamwood</a>, said the woods were enough, and sat down on a log, where he still is. His party said: fair. Two of them, Nabb and Tolly, write to him every month, and he reads every letter, and that is his answer. |
+| 46 | 1980 | Not given | Got as far as the <a href="../Places/The_Gloamwood">Gloamwood</a>, said the woods were enough, and sat down on a log, where he still is. His party said: fair. Two of them, Nabb and Tolly, write to him every month, and he reads every letter, and that is his answer. |
 | 47 | 1990 | Not given | The Old Man's boy. Came off the ledge at <a class="new" href="../Places/Olde_Evermore">Olde Evermore</a> and landed on his feet, for five point nine, the best score since the First Age. He did not come home to Thistlewick. |
 | 48 | 2000 | <a href="../People/Bram_Thistle">Bram Thistle</a> | A turnip farmer, chosen asleep. Asked the question. See [The Obligatory Quest](The_Obligatory_Quest). |
 
@@ -92,4 +92,4 @@ He said it. The Committee minuted it. It has not, so far as I can tell, been bel
 - [The Prophecy of Thistlewick](The_Prophecy_of_Thistlewick)
 - [The Obligatory Quest](The_Obligatory_Quest)
 - [Two Reckonings](Two_Reckonings)
-- <a class="new" href="../Places/Nether_Sopping">Nether Sopping</a>
+- <a href="../Places/Nether_Sopping">Nether Sopping</a>

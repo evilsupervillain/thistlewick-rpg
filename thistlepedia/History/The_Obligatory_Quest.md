@@ -18,13 +18,13 @@ title: The Obligatory Quest
 <tr><th>Receipt</th><td>Yes</td></tr>
 </table>
 
-<p class="lede">The <b>Obligatory Quest</b> of the year 2000 was the forty-eighth expedition sent north by the village of <a class="new" href="../Places/Thistlewick">Thistlewick</a> under the <a href="The_Prophecy_of_Thistlewick">Prophecy</a>, and the last. It set out like all the others, and went where all the others went, and differed from them in one respect, which is that when it arrived the Chosen One asked the Dark Lord a question and then stayed for the answer.</p>
+<p class="lede">The <b>Obligatory Quest</b> of the year 2000 was the forty-eighth expedition sent north by the village of <a href="../Places/Thistlewick">Thistlewick</a> under the <a href="The_Prophecy_of_Thistlewick">Prophecy</a>, and the last. It set out like all the others, and went where all the others went, and differed from them in one respect, which is that when it arrived the Chosen One asked the Dark Lord a question and then stayed for the answer.</p>
 
 I have told the whole of it in Volume Two, from first-hand accounts, at length. What follows is the short version. It is still not short.
 
 ## The choosing
 
-<a href="../People/Bram_Thistle">Bram Thistle</a> was a turnip farmer, and was asleep when the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> chose him. The minutes give his name under *apologies for absence*, with one goat. He woke chosen, took down a sword he did not seem entirely comfortable holding, and went to <a class="new" href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolled the Prophecy to the far wall and told him it had worked forty-seven times. He asked what had happened the other times. He was told that it had worked forty-seven times.
+<a href="../People/Bram_Thistle">Bram Thistle</a> was a turnip farmer, and was asleep when the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> chose him. The minutes give his name under *apologies for absence*, with one goat. He woke chosen, took down a sword he did not seem entirely comfortable holding, and went to <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a class="new" href="../People/Elder_Wispel">Wispel</a> unrolled the Prophecy to the far wall and told him it had worked forty-seven times. He asked what had happened the other times. He was told that it had worked forty-seven times.
 
 He was given five hundred crowns and three potions from the parish fund, and the Prophecy, which was, regrettably, free. A neighbour in the lane, a farmer, asked who was doing the west field. Nobody had an answer to that either.
 
@@ -47,7 +47,7 @@ Which three of them were with him at the top of the Tower is a matter on which I
 
 ## The road north
 
-The north gate of Thistlewick turns back a Chosen One who goes alone, and is where it has always been, whatever Sir Aldric tells you. Beyond it is the <a class="new" href="../Places/The_Gloamwood">Gloamwood</a>, where the Thing In The Woods, about which Thistlewick had argued for two hundred years - is it a bear? several bears? a bear-shaped hole in the idea of a wood? - stopped being in the woods. Thistlewick will never believe it. Bram has not told them anyway.
+The north gate of Thistlewick turns back a Chosen One who goes alone, and is where it has always been, whatever Sir Aldric tells you. Beyond it is the <a href="../Places/The_Gloamwood">Gloamwood</a>, where the Thing In The Woods, about which Thistlewick had argued for two hundred years - is it a bear? several bears? a bear-shaped hole in the idea of a wood? - stopped being in the woods. Thistlewick will never believe it. Bram has not told them anyway.
 
 In the Gloamwood, on a log, the party met the Forty-Sixth, who had got as far as the woods in 1980, decided the woods were enough, and sat down. He asked whether the Forty-Seventh had come back. He has a sack of letters beside him from two members of his old party, who write every month.
 
@@ -55,13 +55,13 @@ In the Gloamwood, on a log, the party met the Forty-Sixth, who had got as far as
 
 Then the Forty-Eighth did the thing that no Chosen One before him had thought to do. He went south.
 
-Forty miles south is <a class="new" href="../Places/Nether_Sopping">Nether Sopping</a>, where clause nineteen sends the heroes who come back, and in Nether Sopping is the <a class="new" href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, where they drink, and in the Slain Wyvern is a table by the fire, and at the table, at the time, was I. I asked him to do what I could not: to go round the room and be told. Six first-hand accounts, heard properly, to the end. He did. He found forty-seven of them in a tavern, and sat down, and listened, and in the course of it he found out that the wyvern over the mantel is a goose. My history was finished on the strength of it. He paid the fee later, as I shall come to.
+Forty miles south is <a href="../Places/Nether_Sopping">Nether Sopping</a>, where clause nineteen sends the heroes who come back, and in Nether Sopping is the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, where they drink, and in the Slain Wyvern is a table by the fire, and at the table, at the time, was I. I asked him to do what I could not: to go round the room and be told. Six first-hand accounts, heard properly, to the end. He did. He found forty-seven of them in a tavern, and sat down, and listened, and in the course of it he found out that the wyvern over the mantel is a goose. My history was finished on the strength of it. He paid the fee later, as I shall come to.
 
 He did a good deal else in the south, and all of it is in Volume Two:
 
 - he registered with the <a class="new" href="../Institutions/The_Adventurers_Guild">Adventurers' Guild (Provisional)</a>, on the strength of a character reference, a hat and the mat, and both of its bounty cards came off the board while he was there;
-- he got oil up to the <a class="new" href="../Places/The_Lighthouse_of_Saint_Bother">Lighthouse of Saint Bother</a>, which is lit again, and can be seen from the crossroads, which is the whole of what it is for;
-- he went down into the <a class="new" href="../Places/The_Barrow_of_the_Forty-Fourth">Barrow of the Forty-Fourth</a>, where <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a> was waiting to fight him, because that is what is done, and stopped when asked, which is not, and asked for a bench; and Bram built him one, facing the sea;
+- he got oil up to the <a href="../Places/The_Lighthouse_of_Saint_Bother">Lighthouse of Saint Bother</a>, which is lit again, and can be seen from the crossroads, which is the whole of what it is for;
+- he went down into the <a href="../Places/The_Barrow_of_the_Forty-Fourth">Barrow of the Forty-Fourth</a>, where <a class="new" href="../People/Ambrose_Fitch">Ambrose Fitch</a> was waiting to fight him, because that is what is done, and stopped when asked, which is not, and asked for a bench; and Bram built him one, facing the sea;
 - and he walked to the cottage of <a class="new" href="../People/Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, who told him the only thing he had come home with that was worth the trip. *Ask him why.*
 
 ## The north
@@ -70,7 +70,7 @@ North and west of the road is <a class="new" href="../Places/Upper_Clanging">Upp
 
 ## The Tower
 
-The door of the <a class="new" href="../Places/The_Obligatory_Tower">Obligatory Tower</a> was barred. There is a key under the mat, labelled SPARE - DO NOT LOSE AGAIN, which is the most honest thing in the building. Nix did not need it. ("Bar's on the inside. Classic.")
+The door of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> was barred. There is a key under the mat, labelled SPARE - DO NOT LOSE AGAIN, which is the most honest thing in the building. Nix did not need it. ("Bar's on the inside. Classic.")
 
 Inside is a plaque that says the building was established approximately four thousand eight hundred years ago, under the same management; an Obelisk with forty-seven RENEWED on it; and a cupboard of hooks with the companions' trades on brass labels, one of them reading GUEST and always empty. The party climbed it. At the top there is a throne, and there was a Dark Lord on it, and he was reading.
 

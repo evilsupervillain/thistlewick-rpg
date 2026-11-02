@@ -10,7 +10,7 @@ title: Hob Grumnir
 <caption>Hob Grumnir</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Hob_Grumnir.png" alt="Hob Grumnir, a very large blacksmith, listening to something the viewer cannot hear" width="200"><span class="infobox-caption">Listening to Beatrice</span></td></tr>
 <tr><th>Known as</th><td>Grumnir the Smith</td></tr>
-<tr><th>Of</th><td>The forge, <a class="new" href="../Places/Thistlewick">Thistlewick</a></td></tr>
+<tr><th>Of</th><td>The forge, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Trade</th><td>Blacksmith, third of that forge</td></tr>
 <tr><th>Trained by</th><td>His aunt, Beatrice Grumnir, from the age of nine</td></tr>
 <tr><th>Hammers</th><td>Several. Two named. One talks back</td></tr>
@@ -21,7 +21,7 @@ title: Hob Grumnir
 <tr><th>Rival</th><td>Bryd Ollerenshaw, of Upper Clanging</td></tr>
 </table>
 
-<p class="lede"><b>Hob Grumnir</b> is the blacksmith of <a class="new" href="../Places/Thistlewick">Thistlewick</a>, third of that forge, and an enormous man who talks to his hammers. Two of the hammers have names. One of them, he insists, talks back. She is called <b>Beatrice</b>, and she joined the Forty-Eighth's company on the same morning he did, because, as he explained, "Beatrice comes. I come with Beatrice. That's the arrangement and it's not up for discussion, mainly because she'd win."</p>
+<p class="lede"><b>Hob Grumnir</b> is the blacksmith of <a href="../Places/Thistlewick">Thistlewick</a>, third of that forge, and an enormous man who talks to his hammers. Two of the hammers have names. One of them, he insists, talks back. She is called <b>Beatrice</b>, and she joined the Forty-Eighth's company on the same morning he did, because, as he explained, "Beatrice comes. I come with Beatrice. That's the arrangement and it's not up for discussion, mainly because she'd win."</p>
 
 ## The forge
 

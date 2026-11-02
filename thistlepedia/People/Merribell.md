@@ -10,7 +10,7 @@ title: Merribell
 <caption>Sister Merribell</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Merribell.png" alt="Merribell, a healer, looking at the viewer as if to ask when they last had a glass of water" width="200"><span class="infobox-caption">She would like to know when you last drank water</span></td></tr>
 <tr><th>Known as</th><td>Sister Merribell; the Sister of Whatever Works</td></tr>
-<tr><th>Of</th><td><a class="new" href="../Places/Thistlewick">Thistlewick</a>, at the chapel</td></tr>
+<tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, at the chapel</td></tr>
 <tr><th>Trade</th><td>Village healer; field medic</td></tr>
 <tr><th>Order</th><td>The Order of Whatever Works, the only member for eleven miles</td></tr>
 <tr><th>Trained</th><td>The Sisterhouse at <a class="new" href="../Places/Weeping_Bottom">Weeping Bottom</a>, until it began holding symposia</td></tr>
@@ -21,7 +21,7 @@ title: Merribell
 <tr><th>Patients lost</th><td>None</td></tr>
 </table>
 
-<p class="lede"><b>Merribell</b> is the healer of <a class="new" href="../Places/Thistlewick">Thistlewick</a>, a Sister of the <a class="new" href="../Institutions/The_Order_of_Whatever_Works">Order of Whatever Works</a>, and the first person to join the Forty-Eighth, on the grounds that he had not had a glass of water since Tuesday. Her order holds that theology is a distraction from the actual problem, which is usually that you have not had any water today. She has never lost a patient.</p>
+<p class="lede"><b>Merribell</b> is the healer of <a href="../Places/Thistlewick">Thistlewick</a>, a Sister of the <a class="new" href="../Institutions/The_Order_of_Whatever_Works">Order of Whatever Works</a>, and the first person to join the Forty-Eighth, on the grounds that he had not had a glass of water since Tuesday. Her order holds that theology is a distraction from the actual problem, which is usually that you have not had any water today. She has never lost a patient.</p>
 
 "Sit down. When did you last drink water?" is how she meets everybody, and it was how she met Bram. He gave an answer. "That wasn't the question," she said. "Water. When."
 

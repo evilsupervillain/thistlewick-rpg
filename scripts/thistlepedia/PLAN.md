@@ -16,7 +16,7 @@ Each one ends with the checks in `README.md`, a commit, a push to
 3. **The company**: Bram, the nine companions, Spare, Grimspite and Hosea,
    each with an infobox portrait and an Afterwards section that agrees with
    `AFTERWARDS.md`. Done.
-4. **Places I**: Thistlewick, the road north and the Tower, and the south.
+4. **Places I**: Thistlewick, the road north and the Tower, and the south. Done.
 5. **Places II**: the north, and the world-map sites.
 6. **Notable people**: the major characters who are not in the party.
 7. **Institutions, the Bestiary, Arms and Artefacts, and the Glossary of

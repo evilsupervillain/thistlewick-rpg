@@ -21,7 +21,7 @@ title: Corvin Ash
 <tr><th>Destiny</th><td>None whatsoever (Mother Selvidge, three readings)</td></tr>
 </table>
 
-<p class="lede"><b>Corvin Ash</b> sat in the corner of the <a class="new" href="../Places/The_Slain_Wyvern">Slain Wyvern</a> from the age of nineteen, waiting for a destiny, for eleven years, which is longer than most careers. His village was destroyed by flooding, in his absence, and everyone was fine, and they moved eight miles inland, and there is a school now, and it is very good, and he could not make anybody understand.</p>
+<p class="lede"><b>Corvin Ash</b> sat in the corner of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> from the age of nineteen, waiting for a destiny, for eleven years, which is longer than most careers. His village was destroyed by flooding, in his absence, and everyone was fine, and they moved eight miles inland, and there is a school now, and it is very good, and he could not make anybody understand.</p>
 
 "...Leave," he told the Forty-Eighth. "This road ends in ash." Then he told him about the flood, and the school, and asked him not to look pleased, and went to get his coat.
 

@@ -6,20 +6,23 @@
 
 | Place | What it is |
 |---|---|
-| <a class="new" href="Thistlewick">Thistlewick</a> | The village that sends the Chosen Ones, and believes itself the middle of the world. |
+| <a href="Thistlewick">Thistlewick</a> | The village that sends the Chosen Ones, and believes itself the middle of the world. |
+| <a href="Prophecy_Hall">Prophecy Hall</a> | The gold one, up the road. The Committee, in session. |
+| <a href="The_Gilded_Turnip">The Gilded Turnip</a> | The inn, named after the problem. Rooms twenty crowns. |
+| <a href="Nixs_Emporium">Nix's Emporium</a> | Everything previously owned. By whom, we don't ask. |
 | <a class="new" href="Firstfield_Meadow">Firstfield Meadow</a> | A meadow at the foot of a rainbow, where things are explained to you. |
-| <a class="new" href="The_Gloamwood">The Gloamwood</a> | A wood, with a Thing in it, and a man on a log. |
-| <a class="new" href="The_Obligatory_Tower">The Obligatory Tower</a> | Where the Dark Lord lives. Ground floor. Door at the bottom. |
+| <a href="The_Gloamwood">The Gloamwood</a> | A wood, with a Thing in it, and a man on a log. |
+| <a href="The_Obligatory_Tower">The Obligatory Tower</a> | Where the Dark Lord lives. Ground floor. Door at the bottom. |
 
 ## The south
 
 | Place | What it is |
 |---|---|
-| <a class="new" href="Nether_Sopping">Nether Sopping</a> | Where the Chosen Ones go afterwards. The sea is right there. |
-| <a class="new" href="The_Slain_Wyvern">The Slain Wyvern</a> | A tavern, with a goose over the mantel. Also, my table. |
-| <a class="new" href="The_Lighthouse_of_Saint_Bother">The Lighthouse of Saint Bother</a> | A light for a sea nobody sails. |
-| <a class="new" href="The_Bottomless_Pit">The Bottomless Pit</a> | Approximately. |
-| <a class="new" href="The_Barrow_of_the_Forty-Fourth">The Barrow of the Forty-Fourth</a> | A hero's grave, with a bench on it. |
+| <a href="Nether_Sopping">Nether Sopping</a> | Where the Chosen Ones go afterwards. The sea is right there. |
+| <a href="The_Slain_Wyvern">The Slain Wyvern</a> | A tavern, with a goose over the mantel. Also, my table. |
+| <a href="The_Lighthouse_of_Saint_Bother">The Lighthouse of Saint Bother</a> | A light for a sea nobody sails. |
+| <a href="The_Bottomless_Pit">The Bottomless Pit</a> | Approximately. |
+| <a href="The_Barrow_of_the_Forty-Fourth">The Barrow of the Forty-Fourth</a> | A hero's grave, with a bench on it. |
 
 ## The north
 

@@ -10,7 +10,7 @@ title: Bram Thistle
 <caption>Bram Thistle</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Bram_Thistle.png" alt="Bram Thistle, a young farmer, looking as if he has just been asked a question" width="200"><span class="infobox-caption">Sat for, under protest</span></td></tr>
 <tr><th>Known as</th><td>The Forty-Eighth; Chosen One No. 48; Bram</td></tr>
-<tr><th>Of</th><td><a class="new" href="../Places/Thistlewick">Thistlewick</a>, two fields from Prophecy Hall</td></tr>
+<tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, two fields from Prophecy Hall</td></tr>
 <tr><th>Trade</th><td>Turnips</td></tr>
 <tr><th>Chosen</th><td>Third Age 2000, in his sleep, by the Prophecy Committee, nobody objecting</td></tr>
 <tr><th>Equipment</th><td>One hoe. One sword, off the wall</td></tr>
@@ -21,7 +21,7 @@ title: Bram Thistle
 <tr><th>Status</th><td>At home. SEE BRAM</td></tr>
 </table>
 
-<p class="lede"><b>Bram Thistle</b> is a turnip farmer of <a class="new" href="../Places/Thistlewick">Thistlewick</a>, and was the forty-eighth and last of the <a href="../History/The_Chosen_Ones">Chosen Ones</a>. He was asleep when he was chosen, and so did not object, which the Prophecy Committee took as consent. He went north, as forty-seven had, and beat the Dark Lord, as forty-seven had, and then did the one thing none of them had done, which was to ask the Dark Lord a question and stay for the whole of the answer.</p>
+<p class="lede"><b>Bram Thistle</b> is a turnip farmer of <a href="../Places/Thistlewick">Thistlewick</a>, and was the forty-eighth and last of the <a href="../History/The_Chosen_Ones">Chosen Ones</a>. He was asleep when he was chosen, and so did not object, which the Prophecy Committee took as consent. He went north, as forty-seven had, and beat the Dark Lord, as forty-seven had, and then did the one thing none of them had done, which was to ask the Dark Lord a question and stay for the whole of the answer.</p>
 
 He would like it known that he did none of it on his own. I have known him for two years and that is the only correction he has ever made to anything I have written about him, and he makes it every time.
 
@@ -35,7 +35,7 @@ There was a sword on the wall above the grate. It had been there, his mother sai
 
 ## The choosing
 
-The minutes of the meeting give his name under *apologies for absence*, with one goat. He was not consulted, because he was asleep, and he was not woken, because the Committee did not think it would make a difference, and it did not. Elder <a class="new" href="Elder_Wispel">Wispel</a> gave him the charge in <a class="new" href="../Places/Prophecy_Hall">Prophecy Hall</a>, the parish gave him five hundred crowns and three potions, and a neighbour in the lane asked him who was going to do the west field.
+The minutes of the meeting give his name under *apologies for absence*, with one goat. He was not consulted, because he was asleep, and he was not woken, because the Committee did not think it would make a difference, and it did not. Elder <a class="new" href="Elder_Wispel">Wispel</a> gave him the charge in <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, the parish gave him five hundred crowns and three potions, and a neighbour in the lane asked him who was going to do the west field.
 
 His own account of that morning, which I have had from him several times, is that he did not know what else to do, so he went. I have put this to forty-seven people who did the same and they all recognised it at once.
 
@@ -43,7 +43,7 @@ His own account of that morning, which I have had from him several times, is tha
 
 The whole of it is under [The Obligatory Quest](../History/The_Obligatory_Quest), and the longer version is Volume Two. What distinguishes him from the forty-seven is not what he did - they all went north and did the sword - but the things he did that were not on the way:
 
-- **He went south.** Nobody does. He came into the <a class="new" href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, sat down with a room full of people the Committee would rather he had not met, and listened to six of them to the end. I paid him for it, and he found out the wyvern is a goose.
+- **He went south.** Nobody does. He came into the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, sat down with a room full of people the Committee would rather he had not met, and listened to six of them to the end. I paid him for it, and he found out the wyvern is a goose.
 - **He asked.** <a class="new" href="Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, told him what to ask at the top, and he asked it.
 - **He listened to the answer.** All of it. Grimspite had been waiting four thousand eight hundred contract years for somebody to.
 - **He read the document.** Out loud, in full, in the middle of a fight, because somebody he had just beaten told him to. It is the only recorded case of a Chosen One reading the Prophecy, and it was fatal to the Prophecy.
@@ -64,7 +64,7 @@ He does not like being written about. He comes south anyway, about once a month,
 
 ## Afterwards
 
-The next morning there were still turnips. There was also a letter on the mat: clause nineteen, one quarter's pension, and the key to <a class="new" href="Ambrose_Fitch">Ambrose Fitch</a>'s old cottage at <a class="new" href="../Places/Nether_Sopping">Nether Sopping</a>, with the Committee's trust that Friday would suit. Friday did not suit. He stayed at home and farmed, and six months later the Committee struck clause nineteen, after a meeting of eleven hours.
+The next morning there were still turnips. There was also a letter on the mat: clause nineteen, one quarter's pension, and the key to <a class="new" href="Ambrose_Fitch">Ambrose Fitch</a>'s old cottage at <a href="../Places/Nether_Sopping">Nether Sopping</a>, with the Committee's trust that Friday would suit. Friday did not suit. He stayed at home and farmed, and six months later the Committee struck clause nineteen, after a meeting of eleven hours.
 
 He kept the key. He uses the cottage when he comes south, which is about monthly, and every time he is in it he waters the pot on the sill, which has had something dead in it since Mr Fitch's day. Nothing has grown. I check.
 
@@ -72,7 +72,7 @@ The Committee struck clause twelve as well, and wrote in its place SEE BRAM. Nob
 
 His harvest of 2001 was the best in the parish. The Committee asked whether it had been prophesied. It had not.
 
-Once a year, on the day, he walks up to the top of the <a class="new" href="../Places/The_Obligatory_Tower">Obligatory Tower</a>. The kettle is on.
+Once a year, on the day, he walks up to the top of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>. The kettle is on.
 
 In Prophecy Hall, at the end of the Wall of the Forty-Seven, the forty-eighth frame is still empty, and the card in it still says PORTRAIT TO FOLLOW. SITTER AT THE COAST. He is not at the coast. He is two fields away. Nobody has changed the card, and he has asked me not to tell them.
 
@@ -81,4 +81,4 @@ In Prophecy Hall, at the end of the Wall of the Forty-Seven, the forty-eighth fr
 - [The Obligatory Quest](../History/The_Obligatory_Quest)
 - [The Chosen Ones](../History/The_Chosen_Ones)
 - [Grimspite the Inevitable](Grimspite_the_Inevitable)
-- <a class="new" href="../Places/Thistlewick">Thistlewick</a>
+- <a href="../Places/Thistlewick">Thistlewick</a>

@@ -10,7 +10,7 @@ title: Sir Aldric Pemberton-Gore III
 <caption>Sir Aldric Pemberton-Gore III</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Sir_Aldric_Pemberton-Gore_III.png" alt="Sir Aldric Pemberton-Gore III, a knight in armour, slightly behind you" width="200"><span class="infobox-caption">Slightly behind you at all times</span></td></tr>
 <tr><th>Known as</th><td>Sir Aldric; Pemberton-Gore the Third</td></tr>
-<tr><th>Of</th><td><a class="new" href="../Places/Fenmarch_Hall">Fenmarch Hall</a>, which is small, moated and damp; latterly <a class="new" href="../Places/Thistlewick">Thistlewick</a>, which he was trying to leave</td></tr>
+<tr><th>Of</th><td><a class="new" href="../Places/Fenmarch_Hall">Fenmarch Hall</a>, which is small, moated and damp; latterly <a href="../Places/Thistlewick">Thistlewick</a>, which he was trying to leave</td></tr>
 <tr><th>Rank</th><td>Knight Errant, At Large</td></tr>
 <tr><th>Arms</th><td>A knight rampant regardant</td></tr>
 <tr><th>Age</th><td>Forty-eight</td></tr>
@@ -21,7 +21,7 @@ title: Sir Aldric Pemberton-Gore III
 <tr><th>North gate of Thistlewick</th><td>Found unaided once, 9 June 2001</td></tr>
 </table>
 
-<p class="lede"><b>Sir Aldric Pemberton-Gore the Third</b> is a real knight of a real house, which is small, moated and damp, and was for six years the most loyal resident of <a class="new" href="../Places/Thistlewick">Thistlewick</a>, a village he was trying to leave. He arrived in 1994, meaning to go out by the north gate, and never found it, though it is nineteen paces from where he usually stood and has a sign. He is the kindest person on the Quest by a distance that is not close.</p>
+<p class="lede"><b>Sir Aldric Pemberton-Gore the Third</b> is a real knight of a real house, which is small, moated and damp, and was for six years the most loyal resident of <a href="../Places/Thistlewick">Thistlewick</a>, a village he was trying to leave. He arrived in 1994, meaning to go out by the north gate, and never found it, though it is nineteen paces from where he usually stood and has a sign. He is the kindest person on the Quest by a distance that is not close.</p>
 
 "I seek only the north gate," he told the Forty-Eighth. "It moves, you see. A cunning enchantment. I shall find it." Then: "...Unless. Do *you* know the way?" Bram did, and Sir Aldric joined on the spot, "slightly behind you at all times", which he has been ever since.
 

@@ -10,7 +10,7 @@ title: Piper Quill
 <caption>Piper Quill</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Piper_Quill.png" alt="Piper Quill, a bard with a notebook, mid-sentence" width="200"><span class="infobox-caption">Mid-verse</span></td></tr>
 <tr><th>Known as</th><td>Piper Quill, Chronicler</td></tr>
-<tr><th>Of</th><td><a class="new" href="../Places/Thistlewick">Thistlewick</a>, usually on a table</td></tr>
+<tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, usually on a table</td></tr>
 <tr><th>Trade</th><td>Bard; chronicler, unofficial</td></tr>
 <tr><th>Family</th><td>The Quills, official chroniclers for four generations</td></tr>
 <tr><th>House style</th><td>Never let the truth spoil the metre</td></tr>
@@ -22,7 +22,7 @@ title: Piper Quill
 <tr><th>Rhymes for <i>turnip</i></th><td>None</td></tr>
 </table>
 
-<p class="lede"><b>Piper Quill</b> is a bard who narrates events as they happen, in the third person, at volume, whether or not this is convenient. She is a Quill, of the family that has written the official chronicles of <a class="new" href="../Places/Thistlewick">Thistlewick</a> for four generations, and she is the first of them to write down what actually happened, which is why at twenty-four she was standing on a table in the <a class="new" href="../Places/The_Gilded_Turnip">Gilded Turnip</a> instead of being paid. She went north with the Forty-Eighth and wrote all of it down.</p>
+<p class="lede"><b>Piper Quill</b> is a bard who narrates events as they happen, in the third person, at volume, whether or not this is convenient. She is a Quill, of the family that has written the official chronicles of <a href="../Places/Thistlewick">Thistlewick</a> for four generations, and she is the first of them to write down what actually happened, which is why at twenty-four she was standing on a table in the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a> instead of being paid. She went north with the Forty-Eighth and wrote all of it down.</p>
 
 "Piper Quill. Chronicler. I do the songs. You do the sword bit. It's a good system."
 
@@ -48,7 +48,7 @@ and immediately needed a rhyme for *turnip*, and said she would get one on the r
 
 **The official account.** Ambrosine had already written the official account of the Forty-Eighth before he left, because the shape is known. It is properly metred, it has a good middle, Bram is an orphan in it, Merribell dies, and there is a bit with a wolf. Piper and the Forty-Eighth went to see it. What came of that is the subject of a disagreement among the Quills that I have been asked, by all of them, not to settle, and I am not going to. There is, depending on whom you ask, one official account or two, and if there is one it has a footnote by P. Quill, and if there are two the second has a goat in it, and the goat is in the minutes.
 
-**The struck verses.** The Committee strikes any verse it cannot have read aloud at the fete. Of course it keeps them, in a box, in Prophecy Hall. With the party's help Piper got into the box, and has read every verse in it, and printed none. The number of them is in the account, and is larger than the Committee would like. One of them, verse forty-one, is about a hedge. Verse seven was struck before the Quest began, and she has never told anybody what is in it. She has not told me.
+**The struck verses.** The Committee strikes any verse it cannot have read aloud at the fete. Of course it keeps them, in a box, in Prophecy Hall. With the party's help Piper got into the box, and has read every verse in it, and printed none. The number of them is in the account, and is larger than the Committee would like. One of them, verse forty-one, is about a cat, and she showed it to the Forty-Eighth, and only that one; I have it from him that it scans. Verse seven was struck before the Quest began, and she has never told anybody what is in it. She has not told me.
 
 ## The elegy
 

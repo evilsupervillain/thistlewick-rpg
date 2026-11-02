@@ -174,3 +174,37 @@ All *wiki*.
   Merrow Halgate's apology at the bridge is canon (`south.py`).
 * **Hosea** has had a letter from Pargeter pointing out a clause, and has
   bought a pair of boots this winter. He has not climbed anything.
+
+## What unit 4 (Places I) added
+
+Small inventions in the place articles. All *wiki*.
+
+* **Hosea has travelled, a little**: he walked the coast road to Thistlewick
+  once, for this volume, and stayed a night at the Gilded Turnip (twenty
+  crowns, turnip); he has been down the Bottomless Pit, out to the light at
+  the point and up to the Barrow. He has still not climbed the Tower, and has
+  "begun to wonder whether four floors and the top is very many". He sides
+  with Halbert Quy (forty miles) against the coast-road signpost (four
+  leagues).
+* **Thistlewick**: the Gatekeeper, asked how many came back, says "All of
+  them, I'm told," and then, "One of them came back here." The school has
+  decided the forty-eighth clay figure, sword by the wrong end, is finished.
+* **Prophecy Hall**: Hosea wrote to the Committee to say that he wrote a
+  history, in prose, not a song; the Clerk filed it under "no change".
+* **The Gloamwood Society's walk of 2001**: Miss Pellow led it, and stopped
+  the walk in the clearing at dusk, and pointed, and said "There".
+* **The Obligatory Tower**: the plaque by the door once said *exactly*;
+  Grimspite thought it presumptuous and made it *approximately*. He did not say
+  how approximately.
+* **The lighthouse**: the lamp was re-oiled in the spring of 2001 and has not
+  gone out since; the Chandler's is open. Ferrety Bother has not walked to the
+  crossroads again, and might, "if somebody was coming home".
+* **Fitch's cottage**: Bram has never moved the chair.
+* **The Barrow**: when Hosea went out, there was a cup on the end of the bench,
+  not his. Merrow Halgate thinks Ambrose may have known about the older bench on
+  the Middle Distance, and wanted one nearer the road.
+* **Wick** went north forty-three years ago, by 2002's count.
+
+Two canon slips in unit 3 were mended in this unit: Roland's table in the
+Wyvern is by the fire (`postgame.py`), and struck verse forty-one is about a
+cat, not a hedge.
