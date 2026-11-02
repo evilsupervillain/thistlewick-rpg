@@ -958,11 +958,12 @@ def stair_events(i):
             conditions={"switch1Valid": True,
                         "switch1Id": db.SW_UNSCHEDULED}))
         evs.append(S.pin_note(board))
-        evs.append(_wall(nid(), "Another Hook", i, "H", S.narrate([
+        # The board is drawn, like the Schedule's: the hook is under it.
+        evs.append(S.pin_note(_wall(nid(), "Another Hook", i, "H", S.narrate([
             "Another hook, with another board over it: LAMP ON HOOK.",
             "There is no lamp on this one either. Chalked beside it:",
             "",
-            "   'Borrowed this one too. Back directly. - D.'"])))
+            "   'Borrowed this one too. Back directly. - D.'"]))))
         evs.append(_chest(nid(), i, "a", [R.gain_item(db.IT_HI_POTION, 3)],
                           ["Found \\I[176]\\C[3]Hi-Potion x3\\C[0]."]))
         evs.append(_chest(nid(), i, "b", [R.gain_item(db.IT_ETHER, 3)],

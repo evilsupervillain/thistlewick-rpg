@@ -55,6 +55,19 @@ def _commands(lst, where, out):
             out.append((where + " choice", " / ".join(p[0])))
 
 
+def _strings(node, where, out):
+    """Every `title` and `text` in a quest record, however deep."""
+    if isinstance(node, dict):
+        for k, v in node.items():
+            if k in ("title", "text") and isinstance(v, str):
+                out.append(("%s %s" % (where, k), v))
+            else:
+                _strings(v, where, out)
+    elif isinstance(node, list):
+        for v in node:
+            _strings(v, where, out)
+
+
 def dump(ref=None):
     """[(where, line)] for every line of text in `data/` at `ref`, or on disk
     when `ref` is None."""
@@ -81,6 +94,10 @@ def dump(ref=None):
                     for i, pg in enumerate(t["pages"]):
                         _commands(pg["list"], "Troop%d %s p%d"
                                   % (t["id"], t["name"], i), out)
+        elif base == "Quests":
+            for r in d:
+                if r:
+                    _strings(r, "Quests %s" % r.get("key", ""), out)
         elif isinstance(d, list):
             for r in d:
                 if isinstance(r, dict):

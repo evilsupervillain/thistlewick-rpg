@@ -4,7 +4,7 @@ Pictures the game needs that no stock sheet has. Mike draws them and I put them 
 **Keep this file current**: add a row when a map edit or a line of text asks for
 a picture that does not exist, and move it to *Done* when the picture is in.
 
-Last updated 30 October 2026.
+Last updated 2 November 2026. The battlers `AUDIT.md` item 7 found wrong are listed there, under *Art for Mike*.
 
 ## How to hand them over
 
@@ -159,6 +159,9 @@ The game uses stand-ins for these, and the stand-ins are acceptable.
 | a bird's nest in a tree fork | the Gloamwood (Map 9) | a nest | `Wall Fern` |
 | an arrow carved in a trunk | the Gloamwood (Map 9) | a carved arrow | `Wall Vines` |
 | a shed snakeskin | the deep wood (Map 10) | a shed skin | `Wall Vines` |
+| Number Forty-Six, sitting (`forty_six_sitting.png`) | the Gloamwood (Map 9), on his log at (7, 26), facing east, with the sack of letters at (7, 27) | "A man in very good armour is sitting on a log" | `People4` 6, standing, in plain clothes; the log is drawn under him and his sprite hides it. One 48x48 frame, seated, armoured, facing right (`AUDIT.md` 7, V6) |
+| the lighthouse lamp (`lighthouse_lamp.png`) | the lamp floor of the lighthouse (Map 18), the event at (133, 7) | "The lamp. Brass, enormous, and cold." | an iron stove, whose window the flame (`!Flame` 3) fills once it is lit; a brass lamp would want the same window (V13) |
+| a boot scraper | Nether Sopping (Map 13), beside Ambrose's door at (14, 8); the pot is at (15, 8) | "There is a boot scraper, and a pot with a dead thing in it" | none; the pot is `Pot` with `Dead Grass B` in it (V11) |
 | Mrs Cotterill holding the baby (`cotterill_washer.png`), **or** a cradle by the door (`cradle.png`) | Upper Clanging (Map 21), on the doorstep: she is at (12, 40), facing west; the door is behind the family. Only after SPA-3's birth (`QUESTS.md` P4f) | the tenth Cotterill, Washer, born the night before | none: the baby is talked about and not seen. For her, one 48x48 frame in her `SF_People1` look (dark side braid, mustard cardigan) facing left, with a bundle; for the cradle, one 48x48 cell |
 
 ## Done

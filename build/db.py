@@ -2295,7 +2295,7 @@ def build_enemies():
              "anything, apparently, including an urn."))
 
     upsert(en, enemy(
-        EN_HOUND, "Barrow Hound", "Wolfman", 200,
+        EN_HOUND, "Barrow Hound", "SF_Wolf", 0,       # a hound, on four legs
         [740, 0, 46, 20, 10, 16, 32, 10], 140, 160,
         [action(SK_ATTACK, 6), action(SK_NIBBLE, 3)],
         traits=base + [trait(22, 1, 0.18), trait(11, EL_LIGHT, 1.5),
@@ -3501,7 +3501,7 @@ def build_mountain():
         note="Schedule of Hazards, item four. The Stair is one wide, the "
              "dark is total, and neither of you can see who it is."))
     upsert(en, enemy(
-        EN_WARDEN, "The Half-Way Warden", "Gatekeeper", 0,
+        EN_WARDEN, "The Half-Way Warden", "Blackknight", 0,   # in black armour
         [4400, 100, 92, 70, 40, 60, 30, 20], 980, 700,
         [action(SK_ATTACK, 5), action(SK_INSPECTION, 4)],
         traits=base + [trait(11, EL_THUNDER, 1.6), trait(11, EL_PHYSICAL, 0.7),

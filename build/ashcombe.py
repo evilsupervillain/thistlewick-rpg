@@ -501,7 +501,7 @@ def indoors_map():
     for x, tile in [(2, OVEN), (3, COUNTER_B), (4, SINK), (5, COUNTER_A)]:
         g.set(x, y1, 2, tile)
     g.set(3, y1 - 1, 3, UTENSILS)
-    g.column(7, y1 - 2, 3, K.IN_WINDOW)
+    g.column(4, y1 - 2, 3, K.IN_WINDOW)          # over the sink
     g.column(8, y1 - 2, 2, CLOCK)             # hung on the wall, not stood
     g.column(DRESSER_X, y1 - 1, 2, DRESSER)
     g.set(KITCHEN_TABLE[0], KITCHEN_TABLE[1], 2, TABLE_D)

@@ -17,7 +17,8 @@ appended later as pages of their own, and nothing here spends any of them.
   it in 1702 because every physician she asked recommended it, none of whom
   had been, and the fog comes in off the water and settles in the bottom and
   does not leave. It drizzles on Map 54 and nowhere else - `frostwick.py`'s
-  weather idiom, with a local `door()` that clears it. `places.py` has
+  weather idiom, with a local `door()` that clears it - and the fog is a
+  screen tone, `FOG`, which the same door and the track up clear. `places.py` has
   `WEEPING_BOTTOM_STEP`, the square south of the stamp, and no world
   coordinate.
 * **The schism is a line down the middle of the ward.** Whatever Works has
@@ -67,11 +68,26 @@ def dry(indent=0):
     return R.set_weather("none", duration=1, indent=indent)
 
 
+# The fog: RMMZ has no fog weather, so it is a pale, washed-out screen tone
+# under the drizzle. Screen tone outlives a transfer, so every way off the map
+# clears it with the rain.
+FOG = [34, 34, 40, 102]
+CLEAR = [0, 0, 0, 0]
+
+
+def fog(indent=0):
+    return R.tint_screen(FOG, 1, False, indent=indent)
+
+
+def no_fog(indent=0):
+    return R.tint_screen(CLEAR, 1, False, indent=indent)
+
+
 def weather_event(event_id):
     """Autorun, once per arrival, then erase itself - `north.py`'s idiom. An
     erased event comes back on the next load, so it drizzles every visit."""
     return R.event(event_id, "The Weather", 0, 0, [R.page(
-        [drizzle(), R.erase_event()],
+        [drizzle(), fog(), R.erase_event()],
         img=R.image(), trigger=3, priority=0, through=True)])
 
 
@@ -80,6 +96,7 @@ def door(event_id, name, x, y, target_map, tx, ty):
     fade, which is `frostwick.door`."""
     cmds = S.door_page(target_map, tx, ty, 8)
     cmds.insert(len(cmds) - 1, dry())
+    cmds.insert(len(cmds) - 1, no_fog())
     return R.event(event_id, name, x, y, [R.page(
         cmds, img=R.image("!Door1", 0, direction=2), trigger=1, priority=1)])
 
@@ -87,7 +104,7 @@ def door(event_id, name, x, y, target_map, tx, ty):
 def exit_tile(event_id, name, x, y):
     """The track back up to the world map, where it is not raining."""
     return R.event(event_id, name, x, y, [R.page(
-        [R.play_se("Move1"), dry(),
+        [R.play_se("Move1"), dry(), no_fog(),
          R.transfer(MAP_WORLD, *WEEPING_BOTTOM_STEP, 2, 0)],
         img=R.image(""), trigger=1, priority=0, through=True)])
 
@@ -629,7 +646,7 @@ def ward_events():
                        R.image("Gen_People5", 1, direction=2), *stope_pages()))
     evs[-1]["pages"] += q_merribell.stope_pages(evs[-1]["pages"][-1])   # MER-1
     evs.append(_person(3, "Sister Bewick", BEWICK,
-                       R.image("Gen_People5", 2, direction=4),
+                       R.image("Gen_People5", 2, direction=6),
                        *bewick_pages()))
     evs[-1]["pages"] += q_merribell.bewick_pages(evs[-1]["pages"][-1])  # MER-1
     evs.append(_person(4, "Sir Hamo Tench", HAMO,

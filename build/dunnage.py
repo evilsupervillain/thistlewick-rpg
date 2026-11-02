@@ -827,7 +827,7 @@ def smiths_events():
     evs.append(prize)
     evs.append(_thing(6, "The Banners", (10, y1 - 1), banners_pages()))
     fettle = _person(7, "Miss Fettle", FETTLE,
-                     R.image("Gen_People6", 4, direction=2),
+                     R.image("Gen_People6", 4, direction=6),
                      *fettle_pages())
     fettle["pages"] += q_corvin.fettle_pages(fettle["pages"][-1])  # COR-5
     evs.append(fettle)
@@ -1052,8 +1052,8 @@ def bonded_map():
 def tibbs_pages():
     first = S.narrate([
         "An old man in half-rimmed spectacles and a wharf coat, at a",
-        "desk by the door, with a ledger that has every single thing",
-        "in the warehouse in it."])
+        "desk in the far corner, with a ledger that has every single",
+        "thing in the warehouse in it."])
     first += S.say("Mr Tibbs", [
         "Tibbs. Wharfinger.",
         "Goods in bond. Nothing out without",

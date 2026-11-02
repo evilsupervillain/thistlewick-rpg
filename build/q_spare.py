@@ -758,7 +758,7 @@ def _reading():
     ]) + S.say("Tappet", [
         "I had 'there is no dragon'.",
     ]) + S.narrate([
-        "Nib pays her. He is not happy about it.",
+        "Nib pays her, and is not happy about it.",
     ]) + S.say("Mrs Cotterill", [
         "Right. Back to work,",
         "the lot of you.",

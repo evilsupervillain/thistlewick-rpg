@@ -215,7 +215,7 @@ SISTERHOUSE = [
     C("Hourglass", (21, 7), "Hourglass", [
         "Sister Bewick's hourglass, for timing pulses, stages, and how "
         "long a patient has been allowed to sit up."]),
-    C("Bed", (3, 10), "Bed", [
+    C("Bed", (13, 10), "Bed", [
         "A bed exactly on the line down the middle of the ward. It is "
         "the most argued-about bed in the Order."]),
     C("Potted Plant", (24, 11), "Potted Plant A", [

@@ -53,18 +53,18 @@ PENULTIMA = [
         "The season has been going on for some time."]),
     C("Outfitters' Window", (22, 9), "Window A", [
         "Through a crack in the boards: a shop exactly like Ye Final "
-        "Shoppe, with everything in it priced at exactly one gold "
+        "Shoppe, with everything in it priced at exactly one crown "
         "less."]),
     C("Barrel", (6, 13), "Barrel", [
         "A barrel with a price on it. You look inside. It is empty. The "
         "price is for the barrel."]),
     C("Well", (11, 13), "Well", [
-        "A well, with a sign: LAST WELL BEFORE THE END. ONE GOLD A "
+        "A well, with a sign: LAST WELL BEFORE THE END. ONE CROWN A "
         "BUCKET.",
         "Smaller: SEASONAL."]),
     C("Well", (21, 13), "Well", [
         "Another well. Its sign says: LAST WELL BEFORE THE END (THE "
-        "OTHER ONE). HALF A GOLD A BUCKET. TELL NOBODY."]),
+        "OTHER ONE). HALF A CROWN A BUCKET. TELL NOBODY."]),
     C("Barrel", (25, 13), "Barrel", [
         "A barrel with a card on it: THIS BARREL HAS BEEN SEARCHED BY A "
         "CHOSEN ONE.",
@@ -111,7 +111,7 @@ SHOPPE = [
       then=SHOPPE_BOOKS[1:]),
     C("Stock", (13, 4), "Sundries Shelf A", [
         "Every item on this shelf has the same little card: WE BUY AT "
-        "ONE GOLD. WE SELL AT FORTY. ASK ABOUT OUR WARRANTY.",
+        "ONE CROWN. WE SELL AT FORTY. ASK ABOUT OUR WARRANTY.",
         "There is no warranty. Asking about it is free."]),
     C("Umbrellas", (13, 6), "Pot B", [
         "A big jar, tied shut, with a card: UMBRELLAS - THE LAST ONE. It is "
@@ -128,12 +128,12 @@ SHOPPE = [
     C("Bottles", (11, 7), "Bottle D", [
         "Bottles on the counter with a card: BUY ONE, GET ONE AT THE "
         "FULL PRICE."]),
-    C("The First Gold", (12, 7), "Case A", [
-        "A gilt case, locked, with a card on the lid: INSIDE - THE FIRST GOLD "
-        "THIS SHOPPE EVER TOOK. NOT FOR SALE.",
+    C("The First Crown", (12, 7), "Case A", [
+        "A gilt case, locked, with a card on the lid: INSIDE - THE FIRST "
+        "CROWN THIS SHOPPE EVER TOOK. NOT FOR SALE.",
         "Underneath, in smaller letters: (OFFERS)."]),
     C("Stock Crate", (3, 10), "Crate B", [
-        "A crate of things Gideon bought for one gold each: a boot, a "
+        "A crate of things Gideon bought for one crown each: a boot, a "
         "slime in a jar, half a potion.",
         "He is waiting for somebody who needs exactly half a potion. He "
         "is sure they are on their way."]),
@@ -207,7 +207,7 @@ EIGHT_HOURS = [
         "BACK AFTER A NAP."]),
     C("Candles", (3, 7), "Crate A", [
         "A crate of candles. Every one is exactly eight hours long."]),
-    C("Breakfast Table", (6, 8), "Dinner Set A (Bottom)", [
+    C("Breakfast Table", (6, 8), "Dinner Set C (Left)", [
         "A table laid for breakfast, which in Restwell is served after lunch, "
         "and is therefore a chop. The salt has a little knitted hat on. So, you"
         " notice, does the pepper."]),
@@ -330,7 +330,7 @@ FAIRHOLME = [
         "On every one, somebody has drawn a neat circle round HALF."],
       trope="half_the_kingdom"),
     C("Potted Plant", (2, 13), "Potted Plant A", [
-        "A potted plant with a little flag in it: SHARE ELEVEN. It is "
+        "A potted plant with a little flag in it: SHARE TWELVE. It is "
         "Mr Pilbeam's, pending a decision on the eagle."]),
 ]
 
@@ -516,8 +516,8 @@ MAYORS = [
         "The Mayor's own books: CIVIC DUTY. CIVIC PRIDE. CIVIC HATS: A "
         "HISTORY, in three volumes."]),
     C("Town Shield", (27, 4), "Shield", [
-        "A shield on the wall with the town's arms: a small smiling sun.",
-        "Under the sun, in tiny letters: (WELCOME)."]),
+        "A shield on the wall with the town's arms: two crossed swords.",
+        "Under the swords, in tiny letters: (WELCOME)."]),
     C("Potted Plant", (12, 8), "Potted Plant A", [
         "A potted plant with a ribbon round the pot: BEST KEPT PLANT, "
         "GLADHOLLOW. It is the only entrant. It has won eleven years "

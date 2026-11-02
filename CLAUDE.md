@@ -608,7 +608,8 @@ Append instead.
   orders. `weeping_bottom.py`, `SITES.md` step 15. `MAP_WEEPING_BOTTOM`,
   `MAP_WARD` - **not `MAP_SISTERHOUSE`**, which is both. Its `journey.py`
   alias is `WB`. It rains on Map 54 and nowhere else: `frostwick.py`'s
-  weather idiom |
+  weather idiom, with a fog that is a washed-out screen tone
+  (`weeping_bottom.FOG`), cleared by both ways out |
 | Maps 56-57 | Fenmarch Hall, the walled garden with the house in its moat,
   and the long gallery, which is most of the house - the household at one
   end, thirty-two glass cases and eight portraits going east.

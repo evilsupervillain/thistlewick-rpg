@@ -734,7 +734,7 @@ def hall_events():
          R.transfer(MAP_COLLEGIUM, HALL_DOOR[0], HALL_DOOR[1] + 1, 2, 0)],
         img=R.image(""), trigger=1, priority=0, through=True)])]
     dean = _person(2, "Dean Fenwold", FENWOLD,
-                   R.image("Gen_People5", 7, direction=2), *fenwold_pages())
+                   R.image("Gen_People5", 7, direction=8), *fenwold_pages())
     dean["pages"] += q_zephyrine.fenwold_pages(dean["pages"][-1])  # ZEPH-3
     evs.append(dean)
     # 3, 4: the portraits, on the lower row of the wall face, read from the

@@ -119,7 +119,7 @@ WYVERN = [
         "Every plate is a different meal from a different country. "
         "Nobody has eaten a thing. They are all too busy telling each "
         "other how it ended."]),
-    C("A Napkin", (18, 11), "Dinner Set A (Bottom)", [
+    C("A Napkin", (18, 11), "Dinner Set C (Left)", [
         "Perpetua's plate, and beside it her napkin, folded into a "
         "little crown.",
         "She folds every napkin she is given into a crown. She has no "
@@ -477,10 +477,11 @@ UPSTAIRS = [
         "Drawers marked LOST PROPERTY. Gloves, a single boot, a monocle, "
         "and a ring of keys to a castle in some other story, labelled "
         "PLEASE RETURN."]),
-    C("Linen", [(20, 11), (21, 11)], ("Sundries Shelf A",
-                                      "Sundries Shelf B"), [
-        "Spare bedding, mended and mended again. The heroes heal in it "
-        "overnight and the bedding never does."],
+    C("More Lost Property", [(20, 11), (21, 11)], ("Sundries Shelf A",
+                                                   "Sundries Shelf B"), [
+        "What the drawers would not hold: jars, a pink rabbit, and a teddy "
+        "with one ear mended and mended again. The heroes heal overnight in "
+        "the beds here, and the teddy never does."],
       trope="cheap_inn"),
     C("Mirror", (7, 12), "Mirror", [
         "A long mirror on the landing. You look tired. It is a long way "

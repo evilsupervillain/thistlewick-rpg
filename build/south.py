@@ -189,10 +189,12 @@ def sopping_events():
         "Nobody in Thistlewick has ever counted the",
         "difference."])
     memorial += [S.trope()]
-    # The memorial carries its own sprite rather than sitting on a scenery
+    # The memorial carries its own picture rather than sitting on a scenery
     # tile: it is the one thing on this map that has to be looked at, and an
-    # invisible event on an empty flagstone is a thing nobody looks at.
-    stone = R.image("!Other2", 4, direction=2, pattern=1)
+    # invisible event on an empty flagstone is a thing nobody looks at. It is
+    # `Grave B`, a slab with lines cut into it - it was `!Other2`'s statue of a
+    # woman, under narration about a stone with names on it.
+    stone = R.image(tile_id=K.sf_tile("Outside_B", "Grave B"))
     evs.append(R.event(7, "The Memorial Stone", 16, 21, [
         R.page(memorial + [R.self_switch("A", True)], img=stone,
                trigger=0, priority=1, direction_fix=True),
@@ -2013,7 +2015,9 @@ def outfit_map():
     for x in (3, 4, 5):
         g.column(x, 3, 2, K.IN_SHELF_GOODS)
     g.column(6, 3, 2, K.IN_SHELF_JARS)
-    g.column(10, 2, 2, K.IN_SWORD_RACK)       # on the wall, where it hangs
+    # On the wall, where it hangs; and east of it, the bare cell at the end
+    # of the row, where the event is, is Wick's peg with nothing on it.
+    g.column(9, 2, 2, K.IN_SWORD_RACK)
     g.column(11, 3, 2, K.IN_SHELF_JARS)
     K.wide(g, 12, 3, 2, K.IN_SUNDRIES_CABINET)    # whole, not three halves
     g.scatter([(3, 9), (4, 9), (13, 9)], 2, K.IN_CRATE2)
@@ -2159,7 +2163,7 @@ def cottage_map():
 def cottage_events():
     evs = [S.exit_tile(1, "Cottage Door", *threshold(MAP_COTTAGE), MAP_SOPPING,
                        *OUT[MAP_COTTAGE])]
-    evs.append(quy_event(2, 11, 8))            # on the sofa
+    evs.append(quy_event(2, 9, 5))             # at the kitchen table, potting
 
     evs.append(S.prop(3, "A Sword Over The Fire", 10, 3, [
         "A sword on two hooks above the fireplace,",
@@ -2218,7 +2222,7 @@ def fitch_map():
 def quy_event(event_id, x, y):
     """Chosen One #45, and the single most load-bearing conversation in the
     expansion: it changes what Grimspite says at the top of the tower."""
-    img = R.image(*S.FACES["Halbert Quy"], direction=2)
+    img = R.image(*S.FACES["Halbert Quy"], direction=8)
 
     first = S.narrate([
         "A man in his seventies is potting something",

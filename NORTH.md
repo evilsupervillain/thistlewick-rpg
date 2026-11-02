@@ -1220,6 +1220,35 @@ the brown bed, against the same wall - still "by the beds", as its first
 line says - and keeps its id, its pages and every word. `wall_ring` walks to
 it and presses the button; `blushes` still starts it by id.
 
+### 8.1g Two counts that did not add up - **DONE, 2 November 2026**
+
+The seventh and eighth, from `AUDIT.md` item 7 (D1, D3), agreed by Mike
+("fix those things that you can"). Both are a number the game states and
+then contradicts by counting in the open, in the same conversation, which is
+Crooke's case; each is one word, and nobody is re-voiced.
+
+* **The Contingency Cache** (Map 11, event 11) counts "nine hooks", reads out
+  seven labels, then two more added later (RIVAL, CATALOGUER - the count was
+  not moved when they were), and then "the ninth hook" is GUEST: ten. Nine
+  weapons come off nine hooks, so afterwards all ten are empty, not seven.
+
+      journey.py   "Inside, nine hooks"       -> "Inside, ten hooks"
+      journey.py   "The ninth hook is empty"  -> "The tenth hook is empty"
+      journey.py   "Seven empty hooks"        -> "Ten empty hooks"
+
+* **Ott** (Map 22): "Nib is the fortieth. Thirty-two of the others left, six
+  stayed" - thirty-eight others, and Nib makes thirty-nine.
+
+      north.py     "Thirty-two of the others" -> "Thirty-three of the others"
+
+  The longer word pushes the line two characters past the window, so the
+  break moves one phrase: "...left, / six stayed, and one of them is Sowerby."
+
+Left as they are, because they read as people talking rather than as the
+game counting: the parish register "in one hand, for eighty years" with an
+entry from 1802, and Sowerby's "a hundred and ninety-nine go up" in sixty
+years (D4, D5).
+
 ### 8.1a The state of the tree at handoff
 
 **Updated 2026-08-25, after step 5 of section 16.** Everything is uncommitted

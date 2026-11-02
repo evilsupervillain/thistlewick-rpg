@@ -99,8 +99,10 @@ BEDS = (18, 4)                              # the left of two, a cell apart
 # There is no upstairs map, so the top tread says why not.
 STAIRS_X = 14                               # the flight's west column
 
-# Where Walt sits, which is the one thing in the room the site is about.
-WALT = (14, 7)
+# Where Walt sits, which is the one thing in the room the site is about: the
+# bottom step of the flight's west column, facing the room, so the east column
+# is still the way up.
+WALT = (14, 6)
 BAR_Y = 6                                   # the bar, a row off the shelves
 
 
@@ -407,7 +409,7 @@ def eight_hours_events():
     again = S.narrate([
         "Walt is tuning. It does not need tuning.",
         "He is going to tune it anyway."])
-    walt_img = R.image("Gen_People1", 7, direction=8)
+    walt_img = R.image("Gen_People1", 7, direction=2)
     evs.append(R.event(3, "Walt Ashbury", *WALT, [
         R.page(tune, img=walt_img, trigger=0, priority=1),
         R.page(again, img=walt_img, trigger=0, priority=1,

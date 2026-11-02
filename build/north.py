@@ -980,8 +980,8 @@ def ott_the_two_hundred():
     fortieth = S.say("Ott", [
         "Nib is the fortieth.",
     ]) + S.say("Ott", [
-        "Thirty-two of the others left, six stayed,",
-        "and one of them is Sowerby.",
+        "Thirty-three of the others left,",
+        "six stayed, and one of them is Sowerby.",
     ]) + S.say("Ott", [
         "The numbering is not a joke.",
         "It is a record, and a record is a kindness",

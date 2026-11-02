@@ -642,12 +642,15 @@ def deep_events():
                        ["Found \\I[146]\\C[3]Amulet of the Committee\\C[0]",
                         "and \\I[185]\\C[3]Slightly Singed Feather x2\\C[0]."]))
 
-    evs.append(S.chest(5, "Hollow Log", 22, 16,
-                       [R.gain_weapon(db.WP_DIRK, 1), R.gain_gold(250)],
-                       ["Found \\I[96]\\C[3]Quiet Dirk\\C[0] and 250\\G",
-                        "inside a hollow log.",
-                        "Somebody hid these. Somebody did not come back",
-                        "for them."]))
+    log = S.chest(5, "Hollow Log", 22, 16,
+                  [R.gain_weapon(db.WP_DIRK, 1), R.gain_gold(250)],
+                  ["Found \\I[96]\\C[3]Quiet Dirk\\C[0] and 250\\G",
+                   "inside a hollow log.",
+                   "Somebody hid these. Somebody did not come back",
+                   "for them."])
+    for page in log["pages"]:       # a log, not a chest, open or shut
+        page["image"] = R.image(tile_id=K.sf_tile("Outside_B", "Fallen Log"))
+    evs.append(log)
     evs.append(q_nix.reed_event(7))     # NIX-5: a fight ends the escort
     evs += q_wren.walk_events(8)        # WRE-3: the society's walk
     return evs
@@ -779,7 +782,7 @@ def tower_events():
     # is four of seven and there is no way to know which four in advance.
     cache = [R.play_se("Chest1")]
     cache += S.narrate([
-        "A cupboard. Inside, nine hooks, each with a",
+        "A cupboard. Inside, ten hooks, each with a",
         "small brass label.",
         "The labels read: CHOSEN ONE. HEALER. SMITH.",
         "MAGE. SPECIALIST. KNIGHT. MUSICIAN."])
@@ -789,7 +792,7 @@ def tower_events():
         "Somebody has been keeping this list up to date",
         "for four thousand years, which is unnerving."])
     cache += S.narrate([
-        "The ninth hook is empty. Its label reads",
+        "The tenth hook is empty. Its label reads",
         "\\C[2]GUEST\\C[0], and underneath, in pencil:",
         "'HE WON'T BE HERE. HE NEVER IS. I LEAVE IT",
         "OUT ANYWAY.'"])
@@ -812,7 +815,7 @@ def tower_events():
     evs.append(R.event(11, "Contingency Cache", *T.at(4, "k"), [
         R.page(cache, img=R.image("!Chest", 0, direction=2, pattern=1),
                trigger=0, priority=1, direction_fix=True),
-        R.page(S.narrate(["Seven empty hooks and a very smug note."]),
+        R.page(S.narrate(["Ten empty hooks and a very smug note."]),
                img=R.image("!Chest", 0, direction=2, pattern=2), trigger=0,
                priority=1, direction_fix=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),

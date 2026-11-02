@@ -253,8 +253,8 @@ HOME = [
       again=["The rain barrel. Nobody in the family talks about the "
              "goat, and the goat has never said."]),
     C("Breakfast", (11, 6), "Dinner Set A (Bottom)", [
-        "Breakfast, laid for two. Turnip. Your mother has cut yours into "
-        "the shape of a sword.",
+        "Breakfast, laid for two. Turnip, done as a steak, for the "
+        "occasion. Your mother has cut yours into the shape of a sword.",
         "It is the most supportive thing anybody has done for you all "
         "day."],
       again=["The turnip sword. You will eat it later, as a sort of "

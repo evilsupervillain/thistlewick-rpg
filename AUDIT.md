@@ -64,6 +64,7 @@ new faces, then the look of the places.
 | 2 | portraits that look noseless, mostly with moustaches | second | existing faces |
 | 1 | speakers with no portrait at all | third | new faces, and a list for Mike |
 | 5 | the Collegium's green roofs, and other visual contradictions | last | places |
+| 7 | the second audit: drawn against described, facing, glitches, dialogue, battlers | after the companion quests | 31 October 2026; **fixed 2 November**, art outstanding |
 
 ---
 
@@ -1017,6 +1018,194 @@ turnip, was drawn from the game's own icon. The faces list above is unchanged.
 Scenarios run for it: `collegium`, `fenmarch` and `airship_lands` (Map 8's
 tileset changed under its landing checks). The three re-worded lines keep their
 line counts and no scenario asserts them, and no scenario visits Map 4's turnip.
+
+### 7. The second audit: drawn against described, facing, render glitches, dialogue, battlers
+
+Asked for on 31 October 2026, after Mike's four editor fixes (Piper's table,
+the Thistlewick tree, the princess's plate and the mug, the Gotobeds' wall),
+which are folded into the frozen maps. "Look for these kind of things -
+inconsistencies between what is described and what is drawn, things not
+facing the right way, render glitches - as well as dialogue that contradicts
+itself, and battle graphics that do not match."
+
+**How it was done**, so the next one can be cheaper:
+
+* Every line of player-visible text - about 22,000, events, curios, database,
+  `Quests.json` - read once, from `build/audit_text.py`'s dump (it now reads
+  `Quests.json` too). Each line is tagged P (in `live-rpg`) or F (free).
+* Every map from 1 to 78 rendered whole (`shots.js`, `Graphics.resize` to the
+  map, the player transparent), cut into pieces with a coordinate grid, and
+  read against every event and curio that describes its own cell. Clear the
+  message window, weather, pictures and tint between maps in the batch, or
+  one map's state is drawn on the next; and hide `Sprite_Lamplight` for the
+  Stair, which otherwise renders black. **The world map, Map 8, was not
+  reviewed.**
+* Mechanical passes over all maps: multi-cell props with a cell missing,
+  people facing away from a table beside them, `Dinner Set` and `Cup` tiles
+  facing no seat, and water plants off water.
+* Contact sheets of every enemy battler with its note, and of every described
+  character beside their sprite.
+
+**Fixed on 2 November 2026**, Mike having read the list ("fix those things
+that you can right now"), except V28, which is his and intended. Every map
+change went to him as a before-and-after pair. What was done is under
+**Done** at the end of this item; the tables above it are the findings as
+they were reported.
+
+#### Render glitches (Free: map bugs)
+
+| # | where | what |
+| --- | --- | --- |
+| V1 | Ashcombe, Map 52 (38-39,25) | a Large Tree's bottom row is cut by the tree below it - the same fault as Mike's Thistlewick tree |
+| V2 | Great Court, Map 58 (29-30,8-9) | a Large Tree missing its top-left cell |
+| V3 | Bonded Warehouse, Map 64 (12,5-6) | the Piano's crate: the top floats, and its bottom cell is a `Note A (V)` instead of crate |
+| V12 | Nether Sopping, Map 13 | four `Lotus Pads C` on dry grass, at (2,4), (34,4), (35,3), (36,8) |
+| V32 | Old Ashcombe, Map 66 (4,11), (16,12) | lily pads mostly on the sand beside one-cell pools |
+| V22 | Ashcombe kitchen, Map 53 (6,3) | the Study Door's first page has no graphic, so the wall has a black hole in it until switch 171; give that page a shut `!Door1` |
+| V27 | Fenmarch Hall, Map 56 | a shadow cell on the moat at (24,10) draws a grey block; and the island's bank stops at row 5, so the back corners of the house stand in the water at (8,4) and (24,4) | Shadow cleared. **The bank is intended** (Mike, 2 Nov): the hall rises straight out of the back of the moat. Extending the grass made a strip of land behind the house, and it is reverted. |
+| V28 | Long Gallery, Map 57 (9,3) | a dark doorway in the north wall with nothing behind it and no event. **Intended, Mike, 2 Nov: the gallery is the front east wing of a larger castle, not the whole of it, so the doorway leads into the rest. Leave Map 57 alone.** |
+| V36 | The Stair, Map 73 (6,20) | "Another hook, with another board over it: LAMP ON HOOK" - nothing is drawn there |
+
+#### Things facing the wrong way (Free)
+
+| # | where | what |
+| --- | --- | --- |
+| V18 | The Eight Hours, Map 32 | the plate at (6,8) is `Dinner Set A (Bottom)` and its stool is to the left; the plate at (7,10) is `C (Left)` and its stool is to the right |
+| V19 | The Eleven Days, Map 45 (6,10) | `Dinner Set C (Left)`, stool to the right |
+| V26 | the ward, Map 55 | Sister Bewick "stands very straight at a desk" at (18,7), facing left; the desk is to her right |
+| V29 | the Hall, Map 60 | Dean Fenwold "looking at [his portrait] with approval" faces down; the portrait is above him |
+| V30 | the Smiths' Hall, Map 62 | Miss Fettle "looking at the sword" on the bench to her right faces down |
+
+#### Described one way, drawn another
+
+Fixed by changing the map, or by re-wording a free line. A change to a
+published *map* is a map fix and free; a published *line* stays as it is.
+
+| # | where | text | drawn | fix |
+| --- | --- | --- | --- | --- |
+| T1 | Prophecy Hall, Map 3 | "green curtains" (F) | red | re-word, or a green window if a sheet has one |
+| T3 | Bram's house, Map 2 | "Breakfast, laid for two. Turnip." (F curio) | one plate, one stool, a steak | add the second setting and stool, or re-word |
+| T4 | the Slain Wyvern, Map 14 | Corvin "has chosen the table where the light does not reach" (P) | no table at (21,15) | add a small table |
+| V4 | Grumnir's Smithy, Map 6 | the apprentice "minds the counter" (P) | no counter | add a counter |
+| V5 | Nix's Emporium, Map 7 | Nix "in the back room" (P) | one room | add a partition, or leave |
+| V6 | the Gloamwood, Map 9 | Number Forty-Six "in very good armour, sitting on a log", a sack of letters (P) | a plain-clothes sprite (the Man Having A Day Off's) standing on a bare path | a log and a sack; the armour is art (below) |
+| V7 | the Gloamwood, Map 10 | the Hollow Log (P) | a treasure chest | a log tile |
+| V8 | Wick & Barrow, Map 16 | Wick's Peg, "a peg on the wall ... with nothing on it" (P) | a Shield tile | a peg, or a bare wall cell |
+| V9 | Number Forty-Five's cottage, Map 17 | Halbert "potting something on the kitchen table" (P) | he sits on the sofa | move him to the table |
+| V10 | Nether Sopping, Map 13 | the Memorial Stone, "a standing stone ... names cut into it" (P) | the statue of a woman | a stone tile |
+| V11 | Map 13 | Ambrose's front door has "a boot scraper, and a pot with a dead thing in it" (P) | nothing | draw them |
+| V13 | the lighthouse, Map 18 | the lamp, "brass, enormous, and cold" (P) | an iron stove | a brass tile if one exists |
+| V20 | the Eight Hours, Map 32 | Walt "sitting on the bottom step" (F) | stands below the stair | move him on to it |
+| V21 | the Mayor's House, Map 41 | the Town Shield, "a small smiling sun" (F) | crossed swords | re-word |
+| V16 | Fenmarch Hall, Map 56 | Tom "in a headband" (F) | a cap | re-word |
+| V17 | the Smiths' Hall, Map 62 | Miss Fettle's "round spectacles" (F) | none | re-word |
+| V23 | Ashcombe kitchen, Map 53 | the sink "under the big window" (F) | the window is three cells along | move the window |
+| V24 | Weeping Bottom, Map 54 | fog, in the world-map entry and Sister Pim (F) | rain, no fog | a fog overlay, or re-word |
+| V25 | the ward, Map 55 | "a bed exactly on the line" (F curio) | the curio is on the far-left bed | move it to (13,10) |
+| V31 | the Bonded Warehouse, Map 64 | Mr Tibbs "at a desk by the door" (F) | the desk is the far corner | minor; re-word |
+| V33 | the Gotobeds', Map 69 | the painting "over the fireplace" (F) | beside it | minor; re-word |
+| V35 | the Slain Wyvern upstairs, Map 72 | "Spare bedding, mended" (F curios) | `Sundries Shelf A/B`: a teddy, a pink rabbit, jars | re-word |
+
+#### Dialogue that contradicts itself
+
+Free, to fix:
+
+* **D2** - the Dinner Hour scene, Map 22: "Nib pays her. **He** is not happy
+  about it." Nib is a she.
+* **D6** - Penultima's curios price things in **gold** (Map 29 events 405, 407,
+  408; Map 30 events 406, 411, 412). The money is crowns.
+* **D7** - Fairholme, Map 35: "SHARE ELEVEN. It is Mr Pilbeam's, pending". The
+  eleven are the nine, the Budges and Sir Dunstable; the eagle's is the
+  twelfth, as Rosamund says.
+* **D8** - the ending: "the only dragon in the valley, uneaten". Mrs
+  Emberthwaite is a dragon, and the Guild map says HERE BE ONE DRAGON. RETIRED.
+* **D9** - Corvin at the Sable Hart, Map 49: "I paid twopence." The fortune
+  costs two crowns, on her booth and in his own world-map line.
+* **D10** - quest `hob1` calls clause two "everything else he has made"; clause
+  two is the entrant's own property. It also says "Eleven owners, three towns".
+* **D11** - quest `pip1`: "four cantos of twelve". It is twelve cantos of four.
+
+Published - a Repair each, in `NORTH.md` 8.1, or left:
+
+* **D1** - the Contingency Cache, Map 11: "nine hooks", then seven labels,
+  RIVAL and CATALOGUER (nine), then "the ninth hook is empty ... GUEST" - ten.
+  Its second page says "Seven empty hooks". The count was not moved when RIVAL
+  and CATALOGUER were added. One word.
+* **D3** - Ott, Map 22: "Nib is the fortieth. Thirty-two of the others left,
+  six stayed" is thirty-eight others. One word (thirty-three), or leave.
+* **D4** and **D5**, left: the parish register is "in one hand, for eighty
+  years" with an entry from 1802; Sowerby has seen "a hundred and ninety-nine
+  go up" in sixty years. Both read as people talking.
+
+#### Art for Mike
+
+No stock battler exists for a bat, a skeleton, a gargoyle, a turnip, a gull, a
+badger or a heron, so each of these wants a picture or a better stock choice.
+
+Battlers that are the wrong thing:
+
+| enemy | uses | is described as |
+| --- | --- | --- |
+| #1 Militant Turnip | Matango, a mushroom cluster | a turnip - Bram's signature enemy |
+| #10 Tower Bat | a recoloured crow | a bat |
+| #7 Skeleton (Intern) | Zombie | a skeleton |
+| #8 Load-Bearing Gargoyle | Stoneknight, an armoured statue | a gargoyle |
+| #13 Gull With Ambitions | Harpy | a gull |
+| #23 The Thing At The Bottom | SF_Brownbear | a badger the size of a hay cart |
+| #47 Turnip Gnome | Gnome, a mushroom creature | a gnome that lives in turnips |
+| ~~#17 Barrow Hound~~ | Wolfman, upright | a hound: **now stock `SF_Wolf`** |
+| ~~#64 Half-Way Warden~~ | Gatekeeper, a blue robe | black armour: **now stock `Blackknight`** (#18 uses it too) |
+
+Weaker, optional: #27 Attempt Eighty-Four is a modern war robot (an 1860
+steam airship); #30 Loose Pressure an electric orb (steam); #53 Tall Marsh
+Wader an armoured owl (a heron); #56 The Small Hours a mermaid (a chapel
+vigil); #62 The Echo a masked samurai; #48 Barn Cait a catgirl (a cat).
+
+Map sprites: the Thing At The Bottom is a small black dog (`Nature#0`);
+Number Forty-Six and Ambrose Fitch are both "in armour" and both plain-clothes
+sprites, and Ambrose's is Ferrety Bother's; the Memorial Stone (above, V10).
+Fenmarch's case "A ROOK (Scaled)" shows a blue horned beetle-knight.
+
+Added by the fixes (2 November): **a sitting Number Forty-Six** - his log is
+drawn under him now and his standing sprite hides it; **the lighthouse lamp**
+(V13), "brass, enormous" and drawn as the iron stove whose window Mike's flame
+fills, which no sheet has a brass lamp to replace; and **a boot scraper** by
+Ambrose's door (V11), which no sheet has either - the pot is drawn.
+
+#### Done
+
+Render glitches: V1 (the lower tree's top under the upper tree's trunk, as
+Mike did Thistlewick's), V2, V3 (the crate's lower cell, with the note as its
+FRAGILE stencil), V12 (grass tufts), V32 (both pools three by two, the pad in
+the top middle), V22 (a shut `!Door1` on the study door's first page), V27
+(the shadow cell, and the island under the back of the roof), V36 (a board,
+`story.pin_note`, as the Schedule has). V28 left: Mike's, intended.
+
+Facing: V18, V19 (the two stacked settings split, one each side), V26, V29,
+V30.
+
+Drawn to match: T3 (a two-cell table, a setting and a stool each end, and the
+turnip "done as a steak, for the occasion"), T4 (a table and a pint), V4 (an
+A2 counter, which talks across), V6 (a log and the sack; see the art above),
+V7 (`Fallen Log` on both pages), V8 (the sword rack moved west; the bare cell
+is the peg), V9 (Halbert at a two-cell kitchen table with a pot, facing it),
+V10 (`Grave B`, a carved slab), V11 (a pot with dead grass in it), V20 (Walt
+on the bottom step, facing the room; `restwell` walks one further), V23 (the
+window over the sink), V24 (fog: a washed-out screen tone with the drizzle,
+cleared at both ways out; `weeping_bottom` asserts it), V25.
+
+Re-worded (all Free): T1 (red curtains, in PIP-5), V21 (crossed swords), V31
+(the far corner), V33 (by the fireplace), V35 (the drawers' overflow: More
+Lost Property). Left, because the face matches the line and only the
+walking sprite is too small to show it: V16 (Tom's headband is his face's
+green bandana) and V17 (Miss Fettle's face has round spectacles). Left as
+minor: V5 (Nix's "back room" is her profile's job, not a room), V13 (art,
+above), Sister Bewick's open volume three.
+
+Dialogue: D2, D6 (crowns, six curios), D7, D8 ("the valley's last wild
+dragon"), D9 ("two crowns"), D10 (own work, own property; ten owners, eight
+places, and Nix), D11 (twelve cantos). Repairs D1 and D3, `NORTH.md` 8.1g.
+D4 and D5 left.
 
 ---
 

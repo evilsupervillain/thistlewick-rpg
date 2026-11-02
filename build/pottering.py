@@ -494,7 +494,7 @@ def parlour_events():
                    "somebody very tall at the wheel."]))
     evs.append(R.event(3, "The Letters", *CABINET_AT, [R.page(box, **page)]))
     painting = S.narrate([
-        "A painting of a mountain, over the fireplace. Somebody has",
+        "A painting of a mountain, by the fireplace. Somebody has",
         "added, in crayon, on the glass, a good deal of smoke",
         "coming out of the top.",
     ])

@@ -628,10 +628,10 @@ def hob():
             complete=sw(db.SW_HOB1_DONE),
             description=[
                 desc("The Worshipful Company of Smiths will examine a smith's "
-                     "best work, under clause one, if it is shown with "
-                     "everything else he has made, under clause two. Hob has "
-                     "made a great deal, and given all of it away. Eleven "
-                     "owners, three towns, and Nix."),
+                     "best work, if it is his own work, under clause one, and "
+                     "his own property, under clause two. Hob has made a "
+                     "great deal, and given all of it away: ten owners, in "
+                     "eight places, and Nix."),
                 desc("The Worshipful Company of Smiths disqualified Beatrice "
                      "under clause one, and Hob beamed. The Wardens' notes "
                      "say she is right about everything.",
@@ -969,7 +969,7 @@ def piper():
                 desc("Ambrosine Quill, Chronicler to the Committee, has "
                      "finished THE LAY OF THE FORTY-EIGHTH. The Committee "
                      "approved it on Tuesday. Bram has not finished yet. The "
-                     "shape has. It is in four cantos of twelve, and there is "
+                     "shape has. It is in twelve cantos, and there is "
                      "no turnip in any of them."),
                 desc("Piper read it again, and found it very good. One "
                      "footnote, in small type: None of this happened. It is "

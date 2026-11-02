@@ -162,7 +162,7 @@ CHAINS = [
             "Gore."]]),
         (db.SW_ALD6_DONE, [[
             "Somewhere in the rocks above the water there is",
-            "the only dragon in the valley, uneaten. A knight",
+            "the valley's last wild dragon, uneaten. A knight",
             "reads it the Odes, when he can find the way."]]),
     ]),
     ("Piper", [

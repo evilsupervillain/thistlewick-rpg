@@ -407,8 +407,12 @@ def study_events(first_id):
     door = R.page(S.door_page(MAP_ASHCOMBE_IN, door_x, y2, 8),
                   img=R.image("!Door1", 0, direction=2), trigger=1,
                   priority=1, conditions=home)
-    evs.append(R.event(first_id, "Study Door", *STUDY_DOOR,
-                       [copy.deepcopy(blank), door]))
+    # Before Corvin has been home the door is there and shut, and does not
+    # open: the doorway is in the wall from the start, so a page with no
+    # picture would leave a black hole in the kitchen.
+    shut = R.page([], img=R.image("!Door1", 0, direction=2), trigger=0,
+                  priority=1)
+    evs.append(R.event(first_id, "Study Door", *STUDY_DOOR, [shut, door]))
 
     out = S.exit_tile(first_id + 1, "Study Stair", door_x, y2 + 2,
                       MAP_ASHCOMBE_IN, STUDY_DOOR[0], STUDY_DOOR[1] + 1)
@@ -580,8 +584,12 @@ def drowned_street_map():
     g.fill(0, 0, w - 1, 1, 0, LAKEWATER)
     g.fill(0, 0, 1, 10, 0, LAKEWATER)
     g.fill(w - 2, 0, w - 1, 10, 0, LAKEWATER)
-    for x, y in [(2, 10), (3, 2), (19, 2), (19, 10), (4, 11), (5, 11),
-                 (15, 11), (16, 11), (16, 12)]:
+    # The two puddles with lily pads in them are three by two, and each pad
+    # is in the top middle: the pad is drawn in the lower right of its cell,
+    # so in a smaller pool it hangs over the sand.
+    for x, y in [(2, 10), (3, 2), (19, 2), (19, 10),
+                 (3, 11), (4, 11), (5, 11), (3, 12), (4, 12), (5, 12),
+                 (14, 11), (15, 11), (16, 11), (14, 12), (15, 12), (16, 12)]:
         g.set(x, y, 0, LAKEWATER)
     g.fill(2, STREET_ROWS[0], w - 3, STREET_ROWS[1], 0, OLD_STREET)
     # The old road up to the shore leaves the street south, under the way
@@ -616,7 +624,7 @@ def drowned_street_map():
                                 (6, 9), (15, 9), (2, 12), (19, 13),
                                 (13, 13), (8, 10)]):
         g.set(x, y, 3, WEEDS[i % len(WEEDS)])
-    for x, y in [(4, 11), (16, 12)]:
+    for x, y in [(4, 11), (15, 11)]:
         g.set(x, y, 3, LILY)
 
     m = K.new_map(w, h, K.TS_OUTSIDE, name="Old Ashcombe", bgm="Theme1")
@@ -885,7 +893,7 @@ def _cor3_meeting():
                         "A vow?"])
     c += S.say("Corvin", ["A fortune-teller said I was",
                           "the rival of a great hero. I paid",
-                          "twopence."])
+                          "two crowns."])
     c += S.say("Rook", ["A vow you paid for. That's",
                         "binding. Two points."])
     c += S.say("Rook", ["A scar?"])

@@ -256,7 +256,7 @@ def turnip_pages(img):
 # PIP-5, The Struck Verses (`QUESTS.md` A12)
 # ----------------------------------------------------------------------
 # The Committee keeps what it strikes. Of course it does. In a box, behind
-# the green curtain in Prophecy Hall, and getting at it is a form, a key and
+# the red curtain in Prophecy Hall, and getting at it is a form, a key and
 # a distraction - the last of which is what a party is for.
 #
 # * **What is in the box is never printed.** The player sees the count, which
@@ -302,7 +302,7 @@ def minutes_pages(page0, terminal):
     ask = S.say("Piper", ["They keep what they strike. Of course",
                           "they do. It's a Committee."])
     ask += S.say("Piper", ["There'll be a box. There's always a box.",
-                           "Behind the green curtain, I'd say. It's",
+                           "Behind the red curtain, I'd say. It's",
                            "the one thing in here that isn't on an",
                            "inventory."])
     ask += S.say("Piper", ["It'll want a form, a key and a",
@@ -408,9 +408,9 @@ def fenn_pages(page0):
 
 
 def curtain_event(event_id, x, y, archive):
-    """The green curtain in the north wall: behind it, a door. With the key,
+    """The red curtain in the north wall: behind it, a door. With the key,
     through it, to `archive` - (map, x, y), the archive's arrival."""
-    door = S.narrate(["A window with green curtains, drawn. Behind",
+    door = S.narrate(["A window with red curtains, drawn. Behind",
                       "them there is no window: there is a door",
                       "marked STRUCK MATERIAL. NO ADMITTANCE WITHOUT",
                       "FORM S-7. It is locked."])
@@ -1078,7 +1078,7 @@ AUTH_NO_TURNIP = "There is not a turnip in it anywhere."
 
 
 def _pip1_reading():
-    """Ambrosine reads it to you - four cantos of twelve, and the good
+    """Ambrosine reads it to you - four of its twelve cantos, and the good
     middle, and who is in the room decides who minds what."""
     c = S.narrate([
         "THE LAY OF THE FORTY-EIGHTH. Being the Authorised",

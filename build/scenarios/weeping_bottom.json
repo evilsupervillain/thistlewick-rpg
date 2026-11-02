@@ -81,6 +81,11 @@
    "label": "it drizzles in the bottom"
   },
   {
+   "until": "$gameScreen.tone()[3] === 102",
+   "frames": 120,
+   "label": "and the fog has come in: a washed-out grey screen tone"
+  },
+  {
    "shot": "weeping_bottom_arrive.png"
   },
   {
@@ -326,6 +331,11 @@
    "check": "$gameScreen.weatherType()",
    "expect": "none",
    "label": "and it does not rain indoors"
+  },
+  {
+   "until": "$gameScreen.tone().every(v => v === 0)",
+   "frames": 120,
+   "label": "and there is no fog indoors"
   },
   {
    "shot": "weeping_bottom_ward.png"
@@ -1261,6 +1271,11 @@
    "check": "$gameScreen.weatherType()",
    "expect": "none",
    "label": "and it is not raining on the world map"
+  },
+  {
+   "until": "$gameScreen.tone().every(v => v === 0)",
+   "frames": 120,
+   "label": "and the fog stayed in the bottom"
   },
   {
    "check": "SceneManager._scene.constructor.name",

@@ -849,7 +849,7 @@ def hall_events():
                                               minutes["pages"][-1])
     evs.append(minutes)
 
-    # PIP-5: behind the green curtain, a door; behind the door, the archive.
+    # PIP-5: behind the red curtain, a door; behind the door, the archive.
     evs.append(q_piper.curtain_event(9, *CURTAIN, (MAP_HALL, *ARCHIVE_IN)))
     evs += q_piper.archive_events(10, ARCHIVE_BOX, ARCHIVE_DOOR,
                                   (MAP_HALL, CURTAIN[0], CURTAIN[1] + 1),
@@ -881,7 +881,7 @@ LECTERN = (12, 13)
 
 
 # PIP-5's archive: a room in the black east of Prophecy Hall, reached only
-# through the door behind the green curtain - its lower cell, which is on
+# through the door behind the red curtain - its lower cell, which is on
 # the wall's lower face row since the window was hung where windows hang
 # (October 2026); you face it from the floor below. Ten columns of black
 # between the archive and the hall, so that from the edge of either the
@@ -1513,6 +1513,11 @@ def smithy_map():
     g.scatter([(4, 5), (6, 5)], 2, K.INC_ARMOUR_STEEL)
     g.scatter([(4, 9), (5, 9)], 2, K.IN_CRATE)
     g.scatter([(12, 9), (13, 9)], 2, K.IN_BARREL_WOOD)
+    # The counter the apprentice minds, between her and the shop half. It is
+    # a counter tile, so she is talked to across it.
+    for y in range(7, 10):
+        g.set(10, y, 1, K.IN_TABLE_TOP)
+    g.autotile(1, kinds=[R.autotile_kind(K.IN_TABLE_TOP)])
     return finish(MAP_SMITHY, g, "Grumnir's Smithy", bgm="Town4",
                   battleback=("Stone1", "Room1"), events=smithy_events())
 def smithy_events():
