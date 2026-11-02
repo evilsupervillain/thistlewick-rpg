@@ -4,7 +4,7 @@ title: Upper Clanging
 
 # Upper Clanging
 
-<p class="hatnote">This article is about the town. For the works, its airships and its two hundred years, see <a class="new" href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>, which Miss Hoyle has written up herself. For the field below the town, see <a href="The_Long_Field">The Long Field</a>. For its most travelled resident, see <a href="../People/Spare_Cotterill">Spare Cotterill</a>.</p>
+<p class="hatnote">This article is about the town. For the works, its airships and its two hundred years, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>, which Miss Hoyle has written up herself. For the field below the town, see <a href="The_Long_Field">The Long Field</a>. For its most travelled resident, see <a href="../People/Spare_Cotterill">Spare Cotterill</a>.</p>
 
 <table class="infobox">
 <caption>Upper Clanging</caption>
@@ -20,7 +20,7 @@ title: Upper Clanging
 <tr><th>Twinned with</th><td><a href="Much_Pottering">Much Pottering</a>, which it has never visited</td></tr>
 </table>
 
-<p class="lede"><b>Upper Clanging</b> is a works town in the north-west, at the top of the west road, built on a hill round the sheds of the <a class="new" href="../Institutions/The_Hoyle_Works">Hoyle Works</a>, which have been trying to fly to the <a href="The_Obligatory_Tower">Obligatory Tower</a> for two hundred years. It is loud, early, grey and extremely proud of all three. In the year 2000 the two hundredth attempt got there.</p>
+<p class="lede"><b>Upper Clanging</b> is a works town in the north-west, at the top of the west road, built on a hill round the sheds of the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>, which have been trying to fly to the <a href="The_Obligatory_Tower">Obligatory Tower</a> for two hundred years. It is loud, early, grey and extremely proud of all three. In the year 2000 the two hundredth attempt got there.</p>
 
 The town read the Prophecy two hundred years ago, believed every word of it, and made an engineering programme out of "every hundred years". It does not count. It has never needed to. Everybody up here is too busy.
 
@@ -78,7 +78,7 @@ Spare's own article tells what Spare did. Here I will say only that there is a p
 
 ## See also
 
-- <a class="new" href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>
+- <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>
 - <a href="The_Long_Field">The Long Field</a>
 - <a href="../People/Spare_Cotterill">Spare Cotterill</a>
 - <a href="../People/Ott_Hoyle">Ott Hoyle</a>

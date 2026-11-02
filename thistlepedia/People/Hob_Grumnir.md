@@ -66,6 +66,6 @@ In 2001 he and Bryd Ollerenshaw sat as joint judges of the Smiths' Hall prize at
 ## See also
 
 - <a href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a>
-- <a class="new" href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>
+- <a href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>
 - [Roland Fairweather](Roland_Fairweather)
 - <a class="new" href="../Artefacts/The_Sky_Anvil">The Sky Anvil</a>

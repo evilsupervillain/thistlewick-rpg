@@ -4,14 +4,14 @@ title: Elder Wispel
 
 # Elder Wispel
 
-<p class="hatnote">For the body he chairs, see <a class="new" href="../Institutions/The_Prophecy_Committee">the Prophecy Committee</a>. For the room he does it in, see <a href="../Places/Prophecy_Hall">Prophecy Hall</a>.</p>
+<p class="hatnote">For the body he chairs, see <a href="../Institutions/The_Prophecy_Committee">the Prophecy Committee</a>. For the room he does it in, see <a href="../Places/Prophecy_Hall">Prophecy Hall</a>.</p>
 
 <table class="infobox">
 <caption>Elder Wispel</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Elder_Wispel.png" alt="Elder Wispel, an old man with a white beard" width="200"><span class="infobox-caption">Unrolling</span></td></tr>
 <tr><th>Known as</th><td>The Elder</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a></td></tr>
-<tr><th>Office</th><td>Chair of the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a></td></tr>
+<tr><th>Office</th><td>Chair of the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a></td></tr>
 <tr><th>Duties</th><td>Unrolling the Prophecy to the far wall; rolling it back up</td></tr>
 <tr><th>Assisted by</th><td>Nobody</td></tr>
 <tr><th>Note on his desk</th><td>BUY MORE SCROLL (underlined twice)</td></tr>
@@ -19,7 +19,7 @@ title: Elder Wispel
 <tr><th>Chosen Ones charged</th><td>At least one; he is not drawn on the others</td></tr>
 </table>
 
-<p class="lede"><b>Elder Wispel</b> chairs the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> of <a href="../Places/Thistlewick">Thistlewick</a>, and gives each Chosen One the charge in <a href="../Places/Prophecy_Hall">Prophecy Hall</a>. He is a kind man, and a punctual one, and he has never once in his life noticed anything about the calendar, which in Thistlewick is not a failing but a qualification.</p>
+<p class="lede"><b>Elder Wispel</b> chairs the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> of <a href="../Places/Thistlewick">Thistlewick</a>, and gives each Chosen One the charge in <a href="../Places/Prophecy_Hall">Prophecy Hall</a>. He is a kind man, and a punctual one, and he has never once in his life noticed anything about the calendar, which in Thistlewick is not a failing but a qualification.</p>
 
 ## The charge
 
@@ -51,7 +51,7 @@ I wrote to him, for this article, to ask how many times the Prophecy has worked 
 
 ## See also
 
-- <a class="new" href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>
+- <a href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>
 - <a href="../Places/Prophecy_Hall">Prophecy Hall</a>
 - <a href="Councillor_Fenn">Councillor Fenn</a>
 - <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>

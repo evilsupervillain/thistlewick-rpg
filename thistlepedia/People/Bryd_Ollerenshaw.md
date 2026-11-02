@@ -53,4 +53,4 @@ The sign over the forge still has its third line, SAYS WHO, in Hob's paint. Bryd
 - <a href="../Places/Upper_Clanging">Upper Clanging</a>
 - <a href="Ott_Hoyle">Ott Hoyle</a>
 - <a href="The_Cotterills">The Cotterills</a>
-- <a class="new" href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>
+- <a href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>

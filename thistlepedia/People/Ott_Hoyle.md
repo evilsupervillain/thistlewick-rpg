@@ -4,14 +4,14 @@ title: Ott Hoyle
 
 # Ott Hoyle
 
-<p class="hatnote">This article is about the engineer. For the works, its airships and its two hundred years, see <a class="new" href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>; for the field, see <a href="../Places/The_Long_Field">The Long Field</a>. Both are Miss Hoyle's own. This one is mine, and she has not been shown it, because she would put a line through it.</p>
+<p class="hatnote">This article is about the engineer. For the works, its airships and its two hundred years, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>; for the field, see <a href="../Places/The_Long_Field">The Long Field</a>. Both are Miss Hoyle's own. This one is mine, and she has not been shown it, because she would put a line through it.</p>
 
 <table class="infobox">
 <caption>Ott Hoyle</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ott_Hoyle.png" alt="Ott Hoyle, with goggles pushed up into her hair" width="200"><span class="infobox-caption">Not looking up</span></td></tr>
 <tr><th>Known as</th><td>Miss Hoyle; Ottoline, on the works deeds and nowhere else</td></tr>
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
-<tr><th>Office</th><td>Chief engineer, <a class="new" href="../Institutions/The_Hoyle_Works">the Hoyle Works</a></td></tr>
+<tr><th>Office</th><td>Chief engineer, <a href="../Institutions/The_Hoyle_Works">the Hoyle Works</a></td></tr>
 <tr><th>Generation</th><td>The fourth</td></tr>
 <tr><th>Carries</th><td>A slide rule</td></tr>
 <tr><th>Attempts</th><td>Two hundred, and one on the slip</td></tr>
@@ -20,7 +20,7 @@ title: Ott Hoyle
 <tr><th>Offence</th><td>None intended. Some given</td></tr>
 </table>
 
-<p class="lede"><b>Ott Hoyle</b> is the chief engineer of <a class="new" href="../Institutions/The_Hoyle_Works">the Hoyle Works</a> at <a href="../Places/Upper_Clanging">Upper Clanging</a>, the fourth of her family to try to fly to the Obligatory Tower, and the first to manage it. She is deadpan, precise and kind, in that order, and she has never been embarrassed by anything in her life, which in a works where every second word is a technical term is a professional qualification.</p>
+<p class="lede"><b>Ott Hoyle</b> is the chief engineer of <a href="../Institutions/The_Hoyle_Works">the Hoyle Works</a> at <a href="../Places/Upper_Clanging">Upper Clanging</a>, the fourth of her family to try to fly to the Obligatory Tower, and the first to manage it. She is deadpan, precise and kind, in that order, and she has never been embarrassed by anything in her life, which in a works where every second word is a technical term is a professional qualification.</p>
 
 ## Four generations
 
@@ -65,7 +65,7 @@ In 2001 she laid the keel of the Two Hundred and First, which is to land *on* th
 
 ## See also
 
-- <a class="new" href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>
+- <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>
 - <a href="../Places/The_Long_Field">The Long Field</a>
 - <a href="../Places/Upper_Clanging">Upper Clanging</a>
 - <a href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a>

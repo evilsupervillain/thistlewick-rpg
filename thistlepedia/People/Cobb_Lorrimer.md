@@ -11,7 +11,7 @@ title: Cobb Lorrimer
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Cobb_Lorrimer.png" alt="Cobb Lorrimer, in a teal hood" width="200"><span class="infobox-caption">Under protest</span></td></tr>
 <tr><th>Known as</th><td>Lorrimer</td></tr>
 <tr><th>Trade</th><td>Thief</td></tr>
-<tr><th>Registered</th><td>With the <a class="new" href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a>, under T</td></tr>
+<tr><th>Registered</th><td>With the <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a>, under T</td></tr>
 <tr><th>Wears</th><td>A teal hood, about it</td></tr>
 <tr><th>Does not</th><td>Fight. He is a professional</td></tr>
 <tr><th>Second post</th><td>Dark Lord, afternoons (WHO LOSES)</td></tr>

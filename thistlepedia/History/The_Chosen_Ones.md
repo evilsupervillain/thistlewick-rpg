@@ -24,7 +24,7 @@ title: The Chosen Ones
 
 ## How a Chosen One is chosen
 
-By the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, in session, at a moment it finds convenient (see [Two Reckonings](Two_Reckonings)). The candidate does not need to be present, and the last one was not: the minutes of the meeting at which <a href="../People/Bram_Thistle">Bram Thistle</a> was chosen list, under *apologies for absence*, his name and one goat. He was asleep. The goat has not been found.
+By the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, in session, at a moment it finds convenient (see [Two Reckonings](Two_Reckonings)). The candidate does not need to be present, and the last one was not: the minutes of the meeting at which <a href="../People/Bram_Thistle">Bram Thistle</a> was chosen list, under *apologies for absence*, his name and one goat. He was asleep. The goat has not been found.
 
 The Chosen One is then summoned to <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, where Elder <a href="../People/Elder_Wispel">Wispel</a> unrolls the Prophecy until it reaches the far wall and gives the charge: take companions, up to three; go north; kill the Dark Lord; come home. "In that order, ideally." The Chosen One receives a copy of the Prophecy in triplicate, five hundred crowns and three potions from the parish fund, and a sword. Every one of them did the sword.
 

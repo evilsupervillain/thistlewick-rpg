@@ -355,3 +355,53 @@ Small inventions in the bios. All *wiki*.
   Verse forty-one is described, not printed (the struck verses are never
   printed); verse seven is "very good". PIP-1's fixed cantos are left out,
   because they exist only on one ending. The Contest set is not printed.
+
+## What unit 7 (institutions, the Bestiary, artefacts, cliches) added
+
+Small inventions. All *wiki*.
+
+**Institutions.**
+
+* **The Prophecy Committee** still meets, as it always has, and consults the
+  Prophecy at every meeting; it has twice minuted that it might need to see
+  Bram (as before) and offered him a seat, and the minutes record his
+  apologies, without a goat. Hosea's three letters about the frame are filed
+  under *no change*. The Clerk says the Committee is "for meeting".
+* **The Adventurers' Guild** is still provisional; the tablet still says
+  forty, to be recut when the review sits. Pell has mentioned the Forty-Eighth
+  to the review by letter (filed, pending), has had a second Form Z printed,
+  in case, and has put NO VACANCIES on the empty board. Wispel's reference is
+  framed beside the Charter (unit 6). Where the Forty-Eighth's party is filed
+  is not said (it would say who mattered least).
+* **The Guild of Guides** answers every question as lore; Fizz's application
+  is with it. No more Chosen Ones will come.
+* **The Order of Whatever Works**: whether it is one Order again or two that
+  agree is left unsaid; there has been soup on both sides of the line since.
+  The chapel chairs face the same way now. Sister Bewick's notes are in the
+  Sisterhouse library. Asked about a symbol, the Prioress says the matter was
+  raised and somebody made tea.
+* **The Healers' Table**: the members' ages are 2002's (Grizel 83, Hobday 72,
+  Gilly 90; her wizard 92). Merribell contributed a note on adventurers'
+  complaints (six items, then "see how you feel"), set in a `disputed` box
+  because every member disputed a different line. Nobody at the Table has died
+  since 2000.
+* **The Order of the Errant**: the pins named are Dame Winifred, Sir Hamo,
+  Sir Dunstable (never moved, which settles nothing) and Sir Aldric (carried).
+  The daybook has (WITH TEA) now. The Fourth's notes agree with Hosea's
+  witnesses about 9 June 2001.
+* **The Worshipful Company of Smiths**: BEST IN HALL is the Hall's own prize,
+  judged by smiths, not the triennial Assize; the next Assize is spring 2003.
+  Crabbe will read Hosea clauses four to thirty-nine in person, and Hosea is
+  going in the spring.
+* **The Hoyle Works** is Ott's memorandum, 18 March 2002. The works does not
+  give tours, but people come to see the slip, and Mr Kell sells them tea. Nib
+  has stopped asking whether they will manage it, because they did; Ott says
+  they landed adjacent; it is on the schedule. ITEM 1 is a stores-book line and
+  nothing more is said. The works will not stop.
+* **The Collegium Arcanum**: Prewitt will not say whether the largest number
+  is still in the Register (ZEPH-1's ending stays vague). Hapgood's request for
+  somebody to carry things reached Hosea in autumn 2001, and he referred it
+  back. The Master was out.
+* **The Quills** take the Committee's minutes in metre when the Clerk is not
+  looking. Asked who was the better writer, each named the other, and both
+  named not Hosea. The edition is still vague.

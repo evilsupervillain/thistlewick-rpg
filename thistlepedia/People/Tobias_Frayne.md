@@ -66,4 +66,4 @@ The twelfth line in the book is still empty. The pen has been capped, and put aw
 ## See also
 
 - <a href="Merribell">Merribell</a>
-- <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>
+- <a href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>

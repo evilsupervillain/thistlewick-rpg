@@ -6,7 +6,7 @@ title: The Long Field
 
 <p class="contributor">Contributed by O. Hoyle, of the Hoyle Works, Upper Clanging</p>
 
-<p class="hatnote">I asked Miss Hoyle whether she would read over what I had written about the Long Field. She sent it back with a line through all of it and this memorandum attached, which I print whole. The field is hers. For the town above it, see <a href="Upper_Clanging">Upper Clanging</a>. For the works, see <a class="new" href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>. - H.B.</p>
+<p class="hatnote">I asked Miss Hoyle whether she would read over what I had written about the Long Field. She sent it back with a line through all of it and this memorandum attached, which I print whole. The field is hers. For the town above it, see <a href="Upper_Clanging">Upper Clanging</a>. For the works, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>. - H.B.</p>
 
 <table class="infobox">
 <caption>The Long Field</caption>
@@ -97,6 +97,6 @@ O. HOYLE.
 ## See also
 
 - <a href="Upper_Clanging">Upper Clanging</a>
-- <a class="new" href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>
+- <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>
 - <a href="../People/Ott_Hoyle">Ott Hoyle</a>
 - <a href="The_Obligatory_Tower">The Obligatory Tower</a>, where the Two Hundred landed adjacent

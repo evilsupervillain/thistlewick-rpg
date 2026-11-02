@@ -4,7 +4,7 @@ title: Sump
 
 # Sump
 
-<p class="hatnote">For the Sister who lifted the curse, see <a href="../People/Merribell">Merribell</a>. For her order's Rule of Life, which Sump has adopted as a by-law, see <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>.</p>
+<p class="hatnote">For the Sister who lifted the curse, see <a href="../People/Merribell">Merribell</a>. For her order's Rule of Life, which Sump has adopted as a by-law, see <a href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>.</p>
 
 <table class="infobox">
 <caption>Sump</caption>

@@ -4,7 +4,7 @@ title: Merribell
 
 # Merribell
 
-<p class="hatnote">For her order, see <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>. For the meeting she spoke at, see <a class="new" href="../Institutions/The_Healers_Table">The Healers' Table</a>.</p>
+<p class="hatnote">For her order, see <a href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>. For the meeting she spoke at, see <a href="../Institutions/The_Healers_Table">The Healers' Table</a>.</p>
 
 <table class="infobox">
 <caption>Sister Merribell</caption>
@@ -21,7 +21,7 @@ title: Merribell
 <tr><th>Patients lost</th><td>None</td></tr>
 </table>
 
-<p class="lede"><b>Merribell</b> is the healer of <a href="../Places/Thistlewick">Thistlewick</a>, a Sister of the <a class="new" href="../Institutions/The_Order_of_Whatever_Works">Order of Whatever Works</a>, and the first person to join the Forty-Eighth, on the grounds that he had not had a glass of water since Tuesday. Her order holds that theology is a distraction from the actual problem, which is usually that you have not had any water today. She has never lost a patient.</p>
+<p class="lede"><b>Merribell</b> is the healer of <a href="../Places/Thistlewick">Thistlewick</a>, a Sister of the <a href="../Institutions/The_Order_of_Whatever_Works">Order of Whatever Works</a>, and the first person to join the Forty-Eighth, on the grounds that he had not had a glass of water since Tuesday. Her order holds that theology is a distraction from the actual problem, which is usually that you have not had any water today. She has never lost a patient.</p>
 
 "Sit down. When did you last drink water?" is how she meets everybody, and it was how she met Bram. He gave an answer. "That wasn't the question," she said. "Water. When."
 
@@ -67,7 +67,7 @@ She is still Thistlewick's healer, still the only member of her order for eleven
 
 ## See also
 
-- <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>
+- <a href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>
 - <a href="../Places/Weeping_Bottom">Weeping Bottom</a>
 - <a href="Ysolde_Marrow">Ysolde Marrow</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

@@ -114,5 +114,5 @@ After the fight it saw them up the Stair, all of it. It took no time at all, and
 
 - <a href="Hithermost">Hithermost</a>, and the Chapel of Continuance
 - <a href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>
-- <a class="new" href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>, and Form Z
+- <a href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>, and Form Z
 - <a href="../People/Spare_Cotterill">Spare Cotterill</a>

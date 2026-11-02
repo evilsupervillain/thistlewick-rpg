@@ -4,14 +4,14 @@ title: Councillor Fenn
 
 # Councillor Fenn
 
-<p class="hatnote">For the clause, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>, clause twelve. For the Committee that did not listen, see <a class="new" href="../Institutions/The_Prophecy_Committee">the Prophecy Committee</a>.</p>
+<p class="hatnote">For the clause, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>, clause twelve. For the Committee that did not listen, see <a href="../Institutions/The_Prophecy_Committee">the Prophecy Committee</a>.</p>
 
 <table class="infobox">
 <caption>Councillor Fenn</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Councillor_Fenn.png" alt="Councillor Fenn" width="200"><span class="infobox-caption">Saying it</span></td></tr>
 <tr><th>Known as</th><td>The Committee member (Clause Twelve)</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a></td></tr>
-<tr><th>Sits</th><td>On the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, at the end</td></tr>
+<tr><th>Sits</th><td>On the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, at the end</td></tr>
 <tr><th>Position</th><td>Clause twelve is the problem</td></tr>
 <tr><th>Held since</th><td>About forty years</td></tr>
 <tr><th>Listened to</th><td>Once, in 2000</td></tr>
@@ -19,7 +19,7 @@ title: Councillor Fenn
 <tr><th>On his belt</th><td>A key, marked STRUCK</td></tr>
 </table>
 
-<p class="lede"><b>Councillor Fenn</b> sits on the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> of <a href="../Places/Thistlewick">Thistlewick</a>, and has said at every meeting for about forty years that clause twelve is the problem. He was right. Nobody listened. The Committee's minute book for the week of the ending records, as item five, that Councillor Fenn wished it minuted that he had been saying so. Minuted.</p>
+<p class="lede"><b>Councillor Fenn</b> sits on the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> of <a href="../Places/Thistlewick">Thistlewick</a>, and has said at every meeting for about forty years that clause twelve is the problem. He was right. Nobody listened. The Committee's minute book for the week of the ending records, as item five, that Councillor Fenn wished it minuted that he had been saying so. Minuted.</p>
 
 ## The position
 

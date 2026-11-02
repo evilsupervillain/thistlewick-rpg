@@ -4,7 +4,7 @@ title: Weeping Bottom
 
 # Weeping Bottom
 
-<p class="hatnote">This article is about the valley and the Sisterhouse in it. For the Order, see <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>. For the Sister who left it, and came back for an afternoon, see <a href="../People/Merribell">Merribell</a>. For the vigil kept in its chapel, see <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>.</p>
+<p class="hatnote">This article is about the valley and the Sisterhouse in it. For the Order, see <a href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>. For the Sister who left it, and came back for an afternoon, see <a href="../People/Merribell">Merribell</a>. For the vigil kept in its chapel, see <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>.</p>
 
 <table class="infobox">
 <caption>Weeping Bottom</caption>
@@ -64,7 +64,7 @@ The Order's chapel for the west is across the yard. The Sisters lend it. For thi
 
 ## See also
 
-- <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>
+- <a href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>
 - <a href="../People/Merribell">Merribell</a>
 - <a href="Sump">Sump</a>, which adopted the Rule as a by-law
 - <a href="Coldbarrow">Coldbarrow</a>, where Sir Hamo's pin is

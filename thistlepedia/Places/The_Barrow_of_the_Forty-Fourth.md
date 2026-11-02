@@ -85,5 +85,5 @@ He had also asked the Forty-Eighth to tell her that he said she was right about 
 - <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>
 - <a href="../People/Ysolde_Marrow">Ysolde Marrow</a>
 - <a href="Nether_Sopping">Nether Sopping</a>, for Wick & Barrow, and for the cottage
-- <a class="new" href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>
+- <a href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>
 - <a href="../History/The_Chosen_Ones">The Chosen Ones</a>

@@ -18,7 +18,7 @@ title: The Prophecy of Thistlewick
 <tr><th>Status</th><td>Not binding, since the year 2000. Still kept</td></tr>
 </table>
 
-<p class="lede">The <b>Prophecy of Thistlewick</b> is a document of very great length, kept by the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> in <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, which for very nearly two thousand years told the village of <a href="../Places/Thistlewick">Thistlewick</a> that every hundred years the Dark Lord would rise in the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> and that somebody had better go. It was right every time. That should have been the first clue.</p>
+<p class="lede">The <b>Prophecy of Thistlewick</b> is a document of very great length, kept by the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> in <a href="../Places/Prophecy_Hall">Prophecy Hall</a>, which for very nearly two thousand years told the village of <a href="../Places/Thistlewick">Thistlewick</a> that every hundred years the Dark Lord would rise in the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> and that somebody had better go. It was right every time. That should have been the first clue.</p>
 
 It was never a prophecy. It is an employment contract, with numbered clauses, and the post it filled was the Dark Lord's. That was not understood until the year 2000, and then only because a turnip farmer did the one thing nobody in Thistlewick had ever done with it, which was to read it.
 
@@ -90,7 +90,7 @@ Six months later, after a very long meeting, the Committee struck clause ninetee
 
 <div class="stamp">THE DARK LORD SHALL NOT BE CONCLUDED BY MECHANISM.</div>
 
-This is why ITEM 1, which had stood unticked in the <a class="new" href="../Institutions/The_Hoyle_Works">Hoyle Works</a>' stores book since 1802, did nothing whatever when it was finally set down in front of the throne, except make smoke and knock Grimspite's bookmark on to the floor. "Ordnance is not provided for," he said. "Nothing is provided for. That is what a renewal notice is."
+This is why ITEM 1, which had stood unticked in the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>' stores book since 1802, did nothing whatever when it was finally set down in front of the throne, except make smoke and knock Grimspite's bookmark on to the floor. "Ordnance is not provided for," he said. "Nothing is provided for. That is what a renewal notice is."
 
 ## How it ended
 
@@ -116,4 +116,4 @@ The Committee keeps it still, rolled, in Prophecy Hall, with two clauses struck.
 - [The Obligatory Quest](The_Obligatory_Quest)
 - [Two Reckonings](Two_Reckonings)
 - [Timeline](Timeline)
-- <a class="new" href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>
+- <a href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>

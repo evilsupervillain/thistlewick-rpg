@@ -31,7 +31,7 @@ The town of Nether Sopping has been throwing things down the Pit, or losing them
 
 ## The badger
 
-For forty years Mr Splint reported to the <a class="new" href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a> that something had moved in down the far end and was eating the lost property. Two hundred years of lost property, and it had *eaten* it. The Guild said that a badger was not a monster. He said, come and see the badger. They never came and saw the badger.
+For forty years Mr Splint reported to the <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a> that something had moved in down the far end and was eating the lost property. Two hundred years of lost property, and it had *eaten* it. The Guild said that a badger was not a monster. He said, come and see the badger. They never came and saw the badger.
 
 The Forty-Eighth's company came and saw the badger. It was the size of a hay cart, and asleep on a mattress of everything Nether Sopping had ever failed to come back for, and it opened one eye, and had a strong opinion. It left, at speed, up a slope nobody knew was there, and took one boot with it. It had earned the boot. Miss Halloway's notes on the badger, and on the other thing asleep in the crack in the north wall, which she says is the single most normal thing in the cave, are in the Bestiary.
 
@@ -42,5 +42,5 @@ The Forty-Eighth's company came and saw the badger. It was the size of a hay car
 ## See also
 
 - <a href="Nether_Sopping">Nether Sopping</a>
-- <a class="new" href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>
+- <a href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>
 - <a href="../Bestiary/">The Bestiary</a>

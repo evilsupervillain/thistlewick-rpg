@@ -4,7 +4,7 @@ title: The Slain Wyvern
 
 # The Slain Wyvern
 
-<p class="hatnote">This article is about the tavern at Nether Sopping. For the creature over the mantel, see <a class="new" href="../Bestiary/The_Goose">The Goose</a>, in Miss Halloway's Bestiary. For its sister house, see <a href="The_Gilded_Turnip">The Gilded Turnip</a>. For the back room, see <a class="new" href="../Institutions/The_Healers_Table">The Healers' Table</a>.</p>
+<p class="hatnote">This article is about the tavern at Nether Sopping. For the creature over the mantel, see <a class="new" href="../Bestiary/The_Goose">The Goose</a>, in Miss Halloway's Bestiary. For its sister house, see <a href="The_Gilded_Turnip">The Gilded Turnip</a>. For the back room, see <a href="../Institutions/The_Healers_Table">The Healers' Table</a>.</p>
 
 <table class="infobox">
 <caption>The Slain Wyvern</caption>
@@ -83,7 +83,7 @@ Dame Florence stood up. "We finished because you got us to the door, and taught 
 
 ## The back room
 
-Behind the red curtain by the fire there is a door that most patrons have never noticed, with a card on it: THE TABLE. MEDICS ONLY. Behind it is a cellar room, a long table, a medicine shelf, and once a year every party medic within forty miles. Its business, and what Sister Merribell said there, are under <a class="new" href="../Institutions/The_Healers_Table">The Healers' Table</a>. I am not on the list, and somebody inside says so.
+Behind the red curtain by the fire there is a door that most patrons have never noticed, with a card on it: THE TABLE. MEDICS ONLY. Behind it is a cellar room, a long table, a medicine shelf, and once a year every party medic within forty miles. Its business, and what Sister Merribell said there, are under <a href="../Institutions/The_Healers_Table">The Healers' Table</a>. I am not on the list, and somebody inside says so.
 
 <div class="marginalia">I have been asked, by visitors who have read Volume Two, which table is mine. It is the one by the fire with the book on it. I have been asked whether they may sit at it. They may. I have been asked whether I will tell them a story. I tell them that everybody in this room has been on one, and that they should go round and be told. Most of them get two, and go and look at a dungeon.</div>
 
@@ -92,6 +92,6 @@ Behind the red curtain by the fire there is a door that most patrons have never 
 - <a href="Nether_Sopping">Nether Sopping</a>
 - <a href="The_Gilded_Turnip">The Gilded Turnip</a>
 - <a class="new" href="../Bestiary/The_Goose">The Goose</a>
-- <a class="new" href="../Institutions/The_Healers_Table">The Healers' Table</a>
+- <a href="../Institutions/The_Healers_Table">The Healers' Table</a>
 - <a href="../People/Roland_Fairweather">Roland Fairweather</a>
 - <a href="../People/Hosea_Bellwether">Hosea Bellwether</a>

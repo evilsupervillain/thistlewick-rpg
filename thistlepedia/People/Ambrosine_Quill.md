@@ -4,13 +4,13 @@ title: Ambrosine Quill
 
 # Ambrosine Quill
 
-<p class="hatnote">For her niece, see <a href="Piper_Quill">Piper Quill</a>. For the family, see <a class="new" href="../Institutions/The_Quills">the Quills</a>.</p>
+<p class="hatnote">For her niece, see <a href="Piper_Quill">Piper Quill</a>. For the family, see <a href="../Institutions/The_Quills">the Quills</a>.</p>
 
 <table class="infobox">
 <caption>Ambrosine Quill</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ambrosine_Quill.png" alt="Ambrosine Quill, in the Quills' crimson" width="200"><span class="infobox-caption">At the Committee's table</span></td></tr>
 <tr><th>Known as</th><td>A. Quill, Chronicler to the Committee</td></tr>
-<tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, and the <a class="new" href="../Institutions/The_Quills">Quills</a></td></tr>
+<tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, and the <a href="../Institutions/The_Quills">Quills</a></td></tr>
 <tr><th>Wears</th><td>The Quills' crimson</td></tr>
 <tr><th>House style</th><td>Never let the truth spoil the metre</td></tr>
 <tr><th>Work</th><td><i>The Lay of the Forty-Eighth</i>, twelve cantos, APPROVED</td></tr>
@@ -20,7 +20,7 @@ title: Ambrosine Quill
 <tr><th>Niece</th><td><a href="Piper_Quill">Piper</a>, who has a face</td></tr>
 </table>
 
-<p class="lede"><b>Ambrosine Quill</b> is the senior chronicler of the <a class="new" href="../Institutions/The_Quills">Quills</a>, the family that has written the official account of every Chosen One of <a href="../Places/Thistlewick">Thistlewick</a> for four generations, and the aunt of <a href="Piper_Quill">Piper Quill</a>. She is an extremely good writer. She wrote the official account of the Forty-Eighth, and finished it before he had finished, because the shape is known.</p>
+<p class="lede"><b>Ambrosine Quill</b> is the senior chronicler of the <a href="../Institutions/The_Quills">Quills</a>, the family that has written the official account of every Chosen One of <a href="../Places/Thistlewick">Thistlewick</a> for four generations, and the aunt of <a href="Piper_Quill">Piper Quill</a>. She is an extremely good writer. She wrote the official account of the Forty-Eighth, and finished it before he had finished, because the shape is known.</p>
 
 ## The house style
 
@@ -56,6 +56,6 @@ What is not in dispute is that she and her niece nod to one another now, across 
 
 - <a href="Piper_Quill">Piper Quill</a>
 - <a href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>
-- <a class="new" href="../Institutions/The_Quills">The Quills</a>
+- <a href="../Institutions/The_Quills">The Quills</a>
 - <a href="../Places/Prophecy_Hall">Prophecy Hall</a>
 - <a href="Elder_Wispel">Elder Wispel</a>

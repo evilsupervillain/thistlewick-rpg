@@ -4,7 +4,7 @@ title: Ysolde Marrow
 
 # Ysolde Marrow
 
-<p class="hatnote">For the man she kept alive, see <a href="Ambrose_Fitch">Ambrose Fitch</a>. For the table she chairs, see <a class="new" href="../Institutions/The_Healers_Table">the Healers' Table</a>.</p>
+<p class="hatnote">For the man she kept alive, see <a href="Ambrose_Fitch">Ambrose Fitch</a>. For the table she chairs, see <a href="../Institutions/The_Healers_Table">the Healers' Table</a>.</p>
 
 <table class="infobox">
 <caption>Ysolde Marrow</caption>
@@ -15,7 +15,7 @@ title: Ysolde Marrow
 <tr><th>Age</th><td>Eighty</td></tr>
 <tr><th>Kept alive</th><td>The Forty-Fourth, nine years, on and off; a duke's son, nine weeks</td></tr>
 <tr><th>His hit points</th><td>Four. She counted</td></tr>
-<tr><th>Chairs</th><td><a class="new" href="../Institutions/The_Healers_Table">The Healers' Table</a></td></tr>
+<tr><th>Chairs</th><td><a href="../Institutions/The_Healers_Table">The Healers' Table</a></td></tr>
 <tr><th>Never been to</th><td><a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Argued with it anyway</th><td>Forty years</td></tr>
 </table>
@@ -60,4 +60,4 @@ The Table sat again in 2001, and Merribell spoke, for eleven minutes, and the mi
 - <a href="../Places/The_Barrow_of_the_Forty-Fourth">The Barrow of the Forty-Fourth</a>
 - <a href="Merribell">Merribell</a>
 - <a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>
-- <a class="new" href="../Institutions/The_Healers_Table">The Healers' Table</a>
+- <a href="../Institutions/The_Healers_Table">The Healers' Table</a>

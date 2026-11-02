@@ -75,7 +75,7 @@ Across from the Guild: EVERYTHING FOR THE ROAD NORTH, and chalked under it, ALSO
 
 ## The Guild
 
-The <a class="new" href="../Institutions/The_Adventurers_Guild">Adventurers' Guild (Provisional)</a> has its hall on the front, under a sign held on with six bolts (the last sign had one bolt, and was taken by somebody who needed a sword more than the Guild did), and a crest of a sword, a scroll and a small question mark. The question mark is the provisional part. It was founded in 1960, provisionally, pending a review, and the review has been scheduled ever since. Registrar Pell keeps it. It has its own article.
+The <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild (Provisional)</a> has its hall on the front, under a sign held on with six bolts (the last sign had one bolt, and was taken by somebody who needed a sword more than the Guild did), and a crest of a sword, a scroll and a small question mark. The question mark is the provisional part. It was founded in 1960, provisionally, pending a review, and the review has been scheduled ever since. Registrar Pell keeps it. It has its own article.
 
 ## Number Forty-Five's, and the cottage next door
 
@@ -103,5 +103,5 @@ The west beach itself was held, for longer than the town, by the **Crab of Unusu
 - <a href="The_Lighthouse_of_Saint_Bother">The Lighthouse of Saint Bother</a>
 - <a href="The_Bottomless_Pit">The Bottomless Pit</a>
 - <a href="The_Barrow_of_the_Forty-Fourth">The Barrow of the Forty-Fourth</a>
-- <a class="new" href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>
+- <a href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>
 - <a href="../People/Hosea_Bellwether">Hosea Bellwether</a>, who lives here

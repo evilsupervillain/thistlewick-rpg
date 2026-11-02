@@ -4,7 +4,7 @@ title: Thistlewick
 
 # Thistlewick
 
-<p class="hatnote">This article is about the village. For its contract, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>. For the forty-eight people it sent north, see <a href="../History/The_Chosen_Ones">The Chosen Ones</a>. For its committee, see <a class="new" href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>.</p>
+<p class="hatnote">This article is about the village. For its contract, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>. For the forty-eight people it sent north, see <a href="../History/The_Chosen_Ones">The Chosen Ones</a>. For its committee, see <a href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>.</p>
 
 <table class="infobox">
 <caption>Thistlewick</caption>
@@ -57,7 +57,7 @@ The village has two hundred or so souls, and the Quest met a great many of them 
 ## The buildings
 
 * **<a href="Prophecy_Hall">Prophecy Hall</a>**, the gold one, up the road, where the Committee sits. It is always in session. It is how they know they exist.
-* **The Chapel of Whatever Works**, with a teapot over the door on a bracket, because the Order never chose a symbol: it held a meeting about one, and somebody made tea, and that was the meeting. On cold mornings it steams. Inside there is a basin, FREE, DRINK IT, YOU ARE DEHYDRATED, YES YOU, and a pew RESERVED FOR THE TIRED, and <a href="../People/Merribell">Merribell</a>. See <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>.
+* **The Chapel of Whatever Works**, with a teapot over the door on a bracket, because the Order never chose a symbol: it held a meeting about one, and somebody made tea, and that was the meeting. On cold mornings it steams. Inside there is a basin, FREE, DRINK IT, YOU ARE DEHYDRATED, YES YOU, and a pew RESERVED FOR THE TIRED, and <a href="../People/Merribell">Merribell</a>. See <a href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>.
 * **<a href="The_Gilded_Turnip">The Gilded Turnip</a>**, the inn, under a tin tankard that creaks in the rhythm of its favourite song.
 * **<a href="Nixs_Emporium">Nix's Emporium</a>**, EST. RECENTLY, which buys anything and asks nothing.
 * **Grumnir's Smithy**, under a hammer on a bracket which is just a hammer, and is not Beatrice, because Beatrice would never be left out in the rain. It is <a href="../People/Hob_Grumnir">Hob Grumnir</a>'s, and his article is the place for it. The window is black with soot except for one clean circle about the size of a nose. In it now, framed, is a written apology from an apprentice bandit, in a very good hand, next to nothing Hob made.
@@ -91,6 +91,6 @@ Clause nineteen is struck as well, and so the next person to come home to Thistl
 - <a href="Prophecy_Hall">Prophecy Hall</a>
 - <a href="The_Gilded_Turnip">The Gilded Turnip</a>
 - <a href="Nixs_Emporium">Nix's Emporium</a>
-- <a class="new" href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>
+- <a href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>
 - <a href="The_Gloamwood">The Gloamwood</a>, which is the next thing north
 - <a href="Nether_Sopping">Nether Sopping</a>, which is the next thing south, and which Thistlewick does not mention

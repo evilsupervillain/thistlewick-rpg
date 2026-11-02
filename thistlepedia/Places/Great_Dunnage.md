@@ -4,7 +4,7 @@ title: Great Dunnage
 
 # Great Dunnage
 
-<p class="hatnote">This article is about the town inside its wall, its halls and its warehouse. For the works up the valley, which Great Dunnage would like you to know is only one works, see <a href="Upper_Clanging">Upper Clanging</a>. For the Smiths, see <a class="new" href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>.</p>
+<p class="hatnote">This article is about the town inside its wall, its halls and its warehouse. For the works up the valley, which Great Dunnage would like you to know is only one works, see <a href="Upper_Clanging">Upper Clanging</a>. For the Smiths, see <a href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>.</p>
 
 <table class="infobox">
 <caption>Great Dunnage</caption>
@@ -89,7 +89,7 @@ At the end of the basin, where the cut goes out under the road, is the bottom lo
 ## See also
 
 - <a href="Upper_Clanging">Upper Clanging</a>, eleven miles up the valley
-- <a class="new" href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>
+- <a href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>
 - <a href="../People/Nix">Nix</a>, for the coat
 - <a href="../People/Hob_Grumnir">Hob Grumnir</a>, for Beatrice
 - <a href="Carn_Drey">Carn Drey</a>, east of the town

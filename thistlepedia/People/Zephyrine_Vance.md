@@ -4,7 +4,7 @@ title: Zephyrine Vance
 
 # Zephyrine Vance
 
-<p class="hatnote">For the institution, see <a class="new" href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>. For the duck, see the same, under <i>Fellows</i>.</p>
+<p class="hatnote">For the institution, see <a href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>. For the duck, see the same, under <i>Fellows</i>.</p>
 
 <table class="infobox">
 <caption>Zephyrine Vance</caption>
@@ -12,7 +12,7 @@ title: Zephyrine Vance
 <tr><th>Known as</th><td>Formerly of the College</td></tr>
 <tr><th>Of</th><td>The <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, Thistlewick, "just passing through" since 1989</td></tr>
 <tr><th>Trade</th><td>Hedge mage; fire person</td></tr>
-<tr><th>Educated</th><td>The <a class="new" href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a>; best in her year at Kindle</td></tr>
+<tr><th>Educated</th><td>The <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a>; best in her year at Kindle</td></tr>
 <tr><th>Standing there</th><td>Disputed by everybody, including her</td></tr>
 <tr><th>Good at</th><td>Elemental damage, in quantity</td></tr>
 <tr><th>Bad at</th><td>Being hit; budgeting</td></tr>
@@ -21,7 +21,7 @@ title: Zephyrine Vance
 <tr><th>Fire, sanctioned</th><td>Nine hundred acres, 2000, in triplicate</td></tr>
 </table>
 
-<p class="lede"><b>Zephyrine Vance</b> is a hedge mage who has lived in <a href="../Places/Thistlewick">Thistlewick</a> since 1989, when she left the <a class="new" href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a> after an incident involving the Dean, a duck, and what the enquiry called, twice, "an unsanctioned quantity of fire". The Dean is fine. The duck is fine. She would like it understood that everyone is fine.</p>
+<p class="lede"><b>Zephyrine Vance</b> is a hedge mage who has lived in <a href="../Places/Thistlewick">Thistlewick</a> since 1989, when she left the <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a> after an incident involving the Dean, a duck, and what the enquiry called, twice, "an unsanctioned quantity of fire". The Dean is fine. The duck is fine. She would like it understood that everyone is fine.</p>
 
 When Bram came to her table in the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a> and began to speak, she said, "Don't. Whatever it is, don't." He said it was a quest. She asked what sort. He said a tower, with a Dark Lord in it. "That's the most fire-adjacent thing anyone has said to me in eleven years," she said. "Give me my hat."
 
@@ -59,7 +59,7 @@ She is still in Thistlewick, now on purpose. She no longer drinks at the Gilded 
 
 ## See also
 
-- <a class="new" href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>
+- <a href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>
 - <a href="Dean_Fenwold">Dean Fenwold</a>
 - <a href="../Places/The_Gilded_Turnip">The Gilded Turnip</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

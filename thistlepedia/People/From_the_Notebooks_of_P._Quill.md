@@ -139,6 +139,6 @@ and has bought boots. And sits there still.'</p>
 
 - <a href="Piper_Quill">Piper Quill</a>
 - <a href="Ambrosine_Quill">Ambrosine Quill</a>
-- <a class="new" href="../Institutions/The_Quills">The Quills</a>
+- <a href="../Institutions/The_Quills">The Quills</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest#the-account)
 - <a href="Hosea_Bellwether">Hosea Bellwether</a>

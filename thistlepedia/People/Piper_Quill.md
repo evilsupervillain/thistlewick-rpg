@@ -4,7 +4,7 @@ title: Piper Quill
 
 # Piper Quill
 
-<p class="hatnote">For her family's work, see <a class="new" href="../Institutions/The_Quills">The Quills</a>. For her songs, see <a href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>.</p>
+<p class="hatnote">For her family's work, see <a href="../Institutions/The_Quills">The Quills</a>. For her songs, see <a href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>.</p>
 
 <table class="infobox">
 <caption>Piper Quill</caption>

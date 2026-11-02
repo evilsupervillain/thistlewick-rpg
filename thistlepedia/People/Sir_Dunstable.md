@@ -11,7 +11,7 @@ title: Sir Dunstable
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Sir_Dunstable.png" alt="Sir Dunstable, a knight in polished, slightly scorched armour" width="200"><span class="infobox-caption">Just in case</span></td></tr>
 <tr><th>Known as</th><td>Sir Dunstable; D.</td></tr>
 <tr><th>Of</th><td>The Vale</td></tr>
-<tr><th>Order</th><td><a class="new" href="../Institutions/The_Order_of_the_Errant">The Errant</a>; one pin, at the Chapel of Continuance</td></tr>
+<tr><th>Order</th><td><a href="../Institutions/The_Order_of_the_Errant">The Errant</a>; one pin, at the Chapel of Continuance</td></tr>
 <tr><th>Armour</th><td>Polished a great many times; scorched very slightly more</td></tr>
 <tr><th>Arrives</th><td>A quarter past four</td></tr>
 <tr><th>Signs</th><td>The Book. Just in case</td></tr>
@@ -84,4 +84,4 @@ I asked him, on my visit, whether there was anything he would like put in his ar
 - <a href="../Places/Hithermost">Hithermost</a>
 - <a href="../Places/The_Stair">The Stair</a>
 - <a href="../Places/Fairholme">Fairholme</a>
-- <a class="new" href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>
+- <a href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>

@@ -4,7 +4,7 @@ title: Sir Aldric Pemberton-Gore III
 
 # Sir Aldric Pemberton-Gore III
 
-<p class="hatnote">For the family seat, see <a href="../Places/Fenmarch_Hall">Fenmarch Hall</a>. For his order, see <a class="new" href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>. For his horse, see below; she is doing very well.</p>
+<p class="hatnote">For the family seat, see <a href="../Places/Fenmarch_Hall">Fenmarch Hall</a>. For his order, see <a href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>. For his horse, see below; she is doing very well.</p>
 
 <table class="infobox">
 <caption>Sir Aldric Pemberton-Gore III</caption>
@@ -70,6 +70,6 @@ On the ninth of June 2001, at about eleven in the morning, Sir Aldric found the 
 ## See also
 
 - <a href="../Places/Fenmarch_Hall">Fenmarch Hall</a>
-- <a class="new" href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>
+- <a href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>
 - <a href="../Places/Little_Gore">Little Gore</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

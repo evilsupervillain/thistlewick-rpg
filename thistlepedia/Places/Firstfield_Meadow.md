@@ -4,7 +4,7 @@ title: Firstfield Meadow
 
 # Firstfield Meadow
 
-<p class="hatnote">This article is about the meadow at the foot of the rainbow. For the Guild that runs it, see <a class="new" href="../Institutions/The_Guild_of_Guides">The Guild of Guides</a>. For tutorials in general, and why nobody finishes them, see the <a href="../Cliches/">Glossary of Cliches</a>.</p>
+<p class="hatnote">This article is about the meadow at the foot of the rainbow. For the Guild that runs it, see <a href="../Institutions/The_Guild_of_Guides">The Guild of Guides</a>. For tutorials in general, and why nobody finishes them, see the <a href="../Cliches/">Glossary of Cliches</a>.</p>
 
 <table class="infobox">
 <caption>Firstfield Meadow</caption>
@@ -60,5 +60,5 @@ At the top of the meadow is the graduation sign: TUTORIALS COMPLETED IN THIS MEA
 ## See also
 
 - <a href="Thistlewick">Thistlewick</a>, a short walk south
-- <a class="new" href="../Institutions/The_Guild_of_Guides">The Guild of Guides</a>
+- <a href="../Institutions/The_Guild_of_Guides">The Guild of Guides</a>
 - <a href="../People/Bram_Thistle">Bram Thistle</a>, the graduate

@@ -4,7 +4,7 @@ title: Coldbarrow
 
 # Coldbarrow
 
-<p class="hatnote">This article is about the Chapter House of the Order of the Errant. For the Order, see <a class="new" href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>. For the knight with nine pins, see <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>.</p>
+<p class="hatnote">This article is about the Chapter House of the Order of the Errant. For the Order, see <a href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>. For the knight with nine pins, see <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>.</p>
 
 <table class="infobox">
 <caption>Coldbarrow</caption>
@@ -50,6 +50,6 @@ Of the Order's other knights in the field, one at least has a pin that has never
 ## See also
 
 - <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>
-- <a class="new" href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>
+- <a href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>
 - <a href="Little_Gore">Little Gore</a>, and Dame Winifred
 - <a href="Frostwick">Frostwick</a>, one of the three in the same week

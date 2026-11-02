@@ -4,7 +4,7 @@ title: Prophecy Hall
 
 # Prophecy Hall
 
-<p class="hatnote">For the body that sits in it, see <a class="new" href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>. For the document, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>.</p>
+<p class="hatnote">For the body that sits in it, see <a href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>. For the document, see <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>.</p>
 
 <table class="infobox">
 <caption>Prophecy Hall</caption>
@@ -19,7 +19,7 @@ title: Prophecy Hall
 <tr><th>Potted plant</th><td>To be watered (minuted, 1987)</td></tr>
 </table>
 
-<p class="lede"><b>Prophecy Hall</b> is the seat of the <a class="new" href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> of <a href="Thistlewick">Thistlewick</a>, and the place where every Chosen One since the first has been told what he is for. It has a crest, two pillars, forty-seven portraits, a great many shelves, a box of verses nobody may read, and a scroll that reaches the far wall.</p>
+<p class="lede"><b>Prophecy Hall</b> is the seat of the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> of <a href="Thistlewick">Thistlewick</a>, and the place where every Chosen One since the first has been told what he is for. It has a crest, two pillars, forty-seven portraits, a great many shelves, a box of verses nobody may read, and a scroll that reaches the far wall.</p>
 
 ## Outside
 
@@ -95,7 +95,7 @@ By the door, since the ending, stands a lectern, and on it a ledger in the Commi
 
 ## See also
 
-- <a class="new" href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>
+- <a href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a>
 - <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>
 - <a href="../History/The_Chosen_Ones">The Chosen Ones</a>, for the Wall
 - <a href="../People/Piper_Quill">Piper Quill</a>, for the box

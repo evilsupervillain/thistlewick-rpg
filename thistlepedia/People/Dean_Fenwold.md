@@ -4,13 +4,13 @@ title: Dean Fenwold
 
 # Dean Fenwold
 
-<p class="hatnote">For the Collegium, see <a class="new" href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>. For the very gifted young woman, see <a href="Zephyrine_Vance">Zephyrine Vance</a>. For the duck, see <a href="../Places/Wayside_Sights#the-ducks-pond">the Duck's Pond</a>.</p>
+<p class="hatnote">For the Collegium, see <a href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>. For the very gifted young woman, see <a href="Zephyrine_Vance">Zephyrine Vance</a>. For the duck, see <a href="../Places/Wayside_Sights#the-ducks-pond">the Duck's Pond</a>.</p>
 
 <table class="infobox">
 <caption>Dean Fenwold</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dean_Fenwold.png" alt="Dean Fenwold, with magnificent eyebrows" width="200"><span class="infobox-caption">Fine</span></td></tr>
 <tr><th>Known as</th><td>The Dean; Fenwold</td></tr>
-<tr><th>Of</th><td><a class="new" href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>, the Hall</td></tr>
+<tr><th>Of</th><td><a href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>, the Hall</td></tr>
 <tr><th>Condition</th><td>Fine, thank you</td></tr>
 <tr><th>Asked</th><td>Not always</td></tr>
 <tr><th>Eyebrows</th><td>Grew back. Magnificently</td></tr>
@@ -20,7 +20,7 @@ title: Dean Fenwold
 <tr><th>Moved, in 2000</th><td>No</td></tr>
 </table>
 
-<p class="lede"><b>Dean Fenwold</b> of the <a class="new" href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a> was in the room in 1989 when <a href="Zephyrine_Vance">Zephyrine Vance</a> produced what the enquiry called, twice, an unsanctioned quantity of fire. He is fine. He will tell you so before you have asked. He has made a second career of it.</p>
+<p class="lede"><b>Dean Fenwold</b> of the <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a> was in the room in 1989 when <a href="Zephyrine_Vance">Zephyrine Vance</a> produced what the enquiry called, twice, an unsanctioned quantity of fire. He is fine. He will tell you so before you have asked. He has made a second career of it.</p>
 
 ## The man who was fine
 
@@ -49,5 +49,5 @@ His portrait hangs in the Hall, with the First Dean's, and the First Dean's has 
 ## See also
 
 - <a href="Zephyrine_Vance">Zephyrine Vance</a>
-- <a class="new" href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>
+- <a href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>
 - <a href="../Places/Wayside_Sights#the-ducks-pond">The Duck's Pond</a>
