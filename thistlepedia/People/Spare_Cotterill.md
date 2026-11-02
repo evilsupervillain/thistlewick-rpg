@@ -4,13 +4,13 @@ title: Spare Cotterill
 
 # Spare Cotterill
 
-<p class="hatnote">For the family, see <a class="new" href="The_Cotterills">The Cotterills</a>. For the town, see <a class="new" href="../Places/Upper_Clanging">Upper Clanging</a>. For his letters to me, see below, and file accordingly.</p>
+<p class="hatnote">For the family, see <a class="new" href="The_Cotterills">The Cotterills</a>. For the town, see <a href="../Places/Upper_Clanging">Upper Clanging</a>. For his letters to me, see below, and file accordingly.</p>
 
 <table class="infobox">
 <caption>Spare Cotterill</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Spare_Cotterill.png" alt="Spare Cotterill, a small boy with a packed bag, asking whether he can come yet" width="200"><span class="infobox-caption">Can he come yet</span></td></tr>
 <tr><th>Known as</th><td>Spare; the Ninth</td></tr>
-<tr><th>Of</th><td><a class="new" href="../Places/Upper_Clanging">Upper Clanging</a>, the ninth of the Cotterills</td></tr>
+<tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a>, the ninth of the Cotterills</td></tr>
 <tr><th>Trade</th><td>Brushing the ninety tubes of the Hoyle Works boiler, since 1997. Paid in buns</td></tr>
 <tr><th>Age</th><td>Nine at the time of the Quest; eleven now</td></tr>
 <tr><th>Good at</th><td>Getting in anywhere; not being hit; getting everybody up again</td></tr>
@@ -21,7 +21,7 @@ title: Spare Cotterill
 <tr><th>Littlest Cotterill</th><td>Until the spring of 2000</td></tr>
 </table>
 
-<p class="lede"><b>Spare Cotterill</b> is the ninth of the ten Cotterills of <a class="new" href="../Places/Upper_Clanging">Upper Clanging</a>, and was, at nine, the youngest member of the Forty-Eighth's company, and the last to join. He had had a bag packed for two years. He had asked every Chosen One who ever walked up his street whether he could come. All of them said no, until the Forty-Eighth, who said no as well, and then listened to why he should be asked again.</p>
+<p class="lede"><b>Spare Cotterill</b> is the ninth of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and was, at nine, the youngest member of the Forty-Eighth's company, and the last to join. He had had a bag packed for two years. He had asked every Chosen One who ever walked up his street whether he could come. All of them said no, until the Forty-Eighth, who said no as well, and then listened to why he should be asked again.</p>
 
 "Are you the Chosen One? I have a bag. It is packed. It has been packed for two years. I am nine. I am nine in a useful way."
 
@@ -90,6 +90,6 @@ It was also Spare who confirmed for me, by letter, that the twenty-first of Marc
 ## See also
 
 - <a class="new" href="The_Cotterills">The Cotterills</a>
-- <a class="new" href="../Places/Upper_Clanging">Upper Clanging</a>
+- <a href="../Places/Upper_Clanging">Upper Clanging</a>
 - <a class="new" href="../Places/Much_Pottering">Much Pottering</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

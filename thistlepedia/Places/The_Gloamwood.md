@@ -71,7 +71,7 @@ Miss Halloway was made an honorary member, the first, and given the badge. She w
 
 ## Bassoons
 
-The Gloamwood is the only road between the south and the works town of <a class="new" href="Upper_Clanging">Upper Clanging</a>, and it is a hard road to walk at night with eight feet of folded tube in a case. Mr Enoch Bagshawe, first bassoon of the Works Band, sat on the milestone at the mouth of the wood for some time, many nights, because if anything so much as looked at him he would drop the case, and that would be the reed, and the reed took three weeks. The band had never had a bassoon. It is a brass band; he is aware.
+The Gloamwood is the only road between the south and the works town of <a href="Upper_Clanging">Upper Clanging</a>, and it is a hard road to walk at night with eight feet of folded tube in a case. Mr Enoch Bagshawe, first bassoon of the Works Band, sat on the milestone at the mouth of the wood for some time, many nights, because if anything so much as looked at him he would drop the case, and that would be the reed, and the reed took three weeks. The band had never had a bassoon. It is a brass band; he is aware.
 
 Nix took him through. She halves encounters; it is a knack. With mothballs as well, which the Band keeps the uniforms in, he crossed the whole wood by night without a single encounter, or half of one, and at the north end he opened the case in the road and played one long low note on the reed by moonlight, for no reason but that he could. The Works Band has a bassoon.
 

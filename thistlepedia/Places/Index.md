@@ -10,7 +10,7 @@
 | <a href="Prophecy_Hall">Prophecy Hall</a> | The gold one, up the road. The Committee, in session. |
 | <a href="The_Gilded_Turnip">The Gilded Turnip</a> | The inn, named after the problem. Rooms twenty crowns. |
 | <a href="Nixs_Emporium">Nix's Emporium</a> | Everything previously owned. By whom, we don't ask. |
-| <a class="new" href="Firstfield_Meadow">Firstfield Meadow</a> | A meadow at the foot of a rainbow, where things are explained to you. |
+| <a href="Firstfield_Meadow">Firstfield Meadow</a> | A meadow at the foot of a rainbow, where things are explained to you. |
 | <a href="The_Gloamwood">The Gloamwood</a> | A wood, with a Thing in it, and a man on a log. |
 | <a href="The_Obligatory_Tower">The Obligatory Tower</a> | Where the Dark Lord lives. Ground floor. Door at the bottom. |
 
@@ -28,9 +28,9 @@
 
 | Place | What it is |
 |---|---|
-| <a class="new" href="Upper_Clanging">Upper Clanging</a> | Engineers, rain, and a ship two hundred years in the making. |
-| <a class="new" href="The_Long_Field">The Long Field</a> | Where Upper Clanging keeps its attempts. |
-| <a class="new" href="Frostwick">Frostwick</a> | Snow, a working group, and the only person who has read clause two. |
+| <a href="Upper_Clanging">Upper Clanging</a> | Engineers, rain, and a ship two hundred years in the making. |
+| <a href="The_Long_Field">The Long Field</a> | Where Upper Clanging keeps its attempts. |
+| <a href="Frostwick">Frostwick</a> | Snow, a working group, and the only person who has read clause two. |
 
 ## Further out
 

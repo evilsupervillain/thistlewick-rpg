@@ -70,5 +70,5 @@ The rule I have used in this book is the one the world uses without meaning to. 
 - [Timeline](Timeline)
 - [The Prophecy of Thistlewick](The_Prophecy_of_Thistlewick)
 - [The Chosen Ones](The_Chosen_Ones)
-- <a class="new" href="../Places/Frostwick">Frostwick</a>
+- <a href="../Places/Frostwick">Frostwick</a>
 - <a class="new" href="../Places/Olde_Evermore">Olde Evermore</a>
