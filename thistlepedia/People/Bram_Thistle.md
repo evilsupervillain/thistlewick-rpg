@@ -29,7 +29,7 @@ He would like it known that he did none of it on his own. I have known him for t
 
 The Thistles have farmed the same ground outside Thistlewick for as long as anybody has written anything down, which in Thistlewick is not long. His great-grandmother, Mabel Thistle, grew a turnip as big as a chair, and the family still speaks of it in the tone other families keep for a war. He lives with his mother, who keeps the house, irons his good shirt on a Tuesday, and on the morning of the Quest told him there were eleven people outside and one of them had a scroll.
 
-I record, because one version of events in circulation says otherwise, that his mother is alive, well, and has read that version. She asked me to put in that she makes a good pie. She does.
+I record, because one version of events in circulation says otherwise, that <a href="Mrs_Thistle">his mother</a> is alive, well, and has read that version. She asked me to put in that she makes a good pie. She does.
 
 There was a sword on the wall above the grate. It had been there, his mother said, a hundred years, waiting for exactly this, "and frankly it has been unbearable about it." I have tried to date the sword and cannot. A hundred years is what Thistlewick says about anything that has been anywhere for a while, and in Thistlewick that is not a measurement (see <a href="../History/Two_Reckonings">Two Reckonings</a>). It is back on the wall now, and is, I am told, quieter.
 

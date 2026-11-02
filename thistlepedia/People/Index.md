@@ -48,6 +48,102 @@ Two of the forty-seven have articles of their own, because they talked to me, or
 <figure><img src="../images/portraits/Cobb_Lorrimer.png" alt="Cobb Lorrimer"><figcaption><a href="Cobb_Lorrimer">Cobb Lorrimer</a></figcaption></figure>
 </div>
 
+### Thistlewick
+
+At <a href="../Places/Thistlewick">Thistlewick</a>.
+
+<div class="gallery">
+<figure><img src="../images/portraits/Mrs_Thistle.png" alt="Mrs Thistle"><figcaption><a href="Mrs_Thistle">Mrs Thistle</a></figcaption></figure>
+<figure><img src="../images/portraits/Prudence_Thrupp.png" alt="Prudence Thrupp"><figcaption><a href="Prudence_Thrupp">Prudence Thrupp</a></figcaption></figure>
+</div>
+
+### Nether Sopping
+
+At <a href="../Places/Nether_Sopping">Nether Sopping</a>.
+
+<div class="gallery">
+<figure><img src="../images/portraits/Dorcas_Thrupp.png" alt="Dorcas Thrupp"><figcaption><a href="Dorcas_Thrupp">Dorcas Thrupp</a></figcaption></figure>
+<figure><img src="../images/portraits/Lionel_Pell.png" alt="Registrar Pell"><figcaption><a href="Lionel_Pell">Registrar Pell</a></figcaption></figure>
+<figure><img src="../images/portraits/Lavinia_Barrow.png" alt="Mrs Barrow"><figcaption><a href="Lavinia_Barrow">Mrs Barrow</a></figcaption></figure>
+<figure><img src="../images/portraits/Sops.png" alt="Sops"><figcaption><a href="Sops">Sops</a></figcaption></figure>
+<figure><img src="../images/portraits/Tibb.png" alt="Tibb"><figcaption><a href="Tibb">Tibb</a></figcaption></figure>
+<figure><img src="../images/portraits/Nabb.png" alt="Nabb"><figcaption><a href="Nabb">Nabb</a></figcaption></figure>
+<figure><img src="../images/portraits/Tolly.png" alt="Tolly"><figcaption><a href="Tolly">Tolly</a></figcaption></figure>
+</div>
+
+## On the road, and the sites along it
+
+### Firstfield Meadow
+
+At <a href="../Places/Firstfield_Meadow">Firstfield Meadow</a>.
+
+<div class="gallery">
+<figure><img src="../images/portraits/Fizz.png" alt="Fizz"><figcaption><a href="Fizz">Fizz</a></figcaption></figure>
+<figure><img src="../images/portraits/Old_Hollis.png" alt="Old Hollis"><figcaption><a href="Old_Hollis">Old Hollis</a></figcaption></figure>
+<figure><img src="../images/portraits/Dilys_Fenwick.png" alt="Dilys Fenwick"><figcaption><a href="Dilys_Fenwick">Dilys Fenwick</a></figcaption></figure>
+<figure><img src="../images/portraits/Norbert_Pelling.png" alt="Norbert Pelling"><figcaption><a href="Norbert_Pelling">Norbert Pelling</a></figcaption></figure>
+</div>
+
+### Penultima and Restwell
+
+<div class="gallery">
+<figure><img src="../images/portraits/Gideon_Markup.png" alt="Gideon Markup"><figcaption><a href="Gideon_Markup">Gideon Markup</a></figcaption></figure>
+<figure><img src="../images/portraits/Dorothy_Markup.png" alt="Dorothy Markup"><figcaption><a href="Dorothy_Markup">Dorothy Markup</a></figcaption></figure>
+<figure><img src="../images/portraits/Walt_Ashbury.png" alt="Walt Ashbury"><figcaption><a href="Walt_Ashbury">Walt Ashbury</a></figcaption></figure>
+<figure><img src="../images/portraits/Hester_Ashbury.png" alt="Hester Ashbury"><figcaption><a href="Hester_Ashbury">Hester Ashbury</a></figcaption></figure>
+<figure><img src="../images/portraits/Dr_Pike.png" alt="Dr Pike"><figcaption><a href="Dr_Pike">Dr Pike</a></figcaption></figure>
+</div>
+
+### Fairholme
+
+At <a href="../Places/Fairholme">Fairholme</a>.
+
+<div class="gallery">
+<figure><img src="../images/portraits/King_Aldous.png" alt="King Aldous"><figcaption><a href="King_Aldous">King Aldous</a></figcaption></figure>
+<figure><img src="../images/portraits/Princess_Rosamund.png" alt="Princess Rosamund"><figcaption><a href="Princess_Rosamund">Princess Rosamund</a></figcaption></figure>
+<figure><img src="../images/portraits/Mr_Pilbeam.png" alt="Mr Pilbeam"><figcaption><a href="Mr_Pilbeam">Mr Pilbeam</a></figcaption></figure>
+<figure><img src="../images/portraits/Mrs_Emberthwaite.png" alt="Mrs Emberthwaite"><figcaption><a href="Mrs_Emberthwaite">Mrs Emberthwaite</a></figcaption></figure>
+</div>
+
+### Gladhollow and the Former Premises
+
+<div class="gallery">
+<figure><img src="../images/portraits/Toby_Wendle.png" alt="Toby Wendle"><figcaption><a href="Toby_Wendle">Toby Wendle</a></figcaption></figure>
+<figure><img src="../images/portraits/Prosper_Hollowell.png" alt="Prosper Hollowell"><figcaption><a href="Prosper_Hollowell">Prosper Hollowell</a></figcaption></figure>
+</div>
+
+### Little Gore, Sump and Ashcombe
+
+<div class="gallery">
+<figure><img src="../images/portraits/Hester_Vane.png" alt="Hester Vane"><figcaption><a href="Hester_Vane">Hester Vane</a></figcaption></figure>
+<figure><img src="../images/portraits/Dame_Winifred_Cope.png" alt="Dame Winifred Cope"><figcaption><a href="Dame_Winifred_Cope">Dame Winifred Cope</a></figcaption></figure>
+<figure><img src="../images/portraits/Mr_Gammage.png" alt="Mr Gammage"><figcaption><a href="Mr_Gammage">Mr Gammage</a></figcaption></figure>
+<figure><img src="../images/portraits/Mrs_Ash.png" alt="Mrs Ash"><figcaption><a href="Mrs_Ash">Mrs Ash</a></figcaption></figure>
+<figure><img src="../images/portraits/Hubert_Weir.png" alt="Hubert Weir"><figcaption><a href="Hubert_Weir">Hubert Weir</a></figcaption></figure>
+</div>
+
+### Weeping Bottom and Fenmarch Hall
+
+<div class="gallery">
+<figure><img src="../images/portraits/Aveline_Stope.png" alt="Prioress Aveline Stope"><figcaption><a href="Aveline_Stope">Prioress Aveline Stope</a></figcaption></figure>
+<figure><img src="../images/portraits/Sister_Bewick.png" alt="Sister Bewick"><figcaption><a href="Sister_Bewick">Sister Bewick</a></figcaption></figure>
+<figure><img src="../images/portraits/Sir_Hamo_Tench.png" alt="Sir Hamo Tench"><figcaption><a href="Sir_Hamo_Tench">Sir Hamo Tench</a></figcaption></figure>
+<figure><img src="../images/portraits/Mr_Ottershaw.png" alt="Mr Ottershaw"><figcaption><a href="Mr_Ottershaw">Mr Ottershaw</a></figcaption></figure>
+<figure><img src="../images/portraits/Pemberton-Gore_IV.png" alt="The Fourth"><figcaption><a href="Pemberton-Gore_IV">The Fourth</a></figcaption></figure>
+</div>
+
+### Wayside sights
+
+At <a href="../Places/Wayside_Sights">Wayside sights</a>.
+
+<div class="gallery">
+<figure><img src="../images/portraits/Mother_Selvidge.png" alt="Mother Selvidge"><figcaption><a href="Mother_Selvidge">Mother Selvidge</a></figcaption></figure>
+<figure><img src="../images/portraits/Elias_Meech.png" alt="Elias Meech"><figcaption><a href="Elias_Meech">Elias Meech</a></figcaption></figure>
+<figure><img src="../images/portraits/Dunnock.png" alt="Dunnock"><figcaption><a href="Dunnock">Dunnock</a></figcaption></figure>
+<figure><img src="../images/portraits/The_Drainage_Commissioner.png" alt="The Drainage Commissioner"><figcaption><a href="The_Drainage_Commissioner">The Drainage Commissioner</a></figcaption></figure>
+</div>
+
+
 ## The north
 
 <div class="gallery">
@@ -75,6 +171,43 @@ Ten children, two parents and a daughter-in-law, in order of age, as Gudgeon wou
 <figure><img src="../images/portraits/Clevis_Cotterill.png" alt="Clevis"><figcaption><a href="Clevis_Cotterill">Clevis</a></figcaption></figure>
 <figure><img src="../images/portraits/Shim_Cotterill.png" alt="Shim"><figcaption><a href="Shim_Cotterill">Shim</a></figcaption></figure>
 </div>
+
+### Upper Clanging
+
+At <a href="../Places/Upper_Clanging">Upper Clanging</a>. And <a href="Eighty-Four">Eighty-Four</a>, who is not a person, at Miss Hoyle's insistence.
+
+<div class="gallery">
+<figure><img src="../images/portraits/Winnie_Marsden.png" alt="Winnie Marsden"><figcaption><a href="Winnie_Marsden">Winnie Marsden</a></figcaption></figure>
+<figure><img src="../images/portraits/Mrs_Tunnicliffe.png" alt="Mrs Tunnicliffe"><figcaption><a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a></figcaption></figure>
+<figure><img src="../images/portraits/Mr_Kell.png" alt="Mr Kell"><figcaption><a href="Mr_Kell">Mr Kell</a></figcaption></figure>
+<figure><img src="../images/portraits/Nib.png" alt="Nib"><figcaption><a href="Nib">Nib</a></figcaption></figure>
+</div>
+
+### Frostwick and Coldbarrow
+
+<div class="gallery">
+<figure><img src="../images/portraits/Wilhelmina_Blagg.png" alt="Mrs Blagg"><figcaption><a href="Wilhelmina_Blagg">Mrs Blagg</a></figcaption></figure>
+<figure><img src="../images/portraits/Clem_Blagg.png" alt="Clem Blagg"><figcaption><a href="Clem_Blagg">Clem Blagg</a></figcaption></figure>
+<figure><img src="../images/portraits/Perce_Stagg.png" alt="Perce Stagg"><figcaption><a href="Perce_Stagg">Perce Stagg</a></figcaption></figure>
+<figure><img src="../images/portraits/Ida_Stagg.png" alt="Ida Stagg"><figcaption><a href="Ida_Stagg">Ida Stagg</a></figcaption></figure>
+<figure><img src="../images/portraits/Mordaunt.png" alt="Mordaunt"><figcaption><a href="Mordaunt">Mordaunt</a></figcaption></figure>
+</div>
+
+### Great Dunnage
+
+At <a href="../Places/Great_Dunnage">Great Dunnage</a>.
+
+<div class="gallery">
+<figure><img src="../images/portraits/Mayor_Gristwood.png" alt="Mayor Gristwood"><figcaption><a href="Mayor_Gristwood">Mayor Gristwood</a></figcaption></figure>
+<figure><img src="../images/portraits/Mr_Tibbs.png" alt="Mr Tibbs"><figcaption><a href="Mr_Tibbs">Mr Tibbs</a></figcaption></figure>
+<figure><img src="../images/portraits/Mrs_Harbottle.png" alt="Mrs Harbottle"><figcaption><a href="Mrs_Harbottle">Mrs Harbottle</a></figcaption></figure>
+<figure><img src="../images/portraits/Mr_Tweddle.png" alt="Mr Tweddle"><figcaption><a href="Mr_Tweddle">Mr Tweddle</a></figcaption></figure>
+</div>
+
+### The Sable Hart
+
+<a href="The_Rivals_of_the_Sable_Hart">The Rivals of the Sable Hart</a>, five of them, on one page, by their own request, and Mrs Garrow, who keeps the house.
+
 
 ## The mountain, the elves and further out
 
@@ -106,17 +239,4 @@ And <a href="Humphrey_Gotobed">Humphrey Gotobed</a>, adventurer, retired, who wa
 
 ## Everybody else
 
-A great many more people are written up where they live, because they are hard to take out of it. A few of them, and where to find them:
-
-- <a href="Dorcas_Thrupp">Dorcas Thrupp</a>, the goose, and the regulars, at <a href="../Places/The_Slain_Wyvern">the Slain Wyvern</a>; <a href="Lionel_Pell">Registrar Pell</a>, <a href="Sops">Sops</a>, <a href="Tibb">Tibb</a>, <a href="Nabb">Nabb</a>, <a href="Tolly">Tolly</a> and <a href="Lavinia_Barrow">Mrs Barrow</a> at <a href="../Places/Nether_Sopping">Nether Sopping</a>; <a href="Prudence_Thrupp">Prudence Thrupp</a> at <a href="../Places/The_Gilded_Turnip">the Gilded Turnip</a>
-- <a href="Fizz">Fizz</a>, <a href="Old_Hollis">Old Hollis</a>, <a href="Dilys_Fenwick">Dilys</a> and <a href="Norbert_Pelling">Norbert</a> at <a href="../Places/Firstfield_Meadow">Firstfield Meadow</a>
-- <a href="Gideon_Markup">Gideon</a> and <a href="Dorothy_Markup">Dorothy Markup</a> at <a href="../Places/Penultima">Penultima</a>; <a href="Walt_Ashbury">Walt</a> and <a href="Hester_Ashbury">Mrs Ashbury</a>, and <a href="Dr_Pike">Dr Pike</a> by the fire, at <a href="../Places/Restwell">Restwell</a>
-- <a href="King_Aldous">King Aldous</a>, <a href="Princess_Rosamund">Princess Rosamund</a>, <a href="Mr_Pilbeam">Mr Pilbeam</a> and <a href="Mrs_Emberthwaite">Mrs Emberthwaite</a> at <a href="../Places/Fairholme">Fairholme</a>
-- <a href="Toby_Wendle">Toby Wendle</a> at <a href="../Places/Gladhollow">Gladhollow</a>; <a href="Prosper_Hollowell">Prosper Hollowell</a> at <a href="../Places/The_Former_Premises">the Former Premises</a>, in his own words
-- <a href="Winnie_Marsden">Winnie Marsden</a>, <a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a>, <a href="Mr_Kell">Mr Kell</a> and <a href="Nib">Nib</a> at <a href="../Places/Upper_Clanging">Upper Clanging</a>; <a href="Eighty-Four">Eighty-Four</a> and the works' dead at <a href="../Places/The_Long_Field">the Long Field</a>
-- <a href="Wilhelmina_Blagg">Mrs Blagg</a>, <a href="Clem_Blagg">Clem</a>, <a href="Perce_Stagg">Perce</a> and <a href="Ida_Stagg">Ida Stagg</a> at <a href="../Places/Frostwick">Frostwick</a>; <a href="Mordaunt">Mordaunt</a> at <a href="../Places/Coldbarrow">Coldbarrow</a>; <a href="The_Rivals_of_the_Sable_Hart">five doomed rivals</a> at <a href="../Places/The_Sable_Hart">the Sable Hart</a>
-- **Mrs Vane** and **Dame Winifred** at <a href="../Places/Little_Gore">Little Gore</a>; **Mr Gammage** at <a href="../Places/Sump">Sump</a>; **Mrs Ash** and **Mr Weir** at <a href="../Places/Ashcombe">Ashcombe</a>
-- **the Prioress** and **Sister Bewick** at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>; **Mr Ottershaw** and **the Fourth** at <a href="../Places/Fenmarch_Hall">Fenmarch Hall</a>
-- **the Mayor**, **Mr Tibbs**, **Mrs Harbottle** and **Mr Tweddle** at <a href="../Places/Great_Dunnage">Great Dunnage</a>; <a href="Effie_Gotobed">Effie Gotobed</a> at <a href="../Places/Much_Pottering">Much Pottering</a>
-- **Mother Selvidge**, **Mr Meech**, **Dunnock** and the Drainage Commissioner in <a href="../Places/Wayside_Sights">Wayside Sights</a>
-- <a href="Hosea_Bellwether">Hosea Bellwether</a>, the compiler, who was persuaded that leaving himself out would be inaccurate
+A great many more people are written up where they live, because they are hard to take out of it: the goose and the regulars at <a href="../Places/The_Slain_Wyvern">the Slain Wyvern</a>, the works' dead in <a href="../Places/The_Long_Field">the Long Field</a>, and every town's shopkeepers, sisters, sheep and clerks. And <a href="Hosea_Bellwether">Hosea Bellwether</a>, the compiler, who was persuaded that leaving himself out would be inaccurate.

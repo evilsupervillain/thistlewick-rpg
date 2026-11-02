@@ -30,7 +30,9 @@ Each one ends with the checks in `README.md`, a commit, a push to
 7b. **More people** (Mike, 2 November 2026): bios for the supporting cast,
    with Born/Died dates in every new infobox. Batch A (Mother Ursula Pym,
    Godfrey Stopford the Forty-Sixth, the Cotterills one by one, the
-   Gotobeds) done; B-D in progress. Older bios get dates in a later pass.
+   Gotobeds), B (the south, Firstfield, Penultima, Restwell), C (Fairholme to
+   the Sable Hart) and D (the sites, Great Dunnage, the wayside, Bram's
+   mother) done: seventy pages. Older bios get dates in a later pass.
 8. **The final pass**: cross-links, the search index, and a browser check of
    every page.
 

@@ -63,4 +63,4 @@ He is sixty-six. There are no red pins on the great map now, and in the margin a
 - <a href="../Places/Coldbarrow">Coldbarrow</a>
 - <a href="Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>
 - <a href="../Institutions/The_Order_of_the_Errant">The Order of the Errant</a>
-- <a class="new" href="Pemberton-Gore_IV">The Fourth</a>, who writes in ink
+- <a href="Pemberton-Gore_IV">The Fourth</a>, who writes in ink

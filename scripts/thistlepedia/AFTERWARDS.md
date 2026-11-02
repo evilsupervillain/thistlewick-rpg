@@ -650,3 +650,53 @@ Frostwick, Coldbarrow, the Sable Hart.**
   rake, 1988, by Mrs Garrow), Rook (6 April 1954), Morrow (20 December 1968,
   *Overshadowed* since 1990), Blackwood (1 March 1979), Mrs Garrow (1962, keeps
   the house since 1985, knitted the hoods).
+
+**Batch D: the sites south and west, Great Dunnage, the wayside, and Bram's
+mother.**
+
+* **Hester Vane** née Plumb (7 June 1967); Bess, Alfie and Nell are hers
+  (canon: "the three on the green are ours"); the smallest child now plays
+  the late knight. Tom Vane is head gardener at Fenmarch since 1998.
+  **Dame Winifred Cope** (12 January 1958), of Saltinge, knighted 1984; fifty-
+  one NOTHING TO REPORTs; Abel Thrush touched his hat to her every morning.
+  **Mr Gammage is Obadiah** (2 February 1926), hurdle-maker; Sump's plaque
+  reads CURSED 1794. NOT, 2000. QUIET PLEASE. MR GAMMAGE IS ASLEEP.
+* **Mrs Ash** is Margaret (20 November 1947); her maiden name and Corvin's
+  birth surname are under the lake and stay there. **Corvin born 1970**
+  (canon: thirty in 2000). **Mr Weir is Hubert** (8 August 1936); the
+  evacuation plan of 1961 was in his coat for twenty-eight years.
+* **Prioress Aveline Stope** (25 March 1944), of Brede Saltings, professed
+  1964, Prioress 1983; the symposia ran 1990-1999. **Sister Constance
+  Bewick** (9 February 1962), a Haverleigh chemist's daughter; What Ought To
+  Work from 1994; a twelfth volume, the Rule with citations, *Pym, 1702.
+  Supported.* **Sir Hamo Tench** (11 November 1921), born at Coldbarrow;
+  confirmed at the fourth go, 1941; errant 1941-1986; declines the window.
+* **Mr Ottershaw is Jonas** (14 March 1910), the gamekeeper's son; the Marsh
+  Bear was the first, 1930, for Sir Aldric the First. Case forty is left
+  exactly as unsettled as `Fenmarch_Hall.md` leaves it. **The Fourth is
+  Aldric** (9 February 1981), son of the Third's younger brother; FOUND IT
+  scratched at ten in 1991; writes to Mordaunt weekly; has found Thistlewick's
+  north gate three times.
+* **Mayor Gristwood is Josiah** (4 March 1949), named after the First Mayor;
+  Mayor since 1995; the money is Bond No. 1788 with Mr Tibbs; the new
+  preamble is eleven minutes; Form L is kept in the hat. **Mr Tibbs is
+  Barnabas** (30 January 1934), wharfinger since 1962. **Mrs Harbottle** is
+  Clementine née Joy (17 August 1971), chair since 1996. **Mr Tweddle is
+  Wilfred** (1 April 1939), wire-drawer; the thrush found its keys behind
+  the clock; he won the Contest of 2000 (canon) and will not enter again.
+* **Mother Selvidge is Ruth** (31 October 1922), born in a wagon; booth
+  since 1946; has read Mr Rook. **Mr Meech is Elias** (23 January 1931), the
+  fifth Meech since the stone. **Dunnock is Reuben** (5 May 1952), a
+  lock-keeper; the four pages are 19, 23, 60 and 104. **The Drainage
+  Commissioner** (12 September 1966; no pronoun; P. Fennimore on the
+  clipboard), Commissioner since 1991; a letter to Zephyrine is drafted for
+  autumn 2030.
+* **Mrs Thistle is Annie**, née Brook (6 June 1957), of the mill; married
+  **Will Thistle** in 1977, who is in the churchyard near Mabel and about
+  whom nothing else is said; **Bram was born in 1979**, in the room under
+  the sword. The clean rectangle of wall is not painted over.
+* **Not written, on purpose**: Beatrice Grumnir (Hob's article says nobody in
+  Thistlewick says more than that she was always right, "and nor shall I");
+  Fellow Blunt (the face reads young against twenty-two years of quarterly
+  inspections; left for Mike). Mother Selvidge now has a page, so her links
+  point to it, and Corvin's "twopence" is mended to the game's two crowns.

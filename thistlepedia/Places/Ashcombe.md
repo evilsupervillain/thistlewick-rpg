@@ -34,7 +34,7 @@ The school has a brass plate, ASHCOMBE SCHOOL, polished, and under it, also poli
 
 ## The Drainage Museum
 
-The Ashcombe Drainage Museum is free, and so is the enthusiasm. **Mr Hubert Weir**, Curator, in a coat with gold frogging, stands in the middle of the room with his hands behind his back, the way a man stands in a room he is proud of. Fourteen hundred yards of culvert, a fall of one in two hundred, and not one puddle in Ashcombe since the day they went in. The flood, he says, was a tremendous success: everybody out by dinner, everybody dry by tea, and not so much as a hen lost. They have the Roll.
+The Ashcombe Drainage Museum is free, and so is the enthusiasm. **<a href="../People/Hubert_Weir">Mr Hubert Weir</a>**, Curator, in a coat with gold frogging, stands in the middle of the room with his hands behind his back, the way a man stands in a room he is proud of. Fourteen hundred yards of culvert, a fall of one in two hundred, and not one puddle in Ashcombe since the day they went in. The flood, he says, was a tremendous success: everybody out by dinner, everybody dry by tea, and not so much as a hen lost. They have the Roll.
 
 The new village is eight miles from the old one, by the ROAD, sir. The road goes all the way round the lake. As the crow flies you could skim a stone on to the old church roof.
 
@@ -52,7 +52,7 @@ He was asked back to the Flood Dinner of 2001, and went, and was early. Mr Weir 
 
 ## Mrs Ash
 
-**Mrs Ash** has a kitchen so new the paint still smells of it, with a big window over the lake, and she knits something long and does not stop. Mind the step. It's new. It's all new. Isn't it lovely? The old kitchen was DARK; you couldn't see your potatoes. She can see every potato she owns. Her boy wrote to say that he had taken the name Ash, after the village, in its memory, and she thought, well, that's nice, and took it as well, to save the postman, and now they are all Ashes and the post comes lovely. He is very deep, her boy. She wrote to him at the Slain Wyvern, Wednesdays and Saturdays, for eleven years, and he wrote back once, to the Ruins of Ashcombe, and the Ruins wrote back. She thought he would like that. He did.
+**<a href="../People/Mrs_Ash">Mrs Ash</a>** has a kitchen so new the paint still smells of it, with a big window over the lake, and she knits something long and does not stop. Mind the step. It's new. It's all new. Isn't it lovely? The old kitchen was DARK; you couldn't see your potatoes. She can see every potato she owns. Her boy wrote to say that he had taken the name Ash, after the village, in its memory, and she thought, well, that's nice, and took it as well, to save the postman, and now they are all Ashes and the post comes lovely. He is very deep, her boy. She wrote to him at the Slain Wyvern, Wednesdays and Saturdays, for eleven years, and he wrote back once, to the Ruins of Ashcombe, and the Ruins wrote back. She thought he would like that. He did.
 
 His room upstairs is bigger now, and has the light, and is a study at the minute, where the papers of the Flood Dinner Committee are kept: Hon. Sec., Mrs Ash. Up the wall by the window are pencil marks with ages, C., 6; C., 9; C., 12; C., 16; C., 19. The old ones went under with the old wall. These were put back from memory, and every one of them is a little taller than a boy would have been, and the last is exactly the top of his head. She drew where he would be.
 

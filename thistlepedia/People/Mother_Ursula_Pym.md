@@ -76,4 +76,4 @@ The Order is one again, or two that agree; the Prioress says it is a question fo
 - <a href="../Places/Weeping_Bottom">Weeping Bottom</a>
 - <a href="../Places/Sump">Sump</a>, which has her by law
 - <a href="Merribell">Merribell</a>, the Order's only Sister for eleven miles of Thistlewick
-- <a class="new" href="Aveline_Stope">Prioress Aveline Stope</a>
+- <a href="Aveline_Stope">Prioress Aveline Stope</a>

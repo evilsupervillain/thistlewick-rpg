@@ -50,7 +50,7 @@ The village has two hundred or so souls, and the Quest met a great many of them 
 * **The Gossip**, who will tell you that the Forty-Eighth was chosen on the second vote, and that the first vote was the goat. The goat abstained. Very dignified about it.
 * **The Dog**, and his **Neighbour**, who interprets him. The dog has not made a sound in my presence. The Neighbour says that he says to take a coat.
 * **A Child**, who has heard that there is a DUNGEON, to the NORTH, and will tell you, and will tell you again.
-* **Mrs Thistle**, Bram's mother, who is alive, and was making a pie (see <a href="../People/Bram_Thistle">Bram Thistle</a>).
+* **<a href="../People/Mrs_Thistle">Mrs Thistle</a>**, Bram's mother, who is alive, and was making a pie (see <a href="../People/Bram_Thistle">Bram Thistle</a>).
 
 **The goat** is Councillor, and is the second of the name. The first is buried in the churchyard under a small stone: IN MEMORY OF COUNCILLOR (THE FIRST). A GOAT. SERVED THREE TERMS. NEVER ONCE SPOKE OUT OF TURN. The present Councillor is sometimes seen standing beside it, looking thoughtful, and eating the flowers. He wears a good iron bell, which Hob made, and declined a brass one. He abstained from it.
 

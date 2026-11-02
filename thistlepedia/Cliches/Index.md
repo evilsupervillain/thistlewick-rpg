@@ -57,7 +57,7 @@
 
 <span class="trope" title="Walked into: Firstfield Meadow">**The fetch quest.**</span> Somebody's sheep are lost and must be found. At Firstfield the sheep are pigs, and are not lost, and have been asked to lose themselves a bit. If you decline, you are told *But thou must*, and then told sorry, the Guild gave her that line.
 
-<span class="trope" title="Walked into: the Fair">**The fortune teller.**</span> NEVER WRONG. TWO CROWNS. Mother Selvidge, at the <a href="../Places/Wayside_Sights#the-fair">Fair</a>, a long way from anywhere, the way fairs always are. I have not printed her reading, because it was not mine.
+<span class="trope" title="Walked into: the Fair">**The fortune teller.**</span> NEVER WRONG. TWO CROWNS. <a href="../People/Mother_Selvidge">Mother Selvidge</a>, at the <a href="../Places/Wayside_Sights#the-fair">Fair</a>, a long way from anywhere, the way fairs always are. I have not printed her reading, because it was not mine.
 
 <span class="trope" title="Walked into: Weeping Bottom; Much Pottering; Ashcombe">**The founder's stone.**</span> A stone, a date, a name and a reason, with a joke cut into it underneath by a later hand. Weeping Bottom's says the sea air is the finest cure for the chest, in the opinion of every physician consulted, and somebody has added, *None of whom had been*.
 

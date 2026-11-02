@@ -19,7 +19,7 @@ title: The Order of Whatever Works
 <tr><th>Soup</th><td>Leek, for everything</td></tr>
 </table>
 
-<p class="lede">The <b>Order of Whatever Works</b> is an order of healing Sisters, founded in 1702 by Mother Ursula Pym at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>, for the sea air. It holds that theology is a distraction from the actual problem, which is usually that you have not had any water today. It has a pamphlet instead of a doctrine and soup instead of a symbol, and it has never been beaten on points.</p>
+<p class="lede">The <b>Order of Whatever Works</b> is an order of healing Sisters, founded in 1702 by <a href="../People/Mother_Ursula_Pym">Mother Ursula Pym</a> at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>, for the sea air. It holds that theology is a distraction from the actual problem, which is usually that you have not had any water today. It has a pamphlet instead of a doctrine and soup instead of a symbol, and it has never been beaten on points.</p>
 
 ## The Rule of Life
 
@@ -47,7 +47,7 @@ There is one dry thing in any window of the Order, and it is a pair of socks, he
 
 For some years before 2000 the Order was two. The Sisterhouse had begun holding symposia, and a party of the Sisters under **Sister Bewick** had found that it had a doctrine, and had been examined on it, and had passed, and dyed the trim of its habits black, and called itself the **Order of What Ought To Work**, east door. There was one door. The ward was divided down the middle by a line, and the patients crossed it in the night, because they said there was soup on the other side.
 
-The Prioress, **Aveline Stope**, held symposia on the question. An order that holds one is thinking, she said; an order that holds eleven has stopped. The minutes of ten of them ended *Resolved, that the matter be referred to the next symposium.*
+The Prioress, **<a href="../People/Aveline_Stope">Aveline Stope</a>**, held symposia on the question. An order that holds one is thinking, she said; an order that holds eleven has stopped. The minutes of ten of them ended *Resolved, that the matter be referred to the next symposium.*
 
 It was settled in the year 2000, without the eleventh. Merribell, who had left the mother house at twenty-two because it had begun holding symposia, came back for an afternoon and proposed that the door be opened, and twenty patients seen by each half, and whoever was through first was right. Whatever Works won, nineteen to one, on points, with Sir Hamo Tench of the Errant keeping the score from the bed on the line. The one was Sister Bewick's, and it was a real case of the Weeping Bottom ague, the first anybody had seen in nine years, and at stage eleven of her *Correct Treatment* the patient sat up and felt better, and Merribell said that was a point to the east, fair's fair.
 

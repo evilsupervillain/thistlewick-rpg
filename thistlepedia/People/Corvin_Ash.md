@@ -11,7 +11,7 @@ title: Corvin Ash
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Corvin_Ash.png" alt="Corvin Ash, a brooding young man in a dark coat, not looking pleased on purpose" width="200"><span class="infobox-caption">Don't ask about the scar</span></td></tr>
 <tr><th>Known as</th><td>The Brooding One; the Doomed Rival</td></tr>
 <tr><th>Of</th><td><a href="../Places/Ashcombe">Ashcombe</a>; for eleven years, the corner of the Slain Wyvern</td></tr>
-<tr><th>Trade</th><td>Rival of a great hero, according to a fortune-teller, for twopence</td></tr>
+<tr><th>Trade</th><td>Rival of a great hero, according to a fortune-teller, for two crowns</td></tr>
 <tr><th>Age</th><td>Thirty-two</td></tr>
 <tr><th>Good at</th><td>Dark damage, and more of it the worse things get</td></tr>
 <tr><th>Bad at</th><td>Defence; luck; being told the school is very good</td></tr>
@@ -35,7 +35,7 @@ The new Ashcombe is proud of the flood. It has a plaque about it, which is upbea
 
 ## The fortune
 
-At a fair, the same year, a fortune-teller called Mother Selvidge told him, for twopence, that he was the rival of a great hero. He organised his entire adult life around it. He went and sat in the corner of the Slain Wyvern, which is where a great hero's rival goes, and waited for the hero, and the drinks there were, he points out, somewhat cheaper.
+At a fair, the same year, a fortune-teller called Mother Selvidge told him, for two crowns, that he was the rival of a great hero. He organised his entire adult life around it. He went and sat in the corner of the Slain Wyvern, which is where a great hero's rival goes, and waited for the hero, and the drinks there were, he points out, somewhat cheaper.
 
 ## On the Quest
 
@@ -47,7 +47,7 @@ The hero came in at last, in 2000, and asked him along, and he said "If fate dem
 
 **The Sable Hart.** There is an inn on the moor where doomed rivals brood professionally. Every corner is taken. There is a waiting list for the darkest, kept fairly, on a rota, and a newsletter. Corvin had been a member for years and had never attended, because attending would be admitting there was a category. There is a league table. He was low on it. He is second now, behind a scar. He has a chair in the middle of the room, in the light. He attends.
 
-**Mother Selvidge.** She is still working the fairs, and did not remember him, and read him again for twopence, and got a long life, a useful trade, and no destiny whatsoever. He asked her to do it again, and she did, and got the same. On the third reading she put the cards down and told him, kindly and without mystery, that she says the rival thing to about four young men a year, because it is the reading that makes them stand up straight, and that it has never once been wrong, in the sense that they all went and did something. She has read him three times. She has never once been wrong.
+**Mother Selvidge.** She is still working the fairs, and did not remember him, and read him again for two crowns, and got a long life, a useful trade, and no destiny whatsoever. He asked her to do it again, and she did, and got the same. On the third reading she put the cards down and told him, kindly and without mystery, that she says the rival thing to about four young men a year, because it is the reading that makes them stand up straight, and that it has never once been wrong, in the sense that they all went and did something. She has read him three times. She has never once been wrong.
 
 **The appraisal.** He took the sword to Miss Fettle at the Smiths' Hall in Great Dunnage, expecting a curse. There is no curse. It is a very good sword in poor condition, and she was enthusiastic about the tang. He asked how much a curse would cost. It is not expensive. There is a form. He has the form, if he wants one.
 
@@ -63,5 +63,5 @@ He is up. He has the scarf, the chair at the Sable Hart, the form, which he has 
 
 - <a href="../Places/Ashcombe">Ashcombe</a>
 - <a href="../Places/The_Sable_Hart">The Sable Hart</a>
-- <a href="../Places/Wayside_Sights#the-fair">Mother Selvidge</a>
+- <a href="Mother_Selvidge">Mother Selvidge</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

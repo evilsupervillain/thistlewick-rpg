@@ -22,7 +22,7 @@ title: Little Gore
 
 ## The green
 
-**Mrs Hester Vane**, in the front garden of the nearest house, is plainly delighted to see anybody. She has been to Fenmarch, and that is the furthest; she was married there, eleven years ago this summer. The whole of Little Gore walked over for it, all eleven of them, in their best, and it rained the whole way, and nobody minded at all. Her husband **Tom** is in the gardens at Fenmarch, and walks it every day, four miles there and four back, and says it is the best part.
+**<a href="../People/Hester_Vane">Mrs Hester Vane</a>**, in the front garden of the nearest house, is plainly delighted to see anybody. She has been to Fenmarch, and that is the furthest; she was married there, eleven years ago this summer. The whole of Little Gore walked over for it, all eleven of them, in their best, and it rained the whole way, and nobody minded at all. Her husband **Tom** is in the gardens at Fenmarch, and walks it every day, four miles there and four back, and says it is the best part.
 
 On the green, three children play weddings. **Bess**, with a daisy chain on her head, is the bride, or Mum; it is the same thing. **Alfie**, with his hair wetted flat, is Dad, and has to stand there and look pleased, and Dad says that is the whole job. **Nell** is everybody else: the whole of Little Gore, half of Fenmarch, the vicar, the rain and the cake. Mrs Vane asks visitors to mind them, because they will marry you if you stand still. A log by the green has a row of daisies laid along it very carefully; they are the pews. A barrel of confetti is labelled FOR THE NEXT ONE, and there is confetti on the barrel, the step, the cat and the vicar.
 
@@ -42,7 +42,7 @@ His nephew, the Fourth, came up the sandy road at a run that afternoon, and has 
 
 ## Dame Winifred
 
-**Dame Winifred Cope** of the Order of the Errant stands outside her own front door as if it were a post. She is the Chapter's knight in the field at Little Gore, and has been since 1989, and there is a pin in her at <a href="Coldbarrow">Coldbarrow</a>, just the one. She is here; that is the whole of it. Somebody has to be where the pin is, or what is the map for? She writes every quarter, NOTHING TO REPORT, and they write back, VERY GOOD, and she says it is the nicest correspondence she has ever had. Her door has a card in the Order's lettering, KNIGHT IN THE FIELD. DO NOT DISTURB, and she is standing four feet from it, and as far as the Chapter is concerned that is the field.
+**<a href="../People/Dame_Winifred_Cope">Dame Winifred Cope</a>** of the Order of the Errant stands outside her own front door as if it were a post. She is the Chapter's knight in the field at Little Gore, and has been since 1989, and there is a pin in her at <a href="Coldbarrow">Coldbarrow</a>, just the one. She is here; that is the whole of it. Somebody has to be where the pin is, or what is the map for? She writes every quarter, NOTHING TO REPORT, and they write back, VERY GOOD, and she says it is the nicest correspondence she has ever had. Her door has a card in the Order's lettering, KNIGHT IN THE FIELD. DO NOT DISTURB, and she is standing four feet from it, and as far as the Chapter is concerned that is the field.
 
 Her helmet is good and plain, with a small G stamped inside the brim, and is Hob Grumnir's. He asked whether he might borrow it back, for the spring. She said that she was in it. That turned out to be the whole of her reason, and it was a very good one.
 
