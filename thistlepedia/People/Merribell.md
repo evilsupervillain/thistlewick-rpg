@@ -10,6 +10,8 @@ title: Merribell
 <caption>Sister Merribell</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Merribell.png" alt="Merribell, a healer, looking at the viewer as if to ask when they last had a glass of water" width="200"><span class="infobox-caption">She would like to know when you last drank water</span></td></tr>
 <tr><th>Known as</th><td>Sister Merribell; the Sister of Whatever Works</td></tr>
+<tr><th>Born</th><td>4 February 1974, <a href="../Places/Thistlewick">Thistlewick</a>, in the chapel house; she was given a glass of water at once</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, at the chapel</td></tr>
 <tr><th>Trade</th><td>Village healer; field medic</td></tr>
 <tr><th>Order</th><td>The Order of Whatever Works, the only member for eleven miles</td></tr>

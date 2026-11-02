@@ -11,6 +11,7 @@ title: The Drainage Commissioner
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/The_Drainage_Commissioner.png" alt="The Drainage Commissioner, in wellingtons, with a clipboard" width="200"><span class="infobox-caption">In wellingtons</span></td></tr>
 <tr><th>Known as</th><td>The Commissioner. The name on the clipboard is P. Fennimore, and the Commissioner has asked to be known by the post</td></tr>
 <tr><th>Born</th><td>12 September 1966, in the parish, on the dry side of the Fen</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Commissioner</th><td>Of Drainage, for the parish of the Cinder Fen, since 1991</td></tr>
 <tr><th>Waiting for</th><td>A fire person</td></tr>
 <tr><th>The Fen</th><td>Nine hundred acres. Wants burning. Everybody agrees</td></tr>
@@ -19,17 +20,17 @@ title: The Drainage Commissioner
 <tr><th>Third copies returned</th><td>One, in 2000. Countersigned by the Fen</td></tr>
 </table>
 
-<p class="lede"><b>The Drainage Commissioner</b> of the parish of the Cinder Fen stood for nine years where the path into the Fen gives up, in wellingtons, with a clipboard and a form in triplicate, waiting for a fire person. The Fen wanted burning. It was the traditional remedy. Nobody in the parish had been able to do it since Mr Tinder retired in 1970, and under the mud a road was drowning a foot at a time.</p>
+<p class="lede"><b>The Drainage Commissioner</b> of the parish of the Cinder Fen stood for nine years where the path into the Fen gives up, in her wellingtons, with a clipboard and a form in triplicate, waiting for a fire person. The Fen wanted burning. It was the traditional remedy. Nobody in the parish had been able to do it since Mr Tinder retired in 1970, and under the mud a road was drowning a foot at a time.</p>
 
 ## The post
 
-The Commissioner was born in 1966, on the dry side of the Fen, and grew up hearing about Mr Tinder, the parish's last fire person, who had burned the Fen every few years since before anybody could remember, and retired in 1970, when the Commissioner was four, and was never replaced, because nobody else in the parish could do it. The Fen grew. In 1991, at twenty-five, the Commissioner was appointed to the post, which had been vacant for twenty years because there was nothing to commission, and drew up the form.
+The Commissioner was born in 1966, on the dry side of the Fen, and grew up hearing about Mr Tinder, the parish's last fire person, who had burned the Fen every few years since before anybody could remember, and retired in 1970, when she was four, and was never replaced, because nobody else in the parish could do it. The Fen grew. In 1991, at twenty-five, she was appointed to the post, which had been vacant for twenty years because there was nothing to commission, and she drew up the form.
 
 > "It wants burning, you see. The Fen. Nine hundred acres. Everybody agrees. It's the traditional remedy, and nobody in the parish has been able to do it since Mr Tinder retired."
 
 > "It's all approved. Here's the form. In triplicate: one for the parish, one for the county, and one to come back to me afterwards, signed. The fire person. And countersigned by the Fen. There's a box for it. I've never had one back."
 
-The form does not expire. The Commissioner made sure of that, in 1991, and says that it was the most important thing on it.
+The form does not expire. She made sure of that, in 1991, and says that it was the most important thing on it.
 
 ## The fire person
 
@@ -41,7 +42,7 @@ It burned all afternoon and all night, and nobody in the parish went to bed, and
 
 ## Afterwards
 
-The Commissioner is thirty-five. The causeway is open, and the parish walks to Great Dunnage on it, eleven miles shorter than the road. The third copy is framed in the parish hut, with its scorch, and the Commissioner says that it is the only form in the parish's history to have been returned complete, and that it took nine years, and that it was worth every one of them. There is nothing to commission now. The post continues. The Commissioner stands at the end of the path on Thursdays, in wellingtons, looking at the Fen, which is dry, and is very content.
+The Commissioner is thirty-five, and she has been in the post for eleven years, and in the wellingtons for longer. The causeway is open, and the parish walks to Great Dunnage on it, eleven miles shorter than the road. The third copy is framed in the parish hut, with its scorch, and she says that it is the only form in the parish's history to have been returned complete, and that it took nine years, and that it was worth every one of them. There is nothing to commission now. The post continues. She stands at the end of the path on Thursdays, in her wellingtons, looking at the Fen, which is dry, and is very content.
 
 ## See also
 

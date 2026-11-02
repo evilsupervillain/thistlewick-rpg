@@ -11,6 +11,7 @@ title: Nib
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Nib.png" alt="Nib, the fortieth apprentice of the Hoyle Works" width="200"><span class="infobox-caption">The fortieth</span></td></tr>
 <tr><th>Known as</th><td>Nib; the Fortieth; "the apprentice", by Miss Hoyle, in every memorandum</td></tr>
 <tr><th>Born</th><td>22 January 1986, <a href="../Places/Upper_Clanging">Upper Clanging</a>, on Furnace Row</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Apprenticed</th><td>The Hoyle Works, 1998. The fortieth since 1804</td></tr>
 <tr><th>The numbering</th><td>Is not a joke. Nib has decided to believe so</td></tr>
 <tr><th>Cans</th><td>One. There has only ever been the big can</td></tr>
@@ -23,11 +24,11 @@ title: Nib
 
 ## The fortieth
 
-Nib was born on Furnace Row in 1986 and went to the works at twelve, in 1998, which is the age at which the Hoyle Works has always taken its apprentice, because the apprentice has to fit in the places the works has. The works has a list of every apprentice since 1804, on a board in the drawing office, and Nib's name is at the bottom, number forty, with a space under it.
+Nib was born on Furnace Row in 1986 and she went to the works at twelve, in 1998, which is the age at which the Hoyle Works has always taken its apprentice, because the apprentice has to fit in the places the works has. The works has a list of every apprentice since 1804, on a board in the drawing office, and her name is at the bottom, number forty, with a space under it.
 
 > "I am the apprentice. There has been an apprentice here since eighteen oh four. We are numbered. I am the fortieth. Miss Hoyle says the numbering is not a joke, and I have decided to believe her."
 
-There is a line painted on the floor of the shed. On one side of it is written YES and on the other NO, and the works stands on whichever side it believes about the current attempt. Miss Hoyle stands on neither; she stands on the line, with a drawing. Nib always stands on the NO side. I asked why. Nib said that somebody has to, so that when it flies there is somebody to be surprised, and that a works with nobody surprised in it is a works that has stopped trying hard enough.
+There is a line painted on the floor of the shed. On one side of it is written YES and on the other NO, and the works stands on whichever side it believes about the current attempt. Miss Hoyle stands on neither; she stands on the line, with a drawing. Nib always stands on the NO side. I asked her why. She said that somebody has to, so that when it flies there is somebody to be surprised, and that a works with nobody surprised in it is a works that has stopped trying hard enough.
 
 ## The can
 
@@ -37,13 +38,13 @@ Every day for two years Miss Hoyle asked for the small can, and every day Nib br
 
 ## The sweep
 
-At the dinner hour the shift is Miss Hoyle, and Nib, and Tappet Cotterill, which at the Hoyle Works is all of it, and in the year 2000 Mrs Cotterill came up at the dinner hour to read out her son's letters from the road. The works ran a sweep, all month, on what the last letter would say. Nib had Thursday. Tappet had *there is no dragon*. There was no dragon. Nib paid, and was not happy about it.
+At the dinner hour the shift is Miss Hoyle, and Nib, and Tappet Cotterill, which at the Hoyle Works is all of it, and in the year 2000 Mrs Cotterill came up at the dinner hour to read out her son's letters from the road. The works ran a sweep, all month, on what the last letter would say. Nib had Thursday. Tappet had *there is no dragon*. There was no dragon. Nib paid, and she was not happy about it.
 
 ### A note on the apprentice
 
 <p class="contributor">Contributed by O. Hoyle, Works Manager</p>
 
-1. Mr Bellwether has asked me for a line on the apprentice, and has told me that he does not give the apprentice a pronoun in his own pages, because he has not been told one. That is correct procedure. In mine she is *her*, because she is my apprentice and I have been told.
+1. Mr Bellwether has asked me for a line on the apprentice, and has asked me, before writing his own, whether she is *she*. She is. That is correct procedure: ask, then write it down. He tells me he went two volumes without asking anybody anything of the kind, which is not correct procedure, and which he has since put right, in this volume, throughout. I have checked a sample. It will do.
 
 2. She asked me nine times whether we were going to manage it. I told her nine times that it was not a question with an answer. On the tenth occasion she did not ask. She was on the gantry when it went, and she was on the NO side of the line, as instructed by herself, and she said, "Oh," and that was the correct response, and I have entered it.
 
@@ -55,7 +56,7 @@ O. HOYLE, Works Manager. 16 March 2002.
 
 ## Afterwards
 
-Nib is sixteen, and still the fortieth, and is at the works for the keel of the Two Hundred and First, and stands, as before, on the NO side. There is still a space under Nib's name on the board, and Nib says that it will be a long time before anybody needs it, because Nib has not finished being apprenticed, and does not intend to finish for some years, because there is a great deal of works.
+Nib is sixteen, and still the fortieth, and she is at the works for the keel of the Two Hundred and First, and stands, as before, on the NO side. There is still a space under her name on the board, and she says that it will be a long time before anybody needs it, because she has not finished being apprenticed, and does not intend to finish for some years, because there is a great deal of works.
 
 ## See also
 

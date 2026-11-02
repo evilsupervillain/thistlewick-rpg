@@ -11,6 +11,7 @@ title: Perce Stagg
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Perce_Stagg.png" alt="Perce Stagg, in a red coat with a white fur collar" width="200"><span class="infobox-caption">"I'll do the face. You'll see."</span></td></tr>
 <tr><th>Known as</th><td>Perce; Mr Stagg; the Man Who Broke the Winter</td></tr>
 <tr><th>Born</th><td>Percival Stagg, 1 March 1934, at Fenny Stretton, a long way south, on a smallholding</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Went north</th><td>Spring 1960, the year of the Forty-Fourth, with everybody</td></tr>
 <tr><th>Chosen</th><td>No. Nobody chose him</td></tr>
 <tr><th>Got as far as</th><td><a href="../Places/Frostwick">Frostwick</a>. The winter was in the way</td></tr>

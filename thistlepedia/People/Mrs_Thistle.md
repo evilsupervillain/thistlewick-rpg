@@ -11,6 +11,7 @@ title: Mrs Thistle
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mrs_Thistle.png" alt="Mrs Thistle, Bram's mother" width="200"><span class="infobox-caption">"I know, love."</span></td></tr>
 <tr><th>Known as</th><td>Mrs Thistle; Mother, to her son; "Bram's mum", to the whole of the Forty-Eighth's company, who were all fed</td></tr>
 <tr><th>Born</th><td>Annie Brook, 6 June 1957, at the mill below <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td>Will Thistle, turnip farmer, 1977</td></tr>
 <tr><th>Son</th><td>Bram, born 1979</td></tr>
 <tr><th>Is</th><td>Alive, well, and has read the version that says otherwise</td></tr>

@@ -11,6 +11,7 @@ title: King Aldous
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/King_Aldous.png" alt="King Aldous, in a red robe and a crown" width="200"><span class="infobox-caption">"Oh dear."</span></td></tr>
 <tr><th>Known as</th><td>King Aldous; His Majesty; Aldous the Generous, by the shareholders; "the Pater", by Rosamund, in her memoir, eleven volumes</td></tr>
 <tr><th>Born</th><td>3 January 1932, at the palace, <a href="../Places/Fairholme">Fairholme</a>, when it was a good deal bigger</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Reigned</th><td>Since 1961</td></tr>
 <tr><th>Married</th><td>Queen Isobel, 1975; widowed 1983</td></tr>
 <tr><th>Children</th><td>One. Taken eleven times, twelve if you count the eagle</td></tr>

@@ -13,6 +13,7 @@ title: Prosper Hollowell
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Prosper_Hollowell.png" alt="Prosper Hollowell, Caretaker, in spectacles" width="200"><span class="infobox-caption">Retained</span></td></tr>
 <tr><th>Known as</th><td>P. Hollowell; Mr Hollowell; the Caretaker</td></tr>
 <tr><th>Born</th><td>Not on file. The file was opened after I was retained, and I have never thought it my place to go back and enter myself</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Retained</th><td>Year one of the engagement, on its removal to the Tower: four thousand eight hundred years ago, in the engagement's years</td></tr>
 <tr><th>Post</th><td>Caretaker, the Former Premises, the sky</td></tr>
 <tr><th>Quarterly reports</th><td>Nineteen thousand two hundred, all filed</td></tr>

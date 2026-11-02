@@ -11,6 +11,7 @@ title: Elias Meech
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Elias_Meech.png" alt="Mr Meech, farmer, in a broad hat" width="200"><span class="infobox-caption">Between gates</span></td></tr>
 <tr><th>Known as</th><td>Mr Meech</td></tr>
 <tr><th>Born</th><td>Elias Meech, 23 January 1931, at the farm, in the snowy north, in the room over the dairy</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Farms</th><td>The Meech farm, including the top field, as the fifth Meech to do so since the stone fell</td></tr>
 <tr><th>Gatepost</th><td>A stone that fell out of the sky, 1749, on a Tuesday</td></tr>
 <tr><th>Gates outlasted</th><td>Eleven, all in the hedge-bottom, in order</td></tr>

@@ -11,6 +11,7 @@ title: Toby Wendle
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Toby_Wendle.png" alt="Toby Wendle, with a saucepan on his head and a plaster on his cheek" width="200"><span class="infobox-caption">Welcome to Gladhollow!</span></td></tr>
 <tr><th>Known as</th><td>Toby; the Welcomer (2000); the Farewell Boy (2001-)</td></tr>
 <tr><th>Born</th><td>Tobias Wendle, 2 February 1990, <a href="../Places/Gladhollow">Gladhollow</a>, in the house behind the barrels</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Post</th><td>The Welcomer, west gate, 1997-2001. One sentence</td></tr>
 <tr><th>Ways of saying it</th><td>Fifteen. The fifteenth was not finished</td></tr>
 <tr><th>Headgear</th><td>A saucepan. It rings like a bell</td></tr>

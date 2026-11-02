@@ -700,3 +700,70 @@ mother.**
   Fellow Blunt (the face reads young against twenty-two years of quarterly
   inspections; left for Mike). Mother Selvidge now has a page, so her links
   point to it, and Corvin's "twopence" is mended to the game's two crowns.
+
+## What the dates-and-pronouns pass added
+
+Asked for by Mike on 2 November 2026: dates on the bios unit 7b did not
+write, a **Sex** row in every bio's infobox, and real pronouns for everybody
+the wiki had kept neutral, decided off the portrait, and asked where the
+portrait did not settle it. **This supersedes every "no pronoun" note above.**
+`NORTH.md` says the *game* never gives Ferrule or Clevis one and that is not
+to be tidied; the game is unchanged, and the wiki now says what the game does
+not.
+
+**Pronouns.** Off the portraits: Ferrule *she*, Clevis *he*, Tibb *he*, Nabb
+*she*, Clem *he*, Nib *she* (Hosea's text too now; Ott's note says he asked
+first, which is correct procedure). Mike's calls: Sops *he*, the Drainage
+Commissioner *she*, **Washer a girl** (five and five; Ferrule has it on the
+kitchen slate under BALANCE), Wick *he*. Bessie's baby is still unnamed and
+unsexed at Winnie's request. Eighty-Four's Sex row is "not applicable; *her*,
+by the custom of the works".
+
+**Ott and the generations.** Ott is born 18 July 1964, young, as the portrait
+reads (Mike's call). Four generations since 1802 does not fit that, and the
+game's own line stands stretched; the wiki stops making it worse: Eighty-Four
+is now "designed by the chief engineer of the day", no generation named.
+
+**Councillor Fenn** reads young in his portrait, so he is born 1957 and has
+been on the Committee since 1981, "about twenty years", not forty (the forty
+was the wiki's, not the game's; Prophecy Hall and the Committee mended too).
+
+**Born** (and **Died** where it applies), by the 7b rule:
+
+| who | born | note |
+| --- | --- | --- |
+| Ambrose Fitch | 14 May 1934 | died about 1999 (canon) |
+| Ambrosine Quill | 2 December 1950 | |
+| Bram Thistle | 3 October 1979 | in the harvest; Mabel died the same year |
+| Brother Quillon | 16 August 1932 | where, not written down |
+| Bryd Ollerenshaw | 22 June 1959 | |
+| Cobb Lorrimer | 1 April 1956 | a coincidence, he says |
+| Councillor Fenn | 27 September 1957 | |
+| Dean Fenwold | 5 November 1928 | in the Lodge, in a fire drill |
+| Elder Faelan | the Second Age, a Tuesday | |
+| Elder Wispel | 19 February 1926 | |
+| Grimspite | not stated; he declined (`TIMELINE.md` 6) | |
+| Halbert Quy | 7 February 1929 | 71 at the Quest (`EXPANSION.md`) |
+| Halloran Vance | 30 April 1914 | died 2 November 1968, Nether Sopping |
+| Hob Grumnir | 12 August 1960 | Beatrice from nine, 1969; south from Clanging 1980 |
+| Hosea Bellwether | 9 November 1965 | over the Wyvern's bar |
+| Maud Penhallow | 11 January 1984 | nine in 1993 |
+| Merribell | 4 February 1974 | 22 in 1996 |
+| Merrow Halgate | 8 March 1951 | |
+| Mirabel | the Second Age, ~2,100 years before the Third | |
+| Nix | 23 January 1974 | fifteen in 1989, twenty-six at the Quest |
+| Ott Hoyle | 18 July 1964 | |
+| Pargeter | 6 December 1965 | |
+| Piper Quill | 10 January 1976 | |
+| Roland Fairweather | 8 February 1966 | eleven in 1977, thirty-four at the Quest |
+| Sir Aldric | 1 February 1954 | sixteen in 1970, thirty-seven in 1991 |
+| Sir Dunstable | 11 November 1930 | no Died row: alive stays disputed |
+| Tobias Frayne | 20 May 1946 | |
+| Wren Halloway | 17 April 1972 | |
+| Ysolde Marrow | 19 January 1922 | 78 at the Quest (canon) |
+| Zephyrine Vance | 15 January 1968 | |
+| Corvin Ash | 13 January 1970 | nineteen in 1989 |
+| Spare Cotterill | 2 January 1991 | as 7b listed |
+
+Washer's age line in Upper Clanging, Shim and Grommet now says *two today*,
+to agree with Washer's own page (21 March 2000).

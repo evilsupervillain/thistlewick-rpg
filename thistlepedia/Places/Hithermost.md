@@ -61,7 +61,7 @@ I asked Sir Dunstable directly, on my visit, in the chapel, at a quarter past fo
 
 My own view is that the knight is a man of excellent manners, and that the question is none of my business.
 
-At the Slain Wyvern there is a book on it. It is held by Sops. The odds have not moved in two years, which Sops says has never happened before on anything, and declines to interpret.
+At the Slain Wyvern there is a book on it. It is held by Sops. The odds have not moved in two years, which he says has never happened before on anything, and he declines to interpret it.
 
 </div>
 

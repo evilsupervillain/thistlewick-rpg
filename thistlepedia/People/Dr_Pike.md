@@ -11,6 +11,7 @@ title: Dr Pike
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dr_Pike.png" alt="Dr Pike, by the fire at the Eight Hours" width="200"><span class="infobox-caption">"I watch."</span></td></tr>
 <tr><th>Known as</th><td>Dr Pike; Pike. Doctor</td></tr>
 <tr><th>Born</th><td>Alaric Pike, 19 November 1941, at Haverleigh, the doctor's house, the son of the doctor</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Practised</th><td>Medicine, at Haverleigh, 1967-1989</td></tr>
 <tr><th>Retired</th><td>In the practical sense, which is to say nobody comes</td></tr>
 <tr><th>Took a room at the Eight Hours</th><td>For a fortnight, in 1989, to think about it</td></tr>

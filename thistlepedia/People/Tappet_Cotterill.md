@@ -11,6 +11,7 @@ title: Tappet Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Tappet_Cotterill.png" alt="Tappet Cotterill, in a blue cap" width="200"><span class="infobox-caption">Six crates. Where do you want them?</span></td></tr>
 <tr><th>Known as</th><td>Tappet</td></tr>
 <tr><th>Born</th><td>28 January 1982, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Named for</th><td>A tappet, which is pushed, so that something else can open</td></tr>
 <tr><th>Works</th><td>Carting, for the foundry; and the shift at the Hoyle Works, which is Miss Hoyle, Nib, and her</td></tr>
 <tr><th>Brings up</th><td>The castings, on Tuesdays. Six crates. Same place as always</td></tr>

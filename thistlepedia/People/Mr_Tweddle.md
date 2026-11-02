@@ -11,6 +11,7 @@ title: Mr Tweddle
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mr_Tweddle.png" alt="Mr Tweddle, Birdsong (Open)" width="200"><span class="infobox-caption">The thrush goes down very well</span></td></tr>
 <tr><th>Known as</th><td>Mr Tweddle; Birdsong (Open)</td></tr>
 <tr><th>Born</th><td>Wilfred Tweddle, 1 April 1939, <a href="../Places/Great_Dunnage">Great Dunnage</a>, at the Wire Works</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Trade</th><td>Wire-drawer, the Wire Works, 1953-1999. Retired</td></tr>
 <tr><th>Repertoire</th><td>A nightingale; a curlew; a thrush that's lost its keys</td></tr>
 <tr><th>Practising since</th><td>Easter</td></tr>

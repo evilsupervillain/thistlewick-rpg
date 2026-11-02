@@ -10,6 +10,8 @@ title: Hosea Bellwether
 <caption>Hosea Bellwether</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Hosea_Bellwether.png" alt="Hosea Bellwether, a historian with ink on his hands" width="200"><span class="infobox-caption">With ink hands</span></td></tr>
 <tr><th>Known as</th><td>The historian at the table by the fire</td></tr>
+<tr><th>Born</th><td>9 November 1965, <a href="../Places/Nether_Sopping">Nether Sopping</a>, in the room over the Slain Wyvern's bar. I have checked this, against the register, which was the first thing I ever checked</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Nether_Sopping">Nether Sopping</a>, the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, the table by the fire</td></tr>
 <tr><th>Trade</th><td>Historian</td></tr>
 <tr><th>Work</th><td><i>A Complete And Accurate History Of The Obligatory Quest</i>, three volumes</td></tr>

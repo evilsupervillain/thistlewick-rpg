@@ -34,7 +34,7 @@ None of the Committee has ever remarked on the arithmetic of clause two, in my h
 
 **The Clerk** sits at the end of the table, by the door, with Form C-12, and the weariness of a man who has answered every question before you ask it. He has no name in the minutes; he is the Clerk.
 
-**The councillors** sit down the side. One has, for as long as anybody remembers, been asking whether the Dark Lord *shall be slain* or *shall be defeated*, because *slain* is a commitment. Another, <a href="../People/Councillor_Fenn">Councillor Fenn</a>, held for forty years that clause twelve was the problem. "That's not a warning. That's a subscription." He was right, and the minutes of the week of the ending say that he wished it minuted that he had been saying so. He carries the key to the struck material on his belt.
+**The councillors** sit down the side. One has, for as long as anybody remembers, been asking whether the Dark Lord *shall be slain* or *shall be defeated*, because *slain* is a commitment. Another, <a href="../People/Councillor_Fenn">Councillor Fenn</a>, held for twenty years that clause twelve was the problem. "That's not a warning. That's a subscription." He was right, and the minutes of the week of the ending say that he wished it minuted that he had been saying so. He carries the key to the struck material on his belt.
 
 **The Fete Sub-Committee** reports to the Committee on everything that is to be read aloud at the fete, which is where the Prophecy Fund's income comes from, and strikes what cannot be. Its most famous minute is the one on the wall of the Hall, carried four to one; the one against was Mrs Wispel.
 

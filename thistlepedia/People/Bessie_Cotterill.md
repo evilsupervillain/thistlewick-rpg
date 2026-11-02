@@ -11,6 +11,7 @@ title: Bessie Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Bessie_Cotterill.png" alt="Bessie Cotterill, who has her gran's face, forty years on" width="200"><span class="infobox-caption">Her gran's face, forty years earlier</span></td></tr>
 <tr><th>Known as</th><td>Bessie; Young Mrs Cotterill, which she does not answer to, because it makes her look round for the other one</td></tr>
 <tr><th>Born</th><td>Elizabeth Marsden, 5 May 1977, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td><a href="Cotter_Cotterill">Cotter Cotterill</a>, the eldest, 18 September 1999</td></tr>
 <tr><th>Has her dinner</th><td>At her mother-in-law's. There is always more than they need</td></tr>
 <tr><th>Has the house to herself</th><td>Second Saturday</td></tr>

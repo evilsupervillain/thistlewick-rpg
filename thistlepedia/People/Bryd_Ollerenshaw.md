@@ -10,6 +10,8 @@ title: Bryd Ollerenshaw
 <caption>Bryd Ollerenshaw</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Bryd_Ollerenshaw.png" alt="Bryd Ollerenshaw, a blacksmith" width="200"><span class="infobox-caption">Waiting for a spar to get ready</span></td></tr>
 <tr><th>Known as</th><td>Ollerenshaw</td></tr>
+<tr><th>Born</th><td>22 June 1959, <a href="../Places/Upper_Clanging">Upper Clanging</a>, over the forge</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a>, at the foot of the street</td></tr>
 <tr><th>Trade</th><td>Smith. If it is iron and it has to hold</td></tr>
 <tr><th>The forge</th><td>His, his father's, and his father's mother's</td></tr>

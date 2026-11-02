@@ -10,6 +10,8 @@ title: Roland Fairweather
 <caption>Roland Fairweather</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Roland_Fairweather.png" alt="Roland Fairweather, magnificent, glowing, and very slightly apologetic" width="200"><span class="infobox-caption">Very sorry. Always very sorry</span></td></tr>
 <tr><th>Known as</th><td>The Guest Star</td></tr>
+<tr><th>Born</th><td>8 February 1966. Where is the subject of a review meeting, and has been since 1978</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td>A table by the fire in the Slain Wyvern, between engagements</td></tr>
 <tr><th>Trade</th><td>Being extremely good at this</td></tr>
 <tr><th>Since</th><td>The age of eleven (the Wyrm of Ickworth, 1977)</td></tr>

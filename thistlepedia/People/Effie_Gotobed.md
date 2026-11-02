@@ -11,6 +11,7 @@ title: Effie Gotobed
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Effie_Gotobed.png" alt="Effie Gotobed, at her gate, waiting for the post" width="200"><span class="infobox-caption">Are you the post?</span></td></tr>
 <tr><th>Known as</th><td>Effie; Young Effie, by the village; E.G., on the wishing well</td></tr>
 <tr><th>Born</th><td>Euphemia Gotobed, 2 October 1990, <a href="../Places/Much_Pottering">Much Pottering</a>; three months older than her pen pal, which she has mentioned</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td>The Gotobeds' cottage, and its gate, at about the time of the post</td></tr>
 <tr><th>Pen pal</th><td>Spare Cotterill, of Upper Clanging, since 1997, by order of the parish council</td></tr>
 <tr><th>Is</th><td>Nearly a princess. It is different. It is nearly</td></tr>

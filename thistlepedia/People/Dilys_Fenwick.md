@@ -11,6 +11,7 @@ title: Dilys Fenwick
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dilys_Fenwick.png" alt="Dilys Fenwick, by the fence, with three sheep" width="200"><span class="infobox-caption">"They're just there."</span></td></tr>
 <tr><th>Known as</th><td>Dilys; Mrs Fenwick, on the sign</td></tr>
 <tr><th>Born</th><td>Dilys Pugh, 17 January 1971, in the valley over the hill from Firstfield</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td>Tam Fenwick, in the meadow, 1995, with the vows explained first, twice, in capitals</td></tr>
 <tr><th>Post</th><td>Station Three: Quests, the Guild of Guides</td></tr>
 <tr><th>Sheep</th><td>Three. Lost, a bit</td></tr>

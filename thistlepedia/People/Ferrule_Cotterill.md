@@ -11,6 +11,7 @@ title: Ferrule Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ferrule_Cotterill.png" alt="Ferrule Cotterill, with a long braid" width="200"><span class="infobox-caption">In charge from six</span></td></tr>
 <tr><th>Known as</th><td>Ferrule</td></tr>
 <tr><th>Born</th><td>6 February 1984, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Named for</th><td>A ferrule, which is a collar. It fastens nothing. It only stops a split. (Grommet)</td></tr>
 <tr><th>In charge</th><td>From six, when Da goes to work</td></tr>
 <tr><th>Policy</th><td>Nobody gets to sit down</td></tr>
@@ -26,7 +27,7 @@ title: Ferrule Cotterill
 
 The arrangement began in 1996, when Ferrule was twelve, on an evening when Mr Cotterill had gone down to the foundry and Mrs Cotterill had gone up to the Parish Rooms about a christening, and Cotter was in Great Dunnage, and Rivet was asleep, and Gudgeon was at the Rooms with Mam, and Tappet was out with the cart, and so the oldest Cotterill awake in the house was Ferrule. When Mrs Cotterill came home at nine the floor had been swept, the younger ones were in bed in order of size, the kettle was on, and Clevis had been made to give back three farthings. Mrs Cotterill looked round the kitchen for some time and then said, "Right, then," and that was the appointment.
 
-It has not been revoked. Ferrule has been in charge from six every evening since, for six years, and the house runs, in the evenings, the way a works runs: to time, and standing up. "Da goes to work. Then I am in charge and nobody gets to sit down." I asked what would happen if somebody did sit down. Ferrule looked at me for a moment as if I had asked what would happen if the river ran uphill, and then said that nobody did.
+It has not been revoked. She has been in charge from six every evening since, for six years, and the house runs, in the evenings, the way a works runs: to time, and standing up. "Da goes to work. Then I am in charge and nobody gets to sit down." I asked what would happen if somebody did sit down. She looked at me for a moment as if I had asked what would happen if the river ran uphill, and then said that nobody did.
 
 ## Mam
 
@@ -40,7 +41,7 @@ After Washer, it was worse. "Mam is to stay sat down for a week," Ferrule announ
 
 ## Clevis
 
-"Do not encourage Clevis." It is the one standing instruction Ferrule gives every visitor to the house, and the only one Ferrule gives twice. The two of them are three years apart, and share a landing, and Clevis runs a book on everything that happens in the family, and Ferrule is in charge of everything that happens in the family, and so the two of them are, in a sense, in the same line of work from opposite ends. Clevis has never once taken a bet against Ferrule. Clevis says it is not a sporting proposition.
+"Do not encourage Clevis." It is the one standing instruction Ferrule gives every visitor to the house, and the only one she gives twice. She and Clevis are three years apart, and share a landing, and Clevis runs a book on everything that happens in the family, and Ferrule is in charge of everything that happens in the family, and so the two of them are, in a sense, in the same line of work from opposite ends. Clevis has never once taken a bet against her. He says it is not a sporting proposition.
 
 ## The dragon
 
@@ -48,7 +49,7 @@ In the year 2000, writing to his pen pal at Much Pottering, Spare told her that 
 
 ## Afterwards
 
-Ferrule is eighteen, and still in charge from six. With Cotter married and the eldest four at work, the evening household is now Clevis, Shim, Spare, Washer and Mrs Cotterill, and Ferrule says that is not fewer, it is younger, which is more. Ferrule has been offered a place at the Parish Rooms, by Gudgeon, and at the works, by Tappet, and at the Safety Valve, by Mr Kell, who said that he had never seen anybody keep a room standing up like it. Ferrule has declined all three, on the grounds that the position at home is not vacant, and nobody else could fill it, and Washer is beginning to walk.
+Ferrule is eighteen, and still in charge from six. With Cotter married and the eldest four at work, the evening household is now Clevis, Shim, Spare, Washer and Mrs Cotterill, and Ferrule says that is not fewer, it is younger, which is more. She has been offered a place at the Parish Rooms, by Gudgeon, and at the works, by Tappet, and at the Safety Valve, by Mr Kell, who said that he had never seen anybody keep a room standing up like it. She has declined all three, on the grounds that the position at home is not vacant, and nobody else could fill it, and Washer is beginning to walk.
 
 ## See also
 

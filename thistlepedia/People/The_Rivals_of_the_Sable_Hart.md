@@ -19,13 +19,13 @@ title: The Rivals of the Sable Hart
 <figure><img src="../images/portraits/Mrs_Garrow.png" alt="Mrs Garrow"><figcaption>Mrs Garrow</figcaption></figure>
 </div>
 
-| Member | Born | Corner | Rival of | Table, 2000 |
-|---|---|---|---|---|
-| Hollin Crake | 12 November 1931 | The Secretary's, by the window | Not stated, out of tact | Third, 36 |
-| Silas Veyle | 31 October 1966 | The darkest, until Monday | Not stated, out of drama | First, 41 (the scar) |
-| Thaddeus Rook | 6 April 1954 | The darkest, from Monday | A very great archer, east coast, ninety-three this year | Fourth, 35, by himself |
-| Lucan Morrow | 20 December 1968 | The one by the coat hooks | Mr Pennock, a very great wizard, who does not know | Second, 37 (a vow, in the rain) |
-| Kit Blackwood | 1 March 1979 | None. The stool by the fire | Nobody yet. There is a list | Twelve (keen) |
+| Member | Born | Sex | Corner | Rival of | Table, 2000 |
+|---|---|---|---|---|---|
+| Hollin Crake | 12 November 1931 | Male | The Secretary's, by the window | Not stated, out of tact | Third, 36 |
+| Silas Veyle | 31 October 1966 | Male | The darkest, until Monday | Not stated, out of drama | First, 41 (the scar) |
+| Thaddeus Rook | 6 April 1954 | Male | The darkest, from Monday | A very great archer, east coast, ninety-three this year | Fourth, 35, by himself |
+| Lucan Morrow | 20 December 1968 | Male | The one by the coat hooks | Mr Pennock, a very great wizard, who does not know | Second, 37 (a vow, in the rain) |
+| Kit Blackwood | 1 March 1979 | Male | None. The stool by the fire | Nobody yet. There is a list | Twelve (keen) |
 
 ## Hollin Crake, Secretary
 

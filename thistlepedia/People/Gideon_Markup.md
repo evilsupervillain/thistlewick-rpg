@@ -11,6 +11,7 @@ title: Gideon Markup
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Gideon_Markup.png" alt="Gideon Markup, in gold wire spectacles, behind his counter" width="200"><span class="infobox-caption">Everything has always been priced</span></td></tr>
 <tr><th>Known as</th><td>Mr Markup; Gideon, to Mrs Markup, when he is in the window again</td></tr>
 <tr><th>Born</th><td>30 September 1944, <a href="../Places/Penultima">Penultima</a>, over the shop, which was then a saddler's</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Keeps</th><td>Ye Final Shoppe, since 1969</td></tr>
 <tr><th>Married</th><td><a href="Dorothy_Markup">Dorothy</a>, 1970</td></tr>
 <tr><th>Prices</th><td>Seasonal. It is a very reliable season</td></tr>

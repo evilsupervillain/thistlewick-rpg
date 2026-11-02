@@ -11,6 +11,7 @@ title: Marjorie Gotobed
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Marjorie_Gotobed.png" alt="Mrs Gotobed, in her kitchen, which is also the parlour" width="200"><span class="infobox-caption">"I've never had the heart"</span></td></tr>
 <tr><th>Known as</th><td>Mrs Gotobed; Marjorie, to the parish council, at which she takes the minutes when Mrs Throssell has a cold</td></tr>
 <tr><th>Born</th><td>Marjorie Thorne, 23 April 1955, <a href="../Places/Much_Pottering">Much Pottering</a>, in the cottage she lives in</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td>Humphrey Gotobed, adventurer, 1984, who had knocked on the wrong door</td></tr>
 <tr><th>Was being rescued</th><td>No</td></tr>
 <tr><th>Has been rescued since</th><td>Continually, mostly from spiders</td></tr>

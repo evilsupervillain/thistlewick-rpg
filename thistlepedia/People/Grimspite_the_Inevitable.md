@@ -10,6 +10,8 @@ title: Grimspite the Inevitable
 <caption>Grimspite the Inevitable</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Grimspite_the_Inevitable.png" alt="Grimspite the Inevitable, the Dark Lord, retired, very tired and very polite" width="200"><span class="infobox-caption">At the bookmark</span></td></tr>
 <tr><th>Known as</th><td>The Dark Lord; Grimspite the Inevitable; latterly, Grimspite</td></tr>
+<tr><th>Born</th><td>Not stated. Asked by letter, he declined (see <a href="../History/Two_Reckonings">Two Reckonings</a>)</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td>The top of the Obligatory Tower</td></tr>
 <tr><th>Post</th><td>Dark Lord, under the Prophecy of Thistlewick, renewable</td></tr>
 <tr><th>Held</th><td>Four thousand eight hundred years, by the contract</td></tr>

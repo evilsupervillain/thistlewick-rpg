@@ -11,6 +11,7 @@ title: Fizz
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Fizz.png" alt="Fizz, Tutorial Sprite, Third Class" width="200"><span class="infobox-caption">Every. Journey. Begins. HERE.</span></td></tr>
 <tr><th>Known as</th><td>Fizz; Tutorial Sprite, Third Class</td></tr>
 <tr><th>Born</th><td>Issued 1 March 1981, by the Guild of Guides, Firstfield Chapter, out of a dandelion clock, on the stroke of nine. The Guild says the date is lore. Fizz says it was a Sunday, and that she remembers, and that she was doing so well</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Size</th><td>Small</td></tr>
 <tr><th>Volume</th><td>Audible from the road</td></tr>
 <tr><th>Explains</th><td>Everything, once. ONCE</td></tr>

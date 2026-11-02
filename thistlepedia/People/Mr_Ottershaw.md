@@ -11,6 +11,7 @@ title: Mr Ottershaw
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mr_Ottershaw.png" alt="Mr Ottershaw, in green lenses, at his bench" width="200"><span class="infobox-caption">Composer</span></td></tr>
 <tr><th>Known as</th><td>Mr Ottershaw; Mr J. Ottershaw, on the write-up</td></tr>
 <tr><th>Born</th><td>Jonas Ottershaw, 14 March 1910, at Fenmarch, in the gamekeeper's lodge</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Ninety</th><td>In March, 2000</td></tr>
 <tr><th>Did</th><td>The animals. 1930 to the present</td></tr>
 <tr><th>Preserved them?</th><td>Anybody can preserve. A cook can preserve. He COMPOSED them</td></tr>

@@ -11,6 +11,7 @@ title: Sir Hamo Tench
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Sir_Hamo_Tench.png" alt="Sir Hamo Tench, in a nightshirt with a surcoat over it" width="200"><span class="infobox-caption">In the field</span></td></tr>
 <tr><th>Known as</th><td>Sir Hamo; the knight on the line</td></tr>
 <tr><th>Born</th><td>Hamo Tench, 11 November 1921, at Coldbarrow, in the snow</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Order</th><td>The Errant. Confirmed at the fourth attempt, 1941</td></tr>
 <tr><th>At Weeping Bottom</th><td>Since 1986, for the sea air, with a cough</td></tr>
 <tr><th>Bed</th><td>Exactly on the line</td></tr>

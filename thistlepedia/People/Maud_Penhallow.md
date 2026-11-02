@@ -10,6 +10,8 @@ title: Maud Penhallow
 <caption>Maud Penhallow</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Maud_Penhallow.png" alt="Maud Penhallow, with a practice sword" width="200"><span class="infobox-caption">Studying how he stands</span></td></tr>
 <tr><th>Known as</th><td>Miss Penhallow; the understudy</td></tr>
+<tr><th>Born</th><td>11 January 1984, <a href="../Places/Great_Dunnage">Great Dunnage</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td>Fellow Blunt's yard, <a href="../Places/Great_Dunnage">Great Dunnage</a></td></tr>
 <tr><th>Age</th><td>Eighteen</td></tr>
 <tr><th>In the yard since</th><td>Nine</td></tr>

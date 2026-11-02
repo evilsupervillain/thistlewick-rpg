@@ -10,6 +10,8 @@ title: Sir Aldric Pemberton-Gore III
 <caption>Sir Aldric Pemberton-Gore III</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Sir_Aldric_Pemberton-Gore_III.png" alt="Sir Aldric Pemberton-Gore III, a knight in armour, slightly behind you" width="200"><span class="infobox-caption">Slightly behind you at all times</span></td></tr>
 <tr><th>Known as</th><td>Sir Aldric; Pemberton-Gore the Third</td></tr>
+<tr><th>Born</th><td>1 February 1954, <a href="../Places/Fenmarch_Hall">Fenmarch Hall</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Fenmarch_Hall">Fenmarch Hall</a>, which is small, moated and damp; latterly <a href="../Places/Thistlewick">Thistlewick</a>, which he was trying to leave</td></tr>
 <tr><th>Rank</th><td>Knight Errant, At Large</td></tr>
 <tr><th>Arms</th><td>A knight rampant regardant</td></tr>

@@ -11,6 +11,7 @@ title: Prudence Thrupp
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Prudence_Thrupp.png" alt="Prudence Thrupp of the Gilded Turnip" width="200"><span class="infobox-caption">"Don't shake it. Don't ask what's in it."</span></td></tr>
 <tr><th>Known as</th><td>Prudence; Mrs Thrupp, by Nether Sopping, which has never met her and assumes</td></tr>
 <tr><th>Born</th><td>19 October 1951, at the Gilded Turnip, <a href="../Places/Thistlewick">Thistlewick</a>, upstairs, during last orders</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Keeps</th><td><a href="../Places/The_Gilded_Turnip">The Gilded Turnip</a>, since 1976, her father's before her</td></tr>
 <tr><th>Bed</th><td>Twenty crowns. Includes breakfast. Breakfast is turnip</td></tr>
 <tr><th>Has not spoken to her sister</th><td>1970-2000</td></tr>

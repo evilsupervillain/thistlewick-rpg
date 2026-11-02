@@ -11,6 +11,7 @@ title: Lavinia Barrow
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Lavinia_Barrow.png" alt="Mrs Barrow, of Wick and Barrow, Outfitters" width="200"><span class="infobox-caption">Everything an adventurer needs</span></td></tr>
 <tr><th>Known as</th><td>Mrs Barrow</td></tr>
 <tr><th>Born</th><td>Lavinia Barrow, 2 December 1936, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Keeps</th><td>Wick &amp; Barrow, Outfitters, on the front</td></tr>
 <tr><th>In the trade</th><td>Thirty-nine years in 2000, by her count; forty-two, by the sign's</td></tr>
 <tr><th>Sells</th><td>Everything an adventurer needs, and four things nobody does</td></tr>
@@ -24,9 +25,9 @@ title: Lavinia Barrow
 
 ## Wick and Barrow
 
-She was born in 1936 in Nether Sopping, above a chandler's, and went into the outfitting trade in 1958, at twenty-two, in partnership with Wick, who had the shop and the stock and the sign, and needed somebody who could add. The sign went up that spring: WICK &amp; BARROW, OUTFITTERS. Two names. In the spring of 1959 Wick went north. Everybody went north, that year and the next; it was a year ahead of the Chosen One, and not everybody went together.
+She was born in 1936 in Nether Sopping, above a chandler's, and went into the outfitting trade in 1958, at twenty-two, in partnership with Wick, who had the shop and the stock and the sign, and who needed, he said, somebody who could add. The sign went up that spring: WICK &amp; BARROW, OUTFITTERS. Two names. In the spring of 1959 Wick went north. Everybody went north, that year and the next; it was a year ahead of the Chosen One, and not everybody went together.
 
-Wick has not come back. She counts her years in the trade from 1961, not 1958, and I asked her once why. She said that 1961 was when she stopped expecting Wick back on the Monday and started doing the books properly, and that before that she had only been minding the shop. She would not say what Wick was to her, beyond the sign, and I did not press it, and I have been told by three people in Nether Sopping three different things, and I am not printing any of them.
+Wick has not come back, and nobody has heard where he got to. She counts her years in the trade from 1961, not 1958, and I asked her once why. She said that 1961 was when she stopped expecting Wick back on the Monday and started doing the books properly, and that before that she had only been minding the shop. She would not say what Wick was to her, beyond the sign, and I did not press it, and I have been told by three people in Nether Sopping three different things, and I am not printing any of them.
 
 > "The sign says Wick and Barrow. That's two names, and one of them's still walking about, and the other one went north, and both belong on a sign."
 

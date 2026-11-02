@@ -11,6 +11,7 @@ title: Mr Tibbs
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mr_Tibbs.png" alt="Mr Tibbs, in half-rimmed spectacles" width="200"><span class="infobox-caption">Nothing out without the ticket</span></td></tr>
 <tr><th>Known as</th><td>Mr Tibbs; the wharfinger</td></tr>
 <tr><th>Born</th><td>Barnabas Tibbs, 30 January 1934, <a href="../Places/Great_Dunnage">Great Dunnage</a>, on the quay</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Wharfinger</th><td>The Bonded Warehouse, since 1962</td></tr>
 <tr><th>Rule</th><td>Nothing out without the ticket, and the duty, and him</td></tr>
 <tr><th>Bond No. 1</th><td>One coat. Eleven years. Rent by post, never late, no name</td></tr>

@@ -10,6 +10,8 @@ title: Ambrosine Quill
 <caption>Ambrosine Quill</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ambrosine_Quill.png" alt="Ambrosine Quill, in the Quills' crimson" width="200"><span class="infobox-caption">At the Committee's table</span></td></tr>
 <tr><th>Known as</th><td>A. Quill, Chronicler to the Committee</td></tr>
+<tr><th>Born</th><td>2 December 1950, <a href="../Places/Thistlewick">Thistlewick</a>, in the room over the Quills' front door, which has the good light</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, and the <a href="../Institutions/The_Quills">Quills</a></td></tr>
 <tr><th>Wears</th><td>The Quills' crimson</td></tr>
 <tr><th>House style</th><td>Never let the truth spoil the metre</td></tr>

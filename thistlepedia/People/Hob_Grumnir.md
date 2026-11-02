@@ -10,6 +10,8 @@ title: Hob Grumnir
 <caption>Hob Grumnir</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Hob_Grumnir.png" alt="Hob Grumnir, a very large blacksmith, listening to something the viewer cannot hear" width="200"><span class="infobox-caption">Listening to Beatrice</span></td></tr>
 <tr><th>Known as</th><td>Grumnir the Smith</td></tr>
+<tr><th>Born</th><td>12 August 1960, <a href="../Places/Thistlewick">Thistlewick</a>, next door to the forge, which he was in by the afternoon</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td>The forge, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Trade</th><td>Blacksmith, third of that forge</td></tr>
 <tr><th>Trained by</th><td>His aunt, Beatrice Grumnir, from the age of nine</td></tr>

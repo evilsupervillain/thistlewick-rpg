@@ -11,6 +11,7 @@ title: Mother Ursula Pym
 <tr><th>Known as</th><td>Mother Ursula; the Founder; "her in the window"</td></tr>
 <tr><th>Born</th><td>2 February 1659, at Sallow Cross, a market town as far from the sea as it is possible to get without leaving the island</td></tr>
 <tr><th>Died</th><td>11 November 1744, at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>, aged eighty-five, sitting down</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Founded</th><td>The Sisterhouse of the Order of Whatever Works, 1702</td></tr>
 <tr><th>Chose the site</th><td>For the air</td></tr>
 <tr><th>On the advice of</th><td>Every physician consulted</td></tr>

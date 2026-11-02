@@ -10,6 +10,8 @@ title: Ysolde Marrow
 <caption>Ysolde Marrow</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ysolde_Marrow.png" alt="Ysolde Marrow, an old field medic" width="200"><span class="infobox-caption">With the kit open</span></td></tr>
 <tr><th>Known as</th><td>Mrs Marrow; the Forty-Fourth's</td></tr>
+<tr><th>Born</th><td>19 January 1922, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Trade</th><td>Field medicine, forty years of it</td></tr>
 <tr><th>Of</th><td><a href="../Places/Nether_Sopping">Nether Sopping</a>, the table by the bar in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a></td></tr>
 <tr><th>Age</th><td>Eighty</td></tr>

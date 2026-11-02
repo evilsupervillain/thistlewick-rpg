@@ -11,6 +11,7 @@ title: Mr Kell
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mr_Kell.png" alt="Mr Kell, behind the bar of the Safety Valve, arms folded" width="200"><span class="infobox-caption">"We are very proud of it."</span></td></tr>
 <tr><th>Known as</th><td>Mr Kell</td></tr>
 <tr><th>Born</th><td>Hector Kell, 28 August 1968, <a href="../Places/Upper_Clanging">Upper Clanging</a>, over the bar</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Keeps</th><td>The Safety Valve, since 1993, his mother's before him</td></tr>
 <tr><th>Beds</th><td>Thirty crowns. You will be dry</td></tr>
 <tr><th>House rule</th><td>IN THE EVENT OF PRESSURE, GO TO BED</td></tr>

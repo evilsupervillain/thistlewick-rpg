@@ -11,6 +11,7 @@ title: Nora Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Nora_Cotterill.png" alt="Mrs Cotterill, who has had him out of a boiler nine times" width="200"><span class="infobox-caption">"No, love."</span></td></tr>
 <tr><th>Known as</th><td>Mrs Cotterill; Mam; "your mother", by the whole of Upper Clanging, to the whole of Upper Clanging</td></tr>
 <tr><th>Born</th><td>Nora Sprag, 30 August 1954, at Haggit's Bank, a pit hamlet half way down the valley road, a pit family</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, 1975, at the chapel, on a Saturday, between shifts</td></tr>
 <tr><th>Children</th><td>Ten. Not going to be another one</td></tr>
 <tr><th>Names</th><td>Chose them. Has them off by heart. Was tired for two of them</td></tr>

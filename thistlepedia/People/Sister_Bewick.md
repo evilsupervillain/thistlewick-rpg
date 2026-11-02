@@ -11,6 +11,7 @@ title: Sister Bewick
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Sister_Bewick.png" alt="Sister Bewick, in a white habit with black trim" width="200"><span class="infobox-caption">Black trim</span></td></tr>
 <tr><th>Known as</th><td>Sister Bewick</td></tr>
 <tr><th>Born</th><td>Constance Bewick, 9 February 1962, at Haverleigh, the daughter of the chemist</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Professed</th><td>The Order of Whatever Works, 1983</td></tr>
 <tr><th>Founded</th><td>What Ought To Work, east door, 1994</td></tr>
 <tr><th>Work</th><td><i>The Correct Treatment of the Weeping Bottom Ague</i>, in eleven stages, each with its authority</td></tr>

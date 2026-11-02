@@ -11,6 +11,7 @@ title: Godfrey Stopford
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Godfrey_Stopford.png" alt="Godfrey Stopford, the Forty-Sixth, in very good armour" width="200"><span class="infobox-caption">Sitting down</span></td></tr>
 <tr><th>Known as</th><td>The Forty-Sixth; Number Forty-Six; G. Stopford, Esq., The Log</td></tr>
 <tr><th>Born</th><td>14 March 1956, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Chosen</th><td>1980, Chosen One number forty-six</td></tr>
 <tr><th>Got as far as</th><td><a href="../Places/The_Gloamwood">The Gloamwood</a>, the first path, about half way</td></tr>
 <tr><th>Decided</th><td>That the woods were enough</td></tr>
@@ -57,7 +58,7 @@ Nabb and Tolly write every month, both of them, one round hand and one narrow. T
 
 "I read them," he says. "Reading them's the answer. They know that. Nabb doesn't, but Tolly does, and Tolly does the stamps."
 
-Tolly, for her part, says that Nabb thinks she does not know the letters are unanswered, and that Nabb has thought that for eleven years. Nabb, for Nabb's part, would like it known that Nabb has never once been worried about it, and has only asked the man who collects the post whether he reads them in order to be sure of the postage. I have printed all three. They are all true. There is nobody in this encyclopedia who is better at being a friend than those three, and two of them have not seen the third since 1980.
+Tolly, for her part, says that Nabb thinks Tolly does not know the letters are unanswered, and has thought so for eleven years. Nabb, for her part, would like it known that she has never once been worried about it, and has only asked the man who collects the post whether he reads them in order to be sure of the postage. I have printed all three. They are all true. There is nobody in this encyclopedia who is better at being a friend than those three, and two of them have not seen the third since 1980.
 
 ## Thistlewick
 

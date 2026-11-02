@@ -11,6 +11,7 @@ title: Dorcas Thrupp
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dorcas_Thrupp.png" alt="Dorcas Thrupp, behind the bar of the Slain Wyvern" width="200"><span class="infobox-caption">"It is a wyvern."</span></td></tr>
 <tr><th>Known as</th><td>Mrs Thrupp, which is a courtesy; Dorcas, to her sister, in writing, since 2000</td></tr>
 <tr><th>Born</th><td>4 June 1948, at the Gilded Turnip, <a href="../Places/Thistlewick">Thistlewick</a>, the elder of two</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Keeps</th><td><a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>, <a href="../Places/Nether_Sopping">Nether Sopping</a>, for longer than she will say</td></tr>
 <tr><th>Over the mantel</th><td>A wyvern. A goose. Two plaques. Dusted the same morning, in an order she has not disclosed</td></tr>
 <tr><th>Spoke to her sister</th><td>Until 1970. Then not, for thirty years. Then by post</td></tr>

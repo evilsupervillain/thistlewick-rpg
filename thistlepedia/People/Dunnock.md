@@ -11,6 +11,7 @@ title: Dunnock
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dunnock.png" alt="Dunnock, a hedge mage, with a pipe" width="200"><span class="infobox-caption">Four pages missing</span></td></tr>
 <tr><th>Known as</th><td>Dunnock; "the self-taught one", in the minutes, as distinct from all the others, who are also self-taught</td></tr>
 <tr><th>Born</th><td>Reuben Dunnock, 5 May 1952, at a lock-keeper's cottage on the west road, under a hedge, more or less</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Trade</th><td>Lock-keeper, retired; hedge mage</td></tr>
 <tr><th>Learned from</th><td>A book with four pages missing</td></tr>
 <tr><th>Worked out</th><td>The four, for himself. Did them better, as it turns out</td></tr>

@@ -11,6 +11,7 @@ title: Norbert Pelling
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Norbert_Pelling.png" alt="Norbert Pelling, the tutorial ambush, with a sandwich" width="200"><span class="infobox-caption">"Lovely stuff."</span></td></tr>
 <tr><th>Known as</th><td>Norbert; the Ambush; "the best loser in the county", by his wife, nicely</td></tr>
 <tr><th>Born</th><td>12 May 1961, at Pelling's Farm, two fields east of Firstfield</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Married</th><td>Maud Pelling, née Crisp, 1983</td></tr>
 <tr><th>Post</th><td>Station Four: Combat. The ambush, contracted to lose, since 1981</td></tr>
 <tr><th>Losses</th><td>Three thousand, one hundred and five, by 2000</td></tr>

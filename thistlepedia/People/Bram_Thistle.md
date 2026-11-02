@@ -10,6 +10,8 @@ title: Bram Thistle
 <caption>Bram Thistle</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Bram_Thistle.png" alt="Bram Thistle, a young farmer, looking as if he has just been asked a question" width="200"><span class="infobox-caption">Sat for, under protest</span></td></tr>
 <tr><th>Known as</th><td>The Forty-Eighth; Chosen One No. 48; Bram</td></tr>
+<tr><th>Born</th><td>3 October 1979, <a href="../Places/Thistlewick">Thistlewick</a>, in the room under the sword, in the middle of the turnip harvest, which was brought in on time</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, two fields from Prophecy Hall</td></tr>
 <tr><th>Trade</th><td>Turnips</td></tr>
 <tr><th>Chosen</th><td>Third Age 2000, in his sleep, by the Prophecy Committee, nobody objecting</td></tr>

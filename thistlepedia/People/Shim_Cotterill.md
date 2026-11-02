@@ -11,12 +11,13 @@ title: Shim Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Shim_Cotterill.png" alt="Shim Cotterill, in a beret and spectacles, with a tin" width="200"><span class="infobox-caption">The bearing is the best one</span></td></tr>
 <tr><th>Known as</th><td>Shim</td></tr>
 <tr><th>Born</th><td>9 February 1989, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Named for</th><td>A shim, which is a packing piece, and not a fastener (Grommet). She does not mind</td></tr>
 <tr><th>Collects</th><td>Things</td></tr>
 <tr><th>Collection</th><td>Washers, mostly. Three bolts, a doorknob, and a bearing</td></tr>
 <tr><th>Best one</th><td>The bearing. You can hold it and it goes round</td></tr>
 <tr><th>Second best</th><td>A washer. It has been flat the whole time. She gave it away</td></tr>
-<tr><th>Will give</th><td>Washer a washer. When it is bigger. Not yet</td></tr>
+<tr><th>Will give</th><td>Washer a washer. When she is bigger. Not yet</td></tr>
 </table>
 
 <p class="lede"><b>Shim Cotterill</b> is the eighth of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and collects things: washers, mostly, and three bolts, a doorknob, and a bearing, and the bearing is the best one, because you can hold it and it goes round. When Spare said he was going away before the baby came, she said that he could have a washer, and he could, and he did, and he wore it on a bootlace to the top of the Obligatory Tower and back.</p>
@@ -55,7 +56,7 @@ In the spring of 2000, when the tenth came and was called Washer, Shim was delig
 
 ## Afterwards
 
-Washer is nearly two, and is bigger, and Shim has not yet given the washer, because Mam has said that Washer will put it in Washer's mouth, and Shim says that Mam is right, and that a washer is not for eating, and that she can wait. She has picked it out. It is in the tin, apart from the others, in a twist of paper with WASHER'S on it in Gudgeon's hand. Shim says it is nearly as good as the one she gave Spare. She says it has been flat the whole time as well.
+Washer is two today, and is bigger, and Shim has not yet given the washer, because Mam has said that Washer will put it in her mouth, and Shim says that Mam is right, and that a washer is not for eating, and that she can wait. She has picked it out. It is in the tin, apart from the others, in a twist of paper with WASHER'S on it in Gudgeon's hand. Shim says it is nearly as good as the one she gave Spare. She says it has been flat the whole time as well.
 
 ## See also
 

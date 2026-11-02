@@ -11,6 +11,7 @@ title: Rivet Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Rivet_Cotterill.png" alt="Rivet Cotterill, in a plain white work jacket" width="200"><span class="infobox-caption">Days</span></td></tr>
 <tr><th>Known as</th><td>Rivet</td></tr>
 <tr><th>Born</th><td>3 February 1978, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Named for</th><td>A rivet, which holds two plates together, permanently, and is never asked whether it would like to</td></tr>
 <tr><th>Works</th><td>The foundry. Days, while Da does nights</td></tr>
 <tr><th>Conversations with his father</th><td>One a day, at six, two words long. Some mornings the weather</td></tr>
@@ -37,7 +38,7 @@ I have stood at the door at six, by arrangement, and watched it. Mr Cotterill ca
 
 The house at the end of the street has three bedrooms and, until 1999, eleven people. Rivet has shared a bed, he says, his whole life, and one of the people in it is Grommet, and Grommet sleeps with his elbows. "I am twenty-two and I have never once been in a room by myself." He did not say it as a complaint. He said it as a fact, the way you might say you had never been to the sea, with a little wonder in it.
 
-When Cotter married and moved out, in 1999, there was a vacancy in Rivet's bed, and it was filled within the hour by Clevis, who had been waiting for it, and had a book on who would get it, and had backed Clevis.
+When Cotter married and moved out, in 1999, there was a vacancy in Rivet's bed, and it was filled within the hour by Clevis, who had been waiting for it, and had a book on who would get it, and had backed himself.
 
 ## Half an hour
 

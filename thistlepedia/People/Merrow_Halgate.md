@@ -10,6 +10,8 @@ title: Merrow Halgate
 <caption>Merrow Halgate</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Merrow_Halgate.png" alt="Merrow Halgate, a big man in old armour" width="200"><span class="infobox-caption">Drinking carefully</span></td></tr>
 <tr><th>Known as</th><td>Merrow of the Bridge</td></tr>
+<tr><th>Born</th><td>8 March 1951, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Nether_Sopping">Nether Sopping</a>, the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a></td></tr>
 <tr><th>Party</th><td>Twenty. The best-equipped that ever went north</td></tr>
 <tr><th>Fought</th><td>The Dark Lord, at the bridge</td></tr>

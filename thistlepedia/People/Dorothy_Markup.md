@@ -11,6 +11,7 @@ title: Dorothy Markup
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dorothy_Markup.png" alt="Dorothy Markup, in a plain dark dress and gold wire spectacles, with the ledger" width="200"><span class="infobox-caption">"He is in the window again."</span></td></tr>
 <tr><th>Known as</th><td>Mrs Markup</td></tr>
 <tr><th>Born</th><td>Dorothy Fairlie, 6 January 1946, at Haverleigh, a market town in the south, where her father kept the corn exchange's books</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Came to Penultima</th><td>Spring 1969</td></tr>
 <tr><th>Married</th><td><a href="Gideon_Markup">Gideon Markup</a>, spring 1970</td></tr>
 <tr><th>Keeps</th><td>The ledger of Ye Final Shoppe. Every page balances</td></tr>

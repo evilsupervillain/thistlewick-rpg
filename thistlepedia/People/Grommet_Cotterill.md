@@ -11,6 +11,7 @@ title: Grommet Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Grommet_Cotterill.png" alt="Grommet Cotterill, the apprentice" width="200"><span class="infobox-caption">Has got the makings</span></td></tr>
 <tr><th>Known as</th><td>Grommet; "the lad", in the forge; "the apprentice", in his own account, with some weight on the "the"</td></tr>
 <tr><th>Born</th><td>19 January 1985, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Named for</th><td>A grommet, which is a ring that keeps a rope from chafing. It is not a fastener either, and he knows</td></tr>
 <tr><th>Apprenticed</th><td>To Bryd Ollerenshaw, at the forge, autumn 1999</td></tr>
 <tr><th>Has got</th><td>The makings. Said slowly (1999-2000); said a little faster (2002)</td></tr>
@@ -57,7 +58,7 @@ Miss Hoyle tried every one of the forty-one holes with a gauge pin, and nodded a
 
 ## Afterwards
 
-He is seventeen, and two years and more at the forge. Mr Ollerenshaw still says he has got the makings, and says it a little faster, and on one occasion in 2001, Grommet says, he said it before he had finished looking at the work, which Grommet regards as the high point of his career so far. He still tells the family every day that the names are wrong. Washer, now nearly two, has not said a word yet, but looks at him, when he starts, with what Grommet calls an expression. The whole street has money on what the first word will be. Grommet says that if it is *wrong* he will consider the matter closed.
+He is seventeen, and two years and more at the forge. Mr Ollerenshaw still says he has got the makings, and says it a little faster, and on one occasion in 2001, Grommet says, he said it before he had finished looking at the work, which Grommet regards as the high point of his career so far. He still tells the family every day that the names are wrong. Washer, two today, has not said a word yet, but looks at him, when he starts, with what Grommet calls an expression. The whole street has money on what the first word will be. Grommet says that if it is *wrong* he will consider the matter closed.
 
 ## See also
 

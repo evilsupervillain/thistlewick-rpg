@@ -11,6 +11,7 @@ title: Hester Ashbury
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Hester_Ashbury.png" alt="Mrs Ashbury, of the Eight Hours" width="200"><span class="infobox-caption">"Whenever you come down."</span></td></tr>
 <tr><th>Known as</th><td>Mrs Ashbury</td></tr>
 <tr><th>Born</th><td>Hester Quine, 3 March 1949, at Restwell, the baker's</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td><a href="Walt_Ashbury">Walt Ashbury</a>, 1973</td></tr>
 <tr><th>Keeps</th><td>The Eight Hours, <a href="../Places/Restwell">Restwell</a>, since 1977</td></tr>
 <tr><th>A room</th><td>Ten crowns. Breakfast included</td></tr>

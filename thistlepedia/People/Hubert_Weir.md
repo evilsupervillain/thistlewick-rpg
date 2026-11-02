@@ -11,6 +11,7 @@ title: Hubert Weir
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Hubert_Weir.png" alt="Mr Weir, Curator, in a coat with gold frogging" width="200"><span class="infobox-caption">Curator</span></td></tr>
 <tr><th>Known as</th><td>Mr Weir; the Curator</td></tr>
 <tr><th>Born</th><td>Hubert Weir, 8 August 1936, in old Ashcombe, on the high street, three doors from the only drain</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Trade</th><td>Drainage engineer, retired; Curator, the Ashcombe Drainage Museum, since 1990</td></tr>
 <tr><th>Built</th><td>Fourteen hundred yards of culvert, at a fall of one in two hundred</td></tr>
 <tr><th>Puddles in Ashcombe since</th><td>None</td></tr>

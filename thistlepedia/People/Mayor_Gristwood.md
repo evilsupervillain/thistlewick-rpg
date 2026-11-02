@@ -11,6 +11,7 @@ title: Mayor Gristwood
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mayor_Gristwood.png" alt="Mayor Gristwood, in the most hat you have ever seen" width="200"><span class="infobox-caption">In the hat</span></td></tr>
 <tr><th>Known as</th><td>The Mayor; His Worship; Gristwood</td></tr>
 <tr><th>Born</th><td>Josiah Gristwood, 4 March 1949, <a href="../Places/Great_Dunnage">Great Dunnage</a>, over the Chain Works, the son of the foreman</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Mayor</th><td>Since 1995, re-elected annually, unopposed, on account of the preamble</td></tr>
 <tr><th>Hat</th><td>The most you have ever seen</td></tr>
 <tr><th>Preamble</th><td>Forty minutes. Down to thirty-eight. Thirty-seven and a half</td></tr>

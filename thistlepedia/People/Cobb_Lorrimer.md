@@ -10,6 +10,8 @@ title: Cobb Lorrimer
 <caption>Cobb Lorrimer</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Cobb_Lorrimer.png" alt="Cobb Lorrimer, in a teal hood" width="200"><span class="infobox-caption">Under protest</span></td></tr>
 <tr><th>Known as</th><td>Lorrimer</td></tr>
+<tr><th>Born</th><td>1 April 1956. He has the certificate, and would like it noted that the date is a coincidence</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Trade</th><td>Thief</td></tr>
 <tr><th>Registered</th><td>With the <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a>, under T</td></tr>
 <tr><th>Wears</th><td>A teal hood, about it</td></tr>
@@ -27,7 +29,7 @@ He leant on the Guild's wall in the year 2000 with his arms folded, the way a ma
 
 She said that nothing in her shop was stolen, and that she could tell him how she had got every piece of it. He said, prove it, and produced a list, in a child's hand, from the two children on the front who were playing Chosen One with no kit: ONE ROPE. ONE HELMIT. ONE SWORD. ONE DARK LORD (WHO LOSES). First back with the lot. A client, a list and an afternoon. No fighting.
 
-He was back before dinner with a rope off the ferry, a helmet out of the outfitters' window, and the very good sword off the knees of a man who was having a day off, and who came up the street after it in his socks. Sops and Tibb sat on a barrel each, as judges. "Where'd you get them?" "I STOLE them. I'm a thief. It's the whole point of me." Tibb said that their mother said they were not to have stolen things, and said it twice.
+He was back before dinner with a rope off the ferry, a helmet out of the outfitters' window, and the very good sword off the knees of a man who was having a day off, and who came up the street after it in his socks. Sops and Tibb sat on a barrel each, as judges. "Where'd you get them?" "I STOLE them. I'm a thief. It's the whole point of me." Tibb said that his mother said they were not to have stolen things, and said it twice.
 
 Nix laid out a coil of rope, a pot and an oar, each with a receipt on top: lent until sundown, and signed for. The ferry, the outfitters and the man in his socks took their things back off Mr Lorrimer, one at a time, politely, and he watched them go. "You can't win a THIEVING contest on PAPERWORK." She said it had not been a thieving contest. It had been a list.
 

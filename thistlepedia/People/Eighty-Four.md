@@ -12,6 +12,7 @@ title: Eighty-Four
 <caption>Attempt Eighty-Four</caption>
 <tr><th>Known as</th><td>Eighty-Four; Attempt 84; "her", at the works</td></tr>
 <tr><th>Laid down</th><td>14 April 1857, the Hoyle Works, bay 84</td></tr>
+<tr><th>Sex</th><td>Not applicable. <i>Her</i>, by the custom of the works, which she has earned</td></tr>
 <tr><th>First lifted</th><td>3 May 1860</td></tr>
 <tr><th>Came down</th><td>3 May 1860, in the Long Field, in her own plot</td></tr>
 <tr><th>Cause</th><td>Blank. See 3</td></tr>
@@ -25,11 +26,11 @@ title: Eighty-Four
 
 ## Service record
 
-1. **Type.** Steam airship, rigid, single envelope, one boiler of forty-eight tubes. The eighty-fourth attempt of the Hoyle Works to answer the question in the Prophecy, which is how to get up that road without walking. Designed by my grandmother, in her first year in charge, who also drew 82, 83 and 85, and who said of her on the slip that she was *the first of mine I would trust with my dinner.*
+1. **Type.** Steam airship, rigid, single envelope, one boiler of forty-eight tubes. The eighty-fourth attempt of the Hoyle Works to answer the question in the Prophecy, which is how to get up that road without walking. Designed by the chief engineer of the day, in her first year in charge, who also drew 82, 83 and 85, and who said of her on the slip that she was *the first of mine I would trust with my dinner.*
 
 2. **Building.** Laid down in bay 84 on 14 April 1857. Three years on the slip. Envelope by the works; frames by the Ollerenshaw forge, three generations back; boiler tubes by the works, brushed by the apprentice of the day, who was the eleventh.
 
-3. **Lifting.** 3 May 1860, nine in the morning, a light westerly. Rose to sixty feet and made north up the line of the field. Came down at nine fifty-one in her own plot, which had been marked out for her the week before, as is the practice, in case. Her plate reads LOST OVER THE LONG FIELD, and the cause line is blank: the only blank cause line in the field. My grandmother cut that plate herself, and left it blank, and I have read her notes, and she did not know, and she would not write down a guess. Neither will I.
+3. **Lifting.** 3 May 1860, nine in the morning, a light westerly. Rose to sixty feet and made north up the line of the field. Came down at nine fifty-one in her own plot, which had been marked out for her the week before, as is the practice, in case. Her plate reads LOST OVER THE LONG FIELD, and the cause line is blank: the only blank cause line in the field. The chief engineer cut that plate herself, and left it blank, and I have read her notes, and she did not know, and she would not write down a guess. Neither will I.
 
 4. **Afterwards.** She did not stay in her plot. Over a hundred and forty years she made herself good out of the rows either side of her, a piece at a time, and went north up the field doing it, and left a furrow behind her three feet deep and as wide as her plot. Nobody taught her that. Nobody could have. At the top of the field she got a foot off the ground, and then did not, and then tried again, and was still trying in the year 2000. I have not tried very hard to work out how she was doing it, and I am not going to. The works has a word for an attempt that is still working on the problem. The word is *attempt*.
 

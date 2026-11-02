@@ -10,6 +10,8 @@ title: Elder Faelan
 <caption>Elder Faelan</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Elder_Faelan.png" alt="Elder Faelan, an elf" width="200"><span class="infobox-caption">At the foot of the ladder</span></td></tr>
 <tr><th>Known as</th><td>Elder Faelan</td></tr>
+<tr><th>Born</th><td>The Second Age, some while after Grandmother; a Tuesday. He is certain about the Tuesday</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Olde_Evermore">Olde Evermore</a>, the Forbidden Archive, the ladder</td></tr>
 <tr><th>Married</th><td>To Elder Lirien, since the Second Age</td></tr>
 <tr><th>Duties</th><td>Fetching things from the top shelf</td></tr>

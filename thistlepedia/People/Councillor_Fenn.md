@@ -10,16 +10,18 @@ title: Councillor Fenn
 <caption>Councillor Fenn</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Councillor_Fenn.png" alt="Councillor Fenn" width="200"><span class="infobox-caption">Saying it</span></td></tr>
 <tr><th>Known as</th><td>The Committee member (Clause Twelve)</td></tr>
+<tr><th>Born</th><td>27 September 1957, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Sits</th><td>On the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, at the end</td></tr>
 <tr><th>Position</th><td>Clause twelve is the problem</td></tr>
-<tr><th>Held since</th><td>About forty years</td></tr>
+<tr><th>Held since</th><td>1981; about twenty years</td></tr>
 <tr><th>Listened to</th><td>Once, in 2000</td></tr>
 <tr><th>Petitions</th><td>One (the Optional Tower); signatures, one</td></tr>
 <tr><th>On his belt</th><td>A key, marked STRUCK</td></tr>
 </table>
 
-<p class="lede"><b>Councillor Fenn</b> sits on the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> of <a href="../Places/Thistlewick">Thistlewick</a>, and has said at every meeting for about forty years that clause twelve is the problem. He was right. Nobody listened. The Committee's minute book for the week of the ending records, as item five, that Councillor Fenn wished it minuted that he had been saying so. Minuted.</p>
+<p class="lede"><b>Councillor Fenn</b> sits on the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> of <a href="../Places/Thistlewick">Thistlewick</a>, and has said at every meeting for about twenty years that clause twelve is the problem. He was right. Nobody listened. The Committee's minute book for the week of the ending records, as item five, that Councillor Fenn wished it minuted that he had been saying so. Minuted.</p>
 
 ## The position
 
@@ -33,7 +35,7 @@ He has also, over the years, put up a petition to rename the Obligatory Tower th
 
 In the year 2000 somebody in the Forty-Eighth's company asked him what he meant, exactly, about clause twelve. He said, "...Nobody has ever asked." Then: "Sit down. Sit DOWN. It goes back to the original wording, and the original wording goes back to a horse -"
 
-He was away for some time. It was, I am told, the first time in forty years that somebody was nodding.
+He was away for some time. It was, I am told, the first time in twenty years that somebody was nodding.
 
 I do not know what he said about the horse. The person who asked does not remember, having been, for reasons I accept, attending to something else, and the Councillor, asked by me, began at the original wording, and I took four pages of notes, and I am not going to print them, because I do not understand them, and because there is a horse in the margin of the Prophecy beside clause twelve that this encyclopedia has decided, on advice, to leave exactly where it is.
 

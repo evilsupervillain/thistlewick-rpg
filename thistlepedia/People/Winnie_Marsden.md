@@ -11,6 +11,7 @@ title: Winnie Marsden
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Winnie_Marsden.png" alt="Winnie Marsden, by the fire, with a half of shandy" width="200"><span class="infobox-caption">Class of 'Nineteen</span></td></tr>
 <tr><th>Known as</th><td>Winnie; Mrs Marsden; "Gran", by Bessie, and since the summer of 2000 by Cotter, who was told to</td></tr>
 <tr><th>Born</th><td>Winifred Platt, 4 October 1919, <a href="../Places/Upper_Clanging">Upper Clanging</a>, in the Cold Winter's autumn</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Class</th><td>Of 'Nineteen. Two hundred and forty, near enough all together</td></tr>
 <tr><th>Married</th><td>Albert Marsden, pattern-maker, 1941; widowed 1979</td></tr>
 <tr><th>Drinks</th><td>A half of shandy, on a doily embroidered CLASS OF '19</td></tr>

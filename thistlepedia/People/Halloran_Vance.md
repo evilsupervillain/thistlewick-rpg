@@ -9,6 +9,9 @@ title: Halloran Vance
 <table class="infobox">
 <caption>Halloran Vance</caption>
 <tr><th>Known as</th><td>The Forty-First</td></tr>
+<tr><th>Born</th><td>30 April 1914, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
+<tr><th>Died</th><td>2 November 1968, <a href="../Places/Nether_Sopping">Nether Sopping</a>, at the window over the quay</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Chosen</th><td>1940</td></tr>
 <tr><th>Went</th><td>North, by way of the marshes</td></tr>
 <tr><th>Came back with</th><td>Nothing</td></tr>

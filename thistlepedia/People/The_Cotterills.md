@@ -56,7 +56,7 @@ He came back. On the morning it was spring, every Cotterill in Upper Clanging wa
 
 Cotter has been home for good since that spring, and Bessie's came in the summer, as she said it would, on time, and is not named in this encyclopedia because Winnie has asked me not to, until the seating plan is settled. Ferrule is still in charge from six. Grommet has been two years at the forge now, and Mr Ollerenshaw still says he has the makings, a little faster. Tappet has asked Miss Hoyle whether there will be room aboard the Two Hundred and First, and was told that it is not a question with an answer; it is a question with a schedule. Shim's bearing is still the best one.
 
-Through the kitchen window there is a line of vests in order of size, and the peg on the end that was put there in hope has a vest on it now. Round the rim of the rain barrel there are ten tin cups on ten nails. Washer has not said a word yet, and Spare is working on it, and the whole street has money on what the first one will be. Clevis is not taking bets. Clevis says the family has been through enough.
+Through the kitchen window there is a line of vests in order of size, and the peg on the end that was put there in hope has a vest on it now. Round the rim of the rain barrel there are ten tin cups on ten nails. Washer has not said a word yet, and Spare is working on it, and the whole street has money on what the first one will be. Clevis is not taking bets. He says the family has been through enough.
 
 ## See also
 

@@ -11,6 +11,7 @@ title: Tolly
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Tolly.png" alt="Tolly, addressing an envelope" width="200"><span class="infobox-caption">"He's worth two stamps."</span></td></tr>
 <tr><th>Known as</th><td>Tolly, of the Forty-Sixth; Miss Toller, on the post office's books</td></tr>
 <tr><th>Born</th><td>Margaret Toller, 2 March 1960, Nether Sopping</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Party</th><td>The Forty-Sixth's, 1980; maps</td></tr>
 <tr><th>Writes</th><td>Every month, in the narrow hand</td></tr>
 <tr><th>Stamps</th><td>Bought in twos. It's a long way</td></tr>
@@ -26,11 +27,11 @@ She was the party's map-reader, at twenty, in 1980, having been for four years t
 
 ## The letters
 
-She writes once a month, and Nabb writes once a month, and the letters go out on Thursdays. Nabb thinks that she does not know they are never answered.
+She writes once a month, and Nabb writes once a month, and the letters go out on Thursdays. Nabb thinks that Tolly does not know they are never answered.
 
 > "She asks about the letters, does she. Nabb thinks I don't know they're unanswered. Nabb has thought that for eleven years."
 
-She has known all along. She has known, too, what the Forty-Sixth told the Forty-Eighth: that reading them is the answer. She has not told Nabb. She says that Nabb is happier thinking Nabb is protecting her from something, and that she is happier letting Nabb think it, and that the Forty-Sixth is happiest of all, sitting down, and that it would be a poor sort of friend who spoiled a thing like that by explaining it.
+She has known all along. She has known, too, what the Forty-Sixth told the Forty-Eighth: that reading them is the answer. She has not told Nabb. She says that Nabb is happier thinking she is protecting her friend from something, and that Tolly herself is happier letting Nabb think it, and that the Forty-Sixth is happiest of all, sitting down, and that it would be a poor sort of friend who spoiled a thing like that by explaining it.
 
 > "Two stamps. It's a long way, and he's worth two stamps."
 

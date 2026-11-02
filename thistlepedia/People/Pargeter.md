@@ -10,6 +10,8 @@ title: Pargeter
 <caption>Eudora Pargeter</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Pargeter.png" alt="Eudora Pargeter, in pale blue and sensible spectacles" width="200"><span class="infobox-caption">Gloves on, indoors</span></td></tr>
 <tr><th>Known as</th><td>Pargeter; Miss Pargeter</td></tr>
+<tr><th>Born</th><td>6 December 1965, <a href="../Places/Frostwick">Frostwick</a>, in a hard frost, which was on schedule</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td><a href="../Places/Frostwick">Frostwick</a>, the Cold Room on the square</td></tr>
 <tr><th>Trade</th><td>Retained practitioner. Refrigeration</td></tr>
 <tr><th>Not</th><td>An ice witch</td></tr>

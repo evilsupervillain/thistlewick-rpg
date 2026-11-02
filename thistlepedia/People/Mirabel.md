@@ -11,7 +11,8 @@ title: Mirabel
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mirabel.png" alt="Mirabel, a small elf girl with long silver hair and a silver circlet" width="200"><span class="infobox-caption">Not tired</span></td></tr>
 <tr><th>Known as</th><td>The Last Oracle of Olde Evermore; Grandmother</td></tr>
 <tr><th>Of</th><td><a href="../Places/Olde_Evermore">Olde Evermore</a>, the Forbidden Archive, on a stepstool</td></tr>
-<tr><th>Born</th><td>The Second Age</td></tr>
+<tr><th>Born</th><td>The Second Age, about two thousand one hundred years before the Third. She remembers the day, and what she had for breakfast</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Age</th><td>Four thousand one hundred and fourteen</td></tr>
 <tr><th>Looks</th><td>Eight and a quarter; she would like that mentioned</td></tr>
 <tr><th>Foresaw</th><td>The fall of empires; all forty-eight risings; a biscuit</td></tr>

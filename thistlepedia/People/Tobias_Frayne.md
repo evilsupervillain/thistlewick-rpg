@@ -10,6 +10,8 @@ title: Tobias Frayne
 <caption>Tobias Frayne</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Tobias_Frayne.png" alt="Tobias Frayne" width="200"><span class="infobox-caption">Putting the kettle on</span></td></tr>
 <tr><th>Known as</th><td>Mr Frayne</td></tr>
+<tr><th>Born</th><td>20 May 1946, the cottage on the coast road; the first time he was carried out of it</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td>A green-roofed cottage on the coast road, between the road and the beach</td></tr>
 <tr><th>Revived</th><td>Eleven times, in thirty years</td></tr>
 <tr><th>The ladder</th><td>Four</td></tr>

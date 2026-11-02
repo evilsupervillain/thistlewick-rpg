@@ -10,12 +10,14 @@ title: Ambrose Fitch
 <caption>Ambrose Fitch</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ambrose_Fitch.png" alt="Ambrose Fitch, the Forty-Fourth" width="200"><span class="infobox-caption">Not in the circle</span></td></tr>
 <tr><th>Known as</th><td>The Forty-Fourth</td></tr>
+<tr><th>Born</th><td>14 May 1934, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
+<tr><th>Died</th><td>About 1999</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Chosen</th><td>1960</td></tr>
 <tr><th>Kept alive by</th><td>Ysolde Marrow, nine years, on and off</td></tr>
 <tr><th>Pensioned to</th><td><a href="../Places/Nether_Sopping">Nether Sopping</a>, by clause nineteen</td></tr>
 <tr><th>Written to by Thistlewick</th><td>Never</td></tr>
 <tr><th>Watered</th><td>A pot with a dead thing in it, every morning, forty years</td></tr>
-<tr><th>Died</th><td>About 1999</td></tr>
 <tr><th>Buried</th><td>In a barrow, by masons, within the fortnight</td></tr>
 <tr><th>Asked for</th><td>A bench</td></tr>
 <tr><th>Got</th><td>One</td></tr>

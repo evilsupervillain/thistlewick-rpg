@@ -11,6 +11,7 @@ title: Mother Selvidge
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mother_Selvidge.png" alt="Mother Selvidge, in a pointed hat" width="200"><span class="infobox-caption">Never wrong</span></td></tr>
 <tr><th>Known as</th><td>Mother Selvidge; "dear", to everybody else</td></tr>
 <tr><th>Born</th><td>Ruth Selvidge, 31 October 1922, in a wagon on the road between two fairs, which she says was the first reading she ever gave, and it was correct</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Booth</th><td>MOTHER SELVIDGE. NEVER WRONG. TWO CROWNS</td></tr>
 <tr><th>The cards</th><td>Do not do credit</td></tr>
 <tr><th>Wrong</th><td>Not once, dear. Ask anybody she has read</td></tr>

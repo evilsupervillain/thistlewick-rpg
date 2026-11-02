@@ -11,6 +11,7 @@ title: Ernest Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ernest_Cotterill.png" alt="Mr Cotterill, on his way to nights" width="200"><span class="infobox-caption">Always very glad to get home</span></td></tr>
 <tr><th>Known as</th><td>Mr Cotterill; Da; Ern, by the foundry</td></tr>
 <tr><th>Born</th><td>9 January 1951, <a href="../Places/Upper_Clanging">Upper Clanging</a>, the house at the end of the street, in the room he now sleeps in, by day</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Works</th><td>The foundry. Nights: twelve on, twelve off, six days</td></tr>
 <tr><th>On nights since</th><td>1978</td></tr>
 <tr><th>Off nights</th><td>Once, spring 2000, for Washer</td></tr>

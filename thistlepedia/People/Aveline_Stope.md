@@ -11,6 +11,7 @@ title: Aveline Stope
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Aveline_Stope.png" alt="Prioress Aveline Stope, in a white habit" width="200"><span class="infobox-caption">In the chair</span></td></tr>
 <tr><th>Known as</th><td>The Prioress; Mother Aveline, to the patients, which she discourages</td></tr>
 <tr><th>Born</th><td>Aveline Stope, 25 March 1944, at Brede Saltings, two valleys east, where it is dry</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Professed</th><td>The Order of Whatever Works, 1964</td></tr>
 <tr><th>Prioress</th><td>Since 1983</td></tr>
 <tr><th>Symposia chaired</th><td>Ten. Very well</td></tr>

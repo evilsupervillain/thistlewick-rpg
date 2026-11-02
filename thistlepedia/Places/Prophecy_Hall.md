@@ -37,7 +37,7 @@ The Elder stands at the far end, under a stained-glass window of the First Chose
 
 At the other end sits a councillor whose whole contribution to the year 2000, so far as the minutes show, was to ask whether the Dark Lord *shall be slain* or *shall be defeated*, because *slain* is a commitment, and to countersign one form, as to the wording.
 
-And there is **<a href="../People/Councillor_Fenn">Councillor Fenn</a>**, who has been saying for forty years that clause twelve is the problem. "That's not a warning. That's a subscription." Nobody listened to him until somebody asked him what he meant, and he said that nobody had ever asked, and sat them down, and began at the original wording, which goes back to a horse. He is still explaining it. He looks very well on it. The Committee's minute book for the week of the ending records, as item five, that Councillor Fenn wished it minuted that he had been saying so. Minuted.
+And there is **<a href="../People/Councillor_Fenn">Councillor Fenn</a>**, who has been saying for twenty years that clause twelve is the problem. "That's not a warning. That's a subscription." Nobody listened to him until somebody asked him what he meant, and he said that nobody had ever asked, and sat them down, and began at the original wording, which goes back to a horse. He is still explaining it. He looks very well on it. The Committee's minute book for the week of the ending records, as item five, that Councillor Fenn wished it minuted that he had been saying so. Minuted.
 
 ## The Wall of the Forty-Seven
 

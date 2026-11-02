@@ -11,6 +11,7 @@ title: Dame Winifred Cope
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dame_Winifred_Cope.png" alt="Dame Winifred Cope, in her helmet" width="200"><span class="infobox-caption">Nothing to report</span></td></tr>
 <tr><th>Known as</th><td>Dame Winifred; the Knight in the Field</td></tr>
 <tr><th>Born</th><td>Winifred Cope, 12 January 1958, at Saltinge, on the east coast, a harbourmaster's daughter</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Order</th><td>The Errant. Knighted 1984</td></tr>
 <tr><th>Posted</th><td>Little Gore, 1989, as the Chapter's knight in the field</td></tr>
 <tr><th>Pins at Coldbarrow</th><td>One. Correct</td></tr>

@@ -10,6 +10,8 @@ title: Brother Quillon
 <caption>Brother Quillon</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Brother_Quillon.png" alt="Brother Quillon, bald, white-bearded, eyes shut, smiling" width="200"><span class="infobox-caption">Not reacting</span></td></tr>
 <tr><th>Known as</th><td>Brother Quillon; the Keeper of the Record</td></tr>
+<tr><th>Born</th><td>16 August 1932. He does not say where, and the Book does not, and it is the only thing in the chapel that is not written down</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td>The Chapel of Continuance, <a href="../Places/Hithermost">Hithermost</a></td></tr>
 <tr><th>Keeps</th><td>The Book, which glows</td></tr>
 <tr><th>Services</th><td>Continuous</td></tr>

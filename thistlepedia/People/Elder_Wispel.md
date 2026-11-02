@@ -10,6 +10,8 @@ title: Elder Wispel
 <caption>Elder Wispel</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Elder_Wispel.png" alt="Elder Wispel, an old man with a white beard" width="200"><span class="infobox-caption">Unrolling</span></td></tr>
 <tr><th>Known as</th><td>The Elder</td></tr>
+<tr><th>Born</th><td>19 February 1926, <a href="../Places/Thistlewick">Thistlewick</a>. The Committee sent a card</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Office</th><td>Chair of the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a></td></tr>
 <tr><th>Duties</th><td>Unrolling the Prophecy to the far wall; rolling it back up</td></tr>

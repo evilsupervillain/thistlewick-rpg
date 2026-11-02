@@ -11,6 +11,7 @@ title: Lionel Pell
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Lionel_Pell.png" alt="Registrar Pell at his desk" width="200"><span class="infobox-caption">"There is no form for this."</span></td></tr>
 <tr><th>Known as</th><td>Registrar Pell; Mr Pell; "the Registrar", in Nether Sopping, as if there were only one, which there is</td></tr>
 <tr><th>Born</th><td>11 April 1940, <a href="../Places/Nether_Sopping">Nether Sopping</a>, and registered the same day, by his father, who was the clerk</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Registrar</th><td>Of the <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild (Provisional)</a>, since its founding in 1960, provisionally</td></tr>
 <tr><th>Requirements</th><td>A reference; a hat; Form A-1</td></tr>
 <tr><th>Form A-1</th><td>Mislaid, 1989. Under the mat, six feet away, 1989-2000</td></tr>

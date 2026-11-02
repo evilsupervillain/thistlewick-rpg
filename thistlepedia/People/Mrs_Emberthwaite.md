@@ -11,6 +11,7 @@ title: Mrs Emberthwaite
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mrs_Emberthwaite.png" alt="Mrs Emberthwaite, a large red dragon in reading spectacles" width="200"><span class="infobox-caption">Reading spectacles, on a chain</span></td></tr>
 <tr><th>Known as</th><td>Mrs Emberthwaite; "dear", to herself, when she has lost a trick, which is rare</td></tr>
 <tr><th>Born</th><td>Hatched 9 May 1930, in the hills above Fairholme, on a sunny ledge, the only egg of the clutch, which her mother said was plenty</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Age</th><td>Seventy-two this year, by Rosamund's reckoning</td></tr>
 <tr><th>Married</th><td>Mr Emberthwaite, 1951. He did the roaring, mostly</td></tr>
 <tr><th>Widowed</th><td>1984</td></tr>

@@ -10,6 +10,8 @@ title: Sir Dunstable
 <caption>Sir Dunstable of the Vale</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Sir_Dunstable.png" alt="Sir Dunstable, a knight in polished, slightly scorched armour" width="200"><span class="infobox-caption">Just in case</span></td></tr>
 <tr><th>Known as</th><td>Sir Dunstable; D.</td></tr>
+<tr><th>Born</th><td>11 November 1930, the Vale. He does not say which part</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td>The Vale</td></tr>
 <tr><th>Order</th><td><a href="../Institutions/The_Order_of_the_Errant">The Errant</a>; one pin, at the Chapel of Continuance</td></tr>
 <tr><th>Armour</th><td>Polished a great many times; scorched very slightly more</td></tr>

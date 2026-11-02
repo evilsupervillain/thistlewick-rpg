@@ -11,6 +11,7 @@ title: Hester Vane
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Hester_Vane.png" alt="Mrs Vane, in her front garden" width="200"><span class="infobox-caption">Plainly delighted to see anybody</span></td></tr>
 <tr><th>Known as</th><td>Mrs Vane; Hester Plumb, on the banns</td></tr>
 <tr><th>Born</th><td>Hester Plumb, 7 June 1967, <a href="../Places/Little_Gore">Little Gore</a>, in the end house</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td>Thomas Vane, gardener, at Fenmarch, summer 1991, in the rain</td></tr>
 <tr><th>Furthest she has been</th><td>Fenmarch. Four miles</td></tr>
 <tr><th>Children</th><td>Bess, Alfie and Nell, on the green. They will marry you if you stand still</td></tr>

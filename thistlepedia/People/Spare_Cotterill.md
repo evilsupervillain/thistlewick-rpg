@@ -10,6 +10,8 @@ title: Spare Cotterill
 <caption>Spare Cotterill</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Spare_Cotterill.png" alt="Spare Cotterill, a small boy with a packed bag, asking whether he can come yet" width="200"><span class="infobox-caption">Can he come yet</span></td></tr>
 <tr><th>Known as</th><td>Spare; the Ninth</td></tr>
+<tr><th>Born</th><td>2 January 1991, the house at the end of the street, <a href="../Places/Upper_Clanging">Upper Clanging</a>. Ninth</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a>, the ninth of the Cotterills</td></tr>
 <tr><th>Trade</th><td>Brushing the ninety tubes of the Hoyle Works boiler, since 1997. Paid in buns</td></tr>
 <tr><th>Age</th><td>Nine at the time of the Quest; eleven now</td></tr>
@@ -85,7 +87,7 @@ has said a word. It was spring. Love, Spare.</p>
 
 It was also Spare who confirmed for me, by letter, that the twenty-first of March 2002 is the first day of spring, which is the date on which I have signed this volume. It is the only true thing he has ever written to me. I checked.
 
-<div class="marginalia">Washer has not said a word. I have checked that too. I am told that Washer says a great many things, none of them a word yet, and that Spare is working on it.</div>
+<div class="marginalia">Washer has not said a word. I have checked that too. I am told that she says a great many things, none of them a word yet, and that Spare is working on it.</div>
 
 ## See also
 

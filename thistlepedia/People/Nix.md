@@ -10,6 +10,8 @@ title: Nix
 <caption>Nix</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Nix.png" alt="Nix, in a coat, who did not take it, whatever it is" width="200"><span class="infobox-caption">She did not take it</span></td></tr>
 <tr><th>Known as</th><td>Nix; Acquisitions</td></tr>
+<tr><th>Born</th><td>23 January 1974, <a href="../Places/Thistlewick">Thistlewick</a>, in the room behind the general store. Nobody has the paperwork, and she says that is how she likes it</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td>The back room of the general store, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Trade</th><td>Locating things, ahead of schedule</td></tr>
 <tr><th>On behalf of</th><td>The party of the second part</td></tr>

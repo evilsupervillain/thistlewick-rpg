@@ -11,6 +11,7 @@ title: Gudgeon Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Gudgeon_Cotterill.png" alt="Gudgeon Cotterill, with a braid and spectacles" width="200"><span class="infobox-caption">Two t's and two l's</span></td></tr>
 <tr><th>Known as</th><td>Gudgeon; Miss Cotterill, at the counter, where it is official</td></tr>
 <tr><th>Born</th><td>12 January 1980, <a href="../Places/Upper_Clanging">Upper Clanging</a>; entered in the register in somebody else's hand, which she has looked at, and would have done better</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Named for</th><td>A gudgeon, which is a pin. Grommet says that one is fine</td></tr>
 <tr><th>Works</th><td>The Parish Rooms: the register, the census, and the forms</td></tr>
 <tr><th>Hand</th><td>The best Mrs Tunnicliffe has had, out of eleven</td></tr>

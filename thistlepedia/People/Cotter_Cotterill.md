@@ -11,6 +11,7 @@ title: Cotter Cotterill
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Cotter_Cotterill.png" alt="Cotter Cotterill, at the Iron Company's gate" width="200"><span class="infobox-caption">Saturday. Six o'clock. Eleven miles</span></td></tr>
 <tr><th>Known as</th><td>Cotter; "the eldest", by himself, first, every time</td></tr>
 <tr><th>Born</th><td>17 January 1976, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Named for</th><td>A cotter pin, which holds a wheel on</td></tr>
 <tr><th>Married</th><td><a href="Bessie_Cotterill">Bessie Marsden</a>, 1999</td></tr>
 <tr><th>Worked</th><td>The big furnace, the Iron Company, <a href="../Places/Great_Dunnage">Great Dunnage</a>, 1994-2000</td></tr>

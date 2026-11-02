@@ -11,6 +11,7 @@ title: Walt Ashbury
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Walt_Ashbury.png" alt="Walt Ashbury, on the bottom stair, with a fiddle" width="200"><span class="infobox-caption">Eight bars</span></td></tr>
 <tr><th>Known as</th><td>Walt</td></tr>
 <tr><th>Born</th><td>Walter Ashbury, 21 June 1950, the shortest night of the year, at <a href="../Places/Restwell">Restwell</a>, upstairs at the Eight Hours, in room six</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Married</th><td><a href="Hester_Ashbury">Hester</a>, 1973</td></tr>
 <tr><th>Plays</th><td>The fiddle, on the bottom step of the stairs at the Eight Hours</td></tr>
 <tr><th>Plays whom up</th><td>Everybody</td></tr>

@@ -11,6 +11,7 @@ title: Mrs Ash
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mrs_Ash.png" alt="Mrs Ash, knitting" width="200"><span class="infobox-caption">Knitting something long</span></td></tr>
 <tr><th>Known as</th><td>Mrs Ash; Hon. Sec., the Flood Dinner Committee</td></tr>
 <tr><th>Born</th><td>Margaret, 20 November 1947, in old Ashcombe, under what is now the lake. Her maiden name went under with it, and she has asked me to leave it there</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Surname</th><td>Ash, since about 1990, to save the postman</td></tr>
 <tr><th>Son</th><td>Corvin, born 1970</td></tr>
 <tr><th>Wrote to him</th><td>Wednesdays and Saturdays, for eleven years, at the Slain Wyvern</td></tr>

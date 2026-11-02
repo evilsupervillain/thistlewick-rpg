@@ -11,6 +11,7 @@ title: Mrs Harbottle
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mrs_Harbottle.png" alt="Mrs Harbottle, in gold lace" width="200"><span class="infobox-caption">Your entrance was a five</span></td></tr>
 <tr><th>Known as</th><td>Mrs Harbottle; the Chair</td></tr>
 <tr><th>Born</th><td>Clementine Harbottle, née Joy, 17 August 1971, at the Bell, <a href="../Places/Great_Dunnage">Great Dunnage</a>, during a Contest, which her mother marked</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Chairs</th><td>The panel for the Contest at the Sign of the Bell, since 1996</td></tr>
 <tr><th>The panel</th><td>Herself; Mr Ambler, who gives everything a nine; Miss Quayle, who gives everything a two. It averages out</td></tr>
 <tr><th>Practises on</th><td>Everything</td></tr>

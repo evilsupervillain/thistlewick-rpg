@@ -10,6 +10,8 @@ title: Zephyrine Vance
 <caption>Zephyrine Vance</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Zephyrine_Vance.png" alt="Zephyrine Vance, a hedge mage in a hat, who is fine" width="200"><span class="infobox-caption">Fine</span></td></tr>
 <tr><th>Known as</th><td>Formerly of the College</td></tr>
+<tr><th>Born</th><td>15 January 1968. She says she was very small and nothing caught fire, and her mother says otherwise</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td>The <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, Thistlewick, "just passing through" since 1989</td></tr>
 <tr><th>Trade</th><td>Hedge mage; fire person</td></tr>
 <tr><th>Educated</th><td>The <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a>; best in her year at Kindle</td></tr>

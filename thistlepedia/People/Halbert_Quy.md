@@ -10,6 +10,8 @@ title: Halbert Quy
 <caption>Halbert Quy</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Halbert_Quy.png" alt="Halbert Quy, the Forty-Fifth" width="200"><span class="infobox-caption">Potting something</span></td></tr>
 <tr><th>Known as</th><td>Number Forty-Five; the Forty-Fifth</td></tr>
+<tr><th>Born</th><td>7 February 1929, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Chosen</th><td>1970</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, and then, by the Friday, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Age</th><td>In his seventies</td></tr>

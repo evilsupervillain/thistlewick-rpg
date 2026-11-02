@@ -11,6 +11,7 @@ title: Mr Pilbeam
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mr_Pilbeam.png" alt="Mr Pilbeam, in spectacles, at the foot of the council table" width="200"><span class="infobox-caption">Passing</span></td></tr>
 <tr><th>Known as</th><td>Mr Pilbeam; "Mr Pilbeam (passing)", in the minutes</td></tr>
 <tr><th>Born</th><td>Everard Pilbeam, 26 September 1970, at Coddington, a long way from Fairholme</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Trade</th><td>Traveller in buttons, 1990-1996</td></tr>
 <tr><th>Was</th><td>Only passing</td></tr>
 <tr><th>There was</th><td>An eagle</td></tr>

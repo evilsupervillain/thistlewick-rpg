@@ -11,6 +11,7 @@ title: Old Hollis
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Old_Hollis.png" alt="Old Hollis, by his tent, with a stick" width="200"><span class="infobox-caption">"Ah. There you are."</span></td></tr>
 <tr><th>Known as</th><td>Old Hollis, since his first day, at thirty-four, because the Guild's post was advertised as Old Man (Items)</td></tr>
 <tr><th>Born</th><td>Amos Hollis, 8 August 1925, at Firstfield, in the cottage behind the tent</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Married</th><td>Nell Hollis, née Coombe, 1951</td></tr>
 <tr><th>Post</th><td>Station One: Items, the Guild of Guides, since 1959</td></tr>
 <tr><th>Line</th><td>It's dangerous to go alone! Take this. Adjusted for party size</td></tr>

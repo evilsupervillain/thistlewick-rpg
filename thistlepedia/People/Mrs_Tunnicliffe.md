@@ -11,6 +11,7 @@ title: Mrs Tunnicliffe
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mrs_Tunnicliffe.png" alt="Mrs Tunnicliffe at the counter of the Parish Rooms" width="200"><span class="infobox-caption">"What there is, is behind me."</span></td></tr>
 <tr><th>Known as</th><td>Mrs Tunnicliffe; "the Rooms", by the town, as in "ask the Rooms"</td></tr>
 <tr><th>Born</th><td>Edna Hargreaves, 11 June 1919, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Class of 'Nineteen</th><td>No. Born in June</td></tr>
 <tr><th>Married</th><td>Walter Tunnicliffe, verger, 1942; widowed 1988</td></tr>
 <tr><th>Keeps</th><td>The register, the census, the counter, the tea, the urn, the hymn board, and everything else (see above)</td></tr>

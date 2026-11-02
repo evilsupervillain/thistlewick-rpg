@@ -54,7 +54,7 @@ The founding minutes are on the table, and I copy them as I found them:
 
 The peas are still deferred. There is a crate of bunting in the room marked BUNTING (CONTESTED), and the carol sheets each have a verse crossed out by the Working Group, on the grounds that it promised snow on the twelfth without consulting them.
 
-**<a href="../People/Clem_Blagg">Clem Blagg</a>**, who was seven in the year 2000 and does the lanterns, knows all the minutes off by heart: item three, the winter, CARRIED. Clem's view, given to the Forty-Eighth unprompted, is that Nan says Mrs Stagg has never once been cold, not in forty winters, and that it must be Mr Stagg's lanterns, because he does ever such good lanterns. I was told that, when this was said, the committee found the ceiling very interesting, and that Mrs Blagg found it most interesting of all.
+**<a href="../People/Clem_Blagg">Clem Blagg</a>**, who was seven in the year 2000 and does the lanterns, knows all the minutes off by heart: item three, the winter, CARRIED. His view, given to the Forty-Eighth unprompted, is that Nan says Mrs Stagg has never once been cold, not in forty winters, and that it must be Mr Stagg's lanterns, because he does ever such good lanterns. I was told that, when this was said, the committee found the ceiling very interesting, and that Mrs Blagg found it most interesting of all.
 
 ## Perce and Ida
 

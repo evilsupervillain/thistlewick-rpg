@@ -10,6 +10,8 @@ title: Dean Fenwold
 <caption>Dean Fenwold</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dean_Fenwold.png" alt="Dean Fenwold, with magnificent eyebrows" width="200"><span class="infobox-caption">Fine</span></td></tr>
 <tr><th>Known as</th><td>The Dean; Fenwold</td></tr>
+<tr><th>Born</th><td>5 November 1928, in the Porter's Lodge of the Collegium Arcanum, during a fire drill, which he says explains a great deal</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>, the Hall</td></tr>
 <tr><th>Condition</th><td>Fine, thank you</td></tr>
 <tr><th>Asked</th><td>Not always</td></tr>

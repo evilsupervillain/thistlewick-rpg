@@ -10,6 +10,8 @@ title: Ott Hoyle
 <caption>Ott Hoyle</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ott_Hoyle.png" alt="Ott Hoyle, with goggles pushed up into her hair" width="200"><span class="infobox-caption">Not looking up</span></td></tr>
 <tr><th>Known as</th><td>Miss Hoyle; Ottoline, on the works deeds and nowhere else</td></tr>
+<tr><th>Born</th><td>18 July 1964, <a href="../Places/Upper_Clanging">Upper Clanging</a>, in the house behind the works, between the drawing office and the hooter, on a Tuesday, which was a casting day</td></tr>
+<tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Office</th><td>Chief engineer, <a href="../Institutions/The_Hoyle_Works">the Hoyle Works</a></td></tr>
 <tr><th>Generation</th><td>The fourth</td></tr>
@@ -41,7 +43,7 @@ I give a selection, all of them hers, all said in the drawing office in the cour
 - "Forty-six of them have gone up that road. They keep sending heroes. Nobody has ever once sent a surveyor."
 - "Most of what goes wrong with an engine is somebody being in a hurry with it on the first morning."
 
-Her apprentice, Nib, is the works' fortieth since 1804, and has asked her nine times whether they are going to manage it, and has been told nine times that it is not a question with an answer: it is a question with a schedule. Nib stands on the NO side of the line on the floor. Nib always stands on the NO side.
+Her apprentice, Nib, is the works' fortieth since 1804, and has asked her nine times whether they are going to manage it, and has been told nine times that it is not a question with an answer: it is a question with a schedule. Nib stands on the NO side of the line on the floor. She always stands on the NO side.
 
 Merribell once asked her, politely, how the work was going, and was told about the drain cock and the gland on the big end, and that the engine primes if you heat her too fast, and that otherwise she is sound. Merribell nodded along, being a field medic, to whom this was a Tuesday. Bram found something to look at.
 

@@ -11,6 +11,7 @@ title: Mordaunt
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mordaunt.png" alt="Mordaunt, clerk of the Order of the Errant, in spectacles" width="200"><span class="infobox-caption">In ink. Not pencil</span></td></tr>
 <tr><th>Known as</th><td>Mordaunt; the Clerk; "the committee", on Thursdays</td></tr>
 <tr><th>Born</th><td>Ambrose Mordaunt, 17 February 1936, at Coldbarrow, in the gatehouse, the son of the porter</td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Clerk</th><td>Of the Order of the Errant, Coldbarrow, since 1968</td></tr>
 <tr><th>System</th><td>One knight, one pin</td></tr>
 <tr><th>Files on Sir Aldric</th><td>Nine, then ten</td></tr>

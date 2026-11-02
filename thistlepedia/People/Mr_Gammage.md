@@ -11,6 +11,7 @@ title: Mr Gammage
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mr_Gammage.png" alt="Mr Gammage, with his eyes shut" width="200"><span class="infobox-caption">Not asleep</span></td></tr>
 <tr><th>Known as</th><td>Mr Gammage; the Eldest, of Sump, for the purposes of the Standing Orders</td></tr>
 <tr><th>Born</th><td>Obadiah Gammage, 2 February 1926, <a href="../Places/Sump">Sump</a></td></tr>
+<tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Trying to get off since</th><td>Tuesday</td></tr>
 <tr><th>Eyes</th><td>Shut. Not asleep</td></tr>
 <tr><th>The riddle</th><td>What is wet, and in the middle of the village, and we have not had any since 1794?</td></tr>
