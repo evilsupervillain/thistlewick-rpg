@@ -439,3 +439,30 @@ adventurers' name after; Rowbotham's names are synonyms. Inventions:
   entries, two hundred and eighty-nine of them somebody's dog.
 * The vigil's four (the damp, the small hours, a small temptation, a light
   going away) are reported by the watch, not by Sir Aldric.
+
+**Arms and Artefacts.** The descriptions are Hosea's and the provenance
+column is Nix's ledger.
+
+* **The Sword of Ultimate Ending** is a prop, never an item: Gideon set the
+  price "one crown more than a purse will hold"; a Nether Sopping banker says
+  a good purse holds more; nobody has told Gideon. It "came with the shop",
+  says he. Trade is up since 2000 (people walking to see the chair), and the
+  rope has been re-velveted. Nix looked at it once, in 2000, and says the
+  price is wrong and she has not told him either.
+* **The Sky Anvil**: Hosea's theory of whom the star-iron sword is for is not
+  printed (asked by Hob, by Beatrice through Hob, and by two others with the
+  same theory). The star-iron spent a night in Nix's back room on its way to
+  the forge, entered RETURNED.
+* **ITEM 1's disposition is not entered anywhere**; Nix calls it "not my
+  ledger, and I would not want it in mine". *Number One* is not named in the
+  wiki, because it exists only on one ending.
+* **The borrowed lamp** is entered as neither returned nor anything else.
+* Lorrimer's tools went back to him with a receipt (as unit 6). The
+  Fishmonger's scales went back, smelling of haddock.
+
+**A Glossary of Cliches** is Hosea's selection, about forty conventions,
+alphabetical, each marked with the `.trope` class and a "Walked into" title.
+He has not seen the number in the Prophecy's tally, only "very nearly all of
+them"; by his count "a little over two hundred". Bram's worst was the pot
+labelled INSIDE OF POT, "because he had looked". The wrong dragon is not in
+the Bestiary; it was not asked, and would rather be in the library.

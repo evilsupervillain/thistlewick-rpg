@@ -23,7 +23,10 @@ Each one ends with the checks in `README.md`, a commit, a push to
    twenty-one bios and Piper's *From the Notebooks of P. Quill*. Mother
    Selvidge has no bio (her link goes to Wayside Sights' Fair).
 7. **Institutions, the Bestiary, Arms and Artefacts, and the Glossary of
-   Cliches.**
+   Cliches.** Done: ten institutions (the Hoyle Works is Ott's memorandum, the
+   Healers' Table carries Merribell's note), Wren's Bestiary in seven pages,
+   two artefact articles and a catalogue with Nix's provenance column, and
+   the glossary. No red links are owed.
 8. **The final pass**: cross-links, the search index, and a browser check of
    every page.
 
