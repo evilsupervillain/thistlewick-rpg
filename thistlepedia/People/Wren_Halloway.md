@@ -4,7 +4,7 @@ title: Wren Halloway
 
 # Wren Halloway
 
-<p class="hatnote">For her work, see <a href="../Bestiary/">the Bestiary</a>, which is hers, and which I have printed whole and not touched. For the goose, see <a class="new" href="../Bestiary/The_Goose">The Goose</a>, in the same.</p>
+<p class="hatnote">For her work, see <a href="../Bestiary/">the Bestiary</a>, which is hers, and which I have printed whole and not touched. For the goose, see <a href="../Bestiary/The_Goose">The Goose</a>, in the same.</p>
 
 <table class="infobox">
 <caption>Wren Halloway</caption>
@@ -58,7 +58,7 @@ She is welcome in the Slain Wyvern, which she affects not to care about. She sit
 ## See also
 
 - <a href="../Bestiary/">The Bestiary</a>, by W. Halloway
-- <a class="new" href="../Bestiary/The_Goose">The Goose</a>
-- <a class="new" href="../Bestiary/Bramus_agricola">Bramus agricola</a>
+- <a href="../Bestiary/The_Goose">The Goose</a>
+- <a href="../Bestiary/Bramus_agricola">Bramus agricola</a>
 - <a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

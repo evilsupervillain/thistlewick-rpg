@@ -4,7 +4,7 @@ title: Bram Thistle
 
 # Bram Thistle
 
-<p class="hatnote">For the expedition, see <a href="../History/The_Obligatory_Quest">The Obligatory Quest</a>. For the forty-seven before him, see <a href="../History/The_Chosen_Ones">The Chosen Ones</a>. For the small brown thing in the turnip field named after him, see <a class="new" href="../Bestiary/Bramus_agricola">Bramus agricola</a>.</p>
+<p class="hatnote">For the expedition, see <a href="../History/The_Obligatory_Quest">The Obligatory Quest</a>. For the forty-seven before him, see <a href="../History/The_Chosen_Ones">The Chosen Ones</a>. For the small brown thing in the turnip field named after him, see <a href="../Bestiary/Bramus_agricola">Bramus agricola</a>.</p>
 
 <table class="infobox">
 <caption>Bram Thistle</caption>
@@ -16,7 +16,7 @@ title: Bram Thistle
 <tr><th>Equipment</th><td>One hoe. One sword, off the wall</td></tr>
 <tr><th>Good at</th><td>Everything, slightly</td></tr>
 <tr><th>Bad at</th><td>Nothing, impressively</td></tr>
-<tr><th>Luck</th><td>Statistically indefensible (see <a class="new" href="../Bestiary/Bramus_agricola">Bramus agricola</a>)</td></tr>
+<tr><th>Luck</th><td>Statistically indefensible (see <a href="../Bestiary/Bramus_agricola">Bramus agricola</a>)</td></tr>
 <tr><th>Holds</th><td>A receipt for one Dark Lord, renewable</td></tr>
 <tr><th>Status</th><td>At home. SEE BRAM</td></tr>
 </table>

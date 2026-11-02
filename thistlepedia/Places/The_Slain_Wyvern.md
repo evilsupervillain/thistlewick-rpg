@@ -4,7 +4,7 @@ title: The Slain Wyvern
 
 # The Slain Wyvern
 
-<p class="hatnote">This article is about the tavern at Nether Sopping. For the creature over the mantel, see <a class="new" href="../Bestiary/The_Goose">The Goose</a>, in Miss Halloway's Bestiary. For its sister house, see <a href="The_Gilded_Turnip">The Gilded Turnip</a>. For the back room, see <a href="../Institutions/The_Healers_Table">The Healers' Table</a>.</p>
+<p class="hatnote">This article is about the tavern at Nether Sopping. For the creature over the mantel, see <a href="../Bestiary/The_Goose">The Goose</a>, in Miss Halloway's Bestiary. For its sister house, see <a href="The_Gilded_Turnip">The Gilded Turnip</a>. For the back room, see <a href="../Institutions/The_Healers_Table">The Healers' Table</a>.</p>
 
 <table class="infobox">
 <caption>The Slain Wyvern</caption>
@@ -91,7 +91,7 @@ Behind the red curtain by the fire there is a door that most patrons have never 
 
 - <a href="Nether_Sopping">Nether Sopping</a>
 - <a href="The_Gilded_Turnip">The Gilded Turnip</a>
-- <a class="new" href="../Bestiary/The_Goose">The Goose</a>
+- <a href="../Bestiary/The_Goose">The Goose</a>
 - <a href="../Institutions/The_Healers_Table">The Healers' Table</a>
 - <a href="../People/Roland_Fairweather">Roland Fairweather</a>
 - <a href="../People/Hosea_Bellwether">Hosea Bellwether</a>

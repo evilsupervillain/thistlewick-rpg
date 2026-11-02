@@ -4,7 +4,7 @@ title: Halloran Vance
 
 # Halloran Vance
 
-<p class="hatnote">For the goose, see <a href="../Places/The_Slain_Wyvern">the Slain Wyvern</a>, and Miss Halloway's <a class="new" href="../Bestiary/The_Goose">entry</a>, which is the last word on the subject.</p>
+<p class="hatnote">For the goose, see <a href="../Places/The_Slain_Wyvern">the Slain Wyvern</a>, and Miss Halloway's <a href="../Bestiary/The_Goose">entry</a>, which is the last word on the subject.</p>
 
 <table class="infobox">
 <caption>Halloran Vance</caption>
@@ -48,5 +48,5 @@ Both plaques are still up, and neither mentions the other. Miss Halloway is welc
 
 - <a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>
 - <a href="Wren_Halloway">Wren Halloway</a>
-- <a class="new" href="../Bestiary/The_Goose">The Goose</a>
+- <a href="../Bestiary/The_Goose">The Goose</a>
 - <a href="../History/The_Chosen_Ones">The Chosen Ones</a>

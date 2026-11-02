@@ -405,3 +405,37 @@ Small inventions. All *wiki*.
 * **The Quills** take the Committee's minutes in metre when the Clerk is not
   looking. Asked who was the better writer, each named the other, and both
   named not Hosea. The edition is still vague.
+
+**The Bestiary** is Wren's, every page, written up in winter 2001 and
+corrected January 2002. Each creature is filed under what it is, with its
+adventurers' name after; Rowbotham's names are synonyms. Inventions:
+
+* Identifications that the game does not make: the crow is a carrion crow
+  and caws in threes no more than in other numbers; the treant is an oak; the
+  wisp is a marsh light (a gas); the bats are ordinary bats; the Crab of
+  Unusual Size is a shore crab that kept growing; the Gull is a herring gull;
+  the Draught is a weasel (the game's note says "a weasel... made of wind";
+  Wren says the wind is incidental); the Worm is a worm, never a dragon.
+  The canon ones are kept exactly: goose, badger, nine crested grass snakes,
+  the gravid thing in the crack (never named).
+* Wren catalogues no persons (the goblin, the trainee, the intern, Crooke,
+  the previous occupant, the warden, Norbert, Mrs Cotterill, the Bell's
+  entrants, the Forty-Fourth, Grimspite), no machines (the Long Field's are
+  referred to Ott), and nothing she could not see: **Somebody Coming Up is
+  never catalogued or guessed at**, which keeps Sir Dunstable unsettled.
+* Mrs Emberthwaite's entry was withdrawn at her request over whist, and Wren
+  lost the hand; the subject is not named or classified.
+* Wren has visited Something Unscheduled since, with Bram on a free
+  afternoon, and filled eleven pages, unprinted (volume two, under U). Which
+  party went down the first time stays vague.
+* The goose: teeth carved from bone (whose, unknown); the goose's own wings
+  folded under the bats'; the type locality's farm still has greylags. The
+  page-four-hundred entry has been read aloud in the Wyvern, to applause,
+  three times. Wren never looks up at the goose.
+* Bramus agricola: holotype left in its burrow; Bram ploughs round it and has
+  never seen one hurt. The ending's line names it.
+* The Fauna of the Valley: the duck's review is a footprint on the title
+  page. Volume two will need more than eleven specimens; about three hundred
+  entries, two hundred and eighty-nine of them somebody's dog.
+* The vigil's four (the damp, the small hours, a small temptation, a light
+  going away) are reported by the watch, not by Sir Aldric.
