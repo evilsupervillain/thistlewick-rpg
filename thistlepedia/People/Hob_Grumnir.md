@@ -47,7 +47,7 @@ I asked in the village about Beatrice, and everybody I asked told me the same th
 
 **The Sky Anvil.** A thing fell out of the sky into Elias Meech's top field in 1749 and has been a gatepost since. Mr Meech would not sell it, it being a very good gatepost, but he would swap it for a gate, and Hob had lately become good at gates. The star-iron made exactly one sword. Hob has not said who it is for.
 
-**The anvil.** His own anvil was stolen, once, by two apprentice bandits on the six-week syllabus. They got it eleven feet, in the dark. He was angry for nine seconds and then impressed. Their apology is framed in the smithy, next to nothing he made.
+**The anvil.** His own anvil was stolen, once, by two apprentice bandits on <a href="Meredith_Crooke">Meredith Crooke</a>'s six-week syllabus. They got it eleven feet, in the dark. He was angry for nine seconds and then impressed. Their apology is framed in the smithy, next to nothing he made.
 
 **The sword at the door.** Roland Fairweather's sword, which Roland left at the tower door, has a maker's mark on it. Hob looked at it for some time. "That's my aunt's. She made this here. On this. Forty years back, near enough. Sold it to a man going south." And then: "She did good work." Beatrice, on that occasion, said nothing at all. He later put a Thistlewick haft on it, so that it would swing for a Thistlewick hand. "Still hers. Handle's mine."
 

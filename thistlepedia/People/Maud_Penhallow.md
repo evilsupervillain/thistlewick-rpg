@@ -22,7 +22,7 @@ title: Maud Penhallow
 <tr><th>Answered</th><td>Not yet</td></tr>
 </table>
 
-<p class="lede"><b>Maud Penhallow</b> has been <a href="Roland_Fairweather">Roland Fairweather</a>'s understudy since she was nine, in Fellow Blunt's yard at <a href="../Places/Great_Dunnage">Great Dunnage</a>, learning his sword, his horse, his lineage and the way he stands, in case. She is the only person who ever went to see the end of one of his engagements, and the only person who ever told him how one ends.</p>
+<p class="lede"><b>Maud Penhallow</b> has been <a href="Roland_Fairweather">Roland Fairweather</a>'s understudy since she was nine, in <a href="Fellow_Blunt">Fellow Blunt</a>'s yard at <a href="../Places/Great_Dunnage">Great Dunnage</a>, learning his sword, his horse, his lineage and the way he stands, in case. She is the only person who ever went to see the end of one of his engagements, and the only person who ever told him how one ends.</p>
 
 ## The yard
 

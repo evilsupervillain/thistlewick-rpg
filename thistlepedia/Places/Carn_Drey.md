@@ -22,7 +22,7 @@ title: Carn Drey
 
 ## The gate
 
-Across the mouth of the cave is an iron gate with a plate: THE WORM. NOT READY. (FELLOW BLUNT, QUARTERLY.) The prophecy's keeper, Fellow Blunt, came out quarterly for twenty-two years and checked the stone from the gate, and never went down. The gate is not locked. Nobody ever tried it.
+Across the mouth of the cave is an iron gate with a plate: THE WORM. NOT READY. (FELLOW BLUNT, QUARTERLY.) The prophecy's keeper, <a href="../People/Fellow_Blunt">Fellow Blunt</a>, came out quarterly for twenty-two years and checked the stone from the gate, and never went down. The gate is not locked. Nobody ever tried it.
 
 Under NOT READY, in pencil, somebody has written READY. DONE. (R.F.)
 

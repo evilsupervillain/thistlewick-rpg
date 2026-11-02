@@ -86,7 +86,7 @@ It sits a little to one side of the landing now, and says *Not half way* to itse
 
 ## The post
 
-Somewhere above the warden, on a stair under a mountain that had been shut for longer than anybody could remember, at the edge of the lamplight, there was a man in a red coat and a flat cap, with a satchel. Nobody said anything. Nobody could think of anything that would help. He said *Post?*, and Spare Cotterill said that he had one for Upper Clanging, and wrote it on his knee, and it did not take long:
+Somewhere above the warden, on a stair under a mountain that had been shut for longer than anybody could remember, at the edge of the lamplight, there was <a href="../People/The_Courier">a man in a red coat and a flat cap</a>, with a satchel. Nobody said anything. Nobody could think of anything that would help. He said *Post?*, and Spare Cotterill said that he had one for Upper Clanging, and wrote it on his knee, and it did not take long:
 
 > Dear Mam. Is it spring yet? Spare.
 
@@ -100,7 +100,7 @@ A fight lost on the Stair does not end where fights end. The party comes back in
 
 Below D. 212 the stair goes on, for one more flight, and then it ends, and the dark stops all at once, like a door shutting behind you. The bottom of the Stair is a chamber with lamps on every ledge, dozens of them, and every one is lit.
 
-There is somebody at the bottom, and it was very pleased to see them. It is not on the schedule, except as item six, and it is not in the Prophecy, and it asked. Nobody is obliged to fight it, and so nobody ever had, and it asked whether they would, only if they had the afternoon. The Forty-Eighth's party had the afternoon. It said afterwards that it was the best afternoon it had ever had, because nobody made them. It had written a bounty card for itself, a long time before, because nobody would put it on anything:
+There is <a href="../People/Something_Unscheduled">somebody at the bottom</a>, and it was very pleased to see them. It is not on the schedule, except as item six, and it is not in the Prophecy, and it asked. Nobody is obliged to fight it, and so nobody ever had, and it asked whether they would, only if they had the afternoon. The Forty-Eighth's party had the afternoon. It said afterwards that it was the best afternoon it had ever had, because nobody made them. It had written a bounty card for itself, a long time before, because nobody would put it on anything:
 
 <div class="stamp">BOUNTY: SOMETHING UNSCHEDULED. Lives at the bottom of the Stair. Would love to meet you. Reward: on production of a witness.</div>
 

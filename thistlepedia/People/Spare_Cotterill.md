@@ -51,7 +51,7 @@ Shim, who is eleven and has a tin, gave him a washer. He wears it.
 
 He does not leave at the door. That is Mr Fairweather's job.
 
-**Letters home.** He wrote from every town, four lines each, and handed them to the same courier, who was always already there and never explained. His mother read them out at the dinner hour at the works, and the whole shift knows about the dragon. There was no dragon. He kept a copy of every one, in pencil, in case. I have been shown the copies, and with his permission I print the first:
+**Letters home.** He wrote from every town, four lines each, and handed them to the same <a href="The_Courier">courier</a>, who was always already there and never explained. His mother read them out at the dinner hour at the works, and the whole shift knows about the dragon. There was no dragon. He kept a copy of every one, in pencil, in case. I have been shown the copies, and with his permission I print the first:
 
 <div class="verse">
 <p>Dear Mam, I am at the seaside. The sea is right there.<br>

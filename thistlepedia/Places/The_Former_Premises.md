@@ -79,7 +79,7 @@ If any reader of this volume is passing by air, the tour starts in the hall, and
 
 P. HOLLOWELL, Caretaker. The Former Premises, the sky. First quarter, 2002.
 
-<div class="marginalia">Mr Hollowell's letter came by the courier, the man in the red coat, who had been up there, it seems, before anybody else ever was. I asked the courier how he got up there, and he said he was on his rounds, and did not say whose. Spare Cotterill, who went up with the Forty-Eighth, wrote home from the waiting area: "I waited. Only the post came."</div>
+<div class="marginalia">Mr Hollowell's letter came by the <a href="../People/The_Courier">courier</a>, the man in the red coat, who had been up there, it seems, before anybody else ever was. I asked the courier how he got up there, and he said he was on his rounds, and did not say whose. Spare Cotterill, who went up with the Forty-Eighth, wrote home from the waiting area: "I waited. Only the post came."</div>
 
 ## See also
 

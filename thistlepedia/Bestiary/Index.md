@@ -52,7 +52,7 @@ Listed because they are fought, and people will look for them; not described as 
 
 ## Persons
 
-The following appear in adventurers' accounts as monsters, and are persons. I do not catalogue persons, because a person is described by a biographer, not a cataloguer, and because they read it. A goblin, who had a list of grievances and read from it. A bandit in the fourth week of a six-week apprenticeship, and the bandit chief who runs it, Meredith Crooke, who has a syllabus. A skeleton, interning. The previous occupant of a barrow. A warden of a half-way landing. A man contracted to lose at Firstfield. A mother at Upper Clanging, who was right. Three entrants at the Bell, and the regulars at the back table. The Forty-Fourth. Grimspite. For all of them, see the People volume, or nobody; most would prefer nobody.
+The following appear in adventurers' accounts as monsters, and are persons. I do not catalogue persons, because a person is described by a biographer, not a cataloguer, and because they read it. A goblin, who had a list of grievances and read from it. A bandit in the fourth week of a six-week apprenticeship, and the bandit chief who runs it, <a href="../People/Meredith_Crooke">Meredith Crooke</a>, who has a syllabus. A skeleton, interning. The previous occupant of a barrow. A warden of a half-way landing. A man contracted to lose at Firstfield. A mother at Upper Clanging, who was right. Three entrants at the Bell, and the regulars at the back table. The Forty-Fourth. Grimspite. For all of them, see the People volume, or nobody; most would prefer nobody.
 
 ## Not seen
 

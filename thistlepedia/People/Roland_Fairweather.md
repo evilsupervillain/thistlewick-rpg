@@ -62,7 +62,7 @@ The parties he had left at their doors held a dinner, at the Slain Wyvern, organ
 
 ## The understudy
 
-<a href="Maud_Penhallow">Maud Penhallow</a> had been in Fellow Blunt's yard at Great Dunnage since she was nine, learning sword, horse, lineage and how he stands, as his understudy, in case the prophecy was ready and he was unavailable. Nobody had told her about the meetings. He told her. She took it well, and thought about it, and asked a question none of the grown-ups had thought of in twenty-two years. I have it. I am not going to print it. Nobody has answered it.
+<a href="Maud_Penhallow">Maud Penhallow</a> had been in <a href="Fellow_Blunt">Fellow Blunt</a>'s yard at Great Dunnage since she was nine, learning sword, horse, lineage and how he stands, as his understudy, in case the prophecy was ready and he was unavailable. Nobody had told her about the meetings. He told her. She took it well, and thought about it, and asked a question none of the grown-ups had thought of in twenty-two years. I have it. I am not going to print it. Nobody has answered it.
 
 When the party went up the Tower, she waited at the door. "Somebody ought to see the end of one."
 

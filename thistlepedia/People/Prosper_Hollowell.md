@@ -49,7 +49,7 @@ title: Prosper Hollowell
 
 P. HOLLOWELL, Caretaker. The Former Premises, the sky. First quarter, 2002.
 
-<div class="marginalia">I have done what he asked, and entered his date of birth as *pending*. He is, by the engagement's reckoning, a great deal older than anybody else in this volume, and he is, by the look of him in his portrait, about sixty-five, and a very kind sixty-five, and I do not think the two numbers need to be reconciled, any more than the Tower's. The courier brought his statement with a second sheet, which was not for the file: a drawing, in pencil, of what he imagines the airship at Upper Clanging to look like. It has a lift. - H.B.</div>
+<div class="marginalia">I have done what he asked, and entered his date of birth as *pending*. He is, by the engagement's reckoning, a great deal older than anybody else in this volume, and he is, by the look of him in his portrait, about sixty-five, and a very kind sixty-five, and I do not think the two numbers need to be reconciled, any more than the Tower's. The <a href="The_Courier">courier</a> brought his statement with a second sheet, which was not for the file: a drawing, in pencil, of what he imagines the airship at Upper Clanging to look like. It has a lift. - H.B.</div>
 
 ## See also
 

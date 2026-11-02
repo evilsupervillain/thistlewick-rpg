@@ -23,7 +23,7 @@
 
 <span class="trope" title="Walked into: Nix's Emporium">**The blue potion.**</span> Is mana. Everybody knows that, and nobody knows how. The one in <a href="../Places/Nixs_Emporium">Nix's Emporium</a> says so, with the small print OR IT IS BLUE WATER. ONE OF THOSE.
 
-<span class="trope" title="Walked into: the Guild; the Slain Wyvern">**The bounty board.**</span> A cork board of monsters with prices on, behind a rope eleven inches high. At the <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a>, members only. The Crab of Unusual Size and M. Crooke, both discharged.
+<span class="trope" title="Walked into: the Guild; the Slain Wyvern">**The bounty board.**</span> A cork board of monsters with prices on, behind a rope eleven inches high. At the <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a>, members only. The Crab of Unusual Size and <a href="../People/Meredith_Crooke">M. Crooke</a>, both discharged.
 
 
 ## C

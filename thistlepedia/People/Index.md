@@ -143,6 +143,12 @@ At <a href="../Places/Wayside_Sights">Wayside sights</a>.
 <figure><img src="../images/portraits/The_Drainage_Commissioner.png" alt="The Drainage Commissioner"><figcaption><a href="The_Drainage_Commissioner">The Drainage Commissioner</a></figcaption></figure>
 </div>
 
+### The western hills
+
+<div class="gallery">
+<figure><img src="../images/portraits/Meredith_Crooke.png" alt="Meredith Crooke"><figcaption><a href="Meredith_Crooke">Meredith Crooke</a></figcaption></figure>
+</div>
+
 
 ## The north
 
@@ -204,6 +210,8 @@ At <a href="../Places/Great_Dunnage">Great Dunnage</a>.
 <figure><img src="../images/portraits/Mr_Tweddle.png" alt="Mr Tweddle"><figcaption><a href="Mr_Tweddle">Mr Tweddle</a></figcaption></figure>
 </div>
 
+And <a href="Fellow_Blunt">Fellow Blunt</a>, who checks the stone and has not yet sat for a portrait.
+
 ### The Sable Hart
 
 <a href="The_Rivals_of_the_Sable_Hart">The Rivals of the Sable Hart</a>, five of them, on one page, by their own request, and Mrs Garrow, who keeps the house.
@@ -219,6 +227,8 @@ At <a href="../Places/Great_Dunnage">Great Dunnage</a>.
 <figure><img src="../images/portraits/Maud_Penhallow.png" alt="Maud Penhallow"><figcaption><a href="Maud_Penhallow">Maud Penhallow</a></figcaption></figure>
 <figure><img src="../images/portraits/Dean_Fenwold.png" alt="Dean Fenwold"><figcaption><a href="Dean_Fenwold">Dean Fenwold</a></figcaption></figure>
 </div>
+
+And <a href="Something_Unscheduled">Something Unscheduled</a>, at the bottom of the Stair, which is not a person and asked to be put in.
 
 ### Much Pottering
 
@@ -236,6 +246,14 @@ And <a href="Humphrey_Gotobed">Humphrey Gotobed</a>, adventurer, retired, who wa
 ## In other hands
 
 - <a href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>, songs and fragments from the road, chosen and introduced by Miss Quill, in the third person
+
+## On his rounds
+
+<div class="gallery">
+<figure><img src="../images/portraits/The_Courier.png" alt="The courier"><figcaption><a href="The_Courier">The courier</a></figcaption></figure>
+</div>
+
+Everywhere, already.
 
 ## Everybody else
 

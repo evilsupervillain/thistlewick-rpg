@@ -767,3 +767,52 @@ was the wiki's, not the game's; Prophecy Hall and the Committee mended too).
 
 Washer's age line in Upper Clanging, Shim and Grommet now says *two today*,
 to agree with Washer's own page (21 March 2000).
+
+## Four more pages: Fellow Blunt, Meredith Crooke, the Courier, Something Unscheduled
+
+Asked for by Mike on 2 November 2026. Fellow Blunt was settled as a man of about
+sixty. His face and sprite (`People1` 3, a young woman shared with the Councillor)
+are a stand-in, and are noted with Mr Pilbeam's (Hosea's face) under
+`ART-TODO.md`, *Wanted*. His page has no portrait until then.
+
+* **Fellow Blunt**. *Canon:* the stone and the sword under item three ("Not
+  ready." / "In the stone."); "The stone is not ready. I check the stone.";
+  quarterly, from the gate, never down, the stairs not his department; the
+  plate, and READY. DONE. (R.F.) under it; Maud in his yard from nine, "his
+  yard". *Wiki:* born 2 October 1937 at Great Dunnage, so he is 64; his first
+  name is not in the minutes. He put the plate up in 1978 and checked 88 times.
+  His reply to Hosea adds *It was, I find, ready.* The review met once more to
+  minute the prophecy discharged, which took four minutes, and has not met
+  since. He still goes out quarterly to read the pencil, and asks Maud's
+  opinion (as her page already said).
+* **Meredith Crooke**. *Canon:* the camp, the timetable board, "Principal", the
+  fourth week watching, the footwork, the ninety per cent message to Pell, "Week
+  five. Come back Thursday"; the board's card and the syllabus pinned beside it;
+  HOB-3's "Fail. Both of you." / "Reading was week one." / "Week one. It's all
+  week one.", one ear each, "You. The footwork." if beaten. Face `Actor3` 1, a
+  woman. *Wiki:* born 14 September 1963, so she is 38. "Miss" to the cohort. The
+  first three weeks are not shown to the unenrolled. Ivy's apology is framed in
+  the smithy (Hob's page already said so). She sends Pell her pass rate yearly,
+  never below 85, and he files it unanswered. Module seven is now a coal
+  scuttle, with its side read first. Ivy Scrope resat and passed in autumn 2000
+  and is now clerk to the course. Hodge resat twice and is in the next cohort.
+* **The Courier**. *Canon:* red coat, flat cap, satchel; "Post?", "Upper
+  Clanging. Dinner hour.", "On my rounds." and not whose; already there in eight
+  towns, plus Much Pottering and the Stair; the arrival lines; the four steps;
+  down the Stair without a lamp. Face `Gen_People14` 6, a man. *Wiki:* born not
+  stated, since he said he was on his rounds. He brings Hosea's post: Spare's
+  thirty-one letters and Hollowell's statement (Hollowell's was already by
+  him). In spring 2001 Hosea posted a letter to himself and walked home in four
+  minutes; the courier was on his step with an apple. Hosea filed the letter
+  unopened and made no more tests. **Nothing explains him, and nothing may**:
+  he is never tied to item four, to Sir Dunstable, or to anyone.
+* **Something Unscheduled**. *Canon:* the arrival line, item six, "Only if you've
+  got the afternoon", "Not today" and the ride up, the fight's four moves, the
+  self-issued card, "Nobody made you.", the loss line and the porch, "Again?" /
+  "Nobody made you that time either.", Form Z, the third card, *Anticipated.*
+  The game calls it *it* and gives it no face. *Wiki:* in the People volume at
+  its own request. It sent a note up with Bram, in a large round hand with a
+  drawing of itself waving, and answered the proof with *OH*, underlined three
+  times. Hosea has been asked down and has not gone. Bram's three visits, Wren's
+  eleven pages and Pell's second Form Z were already here; Pell adds that he
+  did not expect to need the first one either.

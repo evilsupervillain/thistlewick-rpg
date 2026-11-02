@@ -21,7 +21,19 @@ Last updated 2 November 2026. The battlers `AUDIT.md` item 7 found wrong are lis
 
 ## Wanted
 
-Nothing. Everything asked for so far is in; see *Done*.
+No pictures are owed. Everything asked for so far is in; see *Done*.
+
+**Later: two people wearing somebody else's face** (Mike, 2 November 2026).
+Both need a face and a walking sprite of their own. They will probably be made
+with the Character Generator (`../CHARGEN.md`) into the next free `Gen_People16`
+cells, then `story.FACES` repointed. The Thistle-pedia's portrait follows on the
+next `scripts/thistlepedia/portraits.py` run. This is parked until the graphics
+pass and is not urgent.
+
+| who | where they appear | wears now | what the face has to be |
+| --- | --- | --- | --- |
+| Fellow Blunt | the Bell (Map 65), event 14, at the ROL-1 meeting: face **and** sprite | `People1` 3, a young woman with short red hair, shared with Thistlewick's unnamed Councillor | a man, sixty or so (born 1937 in the wiki), who has run a training yard for sword and horse and has checked a stone quarterly since 1978. Maud says "his yard". The wiki shows no portrait until this exists |
+| Mr Pilbeam | Fairholme's council chamber (Map 35), event 6: face **and** sprite | `People4` 0, which is **Hosea Bellwether's** | an ordinary man of about thirty (born 1970), once a traveller in buttons. `story.py` wants "the most ordinary face in the box". The wiki's portrait of him is Hosea's until this exists |
 
 The notes on the two benches below are kept for when either drawing is
 changed.

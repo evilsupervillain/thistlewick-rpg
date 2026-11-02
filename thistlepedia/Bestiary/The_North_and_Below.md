@@ -82,7 +82,7 @@ The Stair goes down from the Door into the Mountain at Hithermost, and the paris
 
 **What it is.** Unscheduled.
 
-**Called.** Something Unscheduled. That is its own name, and it is the most accurate name in this Bestiary, and I have not been able to improve on it either.
+**Called.** <a href="../People/Something_Unscheduled">Something Unscheduled</a>. That is its own name, and it is the most accurate name in this Bestiary, and I have not been able to improve on it either.
 
 **Where.** The bottom of the Stair, below D. 212, in a chamber with lamps on every ledge, all lit.
 

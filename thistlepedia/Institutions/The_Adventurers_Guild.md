@@ -52,7 +52,7 @@ Cobb Lorrimer, a thief, is registered under T.
 The bounty board is in the hall, behind a small rope. A card on the rope says MEMBERS ONLY. The rope is eleven inches high, and could be stepped over by a determined duck. In 2000 there were two cards on it:
 
 * **The Crab of Unusual Size**, which held the west beach and would not be reasoned with, and had been there longer than the town. Nine hundred crowns, on production of a witness.
-* **M. Crooke, Bandit Chief**, who had a camp in the western hills and ran a six-week banditry apprenticeship with a syllabus. Twelve hundred crowns and the Guild's quiet relief.
+* **<a href="../People/Meredith_Crooke">M. Crooke, Bandit Chief</a>**, who had a camp in the western hills and ran a six-week banditry apprenticeship with a syllabus. Twelve hundred crowns and the Guild's quiet relief.
 
 Both are discharged, in Mr Pell's hand. The fish stall added two bowls of chowder to the first, because it was extremely pleased about the beach.
 
@@ -68,7 +68,7 @@ Mr Pell also holds Form C-12(S), by which a Chosen One may strike off any compan
 
 In a drawer of Mr Pell's desk which most people never notice there was a single sheet, yellow at the edges: **Form Z, Matters Not Anticipated**. He kept it for forty years. In case. In forty years he never once used it, because every matter had been anticipated, by somebody, on something.
 
-After the ending the Forty-Eighth put a bounty card on his desk that had no authority, no number and a drawing of an octopus on the back, for <a href="../Places/The_Stair">Something Unscheduled</a>, at the bottom of the Stair under Hithermost, which the party had fought and beaten. There was no form for it. Mr Pell said so twice, the second time more slowly. Then he opened the drawer. His hand, I am told, was not quite steady. He stamped the card DISCHARGED, and then held out his hand for the Guild Card (Provisional), and gave back one without.
+After the ending the Forty-Eighth put a bounty card on his desk that had no authority, no number and a drawing of an octopus on the back, for <a href="../People/Something_Unscheduled">Something Unscheduled</a>, at the bottom of the Stair under Hithermost, which the party had fought and beaten. There was no form for it. Mr Pell said so twice, the second time more slowly. Then he opened the drawer. His hand, I am told, was not quite steady. He stamped the card DISCHARGED, and then held out his hand for the Guild Card (Provisional), and gave back one without.
 
 <blockquote>"A discharged bounty is a completed engagement. A member with a completed engagement is not provisional. The first in forty years. I shall mention it to the review. When it sits."</blockquote>
 
@@ -84,6 +84,6 @@ The board has been empty since 2000, except for a card that says NO VACANCIES, w
 
 - <a href="../Places/Nether_Sopping">Nether Sopping</a>
 - <a href="../Places/The_Barrow_of_the_Forty-Fourth">The Barrow of the Forty-Fourth</a>
-- <a href="../Places/The_Stair">The Stair</a>, for Something Unscheduled
+- <a href="../People/Something_Unscheduled">Something Unscheduled</a>
 - <a href="The_Prophecy_Committee">The Prophecy Committee</a>, for Form C-12
 - <a href="../People/Cobb_Lorrimer">Cobb Lorrimer</a>, under T
