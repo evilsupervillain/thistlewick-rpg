@@ -4,13 +4,13 @@ title: Corvin Ash
 
 # Corvin Ash
 
-<p class="hatnote">For the village he is from, see <a class="new" href="../Places/Ashcombe">Ashcombe</a>. For the one under the lake, see <a class="new" href="../Places/Old_Ashcombe">Old Ashcombe</a>. They are both Ashcombe.</p>
+<p class="hatnote">For the village he is from, see <a href="../Places/Ashcombe">Ashcombe</a>. For the one under the lake, see <a href="../Places/Ashcombe#old-ashcombe">Old Ashcombe</a>. They are both Ashcombe.</p>
 
 <table class="infobox">
 <caption>Corvin Ash</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Corvin_Ash.png" alt="Corvin Ash, a brooding young man in a dark coat, not looking pleased on purpose" width="200"><span class="infobox-caption">Don't ask about the scar</span></td></tr>
 <tr><th>Known as</th><td>The Brooding One; the Doomed Rival</td></tr>
-<tr><th>Of</th><td><a class="new" href="../Places/Ashcombe">Ashcombe</a>; for eleven years, the corner of the Slain Wyvern</td></tr>
+<tr><th>Of</th><td><a href="../Places/Ashcombe">Ashcombe</a>; for eleven years, the corner of the Slain Wyvern</td></tr>
 <tr><th>Trade</th><td>Rival of a great hero, according to a fortune-teller, for twopence</td></tr>
 <tr><th>Age</th><td>Thirty-two</td></tr>
 <tr><th>Good at</th><td>Dark damage, and more of it the worse things get</td></tr>
@@ -29,7 +29,7 @@ I sat across the room from him for most of those eleven years, at the table by t
 
 ## Ashcombe
 
-He was born at <a class="new" href="../Places/Ashcombe">Ashcombe</a>, in a valley that is now a lake. In 1989, when he was nineteen and away from home, the water came up, and the village was flooded, and nobody was hurt, and the whole of it moved eight miles inland (eight miles by the road; the lake says less) and built itself again. He took the name Ash when it went under, as a memorial, after thinking about the gesture for some weeks. The village also kept the name, because it was its name and it was still using it, and so the new Ashcombe is Ashcombe too, and has a post office. You cannot mourn a place that is answering its correspondence.
+He was born at <a href="../Places/Ashcombe">Ashcombe</a>, in a valley that is now a lake. In 1989, when he was nineteen and away from home, the water came up, and the village was flooded, and nobody was hurt, and the whole of it moved eight miles inland (eight miles by the road; the lake says less) and built itself again. He took the name Ash when it went under, as a memorial, after thinking about the gesture for some weeks. The village also kept the name, because it was its name and it was still using it, and so the new Ashcombe is Ashcombe too, and has a post office. You cannot mourn a place that is answering its correspondence.
 
 The new Ashcombe is proud of the flood. It has a plaque about it, which is upbeat, and a Drainage Museum, and an annual dinner.
 
@@ -61,7 +61,7 @@ He is up. He has the scarf, the chair at the Sable Hart, the form, which he has 
 
 ## See also
 
-- <a class="new" href="../Places/Ashcombe">Ashcombe</a>
-- <a class="new" href="../Places/The_Sable_Hart">The Sable Hart</a>
+- <a href="../Places/Ashcombe">Ashcombe</a>
+- <a href="../Places/The_Sable_Hart">The Sable Hart</a>
 - <a class="new" href="Mother_Selvidge">Mother Selvidge</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

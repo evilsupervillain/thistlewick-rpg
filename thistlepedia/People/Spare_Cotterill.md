@@ -61,7 +61,7 @@ has hit me. There is no dragon. Love, Spare.</p>
 
 His mother did more potatoes anyway.
 
-**The Bottom Lock.** His eldest brother Cotter, at the Iron Company's gate in <a class="new" href="../Places/Great_Dunnage">Great Dunnage</a>, had a job no man would fit: the bottom gate of the Dunnage cut, jammed, and a paddle to clear in a brick culvert under it. Spare went in alone, in the dark, and counted, and cleared it, and came out. Somebody was there when he came out.
+**The Bottom Lock.** His eldest brother Cotter, at the Iron Company's gate in <a href="../Places/Great_Dunnage">Great Dunnage</a>, had a job no man would fit: the bottom gate of the Dunnage cut, jammed, and a paddle to clear in a brick culvert under it. Spare went in alone, in the dark, and counted, and cleared it, and came out. Somebody was there when he came out.
 
 **The pen pal.** Since he was six he had been writing to Effie Gotobed of <a class="new" href="../Places/Much_Pottering">Much Pottering</a>, through the same courier, and she had had every untrue thing he ever wrote, and what she wrote back was exactly as untrue. They met, at last. Her volcano is a bonfire. Her sea serpent is a carp. There was no volcano. They are still writing.
 

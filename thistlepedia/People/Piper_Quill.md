@@ -44,7 +44,7 @@ and immediately needed a rhyme for *turnip*, and said she would get one on the r
 
 **A rhyme for turnip.** In the Gilded Turnip, which is named after the problem, the whole company sat down one afternoon and offered her rhymes. Hob offered *burnip*, without embarrassment. Zephyrine offered a slant rhyme with *sherbet*, which the Collegium would accept. Wren ruled everything ending in *-nip* inadmissible, pre-emptively, on the grounds that it is a genus. Sir Aldric offered the word for turnip in the old tongue of his house, which rhymes beautifully with nothing, in his tongue or anybody's. Corvin's scanned perfectly, and was about drowning. Merribell went looking for something anatomical, right down to the feet, and found nothing. Nix located one, ahead of schedule, on behalf of a client, and it was *turnip*. Bram offered a parsnip, and was told it is a different vegetable. There is no rhyme for *turnip*, and any competent poet would have changed the other line in the first week, which she then did, in nine seconds, moving the turnip into the middle of a line where nothing has to rhyme with it. "It was always going to be the last verse. I just had the lines the wrong way round." Everybody who had spent the afternoon on it was furious. She has asked for the nine seconds on her headstone. The verse is quoted under [The Obligatory Quest](../History/The_Obligatory_Quest#the-account).
 
-**The Contest at the Sign of the Bell.** A bardic competition at <a class="new" href="../Places/Great_Dunnage">Great Dunnage</a>, with categories nobody can defend and a panel of three judges, one of whom cannot hear. She lost, by one point, to a man who does birdcalls. The birdcalls are, in fairness, extraordinary; his thrush in particular. She has framed the certificate. It is the first prize a Quill has ever won for writing down what actually happened.
+**The Contest at the Sign of the Bell.** A bardic competition at <a href="../Places/Great_Dunnage">Great Dunnage</a>, with categories nobody can defend and a panel of three judges, one of whom cannot hear. She lost, by one point, to a man who does birdcalls. The birdcalls are, in fairness, extraordinary; his thrush in particular. She has framed the certificate. It is the first prize a Quill has ever won for writing down what actually happened.
 
 **The official account.** Ambrosine had already written the official account of the Forty-Eighth before he left, because the shape is known. It is properly metred, it has a good middle, Bram is an orphan in it, Merribell dies, and there is a bit with a wolf. Piper and the Forty-Eighth went to see it. What came of that is the subject of a disagreement among the Quills that I have been asked, by all of them, not to settle, and I am not going to. There is, depending on whom you ask, one official account or two, and if there is one it has a footnote by P. Quill, and if there are two the second has a goat in it, and the goat is in the minutes.
 
@@ -52,7 +52,7 @@ and immediately needed a rhyme for *turnip*, and said she would get one on the r
 
 ## The elegy
 
-On the road at <a class="new" href="../Places/Little_Gore">Little Gore</a> there was a card nailed to the back of the fingerpost: WANTED: AN ELEGY. For Abel Thrush, carrier, who walked the road between Little Gore, Fenmarch and Sump every day for fifty years, from 1941 until he died, in the spring of 1991, and never had one. Something with a bit of a tune.
+On the road at <a href="../Places/Little_Gore">Little Gore</a> there was a card nailed to the back of the fingerpost: WANTED: AN ELEGY. For Abel Thrush, carrier, who walked the road between Little Gore, Fenmarch and Sump every day for fifty years, from 1941 until he died, in the spring of 1991, and never had one. Something with a bit of a tune.
 
 She had never met him. She asked eleven people, and every one of them described a different man, and she wrote it out of the contradictions rather than choosing between them. She did not stand on anything. She did not read it out. She pinned it to the post, under the Fenmarch arm, and stepped back. It is still there, under a little roof that somebody has made for it, and people stop and read it on their way past, and with her leave I print it whole.
 
@@ -84,5 +84,5 @@ We are colleagues. We are rivals. She says my history is complete and not accura
 
 - <a class="new" href="Ambrosine_Quill">Ambrosine Quill</a>
 - <a class="new" href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>
-- <a class="new" href="../Places/Little_Gore">Little Gore</a>
+- <a href="../Places/Little_Gore">Little Gore</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

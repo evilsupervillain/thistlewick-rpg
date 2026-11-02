@@ -39,7 +39,7 @@ I asked in the village about Beatrice, and everybody I asked told me the same th
 
 ## On the Quest
 
-**The Assize of Hammers.** The Worshipful Company of Smiths at <a class="new" href="../Places/Great_Dunnage">Great Dunnage</a> judges work every three years, and Hob had never entered, having nothing he owned to enter. In 2000 he entered Beatrice, who is not his work. She was disqualified under clause one. The Wardens' notes, which I have seen, say that she is right about everything. He was entirely satisfied.
+**The Assize of Hammers.** The Worshipful Company of Smiths at <a href="../Places/Great_Dunnage">Great Dunnage</a> judges work every three years, and Hob had never entered, having nothing he owned to enter. In 2000 he entered Beatrice, who is not his work. She was disqualified under clause one. The Wardens' notes, which I have seen, say that she is right about everything. He was entirely satisfied.
 
 **The gate.** Beatrice went quiet, and he admitted at last that the last thing she had told him to do, eleven years before, was make a marker, and that he had never been able to get the words right. He made three markers, each one magnificent, and rejected all three ("It's right. It's not her."), and then made the churchyard a gate with a good latch, because the old one stuck and she would have hated the fuss. Beatrice began talking again on the walk home, and said the latch wants a spring.
 

@@ -39,7 +39,7 @@ She joined because the Tower was "a tower nobody's been inside for a hundred yea
 
 **Returned.** In the front of the ledger, where the hand is worst, were eleven things she had never sold on: the longest loans she had. Bram's mother's pie dish, the Old Man's chair, the gate key, Hulda Bole's good boots, a cradle for Bessie Marsden at Upper Clanging, and six more, across three towns. "Everything's a loan, eventually. That's what the RETURNED column is for." The column had been ruled, very neatly, down eleven years of pages, and there was nothing in it. She returned all eleven in an afternoon that was not one afternoon. None of the owners had known the things were gone, every one of them was pleased to have them back, and two of them tried to pay. The ledger has a RETURNED column now, with eleven lines in it, and a double line under the last, blotted.
 
-**The client.** On the clean page after it, the first new entry was a parcel, brown paper, which Mrs Bole had been carrying for somebody since 1989, marked NOT TO BE OPENED UNTIL I AM TWENTY-SIX. The hand on it was Nix's own, at fifteen. Inside was a letter from the party of the second part, signed *N., aged fifteen*. The client, it said, wanted one thing, which was the first entry in the book, the only line in eleven years with no provenance, which was in bond at <a class="new" href="../Places/Great_Dunnage">Great Dunnage</a>, and which she had been avoiding. "Stop it."
+**The client.** On the clean page after it, the first new entry was a parcel, brown paper, which Mrs Bole had been carrying for somebody since 1989, marked NOT TO BE OPENED UNTIL I AM TWENTY-SIX. The hand on it was Nix's own, at fifteen. Inside was a letter from the party of the second part, signed *N., aged fifteen*. The client, it said, wanted one thing, which was the first entry in the book, the only line in eleven years with no provenance, which was in bond at <a href="../Places/Great_Dunnage">Great Dunnage</a>, and which she had been avoiding. "Stop it."
 
 It was her gran's coat. It had gone down to her ankles. She would not wear it until it fitted, and would not sell it, so at fifteen she put it into the Bonded Warehouse, stood on a crate, and made a speech to the wharfinger, Mr Tibbs: *I shall return for it when I am somebody.* He wrote it in the margin. The rent came by post every quarter for eleven years, never late, no name, and she never went back, because he would have remembered the speech. He had. He unlocked the wardrobe. She put it on, and it fits. The first line of the ledger has a provenance now.
 
@@ -58,6 +58,6 @@ The back room is open. The ledger is into its second volume, which began on the 
 ## See also
 
 - <a href="../Places/Nixs_Emporium">Nix's Emporium</a>
-- <a class="new" href="../Places/The_Bonded_Warehouse">The Bonded Warehouse</a>
+- <a href="../Places/Great_Dunnage#the-bonded-warehouse">The Bonded Warehouse</a>
 - <a class="new" href="Cobb_Lorrimer">Cobb Lorrimer</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

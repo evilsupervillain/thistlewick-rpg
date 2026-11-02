@@ -13,7 +13,7 @@ title: Merribell
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, at the chapel</td></tr>
 <tr><th>Trade</th><td>Village healer; field medic</td></tr>
 <tr><th>Order</th><td>The Order of Whatever Works, the only member for eleven miles</td></tr>
-<tr><th>Trained</th><td>The Sisterhouse at <a class="new" href="../Places/Weeping_Bottom">Weeping Bottom</a>, until it began holding symposia</td></tr>
+<tr><th>Trained</th><td>The Sisterhouse at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>, until it began holding symposia</td></tr>
 <tr><th>Age</th><td>Twenty-eight</td></tr>
 <tr><th>Good at</th><td>Healing, reviving, Light</td></tr>
 <tr><th>Bad at</th><td>Hitting things</td></tr>
@@ -27,7 +27,7 @@ title: Merribell
 
 ## The Order
 
-The Order of Whatever Works has a founding document, which is a pamphlet, and a Rule of Life four lines long, one of them about socks. It does not have a doctrine and does not want one. Merribell trained at the mother house at <a class="new" href="../Places/Weeping_Bottom">Weeping Bottom</a>, a wet valley chosen by a founder who believed the damp was good for the chest, and left at twenty-two, in 1996, because the Sisterhouse had begun holding symposia.
+The Order of Whatever Works has a founding document, which is a pamphlet, and a Rule of Life four lines long, one of them about socks. It does not have a doctrine and does not want one. Merribell trained at the mother house at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>, a wet valley chosen by a founder who believed the damp was good for the chest, and left at twenty-two, in 1996, because the Sisterhouse had begun holding symposia.
 
 She keeps the most complete medical record in the county: every ailment of every soul in Thistlewick, dated, in a good hand. The Prophecy Committee has never once asked to see it, preferring the Prophecy.
 
@@ -45,7 +45,7 @@ Of all the things done on the road, three were hers, and the Prophecy's own acco
 
 **The Sisterhouse.** The mother house had split between the Order of Whatever Works and the Order of What Ought To Work, which wins every argument and loses patients, and the two agreed to settle it the way this world settles things, with a ward and a queue. Merribell asked the patients whether they had eaten. Whatever Works won on points, nineteen to one, in an afternoon. Sister Bewick, of the other order, has since been examined on Whatever Works' doctrine, and passed. It is four lines long.
 
-**The curse of Sump.** The village of <a class="new" href="../Places/Sump">Sump</a> had been cursed since 1794, with headaches, poor sleep and a general sense that things used to be better. She diagnosed it in nine seconds. There were wasps in the well and nobody had had any water for two hundred years. The curse was lifted by the Water Committee, one member, with a glass of water, and the minutes record an item three.
+**The curse of Sump.** The village of <a href="../Places/Sump">Sump</a> had been cursed since 1794, with headaches, poor sleep and a general sense that things used to be better. She diagnosed it in nine seconds. There were wasps in the well and nobody had had any water for two hundred years. The curse was lifted by the Water Committee, one member, with a glass of water, and the minutes record an item three.
 
 She also called on <a class="new" href="Tobias_Frayne">Tobias Frayne</a>, who had been revived by passing adventurers eleven times, and declined to make it twelve. "There is nothing wrong with you, Mr Frayne. That's the trouble." She prescribed having the parish to tea, through the door, on purpose. He has not died since.
 
@@ -68,6 +68,6 @@ She is still Thistlewick's healer, still the only member of her order for eleven
 ## See also
 
 - <a class="new" href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>
-- <a class="new" href="../Places/Weeping_Bottom">Weeping Bottom</a>
+- <a href="../Places/Weeping_Bottom">Weeping Bottom</a>
 - <a class="new" href="Ysolde_Marrow">Ysolde Marrow</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

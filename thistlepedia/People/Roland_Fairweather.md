@@ -38,7 +38,7 @@ He is the only member of the company who does not tell me he was at the top of t
 
 ## The appointment
 
-What he was called away to, every time, was a **review meeting**. Roland Fairweather has a prophecy of his own. It is a proper one, with a lineage, a sword in a stone, a sorcerer and a Worm, and in 1978 he was told it was nearly ready. A committee of four has met about it ever since, in the snug of the Bell at <a class="new" href="../Places/Great_Dunnage">Great Dunnage</a>, under a Convenor, and at every meeting it has gone through readiness - the stone, the sword, the sorcerer, the lineage - and found it still not ready, and noted his continued availability, and thanked him for his patience. A meeting takes eleven minutes. When the party followed him to one, it was the hundred and forty-first. "Mr Fairweather. Good. We're quorate."
+What he was called away to, every time, was a **review meeting**. Roland Fairweather has a prophecy of his own. It is a proper one, with a lineage, a sword in a stone, a sorcerer and a Worm, and in 1978 he was told it was nearly ready. A committee of four has met about it ever since, in the snug of the Bell at <a href="../Places/Great_Dunnage">Great Dunnage</a>, under a Convenor, and at every meeting it has gone through readiness - the stone, the sword, the sorcerer, the lineage - and found it still not ready, and noted his continued availability, and thanked him for his patience. A meeting takes eleven minutes. When the party followed him to one, it was the hundred and forty-first. "Mr Fairweather. Good. We're quorate."
 
 Whenever somebody else's story came to its last door, the committee sent for him, to check that he was still available, because he was the asset, and the asset must be accounted for.
 
