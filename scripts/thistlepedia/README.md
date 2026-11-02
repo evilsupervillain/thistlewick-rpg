@@ -27,6 +27,10 @@ the game. The skill that says how is `.claude/skills/staticpedia/SKILL.md`.
   everybody in between is decided once, in `AFTERWARDS.md` next to this file,
   which keeps the game's canon and the wiki's inventions in separate columns;
   every bio ends with an "Afterwards" section that agrees with it.
+* **Some sections are in other hands**: the Bestiary is Wren Halloway's, the
+  technical articles Ott Hoyle's, the songs Piper Quill's, and so on, printed
+  whole under Hosea's introduction. `PLAN.md` says who writes what, and holds
+  the rule for **Sir Dunstable, whom nothing may settle** as alive or not.
 * The humour rules are `NORTH.md` 1.2-1.6, and they hold here too: clean,
   embarrassment never resentment, nobody diminished by their punchline.
 
