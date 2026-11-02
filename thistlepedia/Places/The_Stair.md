@@ -4,7 +4,7 @@ title: The Stair
 
 # The Stair
 
-<p class="hatnote">This article is about the stair behind the Door into the Mountain at <a href="Hithermost">Hithermost</a>. For the knight whose chalk is on it, see <a class="new" href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>; whether he is alive is <a href="Hithermost#sir-dunstable">disputed</a>, and is not settled here either. For what is at the bottom, see the <a href="../Bestiary/">Bestiary</a>.</p>
+<p class="hatnote">This article is about the stair behind the Door into the Mountain at <a href="Hithermost">Hithermost</a>. For the knight whose chalk is on it, see <a href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>; whether he is alive is <a href="Hithermost#sir-dunstable">disputed</a>, and is not settled here either. For what is at the bottom, see the <a href="../Bestiary/">Bestiary</a>.</p>
 
 <table class="infobox">
 <caption>The Stair</caption>
@@ -113,6 +113,6 @@ After the fight it saw them up the Stair, all of it. It took no time at all, and
 ## See also
 
 - <a href="Hithermost">Hithermost</a>, and the Chapel of Continuance
-- <a class="new" href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>
+- <a href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>
 - <a class="new" href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>, and Form Z
 - <a href="../People/Spare_Cotterill">Spare Cotterill</a>

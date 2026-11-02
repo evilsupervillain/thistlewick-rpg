@@ -63,5 +63,5 @@ He is up. He has the scarf, the chair at the Sable Hart, the form, which he has 
 
 - <a href="../Places/Ashcombe">Ashcombe</a>
 - <a href="../Places/The_Sable_Hart">The Sable Hart</a>
-- <a class="new" href="Mother_Selvidge">Mother Selvidge</a>
+- <a href="../Places/Wayside_Sights#the-fair">Mother Selvidge</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

@@ -4,7 +4,7 @@ title: Roland Fairweather
 
 # Roland Fairweather
 
-<p class="hatnote">For the door he left at, see <a href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>. For his understudy, see <a class="new" href="Maud_Penhallow">Maud Penhallow</a>.</p>
+<p class="hatnote">For the door he left at, see <a href="../Places/The_Obligatory_Tower">The Obligatory Tower</a>. For his understudy, see <a href="Maud_Penhallow">Maud Penhallow</a>.</p>
 
 <table class="infobox">
 <caption>Roland Fairweather</caption>
@@ -60,7 +60,7 @@ The parties he had left at their doors held a dinner, at the Slain Wyvern, organ
 
 ## The understudy
 
-<a class="new" href="Maud_Penhallow">Maud Penhallow</a> had been in Fellow Blunt's yard at Great Dunnage since she was nine, learning sword, horse, lineage and how he stands, as his understudy, in case the prophecy was ready and he was unavailable. Nobody had told her about the meetings. He told her. She took it well, and thought about it, and asked a question none of the grown-ups had thought of in twenty-two years. I have it. I am not going to print it. Nobody has answered it.
+<a href="Maud_Penhallow">Maud Penhallow</a> had been in Fellow Blunt's yard at Great Dunnage since she was nine, learning sword, horse, lineage and how he stands, as his understudy, in case the prophecy was ready and he was unavailable. Nobody had told her about the meetings. He told her. She took it well, and thought about it, and asked a question none of the grown-ups had thought of in twenty-two years. I have it. I am not going to print it. Nobody has answered it.
 
 When the party went up the Tower, she waited at the door. "Somebody ought to see the end of one."
 
@@ -74,7 +74,7 @@ Since then he has finished two further things, which he has not told me about, b
 
 ## See also
 
-- <a class="new" href="Maud_Penhallow">Maud Penhallow</a>
+- <a href="Maud_Penhallow">Maud Penhallow</a>
 - [Hob Grumnir](Hob_Grumnir)
 - <a href="../Places/Carn_Drey">Carn Drey</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

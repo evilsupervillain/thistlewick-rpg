@@ -49,7 +49,7 @@ And a message: if they saw Ysolde, and they would, tell her he said she was righ
 
 It was built. How, and by whom, and with what timber, is in the article on <a href="../Places/The_Barrow_of_the_Forty-Fourth">the Barrow</a>, and I will not tell it twice. The burial chamber is empty now. The circle on the floor has gone unswept for the first time in forty years, and there is nobody standing in it. If you want him, he is on the top of the mound, on a bench, facing the sea, and I have been out and sat at the other end of it, and he did not mind.
 
-<div class="marginalia">I have been asked whether a man who has died can sit on a bench. I am a historian, not a theologian, and I can only report that the bench is sat on, and that the view from it is of the sea and the north road, and that the people who walk that road tired now have somewhere to sit down. He asked for nothing for himself, and was very firm about it, and I have decided that what he is doing on top of the mound is none of my business, which is a rule I have also had to apply to <a class="new" href="Sir_Dunstable">Sir Dunstable</a>.</div>
+<div class="marginalia">I have been asked whether a man who has died can sit on a bench. I am a historian, not a theologian, and I can only report that the bench is sat on, and that the view from it is of the sea and the north road, and that the people who walk that road tired now have somewhere to sit down. He asked for nothing for himself, and was very firm about it, and I have decided that what he is doing on top of the mound is none of my business, which is a rule I have also had to apply to <a href="Sir_Dunstable">Sir Dunstable</a>.</div>
 
 ## Afterwards
 

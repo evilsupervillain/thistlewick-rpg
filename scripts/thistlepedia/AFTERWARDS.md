@@ -328,3 +328,23 @@ Small inventions in the bios. All *wiki*.
 * **Tobias Frayne** has had the parish to tea many times since; the yellowed
   rung paper is burnt; he has started putting crowns back in the jar. His
   cottage is in his article, not in Places.
+* **Sir Dunstable**: his early life is unknown; Mordaunt says his pin is the
+  one he has never had to move. His one Fairholme share implies he rescued
+  Rosamund once; she does not say which rescue. The chalk boulders ("Good
+  boulder. Sat on it.") are Hosea's evidence for *both* sides. He asked for
+  his article to say "it was a grand day". Nothing settles anything.
+* **Brother Quillon** returned his article and said "Of course."
+* **Mirabel** is 4,114 and says eight and a half; the Archive clock's ribbon
+  is blue now; her letter to Hosea stops at the biscuit. Elowen's tea cosy is
+  finished, and what it is used for is a secret (the baby is still not said to
+  be born). Her two horses are in separate sections and never connected; her
+  bio mentions only the margin.
+* **Elder Faelan** wrote that Hosea should ask Grandmother what else began the
+  Age; gave him an empty biscuit tin.
+* **Maud Penhallow** is eighteen and still in the yard, and Fellow Blunt has
+  started asking her opinion; she has a copy of Roland's list. Both ways of
+  ending ROL-5 are given (the door, or the pie); the Tower article now says
+  "by one account". The question is never printed.
+* **Dean Fenwold** has had the Hall measured; the room committee will
+  consider it. ZEPH-1's ending is not touched.
+* **Mother Selvidge** has no bio: her link goes to Wayside Sights' Fair.

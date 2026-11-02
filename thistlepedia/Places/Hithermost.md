@@ -4,7 +4,7 @@ title: Hithermost
 
 # Hithermost
 
-<p class="hatnote">This article is about the village under the mountain, and its chapel. For what is through the Door, see <a href="The_Stair">The Stair</a>. For the knight, see <a class="new" href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>.</p>
+<p class="hatnote">This article is about the village under the mountain, and its chapel. For what is through the Door, see <a href="The_Stair">The Stair</a>. For the knight, see <a href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>.</p>
 
 <table class="infobox">
 <caption>Hithermost</caption>
@@ -74,5 +74,5 @@ Until the Quest was over the Forty-Eighth had no lamp, and did not go in. Sir Du
 ## See also
 
 - <a href="The_Stair">The Stair</a>
-- <a class="new" href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>
-- <a class="new" href="../People/Brother_Quillon">Brother Quillon</a>
+- <a href="../People/Sir_Dunstable">Sir Dunstable of the Vale</a>
+- <a href="../People/Brother_Quillon">Brother Quillon</a>

@@ -4,7 +4,7 @@ title: Olde Evermore
 
 # Olde Evermore
 
-<p class="hatnote">This article is about the hidden village of the elves and its Archive. For the Oracle, see <a class="new" href="../People/Mirabel">Mirabel</a>. For the elves' way of counting years, see <a href="../History/Two_Reckonings">Two Reckonings</a>.</p>
+<p class="hatnote">This article is about the hidden village of the elves and its Archive. For the Oracle, see <a href="../People/Mirabel">Mirabel</a>. For the elves' way of counting years, see <a href="../History/Two_Reckonings">Two Reckonings</a>.</p>
 
 <table class="infobox">
 <caption>Olde Evermore</caption>
@@ -63,7 +63,7 @@ Asked who the villain really is, Mirabel said that she knows, and is not allowed
 
 ## See also
 
-- <a class="new" href="../People/Mirabel">Mirabel</a>
-- <a class="new" href="../People/Elder_Faelan">Elder Faelan</a>
+- <a href="../People/Mirabel">Mirabel</a>
+- <a href="../People/Elder_Faelan">Elder Faelan</a>
 - <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>, clause twelve
 - <a href="../History/Two_Reckonings">Two Reckonings</a>

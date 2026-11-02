@@ -60,6 +60,6 @@ She is still in Thistlewick, now on purpose. She no longer drinks at the Gilded 
 ## See also
 
 - <a class="new" href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>
-- <a class="new" href="Dean_Fenwold">Dean Fenwold</a>
+- <a href="Dean_Fenwold">Dean Fenwold</a>
 - <a href="../Places/The_Gilded_Turnip">The Gilded Turnip</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)
