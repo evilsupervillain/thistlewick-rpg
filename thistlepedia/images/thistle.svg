@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>A thistle</title>
+  <circle cx="32" cy="32" r="31" fill="#f3e7c9" stroke="#8a6d3b" stroke-width="2"/>
+  <!-- stem and leaves -->
+  <path d="M32 58 V30" stroke="#3f6b2a" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M32 50 C24 48 18 42 15 36 C21 38 26 40 32 45 Z" fill="#4f7d34"/>
+  <path d="M32 44 C40 42 46 36 49 30 C43 32 38 35 32 40 Z" fill="#4f7d34"/>
+  <!-- the bulb -->
+  <path d="M22 30 C22 22 42 22 42 30 C42 36 36 38 32 38 C28 38 22 36 22 30 Z" fill="#5f8a3c" stroke="#2f4f1e" stroke-width="1.2"/>
+  <path d="M24 29 L28 33 M28 27 L32 32 M33 27 L36 32 M38 28 L40 31" stroke="#2f4f1e" stroke-width="1" fill="none"/>
+  <!-- the flower -->
+  <g stroke="#5b2f86" stroke-width="2.4" stroke-linecap="round">
+    <path d="M25 24 L19 12"/><path d="M28 23 L25 9"/><path d="M32 23 L32 7"/>
+    <path d="M36 23 L39 9"/><path d="M39 24 L45 12"/><path d="M30 23 L28 8"/><path d="M34 23 L36 8"/>
+  </g>
+  <g stroke="#8a3fbf" stroke-width="1.6" stroke-linecap="round">
+    <path d="M27 23 L22 13"/><path d="M37 23 L42 13"/><path d="M32 23 L30 11"/><path d="M33 23 L35 11"/>
+  </g>
+  <path d="M23 25 C27 21 37 21 41 25" stroke="#2f4f1e" stroke-width="1.6" fill="none"/>
+</svg>

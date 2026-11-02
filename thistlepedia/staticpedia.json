@@ -1,0 +1,14 @@
+{
+  "siteName": "The Thistle-pedia",
+  "tagline": "A Complete And Accurate History of the Obligatory Quest, by Hosea Bellwether",
+  "logo": "images/thistle.svg",
+  "favicon": "images/thistle.svg",
+  "lang": "en-GB",
+  "defaultTheme": "system",
+  "defaults": { "fontSize": "medium", "width": "narrow", "toc": true, "sidebar": true },
+  "tocMinHeadings": 3,
+  "showSourceLink": false,
+  "showLastModified": false,
+  "titleSeparator": " — ",
+  "searchExclude": ["README.md", "_*.md"]
+}

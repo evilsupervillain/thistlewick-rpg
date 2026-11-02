@@ -1,0 +1,1 @@
+*The Thistle-pedia* is Volume Three of *A Complete And Accurate History Of The Obligatory Quest*, compiled by Hosea Bellwether at the Slain Wyvern, Nether Sopping. Complete. Accuracy was always going to be harder. · Not authorised by the Prophecy Committee.

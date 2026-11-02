@@ -1,0 +1,241 @@
+/*
+ * The Thistle-pedia - house style.
+ *
+ * "A Complete And Accurate History", as kept by Hosea Bellwether at a table of
+ * its own in the Slain Wyvern, Nether Sopping. The look is a ledger that has
+ * been in a tavern: parchment, iron-gall ink, a thistle-purple rubric for the
+ * headings and the Committee's red for anything ominous. Dark mode is the
+ * same book by candlelight, after closing.
+ *
+ * Only variables and content classes live here; index.html is untouched.
+ * No web fonts: the stacks below use whatever book faces the reader already
+ * has, and fall back to the browser's serif.
+ */
+
+/* ---- Both themes ---------------------------------------------------------- */
+:root, :root[data-theme="dark"] {
+  --sp-font-body: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+                  "URW Palladio L", "P052", Georgia, "DejaVu Serif", serif;
+  --sp-font-heading: "Goudy Old Style", "Garamond", "EB Garamond", "Iowan Old Style",
+                     "Palatino Linotype", Palatino, Georgia, serif;
+  --sp-font-mono: "Courier Prime", "Courier New", Courier, "Liberation Mono", monospace;
+  --sp-line-height: 1.65;
+  --sp-radius: 2px;
+  --sp-sidebar-width: 12.5rem;
+}
+
+/* ---- Light: the ledger, by day ------------------------------------------- */
+:root[data-theme="light"] {
+  --sp-bg: #e9dcbf;            /* the table the book is lying on */
+  --sp-surface: #f7efdc;       /* the page */
+  --sp-surface-2: #f1e5c8;     /* infoboxes: a pasted-in slip */
+  --sp-surface-3: #e4d2a8;
+  --sp-text: #2b2118;          /* iron-gall ink */
+  --sp-text-muted: #6a5a45;
+  --sp-border: #a88e64;
+  --sp-border-light: #cdb88e;
+  --sp-link: #5b2f86;          /* thistle */
+  --sp-link-visited: #7a4a6a;
+  --sp-link-hover: #8a3fbf;
+  --sp-link-new: #a3261c;      /* the Committee's red */
+  --sp-accent: #5b2f86;
+  --sp-accent-text: #fbf5e6;
+  --sp-focus: #8a3fbf;
+  --sp-header-bg: #2f2340;     /* the binding */
+  --sp-sidebar-bg: transparent;
+  --sp-input-bg: #fbf6ea;
+  --sp-code-bg: #ece0c4;
+  --sp-code-text: #3a2c1e;
+  --sp-mark-bg: #f3d77a;
+  --sp-shadow: 0 6px 24px rgba(60, 40, 10, .28);
+  --sp-note: #5b2f86;
+  --sp-tip: #3f6b2a;           /* turnip leaf */
+  --sp-important: #7a4a6a;
+  --sp-warning: #9a5a12;
+  --sp-caution: #a3261c;
+  --tp-rule: #8a6d3b;          /* gilt rules */
+  --tp-ink-faint: rgba(43, 33, 24, .07);
+  --tp-header-text: #f3e7c9;
+  --tp-header-muted: #c9b48a;
+  --tp-stamp: #a3261c;
+}
+
+/* ---- Dark: the same book, by candlelight --------------------------------- */
+:root[data-theme="dark"] {
+  --sp-bg: #17110c;
+  --sp-surface: #221911;
+  --sp-surface-2: #2b2016;
+  --sp-surface-3: #3a2b1d;
+  --sp-text: #ecdcbc;
+  --sp-text-muted: #b9a37f;
+  --sp-border: #6e5637;
+  --sp-border-light: #47372a;
+  --sp-link: #c9a3ef;
+  --sp-link-visited: #d8a7c4;
+  --sp-link-hover: #e2c6ff;
+  --sp-link-new: #ff8f7f;
+  --sp-accent: #b58ae0;
+  --sp-accent-text: #17110c;
+  --sp-focus: #e2c6ff;
+  --sp-header-bg: #120c15;
+  --sp-sidebar-bg: transparent;
+  --sp-input-bg: #1a130d;
+  --sp-code-bg: #2f2419;
+  --sp-code-text: #f0dfbf;
+  --sp-mark-bg: #6b5212;
+  --sp-shadow: 0 6px 24px rgba(0, 0, 0, .65);
+  --sp-note: #c9a3ef;
+  --sp-tip: #9cc77e;
+  --sp-important: #d8a7c4;
+  --sp-warning: #e6aa55;
+  --sp-caution: #ff8f7f;
+  --tp-rule: #a8864e;
+  --tp-ink-faint: rgba(236, 220, 188, .05);
+  --tp-header-text: #ecdcbc;
+  --tp-header-muted: #a8916c;
+  --tp-stamp: #ff8f7f;
+}
+
+/* ---- The binding (header) ------------------------------------------------- */
+.sp-header {
+  color: var(--tp-header-text);
+  border-bottom: 3px double var(--tp-rule);
+}
+.sp-header .sp-brand, .sp-header .sp-brand:visited { color: var(--tp-header-text) !important; }
+.sp-header .sp-brand-name { font-variant: small-caps; letter-spacing: .04em; }
+.sp-header .sp-brand-tagline { color: var(--tp-header-muted); font-style: italic; }
+.sp-header .sp-icon-btn { color: var(--tp-header-text); }
+.sp-header .sp-icon-btn:hover { background: rgba(255, 255, 255, .12); }
+.sp-header .sp-search input { border-color: var(--tp-rule); }
+
+/* ---- The page ------------------------------------------------------------- */
+.sp-content {
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  hyphens: auto;
+}
+.sp-content h1 {
+  font-size: 2.15rem;
+  letter-spacing: .01em;
+  border-bottom: 3px double var(--tp-rule);
+}
+.sp-content h2 {
+  font-variant: small-caps;
+  letter-spacing: .04em;
+  color: var(--sp-accent);
+  border-bottom: 1px solid var(--tp-rule);
+}
+.sp-content h3 { font-family: var(--sp-font-heading); font-style: italic; font-weight: 600; }
+.sp-content a { text-decoration-thickness: from-font; text-underline-offset: .15em; }
+
+/* A drop capital on the first paragraph of an article that asks for one. */
+.sp-content .lede::first-letter {
+  float: left;
+  font-family: var(--sp-font-heading);
+  font-size: 3.4em;
+  line-height: .85;
+  padding: .06em .08em 0 0;
+  color: var(--sp-accent);
+}
+
+.sp-content blockquote {
+  font-style: italic;
+  border-left: 3px solid var(--tp-rule);
+  color: var(--sp-text);
+  background: var(--tp-ink-faint);
+}
+.sp-content blockquote cite, .sp-content .attribution {
+  display: block; text-align: right; font-style: normal; font-variant: small-caps;
+  color: var(--sp-text-muted);
+}
+
+.sp-content hr {
+  border: 0; height: 1.2em; margin: 1.6em 0; text-align: center;
+  border-top: 0;
+}
+.sp-content hr::before { content: "\2766  \2766  \2766"; color: var(--tp-rule); letter-spacing: .5em; }
+
+/* Ledger tables: ruled, not boxed. */
+.sp-content table:not(.plain):not(.infobox) { border-color: var(--tp-rule); }
+.sp-content table:not(.plain):not(.infobox) > * > tr > th {
+  font-variant: small-caps; letter-spacing: .03em; background: var(--sp-surface-3);
+}
+.sp-content table:not(.plain):not(.infobox) > tbody > tr:nth-child(even) > td { background: var(--tp-ink-faint); }
+
+/* ---- Infobox: a slip pasted into the margin ------------------------------- */
+.sp-content .infobox {
+  border: 1px solid var(--tp-rule);
+  outline: 1px solid var(--tp-rule);
+  outline-offset: 3px;
+  box-shadow: 2px 3px 0 var(--tp-ink-faint);
+  margin-top: .6em;
+}
+.sp-content .infobox caption, .sp-content .infobox .infobox-title {
+  font-variant: small-caps; letter-spacing: .03em; color: var(--sp-accent);
+}
+.sp-content .infobox .infobox-header,
+.sp-content table.infobox > * > tr > th.infobox-header {
+  font-variant: small-caps; letter-spacing: .05em;
+  border-top: 1px solid var(--tp-rule) !important;
+}
+.sp-content .infobox .infobox-image img,
+.sp-content img.portrait {
+  border: 1px solid var(--tp-rule);
+  background: var(--sp-surface);
+  padding: 3px;
+  image-rendering: auto;
+}
+.sp-content .infobox .infobox-caption { font-style: italic; }
+
+/* ---- Figures -------------------------------------------------------------- */
+.sp-content figure.thumb, .sp-content figure.right, .sp-content figure.left {
+  border-color: var(--tp-rule);
+}
+.sp-content figcaption { font-style: italic; }
+
+/* ---- House classes -------------------------------------------------------- */
+
+/* Hosea's own asides. He cannot help himself. */
+.sp-content .marginalia {
+  margin: 1em 0 1em 1.5em; padding: .4em .9em;
+  border-left: 2px dotted var(--tp-rule);
+  font-style: italic; font-size: .95em; color: var(--sp-text-muted);
+}
+.sp-content .marginalia::before {
+  content: "Note by the compiler. "; font-style: normal; font-variant: small-caps;
+  color: var(--sp-accent);
+}
+
+/* The Committee's stamp, for anything official, provisional or both. */
+.sp-content .stamp {
+  display: inline-block; padding: .05em .5em; margin: 0 .15em;
+  border: 2px solid var(--tp-stamp); border-radius: 3px;
+  color: var(--tp-stamp); font-variant: small-caps; font-weight: 700;
+  letter-spacing: .08em; transform: rotate(-2deg);
+}
+
+/* The tally of cliches: every trope the page walks into. */
+.sp-content .trope {
+  font-variant: small-caps; letter-spacing: .03em;
+  border-bottom: 1px dashed var(--sp-accent);
+  cursor: help;
+}
+
+/* Where the record cannot agree with itself. */
+.sp-content .disputed { border-left: 8px solid var(--sp-warning); }
+
+/* A row of small portraits, for the party and other crowds. */
+.sp-content .gallery { display: flex; flex-wrap: wrap; gap: .8em; margin: 1em 0; }
+.sp-content .gallery figure { margin: 0; width: 9.5em; text-align: center; }
+.sp-content .gallery img { width: 100%; height: auto; border: 1px solid var(--tp-rule); padding: 2px; background: var(--sp-surface); }
+.sp-content .gallery figcaption { display: block; font-size: .85em; font-style: normal; }
+
+/* The signature at the foot of the front page. */
+.sp-content .signature {
+  text-align: right; font-family: var(--sp-font-heading); font-style: italic;
+  font-size: 1.15em; margin-top: 1.5em;
+}
+
+@media (max-width: 720px) {
+  .sp-content .marginalia { margin-left: .4em; }
+  .sp-content .gallery figure { width: 7.5em; }
+}

@@ -1,0 +1,2287 @@
+<!doctype html>
+<!--
+  Static-Pedia: a read-only, single-file wiki engine for directories of Markdown.
+  Drop this file next to Index.md on any static host. Everything the program
+  needs (JS, CSS, Markdown parser, HTML sanitizer, icons) is inside this file.
+  https://github.com/evilsupervillain/staticpedia
+
+  You may copy, modify and redistribute this file in any project, under any
+  license. Keep this notice in it.
+
+  SPDX-License-Identifier: MIT
+  Copyright (c) 2026 evilsupervillain
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="Static-Pedia">
+<title>Static-Pedia</title>
+<link rel="icon" id="sp-favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233366cc'/%3E%3Cpath d='M8 9h7v14H8zM17 9h7v14h-7z' fill='%23fff'/%3E%3C/svg%3E">
+
+<script>
+/* ==========================================================================
+   EARLY SETTINGS: runs before first paint so the right theme, font size,
+   width, and so on are applied with no flash. The schema below is also the
+   single source of truth for the settings panel built later.
+   ========================================================================== */
+(function () {
+  'use strict';
+  const KEY = 'staticpedia:settings';
+  const mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+  /* Each setting becomes a data-* attribute on <html> (fontSize -> data-font-size).
+     Toggles are written as "on"/"off". `resolve` maps a stored value to the
+     applied one; the raw value is then also written as data-<name>-pref.
+     To add a setting: add an entry here and style the attribute in CSS. */
+  const SCHEMA = [
+    { key: 'theme', label: 'Theme', type: 'choice', default: 'system',
+      options: [['system', 'System'], ['light', 'Light'], ['dark', 'Dark']],
+      resolve: v => v === 'system' ? (mq && mq.matches ? 'dark' : 'light') : v },
+    { key: 'fontSize', label: 'Text size', type: 'choice', default: 'medium',
+      options: [['small', 'Small'], ['medium', 'Standard'], ['large', 'Large'], ['xlarge', 'Extra large']] },
+    { key: 'width', label: 'Content width', type: 'choice', default: 'narrow',
+      options: [['narrow', 'Narrow'], ['wide', 'Wide']] },
+    { key: 'toc', label: 'Show table of contents', type: 'toggle', default: true },
+    { key: 'sidebar', label: 'Show sidebar', type: 'toggle', default: true }
+  ];
+
+  function read() {
+    try {
+      const v = JSON.parse(localStorage.getItem(KEY) || '{}');
+      return v && typeof v === 'object' && !Array.isArray(v) ? v : {};
+    } catch (e) { return {}; }
+  }
+  function write(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); return true; } catch (e) { return false; }
+  }
+  function isValid(s, v) {
+    return s.type === 'toggle' ? typeof v === 'boolean' : s.options.some(o => o[0] === v);
+  }
+  /* Effective value: the user's stored choice, else the site default
+     (staticpedia.json, cached under "_site"), else the built-in default. */
+  function effective(stored) {
+    const site = (stored && stored._site) || {};
+    const out = {};
+    for (const s of SCHEMA) {
+      out[s.key] = isValid(s, stored[s.key]) ? stored[s.key] : isValid(s, site[s.key]) ? site[s.key] : s.default;
+    }
+    return out;
+  }
+  function attrName(key) { return 'data-' + key.replace(/[A-Z]/g, c => '-' + c.toLowerCase()); }
+  function apply(values) {
+    const root = document.documentElement;
+    for (const s of SCHEMA) {
+      let v = values[s.key];
+      if (s.resolve) { root.setAttribute(attrName(s.key) + '-pref', String(v)); v = s.resolve(v); }
+      root.setAttribute(attrName(s.key), typeof v === 'boolean' ? (v ? 'on' : 'off') : String(v));
+    }
+  }
+  apply(effective(read()));
+  window.__staticpediaEarly = { KEY, SCHEMA, mq, read, write, isValid, effective, apply };
+})();
+</script>
+
+<style>
+/* ==========================================================================
+   DEFAULT STYLES
+   Every color, font, and size is a custom property on :root, so a site's
+   style.css can restyle everything by overriding variables. Dark theme
+   values live under [data-theme="dark"] on <html>.
+   ========================================================================== */
+
+/* ---- Theme variables ---------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --sp-font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --sp-font-heading: "Linux Libertine", "Georgia", "Times New Roman", Times, serif;
+  --sp-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --sp-font-scale: 1;
+  --sp-line-height: 1.6;
+
+  --sp-bg: #f6f6f6;            /* page background around the article */
+  --sp-surface: #ffffff;       /* article background */
+  --sp-surface-2: #f8f9fa;     /* infoboxes, TOC, table headers */
+  --sp-surface-3: #eaecf0;     /* table header cells, hover */
+  --sp-text: #202122;
+  --sp-text-muted: #54595d;
+  --sp-border: #a2a9b1;
+  --sp-border-light: #c8ccd1;
+  --sp-link: #3366cc;
+  --sp-link-visited: #6b4ba1;
+  --sp-link-hover: #447ff5;
+  --sp-link-new: #d73333;
+  --sp-accent: #3366cc;
+  --sp-accent-text: #ffffff;
+  --sp-focus: #3366cc;
+  --sp-header-bg: var(--sp-bg);
+  --sp-sidebar-bg: var(--sp-bg);
+  --sp-input-bg: #ffffff;
+  --sp-code-bg: #f3f4f6;
+  --sp-code-text: #000000;
+  --sp-mark-bg: #fef6b5;
+  --sp-shadow: 0 6px 24px rgba(0, 0, 0, .18);
+
+  --sp-note: #3366cc;
+  --sp-tip: #14866d;
+  --sp-important: #6b4ba1;
+  --sp-warning: #a66200;
+  --sp-caution: #d33;
+
+  --sp-page-max: 100rem;       /* max width of the whole layout */
+  --sp-sidebar-width: 11.5rem;
+  --sp-content-max: 58rem;     /* readable measure in "narrow" mode */
+  --sp-radius: 4px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --sp-bg: #101418;
+  --sp-surface: #171b20;
+  --sp-surface-2: #1f242a;
+  --sp-surface-3: #2a3038;
+  --sp-text: #e8eaed;
+  --sp-text-muted: #a8b0b9;
+  --sp-border: #5b636c;
+  --sp-border-light: #343b43;
+  --sp-link: #88a3e8;
+  --sp-link-visited: #b9a1ec;
+  --sp-link-hover: #aac0f5;
+  --sp-link-new: #ff8a80;
+  --sp-accent: #6d8fe0;
+  --sp-accent-text: #0b0e11;
+  --sp-focus: #88a3e8;
+  --sp-input-bg: #0c0f12;
+  --sp-code-bg: #22272e;
+  --sp-code-text: #e8eaed;
+  --sp-mark-bg: #5c4f12;
+  --sp-shadow: 0 6px 24px rgba(0, 0, 0, .6);
+
+  --sp-note: #88a3e8;
+  --sp-tip: #4cc29f;
+  --sp-important: #b9a1ec;
+  --sp-warning: #e2a03f;
+  --sp-caution: #ff8a80;
+}
+
+/* ---- Settings hooks (attributes set on <html> by the settings code) ----- */
+:root[data-font-size="small"]  { --sp-font-scale: .9; }
+:root[data-font-size="large"]  { --sp-font-scale: 1.125; }
+:root[data-font-size="xlarge"] { --sp-font-scale: 1.25; }
+:root[data-width="wide"]       { --sp-content-max: none; }
+:root[data-toc="off"] .sp-toc  { display: none; }
+
+/* ---- Base ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { font-size: calc(100% * var(--sp-font-scale)); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+  background: var(--sp-bg); color: var(--sp-text);
+  font-family: var(--sp-font-body); line-height: var(--sp-line-height);
+}
+a { color: var(--sp-link); text-decoration: none; }
+a:visited { color: var(--sp-link-visited); }
+a:hover { color: var(--sp-link-hover); text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--sp-focus); outline-offset: 2px; border-radius: 2px; }
+button, input, select { font: inherit; color: inherit; }
+.sp-visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.sp-skip {
+  position: absolute; left: .5rem; top: -3rem; z-index: 100; padding: .5rem 1rem;
+  background: var(--sp-accent); color: var(--sp-accent-text) !important; border-radius: var(--sp-radius);
+}
+.sp-skip:focus { top: .5rem; }
+.sp-icon { width: 1.25rem; height: 1.25rem; display: block; flex: none; }
+
+/* ---- Header -------------------------------------------------------------- */
+.sp-header {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem;
+  width: 100%; max-width: var(--sp-page-max); margin: 0 auto;
+  padding: .6rem 1rem; background: var(--sp-header-bg);
+}
+.sp-brand {
+  display: flex; align-items: center; gap: .6rem; min-width: 0; margin-right: auto;
+  color: var(--sp-text) !important; text-decoration: none !important;
+}
+.sp-brand img { height: 2.5rem; width: auto; max-width: 8rem; flex: none; }
+.sp-brand-text { min-width: 0; }
+.sp-brand-name {
+  display: block; font-family: var(--sp-font-heading); font-size: 1.4rem; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.sp-brand-tagline { display: block; font-size: .75rem; color: var(--sp-text-muted); line-height: 1.2; }
+.sp-icon-btn {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 2.5rem; height: 2.5rem; padding: 0; border: 1px solid transparent; border-radius: var(--sp-radius);
+  background: transparent; color: var(--sp-text); cursor: pointer;
+}
+.sp-icon-btn:hover { background: var(--sp-surface-3); }
+.sp-gear { order: 3; }
+
+/* ---- Search -------------------------------------------------------------- */
+.sp-search { position: relative; flex: 0 1 26rem; min-width: 0; order: 2; }
+.sp-search-icon {
+  position: absolute; left: .6rem; top: 50%; transform: translateY(-50%);
+  color: var(--sp-text-muted); pointer-events: none;
+}
+.sp-search-icon .sp-icon { width: 1.05rem; height: 1.05rem; }
+.sp-search input {
+  width: 100%; height: 2.4rem; padding: 0 .75rem 0 2.1rem;
+  border: 1px solid var(--sp-border); border-radius: var(--sp-radius);
+  background: var(--sp-input-bg); color: var(--sp-text);
+}
+.sp-search input:focus { border-color: var(--sp-accent); outline: 1px solid var(--sp-accent); outline-offset: 0; }
+.sp-search-results {
+  position: absolute; z-index: 60; left: 0; right: 0; top: calc(100% + 4px);
+  margin: 0; padding: .25rem 0; list-style: none; max-height: 70vh; overflow-y: auto;
+  background: var(--sp-surface); border: 1px solid var(--sp-border); border-radius: var(--sp-radius);
+  box-shadow: var(--sp-shadow);
+}
+.sp-search-results li a {
+  display: block; padding: .4rem .75rem; color: var(--sp-text) !important; text-decoration: none !important;
+}
+.sp-search-results li[aria-selected="true"] a, .sp-search-results li a:hover { background: var(--sp-surface-3); }
+.sp-result-title { display: block; font-weight: 600; }
+.sp-result-path { display: block; font-size: .75rem; color: var(--sp-text-muted); }
+.sp-result-snippet { display: block; font-size: .8rem; color: var(--sp-text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-search-all { border-top: 1px solid var(--sp-border-light); font-style: italic; }
+mark { background: var(--sp-mark-bg); color: inherit; padding: 0 .1em; border-radius: 2px; }
+
+/* ---- Layout -------------------------------------------------------------- */
+.sp-layout { display: flex; flex: 1; width: 100%; max-width: var(--sp-page-max); margin: 0 auto; }
+.sp-sidebar {
+  flex: 0 0 var(--sp-sidebar-width); width: var(--sp-sidebar-width);
+  background: var(--sp-sidebar-bg); font-size: .875rem; line-height: 1.45;
+}
+.sp-sidebar-inner { position: sticky; top: 0; max-height: 100vh; overflow-y: auto; padding: .5rem .75rem 2rem 1rem; }
+.sp-sidebar-close { display: none; }
+:root.sp-no-sidebar .sp-sidebar, :root.sp-no-sidebar .sp-menu-btn { display: none; }
+:root[data-sidebar="off"] .sp-sidebar { display: none; }
+.sp-column { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.sp-main {
+  flex: 1; min-width: 0; padding: 1.25rem 2rem 2.5rem;
+  background: var(--sp-surface); border: 1px solid var(--sp-border-light); border-right: 0;
+}
+.sp-main:focus { outline: none; }
+.sp-article { max-width: var(--sp-content-max); margin: 0 auto; }
+.sp-main[aria-busy="true"] .sp-article { opacity: .55; transition: opacity .2s .25s; }
+.sp-footer { padding: 1rem 2rem 2rem; font-size: .8rem; color: var(--sp-text-muted); }
+.sp-footer p { margin: .3em 0; }
+.sp-page-info { margin-top: 2.5rem; padding-top: .6rem; border-top: 1px solid var(--sp-border-light); font-size: .8rem; color: var(--sp-text-muted); }
+.sp-page-info > * + *::before { content: " · "; }
+.sp-backdrop { display: none; }
+
+/* ---- Sidebar content ------------------------------------------------------ */
+.sp-sidebar h1, .sp-sidebar h2, .sp-sidebar h3, .sp-sidebar h4, .sp-sidebar h5, .sp-sidebar h6 {
+  margin: 1.1rem 0 .3rem; padding: 0 0 .2rem; border-bottom: 1px solid var(--sp-border-light);
+  font-family: var(--sp-font-body); font-size: .8rem; font-weight: 600; color: var(--sp-text-muted);
+  text-transform: none; letter-spacing: .02em;
+}
+.sp-sidebar p { margin: .5rem 0; }
+.sp-sidebar ul, .sp-sidebar ol { margin: 0; padding: 0; list-style: none; }
+.sp-sidebar ul ul, .sp-sidebar ol ol { padding-left: .9rem; }
+.sp-sidebar li { margin: .15rem 0; }
+.sp-sidebar a[aria-current="page"] { color: var(--sp-text); font-weight: 600; }
+.sp-sidebar img { max-width: 100%; height: auto; }
+.sp-sidebar .sp-anchor { display: none; }
+
+/* ---- Article typography ---------------------------------------------------- */
+.sp-content { overflow-wrap: break-word; }
+.sp-content::after { content: ""; display: block; clear: both; }
+.sp-content h1, .sp-content h2 {
+  font-family: var(--sp-font-heading); font-weight: normal; line-height: 1.3;
+  margin: 1.1em 0 .4em; padding-bottom: .1em; border-bottom: 1px solid var(--sp-border-light);
+}
+.sp-content h1 { font-size: 1.9rem; margin-top: 0; }
+.sp-content > h1, .sp-content > h2 { overflow: hidden; } /* rules stop at floating infoboxes */
+.sp-content h2 { font-size: 1.5rem; }
+.sp-content h3, .sp-content h4, .sp-content h5, .sp-content h6 { line-height: 1.4; margin: 1.1em 0 .3em; font-weight: 700; }
+.sp-content h3 { font-size: 1.2rem; }
+.sp-content h4 { font-size: 1.05rem; }
+.sp-content h5, .sp-content h6 { font-size: 1rem; }
+.sp-content :is(h1, h2, h3, h4, h5, h6) { scroll-margin-top: 1rem; }
+.sp-content [id] { scroll-margin-top: 1rem; }
+.sp-anchor {
+  margin-left: .35em; font-size: .8em; color: var(--sp-text-muted) !important; opacity: 0;
+  text-decoration: none !important; font-family: var(--sp-font-body); font-weight: normal;
+}
+:is(h1, h2, h3, h4, h5, h6):hover > .sp-anchor, .sp-anchor:focus { opacity: 1; }
+.sp-content p { margin: .5em 0 .9em; }
+.sp-content ul, .sp-content ol { margin: .3em 0 .9em; padding-left: 1.8em; }
+.sp-content li { margin: .15em 0; }
+.sp-content li > p { margin: .3em 0; }
+.sp-content li.task-list-item { list-style: none; }
+.sp-content li.task-list-item > input[type="checkbox"], .sp-content li.task-list-item > p > input[type="checkbox"] { margin: 0 .4em 0 -1.4em; vertical-align: -.1em; }
+.sp-content dl { margin: .5em 0 1em; }
+.sp-content dt { font-weight: 700; }
+.sp-content dd { margin: 0 0 .4em 1.6em; }
+.sp-content hr { border: 0; border-top: 1px solid var(--sp-border); margin: 1.5em 0; }
+.sp-content img, .sp-content video { max-width: 100%; height: auto; }
+.sp-content audio { max-width: 100%; }
+.sp-content iframe { max-width: 100%; border: 0; }
+.sp-content blockquote {
+  margin: 1em 0; padding: .3em 1em; border-left: 4px solid var(--sp-border-light); color: var(--sp-text-muted);
+}
+.sp-content code, .sp-content kbd, .sp-content samp {
+  font-family: var(--sp-font-mono); font-size: .875em;
+  background: var(--sp-code-bg); color: var(--sp-code-text);
+  border: 1px solid var(--sp-border-light); border-radius: 3px; padding: .05em .3em;
+}
+.sp-content kbd { border-bottom-width: 2px; }
+.sp-content pre {
+  font-family: var(--sp-font-mono); font-size: .875em; line-height: 1.5;
+  background: var(--sp-code-bg); color: var(--sp-code-text);
+  border: 1px solid var(--sp-border-light); border-radius: var(--sp-radius);
+  padding: .8em 1em; margin: .8em 0 1.1em; overflow-x: auto; tab-size: 4;
+}
+.sp-content pre code { background: none; border: 0; padding: 0; font-size: 1em; white-space: pre; }
+.sp-content a.external::after {
+  content: ""; display: inline-block; width: .7em; height: .7em; margin-left: .2em; vertical-align: .05em;
+  background-color: currentColor; opacity: .75;
+  -webkit-mask: var(--sp-external-icon) no-repeat center / contain; mask: var(--sp-external-icon) no-repeat center / contain;
+}
+:root { --sp-external-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23000' stroke-width='1.5' d='M5 2H2v8h8V7M7 1h4v4M11 1 5.5 6.5'/%3E%3C/svg%3E"); }
+.sp-content a.new, .sp-content a.new:visited { color: var(--sp-link-new); }
+.sp-content details { margin: .8em 0; padding: .4em .8em; border: 1px solid var(--sp-border-light); border-radius: var(--sp-radius); }
+.sp-content summary { cursor: pointer; font-weight: 600; }
+.sp-content sup, .sp-content sub { line-height: 0; }
+
+/* ---- Tables: Markdown tables get the classic "wikitable" look ------------ */
+.sp-table-wrap { max-width: 100%; overflow-x: auto; margin: .8em 0 1.1em; }
+.sp-table-wrap > table { margin: 0; }
+.sp-content table { border-collapse: collapse; margin: .8em 0 1.1em; font-size: .95em; }
+.sp-content table:not(.plain) { background: var(--sp-surface-2); border: 1px solid var(--sp-border); }
+.sp-content table:not(.plain) > * > tr > :is(th, td) { border: 1px solid var(--sp-border); padding: .3em .6em; vertical-align: top; }
+.sp-content table:not(.plain) > * > tr > th { background: var(--sp-surface-3); text-align: center; }
+.sp-content caption { font-weight: 700; padding: .3em; }
+.sp-content table.plain td, .sp-content table.plain th { padding: .2em .5em; }
+
+/* ---- Infoboxes, figures, floats, notices --------------------------------- */
+.sp-content .infobox {
+  float: right; clear: right; width: 22em; max-width: 100%; margin: .3em 0 1em 1.4em;
+  font-size: .88em; line-height: 1.5; background: var(--sp-surface-2);
+  border: 1px solid var(--sp-border); border-collapse: collapse; padding: .2em;
+}
+.sp-content table.infobox > * > tr > :is(th, td) { border: 0; padding: .25em .5em; text-align: left; vertical-align: top; background: none; }
+.sp-content table.infobox > * > tr > th { width: 38%; font-weight: 700; }
+.sp-content .infobox caption, .sp-content .infobox .infobox-title {
+  font-family: var(--sp-font-heading); font-size: 1.3em; font-weight: normal; text-align: center; padding: .3em;
+}
+.sp-content .infobox .infobox-header, .sp-content table.infobox > * > tr > th.infobox-header {
+  text-align: center; background: var(--sp-surface-3); font-weight: 700;
+}
+.sp-content .infobox .infobox-image, .sp-content table.infobox > * > tr > td.infobox-image { text-align: center; padding: .4em; }
+.sp-content .infobox .infobox-caption { display: block; font-size: .9em; color: var(--sp-text-muted); }
+.sp-content figure { margin: 1em 0; }
+.sp-content figure.thumb, .sp-content figure.right, .sp-content figure.left {
+  display: table; padding: .4em; background: var(--sp-surface-2); border: 1px solid var(--sp-border-light);
+}
+.sp-content figure.right, .sp-content .float-right { float: right; clear: right; margin: .3em 0 1em 1.4em; }
+.sp-content figure.left, .sp-content .float-left { float: left; clear: left; margin: .3em 1.4em 1em 0; }
+.sp-content figure.center, .sp-content .center { margin-left: auto; margin-right: auto; text-align: center; }
+.sp-content figure.center { display: table; }
+.sp-content figure img { display: block; margin: 0 auto; }
+.sp-content figcaption { display: table-caption; caption-side: bottom; padding: .3em .2em 0; font-size: .85em; line-height: 1.4; color: var(--sp-text-muted); }
+.sp-content figure:not(.thumb):not(.right):not(.left):not(.center) figcaption { display: block; }
+.sp-content .clear { clear: both; }
+.sp-content .hatnote { font-style: italic; padding-left: 1.6em; margin: 0 0 .8em; color: var(--sp-text-muted); }
+.sp-content .notice, .sp-content .ambox {
+  margin: 1em 0; padding: .6em 1em; background: var(--sp-surface-2);
+  border: 1px solid var(--sp-border-light); border-left: 8px solid var(--sp-accent);
+}
+.sp-content .callout { margin: 1em 0; padding: .5em 1em; border-left: 4px solid var(--sp-note); background: var(--sp-surface-2); border-radius: 0 var(--sp-radius) var(--sp-radius) 0; }
+.sp-content .callout > :last-child { margin-bottom: .3em; }
+.sp-content .callout-title { font-weight: 700; margin: .2em 0 .3em; color: var(--sp-note); }
+.sp-content .callout-tip { border-color: var(--sp-tip); } .sp-content .callout-tip .callout-title { color: var(--sp-tip); }
+.sp-content .callout-important { border-color: var(--sp-important); } .sp-content .callout-important .callout-title { color: var(--sp-important); }
+.sp-content .callout-warning { border-color: var(--sp-warning); } .sp-content .callout-warning .callout-title { color: var(--sp-warning); }
+.sp-content .callout-caution { border-color: var(--sp-caution); } .sp-content .callout-caution .callout-title { color: var(--sp-caution); }
+
+/* ---- Table of contents ----------------------------------------------------- */
+.sp-toc {
+  display: table; margin: 1em 0; padding: .5em .9em .6em; font-size: .92em;
+  background: var(--sp-surface-2); border: 1px solid var(--sp-border-light);
+}
+.sp-toc summary { cursor: pointer; font-weight: 700; text-align: center; list-style-position: inside; }
+.sp-toc ol { list-style: none; margin: .4em 0 0; padding: 0; }
+.sp-toc ol ol { margin: 0 0 0 1.6em; }
+.sp-toc li { margin: .1em 0; }
+.sp-toc .sp-tocnumber { color: var(--sp-text); padding-right: .45em; }
+
+/* ---- Footnotes ------------------------------------------------------------ */
+.sp-content .footnotes { margin-top: 2em; padding-top: .5em; border-top: 1px solid var(--sp-border-light); font-size: .88em; }
+.sp-content .footnotes ol { padding-left: 2em; }
+.sp-content .footnote-backref { margin-left: .3em; }
+.sp-content :target { background: var(--sp-mark-bg); }
+.sp-content h1:target, .sp-content h2:target, .sp-content h3:target, .sp-content h4:target { background: none; }
+
+/* ---- Built-in pages (not found, search results) -------------------------- */
+.sp-message { padding: .8em 1em; background: var(--sp-surface-2); border: 1px solid var(--sp-border-light); border-left: 6px solid var(--sp-accent); margin: 1em 0; }
+.sp-message.sp-error { border-left-color: var(--sp-caution); }
+.sp-results { list-style: none; padding: 0 !important; }
+.sp-results li { margin: 0 0 1em !important; }
+.sp-results .sp-result-title { font-size: 1.05em; }
+.sp-results .sp-result-snippet { white-space: normal; font-size: .9em; }
+.sp-allpages { columns: 16rem auto; }
+.sp-allpages li { break-inside: avoid; }
+
+/* ---- Settings dialog ------------------------------------------------------- */
+.sp-dialog {
+  width: min(28rem, calc(100vw - 2rem)); max-height: calc(100vh - 2rem); padding: 0; overflow: auto;
+  border: 1px solid var(--sp-border); border-radius: 8px;
+  background: var(--sp-surface); color: var(--sp-text); box-shadow: var(--sp-shadow);
+}
+.sp-dialog::backdrop { background: rgba(0, 0, 0, .45); }
+.sp-dialog-inner { padding: 1rem 1.25rem 1.25rem; }
+.sp-dialog-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: .5rem; }
+.sp-dialog-head h2 { margin: 0; font-family: var(--sp-font-heading); font-weight: normal; font-size: 1.4rem; }
+.sp-setting { margin: 0 0 1rem; padding: 0; border: 0; }
+.sp-setting legend { font-weight: 600; margin-bottom: .35rem; padding: 0; }
+.sp-choices { display: flex; flex-wrap: wrap; gap: .35rem; }
+.sp-choices label {
+  display: inline-flex; align-items: center; gap: .35rem; cursor: pointer;
+  padding: .3rem .7rem; border: 1px solid var(--sp-border); border-radius: 999px; font-size: .9rem;
+}
+.sp-choices input { margin: 0; accent-color: var(--sp-accent); }
+.sp-choices label:has(input:checked) { border-color: var(--sp-accent); background: var(--sp-surface-3); }
+.sp-choices label:has(input:focus-visible) { outline: 2px solid var(--sp-focus); outline-offset: 2px; }
+.sp-choices input:focus-visible { outline: none; }
+.sp-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 .8rem; cursor: pointer; font-weight: 600; }
+.sp-toggle input { width: 1.15rem; height: 1.15rem; margin: 0; accent-color: var(--sp-accent); }
+.sp-dialog-foot { display: flex; justify-content: space-between; gap: .5rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--sp-border-light); }
+.sp-btn {
+  padding: .45rem 1rem; border: 1px solid var(--sp-border); border-radius: var(--sp-radius);
+  background: var(--sp-surface-2); cursor: pointer;
+}
+.sp-btn:hover { background: var(--sp-surface-3); }
+.sp-btn-primary { background: var(--sp-accent); border-color: var(--sp-accent); color: var(--sp-accent-text); }
+.sp-btn-primary:hover { background: var(--sp-link-hover); }
+.sp-settings-note { font-size: .85rem; color: var(--sp-text-muted); margin: .75rem 0 0; }
+
+/* ---- Mobile ------------------------------------------------------------------ */
+@media (max-width: 800px) {
+  .sp-header { padding: .5rem .75rem; }
+  .sp-brand img { height: 2rem; }
+  .sp-brand-name { font-size: 1.2rem; }
+  .sp-brand-tagline { display: none; }
+  .sp-search { order: 10; flex: 1 1 100%; }
+  .sp-sidebar, :root[data-sidebar="off"] .sp-sidebar {
+    display: block; position: fixed; z-index: 50; top: 0; bottom: 0; left: 0;
+    width: min(18rem, 85vw); background: var(--sp-surface); box-shadow: var(--sp-shadow);
+    transform: translateX(-105%); visibility: hidden; transition: transform .2s ease, visibility 0s linear .2s;
+  }
+  :root.sp-no-sidebar .sp-sidebar { display: none; }
+  :root.sp-drawer-open .sp-sidebar { transform: none; visibility: visible; transition: transform .2s ease; }
+  .sp-sidebar-inner { position: static; max-height: none; height: 100%; padding-top: .25rem; }
+  .sp-sidebar-close { display: flex; margin-left: auto; }
+  :root.sp-drawer-open .sp-backdrop { display: block; position: fixed; inset: 0; z-index: 45; background: rgba(0, 0, 0, .45); }
+  .sp-main { padding: 1rem 1rem 2rem; border-left: 0; }
+  .sp-footer { padding: 1rem; }
+  .sp-content h1 { font-size: 1.6rem; }
+  .sp-content .infobox, .sp-content figure.right, .sp-content figure.left, .sp-content .float-right, .sp-content .float-left {
+    float: none; width: auto; margin: .5em 0 1em;
+  }
+  .sp-content .infobox { width: 100%; }
+  .sp-content figure.right, .sp-content figure.left { display: table; margin-left: auto; margin-right: auto; }
+  .sp-toc { display: block; }
+}
+
+/* ---- Motion & print -------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .sp-header, .sp-sidebar, .sp-backdrop, .sp-skip, .sp-anchor, .sp-dialog { display: none !important; }
+  body { background: #fff; color: #000; }
+  .sp-main { border: 0; padding: 0; }
+  .sp-content a.external::after { display: none; }
+}
+</style>
+
+<!-- The site's own stylesheet, loaded after the defaults so it wins. A 404 is harmless. -->
+<link rel="stylesheet" href="style.css" id="sp-user-css">
+</head>
+<body>
+<a class="sp-skip" href="#sp-main">Skip to content</a>
+
+<header class="sp-header">
+  <button type="button" class="sp-icon-btn sp-menu-btn" id="sp-menu-btn" aria-controls="sp-sidebar" aria-expanded="true" aria-label="Toggle navigation menu">
+    <svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <a class="sp-brand" id="sp-brand" href="./">
+    <img id="sp-logo" alt="" hidden>
+    <span class="sp-brand-text">
+      <span class="sp-brand-name" id="sp-site-name">Static-Pedia</span>
+      <span class="sp-brand-tagline" id="sp-tagline" hidden></span>
+    </span>
+  </a>
+  <form class="sp-search" id="sp-search" role="search" hidden>
+    <label for="sp-search-input" class="sp-visually-hidden">Search this wiki</label>
+    <span class="sp-search-icon"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    <input id="sp-search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false"
+      role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sp-search-results" enterkeyhint="search">
+    <ul class="sp-search-results" id="sp-search-results" role="listbox" aria-label="Search suggestions" hidden></ul>
+  </form>
+  <button type="button" class="sp-icon-btn sp-gear" id="sp-settings-btn" aria-haspopup="dialog" aria-controls="sp-settings" aria-label="Settings" title="Settings">
+    <svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor">
+      <circle cx="12" cy="12" r="8.6" stroke-width="3.2" stroke-dasharray="3.38 3.38"/>
+      <circle cx="12" cy="12" r="6.4" stroke-width="2.2"/>
+      <circle cx="12" cy="12" r="2.3" stroke-width="2"/>
+    </svg>
+  </button>
+</header>
+
+<div class="sp-layout">
+  <nav class="sp-sidebar" id="sp-sidebar" aria-label="Site navigation">
+    <div class="sp-sidebar-inner">
+      <button type="button" class="sp-icon-btn sp-sidebar-close" id="sp-sidebar-close" aria-label="Close navigation menu">
+        <svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div id="sp-sidebar-content"></div>
+    </div>
+  </nav>
+  <div class="sp-backdrop" id="sp-backdrop"></div>
+  <div class="sp-column">
+    <main class="sp-main" id="sp-main" tabindex="-1">
+      <article class="sp-article">
+        <div class="sp-content" id="sp-content">
+          <noscript><p class="sp-message sp-error">This wiki is rendered in your browser and needs JavaScript to be enabled.</p></noscript>
+        </div>
+        <div class="sp-page-info" id="sp-page-info" hidden></div>
+      </article>
+    </main>
+    <footer class="sp-footer" id="sp-footer"></footer>
+  </div>
+</div>
+
+<dialog class="sp-dialog" id="sp-settings" aria-labelledby="sp-settings-title">
+  <div class="sp-dialog-inner">
+    <div class="sp-dialog-head">
+      <h2 id="sp-settings-title">Settings</h2>
+      <button type="button" class="sp-icon-btn" data-sp-close aria-label="Close settings">
+        <svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <form id="sp-settings-form" method="dialog"></form>
+    <p class="sp-settings-note" id="sp-settings-note" hidden>Your browser is blocking storage, so these settings will reset when you leave the page.</p>
+    <div class="sp-dialog-foot">
+      <button type="button" class="sp-btn" id="sp-settings-reset">Reset to defaults</button>
+      <button type="button" class="sp-btn sp-btn-primary" data-sp-close>Done</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+'use strict';
+
+/* ==========================================================================
+   1. CONFIG
+   Built-in defaults, overridden by staticpedia.json at the wiki root.
+   ========================================================================== */
+const DEFAULT_CONFIG = {
+  siteName: 'Static-Pedia',
+  tagline: '',
+  logo: '',                 // path relative to the wiki root, e.g. "images/logo.svg"
+  favicon: '',
+  lang: '',                 // value for <html lang>, e.g. "en"
+  defaultTheme: '',         // "system" | "light" | "dark"; shortcut for defaults.theme
+  defaults: {},             // default settings: { theme, fontSize, width, toc, sidebar }
+  titleSeparator: ' — ',
+  tocMinHeadings: 3,
+  showSourceLink: true,
+  showLastModified: true,
+  iframeHosts: [],          // hostnames allowed in <iframe src>, e.g. ["www.youtube-nocookie.com"]
+  stylesheets: [],          // extra CSS files loaded after style.css
+  themeStylesheets: {},     // { "light": "theme-light.css", "dark": "theme-dark.css" }
+  footerText: 'Powered by Static-Pedia.'  // used only when there is no _Footer.md
+};
+let config = { ...DEFAULT_CONFIG };
+
+const EARLY = window.__staticpediaEarly;
+const DOC_PATH = location.pathname;                 // e.g. /wiki/ or /wiki/index.html
+const BASE = DOC_PATH.replace(/[^/]*$/, '');        // directory containing index.html
+const ROOT_URL = new URL(BASE, location.href).href; // absolute URL of the wiki root
+const ROOT_PATH = new URL(ROOT_URL).pathname;
+
+/* ==========================================================================
+   2. UTILITIES
+   ========================================================================== */
+const $ = (sel, root = document) => root.querySelector(sel);
+
+/* Tiny DOM builder. It never parses HTML, so strings are always safe text. */
+function h(tag, attrs, ...children) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v == null || v === false) continue;
+    if (k === 'class') el.className = v;
+    else if (k.startsWith('on') && typeof v === 'function') el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? '' : String(v));
+  }
+  for (const c of children.flat(Infinity)) {
+    if (c == null || c === false) continue;
+    el.append(c instanceof Node ? c : String(c));
+  }
+  return el;
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+const escAttr = escHtml;
+
+/* Heading/anchor slugs: lowercase, letters/digits/-/_ kept, spaces to dashes. */
+function slugify(text) {
+  const s = String(text).trim().toLowerCase()
+    .replace(/[^\p{L}\p{N}\s_-]/gu, '').trim().replace(/\s+/g, '-');
+  return s || 'section';
+}
+
+/* "People/John_Doe" -> "John Doe" */
+function titleFromPath(path) {
+  const leaf = path.split('/').pop();
+  const parent = path.split('/').slice(-2, -1)[0];
+  return (leaf === 'Index' && parent ? parent : leaf).replace(/_/g, ' ');
+}
+
+function safeDecode(s) { try { return decodeURIComponent(s); } catch (e) { return s; } }
+
+/* Encode a wiki path for a ?p= value: readable, but #?&+% stay escaped. */
+function encodePageParam(path) { return encodeURI(path).replace(/[#?&+]/g, encodeURIComponent); }
+/* Encode a wiki path for a file URL: every segment escaped. */
+function encodeFilePath(path) { return path.split('/').map(encodeURIComponent).join('/'); }
+function fileUrl(relPath) { return new URL(encodeFilePath(relPath), ROOT_URL).href; }
+function pageHref(path, hash = '') {
+  return DOC_PATH + (path === 'Index' ? '' : '?p=' + encodePageParam(path)) + hash;
+}
+function dirOf(path) { const i = path.lastIndexOf('/'); return i < 0 ? '' : path.slice(0, i + 1); }
+
+/* Fetch a file relative to the wiki root.
+   Result: { status: 'ok', text, lastModified } | { status: 'missing' } | { status: 'error', detail } */
+async function fetchFile(relPath, { noCache = true } = {}) {
+  let res;
+  try {
+    res = await fetch(fileUrl(relPath), { cache: noCache ? 'no-cache' : 'default' });
+  } catch (err) {
+    return { status: 'error', detail: String(err && err.message || err) };
+  }
+  // 404/410 = missing. S3-style hosts answer 403 for missing keys, so treat it the same.
+  if (res.status === 404 || res.status === 410 || res.status === 403) return { status: 'missing' };
+  if (!res.ok) return { status: 'error', detail: 'HTTP ' + res.status };
+  const text = await res.text();
+  // Hosts with an "SPA fallback" answer every unknown URL with an HTML page and status 200.
+  const type = res.headers.get('content-type') || '';
+  if (/text\/html/i.test(type) && /^\s*<(!doctype|html)/i.test(text)) return { status: 'missing' };
+  return { status: 'ok', text, lastModified: res.headers.get('last-modified') };
+}
+
+/* ==========================================================================
+   3. ROUTER
+   ?p=People/John_Doe  ->  People/John_Doe.md   (no p -> Index.md)
+   ?p=People/          ->  People/Index.md
+   ?search=term        ->  search results page
+   ?special=AllPages   ->  list of all pages (needs pages.json)
+   ?special=Random     ->  a random page (needs pages.json)
+   ========================================================================== */
+function normalizePagePath(raw) {
+  if (raw == null) return 'Index';
+  let s = raw.trim().replace(/\s+/g, '_');
+  if (s === '') return 'Index';
+  // Reject schemes, absolute paths, backslashes, control characters and empty segments.
+  if (/^[a-z][a-z0-9+.-]*:/i.test(s) || s.startsWith('/') || s.includes('\\') ||
+      /[\u0000-\u001f\u007f]/.test(s) || s.includes('//')) return null;
+  if (s.endsWith('/')) s += 'Index';
+  s = s.replace(/\.md$/i, '');
+  const segs = s.split('/');
+  if (segs.some(seg => seg === '' || seg === '.' || seg === '..')) return null;
+  return segs.join('/');
+}
+
+function parseRoute() {
+  const q = new URLSearchParams(location.search);
+  if (q.has('search')) {
+    const query = q.get('search') || '';
+    return { kind: 'search', query, key: 'search:' + query };
+  }
+  if (q.has('special')) {
+    const name = (q.get('special') || '').toLowerCase();
+    return { kind: 'special', name, key: 'special:' + name };
+  }
+  const raw = q.get('p');
+  const path = normalizePagePath(raw);
+  if (path === null) return { kind: 'invalid', raw, key: 'invalid:' + raw };
+  return { kind: 'page', path, key: 'page:' + path };
+}
+
+let currentKey = null;
+let navToken = 0;
+
+function navigate(href, { replace = false } = {}) {
+  const url = new URL(href, location.href);
+  if (url.href === location.href) { scrollToHash(); return; }
+  // Remember where we were so Back can restore the scroll position.
+  try { history.replaceState({ ...(history.state || {}), scrollY: window.scrollY }, ''); } catch (e) { /* ignore */ }
+  if (replace) history.replaceState({}, '', url.href);
+  else history.pushState({}, '', url.href);
+  renderRoute({ focus: true });
+}
+
+function initRouter() {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest && e.target.closest('a[href]');
+    if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+    let url;
+    try { url = new URL(a.href, location.href); } catch (err) { return; }
+    if (url.origin !== location.origin || url.pathname !== location.pathname) return;
+    // Same page with a fragment: let the browser jump (it also records history).
+    if (url.search === location.search && url.hash) return;
+    e.preventDefault();
+    navigate(url.href);
+  });
+
+  window.addEventListener('popstate', e => {
+    const route = parseRoute();
+    if (route.key === currentKey) { scrollToHash(); return; }
+    renderRoute({ scrollY: e.state && typeof e.state.scrollY === 'number' ? e.state.scrollY : null });
+  });
+}
+
+function scrollToHash({ settle = false } = {}) {
+  const id = safeDecode(location.hash.slice(1));
+  if (!id) return false;
+  const el = document.getElementById(id);
+  if (!el || !$('#sp-content').contains(el)) return false;
+  el.scrollIntoView({ behavior: settle ? 'instant' : 'auto' });
+  if (settle) settleScroll(el);
+  return true;
+}
+
+/* Images above the target may load after the jump and push it down. Load them
+   now and re-align once they're in, unless the reader has scrolled meanwhile. */
+function settleScroll(el) {
+  const pending = Array.from($('#sp-content').querySelectorAll('img')).filter(img =>
+    !img.complete && (el.compareDocumentPosition(img) & Node.DOCUMENT_POSITION_PRECEDING));
+  if (!pending.length) return;
+  pending.forEach(img => { img.loading = 'eager'; });
+  const token = navToken, y = window.scrollY;
+  const loaded = pending.map(img => new Promise(r => {
+    img.addEventListener('load', r, { once: true });
+    img.addEventListener('error', r, { once: true });
+  }));
+  Promise.race([Promise.all(loaded), new Promise(r => setTimeout(r, 3000))]).then(() => {
+    if (token === navToken && Math.abs(window.scrollY - y) < 2) el.scrollIntoView({ behavior: 'instant' });
+  });
+}
+
+/* ==========================================================================
+   4. MARKDOWN
+   A compact CommonMark-style parser with the GFM extensions people expect:
+   tables, task lists, strikethrough, autolink literals, footnotes, plus
+   [[wiki links]], GitHub-style callouts and YAML-ish front matter.
+   Output is an HTML string, which is always sanitized before use.
+   ========================================================================== */
+const Markdown = (() => {
+  const BLOCK_TAGS = new Set(('address article aside base basefont blockquote body caption center col colgroup dd ' +
+    'details dialog dir div dl dt fieldset figcaption figure footer form frame frameset h1 h2 h3 h4 h5 h6 head ' +
+    'header hgroup hr html iframe legend li link main menu menuitem nav noframes ol optgroup option p param ' +
+    'picture search section summary table tbody td tfoot th thead title tr track ul video audio source').split(' '));
+  const ATTR = String.raw`(?:\s+[a-zA-Z_:][\w.:-]*(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>\x60]+))?)`;
+  const OPEN_TAG = String.raw`<[a-zA-Z][a-zA-Z0-9-]*${ATTR}*\s*\/?>`;
+  const CLOSE_TAG = String.raw`<\/[a-zA-Z][a-zA-Z0-9-]*\s*>`;
+  const HTML7_RE = new RegExp(`^ {0,3}(?:${OPEN_TAG}|${CLOSE_TAG})\\s*$`);
+  const RAW_TAG_RE = new RegExp(`^(?:${OPEN_TAG}|${CLOSE_TAG}|<!--[\\s\\S]*?-->)`);
+  const HTML_END = { 1: /<\/(?:script|pre|style|textarea)>/i, 2: /-->/, 3: /\?>/, 4: />/, 5: /\]\]>/ };
+
+  const ATX_RE = /^ {0,3}(#{1,6})(?:[ \t]+(.*?))?(?:[ \t]+#+)?[ \t]*$/;
+  const FENCE_RE = /^( {0,3})(`{3,}|~{3,})(.*)$/;
+  const HR_RE = /^ {0,3}(?:(?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})$/;
+  const QUOTE_RE = /^ {0,3}> ?(.*)$/;
+  const LIST_RE = /^( {0,3})([-+*]|\d{1,9}[.)])(?:([ \t]+)(.*))?$/;
+  const SETEXT1_RE = /^ {0,3}=+[ \t]*$/;
+  const SETEXT2_RE = /^ {0,3}-+[ \t]*$/;
+  const TABLE_DELIM_RE = /^ {0,3}\|?[ \t]*:?-+:?[ \t]*(?:\|[ \t]*:?-+:?[ \t]*)*\|?[ \t]*$/;
+  const REF_DEF_RE = /^ {0,3}\[((?:[^\]\\]|\\.){1,999})\]:[ \t]*(<[^>\n]*>|\S+)(?:[ \t]+("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|\((?:[^)\\]|\\.)*\)))?[ \t]*$/;
+  const FOOTNOTE_DEF_RE = /^ {0,3}\[\^([^\]\s]+)\]:[ \t]?(.*)$/;
+  const CALLOUT_RE = /^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\][ \t]*$/i;
+
+  const ESCAPABLE = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+  const ENTITY_RE = /^&(?:#[xX][0-9a-fA-F]{1,6}|#[0-9]{1,7}|[A-Za-z][A-Za-z0-9]{1,31});/;
+  const AUTOLINK_RE = /^<([a-zA-Z][a-zA-Z0-9+.-]{1,31}:[^\s<>]*)>/;
+  const EMAIL_RE = /^<([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)>/;
+  const URL_LITERAL_RE = /^(?:https?:\/\/|www\.)[^\s<]+/i;
+  const WS = /\s/;
+  const PUNCT = /[\p{P}\p{S}]/u;
+
+  const isBlank = l => /^[ \t]*$/.test(l);
+  const leadingSpaces = l => l.match(/^ */)[0].length;
+  const normLabel = s => s.trim().replace(/\s+/g, ' ').toLowerCase();
+  const unescapeMd = s => s.replace(/\\([!-/:-@[-`{-~])/g, '$1');
+  const stripTags = s => s.replace(/<[^>]*>/g, '');
+
+  function expandLeadingTabs(line) {
+    const m = line.match(/^[ \t]+/);
+    if (!m || !m[0].includes('\t')) return line;
+    let col = 0, out = '';
+    for (const ch of m[0]) {
+      if (ch === '\t') { const n = 4 - (col % 4); out += ' '.repeat(n); col += n; } else { out += ch; col++; }
+    }
+    return out + line.slice(m[0].length);
+  }
+
+  /* ---- Front matter ------------------------------------------------------ */
+  function splitFrontMatter(src) {
+    src = src.replace(/^﻿/, '');
+    const m = src.match(/^---[ \t]*\r?\n([\s\S]*?)\r?\n(?:---|\.\.\.)[ \t]*(?:\r?\n|$)/);
+    if (!m) return { meta: {}, body: src };
+    const meta = {};
+    for (const line of m[1].split(/\r?\n/)) {
+      const kv = line.match(/^([A-Za-z0-9_-]+)[ \t]*:[ \t]*(.*?)[ \t]*$/);
+      if (!kv) continue;
+      let v = kv[2];
+      if (/^(['"]).*\1$/.test(v)) v = v.slice(1, -1);
+      else if (v === 'true' || v === 'false') v = v === 'true';
+      else if (/^\[.*\]$/.test(v)) v = v.slice(1, -1).split(',').map(x => x.trim().replace(/^(['"])(.*)\1$/, '$2')).filter(Boolean);
+      meta[kv[1].toLowerCase()] = v;
+    }
+    return { meta, body: src.slice(m[0].length) };
+  }
+
+  /* ---- Block parsing ----------------------------------------------------- */
+  function htmlBlockType(line, inParagraph) {
+    if (/^ {0,3}<(?:script|pre|style|textarea)(?:\s|>|$)/i.test(line)) return 1;
+    if (/^ {0,3}<!--/.test(line)) return 2;
+    if (/^ {0,3}<\?/.test(line)) return 3;
+    if (/^ {0,3}<![A-Za-z]/.test(line)) return 4;
+    if (/^ {0,3}<!\[CDATA\[/.test(line)) return 5;
+    const m = line.match(/^ {0,3}<\/?([a-zA-Z][a-zA-Z0-9-]*)(?:\s|\/?>|$)/);
+    if (m && BLOCK_TAGS.has(m[1].toLowerCase())) return 6;
+    if (!inParagraph && HTML7_RE.test(line)) return 7;
+    return 0;
+  }
+
+  function matchListItem(line) {
+    const m = line.match(LIST_RE);
+    if (!m) return null;
+    const indent = m[1].length, marker = m[2];
+    const ordered = /\d/.test(marker[0]);
+    let content = m[4] || '';
+    const spaces = m[3] ? m[3].replace(/\t/g, '    ').length : 0;
+    let contentIndent;
+    if (!m[3] || content.trim() === '') { contentIndent = indent + marker.length + 1; content = ''; }
+    else if (spaces > 4) { contentIndent = indent + marker.length + 1; content = ' '.repeat(spaces - 1) + content; }
+    else contentIndent = indent + marker.length + spaces;
+    return { indent, ordered, bullet: ordered ? marker.slice(-1) : marker,
+      start: ordered ? parseInt(marker, 10) : 1, contentIndent, content };
+  }
+
+  function splitRow(line) {
+    let s = line.trim();
+    if (s.startsWith('|')) s = s.slice(1);
+    if (s.endsWith('|') && !s.endsWith('\\|')) s = s.slice(0, -1);
+    const cells = [];
+    let cur = '', inCode = 0;
+    for (let i = 0; i < s.length; i++) {
+      const c = s[i];
+      if (c === '\\' && s[i + 1] === '|') { cur += '|'; i++; continue; }
+      if (c === '`') {
+        let n = 1; while (s[i + n] === '`') n++;
+        inCode = inCode === n ? 0 : inCode || n;
+        cur += '`'.repeat(n); i += n - 1; continue;
+      }
+      if (c === '|' && !inCode) { cells.push(cur.trim()); cur = ''; continue; }
+      cur += c;
+    }
+    cells.push(cur.trim());
+    return cells;
+  }
+
+  function isTableStart(lines, i) {
+    const head = lines[i], delim = lines[i + 1];
+    if (delim === undefined || !head.includes('|') || !delim.includes('|') || !TABLE_DELIM_RE.test(delim)) return false;
+    return splitRow(head).length === splitRow(delim).length;
+  }
+
+  function interruptsParagraph(line) {
+    if (ATX_RE.test(line) || HR_RE.test(line) || QUOTE_RE.test(line)) return true;
+    const f = line.match(FENCE_RE);
+    if (f && !(f[2][0] === '`' && f[3].includes('`'))) return true;
+    if (/^ {0,3}(?:[-+*]|1[.)])[ \t]+\S/.test(line)) return true;
+    return htmlBlockType(line, true) !== 0;
+  }
+
+  /* A list is loose if blank lines separate blocks directly inside an item. */
+  function hasLooseBlank(itemLines) {
+    let fence = null;
+    for (let k = 0; k < itemLines.length; k++) {
+      const l = itemLines[k];
+      const f = l.match(/^ {0,3}(`{3,}|~{3,})/);
+      if (f) { if (!fence) fence = f[1]; else if (f[1][0] === fence[0] && f[1].length >= fence.length) fence = null; continue; }
+      if (fence || !isBlank(l)) continue;
+      let j = k + 1;
+      while (j < itemLines.length && isBlank(itemLines[j])) j++;
+      if (j < itemLines.length && leadingSpaces(itemLines[j]) === 0) return true;
+    }
+    return false;
+  }
+
+  function parseBlocks(lines, ctx) {
+    const nodes = [];
+    let i = 0, m;
+    while (i < lines.length) {
+      const line = lines[i];
+      if (isBlank(line)) { i++; continue; }
+
+      // Fenced code block
+      if ((m = line.match(FENCE_RE)) && !(m[2][0] === '`' && m[3].includes('`'))) {
+        const indent = m[1].length, fence = m[2];
+        const body = [];
+        i++;
+        while (i < lines.length) {
+          const c = lines[i].match(/^ {0,3}(`{3,}|~{3,})[ \t]*$/);
+          if (c && c[1][0] === fence[0] && c[1].length >= fence.length) { i++; break; }
+          body.push(lines[i].replace(new RegExp(`^ {0,${indent}}`), ''));
+          i++;
+        }
+        nodes.push({ type: 'code', lang: unescapeMd(m[3].trim().split(/\s+/)[0] || ''), text: body.join('\n') });
+        continue;
+      }
+
+      // Indented code block
+      if (/^ {4,}/.test(line)) {
+        const body = [];
+        while (i < lines.length && (isBlank(lines[i]) || /^ {4,}/.test(lines[i]))) { body.push(lines[i].slice(4)); i++; }
+        while (body.length && isBlank(body[body.length - 1])) body.pop();
+        nodes.push({ type: 'code', lang: '', text: body.join('\n') });
+        continue;
+      }
+
+      // ATX heading
+      if ((m = line.match(ATX_RE))) {
+        nodes.push({ type: 'heading', level: m[1].length, text: (m[2] || '').replace(/[ \t]+#+[ \t]*$/, '').replace(/^#+$/, '') });
+        i++; continue;
+      }
+
+      // Thematic break
+      if (HR_RE.test(line)) { nodes.push({ type: 'hr' }); i++; continue; }
+
+      // Blockquote (and GitHub-style callouts: "> [!NOTE]")
+      if (QUOTE_RE.test(line)) {
+        const q = [];
+        while (i < lines.length) {
+          const qm = lines[i].match(QUOTE_RE);
+          if (qm) { q.push(qm[1]); i++; continue; }
+          if (!isBlank(lines[i]) && q.length && !isBlank(q[q.length - 1]) && !interruptsParagraph(lines[i])) { q.push(lines[i]); i++; continue; }
+          break;
+        }
+        const cm = q.length && q[0].trim().match(CALLOUT_RE);
+        if (cm) nodes.push({ type: 'callout', kind: cm[1].toLowerCase(), children: parseBlocks(q.slice(1), ctx) });
+        else nodes.push({ type: 'quote', children: parseBlocks(q, ctx) });
+        continue;
+      }
+
+      // List
+      let li = matchListItem(line);
+      if (li) {
+        const list = { type: 'list', ordered: li.ordered, start: li.start, tight: true, items: [] };
+        for (;;) {
+          const itemLines = [li.content];
+          i++;
+          let pendingBlank = false;
+          while (i < lines.length) {
+            const l = lines[i];
+            if (isBlank(l)) { if (li.content === '' && itemLines.length === 1) break; pendingBlank = true; itemLines.push(''); i++; continue; }
+            if (leadingSpaces(l) >= li.contentIndent) { itemLines.push(l.slice(li.contentIndent)); pendingBlank = false; i++; continue; }
+            if (pendingBlank || (li.content === '' && itemLines.length === 1)) break;
+            if (matchListItem(l) || interruptsParagraph(l)) break;
+            itemLines.push(l); i++; // lazy continuation line
+          }
+          let trailingBlank = false;
+          while (itemLines.length && isBlank(itemLines[itemLines.length - 1])) { itemLines.pop(); trailingBlank = true; }
+          let task = null;
+          const tm = (itemLines[0] || '').match(/^\[([ xX])\](?:[ \t]+|$)/);
+          if (tm) { task = tm[1] !== ' '; itemLines[0] = itemLines[0].slice(tm[0].length); }
+          if (hasLooseBlank(itemLines)) list.tight = false;
+          list.items.push({ task, children: parseBlocks(itemLines, ctx) });
+          if (i >= lines.length || HR_RE.test(lines[i])) break;
+          const next = matchListItem(lines[i]);
+          if (!next || next.ordered !== list.ordered || next.bullet !== li.bullet) break;
+          if (trailingBlank) list.tight = false;
+          li = next;
+        }
+        nodes.push(list);
+        continue;
+      }
+
+      // Raw HTML block (passed through, then sanitized)
+      const ht = htmlBlockType(line, false);
+      if (ht) {
+        const body = [];
+        if (ht <= 5) {
+          while (i < lines.length) { body.push(lines[i]); i++; if (HTML_END[ht].test(body[body.length - 1])) break; }
+        } else {
+          while (i < lines.length && !isBlank(lines[i])) { body.push(lines[i]); i++; }
+        }
+        nodes.push({ type: 'html', text: body.join('\n') });
+        continue;
+      }
+
+      // Footnote definition
+      if ((m = line.match(FOOTNOTE_DEF_RE))) {
+        const body = [m[2]];
+        i++;
+        while (i < lines.length) {
+          const l = lines[i];
+          if (isBlank(l)) {
+            let j = i; while (j < lines.length && isBlank(lines[j])) j++;
+            if (j < lines.length && leadingSpaces(lines[j]) >= 4) { while (i < j) { body.push(''); i++; } continue; }
+            break;
+          }
+          if (leadingSpaces(l) >= 1) { body.push(l.replace(/^ {1,4}/, '')); i++; continue; }
+          if (!isBlank(body[body.length - 1]) && !interruptsParagraph(l) && !FOOTNOTE_DEF_RE.test(l)) { body.push(l); i++; continue; }
+          break;
+        }
+        const key = m[1].toLowerCase();
+        if (!(key in ctx.footnotes)) ctx.footnotes[key] = { label: m[1], children: parseBlocks(body, ctx) };
+        continue;
+      }
+
+      // Table
+      if (isTableStart(lines, i)) {
+        const header = splitRow(line);
+        const align = splitRow(lines[i + 1]).map(c => {
+          const l = c.startsWith(':'), r = c.endsWith(':');
+          return l && r ? 'center' : r ? 'right' : l ? 'left' : '';
+        });
+        const rows = [];
+        i += 2;
+        while (i < lines.length && !isBlank(lines[i]) && lines[i].includes('|') && !interruptsParagraph(lines[i])) {
+          const cells = splitRow(lines[i]);
+          rows.push(header.map((_, k) => cells[k] || ''));
+          i++;
+        }
+        nodes.push({ type: 'table', header, align, rows });
+        continue;
+      }
+
+      // Link reference definition
+      if ((m = line.match(REF_DEF_RE)) && !m[1].startsWith('^')) {
+        const key = normLabel(m[1]);
+        let href = m[2];
+        if (href.startsWith('<')) href = href.slice(1, -1);
+        if (!(key in ctx.refs)) ctx.refs[key] = { href: unescapeMd(href), title: m[3] ? unescapeMd(m[3].slice(1, -1)) : null };
+        i++; continue;
+      }
+
+      // Paragraph, possibly a setext heading
+      const para = [line.replace(/^[ \t]+/, '')];
+      i++;
+      let setext = 0;
+      while (i < lines.length) {
+        const l = lines[i];
+        if (isBlank(l)) break;
+        if (SETEXT1_RE.test(l)) { setext = 1; i++; break; }
+        if (SETEXT2_RE.test(l)) { setext = 2; i++; break; }
+        if (interruptsParagraph(l) || isTableStart(lines, i)) break;
+        para.push(l.replace(/^[ \t]+/, ''));
+        i++;
+      }
+      const text = para.join('\n').replace(/[ \t]+$/, '');
+      nodes.push(setext ? { type: 'heading', level: setext, text } : { type: 'para', text });
+    }
+    return nodes;
+  }
+
+  /* ---- Inline parsing ------------------------------------------------------ */
+  function codeSpanEnd(src, i) {
+    let len = 1; while (src[i + len] === '`') len++;
+    let j = i + len;
+    while ((j = src.indexOf('`', j)) !== -1) {
+      let l2 = 1; while (src[j + l2] === '`') l2++;
+      if (l2 === len) return { start: i + len, close: j, end: j + len, len };
+      j += l2;
+    }
+    return { len, end: -1 };
+  }
+
+  function parseDestination(src, p) {
+    while (p < src.length && WS.test(src[p])) p++;
+    let href = '';
+    if (src[p] === '<') {
+      const e = src.indexOf('>', p);
+      if (e < 0 || src.slice(p, e).includes('\n')) return null;
+      href = src.slice(p + 1, e); p = e + 1;
+    } else {
+      let depth = 0; const s = p;
+      while (p < src.length) {
+        const c = src[p];
+        if (c === '\\' && p + 1 < src.length) { p += 2; continue; }
+        if (WS.test(c) || c < ' ') break;
+        if (c === '(') depth++;
+        else if (c === ')') { if (depth === 0) break; depth--; }
+        p++;
+      }
+      href = src.slice(s, p);
+    }
+    let title = null;
+    const t = src.slice(p).match(/^\s+("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|\((?:[^)\\]|\\.)*\))/);
+    if (t) { title = unescapeMd(t[1].slice(1, -1)); p += t[0].length; }
+    while (p < src.length && WS.test(src[p])) p++;
+    if (src[p] !== ')') return null;
+    return { href: unescapeMd(href), title, end: p + 1 };
+  }
+
+  /* [text](dest "title"), [text][ref], [text][] and [text]. `i` points at "[". */
+  function parseLink(src, i, ctx) {
+    let depth = 0, j = i;
+    for (; j < src.length; j++) {
+      const c = src[j];
+      if (c === '\\') { j++; continue; }
+      if (c === '`') { const cs = codeSpanEnd(src, j); j = cs.end < 0 ? j + cs.len - 1 : cs.end - 1; continue; }
+      if (c === '[') depth++;
+      else if (c === ']' && --depth === 0) break;
+    }
+    if (j >= src.length) return null;
+    const text = src.slice(i + 1, j);
+    const k = j + 1;
+    if (src[k] === '(') {
+      const d = parseDestination(src, k + 1);
+      if (d) return { text, href: d.href, title: d.title, end: d.end };
+    }
+    if (src[k] === '[') {
+      const close = src.indexOf(']', k + 1);
+      if (close > 0) {
+        const ref = ctx.refs[normLabel(src.slice(k + 1, close) || text)];
+        if (ref) return { text, href: ref.href, title: ref.title, end: close + 1 };
+      }
+    }
+    const ref = ctx.refs[normLabel(text)];
+    if (ref) return { text, href: ref.href, title: ref.title, end: j + 1 };
+    return null;
+  }
+
+  function trimUrlTail(url) {
+    for (;;) {
+      const last = url[url.length - 1];
+      if (/[?!.,:;*_~'"]/.test(last)) { url = url.slice(0, -1); continue; }
+      if (last === ')' && (url.match(/\)/g) || []).length > (url.match(/\(/g) || []).length) { url = url.slice(0, -1); continue; }
+      return url;
+    }
+  }
+
+  function wikiLinkHtml(inner, ctx) {
+    const bar = inner.indexOf('|');
+    let target = (bar >= 0 ? inner.slice(0, bar) : inner).trim();
+    const label = bar >= 0 ? inner.slice(bar + 1).trim() : target;
+    let hash = '';
+    const hi = target.indexOf('#');
+    if (hi >= 0) { hash = '#' + slugify(target.slice(hi + 1)); target = target.slice(0, hi).trim(); }
+    target = target.replace(/^\/+/, '').replace(/\s+/g, '_').replace(/\.md$/i, '');
+    // A leading "/" means "from the wiki root", which is how wiki links resolve.
+    const href = target ? '/' + encodeFilePath(target) + '.md' + hash : (hash || '#');
+    return `<a href="${escAttr(href)}" class="wikilink">${inline(label || target, ctx, true)}</a>`;
+  }
+
+  function footnoteRefHtml(label, ctx) {
+    const fn = ctx.footnotes[label.toLowerCase()];
+    if (!fn.num) { fn.num = ctx.fnList.length + 1; fn.refs = 0; ctx.fnList.push(fn); }
+    fn.refs++;
+    const slug = slugify(fn.label);
+    const refId = 'fnref-' + slug + (fn.refs > 1 ? '-' + fn.refs : '');
+    return `<sup class="footnote-ref"><a href="#fn-${escAttr(slug)}" id="${escAttr(refId)}" role="doc-noteref">${fn.num}</a></sup>`;
+  }
+
+  function inline(src, ctx, inLink = false) {
+    const nodes = [];
+    let buf = '';
+    let rawLinkDepth = 0; // inside a raw <a> tag: no autolinking
+    const flush = () => { if (buf) { nodes.push({ t: 'text', v: buf }); buf = ''; } };
+    const push = v => { flush(); nodes.push({ t: 'html', v }); };
+    const n = src.length;
+    let i = 0, m;
+
+    while (i < n) {
+      const c = src[i];
+
+      if (c === '\\') {
+        const nx = src[i + 1];
+        if (nx === '\n') { push('<br>\n'); i += 2; continue; }
+        if (nx !== undefined && ESCAPABLE.includes(nx)) { buf += escHtml(nx); i += 2; continue; }
+        buf += '\\'; i++; continue;
+      }
+
+      if (c === '`') {
+        const cs = codeSpanEnd(src, i);
+        if (cs.end < 0) { buf += '`'.repeat(cs.len); i += cs.len; continue; }
+        let code = src.slice(cs.start, cs.close).replace(/\n/g, ' ');
+        if (/^ [\s\S]*[^ ][\s\S]* $/.test(code)) code = code.slice(1, -1);
+        push(`<code>${escHtml(code)}</code>`);
+        i = cs.end; continue;
+      }
+
+      if (c === '!' && src[i + 1] === '[') {
+        const L = parseLink(src, i + 1, ctx);
+        if (L) {
+          const alt = stripTags(inline(L.text, ctx, true));
+          push(`<img src="${escAttr(L.href)}" alt="${alt}"${L.title != null ? ` title="${escAttr(L.title)}"` : ''}>`);
+          i = L.end; continue;
+        }
+        buf += '!'; i++; continue;
+      }
+
+      if (c === '[') {
+        if (src[i + 1] === '[' && !inLink) {
+          const close = src.indexOf(']]', i + 2);
+          const inner = close > 0 ? src.slice(i + 2, close) : '';
+          if (inner.trim() && !/[\n[\]]/.test(inner)) { push(wikiLinkHtml(inner, ctx)); i = close + 2; continue; }
+        }
+        if (src[i + 1] === '^' && (m = src.slice(i).match(/^\[\^([^\]\s]+)\]/)) && ctx.footnotes[m[1].toLowerCase()]) {
+          push(footnoteRefHtml(m[1], ctx)); i += m[0].length; continue;
+        }
+        if (!inLink) {
+          const L = parseLink(src, i, ctx);
+          if (L) {
+            push(`<a href="${escAttr(L.href)}"${L.title != null ? ` title="${escAttr(L.title)}"` : ''}>${inline(L.text, ctx, true)}</a>`);
+            i = L.end; continue;
+          }
+        }
+        buf += '['; i++; continue;
+      }
+
+      if (c === '<') {
+        const rest = src.slice(i);
+        if ((m = rest.match(AUTOLINK_RE))) { push(`<a href="${escAttr(m[1])}">${escHtml(m[1])}</a>`); i += m[0].length; continue; }
+        if ((m = rest.match(EMAIL_RE))) { push(`<a href="mailto:${escAttr(m[1])}">${escHtml(m[1])}</a>`); i += m[0].length; continue; }
+        if ((m = rest.match(RAW_TAG_RE))) {
+          if (/^<a[\s>]/i.test(m[0])) rawLinkDepth++;
+          else if (/^<\/a\s*>/i.test(m[0])) rawLinkDepth = Math.max(0, rawLinkDepth - 1);
+          push(m[0]); i += m[0].length; continue;
+        }
+        buf += '&lt;'; i++; continue;
+      }
+
+      if (c === '*' || c === '_' || c === '~') {
+        let len = 1; while (src[i + len] === c) len++;
+        if (c === '~' && len > 2) { buf += '~'.repeat(len); i += len; continue; }
+        const before = i > 0 ? src[i - 1] : ' ', after = i + len < n ? src[i + len] : ' ';
+        const lf = !WS.test(after) && (!PUNCT.test(after) || WS.test(before) || PUNCT.test(before));
+        const rf = !WS.test(before) && (!PUNCT.test(before) || WS.test(after) || PUNCT.test(after));
+        let open = lf, close = rf;
+        if (c === '_') { open = lf && (!rf || PUNCT.test(before)); close = rf && (!lf || PUNCT.test(after)); }
+        flush();
+        nodes.push({ t: 'delim', ch: c, len, orig: len, open, close, opens: [], closes: [] });
+        i += len; continue;
+      }
+
+      if (c === '\n') {
+        const sp = buf.match(/ +$/);
+        if (sp) buf = buf.slice(0, -sp[0].length);
+        if (sp && sp[0].length >= 2) push('<br>\n'); else buf += '\n';
+        i++;
+        while (src[i] === ' ') i++;
+        continue;
+      }
+
+      if (!inLink && !rawLinkDepth && /[hHwW]/.test(c) && (i === 0 || /[\s*_~(]/.test(src[i - 1]))) {
+        m = src.slice(i, i + 2048).match(URL_LITERAL_RE);
+        if (m) {
+          const url = trimUrlTail(m[0]);
+          if (/^(?:https?:\/\/[\w-]|www\.[\w-]+\.[\w-])/i.test(url)) {
+            push(`<a href="${escAttr(/^www\./i.test(url) ? 'http://' + url : url)}">${escHtml(url)}</a>`);
+            i += url.length; continue;
+          }
+        }
+      }
+
+      if (c === '&') {
+        m = src.slice(i, i + 40).match(ENTITY_RE);
+        if (m) { buf += m[0]; i += m[0].length; } else { buf += '&amp;'; i++; }
+        continue;
+      }
+      if (c === '>') { buf += '&gt;'; i++; continue; }
+      if (c === '"') { buf += '&quot;'; i++; continue; }
+      buf += c; i++;
+    }
+    flush();
+    processEmphasis(nodes);
+    return nodes.map(nd => nd.t === 'delim'
+      ? nd.closes.join('') + nd.ch.repeat(nd.len) + nd.opens.join('')
+      : nd.v).join('');
+  }
+
+  /* CommonMark's delimiter algorithm, simplified: matches *, _ and ~ runs. */
+  function processEmphasis(nodes) {
+    for (let c = 0; c < nodes.length; c++) {
+      const closer = nodes[c];
+      if (closer.t !== 'delim' || !closer.close) continue;
+      while (closer.len > 0) {
+        let o = c - 1;
+        for (; o >= 0; o--) {
+          const op = nodes[o];
+          if (op.t !== 'delim' || !op.open || op.ch !== closer.ch || op.len === 0) continue;
+          if (op.ch === '~') { if (op.len === closer.len) break; continue; }
+          if ((op.close || closer.open) && (op.orig + closer.orig) % 3 === 0 && !(op.orig % 3 === 0 && closer.orig % 3 === 0)) continue;
+          break;
+        }
+        if (o < 0) { if (!closer.open) closer.close = false; break; }
+        const op = nodes[o];
+        let use, tag;
+        if (op.ch === '~') { use = op.len; tag = 'del'; }
+        else { use = op.len >= 2 && closer.len >= 2 ? 2 : 1; tag = use === 2 ? 'strong' : 'em'; }
+        op.len -= use; closer.len -= use;
+        op.opens.unshift(`<${tag}>`);
+        closer.closes.push(`</${tag}>`);
+        for (let k = o + 1; k < c; k++) if (nodes[k].t === 'delim') nodes[k].open = nodes[k].close = false;
+      }
+    }
+  }
+
+  /* ---- Rendering ----------------------------------------------------------- */
+  const CALLOUT_TITLES = { note: 'Note', tip: 'Tip', important: 'Important', warning: 'Warning', caution: 'Caution' };
+
+  function renderBlocks(nodes, ctx, tight = false) {
+    return nodes.map(nd => {
+      switch (nd.type) {
+        case 'para': return tight ? inline(nd.text, ctx) : `<p>${inline(nd.text, ctx)}</p>`;
+        case 'heading': return `<h${nd.level}>${inline(nd.text, ctx)}</h${nd.level}>`;
+        case 'hr': return '<hr>';
+        case 'code': return `<pre><code${nd.lang ? ` class="language-${escAttr(nd.lang)}"` : ''}>${escHtml(nd.text)}${nd.text ? '\n' : ''}</code></pre>`;
+        case 'html': return nd.text;
+        case 'quote': return `<blockquote>\n${renderBlocks(nd.children, ctx)}\n</blockquote>`;
+        case 'callout': return `<div class="callout callout-${nd.kind}" role="note"><p class="callout-title">${CALLOUT_TITLES[nd.kind]}</p>\n${renderBlocks(nd.children, ctx)}\n</div>`;
+        case 'list': {
+          const tag = nd.ordered ? 'ol' : 'ul';
+          const start = nd.ordered && nd.start !== 1 ? ` start="${nd.start}"` : '';
+          const hasTask = nd.items.some(it => it.task !== null);
+          const items = nd.items.map(it => {
+            const box = it.task === null ? '' : `<input type="checkbox" disabled${it.task ? ' checked' : ''}> `;
+            let body;
+            if (box && it.children[0] && it.children[0].type === 'para') {
+              const first = inline(it.children[0].text, ctx);
+              const rest = renderBlocks(it.children.slice(1), ctx, nd.tight);
+              body = (nd.tight ? box + first : `<p>${box}${first}</p>`) + (rest ? '\n' + rest : '');
+            } else body = box + renderBlocks(it.children, ctx, nd.tight);
+            return `<li${it.task !== null ? ' class="task-list-item"' : ''}>${body}</li>`;
+          }).join('\n');
+          return `<${tag}${start}${hasTask ? ' class="contains-task-list"' : ''}>\n${items}\n</${tag}>`;
+        }
+        case 'table': {
+          const al = k => nd.align[k] ? ` style="text-align:${nd.align[k]}"` : '';
+          const head = nd.header.map((c, k) => `<th${al(k)}>${inline(c, ctx)}</th>`).join('');
+          const body = nd.rows.map(r => `<tr>${r.map((c, k) => `<td${al(k)}>${inline(c, ctx)}</td>`).join('')}</tr>`).join('\n');
+          return `<table>\n<thead><tr>${head}</tr></thead>\n${body ? `<tbody>\n${body}\n</tbody>\n` : ''}</table>`;
+        }
+        default: return '';
+      }
+    }).join('\n');
+  }
+
+  function renderFootnotes(ctx) {
+    if (!ctx.fnList.length) return '';
+    const items = [];
+    for (let k = 0; k < ctx.fnList.length; k++) { // footnotes may reference new footnotes
+      const fn = ctx.fnList[k];
+      const slug = slugify(fn.label);
+      let body = renderBlocks(fn.children, ctx);
+      const backs = Array.from({ length: fn.refs }, (_, r) =>
+        `<a href="#fnref-${escAttr(slug)}${r ? '-' + (r + 1) : ''}" class="footnote-backref" aria-label="Back to reference ${fn.num}${r ? '-' + (r + 1) : ''}">↩</a>`).join('');
+      body = body.endsWith('</p>') ? body.slice(0, -4) + ' ' + backs + '</p>' : body + ' ' + backs;
+      items.push(`<li id="fn-${escAttr(slug)}">${body}</li>`);
+    }
+    return `\n<section class="footnotes" aria-label="Footnotes">\n<ol>\n${items.join('\n')}\n</ol>\n</section>`;
+  }
+
+  function render(src) {
+    const ctx = { refs: Object.create(null), footnotes: Object.create(null), fnList: [] };
+    const lines = src.replace(/\r\n?/g, '\n').replace(/\u0000/g, '�').split('\n').map(expandLeadingTabs);
+    const blocks = parseBlocks(lines, ctx);
+    return renderBlocks(blocks, ctx) + renderFootnotes(ctx);
+  }
+
+  return { render, splitFrontMatter };
+})();
+
+/* ==========================================================================
+   5. SANITIZER
+   Allowlist-based. HTML is parsed into an inert <template>, then every
+   element and attribute not on the list is removed. Dangerous elements are
+   dropped with their content; unknown ones are unwrapped (content kept).
+   ========================================================================== */
+const Sanitizer = (() => {
+  const DROP = new Set(('script style iframe frame frameset object embed applet noscript template base link meta ' +
+    'title head textarea select option optgroup button form input svg math canvas dialog portal xmp plaintext ' +
+    'noembed noframes param slot').split(' '));
+  const ALLOWED = new Set(('a abbr address article aside audio b bdi bdo big blockquote br caption center cite code ' +
+    'col colgroup data dd del details dfn div dl dt em figcaption figure footer h1 h2 h3 h4 h5 h6 header hgroup hr ' +
+    'i img ins kbd li mark nav ol p picture pre q rp rt ruby s samp section small source span strike strong sub ' +
+    'summary sup table tbody td tfoot th thead time tr track tt u ul var video wbr').split(' '));
+  const GLOBAL_ATTRS = new Set(['id', 'class', 'title', 'lang', 'dir', 'style', 'role', 'align', 'valign',
+    'width', 'height', 'hidden', 'translate']);
+  const TAG_ATTRS = {
+    a: ['href', 'target', 'rel', 'hreflang', 'download'],
+    img: ['src', 'srcset', 'sizes', 'alt', 'loading', 'decoding'],
+    video: ['src', 'poster', 'controls', 'autoplay', 'loop', 'muted', 'playsinline', 'preload'],
+    audio: ['src', 'controls', 'autoplay', 'loop', 'muted', 'preload'],
+    source: ['src', 'srcset', 'type', 'media', 'sizes'],
+    track: ['src', 'kind', 'srclang', 'label', 'default'],
+    ol: ['start', 'reversed', 'type'], ul: ['type'], li: ['value'],
+    td: ['colspan', 'rowspan', 'headers'], th: ['colspan', 'rowspan', 'headers', 'scope', 'abbr'],
+    col: ['span'], colgroup: ['span'],
+    table: ['border', 'cellpadding', 'cellspacing'],
+    time: ['datetime'], data: ['value'], details: ['open'],
+    q: ['cite'], blockquote: ['cite'], del: ['cite', 'datetime'], ins: ['cite', 'datetime'],
+    input: ['type', 'checked', 'disabled']
+  };
+  const URL_ATTRS = new Set(['href', 'src', 'poster', 'cite']);
+  const SAFE_SCHEMES = new Set(['http', 'https', 'mailto', 'tel', 'ftp', 'ftps', 'sms', 'xmpp', 'irc', 'ircs', 'magnet', 'geo']);
+  const DATA_IMAGE_RE = /^data:image\/(?:png|gif|jpe?g|webp|avif|bmp|svg\+xml)[;,]/i;
+  const BAD_STYLE_RE = /expression\s*\(|javascript:|vbscript:|-moz-binding|behavior\s*:|@import/i;
+
+  function urlOk(value, tag, attr) {
+    const probe = value.replace(/[\s\u0000-\u001f\u007f-\u009f]+/g, '').toLowerCase();
+    const m = probe.match(/^([a-z][a-z0-9+.-]*):/);
+    if (!m) return true; // relative URL
+    if (m[1] === 'data') return (tag === 'img' || tag === 'source' || attr === 'poster') && DATA_IMAGE_RE.test(probe);
+    return SAFE_SCHEMES.has(m[1]);
+  }
+
+  function cleanIframe(el, opts) {
+    let u;
+    try { u = new URL(el.getAttribute('src') || '', location.href); } catch (e) { return false; }
+    if (u.protocol !== 'https:' || !(opts.iframeHosts || []).includes(u.hostname)) return false;
+    const keep = { src: u.href, width: el.getAttribute('width'), height: el.getAttribute('height'),
+      title: el.getAttribute('title') || 'Embedded content', class: el.getAttribute('class'), style: el.getAttribute('style') };
+    for (const a of Array.from(el.attributes)) el.removeAttribute(a.name);
+    for (const [k, v] of Object.entries(keep)) if (v != null && !(k === 'style' && BAD_STYLE_RE.test(v))) el.setAttribute(k, v);
+    el.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-presentation');
+    el.setAttribute('allow', 'fullscreen; picture-in-picture; encrypted-media');
+    el.setAttribute('allowfullscreen', '');
+    el.setAttribute('loading', 'lazy');
+    el.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    return true;
+  }
+
+  function cleanElement(el, opts) {
+    const tag = el.localName;
+    const allowed = new Set(TAG_ATTRS[tag] || []);
+    for (const attr of Array.from(el.attributes)) {
+      const name = attr.name.toLowerCase(), value = attr.value;
+      let ok = GLOBAL_ATTRS.has(name) || allowed.has(name) ||
+        ((name.startsWith('aria-') || name.startsWith('data-')) && !name.startsWith('data-sp-'));
+      if (ok && URL_ATTRS.has(name)) ok = urlOk(value, tag, name);
+      if (ok && (name === 'srcset')) ok = value.split(',').every(part => urlOk(part.trim().split(/\s+/)[0] || '', tag, name));
+      if (ok && name === 'style') ok = !BAD_STYLE_RE.test(value);
+      if (ok && name === 'id') ok = !/^sp-/i.test(value);      // ids starting with sp- belong to the app
+      if (ok && name === 'target') ok = value === '_blank' || value === '_self';
+      if (!ok) el.removeAttribute(attr.name);
+    }
+    if (tag === 'a' && el.getAttribute('target') === '_blank') el.setAttribute('rel', 'noopener noreferrer');
+  }
+
+  function walk(parent, opts) {
+    for (const node of Array.from(parent.childNodes)) {
+      if (node.nodeType === Node.TEXT_NODE) continue;
+      if (node.nodeType !== Node.ELEMENT_NODE) { node.remove(); continue; } // comments, processing instructions
+      const tag = node.localName;
+      if (tag === 'iframe' && cleanIframe(node, opts)) { node.replaceChildren(); continue; }
+      if (tag === 'input' && (node.getAttribute('type') || '').toLowerCase() === 'checkbox') {
+        cleanElement(node, opts); node.setAttribute('disabled', ''); continue;
+      }
+      if (DROP.has(tag) || node.namespaceURI !== 'http://www.w3.org/1999/xhtml') { node.remove(); continue; }
+      walk(node, opts);
+      if (!ALLOWED.has(tag)) { node.replaceWith(...node.childNodes); continue; }
+      cleanElement(node, opts);
+    }
+  }
+
+  /* Returns a DocumentFragment containing only safe markup. */
+  function toFragment(html, opts = {}) {
+    const tpl = document.createElement('template');
+    tpl.innerHTML = html;
+    walk(tpl.content, opts);
+    return tpl.content;
+  }
+
+  return { toFragment };
+})();
+
+/* ==========================================================================
+   6. RENDERING
+   Markdown -> sanitized fragment -> links and media rewritten relative to the
+   page's directory -> heading ids -> table of contents -> into the page.
+   ========================================================================== */
+const SCHEME_RE = /^[a-z][a-z0-9+.-]*:/i;
+const FILE_EXT_RE = /\.[a-z0-9]*[a-z][a-z0-9]*$/i;
+
+/* Decide what a link points at. pageDir is like "People/" (or "" for the root).
+   A leading "/" means the wiki root, never the host root. */
+function classifyRef(raw, pageDir) {
+  const v = (raw || '').trim();
+  if (!v) return null;
+  if (v.startsWith('#')) return { kind: 'anchor' };
+  if (SCHEME_RE.test(v) || v.startsWith('//')) return { kind: 'external' };
+  if (v.startsWith('?')) return { kind: 'query', href: DOC_PATH + v };
+  let u;
+  try {
+    const base = new URL(encodeFilePath(pageDir), ROOT_URL);
+    u = v.startsWith('/') ? new URL(v.replace(/^\/+/, ''), ROOT_URL) : new URL(v, base);
+  } catch (e) { return null; }
+  if (u.origin !== location.origin || !u.pathname.startsWith(ROOT_PATH)) return { kind: 'file', href: u.href };
+  const rel = safeDecode(u.pathname.slice(ROOT_PATH.length));
+  const leaf = rel.split('/').pop();
+  const isPage = !u.search && (leaf === '' || /\.md$/i.test(leaf) || !FILE_EXT_RE.test(leaf));
+  if (!isPage) return { kind: 'file', href: u.href };
+  let path = rel.replace(/\.md$/i, '');
+  if (path === '' || path.endsWith('/')) path += 'Index';
+  path = path.replace(/\s+/g, '_');
+  return { kind: 'page', path, href: pageHref(path, u.hash) };
+}
+
+function resolveMedia(raw, pageDir) {
+  const v = (raw || '').trim();
+  if (!v || SCHEME_RE.test(v) || v.startsWith('//') || v.startsWith('#')) return v;
+  try {
+    return v.startsWith('/') ? new URL(v.replace(/^\/+/, ''), ROOT_URL).href
+      : new URL(v, new URL(encodeFilePath(pageDir), ROOT_URL)).href;
+  } catch (e) { return v; }
+}
+
+function rewriteRefs(root, pageDir) {
+  for (const a of root.querySelectorAll('a[href]')) {
+    const r = classifyRef(a.getAttribute('href'), pageDir);
+    if (!r) continue;
+    if (r.kind === 'external') {
+      const rel = new Set((a.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+      rel.add('noopener');
+      a.setAttribute('rel', [...rel].join(' '));
+      if (!a.querySelector('img, video, picture')) a.classList.add('external');
+    } else if (r.kind === 'page') {
+      a.setAttribute('href', r.href);
+      a.setAttribute('data-sp-page', r.path);
+    } else if (r.kind === 'query' || r.kind === 'file') {
+      a.setAttribute('href', r.href);
+    }
+  }
+  for (const el of root.querySelectorAll('img[src], video[src], audio[src], source[src], track[src]')) {
+    el.setAttribute('src', resolveMedia(el.getAttribute('src'), pageDir));
+  }
+  for (const el of root.querySelectorAll('video[poster]')) el.setAttribute('poster', resolveMedia(el.getAttribute('poster'), pageDir));
+  for (const el of root.querySelectorAll('[srcset]')) {
+    el.setAttribute('srcset', el.getAttribute('srcset').split(',').map(part => {
+      const [url, ...rest] = part.trim().split(/\s+/);
+      return [resolveMedia(url, pageDir), ...rest].join(' ');
+    }).join(', '));
+  }
+  for (const img of root.querySelectorAll('img')) {
+    if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+    if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+  }
+}
+
+/* Wrap plain tables so wide ones scroll by themselves on small screens. */
+function wrapTables(root) {
+  for (const table of root.querySelectorAll('table')) {
+    if (table.closest('table') !== table || table.parentElement?.closest('table')) continue;
+    if (table.classList.contains('infobox') || /float/i.test(table.getAttribute('style') || '') ||
+        table.classList.contains('float-right') || table.classList.contains('float-left')) continue;
+    const wrap = document.createElement('div');
+    wrap.className = 'sp-table-wrap';
+    table.replaceWith(wrap);
+    wrap.append(table);
+  }
+}
+
+function renderMarkdownInto(container, markdown, pageDir) {
+  const html = Markdown.render(markdown);
+  const frag = Sanitizer.toFragment(html, { iframeHosts: config.iframeHosts });
+  rewriteRefs(frag, pageDir);
+  container.replaceChildren(frag);
+}
+
+function assignHeadingIds(root) {
+  const used = new Set(Array.from(root.querySelectorAll('[id]'), el => el.id));
+  for (const hd of root.querySelectorAll('h1, h2, h3, h4, h5, h6')) {
+    if (!hd.id) {
+      const base = slugify(hd.textContent);
+      let id = base, n = 1;
+      while (used.has(id) || document.getElementById(id)) id = `${base}-${n++}`;
+      hd.id = id;
+      used.add(id);
+    }
+    if (hd.localName !== 'h1') {
+      hd.append(h('a', { class: 'sp-anchor', href: '#' + encodeURIComponent(hd.id), 'aria-label': 'Link to this section', title: 'Link to this section' }, '#'));
+    }
+  }
+}
+
+function headingText(hd) {
+  const clone = hd.cloneNode(true);
+  clone.querySelectorAll('.sp-anchor, .footnote-ref').forEach(el => el.remove());
+  return clone.textContent.trim();
+}
+
+/* Wikipedia-style "Contents" box, placed before the first section heading. */
+function buildToc(root, meta) {
+  if (meta.toc === false) return;
+  const heads = Array.from(root.querySelectorAll('h2, h3, h4, h5, h6')).filter(hd =>
+    !hd.closest('table, blockquote, details, .callout, .footnotes, .infobox, .no-toc, .sp-toc'));
+  if (heads.length < (Number(config.tocMinHeadings) || 3)) return;
+  const top = Math.min(...heads.map(hd => +hd.localName[1]));
+  const rootList = h('ol');
+  const stack = [{ level: top, list: rootList, count: 0, prefix: '' }];
+  for (const hd of heads) {
+    const level = Math.max(+hd.localName[1], top);
+    while (level > stack[stack.length - 1].level) {
+      const parent = stack[stack.length - 1];
+      let li = parent.list.lastElementChild;
+      if (!li) { li = h('li'); parent.list.append(li); parent.count++; }
+      const list = h('ol');
+      li.append(list);
+      stack.push({ level: parent.level + 1, list, count: 0, prefix: (parent.prefix ? parent.prefix + '.' : '') + parent.count });
+    }
+    while (level < stack[stack.length - 1].level) stack.pop();
+    const cur = stack[stack.length - 1];
+    cur.count++;
+    const num = (cur.prefix ? cur.prefix + '.' : '') + cur.count;
+    cur.list.append(h('li', null, h('a', { href: '#' + encodeURIComponent(hd.id) },
+      h('span', { class: 'sp-tocnumber' }, num), h('span', { class: 'sp-toctext' }, headingText(hd)))));
+  }
+  const toc = h('details', { class: 'sp-toc', open: true, role: 'navigation', 'aria-label': 'Contents' },
+    h('summary', null, 'Contents'), rootList);
+  heads[0].before(toc);
+}
+
+const content = () => $('#sp-content');
+
+function setTitle(title) {
+  const site = config.siteName || 'Static-Pedia';
+  document.title = title && title !== site ? title + config.titleSeparator + site : site;
+}
+
+function setPageInfo(items) {
+  const info = $('#sp-page-info');
+  info.replaceChildren(...items.filter(Boolean));
+  info.hidden = !info.childElementCount;
+}
+
+function renderArticle(route, res) {
+  const { meta, body } = Markdown.splitFrontMatter(res.text);
+  const box = content();
+  renderMarkdownInto(box, body, dirOf(route.path));
+  wrapTables(box);
+  let h1 = box.querySelector('h1');
+  const fallback = typeof meta.title === 'string' && meta.title ? meta.title
+    : route.path === 'Index' ? config.siteName || DEFAULT_CONFIG.siteName : titleFromPath(route.path);
+  if (!h1) {
+    h1 = h('h1', null, fallback);
+    box.prepend(h1);
+  }
+  assignHeadingIds(box);
+  buildToc(box, meta);
+  setTitle(typeof meta.title === 'string' && meta.title ? meta.title : headingText(h1) || fallback);
+
+  const info = [];
+  if (config.showLastModified && res.lastModified) {
+    const d = new Date(res.lastModified);
+    if (!isNaN(d)) info.push(h('span', null, 'This page was last edited on ',
+      h('time', { datetime: d.toISOString() }, d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })), '.'));
+  }
+  if (config.showSourceLink) info.push(h('a', { href: fileUrl(route.path + '.md'), rel: 'nofollow' }, 'View source'));
+  setPageInfo(info);
+}
+
+/* Built-in pages are assembled with h(), so URL-supplied text is never parsed as HTML. */
+function renderBuiltin(title, ...children) {
+  // Flatten and drop empty values like h() does: replaceChildren() would stringify arrays and null.
+  content().replaceChildren(h('h1', { id: 'page-title' }, title),
+    ...children.flat(Infinity).filter(c => c != null && c !== false));
+  setTitle(title);
+  setPageInfo([]);
+}
+
+function renderNotFound(route) {
+  const name = titleFromPath(route.path);
+  const items = [h('li', null, h('a', { href: pageHref('Index') }, 'Go to the main page'))];
+  if (Search.available()) {
+    items.push(h('li', null, h('a', { href: DOC_PATH + '?search=' + encodeURIComponent(name) }, `Search for “${name}”`)));
+    const similar = Search.query(name.split(/\s+/)[0] || name, 5);
+    if (similar.length) items.push(h('li', null, 'Pages with similar names: ',
+      similar.map((r, k) => [k ? ', ' : '', h('a', { href: pageHref(r.page.path) }, r.page.title)])));
+  }
+  renderBuiltin('Page not found',
+    h('div', { class: 'sp-message', role: 'status' },
+      h('p', null, 'There is currently no page called ', h('strong', null, route.path), ' on this wiki.'),
+      h('p', null, `It may have been moved or deleted, or the link that brought you here may be wrong. (Looked for ${route.path}.md)`)),
+    h('ul', null, items));
+  setTitle('Page not found');
+}
+
+function renderLoadError(route, detail) {
+  const items = [h('p', null, 'The page ', h('strong', null, route.path), ' could not be loaded (', detail, ').')];
+  if (location.protocol === 'file:') items.push(fileProtocolHelp());
+  renderBuiltin('Could not load page', h('div', { class: 'sp-message sp-error', role: 'alert' }, items),
+    h('p', null, h('a', { href: location.href }, 'Try again'), ' · ', h('a', { href: pageHref('Index') }, 'Main page')));
+}
+
+function fileProtocolHelp() {
+  return h('div', null,
+    h('p', null, 'You opened this wiki directly from disk (file://). Browsers block page loading there, so Static-Pedia needs a web server, even a local one:'),
+    h('pre', null, h('code', null, 'cd path/to/your/wiki\npython3 -m http.server 8000')),
+    h('p', null, 'Then visit ', h('code', null, 'http://localhost:8000/'), '.'));
+}
+
+function renderInvalid(route) {
+  renderBuiltin('Invalid page name',
+    h('div', { class: 'sp-message sp-error', role: 'alert' },
+      h('p', null, 'The requested page name ', h('code', null, String(route.raw)), ' is not allowed.'),
+      h('p', null, 'Page names are paths relative to the wiki root. They cannot start with “/”, contain “..”, or be full URLs.')),
+    h('p', null, h('a', { href: pageHref('Index') }, 'Go to the main page')));
+}
+
+function renderSearchPage(query) {
+  const input = $('#sp-search-input');
+  if (input && document.activeElement !== input) input.value = query;
+  if (!Search.available()) {
+    renderBuiltin('Search', h('div', { class: 'sp-message' },
+      h('p', null, 'Search is not available on this wiki because it has no ', h('code', null, 'pages.json'), ' search index.')),
+      h('p', null, h('a', { href: pageHref('Index') }, 'Go to the main page')));
+    return;
+  }
+  const results = query.trim() ? Search.query(query) : [];
+  const list = h('ol', { class: 'sp-results' }, results.map(r => h('li', null,
+    h('a', { href: pageHref(r.page.path), class: 'sp-result-title' }, Search.highlight(r.page.title, query)),
+    h('span', { class: 'sp-result-path' }, r.page.path),
+    h('span', { class: 'sp-result-snippet' }, Search.highlight(Search.snippet(r.page, query, 220), query)))));
+  const summary = !query.trim() ? 'Type something in the search box to search this wiki.'
+    : results.length ? `${results.length} result${results.length === 1 ? '' : 's'} for “${query}”.`
+    : `No pages match “${query}”.`;
+  renderBuiltin(query.trim() ? `Search results` : 'Search', h('p', { role: 'status' }, summary), results.length ? list : null,
+    h('p', null, h('a', { href: DOC_PATH + '?special=AllPages' }, 'Browse all pages')));
+  setTitle(query.trim() ? `Search: ${query}` : 'Search');
+}
+
+function renderSpecial(route) {
+  if (!Search.available()) {
+    renderBuiltin('Special page', h('div', { class: 'sp-message' },
+      h('p', null, 'This special page needs the ', h('code', null, 'pages.json'), ' search index, which this wiki does not have.')));
+    return;
+  }
+  if (route.name === 'random') {
+    const pages = Search.pages();
+    const pick = pages[Math.floor(Math.random() * pages.length)];
+    if (pick) { history.replaceState({}, '', pageHref(pick.path)); renderRoute({}); return true; }
+  }
+  if (route.name === 'allpages') {
+    const pages = [...Search.pages()].sort((a, b) => a.path.localeCompare(b.path));
+    const groups = new Map();
+    for (const p of pages) {
+      const dir = p.path.includes('/') ? p.path.slice(0, p.path.lastIndexOf('/')) : '';
+      if (!groups.has(dir)) groups.set(dir, []);
+      groups.get(dir).push(p);
+    }
+    const sections = [];
+    for (const [dir, list] of groups) {
+      sections.push(h('h2', null, dir || '(root)'),
+        h('ul', { class: 'sp-allpages' }, list.map(p => h('li', null, h('a', { href: pageHref(p.path) }, p.title)))));
+    }
+    renderBuiltin('All pages', h('p', null, `${pages.length} pages on this wiki.`), sections);
+    return;
+  }
+  renderBuiltin('Unknown special page', h('div', { class: 'sp-message' },
+    h('p', null, 'Available special pages: ',
+      h('a', { href: DOC_PATH + '?special=AllPages' }, 'AllPages'), ', ',
+      h('a', { href: DOC_PATH + '?special=Random' }, 'Random'), '.')));
+}
+
+function markCurrentNav() {
+  const path = currentKey && currentKey.startsWith('page:') ? currentKey.slice(5) : null;
+  for (const a of document.querySelectorAll('#sp-sidebar a[data-sp-page]')) {
+    if (a.getAttribute('data-sp-page') === path && !new URL(a.href).hash) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  }
+}
+
+let configReady = Promise.resolve();
+let searchReady = Promise.resolve();
+
+async function renderRoute({ focus = false, scrollY = null } = {}) {
+  const token = ++navToken;
+  const route = parseRoute();
+  const main = $('#sp-main');
+  closeDrawer();
+  Search.closeList();
+  main.setAttribute('aria-busy', 'true');
+  await configReady;
+
+  if (route.kind === 'page') {
+    const res = await fetchFile(route.path + '.md');
+    if (token !== navToken) return;
+    if (res.status === 'ok') renderArticle(route, res);
+    else {
+      await searchReady;
+      if (token !== navToken) return;
+      if (res.status === 'missing') renderNotFound(route);
+      else renderLoadError(route, res.detail);
+    }
+  } else {
+    await searchReady;
+    if (token !== navToken) return;
+    if (route.kind === 'search') renderSearchPage(route.query);
+    else if (route.kind === 'special') { if (renderSpecial(route)) return; }
+    else renderInvalid(route);
+  }
+
+  currentKey = route.key;
+  main.removeAttribute('aria-busy');
+  markCurrentNav();
+
+  if (scrollY != null) window.scrollTo({ top: scrollY, behavior: 'instant' });
+  else if (!scrollToHash({ settle: true })) window.scrollTo({ top: 0, behavior: 'instant' });
+  if (focus) {
+    const title = $('#sp-content h1');
+    if (title) { title.setAttribute('tabindex', '-1'); title.focus({ preventScroll: true }); }
+  }
+}
+
+/* ---- Sidebar, footer, header chrome ------------------------------------- */
+async function loadSidebar() {
+  const res = await fetchFile('_Sidebar.md');
+  await configReady;
+  const box = $('#sp-sidebar-content');
+  if (res.status !== 'ok') { document.documentElement.classList.add('sp-no-sidebar'); syncMenuButton(); return; }
+  renderMarkdownInto(box, Markdown.splitFrontMatter(res.text).body, '');
+  box.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(hd => hd.removeAttribute('id'));
+  markCurrentNav();
+}
+
+async function loadFooter() {
+  const res = await fetchFile('_Footer.md');
+  await configReady;
+  const box = $('#sp-footer');
+  if (res.status === 'ok') renderMarkdownInto(box, Markdown.splitFrontMatter(res.text).body, '');
+  else if (config.footerText) box.replaceChildren(h('p', null, config.footerText));
+}
+
+const isMobile = () => window.matchMedia('(max-width: 800px)').matches;
+
+function syncMenuButton() {
+  const btn = $('#sp-menu-btn');
+  const open = isMobile() ? document.documentElement.classList.contains('sp-drawer-open') : Settings.get('sidebar');
+  btn.setAttribute('aria-expanded', String(!!open));
+}
+
+function openDrawer() {
+  document.documentElement.classList.add('sp-drawer-open');
+  syncMenuButton();
+  const first = $('#sp-sidebar a, #sp-sidebar-close');
+  setTimeout(() => (first || $('#sp-sidebar-close')).focus(), 50);
+}
+
+function closeDrawer(returnFocus = false) {
+  if (!document.documentElement.classList.contains('sp-drawer-open')) return;
+  document.documentElement.classList.remove('sp-drawer-open');
+  syncMenuButton();
+  if (returnFocus) $('#sp-menu-btn').focus();
+}
+
+function initChrome() {
+  $('#sp-menu-btn').addEventListener('click', () => {
+    if (isMobile()) {
+      if (document.documentElement.classList.contains('sp-drawer-open')) closeDrawer(true); else openDrawer();
+    } else {
+      Settings.set('sidebar', !Settings.get('sidebar'));
+    }
+  });
+  $('#sp-sidebar-close').addEventListener('click', () => closeDrawer(true));
+  $('#sp-backdrop').addEventListener('click', () => closeDrawer(true));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && document.documentElement.classList.contains('sp-drawer-open')) closeDrawer(true);
+    // "/" focuses search, like many wikis
+    if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) &&
+        !$('#sp-search').hidden && !$('#sp-settings').open) {
+      e.preventDefault(); $('#sp-search-input').focus();
+    }
+  });
+  window.matchMedia('(max-width: 800px)').addEventListener('change', () => { closeDrawer(); syncMenuButton(); });
+  $('#sp-brand').setAttribute('href', pageHref('Index'));
+}
+
+async function loadConfig() {
+  const res = await fetchFile('staticpedia.json');
+  if (res.status !== 'ok') return;
+  try {
+    const user = JSON.parse(res.text);
+    if (user && typeof user === 'object') config = { ...DEFAULT_CONFIG, ...user };
+  } catch (err) {
+    console.warn('Static-Pedia: staticpedia.json is not valid JSON and was ignored.', err);
+  }
+}
+
+function addStylesheet(href, id) {
+  const link = h('link', { rel: 'stylesheet', href: fileUrl(href) });
+  if (id) link.id = id;
+  document.head.append(link);
+  return link;
+}
+
+let themeLink = null;
+function applyThemeStylesheet() {
+  const sheets = config.themeStylesheets || {};
+  const theme = document.documentElement.getAttribute('data-theme');
+  const href = sheets[theme];
+  if (!href) { if (themeLink) { themeLink.remove(); themeLink = null; } return; }
+  const url = fileUrl(href);
+  if (themeLink && themeLink.href === url) return;
+  if (themeLink) themeLink.remove();
+  themeLink = addStylesheet(href, 'sp-theme-css');
+}
+
+function applyConfig() {
+  const name = config.siteName || DEFAULT_CONFIG.siteName;
+  $('#sp-site-name').textContent = name;
+  $('#sp-search-input').placeholder = 'Search ' + name;
+  const tag = $('#sp-tagline');
+  tag.textContent = config.tagline || '';
+  tag.hidden = !config.tagline;
+  if (config.logo) {
+    const logo = $('#sp-logo');
+    logo.src = fileUrl(config.logo);
+    logo.hidden = false;
+    logo.addEventListener('error', () => { logo.hidden = true; }, { once: true });
+  }
+  if (config.favicon) $('#sp-favicon').href = fileUrl(config.favicon);
+  if (config.lang) document.documentElement.lang = config.lang;
+  for (const href of Array.isArray(config.stylesheets) ? config.stylesheets : []) addStylesheet(href);
+  const siteDefaults = { ...(config.defaults && typeof config.defaults === 'object' ? config.defaults : {}) };
+  if (config.defaultTheme) siteDefaults.theme = config.defaultTheme;
+  Settings.setSiteDefaults(siteDefaults);
+  applyThemeStylesheet();
+}
+
+/* ==========================================================================
+   7. SETTINGS
+   Stored in localStorage under one key ("staticpedia:settings") as JSON.
+   Only values the reader changed are stored, so site defaults still apply
+   to everything else. The schema lives in the early <head> script.
+   ========================================================================== */
+const Settings = (() => {
+  let stored = EARLY.read();
+  let storageOk = true;
+  let values = EARLY.effective(stored);
+  const dialog = () => $('#sp-settings');
+
+  function persist() {
+    storageOk = EARLY.write(stored);
+    $('#sp-settings-note').hidden = storageOk;
+  }
+  function refresh() {
+    values = EARLY.effective(stored);
+    EARLY.apply(values);
+    applyThemeStylesheet();
+    syncForm();
+    syncMenuButton();
+  }
+  function get(key) { return values[key]; }
+  function set(key, value) {
+    const schema = EARLY.SCHEMA.find(s => s.key === key);
+    if (!schema || !EARLY.isValid(schema, value)) return;
+    stored = { ...stored, [key]: value };
+    persist();
+    refresh();
+  }
+  function reset() {
+    stored = stored._site ? { _site: stored._site } : {};
+    persist();
+    refresh();
+  }
+  function setSiteDefaults(site) {
+    if (JSON.stringify(site) === JSON.stringify(stored._site || {})) return;
+    stored = { ...stored, _site: site };
+    // Caching the site defaults lets the early script apply them before first paint next time.
+    EARLY.write(stored);
+    refresh();
+  }
+
+  function buildForm() {
+    const form = $('#sp-settings-form');
+    form.replaceChildren(...EARLY.SCHEMA.map(s => {
+      const id = 'sp-set-' + s.key;
+      if (s.type === 'toggle') {
+        return h('label', { class: 'sp-toggle', for: id }, s.label,
+          h('input', { type: 'checkbox', id, name: s.key, onchange: e => set(s.key, e.target.checked) }));
+      }
+      return h('fieldset', { class: 'sp-setting' }, h('legend', null, s.label),
+        h('div', { class: 'sp-choices' }, s.options.map(([value, label]) =>
+          h('label', null, h('input', { type: 'radio', name: s.key, value, onchange: () => set(s.key, value) }), label))));
+    }));
+    syncForm();
+  }
+  function syncForm() {
+    const form = $('#sp-settings-form');
+    if (!form) return;
+    for (const s of EARLY.SCHEMA) {
+      if (s.type === 'toggle') { const el = form.elements[s.key]; if (el) el.checked = !!values[s.key]; }
+      else for (const el of form.querySelectorAll(`input[name="${s.key}"]`)) el.checked = el.value === values[s.key];
+    }
+  }
+
+  function focusables() {
+    return Array.from(dialog().querySelectorAll('button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'))
+      .filter(el => !el.disabled && el.offsetParent !== null && !(el.type === 'radio' && !el.checked && el.form &&
+        Array.from(el.form.elements[el.name] || []).some(r => r.checked)));
+  }
+  function open() {
+    const d = dialog();
+    if (d.open) return;
+    syncForm();
+    d.showModal();
+    $('#sp-settings-btn').setAttribute('aria-expanded', 'true');
+    const first = d.querySelector('input:checked, input');
+    if (first) first.focus();
+  }
+  function close() { if (dialog().open) dialog().close(); }
+
+  function init() {
+    buildForm();
+    const d = dialog();
+    $('#sp-settings-btn').setAttribute('aria-expanded', 'false');
+    $('#sp-settings-btn').addEventListener('click', open);
+    d.querySelectorAll('[data-sp-close]').forEach(b => b.addEventListener('click', close));
+    $('#sp-settings-reset').addEventListener('click', reset);
+    d.addEventListener('close', () => {
+      $('#sp-settings-btn').setAttribute('aria-expanded', 'false');
+      $('#sp-settings-btn').focus();
+    });
+    d.addEventListener('click', e => { if (e.target === d) close(); }); // click on the backdrop
+    d.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      const els = focusables();
+      if (!els.length) return;
+      const first = els[0], last = els[els.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    if (EARLY.mq) EARLY.mq.addEventListener('change', () => { if (values.theme === 'system') refresh(); });
+    window.addEventListener('storage', e => { if (e.key === EARLY.KEY) { stored = EARLY.read(); refresh(); } });
+    persistCheck();
+  }
+  function persistCheck() {
+    try { const k = EARLY.KEY + ':test'; localStorage.setItem(k, '1'); localStorage.removeItem(k); }
+    catch (e) { storageOk = false; $('#sp-settings-note').hidden = false; }
+  }
+
+  return { init, get, set, reset, open, close, setSiteDefaults };
+})();
+
+/* ==========================================================================
+   8. SEARCH
+   Uses the optional pages.json manifest: [{ path, title, text }]. Without it
+   the search box stays hidden. Title matches rank above full-text matches.
+   ========================================================================== */
+const Search = (() => {
+  let pages = null;
+  let active = -1;
+  let current = [];
+  const fold = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  async function load() {
+    const res = await fetchFile('pages.json');
+    if (res.status !== 'ok') return;
+    try {
+      const data = JSON.parse(res.text);
+      const list = Array.isArray(data) ? data : Array.isArray(data.pages) ? data.pages : [];
+      pages = list.filter(p => p && typeof p.path === 'string').map(p => {
+        const path = normalizePagePath(p.path);
+        const title = String(p.title || titleFromPath(path || p.path));
+        const text = String(p.text || '');
+        return path && { path, title, text, _title: fold(title), _path: fold(path.replace(/_/g, ' ')), _text: fold(text) };
+      }).filter(Boolean);
+      $('#sp-search').hidden = false;
+    } catch (err) {
+      console.warn('Static-Pedia: pages.json is not valid JSON; search is disabled.', err);
+    }
+  }
+
+  function query(q, limit = Infinity) {
+    if (!pages) return [];
+    const terms = fold(q).split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+    const whole = terms.join(' ');
+    const out = [];
+    for (const p of pages) {
+      let score = 0;
+      let ok = true;
+      for (const t of terms) {
+        const inTitle = p._title.includes(t), inPath = p._path.includes(t), inText = p._text.includes(t);
+        if (!inTitle && !inPath && !inText) { ok = false; break; }
+        if (inTitle) score += 10;
+        if (inPath) score += 3;
+        if (inText) score += 1 + Math.min(p._text.split(t).length - 1, 10) * 0.2;
+      }
+      if (!ok) continue;
+      if (p._title === whole) score += 100;
+      else if (p._title.startsWith(whole)) score += 40;
+      else if (p._title.includes(whole)) score += 20;
+      out.push({ page: p, score });
+    }
+    out.sort((a, b) => b.score - a.score || a.page.title.localeCompare(b.page.title));
+    return out.slice(0, limit);
+  }
+
+  function termRegex(q) {
+    const terms = q.split(/\s+/).filter(Boolean).map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    return terms.length ? new RegExp(`(${terms.join('|')})`, 'gi') : null;
+  }
+
+  function snippet(page, q, len = 140) {
+    const text = page.text.replace(/\s+/g, ' ').trim();
+    const re = termRegex(q);
+    const m = re && re.exec(text);
+    const at = m ? m.index : 0;
+    const start = Math.max(0, at - Math.floor(len / 3));
+    let s = text.slice(start, start + len);
+    if (start > 0) s = '…' + s.replace(/^\S*\s/, '');
+    if (start + len < text.length) s = s.replace(/\s\S*$/, '') + '…';
+    return s;
+  }
+
+  /* Returns DOM nodes with matches wrapped in <mark>. No HTML parsing involved. */
+  function highlight(text, q) {
+    const re = termRegex(q);
+    if (!re) return [text];
+    return text.split(re).map((part, k) => k % 2 ? h('mark', null, part) : part);
+  }
+
+  const input = () => $('#sp-search-input');
+  const list = () => $('#sp-search-results');
+
+  function closeList() {
+    const l = list();
+    if (!l) return;
+    l.hidden = true;
+    l.replaceChildren();
+    active = -1;
+    current = [];
+    input().setAttribute('aria-expanded', 'false');
+    input().removeAttribute('aria-activedescendant');
+  }
+
+  function setActive(k) {
+    const items = list().children;
+    if (!items.length) return;
+    active = (k + items.length) % items.length;
+    Array.from(items).forEach((li, idx) => li.setAttribute('aria-selected', String(idx === active)));
+    input().setAttribute('aria-activedescendant', items[active].id);
+    items[active].scrollIntoView({ block: 'nearest' });
+  }
+
+  function update() {
+    const q = input().value;
+    if (!q.trim()) { closeList(); return; }
+    current = query(q, 8);
+    const opts = current.map((r, k) => h('li', { role: 'option', id: 'sp-sr-' + k, 'aria-selected': 'false' },
+      h('a', { href: pageHref(r.page.path), tabindex: '-1' },
+        h('span', { class: 'sp-result-title' }, highlight(r.page.title, q)),
+        r.page.path.includes('/') ? h('span', { class: 'sp-result-path' }, r.page.path) : null,
+        h('span', { class: 'sp-result-snippet' }, highlight(snippet(r.page, q), q)))));
+    opts.push(h('li', { role: 'option', id: 'sp-sr-all', class: 'sp-search-all', 'aria-selected': 'false' },
+      h('a', { href: DOC_PATH + '?search=' + encodeURIComponent(q), tabindex: '-1' }, `Search all pages for “${q}”`)));
+    list().replaceChildren(...opts);
+    list().hidden = false;
+    active = -1;
+    input().setAttribute('aria-expanded', 'true');
+    input().removeAttribute('aria-activedescendant');
+  }
+
+  function go(href) { closeList(); input().blur(); navigate(href); }
+
+  function init() {
+    const inp = input(), form = $('#sp-search');
+    inp.addEventListener('input', update);
+    inp.addEventListener('focus', () => { if (inp.value.trim()) update(); });
+    inp.addEventListener('keydown', e => {
+      const open = !list().hidden;
+      if (e.key === 'ArrowDown') { e.preventDefault(); if (!open) update(); setActive(active + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); if (open) setActive(active - 1); }
+      else if (e.key === 'Escape') { if (open) { e.preventDefault(); closeList(); } else inp.blur(); }
+      else if (e.key === 'Enter' && open && active >= 0) {
+        e.preventDefault();
+        go(list().children[active].querySelector('a').href);
+      }
+    });
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (inp.value.trim()) go(DOC_PATH + '?search=' + encodeURIComponent(inp.value.trim()));
+    });
+    list().addEventListener('mousedown', e => e.preventDefault()); // keep focus while clicking a result
+    list().addEventListener('click', e => { if (e.target.closest('a')) closeList(); });
+    form.addEventListener('focusout', e => { if (!form.contains(e.relatedTarget)) setTimeout(closeList, 0); });
+  }
+
+  return { load, init, query, snippet, highlight, closeList,
+    available: () => !!(pages && pages.length), pages: () => pages || [] };
+})();
+
+/* ==========================================================================
+   9. BOOT
+   ========================================================================== */
+function boot() {
+  Settings.init();
+  Search.init();
+  initChrome();
+  initRouter();
+  syncMenuButton();
+
+  if (location.protocol === 'file:') {
+    document.documentElement.classList.add('sp-no-sidebar');
+    renderBuiltin('Static-Pedia needs a web server', h('div', { class: 'sp-message sp-error', role: 'alert' }, fileProtocolHelp()));
+    return;
+  }
+
+  configReady = loadConfig().then(applyConfig);
+  searchReady = Search.load();
+  loadSidebar();
+  loadFooter();
+  renderRoute();
+}
+
+// Small public API, handy for debugging and for site scripts that want to hook in.
+window.StaticPedia = {
+  renderMarkdown: md => Markdown.render(md),
+  sanitize: html => { const d = document.createElement('div'); d.append(Sanitizer.toFragment(html, { iframeHosts: config.iframeHosts })); return d.innerHTML; },
+  navigate: href => navigate(href),
+  settings: { get: k => Settings.get(k), set: (k, v) => Settings.set(k, v), open: () => Settings.open() },
+  get config() { return { ...config }; }
+};
+
+boot();
+})();
+</script>
+</body>
+</html>

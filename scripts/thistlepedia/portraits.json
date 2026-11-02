@@ -1,0 +1,16 @@
+{
+  "_comment": "Wiki portrait name -> a speaker in build/story.py FACES, or [sheet, index]. See portraits.py.",
+  "Hosea_Bellwether": "Hosea",
+  "Bram_Thistle": "Bram",
+  "Merribell": "Merribell",
+  "Hob_Grumnir": "Hob",
+  "Zephyrine_Vance": "Zephyrine",
+  "Nix": "Nix",
+  "Sir_Aldric_Pemberton-Gore_III": "Aldric",
+  "Piper_Quill": "Piper",
+  "Corvin_Ash": "Corvin",
+  "Wren_Halloway": "Wren",
+  "Roland_Fairweather": "Roland",
+  "Spare_Cotterill": "Spare",
+  "Grimspite_the_Inevitable": "Grimspite"
+}

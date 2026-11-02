@@ -265,6 +265,17 @@ same problem, and the same answer.
 `premises` runs page 3 through the same harness and asserts which page wins
 in each of the four states.
 
+## The Thistle-pedia
+
+`thistlepedia/` is an in-world encyclopedia of the game - Hosea Bellwether's
+history, written after the ending - built with Static-Pedia
+(`.claude/skills/staticpedia/SKILL.md`) and servable on its own.
+`scripts/thistlepedia/README.md` is how to maintain it: the voice, the
+portrait copies (`portraits.py`, which reads `story.FACES`) and the red-link
+tool. It is not part of the data build and nothing in the game reads it, but
+it is written against the game's canon, so a change to a fact the wiki states
+is worth a line there too.
+
 ## Layout
 
     build/
