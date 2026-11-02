@@ -55,7 +55,7 @@ What is not in dispute is that she and her niece nod to one another now, across 
 ## See also
 
 - <a href="Piper_Quill">Piper Quill</a>
-- <a class="new" href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>
+- <a href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>
 - <a class="new" href="../Institutions/The_Quills">The Quills</a>
 - <a href="../Places/Prophecy_Hall">Prophecy Hall</a>
 - <a href="Elder_Wispel">Elder Wispel</a>

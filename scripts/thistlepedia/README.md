@@ -54,3 +54,5 @@ whether any copy is stale.
 article exists yet; `redlinks.py` turns the missing ones red and turns them
 back when the article is written, and prints the list of articles still owed.
 Run it, then the index generator, then the link checker, after every batch.
+It does not see a page whose name has a full stop in it (*From the Notebooks
+of P. Quill*): it neither reds nor blues those links, so set them by hand.

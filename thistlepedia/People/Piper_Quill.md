@@ -4,7 +4,7 @@ title: Piper Quill
 
 # Piper Quill
 
-<p class="hatnote">For her family's work, see <a class="new" href="../Institutions/The_Quills">The Quills</a>. For her songs, see <a class="new" href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>.</p>
+<p class="hatnote">For her family's work, see <a class="new" href="../Institutions/The_Quills">The Quills</a>. For her songs, see <a href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>.</p>
 
 <table class="infobox">
 <caption>Piper Quill</caption>
@@ -76,13 +76,13 @@ Mrs Vane, of Little Gore, read it twice, and said that it was him, all of him, a
 
 She is still writing it down. The ballad is finished. The elegy is on the post. The notebooks are, I am told, into double figures, and I am also told I am in them, at some length, in the third person, and not always in the metre I would have chosen.
 
-We are colleagues. We are rivals. She says my history is complete and not accurate, and I say her songs are accurate and do not scan, and we are both right, and we meet at the Slain Wyvern about once a month to compare notes and disagree about all of them. Some of her work is printed in this volume by her permission; see <a class="new" href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>.
+We are colleagues. We are rivals. She says my history is complete and not accurate, and I say her songs are accurate and do not scan, and we are both right, and we meet at the Slain Wyvern about once a month to compare notes and disagree about all of them. Some of her work is printed in this volume by her permission; see <a href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>.
 
 <div class="marginalia">I have asked her what is in verse seven every time we have met. She has said, every time, that it is very good. I believe her.</div>
 
 ## See also
 
 - <a href="Ambrosine_Quill">Ambrosine Quill</a>
-- <a class="new" href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>
+- <a href="From_the_Notebooks_of_P._Quill">From the Notebooks of P. Quill</a>
 - <a href="../Places/Little_Gore">Little Gore</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)
