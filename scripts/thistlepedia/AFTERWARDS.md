@@ -208,3 +208,66 @@ Small inventions in the place articles. All *wiki*.
 Two canon slips in unit 3 were mended in this unit: Roland's table in the
 Wyvern is by the fire (`postgame.py`), and struck verse forty-one is about a
 cat, not a hedge.
+
+## What unit 5 (Places II) added
+
+Small inventions in the place articles. All *wiki*. Where a player chose,
+the article stays vague: whether Sir Aldric walked to Little Gore the long
+way or was shown the fingerpost; which party went down the Stair.
+
+* **Upper Clanging**: the Safety Valve's FOR WHEN SHE FLIES china has been used
+  once. Bessie's baby came in the summer of 2000, on time; it is not named.
+  Winnie's seating plan has a high chair in pencil. Cotter has been home, for
+  good, since the spring of 2000.
+* **The Long Field** is Ott Hoyle's memorandum to Hosea, dated 14 March 2002.
+  The question mark beside Attempt 155's WIND is hers. The ring of stones round
+  the rivet is Mr Sowerby's. Eighty-Four is in her bay; the keel of the
+  Two Hundred and First was laid in 2001 (as before). Ott does not say what
+  became of ITEM 1, because the player chose.
+* **Firstfield**: the Guild answered Hosea's question about Fizz's reference
+  with "lore". Bram keeps the certificate and the straighter stick in the
+  cupboard at home.
+* **Frostwick**: forty-two ribbons now. Bram signed the Eleven Days' visitors'
+  book; the card still says three.
+* **Penultima**: the sign has a fourth line, LAST CHANCE FOR A SOUVENIR; the
+  town does a trade in people walking up to see Grimspite's chair. Grimspite
+  had both of Penultima's letters and did not know what to say.
+* **Restwell**: Hosea took a room at the Eight Hours on the way home from the
+  coast road, and wrote in the register.
+* **Hithermost**: the tea room's woman does Sir Dunstable's laundry (always a
+  little singed, always dry, never seen brought or fetched); he gets the
+  Fairholme minutes quarterly and a seed catalogue; nobody can settle whether
+  he casts a shadow by lamplight, because the lamp is the village's. Sops holds
+  a book on him at the Wyvern, and the odds have not moved in two years. None
+  of it settles anything (PLAN.md).
+* **The Stair**: Bram still has the lamp, and has been down three times since,
+  on free afternoons, to visit Something Unscheduled.
+* **Fairholme**: Mr Pilbeam writes to Hosea; the eagle has been deferred eight
+  times; the council has twice deferred whether a shareholder in a mountain is
+  a shareholder. Mrs Emberthwaite is not in the Bestiary, at her request.
+* **Olde Evermore**: Aelwen has begun the Forty-Eighth's verse in the Lay, and
+  has not finished it. Hosea has looked over the ledge and not jumped. The
+  baby is not said to have been born.
+* **Gladhollow**: Toby Wendle has been Farewell Boy since the spring of 2001,
+  in the cap; a girl of eight has the west gate and the saucepan, and Toby's
+  list. The plant has won twice more.
+* **The Former Premises**: Hollowell's tour, by letter, first quarter of 2002;
+  he has stopped drawing his retainer and stays, pending instructions. His
+  letter came by the courier.
+* **Coldbarrow**: the Fourth sends Mordaunt a note of where his uncle is, in
+  ink, weekly; Mordaunt keeps them in a tenth volume.
+* **The Sable Hart**: issue one hundred and twenty of *Overshadowed*; Kit
+  Blackwood's first dramatic exit was through a cupboard.
+* **Little Gore**: Mrs Vane wrote to Hosea, with Nell's drawing.
+* **Sump**: the cactus planted to cheer the place up has flowered.
+* **Weeping Bottom**: Merribell has been back twice to see the Prioress; no
+  symposia are held now.
+* **Fenmarch**: Mr Ottershaw is still composing; eighty-three cases now. Case
+  forty is still not discussed.
+* **Great Dunnage**: the watchman found BRAM (THISTLEWICK) - PROPHECY, SOME
+  SORT in his ledger for Hosea. Form L is still blank. The snug at the Bell is
+  mentioned and nothing said in it is printed.
+* **Much Pottering**: Mrs Throssell's minute, *Something arising*; the volcano
+  has gone off twice since, by letter.
+* **Carn Drey**: Roland has been down to the Worm again, after tea.
+* **Wayside Sights**: the eleven type specimens are Wren's and in the Bestiary.

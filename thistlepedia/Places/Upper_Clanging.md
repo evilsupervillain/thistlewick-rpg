@@ -17,7 +17,7 @@ title: Upper Clanging
 <tr><th>Time</th><td>Four minutes fast, since 1841</td></tr>
 <tr><th>The hooter</th><td>Six o'clock. Sundays as well. The parish has considered it</td></tr>
 <tr><th>Cotterills</th><td>Ten</td></tr>
-<tr><th>Twinned with</th><td><a class="new" href="Much_Pottering">Much Pottering</a>, which it has never visited</td></tr>
+<tr><th>Twinned with</th><td><a href="Much_Pottering">Much Pottering</a>, which it has never visited</td></tr>
 </table>
 
 <p class="lede"><b>Upper Clanging</b> is a works town in the north-west, at the top of the west road, built on a hill round the sheds of the <a class="new" href="../Institutions/The_Hoyle_Works">Hoyle Works</a>, which have been trying to fly to the <a href="The_Obligatory_Tower">Obligatory Tower</a> for two hundred years. It is loud, early, grey and extremely proud of all three. In the year 2000 the two hundredth attempt got there.</p>
@@ -83,4 +83,4 @@ Spare's own article tells what Spare did. Here I will say only that there is a p
 - <a href="../People/Spare_Cotterill">Spare Cotterill</a>
 - <a class="new" href="../People/Ott_Hoyle">Ott Hoyle</a>
 - <a class="new" href="../People/Bryd_Ollerenshaw">Bryd Ollerenshaw</a>
-- <a class="new" href="Much_Pottering">Much Pottering</a>, its twin
+- <a href="Much_Pottering">Much Pottering</a>, its twin

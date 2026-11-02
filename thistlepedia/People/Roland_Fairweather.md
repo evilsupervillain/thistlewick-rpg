@@ -76,5 +76,5 @@ Since then he has finished two further things, which he has not told me about, b
 
 - <a class="new" href="Maud_Penhallow">Maud Penhallow</a>
 - [Hob Grumnir](Hob_Grumnir)
-- <a class="new" href="../Places/Carn_Drey">Carn Drey</a>
+- <a href="../Places/Carn_Drey">Carn Drey</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)

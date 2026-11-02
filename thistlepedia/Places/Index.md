@@ -29,9 +29,42 @@
 | Place | What it is |
 |---|---|
 | <a href="Upper_Clanging">Upper Clanging</a> | Engineers, rain, and a ship two hundred years in the making. |
-| <a href="The_Long_Field">The Long Field</a> | Where Upper Clanging keeps its attempts. |
+| <a href="The_Long_Field">The Long Field</a> | Where Upper Clanging keeps its attempts. Written up by Miss Hoyle. |
+| <a href="Penultima">Penultima</a> | The last town before the end. Seasonal. |
 | <a href="Frostwick">Frostwick</a> | Snow, a working group, and the only person who has read clause two. |
+| <a href="Coldbarrow">Coldbarrow</a> | One knight, one pin. That is the system. |
+| <a href="Hithermost">Hithermost</a> | The last village before the mountain, and the first after it. We do teas. |
+| <a href="The_Stair">The Stair</a> | Down, behind the Door. Bring a lamp. |
 
-## Further out
+## The west
 
-The rest of the world is being written up as I am able to visit it, or as people come in out of the rain and tell me about it. It includes <a href="Great_Dunnage">Great Dunnage</a>, <a href="Olde_Evermore">Olde Evermore</a> and a great many villages with fewer than one inn.
+| Place | What it is |
+|---|---|
+| <a href="Great_Dunnage">Great Dunnage</a> | Nine works, a Counting House, and a Corporation. Who is like unto it? |
+| <a href="Carn_Drey">Carn Drey</a> | A hill, a stone, a sword and a Worm. Ready. Done. |
+| <a href="The_Sable_Hart">The Sable Hart</a> | Four corners, five rivals, and a rota. |
+| <a href="Restwell">Restwell</a> | Nineteen inns, one street. Eight hours, approximately. |
+| <a href="Olde_Evermore">Olde Evermore</a> | The elves. Arrive by the ledge. |
+| <a href="Gladhollow">Gladhollow</a> | Welcome to it. That is all. |
+
+## The middle, the south and the east
+
+| Place | What it is |
+|---|---|
+| <a href="Much_Pottering">Much Pottering</a> | Where nothing has ever happened, on a stone. |
+| <a href="Weeping_Bottom">Weeping Bottom</a> | The Sisterhouse, in a drizzle. Soup. |
+| <a href="Sump">Sump</a> | Cursed 1794. Lifted 2000. Please mind the well. |
+| <a href="Little_Gore">Little Gore</a> | A wedding, and the invitations, which followed. |
+| <a href="Fenmarch_Hall">Fenmarch Hall</a> | A moat, and a family that faces the wrong way. |
+| <a href="Ashcombe">Ashcombe</a> | The village that is fine, and the one under the lake. |
+| <a href="Fairholme">Fairholme</a> | Half a kingdom, eleven times. And a dragon who plays whist. |
+
+## In the sky
+
+| Place | What it is |
+|---|---|
+| <a href="The_Former_Premises">The Former Premises</a> | The old venue. By air only. The lift is running. |
+
+## By the road
+
+Shrines, lay-bys, a fen, a fair, a pond with a Fellow on it, and a dragon that is a dragon only in the sense that the map says so: see <a href="Wayside_Sights">Wayside Sights</a>.

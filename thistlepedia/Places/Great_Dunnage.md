@@ -92,4 +92,4 @@ At the end of the basin, where the cut goes out under the road, is the bottom lo
 - <a class="new" href="../Institutions/The_Worshipful_Company_of_Smiths">The Worshipful Company of Smiths</a>
 - <a href="../People/Nix">Nix</a>, for the coat
 - <a href="../People/Hob_Grumnir">Hob Grumnir</a>, for Beatrice
-- <a class="new" href="Carn_Drey">Carn Drey</a>, east of the town
+- <a href="Carn_Drey">Carn Drey</a>, east of the town

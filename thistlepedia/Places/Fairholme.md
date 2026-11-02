@@ -82,4 +82,4 @@ At the end of a short passage is the spare room: a bed made up with clean sheets
 ## See also
 
 - <a href="Hithermost">Hithermost</a>, for Sir Dunstable
-- <a class="new" href="The_Wrong_Dragon">The Wrong Dragon</a>, who is somebody else
+- <a href="Wayside_Sights#the-wrong-dragon">The Wrong Dragon</a>, who is somebody else

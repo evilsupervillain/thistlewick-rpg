@@ -63,7 +63,7 @@ His mother did more potatoes anyway.
 
 **The Bottom Lock.** His eldest brother Cotter, at the Iron Company's gate in <a href="../Places/Great_Dunnage">Great Dunnage</a>, had a job no man would fit: the bottom gate of the Dunnage cut, jammed, and a paddle to clear in a brick culvert under it. Spare went in alone, in the dark, and counted, and cleared it, and came out. Somebody was there when he came out.
 
-**The pen pal.** Since he was six he had been writing to Effie Gotobed of <a class="new" href="../Places/Much_Pottering">Much Pottering</a>, through the same courier, and she had had every untrue thing he ever wrote, and what she wrote back was exactly as untrue. They met, at last. Her volcano is a bonfire. Her sea serpent is a carp. There was no volcano. They are still writing.
+**The pen pal.** Since he was six he had been writing to Effie Gotobed of <a href="../Places/Much_Pottering">Much Pottering</a>, through the same courier, and she had had every untrue thing he ever wrote, and what she wrote back was exactly as untrue. They met, at last. Her volcano is a bonfire. Her sea serpent is a carp. There was no volcano. They are still writing.
 
 ## The tenth
 
@@ -91,5 +91,5 @@ It was also Spare who confirmed for me, by letter, that the twenty-first of Marc
 
 - <a class="new" href="The_Cotterills">The Cotterills</a>
 - <a href="../Places/Upper_Clanging">Upper Clanging</a>
-- <a class="new" href="../Places/Much_Pottering">Much Pottering</a>
+- <a href="../Places/Much_Pottering">Much Pottering</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)
