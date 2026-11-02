@@ -20,7 +20,7 @@ title: The Gilded Turnip
 <tr><th>Societies meeting</th><td>One, on Thursdays</td></tr>
 </table>
 
-<p class="lede">The <b>Gilded Turnip</b> is the inn on the square at <a href="Thistlewick">Thistlewick</a>, warm and brown and loud, kept by <b>Prudence Thrupp</b>. Three of the Forty-Eighth's companions were found in it, one of them on a table. It is named after a turnip on a plinth, painted gold, which a small plaque says is not a metaphor.</p>
+<p class="lede">The <b>Gilded Turnip</b> is the inn on the square at <a href="Thistlewick">Thistlewick</a>, warm and brown and loud, kept by <b><a href="../People/Prudence_Thrupp">Prudence Thrupp</a></b>. Three of the Forty-Eighth's companions were found in it, one of them on a table. It is named after a turnip on a plinth, painted gold, which a small plaque says is not a metaphor.</p>
 
 Over the door hangs a tin tankard on a bracket, which creaks when the wind blows in exactly the rhythm of the inn's favourite song, and has taught it to three generations of the village. The song is *Turnips in the Morning*. It is a good tune. Nobody knew that until a professional played it properly.
 

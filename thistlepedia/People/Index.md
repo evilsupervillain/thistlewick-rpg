@@ -108,9 +108,9 @@ And <a href="Humphrey_Gotobed">Humphrey Gotobed</a>, adventurer, retired, who wa
 
 A great many more people are written up where they live, because they are hard to take out of it. A few of them, and where to find them:
 
-- **Dorcas Thrupp**, the goose, and the regulars, at <a href="../Places/The_Slain_Wyvern">the Slain Wyvern</a>; **Registrar Pell**, **Sops** and **Tibb** at <a href="../Places/Nether_Sopping">Nether Sopping</a>
-- **Fizz**, **Old Hollis**, **Dilys** and **Norbert** at <a href="../Places/Firstfield_Meadow">Firstfield Meadow</a>
-- **Gideon** and **Dorothy Markup** at <a href="../Places/Penultima">Penultima</a>; **Walt** and **Mrs Ashbury** at <a href="../Places/Restwell">Restwell</a>
+- <a href="Dorcas_Thrupp">Dorcas Thrupp</a>, the goose, and the regulars, at <a href="../Places/The_Slain_Wyvern">the Slain Wyvern</a>; <a href="Lionel_Pell">Registrar Pell</a>, <a href="Sops">Sops</a>, <a href="Tibb">Tibb</a>, <a href="Nabb">Nabb</a>, <a href="Tolly">Tolly</a> and <a href="Lavinia_Barrow">Mrs Barrow</a> at <a href="../Places/Nether_Sopping">Nether Sopping</a>; <a href="Prudence_Thrupp">Prudence Thrupp</a> at <a href="../Places/The_Gilded_Turnip">the Gilded Turnip</a>
+- <a href="Fizz">Fizz</a>, <a href="Old_Hollis">Old Hollis</a>, <a href="Dilys_Fenwick">Dilys</a> and <a href="Norbert_Pelling">Norbert</a> at <a href="../Places/Firstfield_Meadow">Firstfield Meadow</a>
+- <a href="Gideon_Markup">Gideon</a> and <a href="Dorothy_Markup">Dorothy Markup</a> at <a href="../Places/Penultima">Penultima</a>; <a href="Walt_Ashbury">Walt</a> and <a href="Hester_Ashbury">Mrs Ashbury</a>, and <a href="Dr_Pike">Dr Pike</a> by the fire, at <a href="../Places/Restwell">Restwell</a>
 - **King Aldous**, **Princess Rosamund**, **Mr Pilbeam** and **Mrs Emberthwaite** at <a href="../Places/Fairholme">Fairholme</a>
 - **Toby Wendle** at <a href="../Places/Gladhollow">Gladhollow</a>; **Prosper Hollowell** at <a href="../Places/The_Former_Premises">the Former Premises</a>, in his own words
 - **Winnie Marsden**, **Mrs Tunnicliffe** and **Mr Kell** at <a href="../Places/Upper_Clanging">Upper Clanging</a>; **Eighty-Four** and the works' dead at <a href="../Places/The_Long_Field">the Long Field</a>

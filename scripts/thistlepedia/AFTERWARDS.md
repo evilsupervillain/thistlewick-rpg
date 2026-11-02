@@ -542,3 +542,62 @@ would change it falls between New Year and mid-February**; Hosea's ages are
 `TIMELINE.md` and this file disagree slightly about the ninth letter: the
 timeline has Washer born "the night after" it, while `q_spare.spa3` has
 mornings of asking in between. The wiki follows the game's events.
+
+**Batch B: Nether Sopping, the Gilded Turnip, Firstfield, Penultima, Restwell.**
+
+* **Dorcas Thrupp** (4 June 1948) and **Prudence Thrupp** (19 October 1951)
+  were both born at the Gilded Turnip, their father's; Dorcas took the Wyvern
+  in 1971, the year after they stopped, Prudence the Turnip in 1976. "Mrs" Thrupp is a Nether Sopping
+  courtesy; there was never a Mr. Neither can remember why they stopped in
+  1970. The locket was made at the Michaelmas fair, 1962; each says the facing
+  away was the other's idea. They write monthly (south on the last Friday,
+  north on the first Thursday) and have not met; each says the other must
+  come. Prudence never does arithmetic in her bar. Room four still has a line
+  through it; nothing more is said.
+* **Registrar Pell is Lionel** (11 April 1940), registered the day he was
+  born by his clerk father; harbour office until 1960. Not related to Mrs
+  Barrow back to 1712. The mat has been taken up, checked, put back, and
+  labelled NOTHING UNDER HERE. CHECKED.
+* **Mrs Barrow is Lavinia** (2 December 1936); went into partnership with
+  Wick in 1958; Wick went north in 1959; she counts from 1961, "when I
+  stopped expecting Wick back on the Monday". **Wick has no pronoun** and no
+  stated relation to her. Miss Hoyle paid the oilskin account by post, *It
+  flew*, framed by the till. The bench's card hangs on Wick's peg.
+* **Sops** (1988; real name withheld; register says "born") has been potboy
+  since 1997. **Tibb** is a Tibbett (30 July 1990), of Rope Walk; Mrs Ada
+  Tibbett says everything twice. Neither child has a pronoun. Lorrimer, as
+  Dark Lord, now loses in a different place each afternoon.
+* **Nabb** (14 October 1960; no pronoun) was the Forty-Sixth's cook and
+  cooks at the harbour eating house. **Tolly is Margaret Toller** (2 March
+  1960), the party's map-reader, harbour office chart clerk; the sheet of
+  forty stamps (canon: Nix took it in 1989 and returned it) is being used two
+  at a time, twenty-two gone by March 2002, the rate made up in coppers.
+* **Fizz** was issued 1 March 1981 out of a dandelion clock, at nine (the
+  Guild: lore). Bram's reference to the Guild said *doors*. **Old Hollis is
+  Amos** (8 August 1925), "Old" since he took the post, *Old Man (Items)*, at
+  thirty-four; **Nell** née Coombe (1929); a second stick has come back, and
+  is on the mantelpiece, lower. **Dilys** née Pugh (17 January 1971), at
+  Station Three since 1993; the pigs are Daisy, Primrose and Mrs Hogg; Wren
+  will list them in volume two as *Sus scrofa*, syn. *sheep (Guild)*.
+  **Norbert Pelling** (12 May 1961), ambush since 1981, at nineteen; **his
+  wife is Maud Pelling**, née Crisp, married 1983 (canon: "Maud's had the first one
+  framed") - not Maud Penhallow, and the wiki says so. The framed first loss
+  is a painting. Two heroes have lost to him; neither is on the form.
+* **Gideon Markup** (30 September 1944), a saddler's son; the shop opened in
+  1969 in the saddler's. Nobody remembers a sword before 1969. **Dorothy**
+  née Fairlie (6 January 1946), of Haverleigh, came up the road in spring
+  1969 to look at the Tower and stopped at the last shop; married 1970. The
+  wiki implies, and never says, that she was the girl who got the discount;
+  the lamp on her side of the bed has never been for sale.
+* **Walt Ashbury** (21 June 1950, born in room six) found the eight bars on
+  the step in 1974 and did not make them up; the different tune was a jig
+  for a wedding party in 1983. **Hester** née Quine (3 March 1949), a baker's
+  daughter, keeps the house since 1977; breakfast became a chop in 1978.
+  **Dr Pike is Alaric** (19 November 1941), Haverleigh's doctor 1967-1989;
+  the fortnight is entered *fortnight (contd.)*; forty notebooks.
+
+Ages were checked against the portraits (a contact sheet of every face): a
+stock face that reads young pulls a birth year as late as the canon allows,
+so Dorcas and Prudence, Pell, Nabb, Tolly, Norbert and Dr Pike are younger
+than a first draft had them. Pell's forty years (since 1960) and the sisters'
+thirty (since 1970) are canon and set the floor.

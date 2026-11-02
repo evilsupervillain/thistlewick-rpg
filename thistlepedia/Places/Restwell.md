@@ -35,9 +35,9 @@ A satisfied guest coming out of the street at four in the afternoon told the For
 
 ## The Eight Hours
 
-The Eight Hours is kept by **Mrs Hester Ashbury**. A room is ten crowns, breakfast included. Breakfast is whenever you come down; she argued about that for a year, and now she just cooks, and in Restwell breakfast is served after lunch and is therefore a chop. Asked about the songs, she says that resurrection is extra, and that she will want the room back by noon. It is generally already twenty past two.
+The Eight Hours is kept by **<a href="../People/Hester_Ashbury">Mrs Hester Ashbury</a>**. A room is ten crowns, breakfast included. Breakfast is whenever you come down; she argued about that for a year, and now she just cooks, and in Restwell breakfast is served after lunch and is therefore a chop. Asked about the songs, she says that resurrection is extra, and that she will want the room back by noon. It is generally already twenty past two.
 
-Her husband, **Walt Ashbury**, sits on the bottom step of the stairs with a fiddle, where he can see the whole room, and plays every guest up: eight bars, the same eight bars, every time, for twenty-eight years now. It has to be that one. He tried a different one once, and they came down tired. Mrs Ashbury has listened to those eight bars for twenty-eight years and has never once asked him to stop. She says that he is very good at it.
+Her husband, **<a href="../People/Walt_Ashbury">Walt Ashbury</a>**, sits on the bottom step of the stairs with a fiddle, where he can see the whole room, and plays every guest up: eight bars, the same eight bars, every time, for twenty-eight years now. It has to be that one. He tried a different one once, and they came down tired. Mrs Ashbury has listened to those eight bars for twenty-eight years and has never once asked him to stop. She says that he is very good at it.
 
 The register is open on the bar, ruled in a firm hand. Every entry on every page says eight hours, every entry is in a different hand, and nobody has ever written anything else, except once, *eight hrs*, where somebody was in a hurry. When the Forty-Eighth came through, the last two entries read:
 
@@ -47,7 +47,7 @@ The register is open on the bar, ruled in a firm hand. Every entry on every page
 
 I print the register as it stands. The Tolleys are a young couple who were travelling that year, and they turn up elsewhere in this volume, at <a href="Hithermost">Hithermost</a>, in the Book, where they had just been married.
 
-**Dr Pike** has a chair by the fire and a bottle labelled TONIC - DR PIKE, which is cold tea, and he has never once claimed otherwise. He is retired, in the practical sense, which is to say nobody comes. He took a room for a fortnight, thirteen years ago, to think about it. Twelve hundred guests a year go up the stairs, and every one of them comes down better, and nobody can tell him why. He watches. He looks at the fiddle player for slightly too long, and then back at his breakfast. He has theories. He does not like them.
+**<a href="../People/Dr_Pike">Dr Pike</a>** has a chair by the fire and a bottle labelled TONIC - DR PIKE, which is cold tea, and he has never once claimed otherwise. He is retired, in the practical sense, which is to say nobody comes. He took a room for a fortnight, thirteen years ago, to think about it. Twelve hundred guests a year go up the stairs, and every one of them comes down better, and nobody can tell him why. He watches. He looks at the fiddle player for slightly too long, and then back at his breakfast. He has theories. He does not like them.
 
 Merribell has told me that cold tea is a perfectly good tonic, and that I am not to tell him she said so.
 

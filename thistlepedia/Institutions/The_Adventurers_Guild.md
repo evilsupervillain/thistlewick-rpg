@@ -35,7 +35,7 @@ The crest over the door is a sword, a scroll and a small question mark. The ques
 
 <blockquote>"You cannot be an adventurer in this district unregistered. You can DO the adventuring. You just can't be one."</blockquote>
 
-**Mr Pell**, the Registrar, keeps the Guild, and has kept it for forty years. There are three requirements, and he will recite them to you whether you have asked or not. One: a character reference from a recognised authority, which means somebody with a chain. Two: a hat. The form requires a hat. It does not say why, and it does not say which; Mrs Barrow across the way sells one for thirty crowns, and no, they are not related. Three: Form A-1.
+**<a href="../People/Lionel_Pell">Mr Pell</a>**, the Registrar, keeps the Guild, and has kept it for forty years. There are three requirements, and he will recite them to you whether you have asked or not. One: a character reference from a recognised authority, which means somebody with a chain. Two: a hat. The form requires a hat. It does not say why, and it does not say which; Mrs Barrow across the way sells one for thirty crowns, and no, they are not related. Three: Form A-1.
 
 Form A-1 was mislaid in 1989. For eleven years nobody registered, because nobody could, and Mr Pell looked for it every day, everywhere in the hall. It was under the doormat, which says WELCOME, six feet from his desk. The Forty-Eighth found it. "Do not say it. I am aware of the tower. I am aware that the key was under the mat. I do not find the pattern amusing." In forty years nobody had brought him all three at once.
 
