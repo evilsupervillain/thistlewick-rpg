@@ -308,7 +308,7 @@ ALUMNI = [
           "eleven times. The twelfth was me.",
           "Our Roland, the whole crew calls him."]]),
     ("saul", "Saul Pennock (the Reckoning at Pennock's Cove)", "Saul",
-     ("People2", 4), BY_THE_DOOR, 8, [
+     None, BY_THE_DOOR, 8, [
          ["He settled the Reckoning at Pennock's",
           "Cove, all but the last of it. Said",
           "he'd never had a better crew. Hm."]]),
@@ -322,7 +322,8 @@ ALUMNI = [
 ROL3_FACES = {"florence": ("Gen_People12", 1), "anselm": ("Gen_People12", 2),
               "mags": ("Gen_People12", 3), "pim": ("Gen_People12", 4),
               "odile": ("Gen_People12", 5), "jory": ("Gen_People12", 6),
-              "ned": S.FACES["Ned Scarrow"], "royce": S.FACES["Major Royce"]}
+              "ned": S.FACES["Ned Scarrow"], "royce": S.FACES["Major Royce"],
+              "saul": S.FACES["Saul"]}
 # Speakers whose on-screen name is somebody else's `FACES` key: Ned Scarrow
 # is "Ned", and so is Gladhollow's.
 ROL3_FACE_KEYS = {"ned": "Ned Scarrow"}

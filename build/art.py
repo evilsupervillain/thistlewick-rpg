@@ -372,6 +372,8 @@ SHEETS = {
         (3, "fellow-grice.json"),       # sends his apologies
         (4, "ned-scarrow.json"),        # the twelfth dive was Roland
         (5, "major-royce.json"),        # the Glass Fort
+        # Saul Pennock, who wore the Merchant's face (Mike, 3 Nov).
+        (6, "saul-pennock.json"),       # never had a better crew. Hm.
     ],
 }
 

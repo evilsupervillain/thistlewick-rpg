@@ -392,7 +392,7 @@ FACES = {
     "Old Jory": ("Gen_People12", 6),
     "Hettie": ("People1", 1),
     "Lord Tobin": ("People3", 2),
-    "Saul": ("People2", 4),
+    "Saul": ("Gen_People17", 6),              # was the Merchant's
     # Ned Scarrow is "Ned" on screen and is not Gladhollow's Ned: this
     # table used to say "Ned" twice, so the later entry won and Toby's
     # brother at the east gate wore Tibb's face and sprite. He speaks
