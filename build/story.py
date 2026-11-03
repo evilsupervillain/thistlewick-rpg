@@ -461,6 +461,8 @@ FACES = {
     # her mother, and the three of the village who are in her letters.
     "Effie": ("Gen_People14", 7),
     "Mrs Gotobed": ("Gen_People15", 0),
+    # Drawn before he has a line (Mike, 3 Nov), so he is ready if he needs one.
+    "Mr Gotobed": ("Gen_People17", 7),
     "Mr Dibble": ("Gen_People15", 1),
     "Mrs Throssell": ("Gen_People15", 2),
     "Mr Cobley": ("Gen_People15", 3),

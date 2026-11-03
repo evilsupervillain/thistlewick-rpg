@@ -374,6 +374,10 @@ SHEETS = {
         (5, "major-royce.json"),        # the Glass Fort
         # Saul Pennock, who wore the Merchant's face (Mike, 3 Nov).
         (6, "saul-pennock.json"),       # never had a better crew. Hm.
+        # Mr Gotobed of Much Pottering, drawn ahead of need (Mike, 3 Nov): he
+        # is only cards and swords on his wall so far. Brown, a walrus
+        # moustache, and the old adventuring leathers he still fits.
+        (7, "mr-gotobed.json"),         # knocked on the wrong door
     ],
 }
 
