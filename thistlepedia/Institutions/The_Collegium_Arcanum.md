@@ -95,3 +95,4 @@ I wrote to the Master to ask whether he would read this article before it went t
 - <a href="../People/Wren_Halloway">Wren Halloway</a>
 - <a href="../Places/Wayside_Sights#the-ducks-pond">The Duck's Pond</a>
 - <a href="The_Prophecy_Committee">The Prophecy Committee</a>, for comparison
+- <a href="../History/The_Incident_at_the_Collegium">The Incident at the Collegium</a>

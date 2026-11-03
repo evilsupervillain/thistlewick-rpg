@@ -57,3 +57,4 @@ She is eighty-two. She is at the Rooms every morning at eight, before Gudgeon, t
 - <a href="Gudgeon_Cotterill">Gudgeon Cotterill</a>
 - <a href="Winnie_Marsden">Winnie Marsden</a>
 - <a href="../Places/Upper_Clanging">Upper Clanging</a>
+- <a href="../History/The_Cold_Winter">The Cold Winter</a>

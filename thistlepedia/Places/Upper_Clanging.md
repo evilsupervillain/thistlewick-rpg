@@ -44,7 +44,7 @@ On the wall is a framed list in a very good hand, *Things That Are Not To Happen
 
 On the dresser is the inn's best china, with a card on top, FOR WHEN SHE FLIES. It was dusted every week for as long as anybody can remember, and never used. I am told that it has now been used once, and dusted since, and put back.
 
-**<a href="../People/Winnie_Marsden">Winnie Marsden</a>** sits by the fire with a half of shandy on a doily embroidered CLASS OF '19. The Class of 'Nineteen is the town's Cold Winter year: the foundry was banked down for six weeks that January, there was no work, there was no heat in the whole town but what was in the houses, and two hundred and forty children were born the following autumn, near enough all together. They have had a dinner every year since, on the second Saturday, with a seating plan settled when they were four. You cannot get in. You had to be born in it. Mrs Tunnicliffe at the parish rooms keeps the census, and was born in June, and is not invited. I put down here only what the census says, which is dates.
+**<a href="../People/Winnie_Marsden">Winnie Marsden</a>** sits by the fire with a half of shandy on a doily embroidered CLASS OF '19. The Class of 'Nineteen is the town's <a href="../History/The_Cold_Winter">Cold Winter</a> year: the foundry was banked down for six weeks that January, there was no work, there was no heat in the whole town but what was in the houses, and two hundred and forty children were born the following autumn, near enough all together. They have had a dinner every year since, on the second Saturday, with a seating plan settled when they were four. You cannot get in. You had to be born in it. Mrs Tunnicliffe at the parish rooms keeps the census, and was born in June, and is not invited. I put down here only what the census says, which is dates.
 
 ## The forge
 
@@ -84,3 +84,4 @@ Spare's own article tells what Spare did. Here I will say only that there is a p
 - <a href="../People/Ott_Hoyle">Ott Hoyle</a>
 - <a href="../People/Bryd_Ollerenshaw">Bryd Ollerenshaw</a>
 - <a href="Much_Pottering">Much Pottering</a>, its twin
+- <a href="../History/The_Cold_Winter">The Cold Winter</a>

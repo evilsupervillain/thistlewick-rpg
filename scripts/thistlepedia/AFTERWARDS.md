@@ -905,3 +905,53 @@ shared with Ambrose Fitch, as it is in the game.
   the library. It answered Hosea's letter through Aldric and is reading his
   second volume. Aldric finds the way about one time in three, and they have
   read the Odes through twice.
+
+## Six event pages: the Cold Winter, the Eleven Days, the Thrupp Feud, the Day of the Water, the Incident, the Flight
+
+Asked for by Mike on 3 November 2026: pages for the major events the wiki
+mentions. They are in History, under a new **Events** table on its index, and
+each one collects what the bios already say. They are linked from every bio and
+place they touch, and the Timeline has gained a 1961 row and a "same winter"
+row for 2000. The locket's year on Dorcas's page was 1952 and is now 1962, to
+match Prudence's page and this file.
+
+* **The Cold Winter**. *Canon:* the census speech; the foundry banked down six
+  weeks that January; no work, no heat but in the houses; 240 born the same
+  autumn; the dinner; "I was born in June". *Wiki:* the coke came up the valley
+  by cart and the snow shut the road. The foundry was banked down from 10
+  January to 21 February 1919, and never before or since. The Parish Rooms
+  shut. The autumn's register runs to eleven pages against a page and a half
+  usually. The foundry has kept six weeks' coke since, by standing order.
+  **Nothing on the page explains the arithmetic** (`NORTH.md` 1.5); Hosea
+  records only dates and says so.
+* **The Eleven Days**. *Canon:* the founding minutes (Frostwick's article);
+  the plate with the line on the floor; the bell's card. *Wiki:* in the thaw
+  the square turned out to be cobbled, and no carol or lantern happened. The
+  first chairman was Wilhelmina's father, the town's accountant, who chaired
+  from the twelfth day until 1979. The first Festival was spring 1961 (forty
+  ribbons by 2000, forty-two now). Perce: "somebody had simply never been told
+  to stop".
+* **The Thrupp Feud**. Everything here is already on the two sisters' pages.
+  *New:* the carriers could tell a Thrupp parcel's direction by its knots, and
+  each was a little heavier than the last one going the other way. Each sister
+  believes the other remembers the cause.
+* **The Day of the Water**. *Canon:* a Tuesday; up the hill with the kettles;
+  out by dinner, dry by tea; the bell on a cart; the Roll (206, DRY; *Away.
+  (Written to.)*); the plaque; the Dinner and its toast; sluice week. *Wiki:*
+  it rained and the valley water came up. People went up by streets, in the
+  plan's order, and took the kettles off-plan. The schoolmistress left the
+  reports' strongbox in the schoolroom on purpose. The decision to rebuild was
+  taken over tea from the kettles, with no meeting. Hosea went to the 2001
+  Dinner as Mrs Ash's guest.
+* **The Incident at the Collegium**. *Canon:* the Dean's account; the
+  enquiry's phrase; the duck's evidence and fellowship; inquorate eleven years,
+  twelve required; items to 406; Hapgood elected, PROXY - Z. VANCE. *Wiki:*
+  the enquiry sat a week and found nothing about the paper. Why the duck was in
+  the room is not recorded. Nobody now knows where the very small room is.
+  **ZEPH-1's ending is left to her article**, both ways.
+* **The Flight of the Two Hundred**. *Canon:* the oilskin, the spar, the
+  instruction, landed adjacent, the log, clause seven's flyleaf. *Wiki:* the
+  hooter was sounded once, though it is only for the shifts. She went up from
+  the yard behind the drawing office. Sowerby did not cheer. The town waited at
+  the Safety Valve. Grimspite's view and Ott's flight are still not told to
+  each other.

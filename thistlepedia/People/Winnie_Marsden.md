@@ -65,3 +65,4 @@ She is eighty-two. She still sits by the fire at the Safety Valve, on the same c
 - <a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a>, born in June
 - <a href="The_Cotterills">The Cotterills</a>
 - <a href="../Places/Upper_Clanging">Upper Clanging</a>
+- <a href="../History/The_Cold_Winter">The Cold Winter</a>

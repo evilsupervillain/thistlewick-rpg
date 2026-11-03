@@ -53,3 +53,4 @@ His portrait hangs in the Hall, with the First Dean's, and the First Dean's has 
 - <a href="Zephyrine_Vance">Zephyrine Vance</a>
 - <a href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a>
 - <a href="../Places/Wayside_Sights#the-ducks-pond">The Duck's Pond</a>
+- <a href="../History/The_Incident_at_the_Collegium">The Incident at the Collegium</a>

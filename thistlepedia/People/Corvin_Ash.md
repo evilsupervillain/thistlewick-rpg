@@ -67,3 +67,4 @@ He is up. He has the scarf, the chair at the Sable Hart, the form, which he has 
 - <a href="../Places/The_Sable_Hart">The Sable Hart</a>
 - <a href="Mother_Selvidge">Mother Selvidge</a>
 - [The Obligatory Quest](../History/The_Obligatory_Quest)
+- <a href="../History/The_Day_of_the_Water">The Day of the Water</a>

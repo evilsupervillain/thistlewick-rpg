@@ -33,7 +33,7 @@ In 1971 the Slain Wyvern at Nether Sopping wanted a landlady, the old one having
 
 ## The thirty years
 
-She and her sister stopped speaking in 1970. Neither of them will say why, and neither of them, I am now fairly sure, can remember. "That's not a falling-out," says Prudence. "We just stopped one day and neither of us started again." So they sent each other things instead: by carrier, by the occasional hero going north or south, by anybody who would take a parcel and not ask. The locket that they had had made at a fair in 1952, two portraits in it facing resolutely away from each other, went into Prudence's drawer, and stayed there.
+She and her sister stopped speaking in 1970. Neither of them will say why, and neither of them, I am now fairly sure, can remember. "That's not a falling-out," says Prudence. "We just stopped one day and neither of us started again." So they sent each other things instead: by carrier, by the occasional hero going north or south, by anybody who would take a parcel and not ask. The locket that they had had made at the Michaelmas fair in 1962, two portraits in it facing resolutely away from each other, went into Prudence's drawer, and stayed there.
 
 In the year 2000 the Forty-Eighth brought her a jar from Thistlewick, warm on one side, which he had been told not to shake or ask about. She knew the hand on the label at once. "That's my sister's hand on that label. Give it here." She looked at what was in it. "Thirty years. THIRTY. And she sends me THIS." And then: "Right. You'll be going back north. Wait there." What she sent north was heavier, and deliberately worse, and had been under construction behind the bar for some time, against exactly this day. "Don't open it. Don't shake it. Don't let it near a fire. And tell her I send my love, because I do, and she knows I do, and that's her lot."
 
@@ -65,3 +65,4 @@ She still keeps the Wyvern, and still says it is a wyvern. Room four has a line 
 - <a href="Prudence_Thrupp">Prudence Thrupp</a>
 - <a href="Halloran_Vance">Halloran Vance</a>, and the goose
 - <a href="Wren_Halloway">Wren Halloway</a>, and the second plaque
+- <a href="../History/The_Thrupp_Feud">The Thrupp Feud</a>

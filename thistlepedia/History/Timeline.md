@@ -53,7 +53,7 @@ What began the Third Age is not known to me. It was not the Prophecy.
 | 1902 | Elspeth Moore is born. She will win the Thistlewick turnip show forty-one years running. The forty-second was fixed. |
 | 1908 | A crate of ship's biscuit is stencilled for the store at Saint Bother's. |
 | 1909 | The shipping stops. The Lighthouse of Saint Bother is kept lit for the ones coming home. |
-| 1919 | Beatrice Grumnir is born. |
+| 1919 | <a href="The_Cold_Winter">The Cold Winter</a> at Upper Clanging: the foundry is banked down for six weeks in January and February, for want of coke. Edna Hargreaves, later Mrs Tunnicliffe, is born in June. In the autumn, the Class of 'Nineteen, two hundred and forty of them. Beatrice Grumnir is born. |
 | About 1930 | The Thirty-Ninth sets out. Mr Ottershaw of Fenmarch Hall begins the animals. |
 | 1931 | Mrs Pardew's gran makes her last jar of gooseberry jam at Sump, and labels it BETTER. |
 | 1940 | **The Forty-First, Halloran Vance**, comes home from the marshes with nothing, and makes a wyvern out of a goose and wire in two days. Upper Clanging, which sets its watches by its clock, begins to be four minutes early for everything. |
@@ -61,9 +61,10 @@ What began the Third Age is not known to me. It was not the Prophecy.
 | 1941 | Abel Thrush begins carrying the post between Little Gore, Fenmarch and Sump, every day, for fifty years. |
 | 1949 | Corvin Ash's grandfather makes the black sword and cuts its name into his doorstep at Ashcombe, with MIND THE STEP under it for visitors. |
 | 1959 | Wick, of Wick & Barrow, outfitters, of Nether Sopping, goes north, in the spring. His peg is still on the wall. |
-| 1960 | **The Forty-Fourth, Ambrose Fitch.** Beatrice Grumnir makes a sword at the Thistlewick forge and sells it to a man going south. Perce Stagg breaks Frostwick's winter. The Adventurers' Guild is founded, provisionally. The Gloamwood Society is founded, to prove the Thing In The Woods is not there. |
+| 1960 | **The Forty-Fourth, Ambrose Fitch.** Beatrice Grumnir makes a sword at the Thistlewick forge and sells it to a man going south. Perce Stagg breaks Frostwick's winter, and it thaws for <a href="The_Eleven_Days">eleven days</a>. The Adventurers' Guild is founded, provisionally. The Gloamwood Society is founded, to prove the Thing In The Woods is not there. |
+| 1961 | Frostwick's first Winter Festival, on the twelfth. Perce Stagg cuts the ribbon, and marries Ida Frome the next day. |
 | 1969 | Gideon Markup prices the Sword of Ultimate Ending. |
-| 1970 | **The Forty-Fifth, Halbert Quy**, declines the tea. Tobias Frayne's first revival of eleven. Sir Aldric, sixteen, is due to keep his vigil, and keeps it in the wrong chapel. Mr Tinder, the parish's last fire person, retires, and the Cinder Fen is not burnt again for thirty years. Mr Cobley begins fishing for Old Tom. |
+| 1970 | **The Forty-Fifth, Halbert Quy**, declines the tea. Dorcas and Prudence Thrupp stop speaking, and the <a href="The_Thrupp_Feud">Thrupp Feud</a> begins, by parcel. Tobias Frayne's first revival of eleven. Sir Aldric, sixteen, is due to keep his vigil, and keeps it in the wrong chapel. Mr Tinder, the parish's last fire person, retires, and the Cinder Fen is not burnt again for thirty years. Mr Cobley begins fishing for Old Tom. |
 | 1971 | Edith Pellow sees the Thing In The Woods, and counts nine heads. |
 | 1972 | K and M marry, and carve it into the driftwood on the beach at Nether Sopping. STILL is cut under it later. |
 | 1974 | Walt Ashbury begins at the Eight Hours, Restwell. |
@@ -74,7 +75,7 @@ What began the Third Age is not known to me. It was not the Prophecy.
 | 1981 | <a href="../People/Edwin_Tarrant">The Hermit</a> goes up the hill to find out whether he has any wisdom, and stays. |
 | 1986 | Sir Hamo Tench comes to Weeping Bottom for the sea air. |
 | 1987 | Bryd Ollerenshaw wins BEST IN HALL at the Smiths' Hall in Great Dunnage. Hob Grumnir does not enter, having a cold. The Committee begins meaning to water the plant in Prophecy Hall. |
-| 1989 | A year of beginnings and endings. Corvin Ash, nineteen, sits down in the corner of the Slain Wyvern, and Ashcombe floods in his absence. Nix, fifteen, puts her gran's coat into bond until it fits, and starts the ledger. Attempt 199 is lost in sight of the Tower. Zephyrine Vance's incident at the Collegium, with the Dean, a duck and an unsanctioned quantity of fire. Beatrice Grumnir dies. |
+| 1989 | A year of beginnings and endings. Corvin Ash, nineteen, sits down in the corner of the Slain Wyvern, and Ashcombe floods in his absence, on <a href="The_Day_of_the_Water">the Day of the Water</a>. Nix, fifteen, puts her gran's coat into bond until it fits, and starts the ledger. Attempt 199 is lost in sight of the Tower. Zephyrine Vance's <a href="The_Incident_at_the_Collegium">incident at the Collegium</a>, with the Dean, a duck and an unsanctioned quantity of fire. Beatrice Grumnir dies. |
 | 1990 | **The Forty-Seventh**, the Old Man's boy, comes off the ledge at Olde Evermore and lands on his feet. |
 | 1991 | Sir Aldric goes out errant, with an invitation to deliver to Little Gore. Abel Thrush dies, in the spring. |
 | 1992 | Sir Aldric talks to the Wrong Dragon about Horace until dark. |
@@ -89,6 +90,7 @@ What began the Third Age is not known to me. It was not the Prophecy.
 | When | What |
 |---|---|
 | The last of the winter | **The Forty-Eighth, Bram Thistle**, is chosen in his sleep. [The Obligatory Quest](The_Obligatory_Quest), from the bed to the throne room. The Prophecy is read in full and stops being binding. Grimspite retires. |
+| The same winter | On the way, and because of it: <a href="The_Flight_of_the_Two_Hundred">the Two Hundred flies</a>, and lands adjacent. A jar goes south and a reply comes north, and <a href="The_Thrupp_Feud">the Thrupp sisters</a> write to each other. A duck is walked four miles, and the Collegium Arcanum is quorate for the first time since <a href="The_Incident_at_the_Collegium">the incident</a>. Corvin Ash speaks at the Flood Dinner. |
 | The next morning | There are still turnips. The letter on the mat: clause nineteen, a quarter's pension, a key. *We trust Friday will suit.* Clause twelve is struck, and SEE BRAM written in its place. |
 | Spring | Washer, the tenth Cotterill, is born at Upper Clanging at six in the morning, on the hooter. Clevis Cotterill's book pays twenty to one. |
 | That year | Bram walks to Nether Sopping and tells Halbert Quy everything Grimspite said, including the part about the tea. My history is completed, and the last page filled. |

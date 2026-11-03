@@ -58,3 +58,4 @@ She wrote to her sister at the weekend, as she had said she would: four pages, t
 - <a href="Dorcas_Thrupp">Dorcas Thrupp</a>
 - <a href="../Places/Thistlewick">Thistlewick</a>
 - <a href="../Artefacts/">Arms and Artefacts</a>, for the locket
+- <a href="../History/The_Thrupp_Feud">The Thrupp Feud</a>
