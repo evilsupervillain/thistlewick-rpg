@@ -302,7 +302,7 @@ ALUMNI = [
          ["He held the gate at Hask. Then a",
           "letter came. We took the throne room",
           "without him. It was very good of us."]]),
-    ("ned", "Ned Scarrow (the Drowned Bell)", "Ned", ("People1", 0),
+    ("ned", "Ned Scarrow (the Drowned Bell)", "Ned", None,
      *SEAT[7], [
          ["The Drowned Bell. He dived for it",
           "eleven times. The twelfth was me.",
@@ -313,7 +313,7 @@ ALUMNI = [
           "Cove, all but the last of it. Said",
           "he'd never had a better crew. Hm."]]),
     ("royce", "Major Royce (the Glass Fort)", "Major Royce",
-     ("People4", 6), *SEAT[9], [
+     None, *SEAT[9], [
          ["The Glass Fort. He walked us",
           "up to the last gate, and shook every",
           "hand, and went. We were his best, he",
@@ -321,7 +321,11 @@ ALUMNI = [
 ]
 ROL3_FACES = {"florence": ("Gen_People12", 1), "anselm": ("Gen_People12", 2),
               "mags": ("Gen_People12", 3), "pim": ("Gen_People12", 4),
-              "odile": ("Gen_People12", 5), "jory": ("Gen_People12", 6)}
+              "odile": ("Gen_People12", 5), "jory": ("Gen_People12", 6),
+              "ned": S.FACES["Ned Scarrow"], "royce": S.FACES["Major Royce"]}
+# Speakers whose on-screen name is somebody else's `FACES` key: Ned Scarrow
+# is "Ned", and so is Gladhollow's.
+ROL3_FACE_KEYS = {"ned": "Ned Scarrow"}
 ROL3_GIFTS = [(db.IT_POTION, 2), (db.IT_HI_POTION, 2), (db.IT_TONIC, 2),
               (db.IT_ETHER, 2), (db.IT_FEATHER, 1), (db.IT_ANTIDOTE, 1),
               (db.IT_SMELLING_SALTS, 1)]
@@ -413,7 +417,8 @@ def alumni_events(base_id):
         img = R.image(sheet, index, direction=d)
         talk = []
         for window in lines:
-            talk += S.say(speaker, window)
+            talk += S.say(speaker, window,
+                          face=ROL3_FACE_KEYS.get(key, True))
         talk += R.if_then(R.condition_self_switch("A", False), [
             R.control_variable_add(db.VAR_ROL3_HEARD, 1),
             R.self_switch("A", True)])

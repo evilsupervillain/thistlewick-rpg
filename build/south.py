@@ -261,19 +261,19 @@ def sopping_events():
     boat = S.narrate([
         "A man is asleep against a stack of crates with",
         "a very good sword across his knees."])
-    boat += S.say("Regular", [
+    boat += S.say("Regular", face="Day Off", lines=[
         "...Mm? No. Not today.",
         "Thirty-one years I've done this. Today I'm",
         "having a day off."])
     boat += S.narrate(["You have not asked him anything."])
-    boat += S.say("Regular", [
+    boat += S.say("Regular", face="Day Off", lines=[
         "You were going to. They always are.",
         "There's a lad in the Wyvern who'll go with",
         "anyone. Ask him. Let me sleep."])
-    again = S.say("Regular", ["Still off. Ask in the Wyvern."])
+    again = S.say("Regular", face="Day Off", lines=["Still off. Ask in the Wyvern."])
     evs.append(q_hob.owned("regular", talker(                     # HOB-1
         11, "Man Having A Day Off", 13, 23, "Regular", boat, again,
-        direction=8)))
+        *S.FACES["Day Off"], direction=8)))
 
     # -- 12: the harbour notice ------------------------------------------------
     # On the sign post at (23,25), with a notice pinned to it (Mike, October

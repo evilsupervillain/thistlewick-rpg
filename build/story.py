@@ -27,9 +27,9 @@ FACES = {
     # expect - People3 is entirely royalty, so nobody in Thistlewick uses it.
     "Gatekeeper": ("People1", 2),
     "Elder Wispel": ("People1", 6),
-    "Clerk": ("People2", 0),
+    "Clerk": ("Gen_People16", 4),
     "Mother": ("People1", 5),
-    "Villager": ("People1", 0),
+    "Villager": ("Gen_People17", 0),
     # Thistlewick's gossip is also "Villager" on screen and is not
     # Hithermost's: `say(..., face="Gossip")`. She had People1:0 too, the
     # spiky-haired boy, under "She lets that sit" - AUDIT.md G3, a repair in
@@ -40,15 +40,21 @@ FACES = {
     "Dog": ("Nature", 0),                 # Mike, 29 Oct
     "Councillor": ("People1", 3),
     "Councillor Fenn": ("People4", 2),
-    "Old Man": ("People4", 4),
+    "Old Man": ("Gen_People16", 6),
     "Farmer": ("People2", 6),
     "Fisher": ("People1", 4),
-    "Child": ("People2", 2),
+    "Child": ("Gen_People16", 7),
     "Innkeeper": ("People2", 3),
     "Merchant": ("People2", 4),
-    "Apprentice": ("People2", 7),
+    "Apprentice": ("Gen_People16", 3),
     "Shopkeeper": ("People4", 3),
-    "Regular": ("People4", 6),
+    # The Gilded Turnip's regular and the man having a day off on the
+    # Nether Sopping quay are both "Regular" on screen. They and Major Royce
+    # all wore Number Forty-Six's face, which is his to keep (Mike, 3 Nov);
+    # the other three are drawn, `Gen_People17`, below.
+    "Regular": ("Gen_People17", 1),
+    "Forty-Six": ("People4", 6),
+    "Day Off": ("Gen_People17", 2),
     # Nether Sopping. People3 is the royalty sheet, which is why the amnesiac
     # who does not know she is a princess is drawn from it, and why the two
     # "very ordinary travellers" in the corner are as well.
@@ -67,9 +73,9 @@ FACES = {
     "Bother": ("People3", 4),
     # #45 is written as a man in his seventies, four stone heavier than his
     # portrait in Prophecy Hall. Every old man on the People sheets is spoken
-    # for, so he shares one: People4:4, with the old man in Thistlewick square
-    # forty miles north, who is the least likely of the five to be next to him
-    # in a player's memory. The Hermit gave the face up to him.
+    # for, so he shares one: People4:4, which was the old man's in Thistlewick
+    # square forty miles north until that one was drawn (Mike, 3 Nov). The
+    # Hermit gave the face up to him.
     "Halbert Quy": ("People4", 4),
     "Splint": ("People2", 6),
     "Ferryman": ("People1", 4),
@@ -98,8 +104,8 @@ FACES = {
     # Ott is the exception and is worth the share. `People2:7` has **brass
     # goggles pushed up on her head** and is the only engineer's face in the
     # entire stock library, which is not a thing you pass up for a chief
-    # engineer. It is shared with the Thistlewick smithy's Apprentice, forty
-    # miles and two acts away, who has one line about a hammer.
+    # engineer. It was shared with the Thistlewick smithy's Apprentice until
+    # she was drawn (Mike, 3 Nov), in the same goggles and nothing else.
     "Ott": ("People2", 7),
     "Mrs Tunnicliffe": ("SF_People1", 7),      # white hair, spectacles, scarf
     "Mrs Cotterill": ("SF_People1", 5),        # dark braid, unbothered
@@ -203,8 +209,12 @@ FACES = {
     "Tamsin": ("Actor1", 1), "Brannoc": ("Actor1", 2), "Kit": ("Actor1", 3),
     "Osric": ("Actor1", 6), "Aurel": ("Actor2", 0), "Hild": ("Actor2", 1),
     "Morwen": ("Actor2", 5), "Leof": ("Actor2", 6), "Valen": ("Actor3", 2),
-    "Mr Budge": ("People2", 6), "Mrs Budge": ("People4", 1),
-    "Mr Pilbeam": ("People4", 0),
+    "Mr Budge": ("People2", 6),
+    # Mrs Budge wore Mrs Barrow's face and Mr Pilbeam wore Hosea's until
+    # both were drawn (Mike, 3 Nov): the bonnet is a kerchief now, and he
+    # keeps the spectacles.
+    "Mrs Budge": ("Gen_People16", 5),
+    "Mr Pilbeam": ("Gen_People16", 2),
     # Olde Evermore, SITES.md step 4. Mirabel is drawn, BIOS.md's look to the
     # letter. The two Elders were stock, Actor3:0 and Nature:6 - a
     # round-eared swordsman and a spirit whose hair covers her ears - in a
@@ -382,9 +392,14 @@ FACES = {
     "Old Jory": ("Gen_People12", 6),
     "Hettie": ("People1", 1),
     "Lord Tobin": ("People3", 2),
-    "Ned": ("People1", 0),
     "Saul": ("People2", 4),
-    "Major Royce": ("People4", 6),
+    # Ned Scarrow is "Ned" on screen and is not Gladhollow's Ned: this
+    # table used to say "Ned" twice, so the later entry won and Toby's
+    # brother at the east gate wore Tibb's face and sprite. He speaks
+    # through `q_roland.ROL3_FACE_KEYS` instead. He and Major Royce are
+    # drawn now (Mike, 3 Nov), off Tibb's and Number Forty-Six's faces.
+    "Ned Scarrow": ("Gen_People17", 4),
+    "Major Royce": ("Gen_People17", 5),
     # Fenmarch Hall, SITES.md step 16, drawn, `Gen_People5` 3 and 4. The
     # Fourth is Aldric Pemberton-Gore IV, and **"Aldric" is already Sir
     # Aldric**, so the household's name for him is the speaker. **"Mr
@@ -418,7 +433,7 @@ FACES = {
     # Bell wears. (People3 0 and 1 were tried first: a crown and a pair of
     # wings, which are of some importance.)
     "The Convenor": ("Gen_People13", 1),
-    "Fellow Grice": ("People2", 0),
+    "Fellow Grice": ("Gen_People17", 3),     # was the Hermit's
     "Fellow Amory": ("People2", 4),
     "Fellow Blunt": ("People1", 3),
     # ZEPH-1's Registrar's clerk (QUESTS.md C1), generated.

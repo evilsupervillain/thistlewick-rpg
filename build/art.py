@@ -30,15 +30,23 @@ GAME = os.path.dirname(HERE)
 INSTALL = os.path.join(os.path.dirname(GAME), "tools", "chargen", "install.py")
 STOCK = os.path.join(os.path.dirname(GAME), "char-generator", "stock", "generator")
 
-# Parts lent from one body type to another: (from, file stem, to). **The male
-# parts have no hood** (`../CHARGEN.md`), and the Sable Hart's five are hooded
+# Parts lent from one body type to another: (from, file stem, to[, stem]),
+# the last when the part takes another id on its new body. **The male parts
+# have no hood** (`../CHARGEN.md`), and the Sable Hart's five are hooded
 # men, so the female `AccB p10` riding hood is lent to the male body under the
 # same id, which no male part uses - a hood is a hood, and it sits on a male
 # head without an offset in every view. It is done by rendering against a copy
 # of the stock generator made of symlinks, so nothing in `../char-generator/`
 # changes and nobody drawn before is affected. The editor itself has no male
 # `AccB p10`, so a settings file that uses it loads there without the hood.
-BORROWED = [("Female", "AccB_p10", "Male")]
+#
+# **The female parts have no goggles** either, and Thistlewick's smithy
+# apprentice is drawn in the brass pair she wore on the stock `People2:7`
+# face. The male `AccB p06` is that pair, pushed up on the head, and it is
+# lent to the female body as `AccB p11`, an id the female parts stop short
+# of, because female `p06` is a crown. The editor loads her without them.
+BORROWED = [("Female", "AccB_p10", "Male"),
+            ("Male", "AccB_p06", "Female", "AccB_p11")]
 
 # sheet -> [(slot, settings file)]. Slots are the 0-based faceIndex /
 # characterIndex the data uses. Append; never move anybody.
@@ -342,6 +350,28 @@ SHEETS = {
         # copyist bearded, in a scribe's blue.
         (0, "evermore-sweeper.json"),   # the path nobody comes in by
         (1, "evermore-copyist.json"),   # told to copy everything
+        # Faces that were shared (Mike, 3 Nov). Mr Pilbeam had Hosea's,
+        # spectacles and all, so he keeps the spectacles; the smithy's
+        # apprentice had Ott's, so she keeps the brass goggles (`BORROWED`)
+        # and nothing else. The other four each wore the face of somebody
+        # Mike named to keep it: the Hermit, Mrs Barrow, Halbert Quy, Sops.
+        (2, "mr-pilbeam.json"),         # only passing; there was an eagle
+        (3, "smithy-apprentice.json"),  # does not talk to the hammers
+        (4, "committee-clerk.json"),    # Form C-12
+        (5, "mrs-budge.json"),          # the half a kingdom, in the orchard
+        (6, "thistlewick-old-man.json"),  # Forty-seven was his boy
+        (7, "thistlewick-child.json"),  # there's a DUNGEON
+    ],
+    "Gen_People17": [
+        # The same, continued: Tibb's (the Hithermost villager, Ned Scarrow),
+        # Number Forty-Six's (the Turnip's regular, the man having a day off,
+        # Major Royce) and the Hermit's (Fellow Grice).
+        (0, "hithermost-villager.json"),  # we do teas
+        (1, "turnip-regular.json"),     # his cousin was the Thirty-Ninth
+        (2, "man-day-off.json"),        # thirty-one years, and today off
+        (3, "fellow-grice.json"),       # sends his apologies
+        (4, "ned-scarrow.json"),        # the twelfth dive was Roland
+        (5, "major-royce.json"),        # the Glass Fort
     ],
 }
 
@@ -364,17 +394,20 @@ def generator(tmp):
             continue
         os.mkdir(dst)
         for body in os.listdir(src):
-            if not any(body == to for _, _, to in BORROWED):
+            if not any(body == b[2] for b in BORROWED):
                 os.symlink(os.path.join(src, body), os.path.join(dst, body))
                 continue
             os.mkdir(os.path.join(dst, body))
             for f in os.listdir(os.path.join(src, body)):
                 os.symlink(os.path.join(src, body, f), os.path.join(dst, body, f))
-            for frm, stem, to in BORROWED:
+            for frm, stem, to, *rename in BORROWED:
                 if to != body:
                     continue
                 for f in glob.glob(os.path.join(src, frm, "*_%s*" % stem)):
-                    os.symlink(f, os.path.join(dst, body, os.path.basename(f)))
+                    name = os.path.basename(f)
+                    if rename:
+                        name = name.replace(stem, rename[0])
+                    os.symlink(f, os.path.join(dst, body, name))
     return tmp
 
 

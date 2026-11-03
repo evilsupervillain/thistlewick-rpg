@@ -242,7 +242,7 @@ SHAREHOLDERS = [
         "She come down the hill with a",
         "tin of cake, and we walked",
         "her home. That was all."]),
-    ("Mrs Budge", "People4", 1, 15, SOUTH_Y, [
+    ("Mrs Budge", "Gen_People16", 5, 15, SOUTH_Y, [
         "We got the half between us.",
         "Didn't know what to do with",
         "it. Put most of it back",
@@ -358,7 +358,7 @@ def council_events():
     pilbeam += S.narrate([
         "He looks at the door the way a man looks at a",
         "door he has been looking at for four years."])
-    evs.append(S.npc(6, "Mr Pilbeam", 17, SOUTH_Y, pilbeam, "People4", 0,
+    evs.append(S.npc(6, "Mr Pilbeam", 17, SOUTH_Y, pilbeam, "Gen_People16", 2,
                      direction=8))
 
     # 7-17: the rest of the shareholders.

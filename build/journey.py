@@ -468,15 +468,15 @@ def gloamwood_events():
     # A lost adventurer, still going.
     lost = S.narrate([
         "A man in very good armour is sitting on a log."])
-    lost += S.say("Regular", [
+    lost += S.say("Regular", face="Forty-Six", lines=[
         "Don't tell me. North, is it? Tower?",
         "I'm number forty-six."])
     lost += S.narrate(["You point out that forty-seven came after him."])
-    lost += S.say("Regular", [
+    lost += S.say("Regular", face="Forty-Six", lines=[
         "Did he? Good for him.",
         "Did he come back?"])
     lost += S.narrate(["You do not answer."])
-    lost += S.say("Regular", [
+    lost += S.say("Regular", face="Forty-Six", lines=[
         "Right. Well. I got as far as the woods",
         "and decided the woods were enough.",
         "Nobody writes songs about that. But I'm",
@@ -485,11 +485,11 @@ def gloamwood_events():
         "There is a sack beside the log with letters",
         "in it. A great many letters, in two hands,",
         "one round and one narrow, going back years."])
-    lost += S.say("Regular", [
+    lost += S.say("Regular", face="Forty-Six", lines=[
         "Nabb and Tolly. They write.",
         "Every month, the both of them."])
     lost += S.narrate(["You ask whether he writes back."])
-    lost += S.say("Regular", [
+    lost += S.say("Regular", face="Forty-Six", lines=[
         "I read them.",
         "Reading them's the answer. They know",
         "that. Nabb doesn't, but Tolly does,",

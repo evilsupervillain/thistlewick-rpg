@@ -849,10 +849,11 @@ def _regular():
         "Hob looks at the very good sword across the man's",
         "knees for a long time."])
     c += S.say("Hob", ["That's one of mine."])
-    c += S.say("Regular", ["...Is it? Never once let me down."])
+    c += S.say("Regular", ["...Is it? Never once let me down."],
+               face="Day Off")
     c += S.say("Hob", ["It wouldn't. Could I borrow it back?",
                        "For the spring."])
-    c += S.say("Regular", ["It's having a day off."])
+    c += S.say("Regular", ["It's having a day off."], face="Day Off")
     c += S.narrate([
         "He shuts his eyes again. So, in a manner of speaking,",
         "does the sword."])

@@ -1306,7 +1306,8 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People13` | Lettice Moon | Convenor Swale | Pennock | Professor Mott | Doctor Furze | Grizel Pennyfeather | Lucius Hobday, Nan Gilly |
 | `Gen_People14` | Cuthbert Spence | Ambrosine Quill | Lorrimer | Maud | Spare | Cotter | the Courier, Effie |
 | `Gen_People15` | Mrs Gotobed | Mr Dibble | Mrs Throssell | Mr Cobley | Thalion | Aelwen | Elowen, Calder |
-| `Gen_People16` | Ninian | the Copyist | *free* | *free* | *free* | *free* | *free* |
+| `Gen_People16` | Ninian | the Copyist | Mr Pilbeam | the smithy's Apprentice | the Committee Clerk | Mrs Budge | the Old Man, the Child |
+| `Gen_People17` | the Hithermost villager | the Turnip's Regular | the man having a day off | Fellow Grice | Ned Scarrow | Major Royce | *free* |
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding
@@ -1324,8 +1325,11 @@ Olde Evermore's Mirabel is 4, and its two Elders were stock until
 sprite from the same file, for every human who spoke without one;
 `Gen_People11`'s last five and `Gen_People12` to `Gen_People15` are the
 companion quests'; Olde Evermore's six elves of the playtest round's P3 are
-`Gen_People15` 4-7 and `Gen_People16` 0-1, and **the next face goes in
-`Gen_People16` 2**. Restwell's third speaking part, Dr Pike,
+`Gen_People15` 4-7 and `Gen_People16` 0-1; `Gen_People16` 2-7 and
+`Gen_People17` 0-5 are faces that used to be shared (Mike, 3 Nov 2026 - see
+`story.FACES`), and **the next face goes in `Gen_People17` 6**. The
+apprentice keeps Ott's brass goggles, which only the male body has: `art.py`'s
+`BORROWED` lends them to the female body as `AccB p11`. Restwell's third speaking part, Dr Pike,
 **shares `SF_Actor3:6`** instead - `story.FACES` records every such share and
 the reasoning, and sharing is the cheaper answer whenever a character is a
 single scene in one room.
