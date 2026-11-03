@@ -10,7 +10,7 @@ title: The Lighthouse of Saint Bother
 <caption>The Lighthouse of Saint Bother</caption>
 <tr><th>Known as</th><td>The light at the point</td></tr>
 <tr><th>Where</th><td>A headland east of <a href="Nether_Sopping">Nether Sopping</a>, at the end of a road that goes nowhere else</td></tr>
-<tr><th>Keeper</th><td>Ferrety Bother, fourth generation</td></tr>
+<tr><th>Keeper</th><td><a href="../People/Ferrety_Bother">Ferrety Bother</a>, fourth generation</td></tr>
 <tr><th>Saint</th><td>His great-grandmother. She'd have hated the fuss</td></tr>
 <tr><th>Last ship</th><td>1909</td></tr>
 <tr><th>For</th><td>The ones coming back down the north road at night</td></tr>
@@ -24,7 +24,7 @@ title: The Lighthouse of Saint Bother
 
 ## The keeper
 
-**Ferrety Bother** keeps the light. "It's a family name. The saint was my great-grandmother and she'd have hated the fuss." There are tapestries of her on the ground floor: with a lantern, glaring at a ship, which looks very sorry; telling off a storm, which is leaving; and in a deckchair with her feet up and the lamp lit, with, embroidered underneath by a great-grandson, SHE'D HAVE HATED THE FUSS. Her book is on the top floor, *Lighthouses I Have Known*, by S. Bother. It is a very short book. She only knew the one, and she did not think much of the others anyway.
+**<a href="../People/Ferrety_Bother">Ferrety Bother</a>** keeps the light. "It's a family name. The saint was my great-grandmother and she'd have hated the fuss." There are tapestries of her on the ground floor: with a lantern, glaring at a ship, which looks very sorry; telling off a storm, which is leaving; and in a deckchair with her feet up and the lamp lit, with, embroidered underneath by a great-grandson, SHE'D HAVE HATED THE FUSS. Her book is on the top floor, *Lighthouses I Have Known*, by S. Bother. It is a very short book. She only knew the one, and she did not think much of the others anyway.
 
 He has been up the stairs eleven thousand times, and would like somebody else to do it once.
 

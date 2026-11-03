@@ -71,6 +71,7 @@ What began the Third Age is not known to me. It was not the Prophecy.
 | 1978 | Roland Fairweather is told that his prophecy is nearly ready. |
 | 1979 | Mabel Thistle dies. |
 | 1980 | **The Forty-Sixth** sits down in the Gloamwood. |
+| 1981 | <a href="../People/Edwin_Tarrant">The Hermit</a> goes up the hill to find out whether he has any wisdom, and stays. |
 | 1986 | Sir Hamo Tench comes to Weeping Bottom for the sea air. |
 | 1987 | Bryd Ollerenshaw wins BEST IN HALL at the Smiths' Hall in Great Dunnage. Hob Grumnir does not enter, having a cold. The Committee begins meaning to water the plant in Prophecy Hall. |
 | 1989 | A year of beginnings and endings. Corvin Ash, nineteen, sits down in the corner of the Slain Wyvern, and Ashcombe floods in his absence. Nix, fifteen, puts her gran's coat into bond until it fits, and starts the ledger. Attempt 199 is lost in sight of the Tower. Zephyrine Vance's incident at the Collegium, with the Dean, a duck and an unsanctioned quantity of fire. Beatrice Grumnir dies. |
@@ -78,7 +79,7 @@ What began the Third Age is not known to me. It was not the Prophecy.
 | 1991 | Sir Aldric goes out errant, with an invitation to deliver to Little Gore. Abel Thrush dies, in the spring. |
 | 1992 | Sir Aldric talks to the Wrong Dragon about Horace until dark. |
 | 1993 | Maud Penhallow, nine, becomes Roland Fairweather's understudy. |
-| 1994 | Elspeth Moore dies. Sir Aldric reaches Thistlewick and cannot find the north gate. That winter his horse walks into a yard at Great Dunnage on her own, saddled. |
+| 1994 | Elspeth Moore dies. <a href="../People/Perpetua_Small">Perpetua Small</a> wakes on the beach at Nether Sopping, with no memory and a headache. Sir Aldric reaches Thistlewick and cannot find the north gate. That winter his horse walks into a yard at Great Dunnage on her own, saddled. |
 | 1996 | Mr Pilbeam rescues Princess Rosamund from the eagle. Merribell leaves the Sisterhouse at Weeping Bottom, because it has begun holding symposia. |
 | 1997 | Much Pottering twins with Upper Clanging. Effie Gotobed and Spare Cotterill, both six, become pen pals. |
 | About 1999 | Ambrose Fitch dies, in his cottage at Nether Sopping. The masons come within a fortnight. |

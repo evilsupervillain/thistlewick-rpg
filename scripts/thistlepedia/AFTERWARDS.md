@@ -816,3 +816,92 @@ are a stand-in, and are noted with Mr Pilbeam's (Hosea's face) under
   times. Hosea has been asked down and has not gone. Bram's three visits, Wren's
   eleven pages and Pell's second Form Z were already here; Pell adds that he
   did not expect to need the first one either.
+
+## Ten more pages: the Contest's other two, the Wyvern's tellers and guests, the keeper, the Hermit, Sowerby and Somebody Large
+
+Asked for by Mike on 3 November 2026, with names to be made up where the game
+gives none. Portraits are each speaker's `FACES` cell. Ferrety Bother's is
+shared with Ambrose Fitch, as it is in the game.
+
+* **Septimus Dray**. *Canon:* the serpent, Instrumental (Other Wind), eleven
+  minutes, "a drain that has had bad news"; 9/2/6 for 17; "Second place, twice.
+  There were two entries, both times."; "It's meant to sound like that.
+  Mostly."; part of the floor in Piper's set; sat down in her fourth verse if
+  she won. Face `Gen_People12` 7, grey-bearded. *Wiki:* born 7 July 1930 at
+  Great Dunnage, the seventh child of a seventh, so he is 71. The serpent was
+  the parish church band's and was retired by an organ in 1946; he took it home
+  at sixteen. He placed second in 1974 and 1988, and third of four in 2000 (Moon
+  scored 16). He played under the quiet bits and apologised to Piper the next
+  morning. In 2001 he was fourth of nine. A nine-minute piece is in hand. "Six"
+  is painted on the case.
+* **Lettice Moon**. *Canon:* Ballad (Sad), fourteen verses, nobody survives,
+  the narrator back for the chorus; 9/2/5 for 16; "Somebody survives verse
+  three. Briefly."; the Sad Verse from the floor. Face `Gen_People13` 0, a
+  young woman. *Wiki:* born 30 November 1975 at Great Dunnage, so she is 26. She
+  is a seamstress for Mrs Aske in Cordwainers' Row, who asks her to keep to the
+  chorus at fittings. The ballad has no title; verse twelve is the dog. It is
+  fifteen verses now, and a sixteenth is undecided. She wrote to Piper and was
+  answered in four pages, in the third person. She was second in 2001 with a
+  six from Mrs Harbottle.
+* **Hulda Bole**. *Canon:* the bear pelts, the different sort, the ledger and
+  its three columns, eleven years and 406 jobs, "MOVED", "It was a list. I was
+  the legs.", the thirteenth; JOB 1, accepted 1989, the parcel being Nix's
+  letter to herself; the good boots; "You're the legs now."; she assumes the
+  client was "he" and is never corrected. Face `People2` 1. Nix's page already
+  called her Mrs Bole. *Wiki:* born 19 April 1967 at Nether Sopping, so she is
+  34. Mr Bole fishes. She fetched job 407 for Hosea, PURPOSE: GIVEN. Since then
+  she fetches only for people who say what for: four, in two years. She walks
+  the front on Sundays in the good boots.
+* **Ferrety Bother**. *Canon:* everything on the lighthouse page; "Out of oil
+  since the spring"; 1909; eleven thousand stairs; the crossroads at midnight.
+  *Wiki:* born 3 February 1938 in the tower, in a gale, so he is 64. Keeper
+  since 1970, after his father; his grandmother made the tapestries and found
+  the unnamed pickle; he made the deckchair tapestry himself in 1971. The
+  saint's first name is not known; the book is signed S. Bother. He has never
+  married ("six going up"). He walked to the crossroads the night the light was
+  relit, and that is the only time. The 2000 bottle has a small figure with a
+  gallon can in it.
+* **Perpetua Small**. *Canon:* the beach in 1994, the tiara, the four
+  languages, the standing up, the ceiling, dairy and then cheesemaking, the
+  napkin crowns, the monthly bottle TO WHOM IT MAY CONCERN, Gerald ("That is
+  all that is being said about Gerald"). *Wiki:* the article is written to be
+  left on the bar, and Dorcas cut one sentence. **Nothing may tell her who she
+  is, or tell the reader**, and her birth is left blank. The cheddar answers the
+  fencing. In summer 2001 she remembered the word *precedence* and decided it is
+  a cheese. She folded Hosea's proof into a crown.
+* **The two very ordinary travellers**, given names: **Jack Furrow** ("farm")
+  and **Jill Furrow** ("a different farm, no relation"), as Dorcas wrote them
+  on her board for room four; Jill had *no relation* underlined. *Canon:*
+  peasant crowns, beans, "Do not curtsey", "Well. Don't start.", "unacquainted",
+  met on the road yesterday, the hands and the rings, "Anniversary beans", the
+  table, FARM WINE, PEASANT LUGGAGE, room four. Faces `People3` 0 (a white-
+  bearded king) and 1 (a woman in a crown). *Wiki:* Jack and Jill Furrow are
+  aliases and **their real names are never given**; Hosea has not looked at the
+  crest. They arrived in autumn 1999 and are still in room four in March 2002.
+  They had anniversary beans in spring 2001. **The house register's fortieth
+  line is not tied to them**; it stays deniable (`NORTH.md` 1.3 item 4).
+* **Edwin Tarrant, the Hermit**. *Canon:* the shopping list, nineteen years,
+  "He needed the cheese", the second-best thing (an elixir and 200), the
+  middle distance, the candles. *Wiki:* born 14 September 1929 at Nether
+  Sopping, so he is 72. He was a clerk to a ship's chandler from 1944 and went
+  up the hill in 1981 "back by Thursday". The elixir was in the hut; the 200
+  was his savings. His best thing is the middle distance. Hosea brought
+  candles and was asked for matches. Wick & Barrow has delivered monthly since
+  spring 2000 and charges, which he finds companionable.
+* **Isaac Sowerby**. *Canon:* sixty years, started and finished on the rivets,
+  199 up and the same down, "like a man sitting", "She will get to it."; his
+  bench and the other bench; one of the six apprentices who stayed (Ott: "Nib
+  is the fortieth"); the snap tin, dripping, "She always did me dripping", the
+  rivet; the ring of stones in the Long Field. Face `SF_People1` 6. *Wiki:*
+  born 12 October 1925 at Upper Clanging, so he is 76. Apprenticed autumn 1939
+  and retired autumn 1999. He "has seen the drawings" of the attempts before
+  his time and riveted forty himself. "She" of the dripping is not explained.
+  Nix took the rivet and it is not in the book. He watched the Two Hundred for
+  the coming down. He has passed the 201st's rivets.
+* **Somebody Large**. *Canon:* everything in `nomap._wrong_dragon` and ALD-6,
+  including the lamp's books, ducks blanket and spectacles. **The rest is not
+  described, and nothing identifies it**; Hosea was not there. Face `Supplied`
+  2, Mike's silhouette. *Wiki:* it is in People because it would rather be in
+  the library. It answered Hosea's letter through Aldric and is reading his
+  second volume. Aldric finds the way about one time in three, and they have
+  read the Odes through twice.

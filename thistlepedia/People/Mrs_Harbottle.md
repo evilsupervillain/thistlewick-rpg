@@ -33,7 +33,7 @@ She was born at the Bell in 1971, during a Contest, which her mother, who chaire
 
 ## The Contest
 
-The Contest at the Sign of the Bell is always tonight. In the year 2000 it had four entries, for the first time in some years: Mr Septimus Dray, on the serpent, for eleven minutes; Miss Lettice Moon, Ballad (Sad), in which everybody dies, including the narrator, who comes back for the chorus; Mr Tweddle, Birdsong (Open); and Piper Quill, Ballad (Not Sad), which nobody had ever entered.
+The Contest at the Sign of the Bell is always tonight. In the year 2000 it had four entries, for the first time in some years: <a href="Septimus_Dray">Mr Septimus Dray</a>, on the serpent, for eleven minutes; <a href="Lettice_Moon">Miss Lettice Moon</a>, Ballad (Sad), in which everybody dies, including the narrator, who comes back for the chorus; Mr Tweddle, Birdsong (Open); and Piper Quill, Ballad (Not Sad), which nobody had ever entered.
 
 Mr Tweddle's thrush that had lost its keys drew a three from Miss Quayle, which had never happened, and the room gasped. Miss Quill came second, by one point, to the thrush. Mrs Harbottle announced the result standing, in gold lace, and says that it was the best Contest in the history of the Bell, and that she gave it, privately, a nine, which she has never given anything, and that she has told nobody but me.
 

@@ -34,7 +34,7 @@ It burned all afternoon and all night, and nobody in the parish went to bed, and
 
 ## The Wrong Dragon
 
-In the far south-east, in a cave in the rocks above the water, something very large breathes slowly, the way people breathe when they are reading. The map says it is a dragon. It is a dragon, it will tell you, in the sense that the map says so, and not in the sense anybody means. Its cave is dark and warm and full of books, in the order it read them, which is nobody else's, and it sits in an armchair at the back with a blanket over what may be its knees. People come about the dragon, and are relieved, and then a little disappointed, and then they stay for tea.
+In the far south-east, in a cave in the rocks above the water, <a href="../People/Somebody_Large">something very large</a> breathes slowly, the way people breathe when they are reading. The map says it is a dragon. It is a dragon, it will tell you, in the sense that the map says so, and not in the sense anybody means. Its cave is dark and warm and full of books, in the order it read them, which is nobody else's, and it sits in an armchair at the back with a blanket over what may be its knees. People come about the dragon, and are relieved, and then a little disappointed, and then they stay for tea.
 
 Eight years before the Quest a young knight came, very correct, with a commission with *dragon* on it and a great deal of armour, and they talked about Horace until it got dark. It hoped he had found his dragon. He had not; his dragon was done in by somebody else, a year or two later, who drinks in the Slain Wyvern and is, I can confirm, insufferable about it. In the year 2000 Sir Aldric came back, and it emerged that Horace is a poet, Roman, the Odes, and that Sir Aldric had believed for four hours that they were talking about his horse, and that it had wondered why the Odes had so much in them about oats. It asked him to read to it. Its eyes are not what they were; that is why it talks so much. He lit a lamp, and read the Odes until dark, and they are not about oats.
 
@@ -58,7 +58,7 @@ It was at the enquiry, in 1989, with Zephyrine Vance and the Dean and an unsanct
 
 **Ashcombe Lake**, where on a still day you can hear the old church bell ringing under the water. You cannot. See <a href="Ashcombe">Ashcombe</a>.
 
-**The Middle Distance**, a hill with a bench on it, and **the Hermit**, who needed cheese. See <a href="The_Barrow_of_the_Forty-Fourth#near-by">the Barrow of the Forty-Fourth</a>.
+**The Middle Distance**, a hill with a bench on it, and **<a href="../People/Edwin_Tarrant">the Hermit</a>**, who needed cheese. See <a href="The_Barrow_of_the_Forty-Fourth#near-by">the Barrow of the Forty-Fourth</a>.
 
 **Miss Halloway's type specimens**, eleven of them, each where she found it, from the Common Hedge Egg near Thistlewick to the Pond Kappa by Ashcombe Lake. They are hers, and are in her <a href="../Bestiary/">Bestiary</a>, and she would rather you did not touch them.
 

@@ -10,7 +10,7 @@
 
 <span class="trope" title="Walked into: Firstfield Meadow">**The ambush.**</span> See *The tutorial*, and Norbert, who is contracted to lose.
 
-<span class="trope" title="Walked into: the Slain Wyvern">**The amnesiac.**</span> A young person found on a beach with no memory, an excellent posture and something expensive on their head, whom everybody is very kind to and nobody will tell anything. Perpetua Small woke up on the beach at <a href="../Places/Nether_Sopping">Nether Sopping</a> six years before the Quest, in a tiara she has not noticed. The whole of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> looks very hard at the ceiling. Still annoyed: nobody; that is rather the point.
+<span class="trope" title="Walked into: the Slain Wyvern">**The amnesiac.**</span> A young person found on a beach with no memory, an excellent posture and something expensive on their head, whom everybody is very kind to and nobody will tell anything. <a href="../People/Perpetua_Small">Perpetua Small</a> woke up on the beach at <a href="../Places/Nether_Sopping">Nether Sopping</a> six years before the Quest, in a tiara she has not noticed. The whole of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> looks very hard at the ceiling. Still annoyed: nobody; that is rather the point.
 
 
 ## B
@@ -66,7 +66,7 @@
 
 <span class="trope" title="Walked into: Much Pottering">**The haystack.**</span> Searched, out of habit, for a needle. NO NEEDLE. THIS IS MUCH POTTERING.
 
-<span class="trope" title="Walked into: the west road">**The hermit.**</span> A man on a rock, looking at the middle distance with great authority, who says *You seek wisdom*, and then gives you his shopping list. He has been up there nineteen years and would like some cheese.
+<span class="trope" title="Walked into: the west road">**The hermit.**</span> <a href="../People/Edwin_Tarrant">A man on a rock</a>, looking at the middle distance with great authority, who says *You seek wisdom*, and then gives you his shopping list. He has been up there nineteen years and would like some cheese.
 
 <span class="trope" title="Walked into: Mrs Emberthwaite's lair">**The hoard.**</span> A dragon's, of gold, which a hero may take a coin from. It is dusted every morning with a feather. You could take a coin. Mrs Emberthwaite looks at you over her spectacles. You could not.
 
@@ -149,6 +149,6 @@
 
 <span class="trope" title="Walked into: Thistlewick">**The well that is not a wishing well.**</span> Says so. Is wished at anyway. Nothing happens. The sign was right.
 
-<span class="trope" title="Walked into: a cave above the water">**The wrong dragon.**</span> A cave, something very large inside, breathing slowly, the way people breathe when they are reading. *Come in, come in. Mind the books.* Not in the Bestiary; it was not asked, and I am told it would rather be in the library.
+<span class="trope" title="Walked into: a cave above the water">**The wrong dragon.**</span> A cave, <a href="../People/Somebody_Large">something very large</a> inside, breathing slowly, the way people breathe when they are reading. *Come in, come in. Mind the books.* Not in the Bestiary; it was not asked, and I am told it would rather be in the library.
 
 <div class="marginalia">I asked the Forty-Eighth which of these had annoyed him most. He thought about it for some time, and said the barrels, and then said no, the barrels were fine, it was the pot that said INSIDE OF POT. I asked him why. He said that he had looked. - H.B.</div>

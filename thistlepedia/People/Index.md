@@ -69,6 +69,11 @@ At <a href="../Places/Nether_Sopping">Nether Sopping</a>.
 <figure><img src="../images/portraits/Tibb.png" alt="Tibb"><figcaption><a href="Tibb">Tibb</a></figcaption></figure>
 <figure><img src="../images/portraits/Nabb.png" alt="Nabb"><figcaption><a href="Nabb">Nabb</a></figcaption></figure>
 <figure><img src="../images/portraits/Tolly.png" alt="Tolly"><figcaption><a href="Tolly">Tolly</a></figcaption></figure>
+<figure><img src="../images/portraits/Hulda_Bole.png" alt="Hulda Bole"><figcaption><a href="Hulda_Bole">Hulda Bole</a></figcaption></figure>
+<figure><img src="../images/portraits/Perpetua_Small.png" alt="Perpetua Small"><figcaption><a href="Perpetua_Small">Perpetua Small</a></figcaption></figure>
+<figure><img src="../images/portraits/Jack_Furrow.png" alt="Jack Furrow"><figcaption><a href="Jack_Furrow">Jack Furrow</a></figcaption></figure>
+<figure><img src="../images/portraits/Jill_Furrow.png" alt="Jill Furrow"><figcaption><a href="Jill_Furrow">Jill Furrow</a></figcaption></figure>
+<figure><img src="../images/portraits/Ferrety_Bother.png" alt="Ferrety Bother"><figcaption><a href="Ferrety_Bother">Ferrety Bother</a></figcaption></figure>
 </div>
 
 ## On the road, and the sites along it
@@ -141,6 +146,8 @@ At <a href="../Places/Wayside_Sights">Wayside sights</a>.
 <figure><img src="../images/portraits/Elias_Meech.png" alt="Elias Meech"><figcaption><a href="Elias_Meech">Elias Meech</a></figcaption></figure>
 <figure><img src="../images/portraits/Dunnock.png" alt="Dunnock"><figcaption><a href="Dunnock">Dunnock</a></figcaption></figure>
 <figure><img src="../images/portraits/The_Drainage_Commissioner.png" alt="The Drainage Commissioner"><figcaption><a href="The_Drainage_Commissioner">The Drainage Commissioner</a></figcaption></figure>
+<figure><img src="../images/portraits/Edwin_Tarrant.png" alt="Edwin Tarrant, the Hermit"><figcaption><a href="Edwin_Tarrant">The Hermit</a></figcaption></figure>
+<figure><img src="../images/portraits/Somebody_Large.png" alt="Somebody Large"><figcaption><a href="Somebody_Large">Somebody Large</a></figcaption></figure>
 </div>
 
 ### The western hills
@@ -187,6 +194,7 @@ At <a href="../Places/Upper_Clanging">Upper Clanging</a>. And <a href="Eighty-Fo
 <figure><img src="../images/portraits/Mrs_Tunnicliffe.png" alt="Mrs Tunnicliffe"><figcaption><a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a></figcaption></figure>
 <figure><img src="../images/portraits/Mr_Kell.png" alt="Mr Kell"><figcaption><a href="Mr_Kell">Mr Kell</a></figcaption></figure>
 <figure><img src="../images/portraits/Nib.png" alt="Nib"><figcaption><a href="Nib">Nib</a></figcaption></figure>
+<figure><img src="../images/portraits/Isaac_Sowerby.png" alt="Isaac Sowerby"><figcaption><a href="Isaac_Sowerby">Old Sowerby</a></figcaption></figure>
 </div>
 
 ### Frostwick and Coldbarrow
@@ -208,6 +216,8 @@ At <a href="../Places/Great_Dunnage">Great Dunnage</a>.
 <figure><img src="../images/portraits/Mr_Tibbs.png" alt="Mr Tibbs"><figcaption><a href="Mr_Tibbs">Mr Tibbs</a></figcaption></figure>
 <figure><img src="../images/portraits/Mrs_Harbottle.png" alt="Mrs Harbottle"><figcaption><a href="Mrs_Harbottle">Mrs Harbottle</a></figcaption></figure>
 <figure><img src="../images/portraits/Mr_Tweddle.png" alt="Mr Tweddle"><figcaption><a href="Mr_Tweddle">Mr Tweddle</a></figcaption></figure>
+<figure><img src="../images/portraits/Septimus_Dray.png" alt="Septimus Dray"><figcaption><a href="Septimus_Dray">Mr Dray</a></figcaption></figure>
+<figure><img src="../images/portraits/Lettice_Moon.png" alt="Lettice Moon"><figcaption><a href="Lettice_Moon">Miss Moon</a></figcaption></figure>
 </div>
 
 And <a href="Fellow_Blunt">Fellow Blunt</a>, who checks the stone and has not yet sat for a portrait.
