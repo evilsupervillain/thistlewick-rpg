@@ -29,3 +29,7 @@ __pycache__/
 /build/worldmap/step1-*.json
 /build/worldmap/world-*.json
 /build/worldmap/world-*.png
+
+# A local virtualenv for the few scripts that need a package (Pillow, for
+# scripts/thistlepedia/portraits.py). Nothing is installed globally.
+/.venv/

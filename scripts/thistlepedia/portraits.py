@@ -1,8 +1,8 @@
 """Copies the character portraits the Thistle-pedia uses into the wiki.
 
-    python3 scripts/thistlepedia/portraits.py          # copy what changed
-    python3 scripts/thistlepedia/portraits.py --check  # exit 1 if any is stale
-    python3 scripts/thistlepedia/portraits.py --list   # who comes from where
+    .venv/bin/python scripts/thistlepedia/portraits.py          # copy what changed
+    .venv/bin/python scripts/thistlepedia/portraits.py --check  # exit 1 if any is stale
+    .venv/bin/python scripts/thistlepedia/portraits.py --list   # who comes from where
 
 The wiki has to be servable on its own, apart from the game, so it cannot link
 into `img/` - it keeps its own copies in `thistlepedia/images/portraits/`.

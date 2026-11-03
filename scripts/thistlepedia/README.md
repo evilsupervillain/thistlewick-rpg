@@ -36,11 +36,16 @@ the game. The skill that says how is `.claude/skills/staticpedia/SKILL.md`.
 
 ## The tools
 
-    python3 scripts/thistlepedia/portraits.py     # refresh the portrait copies
+    .venv/bin/python scripts/thistlepedia/portraits.py   # refresh the portrait copies (needs Pillow)
     python3 scripts/thistlepedia/redlinks.py      # red <-> blue links, and what is still owed
     node scripts/staticpedia/build-index.mjs thistlepedia
     node scripts/staticpedia/check-links.mjs thistlepedia
     python3 -m http.server 8011                   # then /thistlepedia/
+
+`portraits.py` is the one tool that needs a package, Pillow, and nothing is
+installed globally on this machine: it runs from a local venv, `.venv/` in
+the game's root, which git ignores. To make it on a fresh clone:
+`python3 -m venv .venv && .venv/bin/pip install pillow`.
 
 **Portraits.** `portraits.json` names each portrait after its page and says
 which speaker in `build/story.py`'s `FACES` it is, so the casting comes from
