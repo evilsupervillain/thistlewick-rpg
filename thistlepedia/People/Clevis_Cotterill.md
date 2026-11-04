@@ -33,7 +33,7 @@ The reasoning was sound. Mrs Cotterill had always said that she had Washer in re
 
 ## Twenty to one
 
-Half the works put a farthing on Washer, because Da had said not Washer, and the works has known Mr Cotterill a long time, and has a feeling about the things he says very firmly. He took all of it, and laid it off against nobody, because there was nobody to lay it off against, and was, on the night of the ninth letter, holding a very great deal of the town's money against a single name.
+Half the works put a farthing on Washer, because Da had said not Washer, and the works has known Mr Cotterill a long time, and has a feeling about the things he says very firmly. He took all of it, and laid it off against nobody, because there was nobody to lay it off against, and was, by the time it was spring, holding a very great deal of the town's money against a single name.
 
 Spare got to it first. "He said call it Washer," said Mrs Cotterill, "and I was tired."
 

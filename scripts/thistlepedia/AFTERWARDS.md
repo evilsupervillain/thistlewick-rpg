@@ -539,9 +539,10 @@ would change it falls between New Year and mid-February**; Hosea's ages are
   never took another man's quest (so never near the Tower); the lady in the
   tower got herself out by the stairs. Out both times Hosea called.
 
-`TIMELINE.md` and this file disagree slightly about the ninth letter: the
-timeline has Washer born "the night after" it, while `q_spare.spa3` has
-mornings of asking in between. The wiki follows the game's events.
+Washer's birth is not pinned to any letter or event (Mike, 4 Nov 2026): it is
+the first morning that is spring, 21 March 2000, however many mornings of
+asking came before it. `TIMELINE.md` used to say "the night after" the ninth
+letter and now says the same as the wiki.
 
 **Batch B: Nether Sopping, the Gilded Turnip, Firstfield, Penultima, Restwell.**
 
@@ -692,8 +693,10 @@ mother.**
   clipboard), Commissioner since 1991; a letter to Zephyrine is drafted for
   autumn 2030.
 * **Mrs Thistle is Annie**, née Brook (6 June 1957), of the mill; married
-  **Will Thistle** in 1977, who is in the churchyard near Mabel and about
-  whom nothing else is said; **Bram was born in 1979**, in the room under
+  **Will Thistle** in 1977, who is "not in the house" and about whom nothing
+  else is said. **His fate is left open on purpose** (Mike, 4 Nov 2026): the
+  game has no grave for him, so the wiki must not put him in the churchyard
+  or anywhere else, and a later update may give him a stone or a part; **Bram was born in 1979**, in the room under
   the sword. The clean rectangle of wall is not painted over.
 * **Not written, on purpose**: Beatrice Grumnir (Hob's article says nobody in
   Thistlewick says more than that she was always right, "and nor shall I");

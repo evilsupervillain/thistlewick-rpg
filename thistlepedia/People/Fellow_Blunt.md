@@ -8,6 +8,7 @@ title: Fellow Blunt
 
 <table class="infobox">
 <caption>Fellow Blunt</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Fellow_Blunt.png" alt="Fellow Blunt, grey and cropped, with a waxed moustache, in a leather jerkin" width="200"><span class="infobox-caption">Quarterly</span></td></tr>
 <tr><th>Known as</th><td>Fellow Blunt; "(FELLOW BLUNT, QUARTERLY.)", on a plate</td></tr>
 <tr><th>Born</th><td>2 October 1937, <a href="../Places/Great_Dunnage">Great Dunnage</a>. His first name is not in the minutes, and he has not given it to me</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>

@@ -8,7 +8,7 @@ title: Winnie Marsden
 
 <table class="infobox">
 <caption>Winnie Marsden</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Winnie_Marsden.png" alt="Winnie Marsden, white-haired, in spectacles and a waistcoat with brass cogs on it" width="200"><span class="infobox-caption">Class of 'Nineteen</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Winnie_Marsden.png" alt="Winnie Marsden, silver-haired, in a brown waistcoat with a brass cog and a watch chain" width="200"><span class="infobox-caption">Class of 'Nineteen</span></td></tr>
 <tr><th>Known as</th><td>Winnie; Mrs Marsden; "Gran", by Bessie, and since the summer of 2000 by Cotter, who was told to</td></tr>
 <tr><th>Born</th><td>Winifred Platt, 4 October 1919, <a href="../Places/Upper_Clanging">Upper Clanging</a>, in the Cold Winter's autumn</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>

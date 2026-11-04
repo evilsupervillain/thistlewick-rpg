@@ -25,7 +25,7 @@ title: Mrs Thistle
 
 ## The mill
 
-She was born Annie Brook in 1957 at the mill below Thistlewick, and married Will Thistle, who farmed the Thistle ground, in 1977, and their son was born two springs later, in the house, in the room under the sword. Of Mr Thistle she would say only that he was a good man with turnips, and that he is in the churchyard, near his grandmother Mabel, who grew a turnip as big as a chair, and that that is enough to say about him in an encyclopedia, and that the rest is hers. I have respected that.
+She was born Annie Brook in 1957 at the mill below Thistlewick, and married Will Thistle, who farmed the Thistle ground, in 1977, and their son was born two springs later, in the house, in the room under the sword. Of Mr Thistle she would say only that he was a good man with turnips, and that he is not in the house, and that that is enough to say about him in an encyclopedia, and that the rest is hers. I asked in the village, where everybody had an answer and no two of them were the same, and I have respected hers rather than theirs.
 
 She has farmed the ground with her son since, and kept the house, and the chair that was a turnip, which she uses for the good visitors. I have sat on it.
 
