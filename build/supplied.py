@@ -35,9 +35,13 @@ PORTRAITS = [
 ]
 
 # The whole portrait each face was cut from, 330x350 like the stock busts,
-# copied into `img/pictures/` as the stock folder names them:
+# copied into `img/pictures/` as the stock folder names them (the first three
+# delivered later the same day):
 # `<face sheet>_<cell + 1>.png`. Nothing in the game shows them.
 PICTURES = {
+    "nix_portrait.png": "nix_picture.png",
+    "mrs_emberthwaite_portrait.png": "mrs_emberthwaite_picture.png",
+    "wrong_dragon_portrait.png": "wrong_dragon_picture.png",
     "courier_portrait.png": "courier_picture.png",
     "winnie_marsden_portrait.png": "winnie_marsden_picture.png",
     "fizz_portrait.png": "fizz_picture.png",
