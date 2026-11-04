@@ -249,7 +249,7 @@ def gore_events():
     evs[-1]["pages"] += q_piper.interview_pages("vane", evs[-1]["pages"])  # PIP-4
     evs.append(q_hob.owned("winifred", _person(                    # HOB-1
         4, "Dame Winifred Cope", COPE,
-        R.image(*S.FACES["Dame Winifred"], direction=2), *cope_pages())))
+        R.image(*S.sprite("Dame Winifred"), direction=2), *cope_pages())))
     evs[-1]["pages"] += q_piper.interview_pages("winifred", evs[-1]["pages"])  # PIP-4
 
     # 5-7: the three Vanes on the green, playing weddings; the narration says
@@ -272,9 +272,9 @@ def gore_events():
         "She is, too. She has been the whole of Little Gore, half",
         "of Fenmarch, the vicar, the rain and the cake."])
     for eid, name, xy, (sheet, idx), cmds, facing in [
-            (5, "Bess", BESS, S.FACES["Bess"], bess, 6),
-            (6, "Alfie", ALFIE, S.FACES["Alfie"], alfie, 4),
-            (7, "Nell", NELL, S.FACES["Nell"], nell, 8)]:
+            (5, "Bess", BESS, S.sprite("Bess"), bess, 6),
+            (6, "Alfie", ALFIE, S.sprite("Alfie"), alfie, 4),
+            (7, "Nell", NELL, S.sprite("Nell"), nell, 8)]:
         evs.append(S.npc(eid, name, *xy, cmds, sheet, idx, direction=facing))
         evs[-1]["pages"] += q_piper.interview_pages(name.lower(), evs[-1]["pages"])  # PIP-4
 
@@ -478,11 +478,11 @@ def sump_events():
                        *thurle_pages()))
     evs[-1]["pages"] += q_merribell.thurle_pages(evs[-1]["pages"][-1])   # MER-5
     evs.append(_person(4, "Mr Gammage", GAMMAGE,
-                       R.image(*S.FACES["Mr Gammage"], direction=2), *gammage_pages()))
+                       R.image(*S.sprite("Mr Gammage"), direction=2), *gammage_pages()))
     evs[-1]["pages"] += q_merribell.gammage_pages(evs[-1]["pages"][-1])  # MER-5
     evs[-1]["pages"] += q_piper.interview_pages("gammage", evs[-1]["pages"])  # PIP-4
     evs.append(_person(5, "Mrs Pardew", PARDEW,
-                       R.image(*S.FACES["Mrs Pardew"], direction=2), *pardew_pages()))
+                       R.image(*S.sprite("Mrs Pardew"), direction=2), *pardew_pages()))
     evs[-1]["pages"] += q_merribell.pardew_pages(evs[-1]["pages"][-1])   # MER-5
     evs[-1]["pages"] += q_piper.interview_pages("pardew", evs[-1]["pages"])  # PIP-4
 

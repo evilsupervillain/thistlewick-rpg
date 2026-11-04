@@ -647,7 +647,7 @@ def courier(key, x, y):
     empty page, and himself only while Spare is in the party."""
     town = TOWN[key]
     _, _, event_id, _, _ = TOWNS[town]
-    img = R.image(*S.FACES[COURIER], direction=2)
+    img = R.image(*S.sprite(COURIER), direction=2)
     spare = {"actorValid": True, "actorId": db.SPARE}
     rounds = S.say(COURIER, ["On my rounds."]) + S.narrate([
         "He does not say whose."])
@@ -778,7 +778,7 @@ def _reading():
 def dinner_hour(event_id, x, y):
     """Map 22: Mrs Cotterill in the works, only for the dinner hour - an empty
     page, and an autorun on `SW_SPA1_DINNER` that ends by turning it off."""
-    img = R.image(*S.FACES["Mrs Cotterill"], direction=2)
+    img = R.image(*S.sprite("Mrs Cotterill"), direction=2)
     return R.event(event_id, "The Dinner Hour", x, y, [
         R.page([], img=R.image(""), trigger=0, priority=0),
         R.page(_reading(), img=img, trigger=3, priority=1,
@@ -991,7 +991,7 @@ def effie_pages(later):
 def tour_events(base_id, volcano, pond, post):
     """Events `base_id` to `base_id + 2`: Effie at each stop of her tour, there
     only while the tour is at that stop. Without Spare she waits for him."""
-    img = R.image(*S.FACES[EFFIE], direction=2)
+    img = R.image(*S.sprite(EFFIE), direction=2)
     look = dict(img=img, trigger=0, priority=1)
     stops = [("Effie (at the volcano)", volcano, 1, _spa4_volcano(),
               "the volcano"),
@@ -1020,7 +1020,7 @@ def pottering_courier(event_id, x, y):
     """The courier in Much Pottering. Not a ninth posting town: he is here
     because her letters come here, so he is here for anybody, and only Spare
     gets asked "Post?"."""
-    img = R.image(*S.FACES[COURIER], direction=2)
+    img = R.image(*S.sprite(COURIER), direction=2)
     rounds = S.say(COURIER, ["On my rounds."]) + S.narrate([
         "He has a letter in his hand for Miss E. Gotobed, Much",
         "Pottering. Somebody has drawn on the envelope.",
@@ -1466,7 +1466,7 @@ def stair_courier(event_id, x, y):
     """The courier on the first Stair map, for `mountain.py` to append: there
     only with Spare, only once the eight are home (`SW_SPA1_DONE`), so the
     eight letters' digits are untouched; gone once he has the ninth."""
-    img = R.image(*S.FACES[COURIER], direction=6)
+    img = R.image(*S.sprite(COURIER), direction=6)
     return R.event(event_id, "The Courier", x, y, [
         R.page([], **_SPA3_BLANK),
         R.page(_spa3_letter(), img=img, trigger=0, priority=1,
@@ -1572,7 +1572,7 @@ def bessie_at_the_door(event_id, x, y):
           R.control_switch(db.SW_SPA3_INSIDE, True),
           R.wait(30), R.fadein_screen()]
     c += R.text(["\\C[3]Spare\\C[0] has gone home for the spring."])
-    img = R.image(*S.FACES["Bessie"], direction=2)
+    img = R.image(*S.sprite("Bessie"), direction=2)
     return R.event(event_id, "Bessie, at the Door", x, y, [
         R.page([], **_SPA3_BLANK),
         R.page(c, img=img, trigger=0, priority=1, conditions=_SPA3_SPRING),

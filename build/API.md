@@ -475,6 +475,7 @@ Shared event-building helpers: how people talk, how doors work, and the
 ### functions
 
 ```
+sprite(key)                                          The (sheet, index) a speaker's event is drawn with: SPRITES, else their face.
 say(speaker, lines, *, face=True, indent=0, position=2) One person saying something, over as many windows as it takes.
 narrate(lines, indent=0)                             Screen text with nobody speaking - descriptions, and the narrator.
 trope(indent=0)                                      Bump the cliché counter. The ending reads the total back to the player,

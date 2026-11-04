@@ -15,13 +15,38 @@ import subprocess
 HERE = os.path.dirname(os.path.abspath(__file__))
 SHEET = "Supplied"
 
-# (cell, file). Nix replaces the face of `Actor3` 4 - her walking sprite and
-# battler stay - so she matches them: masked, hooded, the same colours.
+# (sheet, cell, file). Nix replaces the face of `Actor3` 4 - her walking
+# sprite and battler stay - so she matches them: masked, hooded, the same
+# colours. The eight from 3 November replace generated or stock faces the same
+# way, walking sprites and battlers unchanged; they came at 133 pixels and are
+# scaled to the cell. `Supplied` was full at eight, so `Supplied2` follows it.
 PORTRAITS = [
-    (0, "nix_portrait.png"),                # Nix
-    (1, "mrs_emberthwaite_portrait.png"),   # Mrs Emberthwaite
-    (2, "wrong_dragon_portrait.png"),       # the Wrong Dragon, in the dark
+    (SHEET, 0, "nix_portrait.png"),                # Nix
+    (SHEET, 1, "mrs_emberthwaite_portrait.png"),   # Mrs Emberthwaite
+    (SHEET, 2, "wrong_dragon_portrait.png"),       # the Wrong Dragon, in the dark
+    (SHEET, 3, "courier_portrait.png"),            # the Courier (3 Nov)
+    (SHEET, 4, "winnie_marsden_portrait.png"),     # Winnie Marsden
+    (SHEET, 5, "fizz_portrait.png"),               # Fizz
+    (SHEET, 6, "ferrety_bother_portrait.png"),     # Ferrety Bother
+    (SHEET, 7, "miss_moon_portrait.png"),          # Miss Moon
+    ("Supplied2", 0, "mr_dray_portrait.png"),      # Mr Dray
+    ("Supplied2", 1, "spare_cotterill_portrait.png"),   # Spare
+    ("Supplied2", 2, "cotter_cotterill_portrait.png"),  # Cotter
 ]
+
+# The whole portrait each face was cut from, 330x350 like the stock busts,
+# copied into `img/pictures/` as the stock folder names them:
+# `<face sheet>_<cell + 1>.png`. Nothing in the game shows them.
+PICTURES = {
+    "courier_portrait.png": "courier_picture.png",
+    "winnie_marsden_portrait.png": "winnie_marsden_picture.png",
+    "fizz_portrait.png": "fizz_picture.png",
+    "ferrety_bother_portrait.png": "ferrety_bother_picture.png",
+    "miss_moon_portrait.png": "miss_moon_picture.png",
+    "mr_dray_portrait.png": "mr_dray_picture.png",
+    "spare_cotterill_portrait.png": "spare_cotterill_picture.png",
+    "cotter_cotterill_portrait.png": "cotter_cotterill_picture.png",
+}
 
 
 # Whole pictures that become an event's sprite: (sheet, file, lift, clean).
@@ -89,17 +114,32 @@ def sprites():
         print("wrote", os.path.normpath(path))
 
 
+def pictures():
+    for sheet, cell, name in PORTRAITS:
+        if name not in PICTURES:
+            continue
+        path = os.path.join(HERE, "..", "img", "pictures",
+                            "%s_%d.png" % (sheet, cell + 1))
+        subprocess.run(["convert", os.path.join(HERE, "supplied",
+                                                PICTURES[name]),
+                        "PNG32:" + path], check=True)
+        print("wrote", os.path.normpath(path))
+
+
 def main():
     sprites()
     battlers()
-    args = ["convert", "-size", "576x288", "xc:none"]
-    for cell, name in PORTRAITS:
-        x, y = cell % 4 * 144, cell // 4 * 144
-        args += [os.path.join(HERE, "supplied", name), "-geometry",
-                 "+%d+%d" % (x, y), "-composite"]
-    path = os.path.join(HERE, "..", "img", "faces", SHEET + ".png")
-    subprocess.run(args + ["PNG32:" + path], check=True)
-    print("wrote", os.path.normpath(path))
+    pictures()
+    for sheet in dict.fromkeys(s for s, _, _ in PORTRAITS):
+        args = ["convert", "-size", "576x288", "xc:none"]
+        for _, cell, name in (p for p in PORTRAITS if p[0] == sheet):
+            x, y = cell % 4 * 144, cell // 4 * 144
+            args += ["(", os.path.join(HERE, "supplied", name), "-filter",
+                     "Lanczos", "-resize", "144x144!", ")", "-geometry",
+                     "+%d+%d" % (x, y), "-composite"]
+        path = os.path.join(HERE, "..", "img", "faces", sheet + ".png")
+        subprocess.run(args + ["PNG32:" + path], check=True)
+        print("wrote", os.path.normpath(path))
 
 
 if __name__ == "__main__":

@@ -417,7 +417,9 @@ is worth a line there too.
                      room behind its door, and the shape every other one
                      should copy - `WORLDMAP.md` 7.6
       supplied.py    the faces Mike drew, from `build/supplied/`, into
-                     `img/faces/Supplied.png`, and his pictures (ART-TODO.md)
+                     `img/faces/Supplied.png` and `Supplied2.png` (with the
+                     330x350 busts beside them in `img/pictures/`,
+                     `<sheet>_<cell + 1>.png`), and his pictures (ART-TODO.md)
                      into `!$` sheets, a wall picture lifted above its event.
                      Not part of the data build; run it when a picture is
                      added. Append, never move
@@ -484,7 +486,7 @@ Append instead.
   mother alone is immune to. **SPA-1** (`QUESTS.md` F2): **Item 73** Spare's
   Copies and **Common Event 5** that reads them, **switches 208-209** done and
   the dinner hour, **variables 28-29** letters posted and which town each went
-  from (one decimal digit per town); the courier is `Gen_People14` 6 and is
+  from (one decimal digit per town); the courier walks as `Gen_People14` 6 (his face is Mike's, `Supplied` 3) and is
   the last event on each of Maps 13, 31, 38, 40, 42, 44, 52 and 58, and the
   dinner hour is Map 22 event 10. **SPA-4** (`QUESTS.md` F3): **switch 210**
   done and **variable 30** Effie's tour (1 the volcano, 2 the pond, 3 the
@@ -1308,6 +1310,15 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People15` | Mrs Gotobed | Mr Dibble | Mrs Throssell | Mr Cobley | Thalion | Aelwen | Elowen, Calder |
 | `Gen_People16` | Ninian | the Copyist | Mr Pilbeam | the smithy's Apprentice | the Committee Clerk | Mrs Budge | the Old Man, the Child |
 | `Gen_People17` | the Hithermost villager | the Turnip's Regular | the man having a day off | Fellow Grice | Ned Scarrow | Major Royce, Saul Pennock, Mr Gotobed |
+
+**A face and a sprite can live on different sheets, so draw an event with
+`story.sprite(key)`, never `story.FACES[key]`.** Mike drew eight faces on
+3 Nov 2026 - `Supplied` 3-7 the Courier, Winnie, Fizz, Bother and Miss Moon,
+`Supplied2` 0-2 Mr Dray, Spare and Cotter - and their walking sprites and
+battlers stayed where they were; `story.SPRITES` records those, and the
+rows above still name them because their sprites (and the now unused faces)
+are still in those cells. Every build file reads `sprite()` for an event's
+image, so moving a face never moves a body.
 
 **The Sable Hart's five wear a borrowed hood.** The male body has no hood
 among its parts, so `art.py`'s `BORROWED` lends the female `AccB p10` riding

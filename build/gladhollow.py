@@ -439,7 +439,7 @@ def gladhollow_events():
         body += R.choice_block(["Ask about the boy at the west gate",
                                 "Say goodbye"], [about, bye], cancel=1)
         return body
-    nimg = R.image(*S.FACES["Ned"], direction=4)
+    nimg = R.image(*S.sprite("Ned"), direction=4)
     evs.append(R.event(9, "Ned", *NED_AT, [
         R.page(ned_body(True) + [R.self_switch("A", True)], img=nimg,
                trigger=0, priority=1),
@@ -469,7 +469,7 @@ def gladhollow_events():
     granny += S.say("Granny Wendle", ["My knees."])
     granny += [S.trope(), R.self_switch("A", True)] + returns
     again = S.say("Granny Wendle", ["Hello again, dear."]) + returns
-    gimg = R.image(*S.FACES["Granny Wendle"], direction=2)
+    gimg = R.image(*S.sprite("Granny Wendle"), direction=2)
     evs.append(R.event(10, "Granny Wendle", *GRANNY_AT, [
         R.page(granny, img=gimg, trigger=0, priority=1),
         R.page(again, img=gimg, trigger=0, priority=1,

@@ -355,7 +355,7 @@ def outside_events(base_id, anvil_at, tile):
         direction_fix=True, conditions=gone)
 
     def flat(event_id, name, dx, speaker, lines):
-        sheet, index = S.FACES[speaker]
+        sheet, index = S.sprite(speaker)
         return R.event(event_id, name, x + dx, y, [R.page(
             S.say(speaker, lines),
             img=R.image(sheet + "_Damage", index, direction=2, pattern=2),

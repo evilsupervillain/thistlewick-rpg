@@ -750,7 +750,7 @@ def rival_events():
     Contest is on. Empty before, and empty again after - they go home."""
     evs = []
     for eid, name, (x, y) in PIP3_RIVALS:
-        img = R.image(*S.FACES[name], direction=4)
+        img = R.image(*S.sprite(name), direction=4)
         first, again = _RIVAL_LINES[name]
         on = {"switch1Valid": True, "switch1Id": db.SW_PIP3_ON}
         evs.append(R.event(eid, name, x, y, [
@@ -1295,7 +1295,7 @@ def ambrosine_event(event_id, x, y):
     """Ambrosine Quill (Map 3), at the Committee's paperwork by the door:
     empty until Piper has been on the road; then the reading and the choice;
     then, for everybody, the account settled."""
-    img = R.image(*S.FACES["Ambrosine"], direction=4)
+    img = R.image(*S.sprite("Ambrosine"), direction=4)
     return R.event(event_id, "Ambrosine Quill", x, y, [
         R.page([], img=R.image(""), priority=0, through=True),
         R.page(_pip1_meet(), img=img, conditions={

@@ -34,8 +34,8 @@
     {"eval": "$gameMap.event(13).start()"},
     {"frames": 40},
     {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
-     "expect": ["Gen_People14", 4],
-     "label": "Spare: Gen_People14 4, generated 5 Oct 2026, a lad of nine"},
+     "expect": ["Supplied2", 1],
+     "label": "Spare: Mike's face, Supplied2 1 (3 Nov 2026), a lad of nine; his sprite stays Gen_People14 4"},
     {"shot": "face_spare.png"},
     {"advance": 40},
 
@@ -106,12 +106,12 @@
     {"shot": "face_kell.png"},
     {"advance": 40},
 
-    {"comment": "Winnie is sixty and was drawn as twenty-five, and Mrs Tunnicliffe was born in June of the same year, so the Class of 'Nineteen is a room full of pensioners and always was. There are exactly two old women in the whole face library and both were spoken for, so she shares Ysolde's on the Halbert Quy precedent - Nether Sopping is forty miles and an act away. The lines are untouched: this is a recast, not a re-voicing."},
+    {"comment": "Winnie is sixty and was drawn as twenty-five, and Mrs Tunnicliffe was born in June of the same year, so the Class of 'Nineteen is a room full of pensioners and always was. There are exactly two old women in the whole face library and both were spoken for, so she shares Ysolde's on the Halbert Quy precedent - Nether Sopping is forty miles and an act away. The lines are untouched: this is a recast, not a re-voicing. Since 3 Nov 2026 she has a face of her own, which Mike drew."},
     {"eval": "$gameMap.event(4).start()"},
     {"frames": 40},
     {"check": "[$gameMessage.faceName(), $gameMessage.faceIndex()]",
-     "expect": ["People1", 7],
-     "label": "Winnie Marsden: People1_8.png, grey, and sixty, and certain"},
+     "expect": ["Supplied", 4],
+     "label": "Winnie Marsden: Mike's face, Supplied 4 (3 Nov 2026), grey, and sixty, and certain"},
     {"shot": "face_winnie.png"},
     {"advance": 40},
 

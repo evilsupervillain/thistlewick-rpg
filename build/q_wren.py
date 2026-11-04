@@ -427,7 +427,7 @@ BADGE_ICON = 146
 
 
 def _wre3_img(speaker, direction):
-    sheet, index = S.FACES[speaker]
+    sheet, index = S.sprite(speaker)
     return R.image(sheet, index, direction=direction)
 
 
@@ -899,7 +899,7 @@ def reviewer_events(base_id, cells):
     evs = []
     for i, ((key, who, other, facing), (x, y)) in enumerate(
             zip(WRE1_REVIEWERS, cells)):
-        img = R.image(*S.FACES[who], direction=facing)
+        img = R.image(*S.sprite(who), direction=facing)
         on = {"switch1Valid": True, "switch1Id": db.SW_WRE1_ON}
         waiting = S.say(who, {
             "mott": ["Mott. Rowbotham's",

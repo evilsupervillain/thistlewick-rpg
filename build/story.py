@@ -70,7 +70,7 @@ FACES = {
     "Perpetua": ("People3", 3),
     "Pell": ("People3", 7),
     "Mrs Barrow": ("People4", 1),
-    "Bother": ("People3", 4),
+    "Bother": ("Supplied", 6),             # Mike drew him (3 Nov)
     # #45 is written as a man in his seventies, four stone heavier than his
     # portrait in Prophecy Hall. Every old man on the People sheets is spoken
     # for, so he shares one: People4:4, which was the old man's in Thistlewick
@@ -89,8 +89,9 @@ FACES = {
     # side-view sheet. She used to share People2:7 with the Apprentice
     # while being fought as `Captain`, who is a man.
     "Crooke": ("Actor3", 1),
-    # Ambrose Fitch and Ferrety Bother share a face: two grey-bearded old
-    # men who are never in the same room, one of them being dead.
+    # Ambrose Fitch and Ferrety Bother shared a face - two grey-bearded old
+    # men who are never in the same room, one of them being dead - until
+    # Mike drew Bother his own (`supplied.py`, 3 Nov). Ambrose keeps it.
     "Ambrose": ("People3", 4),
     # Grimspite gets the horned, red-caped Dark Lord off the Evil sheet.
     # The Prophecy deliberately has no face: it is a document, not a person.
@@ -110,7 +111,7 @@ FACES = {
     "Mrs Tunnicliffe": ("SF_People1", 7),      # white hair, spectacles, scarf
     "Mrs Cotterill": ("SF_People1", 5),        # dark braid, unbothered
     "Mr Cotterill": ("SF_People1", 4),         # moustache, work jacket
-    "Spare": ("Gen_People14", 4),              # a lad of nine, blue shirt
+    "Spare": ("Supplied2", 1),                 # a lad of nine; Mike drew him
     "Sowerby": ("SF_People1", 6),              # knit cap, white beard
     "Nib": ("SF_People1", 1),                  # ponytail, red cardigan
     "Mr Kell": ("SF_People1", 2),              # black hair, blue jacket
@@ -126,8 +127,9 @@ FACES = {
     # There are exactly two old women in the entire face library and both were
     # already spoken for. So she shares Ysolde's, on the Halbert Quy precedent
     # above: Nether Sopping is forty miles and an act away, and the two of them
-    # will never be next to each other in a player's memory.
-    "Winnie": ("People1", 7),                  # grey, and sixty, and certain
+    # will never be next to each other in a player's memory. Since 3 Nov
+    # she has a face of her own, which Mike drew (`supplied.py`).
+    "Winnie": ("Supplied", 4),                 # Mike drew her (3 Nov): sixty
     # ---------------------------------------------------------------------
     # The Cotterills. Nine children over fifteen years and then nine years of
     # nothing, which is why the name list ran out, why the ninth is called
@@ -158,7 +160,7 @@ FACES = {
     # Firstfield Meadow. The stock sheets are spent, so these five were made
     # with the Character Generator and installed by `art.py` into a sheet of
     # the game's own. The index is the cell they were installed at.
-    "Fizz": ("Gen_People1", 0),
+    "Fizz": ("Supplied", 5),                   # Mike drew her (3 Nov)
     "Norbert": ("Gen_People1", 1),
     "Hollis": ("Gen_People1", 2),
     "Dilys": ("Gen_People1", 3),
@@ -426,8 +428,8 @@ FACES = {
     "Mr Tibbs": ("Gen_People6", 2),
     "Mrs Harbottle": ("Gen_People6", 3),
     # PIP-3's two rival acts (QUESTS.md B3), generated.
-    "Mr Dray": ("Gen_People12", 7),
-    "Miss Moon": ("Gen_People13", 0),
+    "Mr Dray": ("Supplied2", 0),               # Mike drew these two (3 Nov)
+    "Miss Moon": ("Supplied", 7),
     # ROL-1's review meeting (QUESTS.md B7): the Convenor is generated; the
     # three fellows "of no importance" share plain stock faces nobody in the
     # Bell wears. (People3 0 and 1 were tried first: a crown and a pair of
@@ -454,9 +456,9 @@ FACES = {
     "Maud": ("Gen_People14", 3),
     "Miss Fettle": ("Gen_People6", 4),
     # Cotter, generated: SF_Actor2 7 read as a woman.
-    "Cotter": ("Gen_People14", 5),
+    "Cotter": ("Supplied2", 2),                # Mike drew him (3 Nov)
     # SPA-1's courier (QUESTS.md F2), generated: red coat, flat cap.
-    "Courier": ("Gen_People14", 6),
+    "Courier": ("Supplied", 3),                # Mike drew him (3 Nov)
     # SPA-4, Much Pottering (QUESTS.md F3), all generated: Spare's pen pal,
     # her mother, and the three of the village who are in her letters.
     "Effie": ("Gen_People14", 7),
@@ -476,6 +478,27 @@ FACES = {
     "Ninian": ("Gen_People16", 0),
     "The Copyist": ("Gen_People16", 1),
 }
+
+
+# Walking sprites, for the speakers whose face is no longer on the sheet their
+# sprite is: Mike drew these eight faces (`supplied.py`, 3 Nov) and kept the
+# sprites and battlers they had. Everything that draws a speaker's event reads
+# `sprite()`, never `FACES`, so a face can move without the body following it.
+SPRITES = {
+    "Courier": ("Gen_People14", 6),
+    "Winnie": ("People1", 7),
+    "Fizz": ("Gen_People1", 0),
+    "Bother": ("People3", 4),
+    "Miss Moon": ("Gen_People13", 0),
+    "Mr Dray": ("Gen_People12", 7),
+    "Spare": ("Gen_People14", 4),
+    "Cotter": ("Gen_People14", 5),
+}
+
+
+def sprite(key):
+    """The (sheet, index) a speaker's event is drawn with: SPRITES, else their face."""
+    return SPRITES.get(key, FACES[key])
 
 
 # A message window shows four lines. RPG Maker's own editor enforces that, and

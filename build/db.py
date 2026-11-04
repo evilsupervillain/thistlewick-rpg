@@ -2666,7 +2666,8 @@ def build_firstfield():
     save("Enemies.json", en)
 
     tr = R.load("Troops.json")
-    fizz = lambda lines: R.text(lines, face_name="Gen_People1", face_index=0)
+    # Fizz's face is Mike's (`supplied.py`, 3 Nov), as in `story.FACES`.
+    fizz = lambda lines: R.text(lines, face_name="Supplied", face_index=5)
     norbert = lambda lines: R.text(lines, face_name="Gen_People1", face_index=1)
     # His hit points are sized at the start of the fight, to the party that
     # turned up: about two and a half turns of it. A fixed number is either a
@@ -3164,7 +3165,7 @@ def build_spare():
                    "boiler. Has had a bag packed for two years.",
         "classId": CLASSES[SPARE], "initialLevel": SPARE_ARGUING_LEVEL,
         "maxLevel": 99, "characterName": "Gen_People14", "characterIndex": 4,
-        "faceName": "Gen_People14", "faceIndex": 4,
+        "faceName": "Supplied2", "faceIndex": 1,  # Mike's face (3 Nov)
         "battlerName": "Gen_People14_5",
         "equips": [WP_BAG, 0, 0, 0, 0],
         # The washer is his alone, and the bag does not come out of his hand:

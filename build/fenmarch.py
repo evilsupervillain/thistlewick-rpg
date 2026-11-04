@@ -231,7 +231,7 @@ def garden_events():
                        [R.page(moat_pages(), **PAGE)]))
 
     # 7: Tom, from Little Gore.
-    evs.append(_person(7, "Tom", TOM, R.image(*S.FACES["Tom"], direction=2),
+    evs.append(_person(7, "Tom", TOM, R.image(*S.sprite("Tom"), direction=2),
                        *tom_pages()))
     evs[-1]["pages"] += q_piper.interview_pages("tom", evs[-1]["pages"])  # PIP-4
     return evs
@@ -526,7 +526,7 @@ def gallery_events():
     evs[-1]["pages"] += q_aldric.fourth_pages(evs[-1]["pages"][-1])  # ALD-5
     evs[-1]["pages"] += q_piper.interview_pages("fourth", evs[-1]["pages"])  # PIP-4
     evs.append(_person(3, "Mrs Puddifoot", PUDDIFOOT,
-                       R.image(*S.FACES["Mrs Puddifoot"], direction=6), *puddifoot_pages()))
+                       R.image(*S.sprite("Mrs Puddifoot"), direction=6), *puddifoot_pages()))
     evs[-1]["pages"] += q_wren.puddifoot_pages(evs[-1]["pages"][-1])  # WRE-4
     evs[-1]["pages"] += q_piper.interview_pages("puddifoot", evs[-1]["pages"])  # PIP-4
     evs.append(_person(4, "Mr Ottershaw", OTTERSHAW,

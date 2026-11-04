@@ -326,7 +326,7 @@ def hart_events():
                                                   direction=2), *pages()))
     evs[1]["pages"] += q_corvin.crake_pages(evs[1]["pages"][-1])       # COR-3
     evs.append(_person(7, "Mrs Garrow", GARROW,
-                       R.image(*S.FACES["Mrs Garrow"], direction=2), *garrow_pages()))
+                       R.image(*S.sprite("Mrs Garrow"), direction=2), *garrow_pages()))
 
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
 

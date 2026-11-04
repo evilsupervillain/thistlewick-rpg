@@ -315,7 +315,7 @@ def pottering_events():
                       MAP_POTTERING_IN, door_x, y2 + 1, direction=8))
 
     # 4: Effie at her gate, and SPA-4's meeting appended to her.
-    img = R.image(*S.FACES["Effie"], direction=2)
+    img = R.image(*S.sprite("Effie"), direction=2)
     evs.append(_person(4, "Effie Gotobed", EFFIE_GATE, img, *effie_pages()))
     evs[-1]["pages"] += q_spare.effie_pages(evs[-1]["pages"][1])    # SPA-4
     # 5-7: where she takes him, and 8: the courier, on his round.
@@ -324,12 +324,12 @@ def pottering_events():
 
     # 9-10: Mr Dibble, and his fence.
     evs.append(_person(9, "Mr Dibble", DIBBLE_AT,
-                       R.image(*S.FACES["Mr Dibble"], direction=4),
+                       R.image(*S.sprite("Mr Dibble"), direction=4),
                        *dibble_pages()))
     evs.append(_bump(10, "Wet Paint", WET_PAINT, *wet_paint()))
     # 11-12: Mrs Throssell, and her plaque - the site's trope.
     evs.append(_person(11, "Mrs Throssell", THROSSELL_AT,
-                       R.image(*S.FACES["Mrs Throssell"], direction=4),
+                       R.image(*S.sprite("Mrs Throssell"), direction=4),
                        *throssell_pages()))
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
     first, later = plaque_pages()
@@ -339,7 +339,7 @@ def pottering_events():
                                   "selfSwitchCh": "A"}, **page)]))
     # 13: Mr Cobley, at the pond, after one carp.
     evs.append(_person(13, "Mr Cobley", COBLEY_AT,
-                       R.image(*S.FACES["Mr Cobley"], direction=4),
+                       R.image(*S.sprite("Mr Cobley"), direction=4),
                        *cobley_pages()))
 
     # 14: the pig, asleep across the street.
@@ -478,7 +478,7 @@ def parlour_events():
     evs = [S.exit_tile(1, "The Front Door", door_x, y2 + 2, MAP_POTTERING,
                        GOTOBED_DOOR[0], GOTOBED_DOOR[1] + 1)]
     evs.append(_person(2, "Mrs Gotobed", MRS_GOTOBED,
-                       R.image(*S.FACES["Mrs Gotobed"], direction=4),
+                       R.image(*S.sprite("Mrs Gotobed"), direction=4),
                        *gotobed_pages()))
     page = dict(img=R.image(""), trigger=0, priority=1, direction_fix=True)
     box = S.narrate([

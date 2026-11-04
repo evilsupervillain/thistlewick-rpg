@@ -636,7 +636,7 @@ def fourth_meeting_event(event_id, x, y, follows):
     """Map 50: the Fourth, turned up at Little Gore once the letter is
     delivered. Nothing before; with Aldric, the meeting; without, waiting;
     afterwards, nothing without Aldric and following with him."""
-    img = R.image(*S.FACES["The Fourth"], direction=8)
+    img = R.image(*S.sprite("The Fourth"), direction=8)
     blank = R.page([], img=R.image(""), trigger=0, priority=0, through=True)
     waiting = S.say("The Fourth", [
         "Is my uncle with you? Sir Aldric?",
@@ -671,7 +671,7 @@ def following_event(event_id, x, y, where):
     `where` is a map id, a key of `ALD5_FOLLOWING`."""
     blank = R.page([], img=R.image(""), trigger=0, priority=0, through=True)
     page = R.page(_ald5_follow(where),
-                  img=R.image(*S.FACES["The Fourth"], direction=2),
+                  img=R.image(*S.sprite("The Fourth"), direction=2),
                   trigger=0, priority=1, conditions={
                       "switch1Valid": True, "switch1Id": db.SW_ALD5_DONE,
                       "actorValid": True, "actorId": db.ALDRIC})

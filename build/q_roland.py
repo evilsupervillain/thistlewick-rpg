@@ -322,8 +322,8 @@ ALUMNI = [
 ROL3_FACES = {"florence": ("Gen_People12", 1), "anselm": ("Gen_People12", 2),
               "mags": ("Gen_People12", 3), "pim": ("Gen_People12", 4),
               "odile": ("Gen_People12", 5), "jory": ("Gen_People12", 6),
-              "ned": S.FACES["Ned Scarrow"], "royce": S.FACES["Major Royce"],
-              "saul": S.FACES["Saul"]}
+              "ned": S.sprite("Ned Scarrow"), "royce": S.sprite("Major Royce"),
+              "saul": S.sprite("Saul")}
 # Speakers whose on-screen name is somebody else's `FACES` key: Ned Scarrow
 # is "Ned", and so is Gladhollow's.
 ROL3_FACE_KEYS = {"ned": "Ned Scarrow"}
@@ -570,7 +570,7 @@ def meeting_events():
     gone = {"switch1Valid": True, "switch1Id": db.SW_ROL1_DONE}
     evs = []
     for eid, name, (x, y), d in ROL1_SEATS:
-        img = R.image(*S.FACES[name], direction=d)
+        img = R.image(*S.sprite(name), direction=d)
         pages = [R.page([], img=R.image(""), priority=0, through=True),
                  R.page(S.say(name, _ROL1_WAIT[name]), img=img,
                         direction_fix=True, conditions=on)]
@@ -759,7 +759,7 @@ def understudy_event(event_id):
     nobody before the hundred and forty-first meeting; then waiting for the
     asset; met, with Roland; told, with him on a second look; and gone north
     once she has asked whose prophecy it is."""
-    img = R.image(*S.FACES["Maud"], direction=8)
+    img = R.image(*S.sprite("Maud"), direction=8)
     met = {"switch1Valid": True, "switch1Id": db.SW_ROL1_DONE}
     on = {"switch1Valid": True, "switch1Id": db.SW_ROL5_ON}
     roland = {"actorValid": True, "actorId": db.ROLAND}
@@ -930,7 +930,7 @@ def understudy_at_door(event_id):
         R.page([], img=R.image(""), priority=0, through=True),
         R.page(S.say("Maud", ["Go on. I'll be here. Somebody",
                               "ought to see the end of one."]),
-               img=R.image(*S.FACES["Maud"], direction=2),
+               img=R.image(*S.sprite("Maud"), direction=2),
                conditions={"switch1Valid": True,
                            "switch1Id": db.SW_ROL5_DONE}),
         # P4a: after the ending she has gone to tell him how it ends.

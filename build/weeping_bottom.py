@@ -337,20 +337,20 @@ def valley_events():
 
     # 8: Sister Pim, taking the patients out for the air.
     evs.append(_person(8, "Sister Pim", PIM,
-                       R.image(*S.FACES["Sister Pim"], direction=6), *pim_pages()))
+                       R.image(*S.sprite("Sister Pim"), direction=6), *pim_pages()))
 
     # 9-11: the patients, facing the sea.
     crouch = S.say("Mr Crouch", [
         "Lovely and bracing, the sea",
         "air. Lovely and bracing."])
     crouch += S.narrate(["He coughs, bracingly."])
-    evs.append(S.npc(9, "Mr Crouch", *SHORE[0], crouch, *S.FACES["Mr Crouch"],
+    evs.append(S.npc(9, "Mr Crouch", *SHORE[0], crouch, *S.sprite("Mr Crouch"),
                      direction=6))
     liddy = S.say("Mrs Liddy", [
         "I came for the damp on my",
         "chest. It's doing wonderfully. I've",
         "never had so much of it."])
-    evs.append(S.npc(10, "Mrs Liddy", *SHORE[1], liddy, *S.FACES["Mrs Liddy"],
+    evs.append(S.npc(10, "Mrs Liddy", *SHORE[1], liddy, *S.sprite("Mrs Liddy"),
                      direction=6))
     oakes = S.say("Mr Oakes", [
         "I'm only visiting. My brother",
@@ -358,7 +358,7 @@ def valley_events():
     oakes += S.say("Mr Oakes", [
         "That was in the spring. He's",
         "gone home now. I've got it instead."])
-    evs.append(S.npc(11, "Mr Oakes", *SHORE[2], oakes, *S.FACES["Mr Oakes"],
+    evs.append(S.npc(11, "Mr Oakes", *SHORE[2], oakes, *S.sprite("Mr Oakes"),
                      direction=6))
 
     # 12: the physic garden.
@@ -650,10 +650,10 @@ def ward_events():
                        *bewick_pages()))
     evs[-1]["pages"] += q_merribell.bewick_pages(evs[-1]["pages"][-1])  # MER-1
     evs.append(_person(4, "Sir Hamo Tench", HAMO,
-                       R.image(*S.FACES["Sir Hamo"], direction=8), *hamo_pages()))
+                       R.image(*S.sprite("Sir Hamo"), direction=8), *hamo_pages()))
     evs[-1]["pages"] += q_aldric.hamo_pages(evs[-1]["pages"][-1])       # ALD-2
     evs.append(_person(5, "Sister Lamb", LAMB,
-                       R.image(*S.FACES["Sister Lamb"], direction=4), *lamb_pages()))
+                       R.image(*S.sprite("Sister Lamb"), direction=4), *lamb_pages()))
 
     # 6: Mr Nuttall, who crossed.
     nuttall = S.say("Mr Nuttall", [
@@ -663,7 +663,7 @@ def ward_events():
         "Much better this side.",
         "Nobody asks you anything this side",
         "except whether you're warm."])
-    evs.append(S.npc(6, "Mr Nuttall", *NUTTALL, nuttall, *S.FACES["Mr Nuttall"],
+    evs.append(S.npc(6, "Mr Nuttall", *NUTTALL, nuttall, *S.sprite("Mr Nuttall"),
                      direction=2))
 
     # 7: Mr Dace, on the correct treatment.
@@ -681,7 +681,7 @@ def ward_events():
     dace += S.narrate([
         "He looks, briefly and wistfully, across the line at the",
         "soup."])
-    evs.append(S.npc(7, "Mr Dace", *DACE, dace, *S.FACES["Mr Dace"], direction=2))
+    evs.append(S.npc(7, "Mr Dace", *DACE, dace, *S.sprite("Mr Dace"), direction=2))
 
     # 8: the line, the notice over it, and the minutes on the table.
     line = S.narrate([

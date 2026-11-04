@@ -1209,7 +1209,7 @@ def stores_ledger(event_id, x, y):
 
 
 def _ott(img=None):
-    sheet, index = S.FACES["Ott"]
+    sheet, index = S.sprite("Ott")
     return R.image(sheet, index, direction=2)
 
 

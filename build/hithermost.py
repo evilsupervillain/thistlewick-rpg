@@ -302,9 +302,9 @@ def hithermost_events():
         "If you're going up, sign the Book.",
         "Everybody does. Some of them twice."])
     evs.append(q_hob.owned("hithermost", S.npc(                    # HOB-1
-        7, "A Villager", 12, 21, local, *S.FACES["Villager"],
+        7, "A Villager", 12, 21, local, *S.sprite("Villager"),
         direction=2, pages=[R.page(
-            again, img=R.image(*S.FACES["Villager"], direction=2),
+            again, img=R.image(*S.sprite("Villager"), direction=2),
             trigger=0, priority=1,
             conditions={"selfSwitchValid": True,
                         "selfSwitchCh": "A"})])))

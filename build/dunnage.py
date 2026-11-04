@@ -578,7 +578,7 @@ def town_events():
     # 8: the watchman in the gate passage. 9: the arms over the gate, on the
     # range's front wall and read from the road below it.
     evs.append(_person(8, "Watchman", WATCHMAN,
-                       R.image(*S.FACES["Watchman"], direction=6), *watchman_pages()))
+                       R.image(*S.sprite("Watchman"), direction=6), *watchman_pages()))
     evs.append(_thing(9, "The Arms", ARMS, *arms_pages()))
     # 10, 11: the anthem and the nine works, on the square.
     evs.append(_thing(10, "The Anthem", ANTHEM, anthem_pages()))
@@ -586,13 +586,13 @@ def town_events():
     # 12: Cotter, at the Iron Company's gate.
     evs.append(q_spare.cotter(q_hob.owned("cotter", _person(  # HOB-1, SPA-2
         12, "Cotter", COTTER,
-        R.image(*S.FACES["Cotter"], direction=2), *cotter_pages()))))
+        R.image(*S.sprite("Cotter"), direction=2), *cotter_pages()))))
     # 13: Mrs Poskitt, on the square.
     evs.append(_person(13, "Mrs Poskitt", POSKITT,
-                       R.image(*S.FACES["Mrs Poskitt"], direction=2), *poskitt_pages()))
+                       R.image(*S.sprite("Mrs Poskitt"), direction=2), *poskitt_pages()))
     # 14-17: the haulage yard - Mr Plummer, Duchess, the cart and the sign.
     plummer = _person(14, "Mr Plummer", PLUMMER,
-                      R.image(*S.FACES["Mr Plummer"], direction=4), *plummer_pages())
+                      R.image(*S.sprite("Mr Plummer"), direction=4), *plummer_pages())
     plummer["pages"] += q_aldric.plummer_pages(plummer["pages"][-1])  # ALD-4
     evs.append(plummer)
     first, later = duchess_pages()
@@ -820,7 +820,7 @@ def smiths_events():
     evs.append(warden)
     evs.append(q_hob.owned("crabbe", _person(                      # HOB-1
         3, "Warden Crabbe", CRABBE,
-        R.image(*S.FACES["Warden Crabbe"], direction=2), *crabbe_pages())))
+        R.image(*S.sprite("Warden Crabbe"), direction=2), *crabbe_pages())))
     evs.append(_thing(4, "The Schedule", SCHEDULE, schedule_pages()))
     prize = _thing(5, "The Prize", PRIZE, prize_pages())
     prize["pages"].append(q_hob.prize_after(prize["pages"][0]))   # HOB-1
@@ -1001,7 +1001,7 @@ def counting_events():
     evs.append(door)
     evs.append(_thing(4, "The Memorandum", MEMORANDUM, memorandum_pages()))
     clerk = _person(5, "Town Clerk", CLERK,
-                    R.image(*S.FACES["Town Clerk"], direction=2), *clerk_pages())
+                    R.image(*S.sprite("Town Clerk"), direction=2), *clerk_pages())
     clerk["pages"].append(q_nix.clerk_page(clerk["pages"][-1]))     # NIX-2
     evs.append(clerk)
     evs += q_nix.vault_events(6, VAULT, VAULT_CHAIR,                 # NIX-2
@@ -1306,7 +1306,7 @@ def bell_events():
     evs = [_exit(1, door_x, y2 + 2, MAP_DUNNAGE, BELL_DOOR[0],
                  BELL_DOOR[1] + 1)]
     dewhirst = _person(2, "Mrs Dewhirst", DEWHIRST,
-                       R.image(*S.FACES["Mrs Dewhirst"], direction=2),
+                       R.image(*S.sprite("Mrs Dewhirst"), direction=2),
                        *dewhirst_pages())
     dewhirst["pages"].append(q_roland.dewhirst_page(dewhirst["pages"][-1]))  # ROL-1
     dewhirst["pages"].append(q_roland.dewhirst_after(dewhirst["pages"][1]))  # ROL-5
@@ -1318,13 +1318,13 @@ def bell_events():
     harbottle["pages"] += q_piper.harbottle_pages(harbottle["pages"][-1])  # PIP-3
     evs.append(harbottle)
     evs.append(_person(4, "Mr Ambler", AMBLER,
-                       R.image(*S.FACES["Mr Ambler"], direction=6), *ambler_pages()))
+                       R.image(*S.sprite("Mr Ambler"), direction=6), *ambler_pages()))
     quayle = _person(5, "Miss Quayle", QUAYLE,
-                     R.image(*S.FACES["Miss Quayle"], direction=6), *quayle_pages())
+                     R.image(*S.sprite("Miss Quayle"), direction=6), *quayle_pages())
     quayle["pages"].append(q_piper.quayle_page(quayle["pages"][-1]))  # PIP-3
     evs.append(quayle)
     tweddle = _person(6, "Mr Tweddle", TWEDDLE,
-                      R.image(*S.FACES["Mr Tweddle"], direction=2), *tweddle_pages())
+                      R.image(*S.sprite("Mr Tweddle"), direction=2), *tweddle_pages())
     tweddle["pages"].append(q_piper.tweddle_page(tweddle["pages"][-1]))  # PIP-3
     evs.append(tweddle)
     poster = _thing(7, "The Contest", POSTER, poster_pages())

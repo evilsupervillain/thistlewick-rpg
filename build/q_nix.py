@@ -1081,7 +1081,7 @@ def _nix3_challenge():
 def lorrimer_guild(event_id, x, y):
     """Lorrimer at the Guild (Map 15): there with Nix until he has made his
     challenge; then gone to the front, and gone for good afterwards."""
-    img = R.image(*S.FACES["Lorrimer"], direction=4)
+    img = R.image(*S.sprite("Lorrimer"), direction=4)
     blank = R.image("")
     return R.event(event_id, "Cobb Lorrimer (Guild)", x, y, [
         R.page([], img=blank, priority=0, through=True),
@@ -1275,7 +1275,7 @@ def _nix3_after():
 def lorrimer_front(event_id, x, y):
     """Lorrimer on the front (Map 13), by the children: there while the list
     is out, with the judging; and afterwards, for everybody."""
-    img = R.image(*S.FACES["Lorrimer"], direction=4)
+    img = R.image(*S.sprite("Lorrimer"), direction=4)
     return R.event(event_id, "Cobb Lorrimer", x, y, [
         R.page([], img=R.image(""), priority=0, through=True),
         R.page(_nix3_front(), img=img, conditions={

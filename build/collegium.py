@@ -336,7 +336,7 @@ def court_events():
 
     # 11: Dr Hapgood, going round the lawn.
     hapgood = _person(11, "Dr Hapgood", HAPGOOD,
-                      R.image(*S.FACES["Dr Hapgood"], direction=2), *hapgood_pages())
+                      R.image(*S.sprite("Dr Hapgood"), direction=2), *hapgood_pages())
     last = hapgood["pages"][-1]
     hapgood["pages"].append(q_zephyrine.hapgood_page(last))  # ZEPH-3
     hapgood["pages"].append(q_zephyrine.hapgood_senior_page(last))  # ZEPH-2
@@ -563,7 +563,7 @@ def library_events():
                     [R.page(monograph_pages(), **PAGE)])
     shelf["pages"] += q_wren.shelf_pages(shelf["pages"][0])  # WRE-1
     evs.append(shelf)
-    evs.append(_person(6, "Reader", READER, R.image(*S.FACES["Reader"], direction=8),
+    evs.append(_person(6, "Reader", READER, R.image(*S.sprite("Reader"), direction=8),
                        *reader_pages()))
     # 7: ZEPH-1's Registrar's clerk, at the east end of the desk, from the
     # Library's eleventh notice on.
@@ -758,7 +758,7 @@ def hall_events():
     evs.append(R.event(6, "The Talk", TALK_POSTER, y1 - 1,
                        [R.page(poster_pages(), **PAGE)]))
     lad = _person(7, "Undergraduate", UNDERGRADUATE,
-                  R.image(*S.FACES["Undergraduate"], direction=2),
+                  R.image(*S.sprite("Undergraduate"), direction=2),
                   *undergraduate_pages())
     lad["pages"].append(q_zephyrine.undergraduate_page(lad["pages"][-1]))  # ZEPH-3
     assert lad["id"] == q_zephyrine.UNDERGRADUATE_EVENT

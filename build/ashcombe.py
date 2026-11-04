@@ -369,12 +369,12 @@ def ashcombe_events():
     wilf += S.narrate([
         "You look. There are no puddles. There is not so much as a",
         "damp patch."])
-    evs.append(S.npc(10, "Wilf", *WILF, wilf, *S.FACES["Wilf"], direction=2))
+    evs.append(S.npc(10, "Wilf", *WILF, wilf, *S.sprite("Wilf"), direction=2))
 
     # 11: the postmistress, at her own door on the lane.
     evs.append(q_hob.owned("dimmock", _person(                     # HOB-1
         11, "Mrs Dimmock", DIMMOCK,
-        R.image(*S.FACES["Mrs Dimmock"], direction=2), *dimmock_pages())))
+        R.image(*S.sprite("Mrs Dimmock"), direction=2), *dimmock_pages())))
     evs.append(q_spare.courier("ashcombe", 23, 22))                # SPA-1
 
     # 13: the church door, which Mike hung on 23 October and which does not

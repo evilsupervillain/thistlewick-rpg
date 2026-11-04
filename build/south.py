@@ -80,7 +80,7 @@ def talker(event_id, name, x, y, speaker, first, again, sheet=None, index=None,
     then. A player who never trips the condition gets today's game exactly as
     it stands - which is the whole of NORTH.md's rule 1.7, in one keyword."""
     if sheet is None:
-        sheet, index = S.FACES[speaker]
+        sheet, index = S.sprite(speaker)
     img = R.image(sheet, index, direction=direction)
     said = list(first) + list(extra) + [R.self_switch("A", True)]
     return R.event(event_id, name, x, y, [
@@ -273,7 +273,7 @@ def sopping_events():
     again = S.say("Regular", face="Day Off", lines=["Still off. Ask in the Wyvern."])
     evs.append(q_hob.owned("regular", talker(                     # HOB-1
         11, "Man Having A Day Off", 13, 23, "Regular", boat, again,
-        *S.FACES["Day Off"], direction=8)))
+        *S.sprite("Day Off"), direction=8)))
 
     # -- 12: the harbour notice ------------------------------------------------
     # On the sign post at (23,25), with a notice pinned to it (Mike, October
@@ -739,7 +739,7 @@ def wyvern_events():
         "Beans.",
         "We have been discussing beans.",
     ])
-    img_trav = R.image(*S.FACES["Traveller"], direction=6)
+    img_trav = R.image(*S.sprite("Traveller"), direction=6)
     evs.append(talker(15, "A Very Ordinary Traveller", 0, 0, "Traveller",
                       trav, trav_again, direction=6, pages=[
         R.page(trav_four, img=img_trav, trigger=0, priority=1,
@@ -770,7 +770,7 @@ def wyvern_events():
     trav2_four += travellers_count()
     trav2_four += [R.self_switch("B", True)]
     trav2_four_again = S.say("Also A Traveller", ["Beans. Anniversary beans."])
-    img_trav2 = R.image(*S.FACES["Also A Traveller"], direction=6)
+    img_trav2 = R.image(*S.sprite("Also A Traveller"), direction=6)
     evs.append(talker(16, "Also A Very Ordinary Traveller", 0, 0,
                       "Also A Traveller", trav2, trav2_again, direction=6,
                       pages=[
@@ -817,7 +817,7 @@ def wyvern_events():
         "I've stopped taking the tray up.",
         "I leave it and go.",
     ])
-    img_sops = R.image(*S.FACES["Sops"], direction=8)
+    img_sops = R.image(*S.sprite("Sops"), direction=8)
     evs.append(talker(17, "Sops the Potboy", 0, 0, "Sops", sops, sops_again,
                       direction=8, move_type=1, pages=[
         R.page(sops_four, img=img_sops, trigger=0, priority=1, move_type=1,
@@ -2222,7 +2222,7 @@ def fitch_map():
 def quy_event(event_id, x, y):
     """Chosen One #45, and the single most load-bearing conversation in the
     expansion: it changes what Grimspite says at the top of the tower."""
-    img = R.image(*S.FACES["Halbert Quy"], direction=8)
+    img = R.image(*S.sprite("Halbert Quy"), direction=8)
 
     first = S.narrate([
         "A man in his seventies is potting something",

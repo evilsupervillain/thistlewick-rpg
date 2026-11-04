@@ -292,8 +292,8 @@ def evermore_events():
         "Nobody's ever come in by it. We did ask."])
     raker += [R.self_switch("A", True)]
     again = S.say("Elf", ["Mind the leaves. I've just done them."])
-    img = R.image(*S.FACES["Elf"], direction=4)
-    evs.append(S.npc(7, "The Raker", *RAKER_AT, raker, *S.FACES["Elf"],
+    img = R.image(*S.sprite("Elf"), direction=4)
+    evs.append(S.npc(7, "The Raker", *RAKER_AT, raker, *S.sprite("Elf"),
                      direction=4, pages=[R.page(
                          again, img=img, trigger=0, priority=1,
                          conditions={"selfSwitchValid": True,
@@ -330,9 +330,9 @@ def elves():
     again = S.say("Thalion", [
         "Five point eight. It's in the book.",
         "There is no appeal. I am the panel."])
-    img = R.image(*S.FACES["Thalion"], direction=4)
+    img = R.image(*S.sprite("Thalion"), direction=4)
     evs.append(S.npc(9, "Thalion, Judge of Arrivals", *JUDGE_AT, judge,
-                     *S.FACES["Thalion"], direction=4, pages=[R.page(
+                     *S.sprite("Thalion"), direction=4, pages=[R.page(
                          again, img=img, conditions=_again())]))
 
     # 10: the bard, singing to the well. The trope is the elven song that
@@ -362,9 +362,9 @@ def elves():
     bard += [S.trope(), R.self_switch("A", True)]
     again = S.say("Aelwen", ["Four bars' rest. Shh.",
                              "This is the best bit."])
-    img = R.image(*S.FACES["Aelwen"], direction=2)
+    img = R.image(*S.sprite("Aelwen"), direction=2)
     evs.append(S.npc(10, "Aelwen, Who Sings", *BARD_AT, bard,
-                     *S.FACES["Aelwen"], step_anime=True, pages=[R.page(
+                     *S.sprite("Aelwen"), step_anime=True, pages=[R.page(
                          again, img=img, step_anime=True,
                          conditions=_again())]))
 
@@ -399,9 +399,9 @@ def elves():
     knit += R.if_then(R.condition_script(told), known, cosy)
     again = S.say("Elowen", ["Bryony. Or Bronwen.",
                              "Knit one, purl one."])
-    img = R.image(*S.FACES["Elowen"], direction=2)
+    img = R.image(*S.sprite("Elowen"), direction=2)
     evs.append(S.npc(11, "Elowen, Who Knits", *KNITTER_AT, knit,
-                     *S.FACES["Elowen"], pages=[R.page(
+                     *S.sprite("Elowen"), pages=[R.page(
                          again, img=img, conditions=_again())]))
 
     # 12: the fisherman, facing the pond.
@@ -421,9 +421,9 @@ def elves():
         "He'd be insufferable."])
     fish += [R.self_switch("A", True)]
     again = S.say("Calder", ["Shh. He's thinking about it."])
-    img = R.image(*S.FACES["Calder"], direction=6)
+    img = R.image(*S.sprite("Calder"), direction=6)
     evs.append(S.npc(12, "Calder, Who Fishes", *FISHER_AT, fish,
-                     *S.FACES["Calder"], direction=6, pages=[R.page(
+                     *S.sprite("Calder"), direction=6, pages=[R.page(
                          again, img=img, conditions=_again())]))
 
     # 13: the sweeper of the path out, up and down the west path. A custom
@@ -450,7 +450,7 @@ def elves():
              + [{"code": 15, "parameters": [60]},
                 {"code": 0, "parameters": []}],
              "repeat": True, "skippable": True, "wait": False}
-    img = R.image(*S.FACES["Ninian"], direction=6)
+    img = R.image(*S.sprite("Ninian"), direction=6)
     pages = [R.page(sweep, img=img, move_type=3, move_speed=2,
                     move_frequency=3),
              R.page(again, img=img, move_type=3, move_speed=2,
@@ -663,7 +663,7 @@ def archive_events():
     lirien_again = S.say("Elder Lirien", [
         "Half past seven.",
         "Not a minute after."])
-    limg = R.image(*S.FACES["Elder Lirien"], direction=4)
+    limg = R.image(*S.sprite("Elder Lirien"), direction=4)
     evs.append(R.event(3, "Elder Lirien", *LIRIEN, [
         R.page(lirien, img=limg, trigger=0, priority=1),
         R.page(lirien_again, img=limg, trigger=0, priority=1,
@@ -707,7 +707,7 @@ def archive_events():
     faelan_again = S.say("Elder Faelan", [
         "The top shelf. It is always the",
         "top shelf."])
-    fimg = R.image(*S.FACES["Elder Faelan"], direction=8)
+    fimg = R.image(*S.sprite("Elder Faelan"), direction=8)
     evs.append(R.event(4, "Elder Faelan", LADDER_X, y1, [
         R.page(faelan, img=fimg, trigger=0, priority=1),
         R.page(faelan_again, img=fimg, trigger=0, priority=1,
@@ -775,9 +775,9 @@ def archive_events():
     again = S.say("The Copyist", [
         "Nobody has told me to stop.",
         "I have been listening very carefully."])
-    img = R.image(*S.FACES["The Copyist"], direction=2)
+    img = R.image(*S.sprite("The Copyist"), direction=2)
     evs.append(S.npc(8, "The Copyist", DESK[0], DESK[1] - 1, copyist,
-                     *S.FACES["The Copyist"], pages=[R.page(
+                     *S.sprite("The Copyist"), pages=[R.page(
                          again, img=img, conditions=_again())]))
     return evs
 

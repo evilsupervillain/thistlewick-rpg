@@ -288,10 +288,10 @@ def village_events():
                       "You will hear again."])
     kid += [S.trope(), R.self_switch("A", True)]
     child = add(R.event(12, "Child (dungeon rumour)", 21, 17, [
-        R.page(kid, img=R.image(*S.FACES["Child"], direction=2), trigger=0,
+        R.page(kid, img=R.image(*S.sprite("Child"), direction=2), trigger=0,
                priority=1, move_type=1, move_speed=5, move_frequency=5),
         R.page(S.say("Child", ["There's a DUNGEON! To the NORTH!"]),
-               img=R.image(*S.FACES["Child"], direction=2), trigger=0, priority=1,
+               img=R.image(*S.sprite("Child"), direction=2), trigger=0, priority=1,
                move_type=1, move_speed=5, move_frequency=5,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))
@@ -306,7 +306,7 @@ def village_events():
         "Come back, lad. That's all. Come back."])
     old += [S.trope()]
     add(PG.old_man(q_nix.returned("old_man", S.npc(              # NIX-4, P4b
-        13, "Old Man", 11, 17, old, *S.FACES["Old Man"]))))
+        13, "Old Man", 11, 17, old, *S.sprite("Old Man")))))
 
     # -- 14/15: the dog, and the man who speaks for him (Mike moved them out
     # of the lane between the smithy and the Turnip's garden, 30 Oct, and on
@@ -385,7 +385,7 @@ def village_events():
         "Goat abstained.",
         "Very dignified about it."], face="Gossip")
     add(q_hob.owned("gossip", S.npc(21, "Gossip", 24, 16, gossip,  # HOB-1
-                                  *S.FACES["Gossip"], direction=4)))
+                                  *S.sprite("Gossip"), direction=4)))
 
     # -- 22: the market stall --------------------------------------------------
     stall = S.say("Merchant", ["Fresh! Mostly!"])
@@ -804,7 +804,7 @@ def hall_events():
         "Form C-12(S), which is held in Nether",
         "Sopping, by a man called Pell. Not my circus."])
     clerk += S.roster_amendment()
-    evs.append(S.npc(3, "Committee Clerk", 7, 8, clerk, *S.FACES["Clerk"],
+    evs.append(S.npc(3, "Committee Clerk", 7, 8, clerk, *S.sprite("Clerk"),
                      direction=6))
 
     # -- the Committee, still arguing about the wording -----------------------
@@ -1028,7 +1028,7 @@ def inn_events():
     drunk += S.say("Regular", ["Number thirty-nine."])
     drunk += S.narrate(["He drinks again."])
     drunk += S.say("Regular", ["Lovely tower, apparently."])
-    regular = S.npc(5, "Regular", 4, 8, drunk, *S.FACES["Regular"],
+    regular = S.npc(5, "Regular", 4, 8, drunk, *S.sprite("Regular"),
                     direction=8)
     regular["pages"].append(PG.regular_page(regular["pages"][0]))    # P4b
     evs.append(regular)
@@ -1538,7 +1538,7 @@ def smithy_events():
         (2, db.AR_BUCKLER, 0, 0), (2, db.AR_KITE_SHIELD, 0, 0),
         (2, db.AR_HAT, 0, 0), (2, db.AR_HELM, 0, 0),
     ])
-    evs.append(S.npc(3, "Apprentice", 11, 8, shop, *S.FACES["Apprentice"],
+    evs.append(S.npc(3, "Apprentice", 11, 8, shop, *S.sprite("Apprentice"),
                      direction=4))
 
     beatrice = S.prop(4, "Beatrice", *SMITHY_ANVIL, [

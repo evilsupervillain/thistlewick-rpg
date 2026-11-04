@@ -164,7 +164,7 @@ def ladder(event_id, name, x, y, speaker, beats, sheet=None, index=None,
         raise ValueError("%s has %d beats and there are only four self "
                          "switches to chain them with" % (name, len(beats)))
     if sheet is None:
-        sheet, index = S.FACES[speaker]
+        sheet, index = S.sprite(speaker)
     img = R.image(sheet, index, direction=direction)
     out = []
     for i, beat in enumerate(beats):
@@ -335,7 +335,7 @@ def clanging_events():
             "Mr Cotterill is very pleased.",
         ]),
         extra=[R.control_switch(db.SW_COTTERILL, True)], direction=2,
-        pages=q_spare.mam_pages(R.image(*S.FACES["Mrs Cotterill"],      # F2
+        pages=q_spare.mam_pages(R.image(*S.sprite("Mrs Cotterill"),      # F2
                                         direction=2)))))
 
     # Mr Cotterill is the reaction shot and deliberately does **not** bump the
@@ -409,8 +409,8 @@ def clanging_events():
             "The bag is still packed.",
         ]),
     ], direction=8,
-        pages=q_spare.spare_pages(R.image(*S.FACES["Spare"], direction=8))  # F1
-        + q_spare.spare_spa3_pages(R.image(*S.FACES["Spare"], direction=2))))
+        pages=q_spare.spare_pages(R.image(*S.sprite("Spare"), direction=8))  # F1
+        + q_spare.spare_spa3_pages(R.image(*S.sprite("Spare"), direction=2))))
 
     # -- 14-17: the rest of the doorstep ------------------------------------
     #
@@ -503,7 +503,7 @@ def clanging_events():
         S.say("Shim", [
             "You can hold the bearing if you like.",
         ]), direction=2, move_type=1,
-        pages=q_spare.shim_pages(R.image(*S.FACES["Shim"], direction=2),
+        pages=q_spare.shim_pages(R.image(*S.sprite("Shim"), direction=2),
                                  move_type=1))))        # F1
 
     # Bessie is the eldest son's wife and does four jobs in one event: she is
@@ -1061,7 +1061,7 @@ def ott_the_two_hundred():
 
 
 def _ott_face():
-    sheet, index = S.FACES["Ott"]
+    sheet, index = S.sprite("Ott")
     return R.image(sheet, index, direction=2)
 
 
@@ -1345,7 +1345,7 @@ def works_events():
     ]) + S.say("Tappet", [
         "Six crates. Same place as always.",
     ])
-    t_sheet, t_index = S.FACES["Tappet"]
+    t_sheet, t_index = S.sprite("Tappet")
     evs.append(q_spare.spa3("tappet", talker(
         9, "Tappet Cotterill", 14, 14, "Tappet",
         S.say("Tappet", [
@@ -1520,7 +1520,7 @@ def valve_events():
             "Second Saturday. As ever.",
         ]), direction=4,
         pages=[R.page(winnie_seating,
-                      img=R.image(*S.FACES["Winnie"], direction=4),
+                      img=R.image(*S.sprite("Winnie"), direction=4),
                       trigger=0, priority=1,
                       conditions={"switch1Valid": True,
                                   "switch1Id": db.SW_COTTERILL,
@@ -1687,7 +1687,7 @@ def forge_events():
         "Aye.",
     ])
 
-    sheet, index = S.FACES["Bryd"]
+    sheet, index = S.sprite("Bryd")
     img = R.image(sheet, index, direction=8)      # at his anvil, FORGE_ANVIL
     evs.append(R.event(2, "Bryd Ollerenshaw", 6, 7, [R.page(
         R.if_then(
@@ -1760,12 +1760,12 @@ def forge_events():
             "A gudgeon is a pin. That one is fine.",
         ]), direction=8,
         pages=[R.page(S.say("Grommet", ["They do this every time."]),
-                      img=R.image(*S.FACES["Grommet"], direction=8),
+                      img=R.image(*S.sprite("Grommet"), direction=8),
                       trigger=0, priority=1,
                       conditions={"actorValid": True, "actorId": db.HOB,
                                   "selfSwitchValid": True,
                                   "selfSwitchCh": "A"})]
-        + q_hob.grommet_pages(R.image(*S.FACES["Grommet"], direction=8)))))
+        + q_hob.grommet_pages(R.image(*S.sprite("Grommet"), direction=8)))))
     return evs
 
 
@@ -2068,7 +2068,7 @@ def parish_events():
             "Everybody gets it wrong.",
         ]), direction=6,
         pages=q_spare.gudgeon_pages(
-            R.image(*S.FACES["Gudgeon"], direction=6)))))     # F1
+            R.image(*S.sprite("Gudgeon"), direction=6)))))     # F1
     return evs
 
 

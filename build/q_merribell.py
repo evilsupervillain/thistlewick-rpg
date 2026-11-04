@@ -1402,7 +1402,7 @@ def back_room_events(first_id):
     evs.append(out)
 
     tx1, ty, tx2 = WYVERN_BACK_TABLE
-    chair = R.image(*S.FACES["Ysolde"], direction=6)
+    chair = R.image(*S.sprite("Ysolde"), direction=6)
     evs.append(R.event(first_id + 2, "Ysolde (in the chair)", tx1 - 1, ty, [
         copy.deepcopy(blank),
         R.page(_mer3_table(), img=chair, trigger=0, priority=1,
@@ -1414,7 +1414,7 @@ def back_room_events(first_id):
         evs.append(R.event(first_id + 3 + i, who, x, y, [
             copy.deepcopy(blank),
             R.page(S.say(who, _MER3_ASIDES[who]),
-                   img=R.image(*S.FACES[who], direction=d), trigger=0,
+                   img=R.image(*S.sprite(who), direction=d), trigger=0,
                    priority=1, conditions=on),
             copy.deepcopy(dict(blank, conditions=R.page([], conditions=done)[
                 "conditions"])),
