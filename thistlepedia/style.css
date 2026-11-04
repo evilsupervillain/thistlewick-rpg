@@ -226,6 +226,7 @@
 /* A row of small portraits, for the party and other crowds. */
 .sp-content .gallery { display: flex; flex-wrap: wrap; gap: .8em; margin: 1em 0; }
 .sp-content .gallery figure { margin: 0; width: 9.5em; text-align: center; }
+.sp-content .gallery figure > a { display: block; }
 .sp-content .gallery img { width: 100%; height: auto; border: 1px solid var(--tp-rule); padding: 2px; background: var(--sp-surface); }
 .sp-content .gallery figcaption { display: block; font-size: .85em; font-style: normal; }
 
