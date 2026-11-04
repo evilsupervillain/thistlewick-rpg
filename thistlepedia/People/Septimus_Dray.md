@@ -8,7 +8,7 @@ title: Septimus Dray
 
 <table class="infobox">
 <caption>Septimus Dray</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Septimus_Dray.png" alt="Septimus Dray, grey-haired and grey-bearded, in a dark coat" width="200"><span class="infobox-caption">"It's meant to sound like that. Mostly."</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Septimus_Dray.png" alt="Septimus Dray, grey-haired and grey-bearded, in a brown coat" width="200"><span class="infobox-caption">"It's meant to sound like that. Mostly."</span></td></tr>
 <tr><th>Known as</th><td>Mr Dray; the serpent</td></tr>
 <tr><th>Born</th><td>7 July 1930, <a href="../Places/Great_Dunnage">Great Dunnage</a>, the seventh child of a seventh child</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>

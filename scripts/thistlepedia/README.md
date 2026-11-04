@@ -52,6 +52,12 @@ which speaker in `build/story.py`'s `FACES` it is, so the casting comes from
 the game. The script copies `img/pictures/<sheet>_<index+1>.png` (the full
 bust), or cuts the face cell out of `img/faces/` where there is no bust, or
 uses `scripts/thistlepedia/art/<Name>.png` if a portrait was drawn for the wiki.
+A manifest entry of `null` is a portrait that exists only there - somebody
+who is never in the game (Mother Ursula Pym), or a picture that is not any one
+speaker's face (the Cotterills, Mr and Mrs). Hosea's picture on the landing
+page is not a portrait and not in the manifest: it is
+`thistlepedia/images/Hosea_Bellwether_at_work.jpg`, Mike's 800x848 engraving
+scaled to 440 wide; his bio keeps the in-game bust.
 When final art lands in `img/` under the same names, rerun it; `--check` says
 whether any copy is stale.
 

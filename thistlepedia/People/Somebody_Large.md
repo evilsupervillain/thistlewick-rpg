@@ -8,7 +8,7 @@ title: Somebody Large
 
 <table class="infobox">
 <caption>Somebody Large</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Somebody_Large.png" alt="A large dark shape, against the dark" width="200"><span class="infobox-caption">In the dark, which is how most people meet it</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Somebody_Large.png" alt="A large dark shape, horned and winged, against the dark" width="200"><span class="infobox-caption">In the dark, which is how most people meet it</span></td></tr>
 <tr><th>Known as</th><td>The Wrong Dragon, on the map. Somebody Large, which is what I have put, because it is accurate</td></tr>
 <tr><th>Is</th><td>A dragon, in the sense that the map says so. Not a dragon in the sense anybody means</td></tr>
 <tr><th>Born</th><td>Not asked</td></tr>

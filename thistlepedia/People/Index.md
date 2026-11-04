@@ -251,6 +251,10 @@ And <a href="Humphrey_Gotobed">Humphrey Gotobed</a>, adventurer, retired, who wa
 
 ## Further back
 
+<div class="gallery">
+<figure><img src="../images/portraits/Mother_Ursula_Pym.png" alt="Mother Ursula Pym"><figcaption><a href="Mother_Ursula_Pym">Mother Ursula Pym</a></figcaption></figure>
+</div>
+
 - <a href="Mother_Ursula_Pym">Mother Ursula Pym</a> (1659-1744), who founded the Order of Whatever Works, for the air
 
 ## In other hands

@@ -8,7 +8,7 @@ title: Cotter Cotterill
 
 <table class="infobox">
 <caption>Cotter Cotterill</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Cotter_Cotterill.png" alt="Cotter Cotterill, at the Iron Company's gate" width="200"><span class="infobox-caption">Saturday. Six o'clock. Eleven miles</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Cotter_Cotterill.png" alt="Cotter Cotterill, a young man with goggles pushed up in his brown hair, in a works coat with a red neckerchief" width="200"><span class="infobox-caption">Saturday. Six o'clock. Eleven miles</span></td></tr>
 <tr><th>Known as</th><td>Cotter; "the eldest", by himself, first, every time</td></tr>
 <tr><th>Born</th><td>17 January 1976, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Male</td></tr>

@@ -7,8 +7,8 @@ title: The Thistle-pedia
 <p class="hatnote">Being Volume Three of <i>A Complete And Accurate History Of The Obligatory Quest</i>, arranged alphabetically so that people will stop coming to my table to ask me things.</p>
 
 <figure class="thumb right">
-<img class="portrait" src="images/portraits/Hosea_Bellwether.png" alt="Hosea Bellwether, a young man in spectacles and a green waistcoat, one hand thoughtfully at his temple" width="220">
-<figcaption>The compiler, at work. The hand at the temple is thought. The ink on it is also thought, after a fashion.</figcaption>
+<img class="portrait" src="images/Hosea_Bellwether_at_work.jpg" alt="An engraving of Hosea Bellwether, a young man in round spectacles and a bow tie, at a candlelit table in a tavern with a great book open in front of him, one hand thoughtfully at his temple" width="260">
+<figcaption>The compiler, at work, at his table in the Wyvern, with the book. The hand at the temple is thought. The ink on it is also thought, after a fashion.</figcaption>
 </figure>
 
 <p class="lede">My name is <b>Hosea Bellwether</b>, and I am the historian of the Obligatory Quest. I am not the <i>only</i> historian of the Obligatory Quest - the Prophecy Committee of Thistlewick keeps minutes, and the minutes are very thorough about biscuits - but I am the only one who has ever gone and asked the people it happened to. I do my asking from a table of my own by the fire in the <a href="Places/The_Slain_Wyvern">Slain Wyvern</a>, in <a href="Places/Nether_Sopping">Nether Sopping</a>, where the book lives. It needs a table of its own. You will understand why when you try to lift it.</p>

@@ -8,6 +8,7 @@ title: Mother Ursula Pym
 
 <table class="infobox">
 <caption>Mother Ursula Pym</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Mother_Ursula_Pym.png" alt="An old engraving of Mother Ursula Pym, an elderly woman in a deep white hood and a habit, with a long plait over one shoulder, smiling slightly" width="200"><span class="infobox-caption">"Better, thank you"</span></td></tr>
 <tr><th>Known as</th><td>Mother Ursula; the Founder; "her in the window"</td></tr>
 <tr><th>Born</th><td>2 February 1659, at Sallow Cross, a market town as far from the sea as it is possible to get without leaving the island</td></tr>
 <tr><th>Died</th><td>11 November 1744, at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>, aged eighty-five, sitting down</td></tr>

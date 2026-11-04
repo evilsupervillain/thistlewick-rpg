@@ -8,7 +8,7 @@ title: Lettice Moon
 
 <table class="infobox">
 <caption>Lettice Moon</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Lettice_Moon.png" alt="Lettice Moon, with long dark hair, smiling slightly" width="200"><span class="infobox-caption">Between verses</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Lettice_Moon.png" alt="Lettice Moon, with long dark hair and a yellow ribbon, in a dark dress with a lace collar, smiling slightly" width="200"><span class="infobox-caption">Between verses</span></td></tr>
 <tr><th>Known as</th><td>Miss Moon</td></tr>
 <tr><th>Born</th><td>30 November 1975, <a href="../Places/Great_Dunnage">Great Dunnage</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>

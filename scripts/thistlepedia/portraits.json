@@ -1,6 +1,7 @@
 {
-  "_comment": "Wiki portrait name -> a speaker in build/story.py FACES, or [sheet, index]. See portraits.py.",
+  "_comment": "Wiki portrait name -> a speaker in build/story.py FACES, or [sheet, index], or null for art/ only. See portraits.py.",
   "Hosea_Bellwether": "Hosea",
+  "Mother_Ursula_Pym": null,
   "Bram_Thistle": "Bram",
   "Merribell": "Merribell",
   "Hob_Grumnir": "Hob",

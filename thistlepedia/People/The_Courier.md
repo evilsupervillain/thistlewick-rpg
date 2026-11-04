@@ -8,7 +8,7 @@ title: The Courier
 
 <table class="infobox">
 <caption>The Courier</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/The_Courier.png" alt="The courier, in a red coat and a dark cap, with a moustache" width="200"><span class="infobox-caption">On his rounds</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/The_Courier.png" alt="The courier, a young man with a ginger moustache, in a flat cap and a red coat with a satchel strap across it" width="200"><span class="infobox-caption">On his rounds</span></td></tr>
 <tr><th>Known as</th><td>The courier; the man in the red coat</td></tr>
 <tr><th>Born</th><td>Not stated. Asked, he said that he was on his rounds</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>

@@ -8,7 +8,7 @@ title: The Cotterills
 
 <table class="infobox">
 <caption>The Cotterills</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/The_Cotterills.png" alt="Mrs Cotterill" width="200"><span class="infobox-caption">Mrs Cotterill, who chose the names</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/The_Cotterills.png" alt="Mr and Mrs Cotterill, side by side: she with a long dark plait and a yellow cardigan, he with a moustache and a green work shirt" width="200"><span class="infobox-caption">Mr and Mrs Cotterill. She chose the names</span></td></tr>
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a>, the house at the end of the street, and most of the street</td></tr>
 <tr><th>Mam</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
 <tr><th>Da</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>

@@ -14,7 +14,9 @@ names each portrait after the wiki page it is for and says which speaker in
 `build/story.py`'s `FACES` it is - so the casting is read from the game itself,
 and recasting somebody there recasts them here on the next run. An entry can
 instead give an explicit `[sheet, index]` for somebody who has no line of
-dialogue and so no entry in `FACES`.
+dialogue and so no entry in `FACES`, or `null` for somebody who is never in
+the game at all and has only a portrait drawn for the wiki (Mother Ursula
+Pym, dead since 1744) - which must then be in `art/`.
 
 For each portrait the first of these that exists wins:
 
@@ -57,7 +59,9 @@ def story_faces():
 
 
 def resolve(name, entry, faces):
-    """(sheet, index) for one manifest entry."""
+    """(sheet, index) for one manifest entry; (None, None) for wiki-only art."""
+    if entry is None:
+        return None, None
     if isinstance(entry, list):
         return entry[0], int(entry[1])
     if entry not in faces:
@@ -71,6 +75,8 @@ def render(name, sheet, index):
     drawn = os.path.join(ART, name + ".png")
     if os.path.exists(drawn):
         return Image.open(drawn).convert("RGBA"), os.path.relpath(drawn, GAME)
+    if sheet is None:
+        raise SystemExit(f"{name}: no game face, and no art/{name}.png")
     bust = os.path.join(GAME, "img", "pictures", f"{sheet}_{index + 1}.png")
     if os.path.exists(bust):
         return Image.open(bust).convert("RGBA"), os.path.relpath(bust, GAME)

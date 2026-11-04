@@ -8,7 +8,7 @@ title: Ferrety Bother
 
 <table class="infobox">
 <caption>Ferrety Bother</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ferrety_Bother.png" alt="Ferrety Bother, grey-bearded, in a high-collared gold-trimmed coat" width="200"><span class="infobox-caption">At the bottom of the stairs</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Ferrety_Bother.png" alt="Ferrety Bother, grey-haired and grey-bearded, in a purple coat with gold trim and one gold shoulder-plate" width="200"><span class="infobox-caption">At the bottom of the stairs</span></td></tr>
 <tr><th>Known as</th><td>Mr Bother; the keeper</td></tr>
 <tr><th>Born</th><td>3 February 1938, in the lighthouse, on the ground floor, under the tapestry of the storm</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>

@@ -8,7 +8,7 @@ title: Spare Cotterill
 
 <table class="infobox">
 <caption>Spare Cotterill</caption>
-<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Spare_Cotterill.png" alt="Spare Cotterill, a small boy with a packed bag, asking whether he can come yet" width="200"><span class="infobox-caption">Can he come yet</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Spare_Cotterill.png" alt="Spare Cotterill, a small boy with spiky blue hair and a blue waistcoat, smiling as if he can come" width="200"><span class="infobox-caption">Can he come yet</span></td></tr>
 <tr><th>Known as</th><td>Spare; the Ninth</td></tr>
 <tr><th>Born</th><td>2 January 1991, the house at the end of the street, <a href="../Places/Upper_Clanging">Upper Clanging</a>. Ninth</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
