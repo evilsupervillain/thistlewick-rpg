@@ -52,7 +52,7 @@ was worth the journey, and the wait.</p>
 
 **The Gloamwood Society**, which meets at the table by the door on Thursdays: nine members, forty years, a walk once a year, and a quarterly, *The Sighting*, edited by Mr Dunmore. Mrs Lumb does the talking. Miss Pellow saw the Thing in the Woods in 1971, and counted nine, and was the only one who got it right. The Society's long work came to its conclusion in the year 2000, with the help of Miss Halloway, and is described under <a href="The_Gloamwood">The Gloamwood</a>.
 
-**Zephyrine Vance** drank at the table by the window for eleven years, being just passing through, like somebody waiting for a letter. The letter came, on thick cream paper with a purple seal, and Prudence propped it against the glass where she would see it: the Collegium Arcanum's eleventh notice of outstanding fines. See her article. The table is still hers when she wants it. She does not sit at it like that any more. There is a scorch mark on the ceiling above it, which was a moth.
+**Zephyrine Vance** drank at the table by the window for eleven years, being just passing through, like somebody waiting for a letter. The letter came, on thick cream paper with a purple seal, and Prudence propped it against the glass where she would see it: the <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a>'s eleventh notice of outstanding fines. See her article. The table is still hers when she wants it. She does not sit at it like that any more. There is a scorch mark on the ceiling above it, which was a moth.
 
 **Piper Quill** was standing on a table when the Forty-Eighth first came in, describing him, out loud, in the third person, as he approached. The tavern had not fallen silent. The tavern was ignoring her. Through the window from the square you can still hear somebody in there singing a song about the Forty-Eighth which rhymes *Bram* with *jam*. It is hers. The jam was a placeholder. It has tested very well.
 
@@ -64,3 +64,4 @@ was worth the journey, and the wait.</p>
 - <a href="The_Slain_Wyvern">The Slain Wyvern</a>, the sister house
 - <a href="../People/Piper_Quill">Piper Quill</a>, for the rhyme
 - <a href="../People/Zephyrine_Vance">Zephyrine Vance</a>, for the letter
+- <a href="../Institutions/The_Turnip">The Turnip</a>, and the question of which came first

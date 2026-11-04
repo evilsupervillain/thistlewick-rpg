@@ -23,7 +23,7 @@ title: Tibb
 
 ## The settlement
 
-"We're both the Chosen One now. Nobody's the Dark Lord. He's at home." I asked Tibb whose idea that had been. He said it had been both of theirs, at once, on a Tuesday, after a long argument about whose turn it was, and that once you thought of it, it was obvious, and that it was strange nobody had thought of it before. I agreed that it was strange. I have since put the question to the Prophecy Committee, who minuted it as *Noted.*
+"We're both the Chosen One now. Nobody's the Dark Lord. He's at home." I asked Tibb whose idea that had been. He said it had been both of theirs, at once, on a Tuesday, after a long argument about whose turn it was, and that once you thought of it, it was obvious, and that it was strange nobody had thought of it before. I agreed that it was strange. I have since put the question to the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, who minuted it as *Noted.*
 
 The difficulty with a game in which nobody is the Dark Lord is that nothing happens in it. He and Sops would walk north along the front together, to the end of the harbour wall, both Chosen, and there would be nobody there, and they would walk back. "Still no Dark Lord," Tibb told the Forty-Eighth. "Still working." It was said without complaint. It was said, I think, the way an engineer says that a thing is under review.
 

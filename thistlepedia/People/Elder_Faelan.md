@@ -27,7 +27,7 @@ title: Elder Faelan
 
 He is to be found at the foot of the Archive's ladder, or on it. "Elder Faelan. Forgive me - I am fetching the Chronicle of the Second Age for Grandmother." Everybody calls her Grandmother: "She was old when my grandmother was a girl, and my grandmother was a girl for a long time." The *Chronicle* is on the top shelf so that she cannot reach it, because she reads the endings first. "The top shelf. It is always the top shelf."
 
-He has views about the margin of the Prophecy of Thistlewick, which are that it is the margin of a sacred and binding instrument, and he has expressed them to Grandmother, who says it is a good horse. I have not asked him for more than that and he has not offered it.
+He has views about the margin of the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy of Thistlewick</a>, which are that it is the margin of a sacred and binding instrument, and he has expressed them to Grandmother, who says it is a good horse. I have not asked him for more than that and he has not offered it.
 
 ## The sun
 
@@ -35,7 +35,7 @@ When the Forty-Eighth mentioned who he was, Elder Faelan was delighted. "Are you
 
 > "Your Committee will have told you it was a hundred years. It counts the way the Prophecy does. We count the way the sun does."
 
-And when the Forty-Eighth said, as everybody from Thistlewick says, that the Age began with the Prophecy:
+And when the Forty-Eighth said, as everybody from <a href="../Places/Thistlewick">Thistlewick</a> says, that the Age began with the Prophecy:
 
 > "The Age began with a great many things. The Prophecy was the one with a clerk present."
 

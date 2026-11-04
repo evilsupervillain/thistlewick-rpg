@@ -20,7 +20,7 @@ title: Shim Cotterill
 <tr><th>Will give</th><td>Washer a washer. When she is bigger. Not yet</td></tr>
 </table>
 
-<p class="lede"><b>Shim Cotterill</b> is the eighth of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and collects things: washers, mostly, and three bolts, a doorknob, and a bearing, and the bearing is the best one, because you can hold it and it goes round. When Spare said he was going away before the baby came, she said that he could have a washer, and he could, and he did, and he wore it on a bootlace to the top of the Obligatory Tower and back.</p>
+<p class="lede"><b>Shim Cotterill</b> is the eighth of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and collects things: washers, mostly, and three bolts, a doorknob, and a bearing, and the bearing is the best one, because you can hold it and it goes round. When Spare said he was going away before the baby came, she said that he could have a washer, and he could, and he did, and he wore it on a bootlace to the top of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> and back.</p>
 
 ## The tin
 
@@ -40,7 +40,7 @@ When the tenth was coming, Spare said he was going away before the baby came, an
 
 > "That one. It is a good one. It has been flat the whole time."
 
-It went into Spare's bag. It is on a bootlace round his neck, and has been since, and he calls it *A Washer, Off Shim*, and Nix, who keeps the provenance of things, has entered it in her ledger as *Given, by Shim, to Spare. A good washer. Not the bearing.* Shim says the last three words were quite right, and that she had thought about the bearing, for a while, and that a person has to keep something.
+It went into Spare's bag. It is on a bootlace round his neck, and has been since, and he calls it *A Washer, Off Shim*, and <a href="Nix">Nix</a>, who keeps the provenance of things, has entered it in her ledger as *Given, by Shim, to Spare. A good washer. Not the bearing.* Shim says the last three words were quite right, and that she had thought about the bearing, for a while, and that a person has to keep something.
 
 <div class="marginalia">Grommet tells her every day that a shim is a packing piece, and not a fastener. She says that she knows. A packing piece is what you put in between two things to make them fit, and the whole family is two things that do not quite fit, ten times over, and somebody has to be the packing piece. I am not sure she meant to say anything so wise. I am fairly sure she did. She is thirteen. - H.B.</div>
 

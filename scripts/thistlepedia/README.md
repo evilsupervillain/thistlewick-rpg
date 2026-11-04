@@ -38,7 +38,7 @@ the game. The skill that says how is `.claude/skills/staticpedia/SKILL.md`.
 
     .venv/bin/python scripts/thistlepedia/portraits.py   # refresh the portrait copies (needs Pillow)
     python3 scripts/thistlepedia/redlinks.py      # red <-> blue links, and what is still owed
-    node scripts/staticpedia/build-index.mjs thistlepedia
+    node scripts/staticpedia/build-index.mjs thistlepedia --max-chars 0   # The Turnip is longer than the default 20000
     node scripts/staticpedia/check-links.mjs thistlepedia
     python3 -m http.server 8011                   # then /thistlepedia/
 

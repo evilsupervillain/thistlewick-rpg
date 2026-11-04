@@ -29,7 +29,7 @@ Mr Gammage was born into it, in 1926, and grew up, and worked as a hurdle-maker 
 
 ## The riddle
 
-In the year 2000 the parish, with a Chosen One present and Merribell of the Order of Whatever Works in attendance, followed the Standing Orders of 1795 in order. Clause five required the eldest to speak the riddle. Mr Gammage was the eldest. He opened one eye.
+In the year 2000 the parish, with a Chosen One present and Merribell of the <a href="../Institutions/The_Order_of_Whatever_Works">Order of Whatever Works</a> in attendance, followed the Standing Orders of 1795 in order. Clause five required the eldest to speak the riddle. Mr Gammage was the eldest. He opened one eye.
 
 > "What's wet, and in the middle of the village, and we've not had any since 1794?"
 

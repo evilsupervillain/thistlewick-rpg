@@ -26,7 +26,7 @@ title: Perce Stagg
 
 ## Everybody went north
 
-He was born in 1934 on a smallholding at Fenny Stretton, far in the south, and grew cabbages until he was twenty-six. In the spring of 1960 the Forty-Fourth set out from Thistlewick, and the whole of the south went north with him, or after him, or a little before him, on the general understanding that something was going to happen and it would be a shame to miss it. Farmers, tinkers, a man with a goat. Perce put on his red coat, which was his father's, and went.
+He was born in 1934 on a smallholding at Fenny Stretton, far in the south, and grew cabbages until he was twenty-six. In the spring of 1960 the Forty-Fourth set out from <a href="../Places/Thistlewick">Thistlewick</a>, and the whole of the south went north with him, or after him, or a little before him, on the general understanding that something was going to happen and it would be a shame to miss it. Farmers, tinkers, a man with a goat. Perce put on his red coat, which was his father's, and went.
 
 > "I wasn't, you know. Chosen. Nobody chose me. Everybody went north, that year. Farmers, tinkers, a man with a goat. I got as far as here, and the winter was in the way, so I saw to it."
 
@@ -36,7 +36,7 @@ Frostwick had been under a winter that did not end since before anybody could re
 
 What he did, he has never said. He says he does not entirely know, and that it took most of a day and a great deal of shovelling, and that at the end of it there was a noise like a door shutting a long way off, and the snow began to drip. He came down the hill at dusk, and the town was standing in the square, and the snow was running down the gutters, and somebody started to cheer. He went pink. He has gone pink at that moment every year since.
 
-<div class="marginalia">The Working Group's founding minutes, which I print in the article on the town, begin *Item 1. That the winter has stopped. Noted.* and proceed, by item three, to retaining a practitioner to put it back, on a sensible footing, because the town had lived on carols and lanterns and found it had no takings without them. Mr Stagg was not consulted about putting it back. He was asked, in item four, to open the first Festival, and abstained. He has opened every one since. He has never once said that he minded the winter coming back. I asked him. He said that a winter on a sensible footing is a very different thing from a winter that has got stuck, and that he had only ever had a quarrel with the second sort. - H.B.</div>
+<div class="marginalia">The Working Group's founding minutes, which I print in the article on the town, begin <i>Item 1. That the winter has stopped. Noted.</i> and proceed, by item three, to retaining a practitioner to put it back, on a sensible footing, because the town had lived on carols and lanterns and found it had no takings without them. Mr Stagg was not consulted about putting it back. He was asked, in item four, to open the first Festival, and abstained. He has opened every one since. He has never once said that he minded the winter coming back. I asked him. He said that a winter on a sensible footing is a very different thing from a winter that has got stuck, and that he had only ever had a quarrel with the second sort. - H.B.</div>
 
 ## The Festival
 
@@ -46,7 +46,7 @@ The Festival is on the twelfth. The ribbon is at noon. Perce stands beside the r
 
 He has never mentioned that he was not chosen. "Nobody's ever asked. They were all so pleased. And it's a lovely Festival."
 
-The iron crown on top of the ribbon post was made by Hob Grumnir, and in the year 2000 Hob asked whether he might have it back, for the spring. "The spring? The Festival's on the twelfth. Everybody ties a ribbon to that crown. You can't tie a ribbon to a bare post, you know. It slides down." Hob said that it did, aye.
+The iron crown on top of the ribbon post was made by <a href="Hob_Grumnir">Hob Grumnir</a>, and in the year 2000 Hob asked whether he might have it back, for the spring. "The spring? The Festival's on the twelfth. Everybody ties a ribbon to that crown. You can't tie a ribbon to a bare post, you know. It slides down." Hob said that it did, aye.
 
 ## Afterwards
 

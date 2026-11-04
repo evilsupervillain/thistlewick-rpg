@@ -9,7 +9,7 @@ title: Prudence Thrupp
 <table class="infobox">
 <caption>Prudence Thrupp</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Prudence_Thrupp.png" alt="Prudence Thrupp of the Gilded Turnip" width="200"><span class="infobox-caption">"Don't shake it. Don't ask what's in it."</span></td></tr>
-<tr><th>Known as</th><td>Prudence; Mrs Thrupp, by Nether Sopping, which has never met her and assumes</td></tr>
+<tr><th>Known as</th><td>Prudence; Mrs Thrupp, by <a href="../Places/Nether_Sopping">Nether Sopping</a>, which has never met her and assumes</td></tr>
 <tr><th>Born</th><td>19 October 1951, at the Gilded Turnip, <a href="../Places/Thistlewick">Thistlewick</a>, upstairs, during last orders</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Keeps</th><td><a href="../Places/The_Gilded_Turnip">The Gilded Turnip</a>, since 1976, her father's before her</td></tr>
@@ -20,7 +20,7 @@ title: Prudence Thrupp
 <tr><th>Could read a customer by</th><td>The age of eight. Dorcas took till ten</td></tr>
 </table>
 
-<p class="lede"><b>Prudence Thrupp</b> keeps the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, the inn on the square at Thistlewick, where three of the Forty-Eighth's companions were found, one of them on a table. She is the younger sister of Dorcas Thrupp of the Slain Wyvern at Nether Sopping, and the two of them did not speak for thirty years and sent each other things instead, which she says was not a falling-out. In the year 2000 she gave the Forty-Eighth a jar to take south. It was warm on one side.</p>
+<p class="lede"><b>Prudence Thrupp</b> keeps the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, the inn on the square at Thistlewick, where three of the Forty-Eighth's companions were found, one of them on a table. She is the younger sister of Dorcas Thrupp of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> at Nether Sopping, and the two of them did not speak for thirty years and sent each other things instead, which she says was not a falling-out. In the year 2000 she gave the Forty-Eighth a jar to take south. It was warm on one side.</p>
 
 ## The Turnip
 

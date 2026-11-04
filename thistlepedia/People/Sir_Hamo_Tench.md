@@ -10,7 +10,7 @@ title: Sir Hamo Tench
 <caption>Sir Hamo Tench</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Sir_Hamo_Tench.png" alt="Sir Hamo Tench, in a nightshirt with a surcoat over it" width="200"><span class="infobox-caption">In the field</span></td></tr>
 <tr><th>Known as</th><td>Sir Hamo; the knight on the line</td></tr>
-<tr><th>Born</th><td>Hamo Tench, 11 November 1921, at Coldbarrow, in the snow</td></tr>
+<tr><th>Born</th><td>Hamo Tench, 11 November 1921, at <a href="../Places/Coldbarrow">Coldbarrow</a>, in the snow</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Order</th><td>The Errant. Confirmed at the fourth attempt, 1941</td></tr>
 <tr><th>At Weeping Bottom</th><td>Since 1986, for the sea air, with a cough</td></tr>
@@ -31,7 +31,7 @@ He went out errant in 1941 and stayed out for forty-five years: through the nort
 
 ## The line
 
-In 1986 he came south with a cough, to Weeping Bottom, for the sea air, on the advice of every physician he consulted, none of whom had been. The Sisters gave him the bed at the end of the ward. When Sister Bewick's party took the east half in 1994 and the line was painted, it went exactly through his bed, and he declined to be moved, on the grounds that a knight does not leave his post, and that the bed was his post, and that he was not going to pick a side in an argument about soup.
+In 1986 he came south with a cough, to Weeping Bottom, for the sea air, on the advice of every physician he consulted, none of whom had been. The Sisters gave him the bed at the end of the ward. When <a href="Sister_Bewick">Sister Bewick</a>'s party took the east half in 1994 and the line was painted, it went exactly through his bed, and he declined to be moved, on the grounds that a knight does not leave his post, and that the bed was his post, and that he was not going to pick a side in an argument about soup.
 
 Both lots treat him. Soup at noon, correct treatment at four. The cough is exactly the same. Very fair.
 

@@ -12,7 +12,7 @@ Piper Quill is a chronicler, of the family that has written the Committee's acco
 
 ## The first notebook
 
-Piper Quill joined the Forty-Eighth in the Gilded Turnip, mid-verse. She had been writing the verse for a month, walking past the inn every day, which is named after the problem. She stood on nothing. She said it at volume:
+Piper Quill joined the Forty-Eighth in the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, mid-verse. She had been writing the verse for a month, walking past the inn every day, which is named after the problem. She stood on nothing. She said it at volume:
 
 <div class="verse">
 <p>'And lo, the Chosen One drew near,<br>
@@ -71,7 +71,7 @@ a halibut, and -'</p>
 <span class="attribution">P. Quill; the Committee will strike it, and she knew, and wrote it down anyway</span>
 </div>
 
-At the Barrow of the Forty-Fourth, on the bench, afterwards:
+At the <a href="../Places/The_Barrow_of_the_Forty-Fourth">Barrow of the Forty-Fourth</a>, on the bench, afterwards:
 
 <div class="verse">
 <p>'He did not want a mound, or fame,<br>
@@ -81,7 +81,7 @@ somewhere to sit down from the walk.'</p>
 <span class="attribution">P. Quill, on the bench, facing the sea</span>
 </div>
 
-At Upper Clanging, from the ninth Cotterill, who asked the company every morning on waking whether it was spring yet:
+At <a href="../Places/Upper_Clanging">Upper Clanging</a>, from the ninth Cotterill, who asked the company every morning on waking whether it was spring yet:
 
 <div class="verse">
 <p>'He asked each morning, "Is it spring?"<br>
@@ -93,7 +93,7 @@ was spring, and Washer, on the dot.'</p>
 
 ## The Contest at the Sign of the Bell
 
-Piper Quill entered Ballad (Not Sad), at Great Dunnage, before three judges, one of whom cannot hear and one of whom gives everything a two. The damage was heckling. She finished. She scored eighteen. Mr Tweddle, who does birdcalls, scored nineteen, and the thrush got a three from Miss Quayle, and the birdcalls were, in fairness, extraordinary. Piper Quill has framed the certificate. It is the first prize a Quill has ever won for writing down what actually happened, and it is for coming second, and she says that is about right.
+Piper Quill entered Ballad (Not Sad), at <a href="../Places/Great_Dunnage">Great Dunnage</a>, before three judges, one of whom cannot hear and one of whom gives everything a two. The damage was heckling. She finished. She scored eighteen. <a href="Mr_Tweddle">Mr Tweddle</a>, who does birdcalls, scored nineteen, and the thrush got a three from Miss Quayle, and the birdcalls were, in fairness, extraordinary. Piper Quill has framed the certificate. It is the first prize a Quill has ever won for writing down what actually happened, and it is for coming second, and she says that is about right.
 
 What she sang is not printed here. You had to be in the room.
 
@@ -107,11 +107,11 @@ Piper Quill has been asked about verse seven by everyone she has ever met, inclu
 
 ## The elegy
 
-*Abel Thrush, Carrier*, nine lines, is on the fingerpost at Little Gore, under a little roof somebody made for it, and is printed whole in the <a href="Piper_Quill#the-elegy">compiler's article on her</a>, by her leave. She would only add that Mrs Vane asked whether it might have a bit more of a tune, and that Piper Quill laughed, out loud, at her own work, for the first time, and said: next time. There has not been a next time yet. There will be. She is working on the tune.
+*Abel Thrush, Carrier*, nine lines, is on the fingerpost at <a href="../Places/Little_Gore">Little Gore</a>, under a little roof somebody made for it, and is printed whole in the <a href="Piper_Quill#the-elegy">compiler's article on her</a>, by her leave. She would only add that Mrs Vane asked whether it might have a bit more of a tune, and that Piper Quill laughed, out loud, at her own work, for the first time, and said: next time. There has not been a next time yet. There will be. She is working on the tune.
 
 ## The tea
 
-Written at the Slain Wyvern, the evening the Forty-Eighth came in from the cottage of the Forty-Fifth and told the compiler the end, and the compiler filled his last page, and Piper Quill was at the next table, and wrote this, and did not show either of them:
+Written at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, the evening the Forty-Eighth came in from the cottage of the Forty-Fifth and told the compiler the end, and the compiler filled his last page, and Piper Quill was at the next table, and wrote this, and did not show either of them:
 
 <div class="verse">
 <p>'Forty-seven did the sword. The one<br>

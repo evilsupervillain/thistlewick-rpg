@@ -28,7 +28,7 @@ I did not want to write this article. An encyclopedia that leaves its compiler o
 
 ## Nether Sopping
 
-He is a Nether Sopping man, which is to say that he counts in plain years, sixty and forty and thirty, and that he lives forty miles from <a href="../Places/Thistlewick">Thistlewick</a>, among the people Thistlewick sent there. Clause nineteen of the Prophecy sends a returning Chosen One to a cottage at a mutually agreeable distance, and the distance has been Nether Sopping for most of a century, and Nether Sopping is consequently the only place in the world where everybody in the bar has been to the top of the Obligatory Tower except the historian.
+He is a Nether Sopping man, which is to say that he counts in plain years, sixty and forty and thirty, and that he lives forty miles from <a href="../Places/Thistlewick">Thistlewick</a>, among the people Thistlewick sent there. Clause nineteen of the Prophecy sends a returning Chosen One to a cottage at a mutually agreeable distance, and the distance has been Nether Sopping for most of a century, and Nether Sopping is consequently the only place in the world where everybody in the bar has been to the top of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> except the historian.
 
 I have sat at the table by the fire in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> for most of my working life, under the goose, as it now is, with ink on my hands, listening. I have had a great many stories. I have had very few of them to the end.
 
@@ -36,17 +36,17 @@ I have sat at the table by the fire in the <a href="../Places/The_Slain_Wyvern">
 
 Volume Two, the history proper, was compiled at that table, from first-hand accounts. Everybody in the room had been on one, and not one of them would tell a historian. They told the Forty-Eighth. He was going north; he was in it. So I asked him to do the thing I could not, and go round the room and be told: six first-hand accounts, heard properly, to the end, and then come back. I paid, handsomely, for a man with ink hands.
 
-Nobody does it. They get two and go and look at a dungeon. He did all six. They came from Ysolde Marrow, <a href="Hulda_Bole">Hulda Bole</a>, Nabb, Merrow Halgate, Councillor Dree, and <a href="Perpetua_Small">the young lady with the tiara</a>, who is going to work it out any day now, and it will be marvellous.
+Nobody does it. They get two and go and look at a dungeon. He did all six. They came from <a href="Ysolde_Marrow">Ysolde Marrow</a>, <a href="Hulda_Bole">Hulda Bole</a>, <a href="Nabb">Nabb</a>, <a href="Merrow_Halgate">Merrow Halgate</a>, Councillor Dree, and <a href="Perpetua_Small">the young lady with the tiara</a>, who is going to work it out any day now, and it will be marvellous.
 
 With those, the history was complete. It is not accurate, because Merrow's bridge and Dree's chair cannot both be true on a Tuesday, but it is complete. It runs to four hundred pages and a pamphlet. At the bottom of page four hundred and one, in small type, there is a footnote that says the Forty-Eighth listened. Nobody else has one of those.
 
-I left the last page blank, until I heard how it went, and told him that hearing it was the fee. He came back, after the Tower and after Halbert Quy, and told me, and I filled it.
+I left the last page blank, until I heard how it went, and told him that hearing it was the fee. He came back, after the Tower and after <a href="Halbert_Quy">Halbert Quy</a>, and told me, and I filled it.
 
-<div class="marginalia">The account in Prophecy Hall says that I wrote a song. I did not. I have dealt with this elsewhere, and calmly.</div>
+<div class="marginalia">The account in <a href="../Places/Prophecy_Hall">Prophecy Hall</a> says that I wrote a song. I did not. I have dealt with this elsewhere, and calmly.</div>
 
 ## Volume Three
 
-This is Volume Three. It is the encyclopedia: every person, place, institution, creature, artefact and cliche of the Quest, in order, with the cross-references the history could not hold. It is signed on the twenty-first of March, Third Age 2002, which is two years after the Quest and the first day of spring, as Spare Cotterill has confirmed by letter.
+This is Volume Three. It is the encyclopedia: every person, place, institution, creature, artefact and cliche of the Quest, in order, with the cross-references the history could not hold. It is signed on the twenty-first of March, Third Age 2002, which is two years after the Quest and the first day of spring, as <a href="Spare_Cotterill">Spare Cotterill</a> has confirmed by letter.
 
 I have not written all of it. Where somebody knew a thing better than I did, I asked them to write it, and printed what they sent me whole, with my notes in the margin: the <a href="../Bestiary/">Bestiary</a> is Miss Halloway's, the technical articles are Miss Hoyle's, the songs are Miss Quill's, and there are letters from the top of the Tower which have been the greatest pleasure of the work.
 
@@ -60,7 +60,7 @@ Where I do not know a thing I have said so, which in a history is more honest th
 
 The last page of Volume Two is filled. Volume Three is this.
 
-Bram Thistle comes south about once a month, to correct me, and is always right, and always about the same thing. Miss Quill and I meet at the Wyvern to disagree. Spare Cotterill writes. Grimspite writes. I have had a kind letter from Miss Pargeter of Frostwick, pointing out a clause.
+<a href="Bram_Thistle">Bram Thistle</a> comes south about once a month, to correct me, and is always right, and always about the same thing. Miss Quill and I meet at the Wyvern to disagree. Spare Cotterill writes. Grimspite writes. I have had a kind letter from Miss <a href="Pargeter">Pargeter</a> of <a href="../Places/Frostwick">Frostwick</a>, pointing out a clause.
 
 I am told that I am in Miss Quill's notebooks, at some length, in the third person. I have asked to see the verses and been told that I may when they are finished, and that she has been finishing them since the Quest, and that they will scan.
 

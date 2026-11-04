@@ -53,7 +53,7 @@ She was told that it had been. "It was a good pie, that," she said, and put the 
 
 ## The letter
 
-The morning after the ending, there was a letter on the mat from the Committee, which she did not open. "Morning, love. There's a letter come. It's on the mat. It's from the Committee. I haven't opened it. I've looked at it." It was clause nineteen, and a pension, and the key to a cottage by the sea at Nether Sopping. "A cottage! By the sea!" And then, being his mother: "You'll want your good shirt. I ironed it Tuesday."
+The morning after the ending, there was a letter on the mat from the Committee, which she did not open. "Morning, love. There's a letter come. It's on the mat. It's from the Committee. I haven't opened it. I've looked at it." It was clause nineteen, and a pension, and the key to a cottage by the sea at <a href="../Places/Nether_Sopping">Nether Sopping</a>. "A cottage! By the sea!" And then, being his mother: "You'll want your good shirt. I ironed it Tuesday."
 
 ## Afterwards
 
@@ -62,5 +62,6 @@ She is forty-four. Her son is home, and farming, and has the cottage at Nether S
 ## See also
 
 - <a href="Bram_Thistle">Bram Thistle</a>
+- <a href="../Institutions/The_Turnip">The Turnip</a>, all four kinds
 - <a href="../Places/Thistlewick">Thistlewick</a>
 - <a href="Nix">Nix</a>, and the pie dish

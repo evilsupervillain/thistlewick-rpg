@@ -32,11 +32,11 @@ To the Forty-Eighth, in the year 2000:
 
 > "You're going to go a long way, and meet a great many people, and at the end of it somebody is going to be very surprised to see you. And you'll eat a turnip. That one's free."
 
-He went a long way, and met a great many people, and at the end of it somebody was very surprised to see him, and he ate a turnip, on the way home. I have checked. She was right about all four. She says that she generally is, and that the turnip was a gift, because a Chosen One from Thistlewick who does not eat a turnip on the way home has not been read properly.
+He went a long way, and met a great many people, and at the end of it somebody was very surprised to see him, and he ate a turnip, on the way home. I have checked. She was right about all four. She says that she generally is, and that the turnip was a gift, because a Chosen One from <a href="../Places/Thistlewick">Thistlewick</a> who does not eat a turnip on the way home has not been read properly.
 
 ## The rival
 
-In 1989, at a fair, she told a young man of nineteen, sat in a heap, that he was the rival of a great hero, for two crowns. He went and sat in a corner of the Slain Wyvern for eleven years, waiting for the hero. In the year 2000 he came back and asked her again. She did not remember him. She read him again, and got a long life, a useful trade, something with his hands, and no destiny whatsoever. He asked her to do it again. "Same again? It'll be the same again, dear. Keep your money."
+In 1989, at a fair, she told a young man of nineteen, sat in a heap, that he was the rival of a great hero, for two crowns. He went and sat in a corner of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> for eleven years, waiting for the hero. In the year 2000 he came back and asked her again. She did not remember him. She read him again, and got a long life, a useful trade, something with his hands, and no destiny whatsoever. He asked her to do it again. "Same again? It'll be the same again, dear. Keep your money."
 
 Then she put the cards down and told him, kindly and without mystery:
 
@@ -54,4 +54,5 @@ She is seventy-nine. She is still in the booth, at the back of the fair, and the
 
 - <a href="Corvin_Ash">Corvin Ash</a>
 - <a href="../Places/Wayside_Sights">Wayside Sights</a>
+- <a href="../Institutions/The_Turnip">The Turnip</a>; that one was free
 - <a href="The_Rivals_of_the_Sable_Hart">The Rivals of the Sable Hart</a>, several of whom she has read

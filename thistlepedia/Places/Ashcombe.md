@@ -30,7 +30,7 @@ Everything is new. The church is pale stone with a green roof and coloured glass
 
 The school has a brass plate, ASHCOMBE SCHOOL, polished, and under it, also polished, *'Very Good.' - H.M. Inspector of Schools.* The blackboard has a history of Ashcombe on it: 1. IT WAS THERE. 2. IT WAS WET. 3. WE MOVED IT. On every desk there is a paper boat. **Wilf**, a small boy with another paper boat, is looking for somewhere to sail it, and there are no puddles, and Mr Weir says there will not ever be a puddle again, and says it like it's good. In one front room a line is painted on the wall at knee height, with a date beside it, and a smiley face. In another a family is at tea with every chair on little stilts. Old habits. The scarecrow wears waders and a life ring.
 
-**The post office**, kept by **Mrs Dimmock**, answers every letter that comes to Ashcombe. It's policy. ALL LETTERS ANSWERED, says the card in the window, and under it, WE MEAN IT. Years ago they had one addressed to THE RUINS OF ASHCOMBE, and so the Ruins wrote back, a lovely long letter, hoping he was keeping warm. The post box by the door is iron, painted red, with a slot like a polite smile, and is Hob Grumnir's, and he asked for it back, a while, and Mrs Dimmock asked where the letters would go, and said that box had had a letter from the Ruins of Ashcombe in it, and you cannot take a box back after that. Hob said no, you can't.
+**The post office**, kept by **Mrs Dimmock**, answers every letter that comes to Ashcombe. It's policy. ALL LETTERS ANSWERED, says the card in the window, and under it, WE MEAN IT. Years ago they had one addressed to THE RUINS OF ASHCOMBE, and so the Ruins wrote back, a lovely long letter, hoping he was keeping warm. The post box by the door is iron, painted red, with a slot like a polite smile, and is <a href="../People/Hob_Grumnir">Hob Grumnir</a>'s, and he asked for it back, a while, and Mrs Dimmock asked where the letters would go, and said that box had had a letter from the Ruins of Ashcombe in it, and you cannot take a box back after that. Hob said no, you can't.
 
 ## The Drainage Museum
 
@@ -66,7 +66,7 @@ At the edge of the old street there is a doorstep with nothing behind it, and cu
 
 At the end of the street the road goes on into the water, and just under the surface is a green roof: the old church, up to its eaves. You could skim a stone on to it.
 
-<div class="marginalia">Corvin Ash showed me his report, which he carries in his coat, next to the scarf. I asked whether I might print it. He said no, and then he said that I might print the last line, and I do: *Corvin could do anything he put his mind to, and has put it to waiting. He will go far, if he ever gets up.*</div>
+<div class="marginalia">Corvin Ash showed me his report, which he carries in his coat, next to the scarf. I asked whether I might print it. He said no, and then he said that I might print the last line, and I do: <i>Corvin could do anything he put his mind to, and has put it to waiting. He will go far, if he ever gets up.</i></div>
 
 ## See also
 

@@ -21,7 +21,7 @@ title: Clevis Cotterill
 <tr><th>Odds of Clevis running another</th><td>Not quoted</td></tr>
 </table>
 
-<p class="lede"><b>Clevis Cotterill</b> is the seventh of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and in 1999 and 2000 ran a book on the name of the tenth, which was the most popular wager in the history of the town, and which he lost, comprehensively, because Mr Cotterill had said *not Washer*, and he had priced Washer at twenty to one on the strength of it, and had not reckoned with Spare.</p>
+<p class="lede"><b>Clevis Cotterill</b> is the seventh of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and in 1999 and 2000 ran a book on the name of the tenth, which was the most popular wager in the history of the town, and which he lost, comprehensively, because Mr Cotterill had said <i>not Washer</i>, and he had priced Washer at twenty to one on the strength of it, and had not reckoned with Spare.</p>
 
 ## The book
 

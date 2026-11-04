@@ -42,7 +42,7 @@ When Cotter married and moved out, in 1999, there was a vacancy in Rivet's bed, 
 
 ## Half an hour
 
-Every evening after his shift he goes into the Safety Valve, where Mr Kell keeps a stool at the end of the bar that is understood to be his, and has a half, for half an hour, by the town clock, which has been four minutes fast since 1841, so that he is always home four minutes early, and is the only Cotterill who ever is. "Half an hour. Then bed. Then it is Tuesday." It is not always Tuesday. He says it is generally Tuesday, near enough, and that he has found it a great help to think so.
+Every evening after his shift he goes into the Safety Valve, where <a href="Mr_Kell">Mr Kell</a> keeps a stool at the end of the bar that is understood to be his, and has a half, for half an hour, by the town clock, which has been four minutes fast since 1841, so that he is always home four minutes early, and is the only Cotterill who ever is. "Half an hour. Then bed. Then it is Tuesday." It is not always Tuesday. He says it is generally Tuesday, near enough, and that he has found it a great help to think so.
 
 ## Spring
 

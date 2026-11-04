@@ -15,7 +15,7 @@ title: Fairholme
 <tr><th>Reward</th><td>Her hand, or half the kingdom</td></tr>
 <tr><th>Taken</th><td>The half. Every time</td></tr>
 <tr><th>The King's share</th><td>One two-thousand-and-forty-eighth</td></tr>
-<tr><th>Shareholders</th><td>Nine heroes; Mr and Mrs Budge; Sir Dunstable (in a mountain); Mr Pilbeam (pending)</td></tr>
+<tr><th>Shareholders</th><td>Nine heroes; Mr and Mrs Budge; <a href="../People/Sir_Dunstable">Sir Dunstable</a> (in a mountain); Mr Pilbeam (pending)</td></tr>
 <tr><th>Council business</th><td>Drainage</td></tr>
 <tr><th>Tower door</th><td>The fifteenth. The hinges are the original</td></tr>
 <tr><th>Dragon</th><td>Mrs Emberthwaite, retired. Whist on Thursdays</td></tr>
@@ -49,7 +49,7 @@ The minutes, as they stood when the Forty-Eighth called:
 
 The council has two teapots, because the first is quite small, and that is why the meetings take all day; the second is for item six, which is always drainage, and always takes the afternoon. I have the minutes since from Mr Pilbeam, who writes. The eagle has been deferred eight times. Sir Dunstable's apologies have been recorded at every meeting, *in a mountain*, and the council has twice moved to consider whether a shareholder in a mountain is a shareholder, and has twice deferred it, on the grounds that he might be back directly.
 
-Hob Grumnir made the hinges on the tower door. In the year 2000 he asked whether he might have them back. The King said, oh dear, they were the only part that had held. Every rescuer kicks the door in, and the door goes, and the hinges are fine. They were on the fourteenth door. There is a drawing of the fifteenth on the council table now, and the hinges are not drawn, because they will not be needed.
+<a href="../People/Hob_Grumnir">Hob Grumnir</a> made the hinges on the tower door. In the year 2000 he asked whether he might have them back. The King said, oh dear, they were the only part that had held. Every rescuer kicks the door in, and the door goes, and the hinges are fine. They were on the fourteenth door. There is a drawing of the fifteenth on the council table now, and the hinges are not drawn, because they will not be needed.
 
 ## Rosamund
 

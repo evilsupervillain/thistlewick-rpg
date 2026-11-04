@@ -10,7 +10,7 @@ title: Nabb
 <caption>Nabb</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Nabb.png" alt="Nabb, of the Forty-Sixth's party" width="200"><span class="infobox-caption">"There isn't more."</span></td></tr>
 <tr><th>Known as</th><td>Nabb, of the Forty-Sixth</td></tr>
-<tr><th>Born</th><td>14 October 1960, Nether Sopping</td></tr>
+<tr><th>Born</th><td>14 October 1960, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Party</th><td>The Forty-Sixth's, 1980; cook</td></tr>
 <tr><th>Got as far as</th><td>The Gloamwood, the first path, about half way</td></tr>

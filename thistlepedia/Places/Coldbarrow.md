@@ -19,7 +19,7 @@ title: Coldbarrow
 <tr><th>Ceremonial armour</th><td>Do not go on a quest in</td></tr>
 </table>
 
-<p class="lede"><b>Coldbarrow</b> is the Chapter House of the Order of the Errant, a hall in the snow of the far north where the Order keeps a great map of the island with a pin in it for every knight in the field. It is kept by the Order's clerk, **<a href="../People/Mordaunt">Mordaunt</a>**, who reads the map the way other people read a will. One knight, one pin. That is the system.</p>
+<p class="lede"><b>Coldbarrow</b> is the Chapter House of the Order of the Errant, a hall in the snow of the far north where the Order keeps a great map of the island with a pin in it for every knight in the field. It is kept by the Order's clerk, <b><a href="../People/Mordaunt">Mordaunt</a></b>, who reads the map the way other people read a will. One knight, one pin. That is the system.</p>
 
 ## The map
 
@@ -45,7 +45,7 @@ The card on the committee's table reads: REVIEW OF PINS (PEMBERTON-GORE): CONCLU
 
 There is stained glass of a knight kneeling, with the Order's motto on a scroll above him, too small to read from the floor and, one suspects, too long to fit. There is a suit of armour, very bright, with a card: CEREMONIAL. DO NOT GO ON A QUEST IN. There is another, ISSUE PATTERN, KNIGHTS ERRANT, ONE, and under it, in pencil, SIZES RUN SMALL. The Order's daybook is open on a stand: PINS REVIEWED; PINS REVIEWED; PINS REVIEWED (WITH TEA).
 
-Of the Order's other knights in the field, one at least has a pin that has never once needed reviewing: Dame Winifred Cope, at <a href="Little_Gore">Little Gore</a>, who writes every quarter NOTHING TO REPORT, and is written back to, VERY GOOD.
+Of the Order's other knights in the field, one at least has a pin that has never once needed reviewing: <a href="../People/Dame_Winifred_Cope">Dame Winifred Cope</a>, at <a href="Little_Gore">Little Gore</a>, who writes every quarter NOTHING TO REPORT, and is written back to, VERY GOOD.
 
 ## See also
 

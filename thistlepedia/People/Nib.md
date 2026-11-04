@@ -34,7 +34,7 @@ There is a line painted on the floor of the shed. On one side of it is written Y
 
 > "She will want the small can. She always wants the small can."
 
-Every day for two years Miss Hoyle asked for the small can, and every day Nib brought her the big one, and she took it without comment. In the year 2000 it was established, by Nix, who was looking for things that had gone missing, that there is only one can, and that there has only ever been the big can. "She wants the small can every day," said Nib. "I give her the big can every day. I thought it was part of the numbering. I have decided to believe so."
+Every day for two years Miss Hoyle asked for the small can, and every day Nib brought her the big one, and she took it without comment. In the year 2000 it was established, by <a href="Nix">Nix</a>, who was looking for things that had gone missing, that there is only one can, and that there has only ever been the big can. "She wants the small can every day," said Nib. "I give her the big can every day. I thought it was part of the numbering. I have decided to believe so."
 
 ## The sweep
 

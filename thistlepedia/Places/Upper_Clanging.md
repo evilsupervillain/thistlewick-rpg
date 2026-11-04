@@ -9,7 +9,7 @@ title: Upper Clanging
 <table class="infobox">
 <caption>Upper Clanging</caption>
 <tr><th>Known as</th><td>Clanging</td></tr>
-<tr><th>Where</th><td>Up the west road from the Gloamwood's north mouth, on a hill, under its own chimneys</td></tr>
+<tr><th>Where</th><td>Up the west road from the <a href="The_Gloamwood">Gloamwood</a>'s north mouth, on a hill, under its own chimneys</td></tr>
 <tr><th>Motto</th><td><i>It will be quieter soon</i> (a works hazard plate on a post)</td></tr>
 <tr><th>Industry</th><td>The works</td></tr>
 <tr><th>Occupation</th><td>At the works. See the parish register, eighty years of it</td></tr>
@@ -52,7 +52,7 @@ On the dresser is the inn's best china, with a card on top, FOR WHEN SHE FLIES. 
 
 **Bryd Ollerenshaw** has the forge from his father, who had it from his mother. If it is iron and it has to hold, it goes to him. Miss Hoyle sends him a drawing every spring, and every spring it is a spar. He and Hob were apprenticed together, and he has waited twenty years for Hob to admit that some jobs want two smiths. The meeting between them in the year 2000 consisted of each saying the other's surname and finding something wrong with the other's anvil, and was described to me by a child of the town as "what they do every time". They then made the Two Hundred's main spar in an afternoon without a word, and went down the hill to the house that does a pale, already arguing about who was buying. Half the town has money on which of them will admit the other is the better smith. Nobody has collected.
 
-In the forge there is a certificate, BEST SMITH IN THE NORTH, awarded by B. Ollerenshaw to B. Ollerenshaw, in real gold leaf. There is a cabinet of three drawers: RIVETS; OTHER RIVETS; RIVETS (GRUMNIR'S - DO NOT USE). There is a quenching tub which hisses faintly whenever anybody in the room says *Thistlewick*. Merribell has told me that it is steam, and that I am not to encourage it.
+In the forge there is a certificate, BEST SMITH IN THE NORTH, awarded by B. Ollerenshaw to B. Ollerenshaw, in real gold leaf. There is a cabinet of three drawers: RIVETS; OTHER RIVETS; RIVETS (GRUMNIR'S - DO NOT USE). There is a quenching tub which hisses faintly whenever anybody in the room says *Thistlewick*. <a href="../People/Merribell">Merribell</a> has told me that it is steam, and that I am not to encourage it.
 
 ## The parish rooms
 
@@ -64,7 +64,7 @@ The parish lost-and-found book has the entry FOUND: ONE BOY, NINE, WITH A PACKED
 
 ## The Cotterills
 
-The house at the end of the street is the Cotterills', and the street is mostly theirs as well. **Mrs Cotterill** has the names off by heart, because she chose them: Cotter, Rivet, Gudgeon, Tappet, Ferrule, Grommet, Clevis, Shim, and Spare, because they had run out, and Mr Cotterill said call it Spare, and she was tired. **Mr Cotterill** is on nights, twelve on and twelve off, and is always very glad to get home. He says that he has never once minded the walk.
+The house at the end of the street is the <a href="../People/The_Cotterills">Cotterills</a>', and the street is mostly theirs as well. **Mrs Cotterill** has the names off by heart, because she chose them: Cotter, Rivet, Gudgeon, Tappet, Ferrule, Grommet, Clevis, Shim, and Spare, because they had run out, and Mr Cotterill said call it Spare, and she was tired. **Mr Cotterill** is on nights, twelve on and twelve off, and is always very glad to get home. He says that he has never once minded the walk.
 
 The tenth, **Washer**, was born in the spring of 2000, at six in the morning, on the hooter. Mrs Cotterill says it is the only one of them that was ever on time. Mr Cotterill had said not Washer. Spare got to it first. Clevis was running a book on the name, and Washer came in at twenty to one, because half the works had a farthing on it once Mr Cotterill said not Washer, and Clevis had to pay out most of Upper Clanging. The book is closed. Mrs Cotterill says that there is not going to be another one.
 

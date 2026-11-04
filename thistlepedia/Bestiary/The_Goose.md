@@ -13,7 +13,7 @@ title: The Goose
 <tr><th>What it is</th><td>A greylag goose, <i>Anser anser</i></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Age</th><td>Adult, at death</td></tr>
-<tr><th>Of</th><td>A farm on the coast near Nether Sopping</td></tr>
+<tr><th>Of</th><td>A farm on the coast near <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Called</th><td>The Wyvern; the Slain Wyvern; ONE WYVERN (SLAIN)</td></tr>
 <tr><th>Additions</th><td>Two bats' wings; wire; varnish; a jaw, opened</td></tr>
 <tr><th>Mounted</th><td>1940, over the fireplace</td></tr>

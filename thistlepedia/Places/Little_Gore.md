@@ -11,7 +11,7 @@ title: Little Gore
 <tr><th>Known as</th><td>Little Gore</td></tr>
 <tr><th>Where</th><td>The south-east, four miles from Fenmarch, which round here is the same as a long way from anywhere</td></tr>
 <tr><th>Population</th><td>Eleven, and a cat, and some more since</td></tr>
-<tr><th>Knight in the field</th><td>Dame Winifred Cope, of the Order of the Errant</td></tr>
+<tr><th>Knight in the field</th><td>Dame Winifred Cope, of the <a href="../Institutions/The_Order_of_the_Errant">Order of the Errant</a></td></tr>
 <tr><th>Reports</th><td>Nothing to report. Quarterly</td></tr>
 <tr><th>Banns</th><td>Hester Plumb and Thomas Vane. Third time of asking</td></tr>
 <tr><th>Invitations</th><td>Followed</td></tr>
@@ -32,7 +32,7 @@ On the green, three children play weddings. **Bess**, with a daisy chain on her 
 
 The invitation was in Sir Aldric Pemberton-Gore's tabard. His father gave it to him the morning he rode out from Fenmarch in 1991, to carry four miles to Little Gore as his first errand: deliver this, and then you may go errant. He went errant for nine years, and did not deliver it. In the year 2000 he read the banns over the Forty-Eighth's shoulder, and the card under them, and went a colour, and said *Invitations to follow. I am the invitations.*
 
-Whether he then set out for Little Gore the long way, by the coast and a lay-by in the far west and Frostwick and the Fenmarch road twice, in different directions, both times on purpose, and came over a rise on the third evening and said THERE, told you I knew the way, or whether somebody pointed at the fingerpost, which said LITTLE GORE, is a matter on which the company differ, and I have not tried to settle it. Either way it was a very good way, and nobody would change a mile of it.
+Whether he then set out for Little Gore the long way, by the coast and a lay-by in the far west and <a href="Frostwick">Frostwick</a> and the Fenmarch road twice, in different directions, both times on purpose, and came over a rise on the third evening and said THERE, told you I knew the way, or whether somebody pointed at the fingerpost, which said LITTLE GORE, is a matter on which the company differ, and I have not tried to settle it. Either way it was a very good way, and nobody would change a mile of it.
 
 He took off his helmet, which nobody had seen him do, and held out the letter in both hands. SIR ALDRIC PEMBERTON-GORE THE SECOND REQUESTS THE PLEASURE OF THE PARISH OF LITTLE GORE AT THE WEDDING OF HESTER PLUMB AND THOMAS VANE, AT FENMARCH. Mrs Vane opened it on the doorstep, with the children round her, and said *It's my wedding*, and he said that it was, and that he did apologise, it was his first errand. She said that they had all come anyway, and that now they were invited properly, and it was going on the mantelpiece, and Bess was to fetch the good pin. It is there now, propped against the clock, where you can see it through the window from the road. Under INVITATIONS TO FOLLOW, in a fresh hand, very neat: FOLLOWED. (P-G.)
 
@@ -44,7 +44,7 @@ His nephew, the Fourth, came up the sandy road at a run that afternoon, and has 
 
 **<a href="../People/Dame_Winifred_Cope">Dame Winifred Cope</a>** of the Order of the Errant stands outside her own front door as if it were a post. She is the Chapter's knight in the field at Little Gore, and has been since 1989, and there is a pin in her at <a href="Coldbarrow">Coldbarrow</a>, just the one. She is here; that is the whole of it. Somebody has to be where the pin is, or what is the map for? She writes every quarter, NOTHING TO REPORT, and they write back, VERY GOOD, and she says it is the nicest correspondence she has ever had. Her door has a card in the Order's lettering, KNIGHT IN THE FIELD. DO NOT DISTURB, and she is standing four feet from it, and as far as the Chapter is concerned that is the field.
 
-Her helmet is good and plain, with a small G stamped inside the brim, and is Hob Grumnir's. He asked whether he might borrow it back, for the spring. She said that she was in it. That turned out to be the whole of her reason, and it was a very good one.
+Her helmet is good and plain, with a small G stamped inside the brim, and is <a href="../People/Hob_Grumnir">Hob Grumnir</a>'s. He asked whether he might borrow it back, for the spring. She said that she was in it. That turned out to be the whole of her reason, and it was a very good one.
 
 Sir Aldric has called her a very fine post, and has said that she is happy, and that he honours her. She says that is very kind, and that there is still nothing to report.
 

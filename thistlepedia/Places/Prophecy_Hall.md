@@ -15,7 +15,7 @@ title: Prophecy Hall
 <tr><th>Held up by</th><td>A pillar, by order of the Committee (Minute 4,410); and another, by a majority of one</td></tr>
 <tr><th>Portraits</th><td>Forty-seven, and a frame</td></tr>
 <tr><th>Struck material</th><td>Behind the red curtain. Form S-7</td></tr>
-<tr><th>Red tape</th><td>Bought by the mile, from a man in Nether Sopping</td></tr>
+<tr><th>Red tape</th><td>Bought by the mile, from a man in <a href="Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Potted plant</th><td>To be watered (minuted, 1987)</td></tr>
 </table>
 
@@ -47,7 +47,7 @@ At the end of them, since the year 2000, there is a forty-eighth frame, new, and
 
 <div class="stamp">PORTRAIT TO FOLLOW. SITTER AT THE COAST.</div>
 
-The sitter is not at the coast. He is two fields away, and has been for two years. Nobody has changed the card. A second card, the Quills', is tucked into the corner of the frame to make room. It gives the official account of the Forty-Eighth, and who wrote it, and whether it was APPROVED or AMENDED, and on that subject I refer the reader to <a href="../People/Piper_Quill">Piper Quill</a>, and say no more.
+The sitter is not at the coast. He is two fields away, and has been for two years. Nobody has changed the card. A second card, the <a href="../Institutions/The_Quills">Quills</a>', is tucked into the corner of the frame to make room. It gives the official account of the Forty-Eighth, and who wrote it, and whether it was APPROVED or AMENDED, and on that subject I refer the reader to <a href="../People/Piper_Quill">Piper Quill</a>, and say no more.
 
 ## The shelves
 
@@ -61,7 +61,7 @@ The Committee's library is one of the wonders of the village, and is very nearly
 * *So You've Been Chosen: A Leaflet*. It is one page long, and says CONGRATULATIONS!, and then, in very much smaller print, CLAUSE FOUR APPLIES.
 * *What To Do If The Chosen One Is Not In*. It recommends leaving a note, and choosing again if he has not replied by Thursday.
 * The accounts of the Prophecy Fund. Income: the fete. Expenditure: swords, forty-seven; scroll, a great deal.
-* A petition to rename the Obligatory Tower the Optional Tower, with one signature on it, Councillor Fenn's.
+* A petition to rename the <a href="The_Obligatory_Tower">Obligatory Tower</a> the Optional Tower, with one signature on it, Councillor Fenn's.
 
 Under them is a pad of forms, of which the top one is **Form S-7**, Application to Consult Struck Material (Verse), to be countersigned as to the wording. And beside them, on the Committee Records, are the minutes of the meeting at which the Forty-Eighth was chosen, with his name under *apologies for absence*, and one goat.
 

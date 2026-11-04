@@ -22,7 +22,7 @@ title: Gideon Markup
 <tr><th>Would sir like to hold it?</th><td>Sir cannot afford to hold it</td></tr>
 </table>
 
-<p class="lede"><b>Gideon Markup</b> keeps Ye Final Shoppe at <a href="../Places/Penultima">Penultima</a>, the last town before the Obligatory Tower, where everything is priced and everything has always been priced. In the window, behind a velvet rope, is the Sword of Ultimate Ending, at nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-nine crowns, which he priced in 1969, and which he asks every customer whether they would like to hold, and then tells them, warmly, that they cannot afford to. He brings his wife her tea every morning, and then he does the window.</p>
+<p class="lede"><b>Gideon Markup</b> keeps Ye Final Shoppe at <a href="../Places/Penultima">Penultima</a>, the last town before the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, where everything is priced and everything has always been priced. In the window, behind a velvet rope, is the Sword of Ultimate Ending, at nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-nine crowns, which he priced in 1969, and which he asks every customer whether they would like to hold, and then tells them, warmly, that they cannot afford to. He brings his wife her tea every morning, and then he does the window.</p>
 
 ## The last shop before the end
 
@@ -44,7 +44,7 @@ Asked about the prices, which are high, he says *seasonal*. "Thirty-one years in
 
 > "Sir cannot afford to hold it."
 
-He has said it to every customer for thirty-three years, including the Forty-Eighth, and including me, who did not ask. He set the price at one crown more than a purse will hold, so that it should be out of the reach of anybody who ever walked up the road. A banker in Nether Sopping has told me that a good purse holds a great deal more than that. I have not told Mr Markup. Neither, I understand, has Nix, who looked at the sword once, in the year 2000, for some time, and said afterwards that the price was wrong, and that some things are better in a window.
+He has said it to every customer for thirty-three years, including the Forty-Eighth, and including me, who did not ask. He set the price at one crown more than a purse will hold, so that it should be out of the reach of anybody who ever walked up the road. A banker in <a href="../Places/Nether_Sopping">Nether Sopping</a> has told me that a good purse holds a great deal more than that. I have not told Mr Markup. Neither, I understand, has <a href="Nix">Nix</a>, who looked at the sword once, in the year 2000, for some time, and said afterwards that the price was wrong, and that some things are better in a window.
 
 ## The discount
 

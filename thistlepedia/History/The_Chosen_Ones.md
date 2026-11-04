@@ -63,19 +63,19 @@ The Committee keeps a souvenir book, *The Forty-Seven*, with a portrait, a date 
 | 43 | The 1940s or 1950s | Not recorded | |
 | 44 | 1960 | <a href="../People/Ambrose_Fitch">Ambrose Fitch</a> | Pensioned to Nether Sopping and ignored for forty years, watering a pot with a dead thing in it every morning. Died about 1999. Thistlewick cut THISTLEWICK REMEMBERS over the door of his mound; somebody has chalked under it that Thistlewick did not write once. He asked for a bench. He has one now. |
 | 45 | 1970 | <a href="../People/Halbert_Quy">Halbert Quy</a> | Declined Grimspite's tea, because he thought it was a trick, and has thought about it ever since. Asked at the next meeting why there was always a next one. The cottage was ready by the Friday. He is next door to Fitch's. |
-| 46 | 1980 | <a href="../People/Godfrey_Stopford">Godfrey Stopford</a>, off the envelopes | Got as far as the <a href="../Places/The_Gloamwood">Gloamwood</a>, said the woods were enough, and sat down on a log, where he still is. His party said: fair. Two of them, Nabb and Tolly, write to him every month, and he reads every letter, and that is his answer. |
+| 46 | 1980 | <a href="../People/Godfrey_Stopford">Godfrey Stopford</a>, off the envelopes | Got as far as the <a href="../Places/The_Gloamwood">Gloamwood</a>, said the woods were enough, and sat down on a log, where he still is. His party said: fair. Two of them, <a href="../People/Nabb">Nabb</a> and <a href="../People/Tolly">Tolly</a>, write to him every month, and he reads every letter, and that is his answer. |
 | 47 | 1990 | Not given | The Old Man's boy. Came off the ledge at <a href="../Places/Olde_Evermore">Olde Evermore</a> and landed on his feet, for five point nine, the best score since the First Age. He did not come home to Thistlewick. |
 | 48 | 2000 | <a href="../People/Bram_Thistle">Bram Thistle</a> | A turnip farmer, chosen asleep. Asked the question. See [The Obligatory Quest](The_Obligatory_Quest). |
 
 <div class="disputed">
 
-**Forty-seven, or forty-six.** Grimspite says he said "so, you have come at last" forty-seven times and was renewed forty-seven times, and the Obelisk in his tower lists forty-seven RENEWED. The Forty-Sixth says he got as far as the woods. Miss <a href="../People/Ott_Hoyle">Hoyle</a> of Upper Clanging, who counts for a living, counts forty-six that went up that road. I have all three numbers, and I have not been able to make them into one. I set them down here side by side, which is what an encyclopedia is for.
+**Forty-seven, or forty-six.** Grimspite says he said "so, you have come at last" forty-seven times and was renewed forty-seven times, and the Obelisk in his tower lists forty-seven RENEWED. The Forty-Sixth says he got as far as the woods. Miss <a href="../People/Ott_Hoyle">Hoyle</a> of <a href="../Places/Upper_Clanging">Upper Clanging</a>, who counts for a living, counts forty-six that went up that road. I have all three numbers, and I have not been able to make them into one. I set them down here side by side, which is what an encyclopedia is for.
 
 </div>
 
 ## Monuments
 
-**The Wall of the Forty-Seven**, in Prophecy Hall: forty-seven portraits. Forty-six of them are looking at the viewer. One of them is looking at the door. I have asked which, and why, and was told that it was a very old portrait. At the end of them there is now a forty-eighth frame, new and empty, with a card pinned in it: PORTRAIT TO FOLLOW. SITTER AT THE COAST. The sitter is not at the coast. He is at home, two fields away, and has been for two years. Nobody has changed the card. A second card, the Quills', is tucked into the corner to make room.
+**The Wall of the Forty-Seven**, in Prophecy Hall: forty-seven portraits. Forty-six of them are looking at the viewer. One of them is looking at the door. I have asked which, and why, and was told that it was a very old portrait. At the end of them there is now a forty-eighth frame, new and empty, with a card pinned in it: PORTRAIT TO FOLLOW. SITTER AT THE COAST. The sitter is not at the coast. He is at home, two fields away, and has been for two years. Nobody has changed the card. A second card, the <a href="../Institutions/The_Quills">Quills</a>', is tucked into the corner to make room.
 
 **The Obelisk**, in the Obligatory Tower: forty-seven entries, each a date and a name and the word RENEWED. There is room for a forty-eighth. It will not be needed.
 

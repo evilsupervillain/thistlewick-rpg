@@ -41,7 +41,7 @@ That is Mrs Ash, and it is the account of the day that everybody in Ashcombe giv
 
 The Roll was taken on the hill, in the rain, in the schoolmistress's hand: every name in the old village, a tick by each, and after every tick one word, DRY. There are two hundred and six ticks. Beside one name, in place of a tick, in the same careful hand: *Away. (Written to.)*
 
-That one was Corvin's. He was nineteen, and in a corner of the Slain Wyvern at Nether Sopping, being away, on purpose. Two hundred and six people stood on a hill and counted, and when they got to him they wrote down where he was, and then they wrote to him.
+That one was Corvin's. He was nineteen, and in a corner of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> at <a href="../Places/Nether_Sopping">Nether Sopping</a>, being away, on purpose. Two hundred and six people stood on a hill and counted, and when they got to him they wrote down where he was, and then they wrote to him.
 
 > "A tremendous success. Everybody out by dinner, everybody dry by tea, and not so much as a hen lost. We have the Roll."
 

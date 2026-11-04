@@ -10,7 +10,7 @@ title: Dorcas Thrupp
 <caption>Dorcas Thrupp</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Dorcas_Thrupp.png" alt="Dorcas Thrupp, behind the bar of the Slain Wyvern" width="200"><span class="infobox-caption">"It is a wyvern."</span></td></tr>
 <tr><th>Known as</th><td>Mrs Thrupp, which is a courtesy; Dorcas, to her sister, in writing, since 2000</td></tr>
-<tr><th>Born</th><td>4 June 1948, at the Gilded Turnip, <a href="../Places/Thistlewick">Thistlewick</a>, the elder of two</td></tr>
+<tr><th>Born</th><td>4 June 1948, at the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, <a href="../Places/Thistlewick">Thistlewick</a>, the elder of two</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Keeps</th><td><a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>, <a href="../Places/Nether_Sopping">Nether Sopping</a>, for longer than she will say</td></tr>
 <tr><th>Over the mantel</th><td>A wyvern. A goose. Two plaques. Dusted the same morning, in an order she has not disclosed</td></tr>
@@ -57,7 +57,7 @@ She has views on most of her guests and shares very few of them. Of the newlywed
 
 ## Afterwards
 
-She still keeps the Wyvern, and still says it is a wyvern. Room four has a line through it on the board, still. Sops leaves the tray on the mat and goes. The jar is still on the top shelf. The letters from Thistlewick come on the first Thursday of the month, and she reads them behind the bar, where the regulars can see her not smiling. Asked at Christmas 2001 whether she had thought any further about a visit, she said that she had thought about it a great deal, and that Prudence would have to come to her, being the younger, and that she had written to say so, and that Prudence had written back to say exactly the same thing, the other way round, and that they were, she believed, getting somewhere.
+She still keeps the Wyvern, and still says it is a wyvern. Room four has a line through it on the board, still. <a href="Sops">Sops</a> leaves the tray on the mat and goes. The jar is still on the top shelf. The letters from Thistlewick come on the first Thursday of the month, and she reads them behind the bar, where the regulars can see her not smiling. Asked at Christmas 2001 whether she had thought any further about a visit, she said that she had thought about it a great deal, and that Prudence would have to come to her, being the younger, and that she had written to say so, and that Prudence had written back to say exactly the same thing, the other way round, and that they were, she believed, getting somewhere.
 
 ## See also
 

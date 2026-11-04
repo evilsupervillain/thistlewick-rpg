@@ -25,7 +25,7 @@ title: Hithermost
 
 The sign says HITHERMOST. THE LAST VILLAGE BEFORE THE MOUNTAIN, and under it, added later and in smaller letters, AND, FOR SOME, THE FIRST ONE AFTER IT. The well says LAST WATER BEFORE THE MOUNTAIN, and under it, FIRST WATER AFTER (SEE CHAPEL).
 
-Asked what is after the mountain, a villager will say *Hithermost, mostly. They come back down, you see. We do teas.* The tea room's card says TEAS. HOT FOOD. KETTLE PERMITTING, and it is frequently not permitting, because the kettle is at the chapel again. Brother Quillon makes a great deal of tea, and most of it has been made in that kettle. The teapot stands, when it is in, on an iron trivet worked like a sprig of holly. It is Hob Grumnir's work. In the year 2000 he asked whether he might have it back, for a bit. The villager asked where they were to stand the pot, then; on the cloth? They come down off that mountain cold to the bone, every one of them, and the first thing they get is a pot of tea off that trivet. Hob said keep it.
+Asked what is after the mountain, a villager will say *Hithermost, mostly. They come back down, you see. We do teas.* The tea room's card says TEAS. HOT FOOD. KETTLE PERMITTING, and it is frequently not permitting, because the kettle is at the chapel again. Brother Quillon makes a great deal of tea, and most of it has been made in that kettle. The teapot stands, when it is in, on an iron trivet worked like a sprig of holly. It is <a href="../People/Hob_Grumnir">Hob Grumnir</a>'s work. In the year 2000 he asked whether he might have it back, for a bit. The villager asked where they were to stand the pot, then; on the cloth? They come down off that mountain cold to the bone, every one of them, and the first thing they get is a pot of tea off that trivet. Hob said keep it.
 
 The village has been saved a great deal. A house near the bottom answers a knock with *Not today, thank you*, in the tone of a house that has been saved four times this year and is still finding the bits, and you hear a cupboard being locked. Through its window a family sits in its front room, braced. A rain barrel has its lid weighted down with a very large stone and a card: THE BARREL HAS ALSO BEEN SAVED. PLEASE STOP. Another house has pots by the door, and under one of them a note: THERE IS NO KEY UNDER ANY OF THE POTS. PLEASE PUT THE POTS BACK. Under another: STILL NO.
 
@@ -61,7 +61,7 @@ I asked Sir Dunstable directly, on my visit, in the chapel, at a quarter past fo
 
 My own view is that the knight is a man of excellent manners, and that the question is none of my business.
 
-At the Slain Wyvern there is a book on it. It is held by Sops. The odds have not moved in two years, which he says has never happened before on anything, and he declines to interpret it.
+At the <a href="The_Slain_Wyvern">Slain Wyvern</a> there is a book on it. It is held by <a href="../People/Sops">Sops</a>. The odds have not moved in two years, which he says has never happened before on anything, and he declines to interpret it.
 
 </div>
 

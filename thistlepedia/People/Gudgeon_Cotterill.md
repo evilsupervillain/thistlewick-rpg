@@ -20,7 +20,7 @@ title: Gudgeon Cotterill
 <tr><th>Everybody gets</th><td>It wrong</td></tr>
 </table>
 
-<p class="lede"><b>Gudgeon Cotterill</b> is the third of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and clerks at the Parish Rooms, where she copies the register in the best hand Mrs Tunnicliffe has had in eleven clerks. She has written *Cotterill* more times than anybody alive, and spelt it right every time, which she says is more than can be said for anybody else. She knew which drawer Form P-9 was in without looking, although nobody had ever asked for one, and she read it to the Forty-Eighth one section at a time, and wished him good luck, and meant it, roughly.</p>
+<p class="lede"><b>Gudgeon Cotterill</b> is the third of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and clerks at the Parish Rooms, where she copies the register in the best hand Mrs Tunnicliffe has had in eleven clerks. She has written <i>Cotterill</i> more times than anybody alive, and spelt it right every time, which she says is more than can be said for anybody else. She knew which drawer Form P-9 was in without looking, although nobody had ever asked for one, and she read it to the Forty-Eighth one section at a time, and wished him good luck, and meant it, roughly.</p>
 
 ## The register
 
@@ -36,7 +36,7 @@ And then, after a pause:
 
 They do. I did. It is a great many Cotterills to have read out to you in one breath, and she knows it, and she has, I think, a quiet relish for it, the way a man who keeps bees enjoys telling you how many.
 
-<div class="marginalia">She would like it recorded, and I record it: *two t's and two l's. Everybody gets it wrong.* I got it wrong in my notes, and she corrected them, in ink, in the best hand Mrs Tunnicliffe has had. I have kept the page. - H.B.</div>
+<div class="marginalia">She would like it recorded, and I record it: <i>two t's and two l's. Everybody gets it wrong.</i> I got it wrong in my notes, and she corrected them, in ink, in the best hand Mrs Tunnicliffe has had. I have kept the page. - H.B.</div>
 
 ## Form P-9
 

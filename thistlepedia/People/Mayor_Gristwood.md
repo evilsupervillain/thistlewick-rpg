@@ -21,7 +21,7 @@ title: Mayor Gristwood
 <tr><th>The money</th><td>Not the Corporation's. The memorandum says they have enough</td></tr>
 </table>
 
-<p class="lede"><b>Josiah Gristwood</b> is the Mayor of <a href="../Places/Great_Dunnage">Great Dunnage</a>, a town of nine works, in the most hat you have ever seen. For five years he practised the preamble for the formal Opening of the Counting House, which was sealed in 1788 when the key was lost, and which is to be opened by a licensed person, when there is one, and there has never been one. The preamble takes forty minutes. He got it down to thirty-seven and a half. In the year 2000 the Door was opened informally while he was still on *mindful*.</p>
+<p class="lede"><b>Josiah Gristwood</b> is the Mayor of <a href="../Places/Great_Dunnage">Great Dunnage</a>, a town of nine works, in the most hat you have ever seen. For five years he practised the preamble for the formal Opening of the Counting House, which was sealed in 1788 when the key was lost, and which is to be opened by a licensed person, when there is one, and there has never been one. The preamble takes forty minutes. He got it down to thirty-seven and a half. In the year 2000 the Door was opened informally while he was still on <i>mindful</i>.</p>
 
 ## The preamble
 
@@ -39,11 +39,11 @@ In the year 2000 he asked the Forty-Eighth's company whether any of them was, by
 
 That was not the Opening. The Counting House is opened informally; the Opening proper will follow on completion of Form L. Behind the Door there was one room, one chair, and on the chair a note: WE SPENT IT. J. POCKLINGTON, CLERK TO THE CORPORATION. 1788. He sat down on the chair, as the first Mayor to do so, and read the preamble to it, in full, twice.
 
-<div class="marginalia">The money stacked under the note came to one thousand seven hundred and eighty-eight crowns, which nobody can explain, and the Mayor said that it was not the Corporation's, because the memorandum says they have enough. He has put it in the Bonded Warehouse, under Mr Tibbs, as Bond No. 1788, *money, a little, provenance none whatever*, and the Corporation pays the rent on it. He says that it is the first sound financial decision the Corporation has made since 1788, and that it is a very good chair. - H.B.</div>
+<div class="marginalia">The money stacked under the note came to one thousand seven hundred and eighty-eight crowns, which nobody can explain, and the Mayor said that it was not the Corporation's, because the memorandum says they have enough. He has put it in the Bonded Warehouse, under Mr Tibbs, as Bond No. 1788, <i>money, a little, provenance none whatever</i>, and the Corporation pays the rent on it. He says that it is the first sound financial decision the Corporation has made since 1788, and that it is a very good chair. - H.B.</div>
 
 ## The scissors
 
-The same week, the Mayor lost his ceremonial scissors, on the Tuesday, and had to open two things with a knife, which he felt very keenly. They turned up on the paddle of the bottom lock on the Dunnage cut, in the culvert, where a boy from Upper Clanging found them, along with the paddle, and thirty of the Iron Company's boats went down the cut, and the Mayor cut the ribbon again, properly, with scissors.
+The same week, the Mayor lost his ceremonial scissors, on the Tuesday, and had to open two things with a knife, which he felt very keenly. They turned up on the paddle of the bottom lock on the Dunnage cut, in the culvert, where a boy from <a href="../Places/Upper_Clanging">Upper Clanging</a> found them, along with the paddle, and thirty of the Iron Company's boats went down the cut, and the Mayor cut the ribbon again, properly, with scissors.
 
 ## Afterwards
 

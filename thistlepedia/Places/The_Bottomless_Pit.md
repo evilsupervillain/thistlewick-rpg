@@ -27,7 +27,7 @@ title: The Bottomless Pit
 
 At the bottom there is a painted board facing up at the visitors: BOTTOMLESS (APPROX.), and somebody has added, YOU ARE STANDING ON IT. There is a pickaxe, left by somebody who came down to dig for the bottom of the pit; they found it almost at once, and left in a hurry, embarrassed. There is a broken pot with one sock in it.
 
-The town of Nether Sopping has been throwing things down the Pit, or losing them near it, for about two hundred years, and all of it has come to rest at the far end, where the pit goes back into the hill further than anybody expected. There is a drift of odd socks four feet deep, which is to say, as deep as the pit. None of them match. There is a hamper marked PROPERTY OF THE 39TH - DO NOT TOUCH. There is a picnic hamper with a note in it, BACK IN AN HOUR - H.V., in the same hand as the plaque under the wyvern in the Slain Wyvern. Nobody came back for it. I do not know why, and I have not been able to find anybody who does.
+The town of Nether Sopping has been throwing things down the Pit, or losing them near it, for about two hundred years, and all of it has come to rest at the far end, where the pit goes back into the hill further than anybody expected. There is a drift of odd socks four feet deep, which is to say, as deep as the pit. None of them match. There is a hamper marked PROPERTY OF THE 39TH - DO NOT TOUCH. There is a picnic hamper with a note in it, BACK IN AN HOUR - H.V., in the same hand as the plaque under the wyvern in the <a href="The_Slain_Wyvern">Slain Wyvern</a>. Nobody came back for it. I do not know why, and I have not been able to find anybody who does.
 
 ## The badger
 

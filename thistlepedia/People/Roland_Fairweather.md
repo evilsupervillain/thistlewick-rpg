@@ -21,7 +21,7 @@ title: Roland Fairweather
 <tr><th>Parties left at a door</th><td>Eleven</td></tr>
 <tr><th>Prophecy</th><td>His own, in preparation from 1978; discharged 2000, in an afternoon</td></tr>
 <tr><th>Review meetings attended</th><td>One hundred and forty-one</td></tr>
-<tr><th>Sword</th><td>Left at the door. Made in Thistlewick</td></tr>
+<tr><th>Sword</th><td>Left at the door. Made in <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 </table>
 
 <p class="lede"><b>Roland Fairweather</b> is the finest swordsman of his generation, magnificent, glowing and extremely good at everything, and for most of his life the protagonist of a much more expensive story than the one he was in. He joined the Forty-Eighth in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, carried more than his share all the way north, liked everybody, and left at the door of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, as he had warned them he would, and gave them his sword.</p>
@@ -48,7 +48,7 @@ Whenever somebody else's story came to its last door, the committee sent for him
 
 ## His own quest
 
-The prophecy named a thing in a place: a Worm, under Carn Drey, east of Great Dunnage, with a stone. The party went, with him, and did it. The thing had been scaled for a hero of nineteen, and he was thirty-four, and it took an afternoon, and it was over before Piper Quill had got a verse out. "That's it. That was it. Twenty-two years." He asked them, carefully, and without much hope, whether they would mind being surprised. Only a little. Everybody was.
+The prophecy named a thing in a place: a Worm, under Carn Drey, east of Great Dunnage, with a stone. The party went, with him, and did it. The thing had been scaled for a hero of nineteen, and he was thirty-four, and it took an afternoon, and it was over before <a href="Piper_Quill">Piper Quill</a> had got a verse out. "That's it. That was it. Twenty-two years." He asked them, carefully, and without much hope, whether they would mind being surprised. Only a little. Everybody was.
 
 I have it from everybody who was there that it was kind, and was not sad, and should be told completely straight, and I have tried to.
 

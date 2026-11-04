@@ -4,7 +4,7 @@ title: The Cold Winter
 
 # The Cold Winter
 
-<p class="hatnote">This article is about the January of 1919 at Upper Clanging. For the people born that autumn, see <a href="../People/Winnie_Marsden">Winnie Marsden</a>. For the census, see <a href="../People/Mrs_Tunnicliffe">Mrs Tunnicliffe</a>. Not to be confused with the winter at Frostwick, which is kept on purpose; see <a href="The_Eleven_Days">The Eleven Days</a>.</p>
+<p class="hatnote">This article is about the January of 1919 at Upper Clanging. For the people born that autumn, see <a href="../People/Winnie_Marsden">Winnie Marsden</a>. For the census, see <a href="../People/Mrs_Tunnicliffe">Mrs Tunnicliffe</a>. Not to be confused with the winter at <a href="../Places/Frostwick">Frostwick</a>, which is kept on purpose; see <a href="The_Eleven_Days">The Eleven Days</a>.</p>
 
 <table class="infobox">
 <caption>The Cold Winter</caption>
@@ -25,7 +25,7 @@ title: The Cold Winter
 
 The coke for the foundry came up the valley by cart, and in the second week of January 1919 the snow shut the valley road, a long way down, and kept it shut. The foundry had a week's coke in the yard. It was banked down on the tenth of January, to keep the fires in without burning anything, and it stayed banked down until the road was cleared and the carts got through, on the twenty-first of February. It has never been banked down before or since, and the town is proud of the record, and does not count the six weeks against it.
 
-There was no work. The foundry is the first thing in Upper Clanging, and everything else in the town is downstream of it, the Hoyle Works included, which in 1919 had nothing to put together. The register of the Parish Rooms reads AT THE WORKS on every line for eighty years, and for six weeks in 1919 there was nowhere for anybody to be at. There was no heat anywhere but in the houses: not in the foundry, not in the street, not in the Parish Rooms, which shut. Everybody stayed in. That is the whole of what is recorded about the six weeks, and I have looked.
+There was no work. The foundry is the first thing in Upper Clanging, and everything else in the town is downstream of it, the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a> included, which in 1919 had nothing to put together. The register of the Parish Rooms reads AT THE WORKS on every line for eighty years, and for six weeks in 1919 there was nowhere for anybody to be at. There was no heat anywhere but in the houses: not in the foundry, not in the street, not in the Parish Rooms, which shut. Everybody stayed in. That is the whole of what is recorded about the six weeks, and I have looked.
 
 There is nobody now living in Upper Clanging who remembers them, and the people who did are in the churchyard, and they did not, I am told, discuss it.
 
@@ -43,7 +43,7 @@ The two hundred and forty went to school together in 1923, at four, in two rooms
 
 > "There is a seating plan. There has been a seating plan since we were four. You cannot get in. I am not being unkind about it. You had to be born in it."
 
-The dinner is on the second Saturday in October, at the Safety Valve. Every place on the plan is laid, every year, and a place that is not filled has a card on the plate with the name on it, in Winnie's hand. A little over sixty came last October. The plan has two hundred and forty places and no column for anything else, and in the year 2000 a column was needed, because Winnie's granddaughter Bessie had married Cotter Cotterill, the eldest of nine, then ten, and the Cotterills would all want seats. There is a column now. It is in pencil.
+The dinner is on the second Saturday in October, at the Safety Valve. Every place on the plan is laid, every year, and a place that is not filled has a card on the plate with the name on it, in Winnie's hand. A little over sixty came last October. The plan has two hundred and forty places and no column for anything else, and in the year 2000 a column was needed, because Winnie's granddaughter Bessie had married <a href="../People/Cotter_Cotterill">Cotter Cotterill</a>, the eldest of nine, then ten, and the <a href="../People/The_Cotterills">Cotterills</a> would all want seats. There is a column now. It is in pencil.
 
 ## June
 
@@ -53,7 +53,7 @@ Mrs Tunnicliffe was born Edna Hargreaves on the eleventh of June 1919, four mont
 
 She says it as a matter of record. In the winter just gone Winnie asked her whether she would help with the urns on the second Saturday, and she said that she would be delighted, and she will be at the urn, where, she says, she has always been invited everywhere.
 
-<div class="marginalia">I was born in Nether Sopping, in March, in a year with nothing to be said about it, and I belong to no Class and have no dinner of any kind, and I find, having written this article, that I mind a little. - H.B.</div>
+<div class="marginalia">I was born in <a href="../Places/Nether_Sopping">Nether Sopping</a>, in March, in a year with nothing to be said about it, and I belong to no Class and have no dinner of any kind, and I find, having written this article, that I mind a little. - H.B.</div>
 
 ## Since
 

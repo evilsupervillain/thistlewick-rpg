@@ -48,7 +48,7 @@ Nobody said it. Everybody has been not saying it since.
 
 ## Form Z
 
-In a drawer of his desk which most people never notice he kept, for forty years, a single sheet, yellow at the edges: Form Z, *Matters Not Anticipated*. In case. "Never once used. In forty years every matter has been anticipated. By somebody. On something." After the ending, the Forty-Eighth put a bounty card on his desk that had no authority, no number and a drawing of an octopus on the back, for <a href="Something_Unscheduled">something that had been met</a> at the bottom of the Stair under Hithermost. "There is no form for this," said Mr Pell. And then he said it again, more slowly, and opened the drawer.
+In a drawer of his desk which most people never notice he kept, for forty years, a single sheet, yellow at the edges: Form Z, *Matters Not Anticipated*. In case. "Never once used. In forty years every matter has been anticipated. By somebody. On something." After the ending, the Forty-Eighth put a bounty card on his desk that had no authority, no number and a drawing of an octopus on the back, for <a href="Something_Unscheduled">something that had been met</a> at the bottom of the <a href="../Places/The_Stair">Stair</a> under <a href="../Places/Hithermost">Hithermost</a>. "There is no form for this," said Mr Pell. And then he said it again, more slowly, and opened the drawer.
 
 He discharged it on Form Z, and stamped it, and the Forty-Eighth was no longer provisional: the first member of the Guild in forty years who was not. "I shall mention it to the review," said Mr Pell. "When it sits."
 

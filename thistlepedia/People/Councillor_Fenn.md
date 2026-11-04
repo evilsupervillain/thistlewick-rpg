@@ -29,7 +29,7 @@ Clause twelve reads THE DARK LORD SHALL RISE AGAIN. For two thousand years Thist
 
 The Forty-Eighth heard him say it on the morning he was charged, and the narrator of that morning, whoever it is that narrates mornings in Thistlewick, has it that nobody was listening to him, and adds: *Remember him.* I have. It is one of the few instructions in this history that I have been given by the history itself.
 
-He has also, over the years, put up a petition to rename the Obligatory Tower the Optional Tower, which has one signature on it, his own. It is on the Hall's noticeboard still, and it is not struck, because the Committee has never got round to reading it.
+He has also, over the years, put up a petition to rename the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> the Optional Tower, which has one signature on it, his own. It is on the Hall's noticeboard still, and it is not struck, because the Committee has never got round to reading it.
 
 ## The first time anybody asked
 

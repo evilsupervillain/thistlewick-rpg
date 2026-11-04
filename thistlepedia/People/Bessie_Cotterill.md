@@ -30,7 +30,7 @@ She was christened Elizabeth, which nobody has ever used, except the vicar once,
 
 ## The match
 
-She and Cotter Cotterill had known each other all their lives, in the sense that in Upper Clanging you cannot not know a Cotterill, there being too many of them, and she had walked past him at the chapel door every Sunday for twenty years. She says that he asked her out on the first Saturday he walked home from Great Dunnage, in 1994, eleven miles, and that he was too tired to say anything else, and that she said yes to stop him falling over. He says he asked on the second Saturday, and that on the first he had been too tired to ask. Mrs Cotterill says it was the third, and that she knows, because he came in and ate two dinners.
+She and Cotter Cotterill had known each other all their lives, in the sense that in Upper Clanging you cannot not know a Cotterill, there being too many of them, and she had walked past him at the chapel door every Sunday for twenty years. She says that he asked her out on the first Saturday he walked home from <a href="../Places/Great_Dunnage">Great Dunnage</a>, in 1994, eleven miles, and that he was too tired to say anything else, and that she said yes to stop him falling over. He says he asked on the second Saturday, and that on the first he had been too tired to ask. Mrs Cotterill says it was the third, and that she knows, because he came in and ate two dinners.
 
 They married in September 1999, at the chapel, on a Saturday, so that he could walk home for it. Winnie Marsden spent the reception drawing the Cotterills into the Class of 'Nineteen's seating plan, and found that there was no column for nine of them, ten in the spring, and that the plan had been settled when she was four, and she went home early and sat up with it, and nobody has been told what she said to it.
 
@@ -44,7 +44,7 @@ She has the house to herself one evening a month, on the second Saturday, when h
 
 There was a cradle by her range in the year 2000. Nobody had mentioned it, and everybody had looked at it.
 
-It was her gran's. It had gone years ago, out of Winnie's back room, in 1989, and nobody in the family had said anything, because the Marsdens do not say things. In the year 2000 it came back. It was on the doorstep one morning, polished, with a label tied to it in a clear hand, and it is entered in a ledger in Nether Sopping in a column headed RETURNED, ruled with a ruler. "Gran's cradle?" she said, when she was asked about it. "It went years ago." And then: "Nobody has said anything."
+It was her gran's. It had gone years ago, out of Winnie's back room, in 1989, and nobody in the family had said anything, because the Marsdens do not say things. In the year 2000 it came back. It was on the doorstep one morning, polished, with a label tied to it in a clear hand, and it is entered in a ledger in <a href="../Places/Nether_Sopping">Nether Sopping</a> in a column headed RETURNED, ruled with a ruler. "Gran's cradle?" she said, when she was asked about it. "It went years ago." And then: "Nobody has said anything."
 
 Nobody has. Winnie came round the next day and looked at the cradle for some time and said that it wanted a new rocker, and went home. Bessie says that was the most she has ever said about anything.
 

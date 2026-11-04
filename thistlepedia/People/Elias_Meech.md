@@ -41,7 +41,7 @@ He gives them tea. He says that he has given tea to pilgrims every summer since 
 
 The last gate went at Michaelmas 1999. He was between gates. He would not sell the stone; it was not for sale; it was a very good gatepost. "I'd take a gate for it, mind." Asked what he would hang a gate on, then, he said the shrine, which was a very good shrine. "It is. Wants a gate, mind."
 
-In the year 2000 Hob Grumnir came up with the Forty-Eighth's company, and put his hand on the stone, and said it was star-iron. "On a Tuesday," said Mr Meech. Hob asked what a gate could be made out of, up here, and Mr Meech said: "Out of what? I've no iron. Never thrown a gate out, mind." Hob had the eleven out of the hedge-bottom, and worked the afternoon through, cold, and made a gate out of eleven gates, true on its hangings, with a spring on the latch he had carried since a churchyard in Thistlewick. Mr Meech hung it on the shrine himself.
+In the year 2000 Hob Grumnir came up with the Forty-Eighth's company, and put his hand on the stone, and said it was star-iron. "On a Tuesday," said Mr Meech. Hob asked what a gate could be made out of, up here, and Mr Meech said: "Out of what? I've no iron. Never thrown a gate out, mind." Hob had the eleven out of the hedge-bottom, and worked the afternoon through, cold, and made a gate out of eleven gates, true on its hangings, with a spring on the latch he had carried since a churchyard in <a href="../Places/Thistlewick">Thistlewick</a>. Mr Meech hung it on the shrine himself.
 
 > "...That's a very good gate. Go on, then. Take it. Mind your back."
 

@@ -26,7 +26,7 @@ title: The Prophecy Committee
 
 The Committee was constituted to discharge Thistlewick's side of the Prophecy, which it reads, and has always read, as an obligation on the village to send somebody. The clauses that touch it are these. Clause two makes "a hundred years" mean *such period as the Committee shall find convenient*, and so the Committee decides when the century is up; it has lately found ten years convenient, and it prefers years that end in nought. Clause eleven requires a Chosen One to be certified fit before he leaves. Clause four applies; it says so on the back of the leaflet. And clause nineteen, which the Committee added itself, somewhere about the Ninth, concerns a cottage at the coast.
 
-None of the Committee has ever remarked on the arithmetic of clause two, in my hearing or in the minutes, and I have read the minutes. I am a Nether Sopping man, and I counted. I put the sum in Volume Two and in <a href="../History/Two_Reckonings">Two Reckonings</a>, and the Committee has read both, and filed them, and nobody in Thistlewick has mentioned it to me since. I have stopped expecting them to. It is not that they disagree. It is that, in Thistlewick, it does not come up.
+None of the Committee has ever remarked on the arithmetic of clause two, in my hearing or in the minutes, and I have read the minutes. I am a <a href="../Places/Nether_Sopping">Nether Sopping</a> man, and I counted. I put the sum in Volume Two and in <a href="../History/Two_Reckonings">Two Reckonings</a>, and the Committee has read both, and filed them, and nobody in Thistlewick has mentioned it to me since. I have stopped expecting them to. It is not that they disagree. It is that, in Thistlewick, it does not come up.
 
 ## Who sits on it
 

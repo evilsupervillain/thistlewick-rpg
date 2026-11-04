@@ -43,7 +43,7 @@ She married Albert Marsden, a pattern-maker at the foundry, in 1941, and he was 
 
 ## The Cotterills
 
-In 1999 her granddaughter Bessie married Cotter Cotterill, the eldest of the foundry family, at the chapel, on a Saturday. Winnie spent the reception at a side table with the plan.
+In 1999 her granddaughter Bessie married <a href="Cotter_Cotterill">Cotter Cotterill</a>, the eldest of the foundry family, at the chapel, on a Saturday. Winnie spent the reception at a side table with the plan.
 
 > "My granddaughter has married one of the foundry family. There are nine of them. Ten in the spring. They will all want seats. There is a plan. It was settled when we were four. It does not have a column for this."
 
@@ -57,7 +57,7 @@ It is the first thing on that plan that has ever been in pencil. Bessie says it 
 
 ## Afterwards
 
-She is eighty-two. She still sits by the fire at the Safety Valve, on the same chair, on the same doily, and Mr Kell still brings the half without being asked. The plan has a pencil column now, with eleven Cotterills in it and a high chair. Bessie's child, her great-grandchild, is not named in this volume, at her request, until the seating plan is settled, and she has told me that she does not expect it to be settled, and that that is rather the point of pencil.
+She is eighty-two. She still sits by the fire at the Safety Valve, on the same chair, on the same doily, and <a href="Mr_Kell">Mr Kell</a> still brings the half without being asked. The plan has a pencil column now, with eleven Cotterills in it and a high chair. Bessie's child, her great-grandchild, is not named in this volume, at her request, until the seating plan is settled, and she has told me that she does not expect it to be settled, and that that is rather the point of pencil.
 
 ## See also
 

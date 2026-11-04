@@ -49,7 +49,7 @@ I print the register as it stands. The Tolleys are a young couple who were trave
 
 **<a href="../People/Dr_Pike">Dr Pike</a>** has a chair by the fire and a bottle labelled TONIC - DR PIKE, which is cold tea, and he has never once claimed otherwise. He is retired, in the practical sense, which is to say nobody comes. He took a room for a fortnight, thirteen years ago, to think about it. Twelve hundred guests a year go up the stairs, and every one of them comes down better, and nobody can tell him why. He watches. He looks at the fiddle player for slightly too long, and then back at his breakfast. He has theories. He does not like them.
 
-Merribell has told me that cold tea is a perfectly good tonic, and that I am not to tell him she said so.
+<a href="../People/Merribell">Merribell</a> has told me that cold tea is a perfectly good tonic, and that I am not to tell him she said so.
 
 <div class="marginalia">I took a room at the Eight Hours on my way back from the coast road, and Walt played me up, and I came down, and it was morning, and I agreed that it was. I looked at the clock afterwards and I would rather not say. I have written in the register: eight hours. Remarks: I am a historian, and I should like to have stayed longer.</div>
 

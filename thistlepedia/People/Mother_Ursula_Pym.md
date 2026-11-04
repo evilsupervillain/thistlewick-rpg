@@ -30,7 +30,7 @@ She was born Ursula Pym in 1659 at Sallow Cross, a dry little market town in the
 
 She had a chest, all her life: not a bad one, but a chest. The physicians of Sallow Cross, of whom there were four, each prescribed something different for it, and each was very confident, and she took all four remedies in turn and kept a little book of how she felt afterwards. The book survives, at Weeping Bottom. Every entry ends the same way: *Then I had a glass of water and sat down, and felt better. I do not think it was the remedy.*
 
-<div class="marginalia">I have seen the little book. It is the earliest clinical trial I know of on this island, and its findings have never been overturned. The Sisterhouse keeps it beside Sister Bewick's eleven volumes, and I am told that it is very nearly as long as volume eleven. - H.B.</div>
+<div class="marginalia">I have seen the little book. It is the earliest clinical trial I know of on this island, and its findings have never been overturned. The Sisterhouse keeps it beside <a href="Sister_Bewick">Sister Bewick</a>'s eleven volumes, and I am told that it is very nearly as long as volume eleven. - H.B.</div>
 
 ## For the air
 
@@ -77,5 +77,5 @@ The Order is one again, or two that agree; the Prioress says it is a question fo
 - <a href="../Institutions/The_Order_of_Whatever_Works">The Order of Whatever Works</a>
 - <a href="../Places/Weeping_Bottom">Weeping Bottom</a>
 - <a href="../Places/Sump">Sump</a>, which has her by law
-- <a href="Merribell">Merribell</a>, the Order's only Sister for eleven miles of Thistlewick
+- <a href="Merribell">Merribell</a>, the Order's only Sister for eleven miles of <a href="../Places/Thistlewick">Thistlewick</a>
 - <a href="Aveline_Stope">Prioress Aveline Stope</a>

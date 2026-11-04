@@ -9,7 +9,7 @@ title: The Order of the Errant
 <table class="infobox">
 <caption>The Order of the Errant</caption>
 <tr><th>Chapter House</th><td><a href="../Places/Coldbarrow">Coldbarrow</a>, in the snow of the far north</td></tr>
-<tr><th>Clerk</th><td>Mordaunt</td></tr>
+<tr><th>Clerk</th><td><a href="../People/Mordaunt">Mordaunt</a></td></tr>
 <tr><th>Knights</th><td>In the field</td></tr>
 <tr><th>Reporting</th><td>Quarterly. IN THE FIELD</td></tr>
 <tr><th>The system</th><td>One knight, one pin</td></tr>
@@ -25,7 +25,7 @@ title: The Order of the Errant
 
 A knight of the Errant is made by a vigil: dusk to dawn, in a chapel, under a shield that the Order hangs there for him beforehand, with a sponsor standing by and friends keeping the watch. It is a short ceremony and an old one, and it goes wrong in exactly one way, which is that the knight has to find the chapel.
 
-Sir Aldric Pemberton-Gore III was due to keep his at sixteen, at Weeping Bottom, under a shield showing a knight in a field, looking back over his shoulder. He kept it in the wrong chapel eleven times, two of them the Order's own Chapter House at Coldbarrow, which says CHAPTER HOUSE on the door and which he thought was being modest, and one of them a barn with a weathercock. The shield hung over the right chapel's door for thirty years, and the Sisters who own the chapel took it for a pun about vigilance. In the year 2000 he kept the vigil in the right chapel, with Sir Hamo Tench standing sponsor. Something came in under the door at midnight; his article tells the rest.
+Sir Aldric Pemberton-Gore III was due to keep his at sixteen, at Weeping Bottom, under a shield showing a knight in a field, looking back over his shoulder. He kept it in the wrong chapel eleven times, two of them the Order's own Chapter House at Coldbarrow, which says CHAPTER HOUSE on the door and which he thought was being modest, and one of them a barn with a weathercock. The shield hung over the right chapel's door for thirty years, and the Sisters who own the chapel took it for a pun about vigilance. In the year 2000 he kept the vigil in the right chapel, with <a href="../People/Sir_Hamo_Tench">Sir Hamo Tench</a> standing sponsor. Something came in under the door at midnight; his article tells the rest.
 
 ## The pins
 
@@ -33,9 +33,9 @@ Every knight in the field has a white-headed pin in the great map at Coldbarrow,
 
 The pins I know of, in March 2002:
 
-* **Dame Winifred Cope**, at <a href="../Places/Little_Gore">Little Gore</a>, who writes every quarter NOTHING TO REPORT, and is written back to, VERY GOOD. Her pin has never once needed reviewing.
+* **<a href="../People/Dame_Winifred_Cope">Dame Winifred Cope</a>**, at <a href="../Places/Little_Gore">Little Gore</a>, who writes every quarter NOTHING TO REPORT, and is written back to, VERY GOOD. Her pin has never once needed reviewing.
 * **Sir Hamo Tench**, in a bed exactly on the line in the ward at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>, where he came for the sea air sixteen years before 2000 with a cough. He writes IN THE FIELD, and it is true; it is a field of a sort.
-* **<a href="../People/Sir_Dunstable">Sir Dunstable</a>**, at the Chapel of Continuance at Hithermost. Mordaunt says that it is the one pin in the map he has never had to move. I put that down here without comment, because it is evidence of something, and the Order has not said what, and his own article does not decide.
+* **<a href="../People/Sir_Dunstable">Sir Dunstable</a>**, at the Chapel of Continuance at <a href="../Places/Hithermost">Hithermost</a>. Mordaunt says that it is the one pin in the map he has never had to move. I put that down here without comment, because it is evidence of something, and the Order has not said what, and his own article does not decide.
 * **<a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric</a>**, who has no pin in the map. See below.
 
 ## The review
@@ -58,7 +58,7 @@ There are two suits of armour in the hall. One says CEREMONIAL. DO NOT GO ON A Q
 
 There are no red pins in the great map now. In the margin there is a small card: PEMBERTON-GORE. AT LARGE. PIN CARRIED. The Order's daybook still says PINS REVIEWED, PINS REVIEWED, PINS REVIEWED (WITH TEA), and the tea is new.
 
-Sir Aldric found Thistlewick's north gate unaided, once, on the ninth of June 2001, at about eleven in the morning. I sent the date to Mordaunt, with the names of my three witnesses. He wrote back to say that he had it already, from the Fourth, and that it agreed.
+Sir Aldric found <a href="../Places/Thistlewick">Thistlewick</a>'s north gate unaided, once, on the ninth of June 2001, at about eleven in the morning. I sent the date to Mordaunt, with the names of my three witnesses. He wrote back to say that he had it already, from the Fourth, and that it agreed.
 
 ## See also
 

@@ -36,7 +36,7 @@ The thrush that has lost its keys was, he says, an accident. He was practising t
 
 At the Contest he did the nightingale, which got sevens, and the curlew, which got sevens, and then the thrush, which went all round the room looking for its keys, and under the judges' table, and in Mr Ambler's hat, and found them, at the end, in the last place you would look, and Miss Quayle, who gives everything a two, gave it a three. The room gasped.
 
-<div class="marginalia">I asked Miss Quill whether she minded coming second to a thrush. She said that it was a very good thrush, and that she had been beaten by better songs and worse birds, and that she had written him a verse, which is in her notebooks, and that it rhymes *keys* with *please*, which is not her best, but was what the thrush would have wanted. - H.B.</div>
+<div class="marginalia">I asked Miss Quill whether she minded coming second to a thrush. She said that it was a very good thrush, and that she had been beaten by better songs and worse birds, and that she had written him a verse, which is in her notebooks, and that it rhymes <i>keys</i> with <i>please</i>, which is not her best, but was what the thrush would have wanted. - H.B.</div>
 
 ## Afterwards
 

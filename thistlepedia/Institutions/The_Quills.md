@@ -27,7 +27,7 @@ When the Committee chooses, a Quill begins. The account is begun the morning the
 
 The Quills also write the text under the portraits on the Wall of the Forty-Seven, every one of them, and their cards are tucked into the frames. The Prophecy's own preamble quotes one of them, Piper's grandmother, who wrote numbers forty to forty-three.
 
-I have noticed, being a Nether Sopping man, that four generations is a short time in which to write forty-seven accounts that are a hundred years apart. Nobody in the family has remarked on this, and I have not raised it with them, because the answer is in clause two, and in <a href="../History/Two_Reckonings">Two Reckonings</a>, and because it is not the Quills' fault what the Committee finds convenient.
+I have noticed, being a <a href="../Places/Nether_Sopping">Nether Sopping</a> man, that four generations is a short time in which to write forty-seven accounts that are a hundred years apart. Nobody in the family has remarked on this, and I have not raised it with them, because the answer is in clause two, and in <a href="../History/Two_Reckonings">Two Reckonings</a>, and because it is not the Quills' fault what the Committee finds convenient.
 
 ## The house style
 
@@ -39,7 +39,7 @@ Its conventions are easily learned, and every account keeps them. The Chosen One
 
 Piper Quill's whole professional rebellion has been to let the truth spoil the metre. She narrates things as they happen, in the third person, at volume, whether or not it is convenient, and writes them down, and some of them scan. She walked north with the Forty-Eighth to do it, which no Quill had done before, the shape being known.
 
-On the way she read every verse in the Committee's box of struck material, on Form S-7, and printed none; finished the ballad; and came second at the Bell in Great Dunnage, by one point, to a man who does birdcalls. She is, as her family has noticed, the first Quill ever to win a prize for writing down what actually happened, and it was for coming second, and she says that is about right.
+On the way she read every verse in the Committee's box of struck material, on Form S-7, and printed none; finished the ballad; and came second at the Bell in <a href="../Places/Great_Dunnage">Great Dunnage</a>, by one point, to a man who does birdcalls. She is, as her family has noticed, the first Quill ever to win a prize for writing down what actually happened, and it was for coming second, and she says that is about right.
 
 ## The account of the Forty-Eighth
 

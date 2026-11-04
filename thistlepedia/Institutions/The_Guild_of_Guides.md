@@ -19,13 +19,13 @@ title: The Guild of Guides
 <tr><th>Certificates issued</th><td>One</td></tr>
 </table>
 
-<p class="lede">The <b>Guild of Guides</b> is the body that explains things to heroes at the start of their journeys: walking, talking, that a chest is for opening, and that the thing with a handle in the wall is a door. Its Firstfield Chapter has kept <a href="../Places/Firstfield_Meadow">Firstfield Meadow</a>, at the foot of the rainbow, for every Chosen One of Thistlewick. Forty-seven of them pressed the button really fast. It has one graduate.</p>
+<p class="lede">The <b>Guild of Guides</b> is the body that explains things to heroes at the start of their journeys: walking, talking, that a chest is for opening, and that the thing with a handle in the wall is a door. Its Firstfield Chapter has kept <a href="../Places/Firstfield_Meadow">Firstfield Meadow</a>, at the foot of the rainbow, for every Chosen One of <a href="../Places/Thistlewick">Thistlewick</a>. Forty-seven of them pressed the button really fast. It has one graduate.</p>
 
 ## The rules
 
 The Guild has two rules that everybody in the meadow knows by heart, because they have been told.
 
-**Once.** A guide explains everything once. "Once! The Guild is very firm on once!" It does not say what happens the second time, because there is not supposed to be one, and Fizz, who has explained doors three thousand times, on several occasions to somebody already holding one open, has never yet had to find out.
+**Once.** A guide explains everything once. "Once! The Guild is very firm on once!" It does not say what happens the second time, because there is not supposed to be one, and <a href="../People/Fizz">Fizz</a>, who has explained doors three thousand times, on several occasions to somebody already holding one open, has never yet had to find out.
 
 **No lore.** The Guild does not cover lore. The Dark Lord's weakness, the location of the Sacred Key and what happens if you pull the lever are all lore. A guide asked about any of them says LORE, and is required to. I wrote to the Guild, for this article, to ask what else counted. The Guild wrote back to say that that was lore.
 
@@ -37,9 +37,9 @@ A guide starts as a **Tutorial Sprite, Third Class**, and works upward. The grad
 
 ## Contractors
 
-The Guild contracts one bandit per tutorial, to ambush the hero at the top of the meadow and lose. The post at Firstfield has been held for nineteen years by **Norbert Pelling**, who in the year 2000 had lost three thousand, one hundred and five times, and had never won, which is the job. The contract provides for a lie down afterwards. He announces every swing a turn in advance, for the education of the young.
+The Guild contracts one bandit per tutorial, to ambush the hero at the top of the meadow and lose. The post at Firstfield has been held for nineteen years by **<a href="../People/Norbert_Pelling">Norbert Pelling</a>**, who in the year 2000 had lost three thousand, one hundred and five times, and had never won, which is the job. The contract provides for a lie down afterwards. He announces every swing a turn in advance, for the education of the young.
 
-The Guild also contracts the stick. Old Hollis, by the tent, gives every hero one, and his wife Nell cuts them. In forty-one years they had given eleven thousand, two hundred and six, and not one had ever come back, until 2000.
+The Guild also contracts the stick. <a href="../People/Old_Hollis">Old Hollis</a>, by the tent, gives every hero one, and his wife Nell cuts them. In forty-one years they had given eleven thousand, two hundred and six, and not one had ever come back, until 2000.
 
 ## Procurement
 
@@ -51,7 +51,7 @@ At the top of the meadow is a sign: TUTORIALS COMPLETED IN THIS MEADOW: ONE. The
 
 ## Afterwards
 
-Fizz has applied for Boss Warning Sprite, First Class, with the Forty-Eighth as her reference, and the application is with the Guild. I asked whether he had been consulted, and was told that that was lore. I asked the Guild for the number of its chapters, its seat, its founding date and the name of its chair, and the answer to all four was the same. It is the only institution in this volume about which I know less after writing to it than before, and I have written to the Collegium Arcanum.
+Fizz has applied for Boss Warning Sprite, First Class, with the Forty-Eighth as her reference, and the application is with the Guild. I asked whether he had been consulted, and was told that that was lore. I asked the Guild for the number of its chapters, its seat, its founding date and the name of its chair, and the answer to all four was the same. It is the only institution in this volume about which I know less after writing to it than before, and I have written to the <a href="The_Collegium_Arcanum">Collegium Arcanum</a>.
 
 The sign at the top of the meadow still says ONE. Nobody else has come. There will be nobody else from Thistlewick, now, and Fizz knows it, and practises anyway, at the sheep, in case.
 

@@ -10,7 +10,7 @@ title: Sops
 <caption>Sops</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Sops.png" alt="Sops, the potboy at the Slain Wyvern" width="200"><span class="infobox-caption">"It's the standing."</span></td></tr>
 <tr><th>Known as</th><td>Sops</td></tr>
-<tr><th>Born</th><td>1988, in Nether Sopping. The day is in the Wyvern's house register, under PURPOSE OF VISIT, and reads "born"</td></tr>
+<tr><th>Born</th><td>1988, in <a href="../Places/Nether_Sopping">Nether Sopping</a>. The day is in the Wyvern's house register, under PURPOSE OF VISIT, and reads "born"</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Real name</th><td>Not for publication, by request. Sops says it is "a long one"</td></tr>
 <tr><th>Works</th><td>Potboy, the Slain Wyvern. Also flowers, and trays</td></tr>
@@ -20,7 +20,7 @@ title: Sops
 <tr><th>Has been paid in</th><td>Buns, when asking the wrong question</td></tr>
 </table>
 
-<p class="lede"><b>Sops</b> is the potboy at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> in Nether Sopping, and can tell a Chosen One by the standing, and will tell the Chosen One so. He also picks the flowers for the bedrooms, mostly dandelions, takes the trays up, and plays Chosen One on the front with Tibb, under rules that were, when I first heard them, well ahead of anything the Prophecy Committee had managed.</p>
+<p class="lede"><b>Sops</b> is the potboy at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> in Nether Sopping, and can tell a Chosen One by the standing, and will tell the Chosen One so. He also picks the flowers for the bedrooms, mostly dandelions, takes the trays up, and plays Chosen One on the front with Tibb, under rules that were, when I first heard them, well ahead of anything the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a> had managed.</p>
 
 ## The standing
 
@@ -42,7 +42,7 @@ He reports on the guests to anybody who will listen, and is a reliable reporter 
 
 On the front in the afternoons Sops and Tibb play Chosen One. The rules are that one of them walks north and the other has to be the Dark Lord and lose. Neither of them wanted to be the Dark Lord. "I was the Dark Lord LAST time. You be the Dark Lord." They settled it by both being the Chosen One, and agreeing that the Dark Lord had stayed at home. "The Dark Lord's stayed home again. He does that now." I put it to the Committee, in a letter, that two children on the front at Nether Sopping had solved the Prophecy a year before the Forty-Eighth did. The Committee minuted the letter. I have the minute. It says *Noted.*
 
-In the year 2000 Nix and Cobb Lorrimer held a contest on the front, which Lorrimer believed was a thieving contest and Nix knew was a list, and the list had been written by Sops and Tibb. Lorrimer came back with a helmet and a sword, stolen. "Where'd you get them?" said Sops. Nix came back with a rope, a pot and an oar, each with a receipt on it. "...This one's got PAPERWORK," said Sops, which is still, two years later, the highest praise anybody in Nether Sopping can give.
+In the year 2000 <a href="Nix">Nix</a> and Cobb Lorrimer held a contest on the front, which Lorrimer believed was a thieving contest and Nix knew was a list, and the list had been written by Sops and Tibb. Lorrimer came back with a helmet and a sword, stolen. "Where'd you get them?" said Sops. Nix came back with a rope, a pot and an oar, each with a receipt on it. "...This one's got PAPERWORK," said Sops, which is still, two years later, the highest praise anybody in Nether Sopping can give.
 
 There was one more thing on the list: ONE DARK LORD (WHO LOSES). Neither child would be it. Nobody in the town would be it. In the afternoons now, Lorrimer comes down the street in a teal hood, under protest, and loses.
 

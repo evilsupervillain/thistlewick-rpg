@@ -36,7 +36,7 @@ Asked whether she minds keeping a town under a curse, she says that it isn't a c
 
 ## Clause two
 
-In the year 2000 the Forty-Eighth showed her the Prophecy, because he had been told she read contracts, and she read it all the way through, at her desk, which nobody had ever done; not the Committee, not the Quills, not the forty-seven, and not me, until afterwards, and then only because she had. She had three remarks.
+In the year 2000 the Forty-Eighth showed her the Prophecy, because he had been told she read contracts, and she read it all the way through, at her desk, which nobody had ever done; not the Committee, not the <a href="../Institutions/The_Quills">Quills</a>, not the forty-seven, and not me, until afterwards, and then only because she had. She had three remarks.
 
 > "No break clause. No notice period. And clause twelve renews itself."
 
@@ -46,7 +46,7 @@ And then she turned back to the beginning, to clause two, which every reader sin
 
 > "'A hundred years' is a defined term. 'Such period as the Committee shall find convenient.'"
 
-That is the whole of what she said about it. Then she mentioned that there would be a light dusting on Tuesday, for the look of the thing; it was in the schedule. She did not explain how forty-seven Chosen Ones could have gone "a hundred years" apart and the Forty-Fifth be alive in Nether Sopping and potting things. She did not do the arithmetic for him. She has never done anybody's arithmetic for them, and she sees no reason to start with a document she would not have signed.
+That is the whole of what she said about it. Then she mentioned that there would be a light dusting on Tuesday, for the look of the thing; it was in the schedule. She did not explain how forty-seven Chosen Ones could have gone "a hundred years" apart and the Forty-Fifth be alive in <a href="../Places/Nether_Sopping">Nether Sopping</a> and potting things. She did not do the arithmetic for him. She has never done anybody's arithmetic for them, and she sees no reason to start with a document she would not have signed.
 
 <div class="marginalia">I have since done the arithmetic, at some length; it is <a href="../History/Two_Reckonings">Two Reckonings</a>. I sent her a copy. She returned it with a note to say that the arithmetic was correct, and that she had not asked for it.</div>
 

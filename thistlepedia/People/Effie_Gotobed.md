@@ -13,7 +13,7 @@ title: Effie Gotobed
 <tr><th>Born</th><td>Euphemia Gotobed, 2 October 1990, <a href="../Places/Much_Pottering">Much Pottering</a>; three months older than her pen pal, which she has mentioned</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td>The Gotobeds' cottage, and its gate, at about the time of the post</td></tr>
-<tr><th>Pen pal</th><td>Spare Cotterill, of Upper Clanging, since 1997, by order of the parish council</td></tr>
+<tr><th>Pen pal</th><td>Spare Cotterill, of <a href="../Places/Upper_Clanging">Upper Clanging</a>, since 1997, by order of the parish council</td></tr>
 <tr><th>Is</th><td>Nearly a princess. It is different. It is nearly</td></tr>
 <tr><th>Village has</th><td>A volcano (dormant); a sea serpent (in the pond)</td></tr>
 <tr><th>Village actually has</th><td>A bonfire; a carp; a pig</td></tr>
@@ -39,7 +39,7 @@ In 1997 Mrs Agatha Throssell, chair of the parish council, chose Upper Clanging 
 
 Her first letter, which her mother still has, is four words long and says HELLO. I AM EFFIE. The second says that she is nearly a princess. The volcano comes in at the fourth. By the tenth there is a sea serpent. The writing gets bigger and worse the further back you go in the box on the cabinet, and better and smaller towards the top, and the stories get bigger the other way.
 
-<div class="marginalia">Her atlas has Upper Clanging circled in red. Her copy of *Letters, And How To Write Them* has every page turned down at the corner, which defeats the purpose, and she knows. Over her bed is a picture of a very tall chimney, drawn by somebody who has heard about chimneys and is excited. She has never seen a chimney taller than the Gotobeds'. She has drawn the one in the picture forty feet high, with smoke in three colours. - H.B.</div>
+<div class="marginalia">Her atlas has Upper Clanging circled in red. Her copy of <i>Letters, And How To Write Them</i> has every page turned down at the corner, which defeats the purpose, and she knows. Over her bed is a picture of a very tall chimney, drawn by somebody who has heard about chimneys and is excited. She has never seen a chimney taller than the Gotobeds'. She has drawn the one in the picture forty feet high, with smoke in three colours. - H.B.</div>
 
 ## The meeting
 

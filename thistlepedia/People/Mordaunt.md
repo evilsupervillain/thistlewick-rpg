@@ -53,7 +53,7 @@ Mordaunt wrote for some time, and crossed nothing out.
 
 > "Then the committee has a data problem, sir. The knight cannot stay with the pin. Resolved: that the pin go with the knight. Knight Errant, At Large. A rank of the Order, created this Thursday. And wherever the knight is, sir, the map is correct. That is the system now."
 
-<div class="marginalia">I have seen the card on the committee's table: REVIEW OF PINS (PEMBERTON-GORE): CONCLUDED. SIR A. INFORMED. OFFERED THE CHAPTER. DECLINED. And under it, smaller, in ink: *Beautifully.* (Minuted at his request.) It is the only adverb in the minutes of the Order of the Errant since 1890. I asked Mordaunt why he had allowed it. He said that it was accurate. - H.B.</div>
+<div class="marginalia">I have seen the card on the committee's table: REVIEW OF PINS (PEMBERTON-GORE): CONCLUDED. SIR A. INFORMED. OFFERED THE CHAPTER. DECLINED. And under it, smaller, in ink: <i>Beautifully.</i> (Minuted at his request.) It is the only adverb in the minutes of the Order of the Errant since 1890. I asked Mordaunt why he had allowed it. He said that it was accurate. - H.B.</div>
 
 ## Afterwards
 

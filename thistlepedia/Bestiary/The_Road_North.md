@@ -104,7 +104,7 @@ The Obligatory Tower is, I am told, under contract, and so is most of what is in
 
 **Called.** The Tower Bat.
 
-**Where.** The Tower, every floor; and the Bottomless Pit.
+**Where.** The Tower, every floor; and the <a href="../Places/The_Bottomless_Pit">Bottomless Pit</a>.
 
 **Remarks.** There are always bats. It is said to be in the contract. I have not seen the contract. I have seen the bats, and they would be there anyway. A tall stone building with a roof is a bat's idea of a good contract.
 
@@ -116,7 +116,7 @@ The Obligatory Tower is, I am told, under contract, and so is most of what is in
 
 **Where.** The Tower, in the walls, until it is not.
 
-**Remarks.** It is structurally important, and it attacks anyway, which raises questions about the Tower. Miss Hoyle of Upper Clanging asked one of those questions, in writing, and it went up the Tower with the Forty-Eighth, and I understand that it was not answered. I am not competent to answer it. I list the gargoyle so that the next person who asks what the Tower is made of has a place to start: in part, it is made of things that do not want to be in it.
+**Remarks.** It is structurally important, and it attacks anyway, which raises questions about the Tower. Miss Hoyle of <a href="../Places/Upper_Clanging">Upper Clanging</a> asked one of those questions, in writing, and it went up the Tower with the Forty-Eighth, and I understand that it was not answered. I am not competent to answer it. I list the gargoyle so that the next person who asks what the Tower is made of has a place to start: in part, it is made of things that do not want to be in it.
 
 ## Persons
 

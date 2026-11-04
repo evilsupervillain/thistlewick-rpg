@@ -25,7 +25,7 @@ title: Nora Cotterill
 
 ## Haggit's Bank
 
-She was born Nora Sprag in 1954, at Haggit's Bank, a row of pit cottages half way down the valley road to Great Dunnage, where the coal for the foundries came out, the youngest of six in a family of colliers. A sprag is the wedge you knock under a wagon to stop it running away down the incline. Her father used to say that she was well named. Her brothers used to say so too, but more bitterly, because she was the one who told on them.
+She was born Nora Sprag in 1954, at Haggit's Bank, a row of pit cottages half way down the valley road to <a href="../Places/Great_Dunnage">Great Dunnage</a>, where the coal for the foundries came out, the youngest of six in a family of colliers. A sprag is the wedge you knock under a wagon to stop it running away down the incline. Her father used to say that she was well named. Her brothers used to say so too, but more bitterly, because she was the one who told on them.
 
 She came up the valley at nineteen, to be a pit-head lass at the foundry's coal yard, and met Ernest Cotterill on her second day, when he walked into a coal wagon she had just sprag'd, and apologised to it. She says that she knew then. He says that he did not know anything for some time, owing to the wagon.
 
@@ -49,13 +49,13 @@ That was the whole of her case against the Tower, and it was a good case, and I 
 
 The argument was fought in the front room, many times, with Spare on his own, and the rest of the family arranged on the stairs to watch. Her moves have been written down by Clevis, who kept a book on the outcome, and who describes them as: *You Are Nine*, which hurt; *Ask Your Father*, which sent Mr Cotterill in, who said "Mam," and was told "I know"; *That Is Not The Point*, which does nothing whatsoever, and is not meant to; and *I Have Said No*, which is the one that ends it. She was immune to his tantrum. She is the only person in the world who is. She has had nine years' practice and eight children's before that.
 
-She won every time, until the day she did not. She stopped at a quarter. What she said then is in Spare's article, and I will only give the terms, which she set out like a contract, and which Miss Pargeter of Frostwick, when I read them to her, said were the best-drafted she had heard in the north: *Jumper on. You do not go in first. You write. It does not have to be long, and it does not have to be true.* And to the Forty-Eighth: "And you. Bring him back."
+She won every time, until the day she did not. She stopped at a quarter. What she said then is in Spare's article, and I will only give the terms, which she set out like a contract, and which Miss <a href="Pargeter">Pargeter</a> of <a href="../Places/Frostwick">Frostwick</a>, when I read them to her, said were the best-drafted she had heard in the north: *Jumper on. You do not go in first. You write. It does not have to be long, and it does not have to be true.* And to the Forty-Eighth: "And you. Bring him back."
 
 He was brought back. "You did not," she said to Spare, when he told her that he had gone in first, which he had not, quite. "Tea is at six. Wash your hands."
 
 ## The letters
 
-He wrote. He wrote from every town the company went through, four lines each, every one untrue, and she read them out to the shift at the Hoyle Works at the dinner hour, with her reading glasses on, slowly, with the punctuation in. The last one said that the dragon was coming home with them for its tea, and that she was please to do more potatoes, because it had never had a potato. There was no dragon. "I know, love," she said. "I did more potatoes anyway."
+He wrote. He wrote from every town the company went through, four lines each, every one untrue, and she read them out to the shift at the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a> at the dinner hour, with her reading glasses on, slowly, with the punctuation in. The last one said that the dragon was coming home with them for its tea, and that she was please to do more potatoes, because it had never had a potato. There was no dragon. "I know, love," she said. "I did more potatoes anyway."
 
 She has kept every letter, tied up in string. There is no dragon in any of them that came true, and she says that is not the point, and she would know, because that is one of her moves.
 

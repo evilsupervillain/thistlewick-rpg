@@ -22,13 +22,13 @@ title: Godfrey Stopford
 <tr><th>Age</th><td>Forty-six, as of last week, which he finds very satisfying</td></tr>
 </table>
 
-<p class="lede"><b>Godfrey Stopford</b> is the Forty-Sixth Chosen One of the Prophecy of Thistlewick, who set out in 1980, got as far as the Gloamwood, and decided that the woods were enough. He is still there, on a log, half way along the first path, in very good armour, sitting down. "Nobody writes songs about that. But I'm here, and I'm forty-six, and I'm sitting down." He is the only Chosen One who neither went up the road nor came home, and the only one, so far as I know, who is entirely content about it.</p>
+<p class="lede"><b>Godfrey Stopford</b> is the Forty-Sixth Chosen One of the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy of Thistlewick</a>, who set out in 1980, got as far as the Gloamwood, and decided that the woods were enough. He is still there, on a log, half way along the first path, in very good armour, sitting down. "Nobody writes songs about that. But I'm here, and I'm forty-six, and I'm sitting down." He is the only Chosen One who neither went up the road nor came home, and the only one, so far as I know, who is entirely content about it.</p>
 
 ## The name
 
-My last volume did not give his name, and nor did the Committee's souvenir book, *The Forty-Seven*, which I am told has a portrait on his page, and a date, and a pressed turnip flower, and the word FORTY-SIX in very small letters, as if the Committee were not sure it ought to count him. It counts him. Miss Hoyle of Upper Clanging does not.
+My last volume did not give his name, and nor did the Committee's souvenir book, *The Forty-Seven*, which I am told has a portrait on his page, and a date, and a pressed turnip flower, and the word FORTY-SIX in very small letters, as if the Committee were not sure it ought to count him. It counts him. Miss Hoyle of <a href="../Places/Upper_Clanging">Upper Clanging</a> does not.
 
-I did not get the name from him. He does not write. I got it from Tolly, of his old party, who addresses the envelopes, in the narrow hand. Every one of them, every month for twenty-two years, is addressed the same way:
+I did not get the name from him. He does not write. I got it from <a href="Tolly">Tolly</a>, of his old party, who addresses the envelopes, in the narrow hand. Every one of them, every month for twenty-two years, is addressed the same way:
 
 <div class="stamp">G. STOPFORD, ESQ. THE LOG. THE GLOAMWOOD. BY HAND.</div>
 
@@ -38,13 +38,13 @@ and carries two stamps, because it is a long way, and he is worth two stamps. Th
 
 He was born in Thistlewick on the fourteenth of March 1956, the only son of a thatcher, and was a quiet boy who liked to sit on walls. He was chosen in the spring of 1980, at twenty-four, in the usual way, which is to say that the Committee met and he was not at the meeting. His armour was made for him at the village forge by Beatrice Grumnir, who made a good many things in her time for people going north, and who said of this suit that it was the best she had done, and that it was a pity about the wearer, who had told her when he was measured that he did not expect to need it.
 
-He did not need it. It has never been struck. It is the best-kept suit of armour in the country, and I have been to the Chapter House of the Order of the Errant, where they oil theirs on Fridays.
+He did not need it. It has never been struck. It is the best-kept suit of armour in the country, and I have been to the Chapter House of the <a href="../Institutions/The_Order_of_the_Errant">Order of the Errant</a>, where they oil theirs on Fridays.
 
-<div class="marginalia">Halbert Quy, who knew him slightly, says that young Stopford came to see him in Nether Sopping the week before he set out, and asked him one question, which was whether it was a long way. Mr Quy said that it was. Young Stopford said, "Right," and thanked him, and went home. Mr Quy says that he has thought since that it was the most sensible question any Chosen One ever asked him, and that it was the only one he answered correctly. - H.B.</div>
+<div class="marginalia">Halbert Quy, who knew him slightly, says that young Stopford came to see him in <a href="../Places/Nether_Sopping">Nether Sopping</a> the week before he set out, and asked him one question, which was whether it was a long way. Mr Quy said that it was. Young Stopford said, "Right," and thanked him, and went home. Mr Quy says that he has thought since that it was the most sensible question any Chosen One ever asked him, and that it was the only one he answered correctly. - H.B.</div>
 
 ## The woods
 
-The party was five, and set out on a Tuesday. Half way along the first path in the Gloamwood there was a log across the way, and Godfrey Stopford stopped at it. Nabb, who was there, has told the story many times at the Slain Wyvern, and it does not get any longer:
+The party was five, and set out on a Tuesday. Half way along the first path in the Gloamwood there was a log across the way, and Godfrey Stopford stopped at it. <a href="Nabb">Nabb</a>, who was there, has told the story many times at the Slain Wyvern, and it does not get any longer:
 
 > "He stopped. Just - stopped, on the path, and said the woods were enough. And we looked at each other, and we said: fair."
 
@@ -62,7 +62,7 @@ Tolly, for her part, says that Nabb thinks Tolly does not know the letters are u
 
 ## Thistlewick
 
-The Gloamwood is under a mile from the north gate of Thistlewick. Nobody from the village has been to see him. When I asked why, I was told, at the Gilded Turnip, that the Forty-Sixth had set out, and that you do not go and look at somebody who has set out, any more than you would read the last page of a book first. I asked whether they knew he was sitting on a log less than a mile away, and was told that he had set out.
+The Gloamwood is under a mile from the north gate of Thistlewick. Nobody from the village has been to see him. When I asked why, I was told, at the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, that the Forty-Sixth had set out, and that you do not go and look at somebody who has set out, any more than you would read the last page of a book first. I asked whether they knew he was sitting on a log less than a mile away, and was told that he had set out.
 
 It is why he did not know, when the Forty-Eighth came through, that the Forty-Seventh had come after him. "Did he? Good for him," he said, and then, "Did he come back?" Nobody answered. He has not asked again. He says it is not the sort of thing you ask twice.
 

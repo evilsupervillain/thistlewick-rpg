@@ -27,7 +27,7 @@ There is no portrait of him in this volume. There is one on the Wall of the Fort
 
 ## The goose
 
-What happened in the marshes he never said. That he came home with nothing, to a quay full of people who had been promised a monster, is the whole of what is known, and Dorcas Thrupp, who keeps the Wyvern and who had the story from those who were there, tells it the same way every time:
+What happened in the marshes he never said. That he came home with nothing, to a quay full of people who had been promised a monster, is the whole of what is known, and <a href="Dorcas_Thrupp">Dorcas Thrupp</a>, who keeps the Wyvern and who had the story from those who were there, tells it the same way every time:
 
 > "He was a good man, and he needed it to be a wyvern, and it's been a wyvern in my house for sixty years. So."
 

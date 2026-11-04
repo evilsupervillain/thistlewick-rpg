@@ -20,7 +20,7 @@ title: The Barrow of the Forty-Fourth
 <tr><th>On top</th><td>A bench, since the year 2000</td></tr>
 </table>
 
-<p class="lede">The <b>Barrow of the Forty-Fourth</b> is a long grass mound with a stone mouth in its side, in the eastern hills above the north road, where Thistlewick buried <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>, Chosen One number forty-four, at some expense, within a fortnight of his death, after ignoring him for forty years. He did not ask for a mound. He asked for a bench. There is one on it now.</p>
+<p class="lede">The <b>Barrow of the Forty-Fourth</b> is a long grass mound with a stone mouth in its side, in the eastern hills above the north road, where <a href="Thistlewick">Thistlewick</a> buried <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>, Chosen One number forty-four, at some expense, within a fortnight of his death, after ignoring him for forty years. He did not ask for a mound. He asked for a bench. There is one on it now.</p>
 
 ## The sign
 
@@ -66,7 +66,7 @@ When I went out to see it, the grass in front of the bench was flat, and there w
 
 ## Ysolde
 
-Somebody had to tell Ysolde Marrow, who kept the Forty-Fourth alive for nine years, on and off, and who has sat at the table by the bar in the Slain Wyvern ever since with a kit she does not need open in front of her out of habit. The Forty-Eighth told her. Nobody in the room looked over. Everybody in the room was listening.
+Somebody had to tell Ysolde Marrow, who kept the Forty-Fourth alive for nine years, on and off, and who has sat at the table by the bar in the <a href="The_Slain_Wyvern">Slain Wyvern</a> ever since with a kit she does not need open in front of her out of habit. The Forty-Eighth told her. Nobody in the room looked over. Everybody in the room was listening.
 
 "Forty years I've had that argument with a village I've never been to. They wanted a hero in a mound. He wanted somewhere to put his legs up."
 
@@ -78,7 +78,7 @@ He had also asked the Forty-Eighth to tell her that he said she was right about 
 
 **<a href="../People/Edwin_Tarrant">The Hermit</a>.** Not far off, a hut, a rock, and a man looking at the middle distance with great authority, who has been up there nineteen years, and has wisdom for passing travellers: bread, candles, a wedge of the hard cheese, not the soft, nails, two inch, and something for a cough. It is a shopping list. Nobody had ever once come up and asked him if he needed anything. The Forty-Eighth went and got his shopping. He would like it known that he did not need the company. He needed the cheese. He is nearly out of candles again, but he shan't mention it.
 
-<div class="marginalia">I asked at the Wyvern who put up the bench on the Middle Distance, which is older than anybody's memory, and has no plaque, and faces the sea. Nobody knew. Merrow Halgate said that it was probably somebody who had walked that road tired, and had nowhere to sit, and had done something about it, and had not wanted a plaque. Then he said that it was a pity Ambrose had never been told about it, because it is not far. Then he said, after a while, that perhaps Ambrose had known, and wanted one nearer the road.</div>
+<div class="marginalia">I asked at the Wyvern who put up the bench on the Middle Distance, which is older than anybody's memory, and has no plaque, and faces the sea. Nobody knew. <a href="../People/Merrow_Halgate">Merrow Halgate</a> said that it was probably somebody who had walked that road tired, and had nowhere to sit, and had done something about it, and had not wanted a plaque. Then he said that it was a pity Ambrose had never been told about it, because it is not far. Then he said, after a while, that perhaps Ambrose had known, and wanted one nearer the road.</div>
 
 ## See also
 

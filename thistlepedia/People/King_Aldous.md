@@ -49,7 +49,7 @@ When the Forty-Eighth told him that he was only passing, the King looked at him 
 
 ## The hinges
 
-Hob Grumnir made the hinges on the door of the Princess's tower, a long time ago, and in the year 2000 asked whether he might have them back. "Your hinges? Oh dear. They're the only part that's held. We're on the fourteenth door. Every rescuer kicks it in, and the door goes, and the hinges are fine. Take the hinges and there's only so much door." Hob agreed that there was, and left them.
+<a href="Hob_Grumnir">Hob Grumnir</a> made the hinges on the door of the Princess's tower, a long time ago, and in the year 2000 asked whether he might have them back. "Your hinges? Oh dear. They're the only part that's held. We're on the fourteenth door. Every rescuer kicks it in, and the door goes, and the hinges are fine. Take the hinges and there's only so much door." Hob agreed that there was, and left them.
 
 ## Afterwards
 

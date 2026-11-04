@@ -37,11 +37,11 @@ Wick has not come back, and nobody has heard where he got to. She counts her yea
 
 "Everything an adventurer needs, and four things nobody does." Which four, she will not say; she says that you would only buy them. She sells the hat for thirty, because the Guild's form requires a hat and does not say which, and she is not related to the Registrar, whatever anybody says, and nobody has ever said it to her face, because she sells the hat. She sells lamp oil, and DRAGON REPELLENT, which is lamp oil, and says so in the small print. She sells chalk for marking the walls of dungeons, finding your way out not included. She sells ten-foot poles. Everybody buys one. Nobody has ever said what for. She says that she has not asked, because it is not her business what a customer does with ten feet, and that it is the best-selling line in the shop.
 
-She also engraves. In the year 2000 Wren Halloway came in to have a brass plaque cut for the goose at the Slain Wyvern, and asked the price. "Letters, love, not words. Let's see." It came to a hundred and twenty-eight letters, and a great deal of money, and was paid, and was cut, and Mrs Barrow said, "That's yours, done. Mind the edges, and mind whose wall it goes on," which is advice she gives with every plaque, and which on this occasion was very much to the point.
+She also engraves. In the year 2000 <a href="Wren_Halloway">Wren Halloway</a> came in to have a brass plaque cut for the goose at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, and asked the price. "Letters, love, not words. Let's see." It came to a hundred and twenty-eight letters, and a great deal of money, and was paid, and was cut, and Mrs Barrow said, "That's yours, done. Mind the edges, and mind whose wall it goes on," which is advice she gives with every plaque, and which on this occasion was very much to the point.
 
 ## On account
 
-In the year 2000 the Hoyle Works at Upper Clanging, by the Forty-Eighth's hand, ordered forty bolts of oilskin from her for an airship. She counted them out loud, twice, and made somebody count them again after her. "Forty." And then, when the party said forty again: "I heard you the first time. I was enjoying it." They were bought on account.
+In the year 2000 the Hoyle Works at <a href="../Places/Upper_Clanging">Upper Clanging</a>, by the Forty-Eighth's hand, ordered forty bolts of oilskin from her for an airship. She counted them out loud, twice, and made somebody count them again after her. "Forty." And then, when the party said forty again: "I heard you the first time. I was enjoying it." They were bought on account.
 
 > "Thirty-nine years in this trade, and I have never once had cause to write 'on account'."
 

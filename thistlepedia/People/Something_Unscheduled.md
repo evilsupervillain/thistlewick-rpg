@@ -19,7 +19,7 @@ title: Something Unscheduled
 <tr><th>Asks</th><td>"Again?"</td></tr>
 </table>
 
-<p class="lede"><b>Something Unscheduled</b> lives at the bottom of the Stair under <a href="../Places/Hithermost">Hithermost</a>. It is not in the Prophecy, and it is not on the Guild's board. On the schedule of hazards nailed up inside the Door into the Mountain it is item six, *Anything else: NOT ANTICIPATED*. Nobody was ever obliged to fight it, so nobody ever had. After the Quest the Forty-Eighth's company went down the Stair, and it asked them whether they would, only if they had the afternoon, and they had the afternoon.</p>
+<p class="lede"><b>Something Unscheduled</b> lives at the bottom of the Stair under <a href="../Places/Hithermost">Hithermost</a>. It is not in the Prophecy, and it is not on the Guild's board. On the schedule of hazards nailed up inside the Door into the Mountain it is item six, <i>Anything else: NOT ANTICIPATED</i>. Nobody was ever obliged to fight it, so nobody ever had. After the Quest the Forty-Eighth's company went down the Stair, and it asked them whether they would, only if they had the afternoon, and they had the afternoon.</p>
 
 ## Visitors
 
@@ -43,7 +43,7 @@ Then it rummaged somewhere about itself and brought out a card, very carefully, 
 
 <div class="stamp">BOUNTY: SOMETHING UNSCHEDULED. Lives at the bottom of the Stair. Would love to meet you. Reward: on production of a witness.</div>
 
-The Forty-Eighth pointed out that it had said it was not on anything. "I'm not! Nobody would put me on anything. So I did it myself." It added that the card was not official, and wanted a stamp, and that it had not known where you would get one. The answer was <a href="Lionel_Pell">Registrar Pell</a>, at Nether Sopping, who said twice that there was no form for this, the second time more slowly, and then opened a drawer and took out Form Z, *Matters Not Anticipated*, which he had kept for forty years in case. He stamped the card DISCHARGED. A copy hangs on the Guild's board, the third card on a board that usually has two. On the schedule inside the Door, beside item six, somebody has chalked *Anticipated.*
+The Forty-Eighth pointed out that it had said it was not on anything. "I'm not! Nobody would put me on anything. So I did it myself." It added that the card was not official, and wanted a stamp, and that it had not known where you would get one. The answer was <a href="Lionel_Pell">Registrar Pell</a>, at <a href="../Places/Nether_Sopping">Nether Sopping</a>, who said twice that there was no form for this, the second time more slowly, and then opened a drawer and took out Form Z, *Matters Not Anticipated*, which he had kept for forty years in case. He stamped the card DISCHARGED. A copy hangs on the Guild's board, the third card on a board that usually has two. On the schedule inside the Door, beside item six, somebody has chalked *Anticipated.*
 
 It does not always lose. When it wins, it is mortified: "Oh! Oh no. Was that too much? I'm sorry. I don't get the practice." The party is put back at the chapel porch, which is what the Stair does, and goes down again when it has had its tea.
 
@@ -51,7 +51,7 @@ It does not always lose. When it wins, it is mortified: "Oh! Oh no. Was that too
 
 ## Afterwards
 
-The Forty-Eighth still has Sir Dunstable's lamp, and has been down the Stair three times since, on free afternoons, to visit it. Each time it asks "Again?", and each time it thanks him afterwards: "Nobody made you that time either." Miss Halloway has been down with him once and filled eleven pages, which are not printed and are filed in her second volume, under U. Registrar Pell has had a second Form Z printed, in case. He says it is not because he expects to need it. He says that he did not expect to need the first one.
+The Forty-Eighth still has <a href="Sir_Dunstable">Sir Dunstable</a>'s lamp, and has been down the Stair three times since, on free afternoons, to visit it. Each time it asks "Again?", and each time it thanks him afterwards: "Nobody made you that time either." Miss Halloway has been down with him once and filled eleven pages, which are not printed and are filed in her second volume, under U. Registrar Pell has had a second Form Z printed, in case. He says it is not because he expects to need it. He says that he did not expect to need the first one.
 
 ## See also
 

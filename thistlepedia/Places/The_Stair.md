@@ -86,7 +86,7 @@ It sits a little to one side of the landing now, and says *Not half way* to itse
 
 ## The post
 
-Somewhere above the warden, on a stair under a mountain that had been shut for longer than anybody could remember, at the edge of the lamplight, there was <a href="../People/The_Courier">a man in a red coat and a flat cap</a>, with a satchel. Nobody said anything. Nobody could think of anything that would help. He said *Post?*, and Spare Cotterill said that he had one for Upper Clanging, and wrote it on his knee, and it did not take long:
+Somewhere above the warden, on a stair under a mountain that had been shut for longer than anybody could remember, at the edge of the lamplight, there was <a href="../People/The_Courier">a man in a red coat and a flat cap</a>, with a satchel. Nobody said anything. Nobody could think of anything that would help. He said *Post?*, and Spare Cotterill said that he had one for <a href="Upper_Clanging">Upper Clanging</a>, and wrote it on his knee, and it did not take long:
 
 > Dear Mam. Is it spring yet? Spare.
 
@@ -94,7 +94,7 @@ It was the first letter Spare had sent that was entirely true. The courier touch
 
 ## Misfortune
 
-A fight lost on the Stair does not end where fights end. The party comes back in through the porch of the Chapel of Continuance, whole, with the lamp, and signs the Book again, and Brother Quillon does not remember them, because the Order forbids it. The Forty-Eighth's party came back in through the porch at least once. Sir Dunstable met them in the chapel and asked whether they had come in by the porch, same as him, and said that nothing had happened, he expected.
+A fight lost on the Stair does not end where fights end. The party comes back in through the porch of the Chapel of Continuance, whole, with the lamp, and signs the Book again, and <a href="../People/Brother_Quillon">Brother Quillon</a> does not remember them, because the Order forbids it. The Forty-Eighth's party came back in through the porch at least once. Sir Dunstable met them in the chapel and asked whether they had come in by the porch, same as him, and said that nothing had happened, he expected.
 
 ## The bottom
 
@@ -104,7 +104,7 @@ There is <a href="../People/Something_Unscheduled">somebody at the bottom</a>, a
 
 <div class="stamp">BOUNTY: SOMETHING UNSCHEDULED. Lives at the bottom of the Stair. Would love to meet you. Reward: on production of a witness.</div>
 
-It was not official. It wanted a stamp, and it did not know where you would get one. You get one at the Adventurers' Guild in Nether Sopping, from Mr Pell, who had kept a Form Z, *Matters Not Anticipated*, in a drawer for forty years, in case, and had never once used it, because in forty years every matter had been anticipated, by somebody, on something. He filled it in. His hand was not quite steady. The bounty was discharged on Form Z, and there is a copy on the Guild's board, stamped DISCHARGED, and under it, *Witnessed. Form Z.* Then he took the Forty-Eighth's Guild Card, which said Provisional, and gave him one that does not.
+It was not official. It wanted a stamp, and it did not know where you would get one. You get one at the Adventurers' Guild in <a href="Nether_Sopping">Nether Sopping</a>, from Mr Pell, who had kept a Form Z, *Matters Not Anticipated*, in a drawer for forty years, in case, and had never once used it, because in forty years every matter had been anticipated, by somebody, on something. He filled it in. His hand was not quite steady. The bounty was discharged on Form Z, and there is a copy on the Guild's board, stamped DISCHARGED, and under it, *Witnessed. Form Z.* Then he took the Forty-Eighth's Guild Card, which said Provisional, and gave him one that does not.
 
 After the fight it saw them up the Stair, all of it. It took no time at all, and afterwards none of them could say how. They were standing under the Door, and from somewhere a very long way down, something waved, and then said, oh, oh no, was that too much, it was sorry, it did not get the practice. Miss Halloway's entry on it is in the <a href="../Bestiary/">Bestiary</a>, and she has asked me not to call it a Thing, so I have not.
 

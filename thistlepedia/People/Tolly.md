@@ -10,7 +10,7 @@ title: Tolly
 <caption>Tolly</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Tolly.png" alt="Tolly, addressing an envelope" width="200"><span class="infobox-caption">"He's worth two stamps."</span></td></tr>
 <tr><th>Known as</th><td>Tolly, of the Forty-Sixth; Miss Toller, on the post office's books</td></tr>
-<tr><th>Born</th><td>Margaret Toller, 2 March 1960, Nether Sopping</td></tr>
+<tr><th>Born</th><td>Margaret Toller, 2 March 1960, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Party</th><td>The Forty-Sixth's, 1980; maps</td></tr>
 <tr><th>Writes</th><td>Every month, in the narrow hand</td></tr>
@@ -23,7 +23,7 @@ title: Tolly
 
 ## The maps
 
-She was the party's map-reader, at twenty, in 1980, having been for four years the junior clerk at the harbour office who kept the charts. She says that she had the whole of the road north drawn out in pencil, every turning to the Obligatory Tower, on a sheet she had copied herself, and that they used about an inch of it. She still has the sheet. The inch is worn through. The rest is as clean as the day she drew it, and she says that is how it should be, and that a map nobody uses is a map that has kept somebody safe.
+She was the party's map-reader, at twenty, in 1980, having been for four years the junior clerk at the harbour office who kept the charts. She says that she had the whole of the road north drawn out in pencil, every turning to the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, on a sheet she had copied herself, and that they used about an inch of it. She still has the sheet. The inch is worn through. The rest is as clean as the day she drew it, and she says that is how it should be, and that a map nobody uses is a map that has kept somebody safe.
 
 ## The letters
 
@@ -49,7 +49,7 @@ In the year 2000 Nix came into the Wyvern with the eleven things on the first pa
 
 She went back to her envelope, and it had two stamps on it before she had finished the sentence.
 
-<div class="marginalia">The rate has gone up since 1989, and a stamp at the old rate is not, strictly, enough for the Gloamwood. Tolly knows this. She has made up the difference every month in coppers, taped to the envelope, and the man who collects the post has never once said anything, and the Forty-Sixth, she says, will have noticed, and will think it is very funny, and will not say so either. - H.B.</div>
+<div class="marginalia">The rate has gone up since 1989, and a stamp at the old rate is not, strictly, enough for the <a href="../Places/The_Gloamwood">Gloamwood</a>. Tolly knows this. She has made up the difference every month in coppers, taped to the envelope, and the man who collects the post has never once said anything, and the Forty-Sixth, she says, will have noticed, and will think it is very funny, and will not say so either. - H.B.</div>
 
 ## Afterwards
 

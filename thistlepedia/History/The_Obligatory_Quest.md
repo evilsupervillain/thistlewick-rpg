@@ -34,14 +34,14 @@ The clause allows a Chosen One three companions, and Bram, over the course of th
 
 - <a href="../People/Merribell">Merribell</a>, Thistlewick's healer;
 - <a href="../People/Hob_Grumnir">Hob Grumnir</a>, its blacksmith;
-- <a href="../People/Zephyrine_Vance">Zephyrine Vance</a>, a hedge mage, with a history at the Collegium Arcanum;
+- <a href="../People/Zephyrine_Vance">Zephyrine Vance</a>, a hedge mage, with a history at the <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a>;
 - <a href="../People/Nix">Nix</a>, in acquisitions;
 - <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a>, a knight errant who could not find the north gate;
 - <a href="../People/Piper_Quill">Piper Quill</a>, a bard, who was writing it all down;
 - <a href="../People/Corvin_Ash">Corvin Ash</a>, a doomed rival, from a corner of the Slain Wyvern;
 - <a href="../People/Wren_Halloway">Wren Halloway</a>, a cataloguer, from another corner;
 - <a href="../People/Roland_Fairweather">Roland Fairweather</a>, a guest star, from a table near the door, who had somewhere to be;
-- and <a href="../People/Spare_Cotterill">Spare Cotterill</a>, the ninth of the Cotterills of Upper Clanging, aged nine, who joined after a discussion with his mother.
+- and <a href="../People/Spare_Cotterill">Spare Cotterill</a>, the ninth of the <a href="../People/The_Cotterills">Cotterills</a> of Upper Clanging, aged nine, who joined after a discussion with his mother.
 
 Which three of them were with him at the top of the Tower is a matter on which I have taken evidence from all of them, and every one of them has told me, kindly and firmly, that it was them. I have not adjudicated. I have noted that Roland Fairweather is the only one who does not claim it, because he left at the door, as he always does. See <a href="../People/Roland_Fairweather">his article</a> for why.
 
@@ -66,7 +66,7 @@ He did a good deal else in the south, and all of it is in Volume Two:
 
 ## The north
 
-North and west of the road is <a href="../Places/Upper_Clanging">Upper Clanging</a>, where the Hoyle Works had been trying for two hundred years to fly to the Tower. With the Forty-Eighth's help Miss <a href="../People/Ott_Hoyle">Ott Hoyle</a>'s two hundredth attempt reached it. The attempt log reads REACHED THE TOWER. LANDED ADJACENT. CAUSE: UNDER REVIEW. Clause seven requires a Chosen One to go on foot, and he did, from the grass beside the door, which was as far as the airship would set down. Attempt Eighty-Four, who had been repairing herself out of the wrecks either side of her since she came down in 1860, was stopped, and is being rebuilt. ITEM 1 came off its crag for the first time since 1802. Hob Grumnir met Bryd Ollerenshaw, and they went for a drink, and are still arguing about rivets.
+North and west of the road is <a href="../Places/Upper_Clanging">Upper Clanging</a>, where the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a> had been trying for two hundred years to fly to the Tower. With the Forty-Eighth's help Miss <a href="../People/Ott_Hoyle">Ott Hoyle</a>'s two hundredth attempt reached it. The attempt log reads REACHED THE TOWER. LANDED ADJACENT. CAUSE: UNDER REVIEW. Clause seven requires a Chosen One to go on foot, and he did, from the grass beside the door, which was as far as the airship would set down. Attempt <a href="../People/Eighty-Four">Eighty-Four</a>, who had been repairing herself out of the wrecks either side of her since she came down in 1860, was stopped, and is being rebuilt. ITEM 1 came off its crag for the first time since 1802. Hob Grumnir met <a href="../People/Bryd_Ollerenshaw">Bryd Ollerenshaw</a>, and they went for a drink, and are still arguing about rivets.
 
 ## The Tower
 
@@ -96,7 +96,7 @@ An account of the Quest was drawn up afterwards, and is kept on a lectern in Pro
 
 <div class="marginalia">It is not a song. It is four hundred pages and a pamphlet, and none of it rhymes, and I would refer whoever drew up the account to Miss Quill, who writes the songs. The rest of the sentence I accept. That is what Volume Three is for.</div>
 
-Miss Quill's ballad was finished on the road, in the Gilded Turnip, after an afternoon on which the whole party tried to find her a rhyme for *turnip*. There is none. She moved the turnip down a line, in nine seconds, and everybody who had spent the afternoon on it was furious. The last verse, as she fixed it:
+Miss Quill's ballad was finished on the road, in the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, after an afternoon on which the whole party tried to find her a rhyme for *turnip*. There is none. She moved the turnip down a line, in nine seconds, and everybody who had spent the afternoon on it was furious. The last verse, as she fixed it:
 
 <div class="verse">
 <p>'And so he came home to the fields,<br>

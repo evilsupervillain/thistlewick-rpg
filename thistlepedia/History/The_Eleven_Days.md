@@ -27,7 +27,7 @@ Before 1960 Frostwick was under a winter that did not end. It was not a cold spe
 
 ## Everybody went north
 
-In the spring of 1960 the Forty-Fourth, <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>, set out from Thistlewick for the Tower, and the whole of the south went north with him, or after him, or a little before him, on the general understanding that something was going to happen and that it would be a shame to miss it. Farmers, tinkers, a man with a goat. One of them was <a href="../People/Perce_Stagg">Percival Stagg</a>, twenty-six, a cabbage grower of Fenny Stretton, in his father's red coat.
+In the spring of 1960 the Forty-Fourth, <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>, set out from <a href="../Places/Thistlewick">Thistlewick</a> for the Tower, and the whole of the south went north with him, or after him, or a little before him, on the general understanding that something was going to happen and that it would be a shame to miss it. Farmers, tinkers, a man with a goat. One of them was <a href="../People/Perce_Stagg">Percival Stagg</a>, twenty-six, a cabbage grower of Fenny Stretton, in his father's red coat.
 
 He got as far as Frostwick square in a drift up to his waist, and could not get further, and asked what was the matter, and was told that it was a curse. He said that it did not look like a curse to him; it looked like a winter that had not been told to stop. He asked who was in charge of it. Nobody was. So he went up to the top of the town, where the cold came down from, and saw to it.
 

@@ -33,7 +33,7 @@ Why there was a duck in the room is not in the enquiry's report, which says only
 
 ## The enquiry
 
-The enquiry sat for a week and found that the fire had been unsanctioned in quantity, and said so twice, and found nothing about the paper, because nobody had asked it to. Miss Vance's expulsion was drafted, initialled by the Dean, and referred to the Registrar, and the Registrar did not file it, and the Collegium did not notice, because a student who leaves is referred, and a referral is not a departure. She went to <a href="../Places/Thistlewick">Thistlewick</a> and became a hedge mage and drank at the Gilded Turnip like somebody waiting for a letter. In the spring before she went she had borrowed three books from the Library, at a penny a day.
+The enquiry sat for a week and found that the fire had been unsanctioned in quantity, and said so twice, and found nothing about the paper, because nobody had asked it to. Miss Vance's expulsion was drafted, initialled by the Dean, and referred to the Registrar, and the Registrar did not file it, and the Collegium did not notice, because a student who leaves is referred, and a referral is not a departure. She went to <a href="../Places/Thistlewick">Thistlewick</a> and became a hedge mage and drank at the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a> like somebody waiting for a letter. In the spring before she went she had borrowed three books from the Library, at a penny a day.
 
 The Dean's portrait was painted that year. The painter was asked to be accurate about the eyebrows, and then, on reflection, to be a little less accurate.
 

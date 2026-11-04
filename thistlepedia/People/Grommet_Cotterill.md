@@ -44,7 +44,7 @@ Mr Ollerenshaw's forge at Upper Clanging has a sign over it that says BRYD - SMI
 
 ## The tube plate
 
-In the year 2000 a drawing came down the hill from the Hoyle Works on the morning spike, and it was not a spar. It was a tube plate, for the refit. Mr Ollerenshaw and Hob Grumnir looked at it, and then at each other, and neither of them finished a sentence. It wanted four hands, one heat, and somebody small enough to go inside it afterwards. Everybody in the forge looked at Grommet.
+In the year 2000 a drawing came down the hill from the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a> on the morning spike, and it was not a spar. It was a tube plate, for the refit. Mr Ollerenshaw and Hob Grumnir looked at it, and then at each other, and neither of them finished a sentence. It wanted four hands, one heat, and somebody small enough to go inside it afterwards. Everybody in the forge looked at Grommet.
 
 "I knew it," said Grommet.
 

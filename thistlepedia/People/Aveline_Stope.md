@@ -41,7 +41,7 @@ Merribell, who had left the mother house in 1996, at twenty-two, because it had 
 
 Merribell's proposal was: don't hold the symposium; open the door; twenty patients to each half, and whoever is through first is right. The Prioress laughed at it, once, which the Sisters say they had not heard her do since about 1990. Then she agreed. Whatever Works was through its twenty while What Ought To Work was on patient one. Nineteen to one, on points.
 
-<div class="marginalia">The eleventh minute, in her hand, reads: *Not held. A queue instead. Whatever Works, on points. Soup.* I asked her whether she minded that her last symposium was never held. She said that it was the only one that had ever reached a conclusion, and that she was very proud of it, and that she had chaired it from the soup pot. - H.B.</div>
+<div class="marginalia">The eleventh minute, in her hand, reads: <i>Not held. A queue instead. Whatever Works, on points. Soup.</i> I asked her whether she minded that her last symposium was never held. She said that it was the only one that had ever reached a conclusion, and that she was very proud of it, and that she had chaired it from the soup pot. - H.B.</div>
 
 ## The pamphlet
 

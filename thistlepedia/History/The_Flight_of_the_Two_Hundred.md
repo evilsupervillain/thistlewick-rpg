@@ -12,7 +12,7 @@ title: The Flight of the Two Hundred
 <tr><th>From</th><td>The Hoyle Works, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>To</th><td><a href="../Places/The_Obligatory_Tower">The Obligatory Tower</a></td></tr>
 <tr><th>Attempt</th><td>The two hundredth, in two hundred years</td></tr>
-<tr><th>Fabric</th><td>Forty bolts of oilskin, Wick &amp; Barrow, Nether Sopping. Counted aloud</td></tr>
+<tr><th>Fabric</th><td>Forty bolts of oilskin, Wick &amp; Barrow, <a href="../Places/Nether_Sopping">Nether Sopping</a>. Counted aloud</td></tr>
 <tr><th>Spar</th><td>Ollerenshaw's. One afternoon, two smiths</td></tr>
 <tr><th>Instruction</th><td>Do not set her down on anything with a roof on it</td></tr>
 <tr><th>Landed</th><td>On the grass, two squares from the Tower door</td></tr>
@@ -40,7 +40,7 @@ She was handed over to the Forty-Eighth with one instruction:
 
 I have spoken to a good many people in Upper Clanging about the day she went up, and all of them were in the street, and none of them can agree what time it was. It was a working day, and nobody worked. The works' hooter was sounded once, which it is not supposed to be except for the shifts. She went up from the yard behind the drawing office, slowly, the way the others had gone up, and then she kept going, which the others had not, and the whole of the street cheered, except for Mr Sowerby, who was watching for the coming down.
 
-She was seen over the Long Field, and over the stack where the Hundred and Ninety-Ninth is still on her crag, and over the Gloamwood. Then she was not seen, from Upper Clanging, and the town went to the Safety Valve to wait.
+She was seen over the Long Field, and over the stack where the Hundred and Ninety-Ninth is still on her crag, and over the <a href="../Places/The_Gloamwood">Gloamwood</a>. Then she was not seen, from Upper Clanging, and the town went to the Safety Valve to wait.
 
 ## The landing
 
@@ -59,7 +59,7 @@ The Safety Valve's best china had stood on the dresser under a card, FOR WHEN SH
 
 When word came up the valley that she had come down, beside the Tower, in her own time, Mr Sowerby said that it was very well done, in the voice other men keep for a rivet, and went back to his bench.
 
-<div class="marginalia">At the top of the Tower, Grimspite the Inevitable was asked two questions on Miss Hoyle's behalf, and gave it as his view, in passing, that she would never get one off the ground in sight of his Tower. Nobody has told him that she did, and nobody has told her that he said so, and I have been asked by everyone concerned to leave it there, and I am leaving it there, in a book which I am aware they both may read. - H.B.</div>
+<div class="marginalia">At the top of the Tower, <a href="../People/Grimspite_the_Inevitable">Grimspite the Inevitable</a> was asked two questions on Miss Hoyle's behalf, and gave it as his view, in passing, that she would never get one off the ground in sight of his Tower. Nobody has told him that she did, and nobody has told her that he said so, and I have been asked by everyone concerned to leave it there, and I am leaving it there, in a book which I am aware they both may read. - H.B.</div>
 
 ## Since
 

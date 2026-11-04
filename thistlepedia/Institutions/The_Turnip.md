@@ -28,7 +28,7 @@ title: The Turnip
 
 I define an institution, in the introduction to this volume, as a group of people who have agreed to keep minutes. The turnip keeps no minutes. When I put this to the parish of Thistlewick, by letter, I received in reply a letter of four pages from the clerk to the Prophecy Committee, setting out that the turnip had been in the village longer than the Committee had, that it had sent forty-eight Chosen Ones north on its strength, that it was on the crest and over the door of the inn, and that if those were not the marks of an institution then the clerk would be glad to know what were. The fourth page was about biscuits, and I think was from another letter.
 
-Wren Halloway, who keeps the Bestiary in this volume and who does not care for any of this, wrote to say that the turnip is a plant, *Brassica rapa*, and that she has already given it an entry, under its militant form, and that if it went anywhere else it should go in the Bestiary, and that nobody should send her theories. I have not sent her a theory. I have sent her this article, which is not a theory, but is long, and she has written back one word, which was *fine*, and was underlined, which I have chosen to read as approval.
+<a href="../People/Wren_Halloway">Wren Halloway</a>, who keeps the Bestiary in this volume and who does not care for any of this, wrote to say that the turnip is a plant, *Brassica rapa*, and that she has already given it an entry, under its militant form, and that if it went anywhere else it should go in the Bestiary, and that nobody should send her theories. I have not sent her a theory. I have sent her this article, which is not a theory, but is long, and she has written back one word, which was *fine*, and was underlined, which I have chosen to read as approval.
 
 <div class="marginalia">A vegetable, then, filed under the institutions, between a college that has been referring things since about 1400 and a works that has been building airships for two hundred years behind schedule. I have looked at it there for some time, in proof, and I think it holds its own. - H.B.</div>
 
@@ -190,7 +190,7 @@ The afternoon is in her notebook, <a href="../People/From_the_Notebooks_of_P._Qu
 * *Burnip*. From the blacksmith, who said that it was a word now, and that he had made worse out of less.
 * Nothing ending in *-nip*. From the naturalist, pre-emptively, on the grounds that a nip is a bite, or a pinch, or catmint, genus *Nepeta*, and is inadmissible.
 * *Navet*, which is turnip in the old tongue of Sir Aldric's house, and rhymes very beautifully with nothing, in that tongue either.
-* *Turnip*. Located, on behalf of a client, by Nix, written on a folded slip, with the provenance on the back. The client had not said it had to be a different word.
+* *Turnip*. Located, on behalf of a client, by <a href="../People/Nix">Nix</a>, written on a folded slip, with the provenance on the back. The client had not said it had to be a different word.
 * *Sherbet*. A slant rhyme, defended by the hedge mage on the grounds that the Collegium would accept it, which I am told is not, in itself, a defence.
 * Something anatomical. From the field medic, who began at the scalp and went down, aloud, in order, and the Gilded Turnip went quiet somewhere around the pelvis, and she went right down to the feet, and there was nothing.
 * *Parsnip*. From the Forty-Eighth, who pointed out that it was very nearly there. It is a different vegetable.
@@ -213,7 +213,7 @@ Her mother's *Lay of the Forty-Eighth*, which the Committee approved on a Tuesda
 
 Outside Thistlewick the turnip is not well understood, and the turnip farmer less so, and the Forty-Eighth found, on the road, that saying what he did for a living had a curious effect on people with clipboards. I set some of them down.
 
-At the Chapter House of the Order of the Errant, at <a href="../Places/Coldbarrow">Coldbarrow</a>, he was asked whether he was a knight, and said that he grew turnips, and the clerk said that in that case he was not on the map, and seemed very relieved.
+At the Chapter House of the <a href="The_Order_of_the_Errant">Order of the Errant</a>, at <a href="../Places/Coldbarrow">Coldbarrow</a>, he was asked whether he was a knight, and said that he grew turnips, and the clerk said that in that case he was not on the map, and seemed very relieved.
 
 At the Smiths' Hall in <a href="../Places/Great_Dunnage">Great Dunnage</a> he was asked whether he was a smith, and said that he was a turnip farmer, and was told that in that case he might look, and was not to touch.
 

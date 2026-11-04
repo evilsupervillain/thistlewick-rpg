@@ -27,9 +27,9 @@ title: Sir Dunstable
 
 ## The knight
 
-Of his early life I can find almost nothing, and I have looked. He is of the Vale; he does not say which. He is a knight of the Errant, the order that keeps its great map at <a href="../Places/Coldbarrow">Coldbarrow</a>, with a pin for every knight in the field, and his pin is in the Chapel of Continuance. Mordaunt, who keeps the map, says that it is the one pin he has never had to move, and that it is right, and he says it in the tone of a man who has had to move a great many.
+Of his early life I can find almost nothing, and I have looked. He is of the Vale; he does not say which. He is a knight of the Errant, the order that keeps its great map at <a href="../Places/Coldbarrow">Coldbarrow</a>, with a pin for every knight in the field, and his pin is in the Chapel of Continuance. <a href="Mordaunt">Mordaunt</a>, who keeps the map, says that it is the one pin he has never had to move, and that it is right, and he says it in the tone of a man who has had to move a great many.
 
-He holds one share of the Kingdom of <a href="../Places/Fairholme">Fairholme</a>, which can only mean that at some time he rescued the Princess Rosamund, and took the half, as everybody does, and he has a chair at the council table and a place card: SIR DUNSTABLE OF THE VALE. ONE SHARE. BACK DIRECTLY. - D. The chair has been empty at every meeting that anybody remembers, because the council meets all day, and at a quarter past four he has an appointment. The minutes give his apologies, every time, *in a mountain*. Rosamund does not say which rescue was his. She speaks of all eleven of her rescuers very kindly, and I did not like to ask.
+He holds one share of the Kingdom of <a href="../Places/Fairholme">Fairholme</a>, which can only mean that at some time he rescued the <a href="Princess_Rosamund">Princess Rosamund</a>, and took the half, as everybody does, and he has a chair at the council table and a place card: SIR DUNSTABLE OF THE VALE. ONE SHARE. BACK DIRECTLY. - D. The chair has been empty at every meeting that anybody remembers, because the council meets all day, and at a quarter past four he has an appointment. The minutes give his apologies, every time, *in a mountain*. Rosamund does not say which rescue was his. She speaks of all eleven of her rescuers very kindly, and I did not like to ask.
 
 He is a big, cheerful man, and his hand, in chalk, is the most cheerful hand in this encyclopedia.
 
@@ -70,7 +70,7 @@ Whether Sir Dunstable is alive is the one question in this encyclopedia on which
 
 To which I add one thing for each side, which I found myself, and which I have tested on both, and neither has been able to answer. For: the boulders. Nobody sits on a boulder who does not need to. Against: the boulders. Nobody marks which boulder was the second-best unless he has sat on every one of them, many times, in the dark.
 
-My own view is that he is a man of excellent manners, and that the question is none of my business. The betting at the Slain Wyvern is held by Sops, and the odds have not moved in two years.
+My own view is that he is a man of excellent manners, and that the question is none of my business. The betting at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> is held by <a href="Sops">Sops</a>, and the odds have not moved in two years.
 
 </div>
 

@@ -19,7 +19,7 @@ title: The Thrupp Feud
 <tr><th>Since</th><td>Four pages a month, each way</td></tr>
 </table>
 
-<p class="lede">The <b>Thrupp Feud</b> was a silence of thirty years between two sisters who keep inns forty miles apart, Dorcas Thrupp at Nether Sopping and Prudence Thrupp at Thistlewick, conducted entirely by parcel. Neither of them will call it a feud, and neither of them can remember what it was about. It was ended in the year 2000 by the Forty-Eighth, who carried a jar south and something heavier north and was not told what was in either.</p>
+<p class="lede">The <b>Thrupp Feud</b> was a silence of thirty years between two sisters who keep inns forty miles apart, Dorcas Thrupp at <a href="../Places/Nether_Sopping">Nether Sopping</a> and Prudence Thrupp at <a href="../Places/Thistlewick">Thistlewick</a>, conducted entirely by parcel. Neither of them will call it a feud, and neither of them can remember what it was about. It was ended in the year 2000 by the Forty-Eighth, who carried a jar south and something heavier north and was not told what was in either.</p>
 
 ## The stopping
 

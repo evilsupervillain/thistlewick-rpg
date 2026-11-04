@@ -56,7 +56,7 @@ TO: Mr H. Bellwether, Nether Sopping. FROM: O. Hoyle. RE: Your questions, "The H
 
 5.4.1. You asked about ITEM 1. ITEM 1 is a line in the stores book, entered 1802, one off. The description column says ITEM 1. Four generations of this works have not improved on that description and I am not going to try. What became of it is in the stores book. The stores book is not open to the public. That is not a secret. It is a stores book.
 
-6. **The attempts.** Two hundred. One hundred and ninety-seven came home to the Long Field, and the Long Field has its own memorandum, which you have, and which you printed with my corrections, for which thank you. Eighty-Four is one of the hundred and ninety-seven and is in her bay now. Two did not come home, 112 and 199, and I have accounted for both of them to you separately and will not do it twice. The two hundredth is not in the field and is not going to be.
+6. **The attempts.** Two hundred. One hundred and ninety-seven came home to the Long Field, and the Long Field has its own memorandum, which you have, and which you printed with my corrections, for which thank you. <a href="../People/Eighty-Four">Eighty-Four</a> is one of the hundred and ninety-seven and is in her bay now. Two did not come home, 112 and 199, and I have accounted for both of them to you separately and will not do it twice. The two hundredth is not in the field and is not going to be.
 
 6.1. The last four entries in the log:
 
@@ -67,7 +67,7 @@ TO: Mr H. Bellwether, Nether Sopping. FROM: O. Hoyle. RE: Your questions, "The H
 
 6.2. Entry 199 was made in 1989. Entry 200 was made in 2000 in a fresh hand at the bottom of a page that had already said UNDER REVIEW once. You have asked me what the review has found. It has not found anything yet. That is what UNDER REVIEW means. When the review finds something, the log will say so, and not before. I do not write down anything I have not checked.
 
-7. **The Two Hundred.** She wanted forty bolts of oilskin and a spar that would hold. The oilskin came from Mrs Barrow, Nether Sopping, who would not have forty and was made to find forty. The spar came from Ollerenshaw's, bottom of the hill, and it held, and it was made in an afternoon, by two smiths, which I had been saying for some years that it wanted. The tube plate for her boiler was made by four hands as well. I mention this because you asked who else worked on her, and the answer is most of the town, and two smiths in particular, and a lad from Thistlewick who carried things.
+7. **The Two Hundred.** She wanted forty bolts of oilskin and a spar that would hold. The oilskin came from Mrs Barrow, <a href="../Places/Nether_Sopping">Nether Sopping</a>, who would not have forty and was made to find forty. The spar came from Ollerenshaw's, bottom of the hill, and it held, and it was made in an afternoon, by two smiths, which I had been saying for some years that it wanted. The tube plate for her boiler was made by four hands as well. I mention this because you asked who else worked on her, and the answer is most of the town, and two smiths in particular, and a lad from <a href="../Places/Thistlewick">Thistlewick</a> who carried things.
 
 7.1. She was handed over with one instruction: do not set her down on anything with a roof on it. You would be astonished how often that has been the finding. She was not set down on anything with a roof on it. She landed on the grass beside the Tower, two squares from the door. The party walked the two squares.
 
@@ -75,13 +75,13 @@ TO: Mr H. Bellwether, Nether Sopping. FROM: O. Hoyle. RE: Your questions, "The H
 
 8.1. My apprentice is the works' fortieth since 1804. She has asked me nine times whether we are going to manage it, and been told nine times that it is not a question with an answer. It is a question with a schedule. She has stopped asking since 2000. I asked her why. She said that we had managed it. I told her that we had landed adjacent. She said that was managing it. We are not agreed. It is on the schedule.
 
-9. **The town.** You asked what the town thinks of the works. The town has turned the ornaments in its front rooms round to face the works. That is what the town thinks. You also asked what Great Dunnage thinks, and I have been told that Great Dunnage would like it known that this is only one works. That is correct. It is one works. It has built two hundred airships. I do not know how many Great Dunnage has built, and I am not going to write and ask.
+9. **The town.** You asked what the town thinks of the works. The town has turned the ornaments in its front rooms round to face the works. That is what the town thinks. You also asked what <a href="../Places/Great_Dunnage">Great Dunnage</a> thinks, and I have been told that Great Dunnage would like it known that this is only one works. That is correct. It is one works. It has built two hundred airships. I do not know how many Great Dunnage has built, and I am not going to write and ask.
 
 10. **The Two Hundred and First.** Her keel was laid in 2001. She is to land on the Tower. Not adjacent. On. You asked what she was for, and I have told you, and I would ask you not to put it in, and I expect you will. She is on the slip. She is behind.
 
 10.1. Since you will ask what she is behind: schedule. Everything in this works is behind schedule. That is what a schedule is for. A works that is ahead of its schedule has written the wrong schedule.
 
-11. **Visitors.** The works does not give tours. People come up anyway, since 2000, to look at the slip. They are shown the line on the floor, and asked to stand behind it, and they do. Mr Kell at the Safety Valve sells them a cup of tea after. I am told it is very good for trade.
+11. **Visitors.** The works does not give tours. People come up anyway, since 2000, to look at the slip. They are shown the line on the floor, and asked to stand behind it, and they do. <a href="../People/Mr_Kell">Mr Kell</a> at the Safety Valve sells them a cup of tea after. I am told it is very good for trade.
 
 12. That is all your questions. You asked one more, at the bottom, in pencil, which was whether the works will stop now that there is no Dark Lord to stop. I have answered it in one word on your list, and I will give you the same word here, since it will not take long. No.
 

@@ -14,7 +14,7 @@ title: Mrs Ash
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Surname</th><td>Ash, since about 1990, to save the postman</td></tr>
 <tr><th>Son</th><td>Corvin, born 1970</td></tr>
-<tr><th>Wrote to him</th><td>Wednesdays and Saturdays, for eleven years, at the Slain Wyvern</td></tr>
+<tr><th>Wrote to him</th><td>Wednesdays and Saturdays, for eleven years, at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a></td></tr>
 <tr><th>He wrote back</th><td>Once, to the Ruins of Ashcombe. The Ruins wrote back</td></tr>
 <tr><th>Kitchen</th><td>New. You can see every potato</td></tr>
 <tr><th>Scarf</th><td>Most of the way down the aisle. Yellow. The wrong colour for everything he owns</td></tr>
@@ -24,7 +24,7 @@ title: Mrs Ash
 
 ## The old village
 
-She was born in 1947 in the old Ashcombe, in the valley, in a house on the high street with a kitchen so dark you could not see your potatoes, and married there, and had her boy there, in 1970, and measured him on the kitchen wall, in pencil, every birthday that was a round number or felt like one. In 1989, when he was nineteen, he went off to sit in the corner of the Slain Wyvern at Nether Sopping, and Ashcombe flooded, in his absence, and was a tremendous success: everybody out by dinner, everybody dry by tea, and not so much as a hen lost. They have the Roll.
+She was born in 1947 in the old Ashcombe, in the valley, in a house on the high street with a kitchen so dark you could not see your potatoes, and married there, and had her boy there, in 1970, and measured him on the kitchen wall, in pencil, every birthday that was a round number or felt like one. In 1989, when he was nineteen, he went off to sit in the corner of the Slain Wyvern at <a href="../Places/Nether_Sopping">Nether Sopping</a>, and Ashcombe flooded, in his absence, and was a tremendous success: everybody out by dinner, everybody dry by tea, and not so much as a hen lost. They have the Roll.
 
 The village was moved up the hill. The new houses have yellow roofs. She has a new kitchen.
 

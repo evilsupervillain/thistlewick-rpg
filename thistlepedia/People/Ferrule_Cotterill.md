@@ -25,7 +25,7 @@ title: Ferrule Cotterill
 
 ## From six
 
-The arrangement began in 1996, when Ferrule was twelve, on an evening when Mr Cotterill had gone down to the foundry and Mrs Cotterill had gone up to the Parish Rooms about a christening, and Cotter was in Great Dunnage, and Rivet was asleep, and Gudgeon was at the Rooms with Mam, and Tappet was out with the cart, and so the oldest Cotterill awake in the house was Ferrule. When Mrs Cotterill came home at nine the floor had been swept, the younger ones were in bed in order of size, the kettle was on, and Clevis had been made to give back three farthings. Mrs Cotterill looked round the kitchen for some time and then said, "Right, then," and that was the appointment.
+The arrangement began in 1996, when Ferrule was twelve, on an evening when Mr Cotterill had gone down to the foundry and Mrs Cotterill had gone up to the Parish Rooms about a christening, and Cotter was in <a href="../Places/Great_Dunnage">Great Dunnage</a>, and Rivet was asleep, and Gudgeon was at the Rooms with Mam, and Tappet was out with the cart, and so the oldest Cotterill awake in the house was Ferrule. When Mrs Cotterill came home at nine the floor had been swept, the younger ones were in bed in order of size, the kettle was on, and Clevis had been made to give back three farthings. Mrs Cotterill looked round the kitchen for some time and then said, "Right, then," and that was the appointment.
 
 It has not been revoked. She has been in charge from six every evening since, for six years, and the house runs, in the evenings, the way a works runs: to time, and standing up. "Da goes to work. Then I am in charge and nobody gets to sit down." I asked what would happen if somebody did sit down. She looked at me for a moment as if I had asked what would happen if the river ran uphill, and then said that nobody did.
 
@@ -45,11 +45,11 @@ After Washer, it was worse. "Mam is to stay sat down for a week," Ferrule announ
 
 ## The dragon
 
-In the year 2000, writing to his pen pal at Much Pottering, Spare told her that he had a dragon now, and that it was called Ferrule, and that it was quite big. Effie Gotobed told the Forty-Eighth this at her gate, with great satisfaction, and asked him not to tell Spare she had told. Ferrule heard about it in the summer, from Shim, who hears about everything, and was quiet for some time, and then said that it was a very sensible name for a dragon, because somebody would have to be in charge of it, and went back to sweeping.
+In the year 2000, writing to his pen pal at <a href="../Places/Much_Pottering">Much Pottering</a>, Spare told her that he had a dragon now, and that it was called Ferrule, and that it was quite big. Effie Gotobed told the Forty-Eighth this at her gate, with great satisfaction, and asked him not to tell Spare she had told. Ferrule heard about it in the summer, from Shim, who hears about everything, and was quiet for some time, and then said that it was a very sensible name for a dragon, because somebody would have to be in charge of it, and went back to sweeping.
 
 ## Afterwards
 
-Ferrule is eighteen, and still in charge from six. With Cotter married and the eldest four at work, the evening household is now Clevis, Shim, Spare, Washer and Mrs Cotterill, and Ferrule says that is not fewer, it is younger, which is more. She has been offered a place at the Parish Rooms, by Gudgeon, and at the works, by Tappet, and at the Safety Valve, by Mr Kell, who said that he had never seen anybody keep a room standing up like it. She has declined all three, on the grounds that the position at home is not vacant, and nobody else could fill it, and Washer is beginning to walk.
+Ferrule is eighteen, and still in charge from six. With Cotter married and the eldest four at work, the evening household is now Clevis, Shim, Spare, Washer and Mrs Cotterill, and Ferrule says that is not fewer, it is younger, which is more. She has been offered a place at the Parish Rooms, by Gudgeon, and at the works, by Tappet, and at the Safety Valve, by <a href="Mr_Kell">Mr Kell</a>, who said that he had never seen anybody keep a room standing up like it. She has declined all three, on the grounds that the position at home is not vacant, and nobody else could fill it, and Washer is beginning to walk.
 
 ## See also
 

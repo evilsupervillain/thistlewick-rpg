@@ -25,7 +25,7 @@ title: The Worshipful Company of Smiths
 
 Every three years, in the spring, the Company holds the Assize of Hammers in its hall, and every smith in the land may submit one piece, to be judged by the Wardens against the Schedule. The prize is the Company's mark. The prize piece of the last Assize stands on the Company's own anvil in the hall, with a card beside it: *Clauses one to forty-one, satisfied. The Company's mark, awarded.* It is a hinge. It is a very good hinge.
 
-The Hall also gives a prize of its own, BEST IN HALL, which is not the Assize and is not judged against the Schedule, but by judges, who are smiths, and argue. Bryd Ollerenshaw of Upper Clanging won it in 1987, the year Hob Grumnir did not enter, having a cold.
+The Hall also gives a prize of its own, BEST IN HALL, which is not the Assize and is not judged against the Schedule, but by judges, who are smiths, and argue. Bryd Ollerenshaw of <a href="../Places/Upper_Clanging">Upper Clanging</a> won it in 1987, the year Hob Grumnir did not enter, having a cold.
 
 ## The Schedule
 
@@ -55,7 +55,7 @@ Clauses four to thirty-nine I have not seen in writing, and Warden Crabbe has of
 
 ## Beatrice
 
-In the year 2000 <a href="../People/Hob_Grumnir">Hob Grumnir</a> of Thistlewick came to the Assize. He had never entered. He had never owned anything he made, because clause two is about property and Hob gives everything away, and when he went round eleven people to ask for one thing back, every one of them said no, with a better reason than his. So he laid his hammer on the Company's table instead. Beatrice was disqualified under clause one, not being his own work, and passed clauses two to forty-one, and the Wardens' notes are pinned up beside the hinge:
+In the year 2000 <a href="../People/Hob_Grumnir">Hob Grumnir</a> of <a href="../Places/Thistlewick">Thistlewick</a> came to the Assize. He had never entered. He had never owned anything he made, because clause two is about property and Hob gives everything away, and when he went round eleven people to ask for one thing back, every one of them said no, with a better reason than his. So he laid his hammer on the Company's table instead. Beatrice was disqualified under clause one, not being his own work, and passed clauses two to forty-one, and the Wardens' notes are pinned up beside the hinge:
 
 <div class="stamp">BEATRICE. A hammer. From H. Grumnir, Thistlewick. Clause one: not satisfied. Two to forty-one: satisfied. DISQUALIFIED. Remarks: in the Wardens' opinion, right about everything.</div>
 

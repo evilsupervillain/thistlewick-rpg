@@ -20,7 +20,7 @@ title: Isaac Sowerby
 <tr><th>Snap tin</th><td>Returned, 2000, with the sandwich in it</td></tr>
 </table>
 
-<p class="lede"><b>Isaac Sowerby</b>, Old Sowerby to the whole of <a href="../Places/Upper_Clanging">Upper Clanging</a>, gave the Hoyle Works sixty years, and started on the rivets, and finished on the rivets. He is the town's memory. He is entirely cheerful about what he remembers, which is a great many airships going up and the same number coming down, and he sits on a bench in the street, in a knit cap, and will tell you about it.</p>
+<p class="lede"><b>Isaac Sowerby</b>, Old Sowerby to the whole of <a href="../Places/Upper_Clanging">Upper Clanging</a>, gave the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a> sixty years, and started on the rivets, and finished on the rivets. He is the town's memory. He is entirely cheerful about what he remembers, which is a great many airships going up and the same number coming down, and he sits on a bench in the street, in a knit cap, and will tell you about it.</p>
 
 ## Sixty years
 

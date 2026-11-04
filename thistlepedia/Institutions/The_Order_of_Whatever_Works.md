@@ -33,7 +33,7 @@ IV. Then see how you feel.</p>
 <span class="attribution">Mother Ursula Pym, 1702, the Rule of Life</span>
 </div>
 
-That is not verse, and Piper Quill has told me so. I have set it as verse because it is the only thing in this volume that everybody I asked could recite, and because the parish of <a href="../Places/Sump">Sump</a> has adopted it as a by-law, and walked it, in order, down the street and back, and is the better for it. Socks were the line nobody in Sump had ever had.
+That is not verse, and <a href="../People/Piper_Quill">Piper Quill</a> has told me so. I have set it as verse because it is the only thing in this volume that everybody I asked could recite, and because the parish of <a href="../Places/Sump">Sump</a> has adopted it as a by-law, and walked it, in order, down the street and back, and is the better for it. Socks were the line nobody in Sump had ever had.
 
 The Order's Sisters keep it. Asked what they believe, they will tell you to sit down. Asked when you last drank water, you will find you are being asked, not telling.
 
@@ -45,11 +45,11 @@ There is one dry thing in any window of the Order, and it is a pair of socks, he
 
 ## What Ought To Work
 
-For some years before 2000 the Order was two. The Sisterhouse had begun holding symposia, and a party of the Sisters under **Sister Bewick** had found that it had a doctrine, and had been examined on it, and had passed, and dyed the trim of its habits black, and called itself the **Order of What Ought To Work**, east door. There was one door. The ward was divided down the middle by a line, and the patients crossed it in the night, because they said there was soup on the other side.
+For some years before 2000 the Order was two. The Sisterhouse had begun holding symposia, and a party of the Sisters under **<a href="../People/Sister_Bewick">Sister Bewick</a>** had found that it had a doctrine, and had been examined on it, and had passed, and dyed the trim of its habits black, and called itself the **Order of What Ought To Work**, east door. There was one door. The ward was divided down the middle by a line, and the patients crossed it in the night, because they said there was soup on the other side.
 
 The Prioress, **<a href="../People/Aveline_Stope">Aveline Stope</a>**, held symposia on the question. An order that holds one is thinking, she said; an order that holds eleven has stopped. The minutes of ten of them ended *Resolved, that the matter be referred to the next symposium.*
 
-It was settled in the year 2000, without the eleventh. Merribell, who had left the mother house at twenty-two because it had begun holding symposia, came back for an afternoon and proposed that the door be opened, and twenty patients seen by each half, and whoever was through first was right. Whatever Works won, nineteen to one, on points, with Sir Hamo Tench of the Errant keeping the score from the bed on the line. The one was Sister Bewick's, and it was a real case of the Weeping Bottom ague, the first anybody had seen in nine years, and at stage eleven of her *Correct Treatment* the patient sat up and felt better, and Merribell said that was a point to the east, fair's fair.
+It was settled in the year 2000, without the eleventh. Merribell, who had left the mother house at twenty-two because it had begun holding symposia, came back for an afternoon and proposed that the door be opened, and twenty patients seen by each half, and whoever was through first was right. Whatever Works won, nineteen to one, on points, with <a href="../People/Sir_Hamo_Tench">Sir Hamo Tench</a> of the Errant keeping the score from the bed on the line. The one was Sister Bewick's, and it was a real case of the Weeping Bottom ague, the first anybody had seen in nine years, and at stage eleven of her *Correct Treatment* the patient sat up and felt better, and Merribell said that was a point to the east, fair's fair.
 
 Then Sister Bewick asked to be examined on the Order's doctrine, since that is how a doctrine is settled, and the Prioress took the pamphlet out of a drawer, and Sister Bewick read it twice, and passed. She said that it was very short, and that she could find nothing wrong with it, and that that was very annoying. She wrote in her notebook *Intervention. Supported.* The eleventh minute reads: *Not held. A queue instead. Whatever Works, on points. Soup.*
 

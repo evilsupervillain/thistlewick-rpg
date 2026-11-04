@@ -41,7 +41,7 @@ title: Bramus agricola
 
 **Method.** None was needed. It was not fought, because it did not know that it was in anything, and it was not measured, because it would not keep still, and it was not collected, because I did not have the heart, and because it would have got away, by luck. It was observed, and described, and named, and left in its burrow. I am aware that this departs from my own practice for a type specimen. The holotype is the one in the burrow. It is still there.
 
-**Etymology.** *Bramus*, for Bram Thistle of Thistlewick, Chosen One #48, a turnip farmer, who was chosen while he was asleep and therefore unable to object, and walked north, and walked into very nearly everything, and came home. *Agricola*, a farmer. I named it after him because the description fitted, and I told him so, and why, and watched him think about the Gloamwood and the Tower and everything since the vote, and how much of it he had walked away from, and why. He went pink. Then he said nothing at all for some time, and had to sit down on a turnip. I wrote that down under his name. He would have liked to discuss which name, and could not find a way to begin.
+**Etymology.** *Bramus*, for Bram Thistle of Thistlewick, Chosen One #48, a turnip farmer, who was chosen while he was asleep and therefore unable to object, and walked north, and walked into very nearly everything, and came home. *Agricola*, a farmer. I named it after him because the description fitted, and I told him so, and why, and watched him think about the <a href="../Places/The_Gloamwood">Gloamwood</a> and the Tower and everything since the vote, and how much of it he had walked away from, and why. He went pink. Then he said nothing at all for some time, and had to sit down on a turnip. I wrote that down under his name. He would have liked to discuss which name, and could not find a way to begin.
 
 I want it understood that it is not a joke. Nobody had ever described him accurately before. It is an accurate description.
 
@@ -53,4 +53,5 @@ I want it understood that it is not a joke. Nobody had ever described him accura
 
 - <a href="../People/Bram_Thistle">Bram Thistle</a>
 - <a href="../People/Wren_Halloway">Wren Halloway</a>
+- <a href="../Institutions/The_Turnip">The Turnip</a>, its habitat
 - <a href="./">The Bestiary</a>

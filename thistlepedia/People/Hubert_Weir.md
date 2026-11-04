@@ -32,7 +32,7 @@ It flooded in 1989. Mr Weir had the village out by dinner and dry by tea, by a p
 
 The village moved up the hill, and he drained it. Fourteen hundred yards of culvert, every one named in copperplate on the great plan in the museum. The longest is called Hubert. Grown men have stood in front of that plan and gone quite quiet.
 
-<div class="marginalia">The first exhibit is the stone from over the old drain, carved DRAIN, and the card beside it, in his hand, says kindly: *It was not up to it.* I asked him whether he bore it any ill will. He said, none whatever; that it had done its best, in impossible circumstances, for two hundred years, and that he had put it first in the museum because everything after it is only what it would have done if it could. - H.B.</div>
+<div class="marginalia">The first exhibit is the stone from over the old drain, carved DRAIN, and the card beside it, in his hand, says kindly: <i>It was not up to it.</i> I asked him whether he bore it any ill will. He said, none whatever; that it had done its best, in impossible circumstances, for two hundred years, and that he had put it first in the museum because everything after it is only what it would have done if it could. - H.B.</div>
 
 ## The Flood Dinner
 

@@ -39,7 +39,7 @@ The crest over the door is a sword, a scroll and a small question mark. The ques
 
 Form A-1 was mislaid in 1989. For eleven years nobody registered, because nobody could, and Mr Pell looked for it every day, everywhere in the hall. It was under the doormat, which says WELCOME, six feet from his desk. The Forty-Eighth found it. "Do not say it. I am aware of the tower. I am aware that the key was under the mat. I do not find the pattern amusing." In forty years nobody had brought him all three at once.
 
-The Forty-Eighth's reference was written by <a href="../People/Elder_Wispel">Elder Wispel</a> of Thistlewick, with the good pen. It confirms that Bram Thistle is the Chosen One, is of good character, and grows a decent turnip, and the last part is underlined. The Elder asked the Guild, through Bram, for a reciprocal arrangement, by which he meant that he would like them to know that Thistlewick's Committee exists. The Guild kept the reference. It is framed, on the wall, beside the Charter. I am not sure that is what the Elder meant, but he was delighted.
+The Forty-Eighth's reference was written by <a href="../People/Elder_Wispel">Elder Wispel</a> of <a href="../Places/Thistlewick">Thistlewick</a>, with the good pen. It confirms that <a href="../People/Bram_Thistle">Bram Thistle</a> is the Chosen One, is of good character, and grows a decent turnip, and the last part is underlined. The Elder asked the Guild, through Bram, for a reciprocal arrangement, by which he meant that he would like them to know that Thistlewick's Committee exists. The Guild kept the reference. It is framed, on the wall, beside the Charter. I am not sure that is what the Elder meant, but he was delighted.
 
 ## The filing
 
@@ -68,7 +68,7 @@ Mr Pell also holds Form C-12(S), by which a Chosen One may strike off any compan
 
 In a drawer of Mr Pell's desk which most people never notice there was a single sheet, yellow at the edges: **Form Z, Matters Not Anticipated**. He kept it for forty years. In case. In forty years he never once used it, because every matter had been anticipated, by somebody, on something.
 
-After the ending the Forty-Eighth put a bounty card on his desk that had no authority, no number and a drawing of an octopus on the back, for <a href="../People/Something_Unscheduled">Something Unscheduled</a>, at the bottom of the Stair under Hithermost, which the party had fought and beaten. There was no form for it. Mr Pell said so twice, the second time more slowly. Then he opened the drawer. His hand, I am told, was not quite steady. He stamped the card DISCHARGED, and then held out his hand for the Guild Card (Provisional), and gave back one without.
+After the ending the Forty-Eighth put a bounty card on his desk that had no authority, no number and a drawing of an octopus on the back, for <a href="../People/Something_Unscheduled">Something Unscheduled</a>, at the bottom of the <a href="../Places/The_Stair">Stair</a> under <a href="../Places/Hithermost">Hithermost</a>, which the party had fought and beaten. There was no form for it. Mr Pell said so twice, the second time more slowly. Then he opened the drawer. His hand, I am told, was not quite steady. He stamped the card DISCHARGED, and then held out his hand for the Guild Card (Provisional), and gave back one without.
 
 <blockquote>"A discharged bounty is a completed engagement. A member with a completed engagement is not provisional. The first in forty years. I shall mention it to the review. When it sits."</blockquote>
 

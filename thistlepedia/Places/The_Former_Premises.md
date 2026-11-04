@@ -23,7 +23,7 @@ title: The Former Premises
 
 Visitors! Oh, VISITORS. Come in, come in, mind the step. No, there isn't one. Force of habit.
 
-Prosper Hollowell. Caretaker. Retained. Welcome to the Former Premises! I should shake your hand, and I shall imagine that I have, and then again, in case it did not take.
+<a href="../People/Prosper_Hollowell">Prosper Hollowell</a>. Caretaker. Retained. Welcome to the Former Premises! I should shake your hand, and I shall imagine that I have, and then again, in case it did not take.
 
 ## The tour
 
@@ -61,7 +61,7 @@ He had heard marvellous things about the lift. I have read that a great many tim
 
 ## The post
 
-In the spring of that year I had a letter from the Prophecy Committee, sent to me as a matter of course: NOTIFICATION OF CHANGE OF ADDRESS. THE ENGAGEMENT HAS REMOVED TO: THE OBLIGATORY TOWER. GROUND FLOOR. DOOR AT THE BOTTOM. PLEASE AMEND YOUR RECORDS. I had amended them four thousand eight hundred years previously, but it was very kind of them to write.
+In the spring of that year I had a letter from the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, sent to me as a matter of course: NOTIFICATION OF CHANGE OF ADDRESS. THE ENGAGEMENT HAS REMOVED TO: THE OBLIGATORY TOWER. GROUND FLOOR. DOOR AT THE BOTTOM. PLEASE AMEND YOUR RECORDS. I had amended them four thousand eight hundred years previously, but it was very kind of them to write.
 
 After that, one morning, came a second letter:
 
@@ -79,7 +79,7 @@ If any reader of this volume is passing by air, the tour starts in the hall, and
 
 P. HOLLOWELL, Caretaker. The Former Premises, the sky. First quarter, 2002.
 
-<div class="marginalia">Mr Hollowell's letter came by the <a href="../People/The_Courier">courier</a>, the man in the red coat, who had been up there, it seems, before anybody else ever was. I asked the courier how he got up there, and he said he was on his rounds, and did not say whose. Spare Cotterill, who went up with the Forty-Eighth, wrote home from the waiting area: "I waited. Only the post came."</div>
+<div class="marginalia">Mr Hollowell's letter came by the <a href="../People/The_Courier">courier</a>, the man in the red coat, who had been up there, it seems, before anybody else ever was. I asked the courier how he got up there, and he said he was on his rounds, and did not say whose. <a href="../People/Spare_Cotterill">Spare Cotterill</a>, who went up with the Forty-Eighth, wrote home from the waiting area: "I waited. Only the post came."</div>
 
 ## See also
 

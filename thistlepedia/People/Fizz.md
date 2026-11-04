@@ -27,7 +27,7 @@ title: Fizz
 
 She was issued by the Guild's Firstfield Chapter in the spring of 1981, out of a dandelion clock, at nine in the morning, which is when the Guild restocks. The Guild will not confirm the date or the clock, because both are lore. Fizz will confirm both, at length, and will add that she knew how to explain doors before she knew how to fly, and that the first thing she ever said was HEY, and the second was LISTEN, and that the Guild was very pleased, and that she was doing so well.
 
-She has been at the meadow ever since: twenty-one years, every day, waiting at the bottom of it for somebody to walk in off the rainbow, so that she could tell them that every journey begins here. Most of the time nobody came. The Chosen Ones came once a generation, or once a decade lately, and pressed the button. Between them she practised on the pigs, which are sheep.
+She has been at the meadow ever since: twenty-one years, every day, waiting at the bottom of it for somebody to walk in off the rainbow, so that she could tell them that every journey begins here. Most of the time nobody came. <a href="../History/The_Chosen_Ones">The Chosen Ones</a> came once a generation, or once a decade lately, and pressed the button. Between them she practised on the pigs, which are sheep.
 
 ## Once
 
@@ -47,7 +47,7 @@ Asked what the Dark Lord's weakness was, where the Sacred Key was, or what the l
 
 Her ambition is to be a Boss Warning Sprite, First Class, and wait outside the last door, and shout IT'S WEAK TO FIRE. She practises on the sheep, which are pigs, and are not weak to fire, and she asks you not to check. Since the Quest she has applied for the post, and has put the Forty-Eighth down as a reference. When I wrote to the Guild to ask whether he had been consulted, the Guild wrote back to say that that was lore.
 
-<div class="marginalia">I asked the Forty-Eighth whether he would give her a reference. He said that he already had: that the Guild had written to him, in 2001, asking whether the sprite had been helpful, and that he had written back yes, and that he had been asked to say what about, and had written *doors*. I have since learned that the Guild has no grade between Third Class and First, or that if it does, it is lore. Either way, I hope she gets it. I hope the last door she waits outside is a long way off, and that whatever is behind it is very weak to fire. - H.B.</div>
+<div class="marginalia">I asked the Forty-Eighth whether he would give her a reference. He said that he already had: that the Guild had written to him, in 2001, asking whether the sprite had been helpful, and that he had written back yes, and that he had been asked to say what about, and had written <i>doors</i>. I have since learned that the Guild has no grade between Third Class and First, or that if it does, it is lore. Either way, I hope she gets it. I hope the last door she waits outside is a long way off, and that whatever is behind it is very weak to fire. - H.B.</div>
 
 ## Afterwards
 

@@ -25,13 +25,13 @@ title: Elder Wispel
 
 ## The charge
 
-The charge is the same every time, and he gives it beautifully. He says the Chosen One's name and number. He unrolls the Prophecy, which keeps unrolling until it reaches the far wall. He says that every hundred years the Dark Lord rises in the Obligatory Tower, and every hundred years Thistlewick sends someone, and that it has worked forty-seven times. The Forty-Eighth asked him what had happened the other times. He said that it had worked forty-seven times.
+The charge is the same every time, and he gives it beautifully. He says the Chosen One's name and number. He unrolls the Prophecy, which keeps unrolling until it reaches the far wall. He says that every hundred years the Dark Lord rises in the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, and every hundred years Thistlewick sends someone, and that it has worked forty-seven times. The Forty-Eighth asked him what had happened the other times. He said that it had worked forty-seven times.
 
 Then he rolls the scroll back up. It takes a while. Nobody helps. The Committee has considered helping, and minuted it, and decided that the rolling is part of the dignity of the office, and also that nobody else knows which way it goes.
 
 Then: take companions, up to three ("that is the clause, not my preference"); go north; kill the Dark Lord; come home. "In that order, ideally." The gold and the potions are from the parish fund. The Prophecy is, regrettably, free.
 
-He is fond of every Chosen One he has charged, and he is not able to say how many that is, because to Elder Wispel every one of them went a hundred years after the last and he has charged them all. I asked him how long he had been Elder. He said, "Oh, a good while," and offered me a biscuit. A man from Nether Sopping notices this sort of thing. A man from Thistlewick does not, and is happier, and I am not going to be the one to tell him. See <a href="../History/Two_Reckonings">Two Reckonings</a>, which he has not read.
+He is fond of every Chosen One he has charged, and he is not able to say how many that is, because to Elder Wispel every one of them went a hundred years after the last and he has charged them all. I asked him how long he had been Elder. He said, "Oh, a good while," and offered me a biscuit. A man from <a href="../Places/Nether_Sopping">Nether Sopping</a> notices this sort of thing. A man from Thistlewick does not, and is happier, and I am not going to be the one to tell him. See <a href="../History/Two_Reckonings">Two Reckonings</a>, which he has not read.
 
 ## The reference
 

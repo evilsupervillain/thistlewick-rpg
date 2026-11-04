@@ -38,7 +38,7 @@ title: Eighty-Four
 
 6. **Governor.** Her governor, a brass ball governor, which keeps an engine from running away with itself, came off with two turns of a spanner and was given to the Forty-Eighth rather than taken. She never needed it. She did not once run away with herself in a hundred and forty years, and I have a field to prove it.
 
-7. **Bay.** There is a bay in the shed with 84 over it. For a hundred and forty years there was nothing under it. There is now. She was brought in, a piece at a time, on the cart, by Tappet Cotterill, over the summer of 2000, on Tuesdays. It will take years. Nobody has costed it and nobody has asked to.
+7. **Bay.** There is a bay in the shed with 84 over it. For a hundred and forty years there was nothing under it. There is now. She was brought in, a piece at a time, on the cart, by <a href="Tappet_Cotterill">Tappet Cotterill</a>, over the summer of 2000, on Tuesdays. It will take years. Nobody has costed it and nobody has asked to.
 
 8. **Name.** She has no name but her number, like all of them. The apprentice asked me in 2001 whether she should have one, since she had earned it. I said that she had a number, and that a number is a name that cannot be argued with. The apprentice has painted a small 84 on the door of her bay, in white, very neatly. I had not asked for that. I have left it.
 

@@ -41,7 +41,7 @@ He lodged in Great Dunnage, with a Mrs Pettit in Cinder Lane, who gave him a roo
 
 "I'm always very glad to get home," he says. His father says it too. It is, I think, the family motto, and it has never been written down, and it does not need to be.
 
-<div class="marginalia">The heel-irons on his boots, which are worn bright, came from the forge in Thistlewick, and Hob Grumnir knew them at once, and asked whether he could have them back till the spring. Cotter said that he was home in the spring, for good, and that he would not get home without them, eleven miles up every Saturday and eleven back. Hob said, "Aye. Get home." I have asked Hob how his heel-irons came to be on a furnace man in Great Dunnage. He says that things he makes go where they are needed, and that this is the best place he has ever heard of one going. - H.B.</div>
+<div class="marginalia">The heel-irons on his boots, which are worn bright, came from the forge in <a href="../Places/Thistlewick">Thistlewick</a>, and Hob Grumnir knew them at once, and asked whether he could have them back till the spring. Cotter said that he was home in the spring, for good, and that he would not get home without them, eleven miles up every Saturday and eleven back. Hob said, "Aye. Get home." I have asked Hob how his heel-irons came to be on a furnace man in Great Dunnage. He says that things he makes go where they are needed, and that this is the best place he has ever heard of one going. - H.B.</div>
 
 ## The bottom lock
 

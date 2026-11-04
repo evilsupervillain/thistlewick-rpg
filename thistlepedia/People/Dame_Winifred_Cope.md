@@ -14,7 +14,7 @@ title: Dame Winifred Cope
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Order</th><td>The Errant. Knighted 1984</td></tr>
 <tr><th>Posted</th><td>Little Gore, 1989, as the Chapter's knight in the field</td></tr>
-<tr><th>Pins at Coldbarrow</th><td>One. Correct</td></tr>
+<tr><th>Pins at <a href="../Places/Coldbarrow">Coldbarrow</a></th><td>One. Correct</td></tr>
 <tr><th>Reports</th><td>Quarterly. NOTHING TO REPORT</td></tr>
 <tr><th>Replies</th><td>VERY GOOD</td></tr>
 <tr><th>Helmet</th><td>Not a dent in it. Hob Grumnir's</td></tr>

@@ -17,7 +17,7 @@ title: Pemberton-Gore IV
 <tr><th>Portrait</th><td>1999. The only one in the gallery facing out</td></tr>
 <tr><th>Squire</th><td>To Sir Aldric, Knight Errant, At Large, since 2000</td></tr>
 <tr><th>Duties</th><td>Gates. All of them</td></tr>
-<tr><th>Writes to Coldbarrow</th><td>Weekly. His uncle's place, date and time. In ink</td></tr>
+<tr><th>Writes to <a href="../Places/Coldbarrow">Coldbarrow</a></th><td>Weekly. His uncle's place, date and time. In ink</td></tr>
 <tr><th>Loves</th><td>Everything. Ask anybody</td></tr>
 </table>
 
@@ -27,7 +27,7 @@ title: Pemberton-Gore IV
 
 He was born at Fenmarch in 1981, the only son of the Third's younger brother, and grew up in a house where every portrait is of somebody's back and nobody can find the gate. His grandfather, Sir Aldric the Second, came over the wall until he was eighty, and said that it was quicker. It was not. He simply could not find the gate. The house is easy enough to find. It is the gate that the family has trouble with.
 
-At ten, in 1991, coming home from Little Gore on his own, the Fourth walked up to the wall and along it and found the gate first time, and stood in it, and could not believe it, and took out his penknife and scratched FOUND IT on the inside of the left-hand post, at the height of a boy of ten, where it still is. He says that it was the best day of his life until 2000.
+At ten, in 1991, coming home from <a href="../Places/Little_Gore">Little Gore</a> on his own, the Fourth walked up to the wall and along it and found the gate first time, and stood in it, and could not believe it, and took out his penknife and scratched FOUND IT on the inside of the left-hand post, at the height of a boy of ten, where it still is. He says that it was the best day of his life until 2000.
 
 > "Did you? So did I! I found the gate first time, when I was ten. First of the family who ever has. Grandfather came over the wall. Until he was eighty."
 
@@ -45,7 +45,7 @@ In the year 2000 Sir Aldric came back to Fenmarch, briefly, with the Forty-Eight
 
 And then, gently, to an uncle who had spent nine years going the long way round: "Grandfather said we always go the long way round. And the long way round is still a way. And nobody else in the family ever went OUT, uncle. They all came over the wall. You went OUT."
 
-<div class="marginalia">When Miss Halloway told the household that none of the eighty animals in the gallery had ever lived, every one of them being two animals composed by Mr Ottershaw, it was the Fourth who said *COMPOSED, by Mr Ottershaw; nobody else in the county has a COMPOSER; that's better than real; anybody can have real.* I have thought about that a good deal since. I think he is the only person in this encyclopedia who has never once been disappointed by the truth about anything, and I do not believe it is because he is easily pleased. I believe it is because he is looking for what is good in it, and finding it first time, like the gate. - H.B.</div>
+<div class="marginalia">When Miss Halloway told the household that none of the eighty animals in the gallery had ever lived, every one of them being two animals composed by Mr Ottershaw, it was the Fourth who said <i>COMPOSED, by Mr Ottershaw; nobody else in the county has a COMPOSER; that's better than real; anybody can have real.</i> I have thought about that a good deal since. I think he is the only person in this encyclopedia who has never once been disappointed by the truth about anything, and I do not believe it is because he is easily pleased. I believe it is because he is looking for what is good in it, and finding it first time, like the gate. - H.B.</div>
 
 ## Squire
 
@@ -53,7 +53,7 @@ He is his uncle's squire now, and finds the gates. Every week, by arrangement, h
 
 ## Afterwards
 
-He is twenty-one. He has been through more gates in two years, his uncle says, than the whole family managed in four generations, and has scratched FOUND IT on none of them, because, he says, it would be showing off, and because it is only special the first time. He has found the north gate of Thistlewick, which his uncle never could, three times. His uncle has found it once, on the ninth of June 2001, unaided, and the Fourth was there, a little way behind, and did not say a word, and I have the date from three witnesses, and one of them is him.
+He is twenty-one. He has been through more gates in two years, his uncle says, than the whole family managed in four generations, and has scratched FOUND IT on none of them, because, he says, it would be showing off, and because it is only special the first time. He has found the north gate of <a href="../Places/Thistlewick">Thistlewick</a>, which his uncle never could, three times. His uncle has found it once, on the ninth of June 2001, unaided, and the Fourth was there, a little way behind, and did not say a word, and I have the date from three witnesses, and one of them is him.
 
 ## See also
 

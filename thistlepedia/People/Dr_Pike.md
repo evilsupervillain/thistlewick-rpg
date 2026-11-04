@@ -41,7 +41,7 @@ He went up the stairs on his first night, and Walt Ashbury played him up, and he
 
 > "I watch. Twelve hundred guests a year go up that staircase, and every one of them comes down better, and nobody can tell me why."
 
-He has notes. He showed me some of them: thirteen years of them, in a doctor's hand, in black notebooks numbered on the spine, of everybody who has gone up the stairs at the Eight Hours since 1989, with what was wrong with them when they went up, if he could tell, and what was wrong with them when they came down, which was never anything. Coughs. Backs. Sorrows. One broken heart, which he says came down mended, or at least set. A man with gout who came down and walked to Penultima. I asked what was in the notes about the tune. He said there was nothing in the notes about the tune, because a tune is not a clinical sign.
+He has notes. He showed me some of them: thirteen years of them, in a doctor's hand, in black notebooks numbered on the spine, of everybody who has gone up the stairs at the Eight Hours since 1989, with what was wrong with them when they went up, if he could tell, and what was wrong with them when they came down, which was never anything. Coughs. Backs. Sorrows. One broken heart, which he says came down mended, or at least set. A man with gout who came down and walked to <a href="../Places/Penultima">Penultima</a>. I asked what was in the notes about the tune. He said there was nothing in the notes about the tune, because a tune is not a clinical sign.
 
 > "I have theories. I do not like them."
 

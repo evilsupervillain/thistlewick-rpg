@@ -19,7 +19,7 @@ title: Gladhollow
 <tr><th>Heroes</th><td>Please, no</td></tr>
 </table>
 
-<p class="lede"><b>Gladhollow</b> is a small town of one street in the far south-west, with a gate at either end. At the west gate a boy says *Welcome to Gladhollow!*, and nothing else, because it is in his duties. At the east gate another says *Farewell from Gladhollow!* and *Mind how you go.* In between, the town has had a great many heroes through it, and has learned to lock its doors.</p>
+<p class="lede"><b>Gladhollow</b> is a small town of one street in the far south-west, with a gate at either end. At the west gate a boy says <i>Welcome to Gladhollow!</i>, and nothing else, because it is in his duties. At the east gate another says <i>Farewell from Gladhollow!</i> and <i>Mind how you go.</i> In between, the town has had a great many heroes through it, and has learned to lock its doors.</p>
 
 ## The Welcomer
 

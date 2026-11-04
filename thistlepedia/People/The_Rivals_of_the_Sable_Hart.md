@@ -47,7 +47,7 @@ He has the darkest corner, in rotation, and the scar, and the most points on the
 
 > "Thaddeus Rook. I keep the table. Points for a vow, a scar, a dramatic exit, and standing about in the rain."
 
-He keeps the league table, ruled in red, beside the rota. Standing in the rain is two points. Standing in the rain on purpose is one. They are quite strict. A dramatic exit through a door that turns out to be a cupboard is minus two. He was fourth in 2000, "because I never give myself the benefit of the doubt. That's the whole point of keeping the table." He is the rival of a very great archer on the east coast, who was ninety-one in 2000, and he is giving him every chance. When Corvin Ash was reviewed for points in 2000 and was found to have sat in one corner of the Slain Wyvern for eleven years, Mr Rook was asked whether there was a category. "There is now." He then moved himself down to fifth, by his own request, and was visibly happier there.
+He keeps the league table, ruled in red, beside the rota. Standing in the rain is two points. Standing in the rain on purpose is one. They are quite strict. A dramatic exit through a door that turns out to be a cupboard is minus two. He was fourth in 2000, "because I never give myself the benefit of the doubt. That's the whole point of keeping the table." He is the rival of a very great archer on the east coast, who was ninety-one in 2000, and he is giving him every chance. When Corvin Ash was reviewed for points in 2000 and was found to have sat in one corner of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> for eleven years, Mr Rook was asked whether there was a category. "There is now." He then moved himself down to fifth, by his own request, and was visibly happier there.
 
 ## Lucan Morrow
 

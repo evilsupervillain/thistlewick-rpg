@@ -35,7 +35,7 @@ The four of them look up at once when the door opens, the way people do who have
 
 ## The youngest
 
-Until 2000 the youngest at the Table was Mr Spence. Then Mrs Marrow saw a Sister in the bar with a flask, and asked whether she was a medic, and said that if so she was on the list, and in, and not to dawdle. Merribell of Thistlewick was the youngest at the Table by thirty-eight years. Mr Spence says he was the youngest until about four minutes before that, and that it was lovely.
+Until 2000 the youngest at the Table was Mr Spence. Then Mrs Marrow saw a Sister in the bar with a flask, and asked whether she was a medic, and said that if so she was on the list, and in, and not to dawdle. Merribell of <a href="../Places/Thistlewick">Thistlewick</a> was the youngest at the Table by thirty-eight years. Mr Spence says he was the youngest until about four minutes before that, and that it was lovely.
 
 When it came round to her she had nothing. Water, and sitting down, and socks; it always works. "I've never lost anybody. I know what that means. It isn't a virtue. It's an average."
 

@@ -24,7 +24,7 @@ title: The Collegium Arcanum
 
 ## The arms
 
-Over the window of the Porter's Lodge are the arms of the Collegium, carved and gilded, and on a ribbon under them is the motto: REFERATUR. *Let it be referred.* Six hundred years of the finest magical education in the land, and that is the part they put over the door. I have come to think it is the most honest motto I know. Thistlewick's is *Not us, unless it has to be*, which is a hope. The Collegium's is a description.
+Over the window of the Porter's Lodge are the arms of the Collegium, carved and gilded, and on a ribbon under them is the motto: REFERATUR. *Let it be referred.* Six hundred years of the finest magical education in the land, and that is the part they put over the door. I have come to think it is the most honest motto I know. <a href="../Places/Thistlewick">Thistlewick</a>'s is *Not us, unless it has to be*, which is a hope. The Collegium's is a description.
 
 ## The Founder
 
@@ -62,7 +62,7 @@ A young man at the reading table asked for a book at Michaelmas. It has been ref
 
 The **Register of Outstanding Fines** lies on a pile of lesser registers. It is the size of a gravestone, with a brass clasp, locked, and Mr Gedge lifts it for her on Mondays. Most of what is in it is in one account. Miss Prewitt could not say whose. It was the largest number she had ever written down, and she wrote it down again every morning with the day's interest, and it was never once wrong. I asked her, by letter, whether that number is in the Register still. She replied that the Register is confidential, and very heavy, and that Mr Gedge still lifts it on Mondays, and that she hoped I was keeping well. Readers who want more should consult <a href="../People/Zephyrine_Vance">Miss Vance's article</a>, which prints both of the documents I have, and decides between neither.
 
-On the shelf of the Collegium's monographs, in order of publication, are *On the Habits of the Lesser Wyvern*, *The Lesser Wyvern, Revisited* and *The Lesser Wyvern: A Reply To My Critics*. For some years there was a gap about an inch wide. Wren Halloway found it, in the year 2000, and looked at it for some time, and said "There's room." It is filled now, by *The Fauna of the Valley, by What They Are*, by W. Halloway, reviewed by three Fellows, one of them the duck. The Bestiary in this encyclopedia is hers.
+On the shelf of the Collegium's monographs, in order of publication, are *On the Habits of the Lesser Wyvern*, *The Lesser Wyvern, Revisited* and *The Lesser Wyvern: A Reply To My Critics*. For some years there was a gap about an inch wide. Wren Halloway found it, in the year 2000, and looked at it for some time, and said "There's room." It is filled now, by *<a href="../Bestiary/The_Fauna_of_the_Valley">The Fauna of the Valley</a>, by What They Are*, by W. Halloway, reviewed by three Fellows, one of them the duck. The Bestiary in this encyclopedia is hers.
 
 ## The Hall
 

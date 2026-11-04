@@ -43,9 +43,9 @@ The near half of the wood is a long path between big trees, much walked, and dre
 
 Half way along the first path is a log across the way, with a cushion on it, and a little card on the cushion: RESERVED - NUMBER FORTY-SIX.
 
-The Forty-Sixth is a man in very good armour, and he is sitting on the log. He set out in 1980, and got as far as the woods, and decided that the woods were enough. "Nobody writes songs about that. But I'm here, and I'm forty-six, and I'm sitting down." Beside the log is a sack of letters, a great many, in two hands, one round and one narrow, going back years. They are from Nabb and Tolly, of his old party, who write every month, both of them. He does not write back. "I read them. Reading them's the answer. They know that. Nabb doesn't, but Tolly does, and Tolly does the stamps."
+The Forty-Sixth is a man in very good armour, and he is sitting on the log. He set out in 1980, and got as far as the woods, and decided that the woods were enough. "Nobody writes songs about that. But I'm here, and I'm forty-six, and I'm sitting down." Beside the log is a sack of letters, a great many, in two hands, one round and one narrow, going back years. They are from <a href="../People/Nabb">Nabb</a> and <a href="../People/Tolly">Tolly</a>, of his old party, who write every month, both of them. He does not write back. "I read them. Reading them's the answer. They know that. Nabb doesn't, but Tolly does, and Tolly does the stamps."
 
-I know Nabb, and Tolly. They drink at the Slain Wyvern, and Nabb gave the Forty-Eighth one of the six accounts in my history, which is the whole story: he stopped, on the path, and said the woods were enough, "and we looked at each other, and we said: fair." Everyone wants there to be more. There isn't more. Post goes out on Thursdays. Tolly buys the stamps in twos, because it is a long way, and he is worth two stamps. Nabb says the man who collects the post says he reads them.
+I know Nabb, and Tolly. They drink at the <a href="The_Slain_Wyvern">Slain Wyvern</a>, and Nabb gave the Forty-Eighth one of the six accounts in my history, which is the whole story: he stopped, on the path, and said the woods were enough, "and we looked at each other, and we said: fair." Everyone wants there to be more. There isn't more. Post goes out on Thursdays. Tolly buys the stamps in twos, because it is a long way, and he is worth two stamps. Nabb says the man who collects the post says he reads them.
 
 ## The deep wood
 
@@ -73,7 +73,7 @@ Miss Halloway was made an honorary member, the first, and given the badge. She w
 
 The Gloamwood is the only road between the south and the works town of <a href="Upper_Clanging">Upper Clanging</a>, and it is a hard road to walk at night with eight feet of folded tube in a case. Mr Enoch Bagshawe, first bassoon of the Works Band, sat on the milestone at the mouth of the wood for some time, many nights, because if anything so much as looked at him he would drop the case, and that would be the reed, and the reed took three weeks. The band had never had a bassoon. It is a brass band; he is aware.
 
-Nix took him through. She halves encounters; it is a knack. With mothballs as well, which the Band keeps the uniforms in, he crossed the whole wood by night without a single encounter, or half of one, and at the north end he opened the case in the road and played one long low note on the reed by moonlight, for no reason but that he could. The Works Band has a bassoon.
+<a href="../People/Nix">Nix</a> took him through. She halves encounters; it is a knack. With mothballs as well, which the Band keeps the uniforms in, he crossed the whole wood by night without a single encounter, or half of one, and at the north end he opened the case in the road and played one long low note on the reed by moonlight, for no reason but that he could. The Works Band has a bassoon.
 
 ## See also
 

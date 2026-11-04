@@ -37,7 +37,7 @@ How he came to hold it in the first place he told the Forty-Eighth in four words
 
 ## The forty-seven
 
-All forty-seven did the sword. Not one of them asked. Clause fourteen says the first meeting shall not go well, and it never did: Merrow Halgate's party of twenty fought him at the bridge and lost, as was written down in advance, and he tells me that halfway through, Grimspite stopped, and apologised, and then carried on. Nobody ever believes him about that part. I do. One of them, Halbert Quy, the Forty-Fifth, was offered a cup of tea, and declined it, because he thought it was a trick, and has thought about it ever since. Grimspite has wondered too.
+All forty-seven did the sword. Not one of them asked. Clause fourteen says the first meeting shall not go well, and it never did: <a href="Merrow_Halgate">Merrow Halgate</a>'s party of twenty fought him at the bridge and lost, as was written down in advance, and he tells me that halfway through, Grimspite stopped, and apologised, and then carried on. Nobody ever believes him about that part. I do. One of them, Halbert Quy, the Forty-Fifth, was offered a cup of tea, and declined it, because he thought it was a trick, and has thought about it ever since. Grimspite has wondered too.
 
 None of them died, at the top. "Forty-seven of them, and they all won. Do you know how that looks, to the forty-eighth?" He has four skeletons up there, in plaster, for the look of the thing. One of them has an extra foot, because there was a foot over and it seemed a shame.
 
@@ -47,7 +47,7 @@ None of them died, at the top. "Forty-seven of them, and they all won. Do you kn
 
 The Forty-Eighth asked him why he did not stop. He said: "Ah. The clever one. They're rarer than you'd think. I can't." He showed them the wall. He asked who had told Bram to ask, and when he heard it was Halbert he asked him to go back and tell Halbert that the tea had just been tea, and to listen to all of it, because he would like, once, for somebody to have listened to the whole of it. Bram did.
 
-He answered the other questions he was brought. Clause seven requires a Chosen One to go on foot, "because a thing that flies over and drops something is not a story. It is a Tuesday." He was of the view that Miss Hoyle of Upper Clanging would never get one off the ground in sight of his tower. Asked, on her behalf, what the Tower is made of, he said that nobody had ever asked him that, that he did not know, and that he had leaned on that wall every day for four thousand years and never once wondered. "Tell her the work was good."
+He answered the other questions he was brought. Clause seven requires a Chosen One to go on foot, "because a thing that flies over and drops something is not a story. It is a Tuesday." He was of the view that Miss Hoyle of <a href="../Places/Upper_Clanging">Upper Clanging</a> would never get one off the ground in sight of his tower. Asked, on her behalf, what the Tower is made of, he said that nobody had ever asked him that, that he did not know, and that he had leaned on that wall every day for four thousand years and never once wondered. "Tell her the work was good."
 
 When ITEM 1 was set down in front of his throne, it smoked, and knocked the bookmark on to the floor, and did nothing else, because of clause thirty-one. He looked at it for some time. "That is the first new thing in four thousand eight hundred years, and I would like a moment with it. Whoever made that has never once been told that it was any good."
 

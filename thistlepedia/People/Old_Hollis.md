@@ -20,7 +20,7 @@ title: Old Hollis
 <tr><th>Mantelpiece</th><td>Hollis; and, since 2000, a stick</td></tr>
 </table>
 
-<p class="lede"><b>Amos Hollis</b>, known as <b>Old Hollis</b>, stands by the tent at Station One of <a href="../Places/Firstfield_Meadow">Firstfield Meadow</a> and gives every hero a stick. He has said *It's dangerous to go alone! Take this* eleven thousand, two hundred and six times in forty-one years, adjusting it for the size of the party, and not one stick had ever come back, until the Forty-Eighth brought his back, and Old Hollis shouted for his wife across the meadow at the top of his voice.</p>
+<p class="lede"><b>Amos Hollis</b>, known as <b>Old Hollis</b>, stands by the tent at Station One of <a href="../Places/Firstfield_Meadow">Firstfield Meadow</a> and gives every hero a stick. He has said <i>It's dangerous to go alone! Take this</i> eleven thousand, two hundred and six times in forty-one years, adjusting it for the size of the party, and not one stick had ever come back, until the Forty-Eighth brought his back, and Old Hollis shouted for his wife across the meadow at the top of his voice.</p>
 
 ## Old
 

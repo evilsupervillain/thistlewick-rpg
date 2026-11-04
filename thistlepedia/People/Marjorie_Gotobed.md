@@ -16,7 +16,7 @@ title: Marjorie Gotobed
 <tr><th>Was being rescued</th><td>No</td></tr>
 <tr><th>Has been rescued since</th><td>Continually, mostly from spiders</td></tr>
 <tr><th>Tea cosies</th><td>Two: one for an ordinary afternoon, and one to go on top of the first, for a really quiet one</td></tr>
-<tr><th>Keeps</th><td>Every letter from Upper Clanging, in a box on the cabinet, tied by the year</td></tr>
+<tr><th>Keeps</th><td>Every letter from <a href="../Places/Upper_Clanging">Upper Clanging</a>, in a box on the cabinet, tied by the year</td></tr>
 <tr><th>Has told nobody</th><td>That she keeps them. Except you</td></tr>
 </table>
 

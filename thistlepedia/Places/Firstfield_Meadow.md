@@ -41,7 +41,7 @@ Her ambition is to be a **Boss Warning Sprite, First Class**, and wait outside t
 
 The Forty-Eighth gave his stick back. Hollis shouted NELL, NELL, ONE'S COME BACK at the tent, and a small, round, delighted woman came out, inspected it, went back in, and came out with a straighter one. The first is on their mantelpiece. It is the first thing on that mantelpiece in forty-one years that is not Hollis, and she dusts it twice a day.
 
-**Station Two: Treasure.** A chest in the flowers, with a Potion in it and a note: WELL DONE FOR OPENING THE CHEST. PLEASE CLOSE THE CHEST. The Guild restocks it at nine. It is the most-opened chest in the world, and the only one that has ever been expecting you. Nix checked it for a false bottom. There was one, and under it a second note, WELL DONE, NIX, and Nix said that they had met her, then.
+**Station Two: Treasure.** A chest in the flowers, with a Potion in it and a note: WELL DONE FOR OPENING THE CHEST. PLEASE CLOSE THE CHEST. The Guild restocks it at nine. It is the most-opened chest in the world, and the only one that has ever been expecting you. <a href="../People/Nix">Nix</a> checked it for a false bottom. There was one, and under it a second note, WELL DONE, NIX, and Nix said that they had met her, then.
 
 **Station Three: Quests.** The sign says that Mrs Fenwick's sheep are lost, and adds, in brackets, that they are not lost, and, in more brackets, that they are not sheep. **<a href="../People/Dilys_Fenwick">Dilys Fenwick</a>** stands by the fence with three pigs, one of them leaning on her. The Guild ordered sheep and sent these, and the form says sheep, so they are sheep. The Guild said a meadow has to have a fetch quest, and she said her sheep were not lost, and they said, well, lose them a bit. So they are lost, a bit. They are very good about it, and have been practising their baa, and would like that noted. If you decline to find them she says *But thou must*, and then says sorry, the Guild gave her that line.
 
@@ -49,7 +49,7 @@ She and her husband Tam were married in the meadow. Fizz explained the vows to t
 
 **Station Four: Combat.** AMBUSH IN PROGRESS. PLEASE QUEUE. THE AMBUSH IS CONTRACTED TO LOSE. THE AMBUSH WOULD LIKE YOU TO KNOW HE TRIES. The ambush is **<a href="../People/Norbert_Pelling">Norbert</a>**, who stands in the gap in the fence with a sandwich, and puts it down, and wipes his hands on his trousers, and says STAND AND DELIVER, and then, your best attack, if you'd be so kind. Then he falls over, quite convincingly, and has a lie down, which is in the contract and is the best part of the job. In the year 2000 he had lost three thousand, one hundred and five times. His wife has the first one framed, and packs his lunch, and puts a note in it every day: LOSE WELL, LOVE. She says he is the best loser in the county. She means it nicely. He asked.
 
-Corvin Ash asked Norbert whether he was his rival. Norbert said, sorry, no, he was booked up through the spring.
+<a href="../People/Corvin_Ash">Corvin Ash</a> asked Norbert whether he was his rival. Norbert said, sorry, no, he was booked up through the spring.
 
 ## Graduation
 

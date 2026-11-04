@@ -46,7 +46,7 @@ She showed him the sea serpent. **Mr Cobley** has fished the duck pond for thirt
 
 Then she showed him the post, which is a man in a red coat, and Spare said that he knew; he does theirs. Effie said that he did not drive the Two Hundred, and he said no, Ott does, he is not allowed to touch the wheel. He said that she was not nearly a princess, and that there was no volcano. They considered this, each of them, for a while. Then she asked whether he would still write, and he said that his mam says it does not have to be true. *Make the volcano go off.* They each wrote one there and then, on their knees, and the <a href="../People/The_Courier">courier</a> walked the four steps from one to the other and handed them over, and they read them at once, in front of each other, which you are not supposed to do.
 
-<div class="marginalia">Mrs Throssell has minuted it: *Something arising. A Cotterill, from Upper Clanging. Our first visitor.* She sent me the minute when I asked, and a note to say that the volcano had gone off since, by letter, twice, and buried Mr Dibble, who is fine, and that Old Tom has not been seen again, which Mr Cobley says proves it.</div>
+<div class="marginalia">Mrs Throssell has minuted it: <i>Something arising. A Cotterill, from Upper Clanging. Our first visitor.</i> She sent me the minute when I asked, and a note to say that the volcano had gone off since, by letter, twice, and buried Mr Dibble, who is fine, and that Old Tom has not been seen again, which Mr Cobley says proves it.</div>
 
 ## See also
 

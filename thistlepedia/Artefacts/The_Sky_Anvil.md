@@ -13,7 +13,7 @@ title: The Sky Anvil
 <tr><th>Then</th><td>A gatepost, for two hundred and fifty years</td></tr>
 <tr><th>Gates outlasted</th><td>Eleven</td></tr>
 <tr><th>Shrine</th><td>Built round the foot of it by pilgrims, 1750</td></tr>
-<tr><th>Owner</th><td>Elias Meech, farmer, of the top field</td></tr>
+<tr><th>Owner</th><td><a href="../People/Elias_Meech">Elias Meech</a>, farmer, of the top field</td></tr>
 <tr><th>Traded</th><td>2000, for a gate</td></tr>
 <tr><th>Made into</th><td>Exactly one thing</td></tr>
 <tr><th>For</th><td>He has not said</td></tr>
@@ -49,7 +49,7 @@ He has not said who it is for. I have a theory, and I have been asked not to pri
 
 The shrine has a gate on it now, and nothing in the top. The pilgrims still come up every summer, and open the gate and shut it all afternoon, because nobody had ever given them anything to open before. Mr Meech says that it is the best gate in the county, and leans on it.
 
-<div class="marginalia">Nix's ledger has the star-iron in it, because it went through the back room on its way to the forge, overnight, wrapped in a sack. The entry reads: <i>One stone, sky. Traded, not located. From E. Meech, for a gate, fair. Held overnight for H. Grumnir. Returned.</i> She showed me the word RETURNED, and pointed out that it is in the right column. - H.B.</div>
+<div class="marginalia"><a href="../People/Nix">Nix</a>'s ledger has the star-iron in it, because it went through the back room on its way to the forge, overnight, wrapped in a sack. The entry reads: <i>One stone, sky. Traded, not located. From E. Meech, for a gate, fair. Held overnight for H. Grumnir. Returned.</i> She showed me the word RETURNED, and pointed out that it is in the right column. - H.B.</div>
 
 ## See also
 

@@ -20,7 +20,7 @@ title: Hob Grumnir
 <tr><th>Bad at</th><td>Speed, magic, being subtle</td></tr>
 <tr><th>Pricing</th><td>"Take it"</td></tr>
 <tr><th>Invoicing</th><td>A shelf</td></tr>
-<tr><th>Rival</th><td>Bryd Ollerenshaw, of Upper Clanging</td></tr>
+<tr><th>Rival</th><td>Bryd Ollerenshaw, of <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 </table>
 
 <p class="lede"><b>Hob Grumnir</b> is the blacksmith of <a href="../Places/Thistlewick">Thistlewick</a>, third of that forge, and an enormous man who talks to his hammers. Two of the hammers have names. One of them, he insists, talks back. She is called <b>Beatrice</b>, and she joined the Forty-Eighth's company on the same morning he did, because, as he explained, "Beatrice comes. I come with Beatrice. That's the arrangement and it's not up for discussion, mainly because she'd win."</p>
@@ -45,7 +45,7 @@ I asked in the village about Beatrice, and everybody I asked told me the same th
 
 **The gate.** Beatrice went quiet, and he admitted at last that the last thing she had told him to do, eleven years before, was make a marker, and that he had never been able to get the words right. He made three markers, each one magnificent, and rejected all three ("It's right. It's not her."), and then made the churchyard a gate with a good latch, because the old one stuck and she would have hated the fuss. Beatrice began talking again on the walk home, and said the latch wants a spring.
 
-**The Sky Anvil.** A thing fell out of the sky into Elias Meech's top field in 1749 and has been a gatepost since. Mr Meech would not sell it, it being a very good gatepost, but he would swap it for a gate, and Hob had lately become good at gates. The star-iron made exactly one sword. Hob has not said who it is for.
+**The Sky Anvil.** A thing fell out of the sky into <a href="Elias_Meech">Elias Meech</a>'s top field in 1749 and has been a gatepost since. Mr Meech would not sell it, it being a very good gatepost, but he would swap it for a gate, and Hob had lately become good at gates. The star-iron made exactly one sword. Hob has not said who it is for.
 
 **The anvil.** His own anvil was stolen, once, by two apprentice bandits on <a href="Meredith_Crooke">Meredith Crooke</a>'s six-week syllabus. They got it eleven feet, in the dark. He was angry for nine seconds and then impressed. Their apology is framed in the smithy, next to nothing he made.
 

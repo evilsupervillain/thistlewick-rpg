@@ -20,7 +20,7 @@ title: Toby Wendle
 <tr><th>Promoted</th><td>Farewell Boy, spring 2001. Two sentences. The cap fits</td></tr>
 </table>
 
-<p class="lede"><b>Toby Wendle</b> was the Welcomer at the west gate of <a href="../Places/Gladhollow">Gladhollow</a> in the year 2000, aged ten, with a saucepan on his head. He was allowed one sentence, *Welcome to Gladhollow!*, and no other, and so he worked on it, and had fifteen ways of saying it, written out on his kitchen table under the heading FIFTEEN WAYS. He told the Forty-Eighth everything about the town without saying a single other word. It was all in the duties.</p>
+<p class="lede"><b>Toby Wendle</b> was the Welcomer at the west gate of <a href="../Places/Gladhollow">Gladhollow</a> in the year 2000, aged ten, with a saucepan on his head. He was allowed one sentence, <i>Welcome to Gladhollow!</i>, and no other, and so he worked on it, and had fifteen ways of saying it, written out on his kitchen table under the heading FIFTEEN WAYS. He told the Forty-Eighth everything about the town without saying a single other word. It was all in the duties.</p>
 
 ## The saucepan
 
@@ -34,7 +34,7 @@ He is not allowed a second sentence. He has worked on the first. The list on the
 
 The Forty-Eighth heard all fifteen, in order, over several visits, and at the fifteenth Toby tried it anyway, going up at the end: *Welcome to Gladhollow?* And then he looked anxiously to see whether a question counted as a second sentence. It was decided that it did not. He wrote something on the back of his hand. Once, overexcited, he got as far as "Welcome BACK to Glad-", and stopped dead, and said, very quietly, "...I'm not allowed that one," and then, with enormous restraint, "...Welcome to Gladhollow."
 
-<div class="marginalia">The Slow One, one word at a time, is for anybody from abroad. The job description does not mention anybody from abroad. He checked. He did it anyway, and when I asked him why, he said *Welcome to Gladhollow*, very slowly, one word at a time, and looked at me until I understood that I was from abroad, which, from Nether Sopping, I suppose I am. - H.B.</div>
+<div class="marginalia">The Slow One, one word at a time, is for anybody from abroad. The job description does not mention anybody from abroad. He checked. He did it anyway, and when I asked him why, he said <i>Welcome to Gladhollow</i>, very slowly, one word at a time, and looked at me until I understood that I was from abroad, which, from <a href="../Places/Nether_Sopping">Nether Sopping</a>, I suppose I am. - H.B.</div>
 
 ## The duties
 

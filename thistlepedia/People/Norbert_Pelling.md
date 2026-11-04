@@ -50,7 +50,7 @@ He has also been run from. "Very sensible. Most heroes never think of running. C
 
 The note says LOSE WELL, LOVE. It has said that every day for nineteen years, on a slip of paper in the sandwich tin, and he has kept every one, in a biscuit box, and there are about five thousand of them, and she says that she has never once had to think what to write, which is the secret of a good marriage. She has the first loss framed, which is to say that she had a man come from the town in 1981 and paint Norbert lying down in the meadow in the gap in the fence, very peacefully, and it is over their fireplace, and visitors take it for a memorial and offer condolences, and Maud says thank you, he's at work.
 
-<div class="marginalia">This is Maud Pelling, of Firstfield, Norbert's wife since 1983, and not Maud Penhallow of Great Dunnage, who is somebody else's understudy, and who has an article of her own. Both of them have been in the year 2000 at the edge of somebody else's fight, waiting for their moment, and both of them, I think, would like each other very much. They have not met. - H.B.</div>
+<div class="marginalia">This is Maud Pelling, of Firstfield, Norbert's wife since 1983, and not Maud Penhallow of <a href="../Places/Great_Dunnage">Great Dunnage</a>, who is somebody else's understudy, and who has an article of her own. Both of them have been in the year 2000 at the edge of somebody else's fight, waiting for their moment, and both of them, I think, would like each other very much. They have not met. - H.B.</div>
 
 ## Corvin
 

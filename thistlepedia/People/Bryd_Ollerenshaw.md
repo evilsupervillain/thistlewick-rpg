@@ -21,7 +21,7 @@ title: Bryd Ollerenshaw
 <tr><th>Apprenticed with</th><td><a href="Hob_Grumnir">Hob Grumnir</a></td></tr>
 </table>
 
-<p class="lede"><b>Bryd Ollerenshaw</b> keeps Ollerenshaw's, the forge at the foot of the street in <a href="../Places/Upper_Clanging">Upper Clanging</a>, which was his father's and his father's mother's before that. If it is iron and it has to hold, it goes to him. He was apprenticed alongside <a href="Hob_Grumnir">Hob Grumnir</a>, and they have been rivals for twenty years, and are both enormous, and between them they have said perhaps forty words in that time, most of them *aye*.</p>
+<p class="lede"><b>Bryd Ollerenshaw</b> keeps Ollerenshaw's, the forge at the foot of the street in <a href="../Places/Upper_Clanging">Upper Clanging</a>, which was his father's and his father's mother's before that. If it is iron and it has to hold, it goes to him. He was apprenticed alongside <a href="Hob_Grumnir">Hob Grumnir</a>, and they have been rivals for twenty years, and are both enormous, and between them they have said perhaps forty words in that time, most of them <i>aye</i>.</p>
 
 ## The forge
 
@@ -29,7 +29,7 @@ Miss Hoyle of the works sends him a drawing every spring, and every spring it is
 
 There is a certificate on his wall, BEST SMITH IN THE NORTH, awarded by B. Ollerenshaw to B. Ollerenshaw, in real gold leaf. There is also a real one, from the Smiths' Hall at <a href="../Places/Great_Dunnage">Great Dunnage</a>, BEST IN HALL, 1987, which is the year Hob did not enter, having a cold. Hob says he would have won. Bryd says aye. Neither of them has suggested settling it, and I have come to think that neither of them would want it settled.
 
-His apprentice is Grommet Cotterill, who is put upon, and who is small enough to go inside a boiler, which in a smith's apprentice in Upper Clanging is a qualification.
+His apprentice is <a href="Grommet_Cotterill">Grommet Cotterill</a>, who is put upon, and who is small enough to go inside a boiler, which in a smith's apprentice in Upper Clanging is a qualification.
 
 ## The spar
 

@@ -29,11 +29,11 @@ title: The Cotterills
 
 ## The children
 
-I have the ages from **Gudgeon**, who copies the parish register at the Parish Rooms in the best hand Mrs Tunnicliffe has ever had, out of eleven, and who has written *Cotterill* more than four hundred times. As they stand in this year of 2002:
+I have the ages from **Gudgeon**, who copies the parish register at the Parish Rooms in the best hand <a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a> has ever had, out of eleven, and who has written *Cotterill* more than four hundred times. As they stand in this year of 2002:
 
 | Who | Age | |
 | --- | --- | --- |
-| **<a href="Cotter_Cotterill">Cotter</a>** | 26 | The eldest. Married to **<a href="Bessie_Cotterill">Bessie Marsden</a>**, Winnie's granddaughter. Was down the valley at the big foundry at Great Dunnage, at the Iron Company's gate, until the spring of 2000 |
+| **<a href="Cotter_Cotterill">Cotter</a>** | 26 | The eldest. Married to **<a href="Bessie_Cotterill">Bessie Marsden</a>**, Winnie's granddaughter. Was down the valley at the big foundry at <a href="../Places/Great_Dunnage">Great Dunnage</a>, at the Iron Company's gate, until the spring of 2000 |
 | **<a href="Rivet_Cotterill">Rivet</a>** | 24 | Days, while Da does nights. They pass at the door at six. He says "Rivet." Rivet says "Da." "That is a conversation, that is." Has shared a bed his whole life, and one of the people in it is Grommet, and he has never once been in a room by himself |
 | **<a href="Gudgeon_Cotterill">Gudgeon</a>** | 22 | Clerks at the Parish Rooms; copies the register; knew exactly which drawer Form P-9 was in, without looking. Read it aloud to the Forty-Eighth one section at a time |
 | **<a href="Tappet_Cotterill">Tappet</a>** | 20 | Brings the castings up to the works on Tuesdays, six crates, and watched the airship not fly for four years. She would still get in it. When it flew she stood under the empty gantry and said, "It flew," and that was all she said, grinning |

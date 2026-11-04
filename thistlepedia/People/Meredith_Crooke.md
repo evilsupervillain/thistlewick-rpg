@@ -45,7 +45,7 @@ Later that year two of her apprentices, Ivy Scrope and Hodge, stole Hob Grumnir'
 
 Hodge said that it was three hundredweight. "It says so on the side," said Miss Crooke. "Reading was week one." Miss Scrope asked if she might write to Mr Grumnir first, and wrote an apology on the back of her syllabus in a very good hand, and Miss Crooke said, "Week one. It's all week one," and took them both off up the lane, one ear each. If the party had beaten her in the hills, she knew them at once: "You. The footwork."
 
-<div class="marginalia">The apology is framed in the smithy now. Mr Grumnir says it is the best-written thing in Thistlewick, which Elder Wispel has taken personally. I have seen it. He is right. - H.B.</div>
+<div class="marginalia">The apology is framed in the smithy now. Mr Grumnir says it is the best-written thing in Thistlewick, which <a href="Elder_Wispel">Elder Wispel</a> has taken personally. I have seen it. He is right. - H.B.</div>
 
 ## Afterwards
 

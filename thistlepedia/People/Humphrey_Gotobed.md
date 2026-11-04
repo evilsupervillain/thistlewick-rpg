@@ -29,7 +29,7 @@ He was born in 1944 in a railway cottage at Brinkworth Halt, which is a junction
 
 The map is on the wall of the Gotobeds' bedroom, over the drawers. It has a dotted red line on it, which is every road Mr Gotobed ever took, and it goes to every edge of the map, and then it comes back, quite straight, to Much Pottering. Much Pottering is circled twice, and beside it, in the same red ink, is written: FOUND IT.
 
-<div class="marginalia">The red line goes, I noticed, nowhere near Thistlewick, or the Obligatory Tower, or the Gloamwood. I asked Mrs Gotobed about that. She said that he had always said that there was a Chosen One for that sort of thing, and that it was rude to take another man's quest. I think this is the most considerate thing I have ever heard of an adventurer doing, and I have heard of a great many adventurers. - H.B.</div>
+<div class="marginalia">The red line goes, I noticed, nowhere near <a href="../Places/Thistlewick">Thistlewick</a>, or the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, or the <a href="../Places/The_Gloamwood">Gloamwood</a>. I asked Mrs Gotobed about that. She said that he had always said that there was a Chosen One for that sort of thing, and that it was rude to take another man's quest. I think this is the most considerate thing I have ever heard of an adventurer doing, and I have heard of a great many adventurers. - H.B.</div>
 
 ## The career
 

@@ -31,7 +31,7 @@ title: Merribell
 
 The Order of Whatever Works has a founding document, which is a pamphlet, and a Rule of Life four lines long, one of them about socks. It does not have a doctrine and does not want one. Merribell trained at the mother house at <a href="../Places/Weeping_Bottom">Weeping Bottom</a>, a wet valley chosen by a founder who believed the damp was good for the chest, and left at twenty-two, in 1996, because the Sisterhouse had begun holding symposia.
 
-She keeps the most complete medical record in the county: every ailment of every soul in Thistlewick, dated, in a good hand. The Prophecy Committee has never once asked to see it, preferring the Prophecy.
+She keeps the most complete medical record in the county: every ailment of every soul in Thistlewick, dated, in a good hand. <a href="../Institutions/The_Prophecy_Committee">The Prophecy Committee</a> has never once asked to see it, preferring the Prophecy.
 
 ## Manner
 
@@ -43,9 +43,9 @@ She carries a basin. She brought it unasked. "Nobody has ever won an argument wi
 
 Of all the things done on the road, three were hers, and the Prophecy's own account records each of them.
 
-**Fit to travel.** Clause eleven of the [Prophecy](../History/The_Prophecy_of_Thistlewick#clause-eleven-fit-to-travel) requires a Chosen One to be certified fit before departure. It had been done forty-seven times. The Forty-Eighth's form was blank, because he had been asleep. She found the form on a pad at <a href="../Places/Upper_Clanging">Upper Clanging</a> and did it properly: stamped scales from the fish stall at Nether Sopping, the light of the lighthouse at Saint Bother's, lit, a clean surface, and a witness, from among the company. It is, the account says, the first properly documented attempt in four thousand years. I have interviewed several of the witnesses and they all looked at the ceiling.
+**Fit to travel.** Clause eleven of the [Prophecy](../History/The_Prophecy_of_Thistlewick#clause-eleven-fit-to-travel) requires a Chosen One to be certified fit before departure. It had been done forty-seven times. The Forty-Eighth's form was blank, because he had been asleep. She found the form on a pad at <a href="../Places/Upper_Clanging">Upper Clanging</a> and did it properly: stamped scales from the fish stall at <a href="../Places/Nether_Sopping">Nether Sopping</a>, the light of the lighthouse at Saint Bother's, lit, a clean surface, and a witness, from among the company. It is, the account says, the first properly documented attempt in four thousand years. I have interviewed several of the witnesses and they all looked at the ceiling.
 
-**The Sisterhouse.** The mother house had split between the Order of Whatever Works and the Order of What Ought To Work, which wins every argument and loses patients, and the two agreed to settle it the way this world settles things, with a ward and a queue. Merribell asked the patients whether they had eaten. Whatever Works won on points, nineteen to one, in an afternoon. Sister Bewick, of the other order, has since been examined on Whatever Works' doctrine, and passed. It is four lines long.
+**The Sisterhouse.** The mother house had split between the Order of Whatever Works and the Order of What Ought To Work, which wins every argument and loses patients, and the two agreed to settle it the way this world settles things, with a ward and a queue. Merribell asked the patients whether they had eaten. Whatever Works won on points, nineteen to one, in an afternoon. <a href="Sister_Bewick">Sister Bewick</a>, of the other order, has since been examined on Whatever Works' doctrine, and passed. It is four lines long.
 
 **The curse of Sump.** The village of <a href="../Places/Sump">Sump</a> had been cursed since 1794, with headaches, poor sleep and a general sense that things used to be better. She diagnosed it in nine seconds. There were wasps in the well and nobody had had any water for two hundred years. The curse was lifted by the Water Committee, one member, with a glass of water, and the minutes record an item three.
 
@@ -53,7 +53,7 @@ She also called on <a href="Tobias_Frayne">Tobias Frayne</a>, who had been reviv
 
 ## The Healers' Table
 
-Every surviving party medic within forty miles meets once a year in the back room of the Slain Wyvern, under the chair of Mrs <a href="Ysolde_Marrow">Ysolde Marrow</a>, to compare the worst thing they ever had to improvise. Merribell was invited in the year of the Quest, the youngest at the Table by thirty-eight years, and asked to speak, and had nothing.
+Every surviving party medic within forty miles meets once a year in the back room of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, under the chair of Mrs <a href="Ysolde_Marrow">Ysolde Marrow</a>, to compare the worst thing they ever had to improvise. Merribell was invited in the year of the Quest, the youngest at the Table by thirty-eight years, and asked to speak, and had nothing.
 
 "I've never lost anybody," she told them. "I know what that means. It isn't a virtue. It's an average."
 

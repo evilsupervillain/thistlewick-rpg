@@ -66,7 +66,7 @@ When a lady with a basket goes by and says *Our Chosen One!* he does a face, war
 
 Their house has its door shut, and a card in the window in two hands: AT THE RIBBON. - P. BACK FOR TEA. - I. Through the window there are two armchairs drawn up very close to the fire, and two pairs of slippers warming on the fender, toes touching.
 
-The ribbon post has an iron crown on top of it, worked like frost on a window. It is Hob Grumnir's work. In the year 2000 he asked whether he might have it back, for the spring, for a piece he had in mind at Great Dunnage. Perce said that everybody ties a ribbon to that crown, and that you cannot tie a ribbon to a bare post, you know. It slides down. Hob said that it did, aye. The crown is still on the post, and ribbons do not slide off it.
+The ribbon post has an iron crown on top of it, worked like frost on a window. It is <a href="../People/Hob_Grumnir">Hob Grumnir</a>'s work. In the year 2000 he asked whether he might have it back, for the spring, for a piece he had in mind at <a href="Great_Dunnage">Great Dunnage</a>. Perce said that everybody ties a ribbon to that crown, and that you cannot tie a ribbon to a bare post, you know. It slides down. Hob said that it did, aye. The crown is still on the post, and ribbons do not slide off it.
 
 ## The Eleven Days
 
@@ -78,7 +78,7 @@ The visitors' book is open on the bar under a card, SIGNED BY THREE CHOSEN ONES.
 
 The Forty-Eighth signed it too. The card has not been changed. I asked Mrs Marchpane whether it ought to say four. She said that it said three, and that it always had, and would I like the story of the thaw.
 
-<div class="marginalia">The snowman on the green wears a Festival rosette: JUDGED - SNOW, ADEQUATE. The icicle on the tavern sign has been there so long it has a name, which is Reginald. A barrel by the Cold Room is labelled SPARE SNOW (CONTRACT), and is full, and I suspect is not, strictly, allowed. Spare Cotterill made a snowman here and wrote home that he was under contract.</div>
+<div class="marginalia">The snowman on the green wears a Festival rosette: JUDGED - SNOW, ADEQUATE. The icicle on the tavern sign has been there so long it has a name, which is Reginald. A barrel by the Cold Room is labelled SPARE SNOW (CONTRACT), and is full, and I suspect is not, strictly, allowed. <a href="../People/Spare_Cotterill">Spare Cotterill</a> made a snowman here and wrote home that he was under contract.</div>
 
 ## See also
 

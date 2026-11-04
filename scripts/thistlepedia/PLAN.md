@@ -34,7 +34,13 @@ Each one ends with the checks in `README.md`, a commit, a push to
    the Sable Hart) and D (the sites, Great Dunnage, the wayside, Bram's
    mother) done: seventy pages. Older bios get dates in a later pass.
 8. **The final pass**: cross-links, the search index, and a browser check of
-   every page.
+   every page. Done (4 November 2026): 383 links added at the first unlinked
+   mention of an article (not in quoted dialogue, bylines or headings), The
+   Turnip linked from six See alsos by hand; the index built with
+   `--max-chars 0`, because The Turnip outgrew the default; all 190 pages
+   rendered headless and scanned, which found 25 Markdown bold/italics
+   inside HTML paragraphs printing as asterisks, now `<b>`/`<i>`. Markdown
+   does not work inside a `<p>` or `<div>` line: use the tags.
 
 ## Other hands
 

@@ -13,7 +13,7 @@ title: Spare Cotterill
 <tr><th>Born</th><td>2 January 1991, the house at the end of the street, <a href="../Places/Upper_Clanging">Upper Clanging</a>. Ninth</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a>, the ninth of the Cotterills</td></tr>
-<tr><th>Trade</th><td>Brushing the ninety tubes of the Hoyle Works boiler, since 1997. Paid in buns</td></tr>
+<tr><th>Trade</th><td>Brushing the ninety tubes of the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a> boiler, since 1997. Paid in buns</td></tr>
 <tr><th>Age</th><td>Nine at the time of the Quest; eleven now</td></tr>
 <tr><th>Good at</th><td>Getting in anywhere; not being hit; getting everybody up again</td></tr>
 <tr><th>Bad at</th><td>Getting past his mother</td></tr>
@@ -39,7 +39,7 @@ He was also, that winter, about to stop being the littlest. In the spring there 
 
 ## Joining
 
-It took a great deal. The party had to hear him out, all of it, and meet every Cotterill there is, on the street, in the works, at the forge, in the Safety Valve and at the Parish Rooms, because you do not take a boy out of a family you have not met. It needed the airship, because a nine-year-old does not walk to the Obligatory Tower through the Gloamwood. It needed a form, and the parish had one: Form P-9, which his sister Gudgeon, who clerks at the Parish Rooms, had never once issued and knew exactly where to find. It needed a parent's signature.
+It took a great deal. The party had to hear him out, all of it, and meet every Cotterill there is, on the street, in the works, at the forge, in the Safety Valve and at the Parish Rooms, because you do not take a boy out of a family you have not met. It needed the airship, because a nine-year-old does not walk to the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> through the <a href="../Places/The_Gloamwood">Gloamwood</a>. It needed a form, and the parish had one: Form P-9, which his sister Gudgeon, who clerks at the Parish Rooms, had never once issued and knew exactly where to find. It needed a parent's signature.
 
 It needed, in the end, a discussion with his mother, which went the way discussions go in this part of the world, and he lost it at least once, alone. He was not upset. She conceded. Her terms were these, and he has kept every one:
 
@@ -65,7 +65,7 @@ His mother did more potatoes anyway.
 
 **The Bottom Lock.** His eldest brother Cotter, at the Iron Company's gate in <a href="../Places/Great_Dunnage">Great Dunnage</a>, had a job no man would fit: the bottom gate of the Dunnage cut, jammed, and a paddle to clear in a brick culvert under it. Spare went in alone, in the dark, and counted, and cleared it, and came out. Somebody was there when he came out.
 
-**The pen pal.** Since he was six he had been writing to Effie Gotobed of <a href="../Places/Much_Pottering">Much Pottering</a>, through the same courier, and she had had every untrue thing he ever wrote, and what she wrote back was exactly as untrue. They met, at last. Her volcano is a bonfire. Her sea serpent is a carp. There was no volcano. They are still writing.
+**The pen pal.** Since he was six he had been writing to <a href="Effie_Gotobed">Effie Gotobed</a> of <a href="../Places/Much_Pottering">Much Pottering</a>, through the same courier, and she had had every untrue thing he ever wrote, and what she wrote back was exactly as untrue. They met, at last. Her volcano is a bonfire. Her sea serpent is a carp. There was no volcano. They are still writing.
 
 ## The tenth
 

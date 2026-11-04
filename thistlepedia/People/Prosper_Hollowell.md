@@ -39,7 +39,7 @@ title: Prosper Hollowell
 
 7. **Reports.** Quarterly. Nineteen thousand two hundred. Each was acknowledged with the same form letter, THANK YOU FOR YOUR REPORT, WHICH HAS BEEN FILED, and I have found that very steadying. Under ITEM TWO: VISITORS every one of them says NONE, except one.
 
-8. **Visitors.** In the year 2000, one party, by air, from below, in an airship from Upper Clanging which I should very much like to see. They took a slip up the Tower for the current incumbent, and brought it back signed: *Never been. Heard marvellous things about the lift.* I pasted it in, square. That quarter's report says *Yes!*, underlined twice. It is my only underlining. I do not regret it.
+8. **Visitors.** In the year 2000, one party, by air, from below, in an airship from <a href="../Places/Upper_Clanging">Upper Clanging</a> which I should very much like to see. They took a slip up the Tower for the current incumbent, and brought it back signed: *Never been. Heard marvellous things about the lift.* I pasted it in, square. That quarter's report says *Yes!*, underlined twice. It is my only underlining. I do not regret it.
 
 9. **Release.** In the spring of that year I received a NOTICE OF TERMINATION: *The Engagement is concluded. The Premises are released from retention. No further action is required.* I filed it under N, and under T, and under C, in case. That took me until about half past nine.
 
@@ -49,7 +49,7 @@ title: Prosper Hollowell
 
 P. HOLLOWELL, Caretaker. The Former Premises, the sky. First quarter, 2002.
 
-<div class="marginalia">I have done what he asked, and entered his date of birth as *pending*. He is, by the engagement's reckoning, a great deal older than anybody else in this volume, and he is, by the look of him in his portrait, about sixty-five, and a very kind sixty-five, and I do not think the two numbers need to be reconciled, any more than the Tower's. The <a href="The_Courier">courier</a> brought his statement with a second sheet, which was not for the file: a drawing, in pencil, of what he imagines the airship at Upper Clanging to look like. It has a lift. - H.B.</div>
+<div class="marginalia">I have done what he asked, and entered his date of birth as <i>pending</i>. He is, by the engagement's reckoning, a great deal older than anybody else in this volume, and he is, by the look of him in his portrait, about sixty-five, and a very kind sixty-five, and I do not think the two numbers need to be reconciled, any more than the Tower's. The <a href="The_Courier">courier</a> brought his statement with a second sheet, which was not for the file: a drawing, in pencil, of what he imagines the airship at Upper Clanging to look like. It has a lift. - H.B.</div>
 
 ## See also
 

@@ -6,13 +6,13 @@ title: The North, and Below
 
 <p class="contributor">Contributed by W. Halloway, Cataloguer</p>
 
-<p class="hatnote">From Miss Halloway's Bestiary: what is met in the Long Field and on the crag, under Carn Drey, in a chapel at Weeping Bottom at night, and on the Stair under Hithermost. Very little of it is an animal, and Miss Halloway has said so, at the top, so that nobody can say she did not. - H.B.</p>
+<p class="hatnote">From Miss Halloway's Bestiary: what is met in the Long Field and on the crag, under Carn Drey, in a chapel at Weeping Bottom at night, and on the Stair under <a href="../Places/Hithermost">Hithermost</a>. Very little of it is an animal, and Miss Halloway has said so, at the top, so that nobody can say she did not. - H.B.</p>
 
-I was asked to write up everything a party is likely to fight between Upper Clanging and the bottom of the Stair. I have done so. Most of it is machinery, weather, the time of night, or architecture, and one of it is a weasel. I have been strict about what I describe and lenient about what I list, because people will look.
+I was asked to write up everything a party is likely to fight between <a href="../Places/Upper_Clanging">Upper Clanging</a> and the bottom of the Stair. I have done so. Most of it is machinery, weather, the time of night, or architecture, and one of it is a weasel. I have been strict about what I describe and lenient about what I list, because people will look.
 
 ## The Long Field and the crag
 
-None of these is an animal. All of them are the Hoyle Works', and I have referred them to Miss Hoyle, who has replied that they are attempts, and are documented, and that their documentation is not open to the public.
+None of these is an animal. All of them are the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>', and I have referred them to Miss Hoyle, who has replied that they are attempts, and are documented, and that their documentation is not open to the public.
 
 **Loose pressure.** A hundred and forty years of stored steam, finding the way out all at once. It is not attacking anybody. It is just leaving. Stand aside.
 
@@ -20,7 +20,7 @@ None of these is an animal. All of them are the Hoyle Works', and I have referre
 
 **Ambulant salvage.** Parts of nine different attempts, walking. Nobody assembled it, and nobody can prove that it was not assembled. I asked Miss Hoyle which. She said that it was under review.
 
-**Attempt Eighty-Four.** Came down in the Long Field in 1860 and repaired herself out of her neighbours, a piece at a time, for a hundred and forty years. Stopped in 2000. Miss Hoyle's, and in her bay, and the subject of a paragraph in the <a href="../Places/The_Long_Field">memorandum on the field</a>, which I recommend. I note only that she is the one thing in this volume which nobody taught to do what she did, and which did it anyway, and that in an animal I should have called that behaviour.
+**Attempt <a href="../People/Eighty-Four">Eighty-Four</a>.** Came down in the Long Field in 1860 and repaired herself out of her neighbours, a piece at a time, for a hundred and forty years. Stopped in 2000. Miss Hoyle's, and in her bay, and the subject of a paragraph in the <a href="../Places/The_Long_Field">memorandum on the field</a>, which I recommend. I note only that she is the one thing in this volume which nobody taught to do what she did, and which did it anyway, and that in an animal I should have called that behaviour.
 
 ## Under Carn Drey
 
@@ -30,9 +30,9 @@ None of these is an animal. All of them are the Hoyle Works', and I have referre
 
 **Called.** The Worm of Carn Drey. Never, in my hearing, *basically a dragon*, and if anybody calls it that in my hearing it will not be the Worm I am cross with.
 
-**Where.** Under Carn Drey, east of Great Dunnage, at the bottom of a long stair, beyond a stone with a sword in it.
+**Where.** Under Carn Drey, east of <a href="../Places/Great_Dunnage">Great Dunnage</a>, at the bottom of a long stair, beyond a stone with a sword in it.
 
-**Description.** Old. Very large. It had been waiting since before Roland Fairweather was born for a hero of nineteen. It is patient, and it had been looking forward to it.
+**Description.** Old. Very large. It had been waiting since before <a href="../People/Roland_Fairweather">Roland Fairweather</a> was born for a hero of nineteen. It is patient, and it had been looking forward to it.
 
 **Method.** Engaged, under a prophecy, by Roland Fairweather, aged thirty-four, with help. It was over in about the time it takes to say so. The prophecy was discharged. The Worm was not harmed in any way a worm minds, and went back to sleep.
 

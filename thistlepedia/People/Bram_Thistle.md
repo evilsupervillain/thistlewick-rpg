@@ -14,7 +14,7 @@ title: Bram Thistle
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, two fields from Prophecy Hall</td></tr>
 <tr><th>Trade</th><td>Turnips</td></tr>
-<tr><th>Chosen</th><td>Third Age 2000, in his sleep, by the Prophecy Committee, nobody objecting</td></tr>
+<tr><th>Chosen</th><td>Third Age 2000, in his sleep, by the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, nobody objecting</td></tr>
 <tr><th>Equipment</th><td>One hoe. One sword, off the wall</td></tr>
 <tr><th>Good at</th><td>Everything, slightly</td></tr>
 <tr><th>Bad at</th><td>Nothing, impressively</td></tr>
@@ -84,3 +84,4 @@ In Prophecy Hall, at the end of the Wall of the Forty-Seven, the forty-eighth fr
 - [The Chosen Ones](../History/The_Chosen_Ones)
 - [Grimspite the Inevitable](Grimspite_the_Inevitable)
 - <a href="../Places/Thistlewick">Thistlewick</a>
+- <a href="../Institutions/The_Turnip">The Turnip</a>, though he asked that the count not be printed

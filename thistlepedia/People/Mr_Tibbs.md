@@ -27,7 +27,7 @@ title: Mr Tibbs
 
 He was born in 1934 in a house on the quay, the son of a lighterman, and has lived within sight of the warehouse doors his whole life. He went into the warehouse as a boy, in 1948, and became wharfinger in 1962, and says that in forty years he has never once let a thing out without the ticket, and the duty, and himself, and that this has made him unpopular with merchants, the Corporation, the Iron Company, and on one occasion a duke, and that he sleeps very well.
 
-The bonds are numbered, and are a history of the town in themselves, and he knows every one by heart. No. 2, one statue of the First Mayor, actual size, duty on the hat. No. 7, ten thousand buttons, all different, declared as one button, repeated. No. 11, fog, one barrel, from Nether Sopping, duty paid in advance by Nether Sopping, to be rid of it. No. 31, rain, one barrel, returned by Upper Clanging as second-hand. No. 40, one cabbage, very large, *for the show*. The show was in 1802. Nobody has been brave enough to check on the cabbage, and he includes himself.
+The bonds are numbered, and are a history of the town in themselves, and he knows every one by heart. No. 2, one statue of the First Mayor, actual size, duty on the hat. No. 7, ten thousand buttons, all different, declared as one button, repeated. No. 11, fog, one barrel, from <a href="../Places/Nether_Sopping">Nether Sopping</a>, duty paid in advance by Nether Sopping, to be rid of it. No. 31, rain, one barrel, returned by <a href="../Places/Upper_Clanging">Upper Clanging</a> as second-hand. No. 40, one cabbage, very large, *for the show*. The show was in 1802. Nobody has been brave enough to check on the cabbage, and he includes himself.
 
 ## Bond No. 1
 

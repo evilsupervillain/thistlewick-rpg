@@ -20,7 +20,7 @@ title: Dunnock
 <tr><th>Association's name</th><td>Carried forward</td></tr>
 </table>
 
-<p class="lede"><b>Dunnock</b> is a hedge mage of the west road, and a member of the association of hedge mages that meets in an igloo in a lay-by and has not got a name. He is self-taught, from a book with four pages missing, which he worked out for himself, and did better, as it turns out; he is better than the whole Collegium Arcanum at exactly four things. Somebody in the igloo says *Collegium* in the voice people use for weather, and it is generally him.</p>
+<p class="lede"><b>Dunnock</b> is a hedge mage of the west road, and a member of the association of hedge mages that meets in an igloo in a lay-by and has not got a name. He is self-taught, from a book with four pages missing, which he worked out for himself, and did better, as it turns out; he is better than the whole Collegium Arcanum at exactly four things. Somebody in the igloo says <i>Collegium</i> in the voice people use for weather, and it is generally him.</p>
 
 ## The book
 
