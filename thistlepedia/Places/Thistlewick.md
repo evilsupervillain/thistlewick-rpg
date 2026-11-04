@@ -11,7 +11,7 @@ title: Thistlewick
 <tr><th>Known as</th><td>The village that sends the Chosen Ones</td></tr>
 <tr><th>Crest</th><td>A turnip rampant, on a field of slightly different turnips</td></tr>
 <tr><th>Motto</th><td><i>Non nobis, nisi forte</i>: not us, unless it has to be</td></tr>
-<tr><th>Produce</th><td>Turnips</td></tr>
+<tr><th>Produce</th><td><a href="../Institutions/The_Turnip">Turnips</a></td></tr>
 <tr><th>Other produce</th><td>Chosen Ones, forty-eight</td></tr>
 <tr><th>Governed by</th><td>The Prophecy Committee, in session</td></tr>
 <tr><th>Councillor</th><td>A goat</td></tr>

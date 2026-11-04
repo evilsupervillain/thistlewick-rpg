@@ -959,3 +959,56 @@ match Prudence's page and this file.
   the yard behind the drawing office. Sowerby did not cheer. The town waited at
   the Safety Valve. Grimspite's view and Ott's flight are still not told to
   each other.
+
+## The Turnip (Institutions)
+
+Mike asked for a long and absurd article on turnips (4 Nov 2026). *Canon*
+used: the fingerpost; the flag, the sword-in-a-stone sign and the string; the
+crest and its motto; breakfast is turnip, and the steak cut as a sword; the
+pantry's four kinds; the '87 and the '91; the cordial; the Field Tonic tastes
+of turnip; the item's description and its two crowns at the stall; Mabel's
+chair; Elspeth Moore and the rosette; the pressed flowers; the reference;
+the six-generation portrait; Mother Selvidge's free turnip; Grimspite's "grow
+your turnips"; the next morning; *Turnips in the Morning*, the piano and the
+tankard; PIP-2's suggestions and the verse; no turnip in the Lay; "turnip
+farmer" at Coldbarrow, Great Dunnage and the Cinder Fen; Hild's turnip field
+in Fairholme; the RETURNS compasses; Quy's SEEDS (NOT TURNIPS); the Militant
+Turnip, the turnip gnome and *Bramus agricola*; the clay figure; the pot on
+the sill; the 1997 Almanac. The turnip count is **not printed** (Bram asked).
+
+*Wiki*, all new:
+
+* Hosea filed the turnip under Institutions because the Committee's clerk
+  asked him to in a four-page letter. Wren replied *fine*, underlined.
+* What makes a good turnip: "Being a turnip"; "Not being a parsnip"; Bram's
+  "one that came up where you put it, and was a turnip when it did".
+* The pantry's four kinds, according to Mrs Thistle: turnip; turnip, mashed;
+  turnip, for visitors (on a better plate); and "the other one", for when
+  those will not do, which has not happened yet.
+* The '87 is brought down for weddings, shown to the couple and taken back
+  up. The '91 was "a wet year". Hosea has tasted the '87.
+* The flag's turnip is replaced every spring and the old one eaten. Bram has
+  not claimed it.
+* The sword-in-a-stone sign went up "after the twenty-third or thereabouts".
+* The Farmer never really wants his string back.
+* Mabel's chair is upholstered in green, and turnip shows through where the
+  arms are worn. "It had been well brought up."
+* The turnip show is held at the end of every harvest on trestles behind
+  Prophecy Hall. Its classes: heaviest, roundest, most even in colour, most
+  like a turnip, and a children's class for the turnip most like somebody on
+  the Committee, which has caused two resignations. Nobody will say who won
+  the forty-second; the minute is about the biscuits. **The SECOND rosette is
+  put on Elspeth's stone by each year's winner** on the morning after the
+  show, and has been since 1994.
+* Bram did not enter his 2001 crop in the show; he says it was harvest.
+* *Turnips in the Morning* has eleven verses. Since Piper played it properly,
+  some of the village are annoyed.
+* Thistlewick says the Militant Turnips are not Thistlewick turnips and must
+  have come from the south.
+* Hosea turned round holding one of the RETURNS compasses, and it kept
+  pointing at the Turnip.
+* Quy said in 2001 that the roses like the no-turnip policy.
+* The gilded turnip predates Prudence's father, and nobody has checked whether
+  it is the same turnip under the paint.
+* Bram's experiment with the pot asks whether a turnip minds where it is.
+  Hosea promised not to say this, and does not quite keep the promise.
