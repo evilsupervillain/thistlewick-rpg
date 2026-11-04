@@ -4,7 +4,7 @@ Pictures the game needs that no stock sheet has. Mike draws them and I put them 
 **Keep this file current**: add a row when a map edit or a line of text asks for
 a picture that does not exist, and move it to *Done* when the picture is in.
 
-Last updated 2 November 2026. The battlers `AUDIT.md` item 7 found wrong are listed there, under *Art for Mike*.
+Last updated 4 November 2026. The battlers `AUDIT.md` item 7 found wrong are listed there, under *Art for Mike*.
 
 ## How to hand them over
 
@@ -22,18 +22,6 @@ Last updated 2 November 2026. The battlers `AUDIT.md` item 7 found wrong are lis
 ## Wanted
 
 No pictures are owed. Everything asked for so far is in; see *Done*.
-
-**Later: two people wearing somebody else's face** (Mike, 2 November 2026).
-Both need a face and a walking sprite of their own. They will probably be made
-with the Character Generator (`../CHARGEN.md`) into the next free `Gen_People16`
-cells, then `story.FACES` repointed. The Thistle-pedia's portrait follows on the
-next `scripts/thistlepedia/portraits.py` run. This is parked until the graphics
-pass and is not urgent.
-
-| who | where they appear | wears now | what the face has to be |
-| --- | --- | --- | --- |
-| Fellow Blunt | the Bell (Map 65), event 14, at the ROL-1 meeting: face **and** sprite | `People1` 3, a young woman with short red hair, shared with Thistlewick's unnamed Councillor | a man, sixty or so (born 1937 in the wiki), who has run a training yard for sword and horse and has checked a stone quarterly since 1978. Maud says "his yard". The wiki shows no portrait until this exists |
-| Mr Pilbeam | Fairholme's council chamber (Map 35), event 6: face **and** sprite | `People4` 0, which is **Hosea Bellwether's** | an ordinary man of about thirty (born 1970), once a traveller in buttons. `story.py` wants "the most ordinary face in the box". The wiki's portrait of him is Hosea's until this exists |
 
 The notes on the two benches below are kept for when either drawing is
 changed.
@@ -181,6 +169,8 @@ The game uses stand-ins for these, and the stand-ins are acceptable.
 | what | where | how | when |
 | --- | --- | --- | --- |
 | the pencil height marks (item 4) | Corvin's study (Map 53), event 16 at (44, 3) | Mike: `height_marks.png`, `!$HeightMarks`, on the wall face's lower row, on the two pages that need `SW_COR1_HOME`; nothing before he has been home | 29 Oct |
+| Mr Pilbeam's own face (was Hosea Bellwether's) | Fairholme's council chamber (Map 35), event 6 | generated: `Gen_People16` 2, by `build/art.py` | 3 Nov |
+| Fellow Blunt's own face (was the Councillor's, a young woman's) | the Bell (Map 65), event 14 | generated: `Gen_People18` 0, by `build/art.py` - grey, cropped, a waxed moustache, a leather jerkin | 4 Nov |
 | the Thistle family portrait (item 1) | Bram's House (Map 2), (8, 2) | Mike: `thistle_portrait_small.png`, a 40x40 frame in its cell (his smaller second go; the first, full-cell, is `thistle_portrait.png`), made into `!$ThistlePortrait` lifted 48 pixels, so event 6 at (8, 3) shows it on the wall above. The stock `Portrait B` tile it replaces is gone from the frozen map | 29 Oct |
 | the "wyvern" (item 2) | the Slain Wyvern (Map 14), on the mantel shelf; event 14 at (14, 3) | Mike: `goose_trophy.png`, 48x48, made into `!$GooseTrophy` lifted 69 pixels, which sets it just into the shelf (72 sat it on top; Mike asked for it 3 pixels lower). On all five of the goose's pages | 29 Oct |
 | the two brass plaques (item 3) | the Slain Wyvern (Map 14), events 18 at (13, 3) and 21 at (15, 3) | Mike: `plaque_left_shadow2.png` and `plaque_right_shadow.png` (his third go, with a shadow so they stand off the stone, and a fourth of the left; the earlier left is `plaque_left_shadow.png`; the earlier are `plaque_left.png`/`plaque_right.png` and the `_small` pair), `!$PlaqueLeft` and `!$PlaqueRight`, each on the fire's side of its cell. The right one shows only once WRE-2 has put it up | 29 Oct |

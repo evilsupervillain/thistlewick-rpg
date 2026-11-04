@@ -1310,6 +1310,7 @@ of the art, so the data build never needs the untracked stock generator parts.
 | `Gen_People15` | Mrs Gotobed | Mr Dibble | Mrs Throssell | Mr Cobley | Thalion | Aelwen | Elowen, Calder |
 | `Gen_People16` | Ninian | the Copyist | Mr Pilbeam | the smithy's Apprentice | the Committee Clerk | Mrs Budge | the Old Man, the Child |
 | `Gen_People17` | the Hithermost villager | the Turnip's Regular | the man having a day off | Fellow Grice | Ned Scarrow | Major Royce, Saul Pennock, Mr Gotobed |
+| `Gen_People18` | Fellow Blunt | | | | | |
 
 **A face and a sprite can live on different sheets, so draw an event with
 `story.sprite(key)`, never `story.FACES[key]`.** Mike drew eight faces on
@@ -1339,7 +1340,8 @@ companion quests'; Olde Evermore's six elves of the playtest round's P3 are
 `Gen_People15` 4-7 and `Gen_People16` 0-1; `Gen_People16` 2-7 and
 `Gen_People17` 0-6 are faces that used to be shared (Mike, 3 Nov 2026 - see
 `story.FACES`); 7 is Mr Gotobed, drawn before he has any lines, so that sheet is
-full and **the next face opens `Gen_People18`**. The
+full; `Gen_People18` 0 is Fellow Blunt (4 Nov), who wore the
+Councillor's face, and **the next face is `Gen_People18` 1**. The
 apprentice keeps Ott's brass goggles, which only the male body has: `art.py`'s
 `BORROWED` lends them to the female body as `AccB p11`. Restwell's third speaking part, Dr Pike,
 **shares `SF_Actor3:6`** instead - `story.FACES` records every such share and

@@ -379,6 +379,12 @@ SHEETS = {
         # moustache, and the old adventuring leathers he still fits.
         (7, "mr-gotobed.json"),         # knocked on the wrong door
     ],
+    "Gen_People18": [
+        # Fellow Blunt, who wore the Councillor's face - a young woman's
+        # (Mike, 4 Nov). Sixty-odd, a sword-and-horse yard: grey, cropped,
+        # a waxed moustache, a leather jerkin in brown and grey.
+        (0, "fellow-blunt.json"),       # not ready; in the stone
+    ],
 }
 
 # battlerName -> settings file. `install.py enemy` writes a stand-in only when

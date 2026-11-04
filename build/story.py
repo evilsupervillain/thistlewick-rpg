@@ -432,12 +432,12 @@ FACES = {
     "Miss Moon": ("Supplied", 7),
     # ROL-1's review meeting (QUESTS.md B7): the Convenor is generated; the
     # three fellows "of no importance" share plain stock faces nobody in the
-    # Bell wears. (People3 0 and 1 were tried first: a crown and a pair of
+    # Bell wears - Blunt until 4 Nov, when he stopped wearing a young woman's. (People3 0 and 1 were tried first: a crown and a pair of
     # wings, which are of some importance.)
     "The Convenor": ("Gen_People13", 1),
     "Fellow Grice": ("Gen_People17", 3),     # was the Hermit's
     "Fellow Amory": ("People2", 4),
-    "Fellow Blunt": ("People1", 3),
+    "Fellow Blunt": ("Gen_People18", 0),     # was the Councillor's (4 Nov)
     # ZEPH-1's Registrar's clerk (QUESTS.md C1), generated.
     "Mr Pennock": ("Gen_People13", 2),
     # WRE-1's reviewers (QUESTS.md C4), Rowbotham's students, generated.
