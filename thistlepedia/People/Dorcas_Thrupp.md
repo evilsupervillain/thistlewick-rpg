@@ -43,11 +43,11 @@ The locket came south a little after, by the same hand: "That was HER idea, that
 
 ## The goose
 
-Halloran Vance, the Forty-First, came home from the marshes in 1940 with nothing, and a whole town waiting on the quay for a monster, so he made them one, in two days, with wire, and a goose, and never once smiled about it. It has been over the mantel of the Slain Wyvern since. It was there when Dorcas came in 1971, and she has kept it as she found it, as a wyvern, and has told the story of it the same way to every hero who has asked, and every hero has asked.
+<a href="Halloran_Vance">Halloran Vance</a>, the Forty-First, came home from the marshes in 1940 with nothing, and a whole town waiting on the quay for a monster, so he made them one, in two days, with wire, and a goose, and never once smiled about it. It has been over the mantel of the Slain Wyvern since. It was there when Dorcas came in 1971, and she has kept it as she found it, as a wyvern, and has told the story of it the same way to every hero who has asked, and every hero has asked.
 
 > "He was a good man, and he needed it to be a wyvern, and it's been a wyvern in my house for sixty years. So."
 
-When Wren Halloway said in front of the whole room what it was, Dorcas asked her to leave. "Out. Not for good. Just out, for a bit, while I decide." She decided. When Miss Halloway came back with a plaque of her own, in brass, not paper, because this is a house, Dorcas read it first, twice, and said nothing, and put it up herself. Both plaques are on the wall. She dusts them both on the same morning. Miss Halloway sits under the goose now, by choice, and is served without remark, and Dorcas says that is all that is being said about it.
+When <a href="Wren_Halloway">Wren Halloway</a> said in front of the whole room what it was, Dorcas asked her to leave. "Out. Not for good. Just out, for a bit, while I decide." She decided. When Miss Halloway came back with a plaque of her own, in brass, not paper, because this is a house, Dorcas read it first, twice, and said nothing, and put it up herself. Both plaques are on the wall. She dusts them both on the same morning. Miss Halloway sits under the goose now, by choice, and is served without remark, and Dorcas says that is all that is being said about it.
 
 ## The house
 

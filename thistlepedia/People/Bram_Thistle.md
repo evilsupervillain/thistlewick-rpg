@@ -23,7 +23,7 @@ title: Bram Thistle
 <tr><th>Status</th><td>At home. SEE BRAM</td></tr>
 </table>
 
-<p class="lede"><b>Bram Thistle</b> is a turnip farmer of <a href="../Places/Thistlewick">Thistlewick</a>, and was the forty-eighth and last of the <a href="../History/The_Chosen_Ones">Chosen Ones</a>. He was asleep when he was chosen, and so did not object, which the Prophecy Committee took as consent. He went north, as forty-seven had, and beat the Dark Lord, as forty-seven had, and then did the one thing none of them had done, which was to ask the Dark Lord a question and stay for the whole of the answer.</p>
+<p class="lede"><b>Bram Thistle</b> is a turnip farmer of <a href="../Places/Thistlewick">Thistlewick</a>, and was the forty-eighth and last of the <a href="../History/The_Chosen_Ones">Chosen Ones</a>. He was asleep when he was chosen, and so did not object, which the Prophecy Committee took as consent. He went north, as forty-seven had, and beat the <a href="Grimspite_the_Inevitable">Dark Lord</a>, as forty-seven had, and then did the one thing none of them had done, which was to ask the Dark Lord a question and stay for the whole of the answer.</p>
 
 He would like it known that he did none of it on his own. I have known him for two years and that is the only correction he has ever made to anything I have written about him, and he makes it every time.
 
@@ -48,7 +48,7 @@ The whole of it is under [The Obligatory Quest](../History/The_Obligatory_Quest)
 - **He went south.** Nobody does. He came into the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, sat down with a room full of people the Committee would rather he had not met, and listened to six of them to the end. I paid him for it, and he found out the wyvern is a goose.
 - **He asked.** <a href="Halbert_Quy">Halbert Quy</a>, the Forty-Fifth, told him what to ask at the top, and he asked it.
 - **He listened to the answer.** All of it. Grimspite had been waiting four thousand eight hundred contract years for somebody to.
-- **He read the document.** Out loud, in full, in the middle of a fight, because somebody he had just beaten told him to. It is the only recorded case of a Chosen One reading the Prophecy, and it was fatal to the Prophecy.
+- **He read the document.** Out loud, in full, in the middle of a fight, because somebody he had just beaten told him to. It is the only recorded case of a Chosen One reading the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a>, and it was fatal to the Prophecy.
 
 He also, on the way, helped fly a ship, light a lighthouse, build a bench, stop a wreck, examine a goose, register with a Guild, name a beetle (it is not a beetle; I have been corrected), find a rhyme that does not exist, and walk into, by the account's own count, very nearly every cliche there is. He was certified fit to travel at about the point at which he had finished travelling.
 

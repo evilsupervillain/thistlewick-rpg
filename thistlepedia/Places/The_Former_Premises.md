@@ -53,7 +53,7 @@ Then there was a complaint, about the climb. Then a second one. Then a recommend
 
 The visitors' book is on the lectern. It does not leave the lectern; it never has. It is ruled in three columns, NAME, FROM, REMARKS, and for four thousand eight hundred years there was nothing in any of them, on any page. It was the one gap in the record.
 
-In the year 2000 I had visitors. Living ones, from below, by air, in an airship from Upper Clanging, which I am told has a lift of its own of a kind, and I should very much like to see it. They were going up the tower; they had the look. I asked them whether they would ask the current incumbent to sign the book, for the file, and gave them a slip, ruled to match, because the book does not leave the lectern. They came back with it. I have pasted it in, square:
+In the year 2000 I had visitors. Living ones, from below, by air, in an airship from <a href="Upper_Clanging">Upper Clanging</a>, which I am told has a lift of its own of a kind, and I should very much like to see it. They were going up the tower; they had the look. I asked them whether they would ask the current incumbent to sign the book, for the file, and gave them a slip, ruled to match, because the book does not leave the lectern. They came back with it. I have pasted it in, square:
 
 <div class="stamp">NAME: GRIMSPITE THE INEVITABLE. FROM: HERE. REMARKS: Never been. Heard marvellous things about the lift.</div>
 

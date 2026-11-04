@@ -54,7 +54,7 @@ He has given one discount in thirty-three years. It was on the first day the sho
 
 ## Afterwards
 
-Penultima has done a trade since 2000 in people walking up the road to see Grimspite's chair, and most of them stop at the Final Shoppe, and look at the sword, and are asked whether they would like to hold it, and are told. Mr Markup says it has never been better for business, and that he has had to have the rope re-velveted. The sign over the town has had a fourth line added, LAST CHANCE FOR A SOUVENIR, and he has added a shelf of souvenirs, priced seasonally. He is fifty-seven. He has never once been asked to bring the tea, and he has never once been asked to do the window, and he does both, every morning, in that order.
+Penultima has done a trade since 2000 in people walking up the road to see <a href="Grimspite_the_Inevitable">Grimspite</a>'s chair, and most of them stop at the Final Shoppe, and look at the sword, and are asked whether they would like to hold it, and are told. Mr Markup says it has never been better for business, and that he has had to have the rope re-velveted. The sign over the town has had a fourth line added, LAST CHANCE FOR A SOUVENIR, and he has added a shelf of souvenirs, priced seasonally. He is fifty-seven. He has never once been asked to bring the tea, and he has never once been asked to do the window, and he does both, every morning, in that order.
 
 ## See also
 

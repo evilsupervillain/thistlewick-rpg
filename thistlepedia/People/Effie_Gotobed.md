@@ -61,7 +61,7 @@ On the windlass of the village's wishing well is a label in a child's capitals: 
 
 ## Afterwards
 
-She is eleven, and still waits at the gate for the post, and it still comes about now. The volcano has gone off since, by letter, twice, and buried Mr Dibble, who is fine. Spare is a big brother now, and writes to say that Washer is the size of a turbine and can lift the works, and Effie writes back that Much Pottering has had an earthquake, which is true, if you count the time the pig rolled over in its sleep against the post office. Her mother keeps every one of his letters in the box on the cabinet. Effie does not know her mother has told anybody that, and I have been asked not to say, and so I have not, here, in so many words.
+She is eleven, and still waits at the gate for the post, and it still comes about now. The volcano has gone off since, by letter, twice, and buried Mr Dibble, who is fine. Spare is a big brother now, and writes to say that <a href="Washer_Cotterill">Washer</a> is the size of a turbine and can lift the works, and Effie writes back that Much Pottering has had an earthquake, which is true, if you count the time the pig rolled over in its sleep against the post office. Her mother keeps every one of his letters in the box on the cabinet. Effie does not know her mother has told anybody that, and I have been asked not to say, and so I have not, here, in so many words.
 
 ## See also
 

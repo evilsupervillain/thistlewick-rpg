@@ -31,23 +31,23 @@ She came up the valley at nineteen, to be a pit-head lass at the foundry's coal 
 
 ## The names
 
-They were married in 1975, and Cotter came in January twelve-month. She had decided by then that all the children would be named for the things that hold an engine together, because, she says, that is what a family is for, and because Mr Cotterill was at the works so much that she wanted him to feel at home when he came in. The plan went well for eight. She has the eight off by heart, and will say them for you in one breath, as she said them to the Forty-Eighth:
+They were married in 1975, and <a href="Cotter_Cotterill">Cotter</a> came in January twelve-month. She had decided by then that all the children would be named for the things that hold an engine together, because, she says, that is what a family is for, and because Mr Cotterill was at the works so much that she wanted him to feel at home when he came in. The plan went well for eight. She has the eight off by heart, and will say them for you in one breath, as she said them to the Forty-Eighth:
 
 > "Cotter, Rivet, Gudgeon, Tappet, Ferrule, Grommet, Clevis, Shim. And Spare. We had run out. He said call it Spare, and I was tired."
 
-She would like it recorded that she had not run out. She had *Washer* in reserve. Mr Cotterill said not Washer. That is a different thing from running out, and she was tired, and the subject is closed, or was, until the spring of 2000, when Spare got to it first. "He said call it Washer, and I was tired." She has been tired, by her own count, twice in twenty-seven years, and both times somebody got named.
+She would like it recorded that she had not run out. She had *<a href="Washer_Cotterill">Washer</a>* in reserve. Mr Cotterill said not Washer. That is a different thing from running out, and she was tired, and the subject is closed, or was, until the spring of 2000, when Spare got to it first. "He said call it Washer, and I was tired." She has been tired, by her own count, twice in twenty-seven years, and both times somebody got named.
 
-<div class="marginalia">Grommet, who is apprenticed at the forge, has pointed out to her every day since 2000 that the names are wrong: a shim is a packing piece, and a ferrule fastens nothing. She would like it printed that the names are not wrong. They are what she called them. I have printed it. - H.B.</div>
+<div class="marginalia"><a href="Grommet_Cotterill">Grommet</a>, who is apprenticed at the forge, has pointed out to her every day since 2000 that the names are wrong: a shim is a packing piece, and a ferrule fastens nothing. She would like it printed that the names are not wrong. They are what she called them. I have printed it. - H.B.</div>
 
 ## Out of a boiler
 
 Spare has been going into the works' boiler since he was six. His mother does not mind the boiler. She minds the coming out, which is where she is. "I have had him out of a boiler. Nine times. And out of a flue, and a culvert, and a drain we do not discuss. Every time, he came out. Every time, I was there."
 
-That was the whole of her case against the Tower, and it was a good case, and I have never heard it bettered by any lawyer. "You are going to a tower that eats the people who go to it. I would not be there."
+That was the whole of her case against the <a href="../Places/The_Obligatory_Tower">Tower</a>, and it was a good case, and I have never heard it bettered by any lawyer. "You are going to a tower that eats the people who go to it. I would not be there."
 
 ## The argument
 
-The argument was fought in the front room, many times, with Spare on his own, and the rest of the family arranged on the stairs to watch. Her moves have been written down by Clevis, who kept a book on the outcome, and who describes them as: *You Are Nine*, which hurt; *Ask Your Father*, which sent Mr Cotterill in, who said "Mam," and was told "I know"; *That Is Not The Point*, which does nothing whatsoever, and is not meant to; and *I Have Said No*, which is the one that ends it. She was immune to his tantrum. She is the only person in the world who is. She has had nine years' practice and eight children's before that.
+The argument was fought in the front room, many times, with Spare on his own, and the rest of the family arranged on the stairs to watch. Her moves have been written down by <a href="Clevis_Cotterill">Clevis</a>, who kept a book on the outcome, and who describes them as: *You Are Nine*, which hurt; *Ask Your Father*, which sent Mr Cotterill in, who said "Mam," and was told "I know"; *That Is Not The Point*, which does nothing whatsoever, and is not meant to; and *I Have Said No*, which is the one that ends it. She was immune to his tantrum. She is the only person in the world who is. She has had nine years' practice and eight children's before that.
 
 She won every time, until the day she did not. She stopped at a quarter. What she said then is in Spare's article, and I will only give the terms, which she set out like a contract, and which Miss <a href="Pargeter">Pargeter</a> of <a href="../Places/Frostwick">Frostwick</a>, when I read them to her, said were the best-drafted she had heard in the north: *Jumper on. You do not go in first. You write. It does not have to be long, and it does not have to be true.* And to the Forty-Eighth: "And you. Bring him back."
 
@@ -61,7 +61,7 @@ She has kept every letter, tied up in string. There is no dragon in any of them 
 
 ## Afterwards
 
-Washer was born in the spring of 2000, on time, the only one of them that ever was. Ferrule made her stay sat down for a week, and she got up four times, and was counted. She is still at the house at the end of the street, and still does more potatoes, and still asks whether you have eaten. I had eaten. It made no difference. I have never had a better dinner, and I was asked three times whether I wanted any more, and the third time it was not a question.
+Washer was born in the spring of 2000, on time, the only one of them that ever was. <a href="Ferrule_Cotterill">Ferrule</a> made her stay sat down for a week, and she got up four times, and was counted. She is still at the house at the end of the street, and still does more potatoes, and still asks whether you have eaten. I had eaten. It made no difference. I have never had a better dinner, and I was asked three times whether I wanted any more, and the third time it was not a question.
 
 She says there is not going to be another one. Mr Cotterill says that is all of them. They say it together, most evenings, as if one of them might forget.
 

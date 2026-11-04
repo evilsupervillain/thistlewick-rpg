@@ -15,7 +15,7 @@ title: Clem Blagg
 <tr><th>Does</th><td>The lanterns</td></tr>
 <tr><th>Has read</th><td>Everything</td></tr>
 <tr><th>Knows off by heart</th><td>All the minutes</td></tr>
-<tr><th>Nan says</th><td>Mrs Stagg has never once been cold. Not in forty winters</td></tr>
+<tr><th>Nan says</th><td><a href="Ida_Stagg">Mrs Stagg</a> has never once been cold. Not in forty winters</td></tr>
 <tr><th>Theory</th><td>It's his lanterns. He does ever such good lanterns</td></tr>
 <tr><th>Since 2001</th><td>Co-opted to the Festival committee, without a vote, to take the minutes</td></tr>
 </table>
@@ -34,7 +34,7 @@ He says that it is the best item because it has a vote in it, *For, 41. Against,
 
 > "Are you here for the lanterns? I do the lanterns. I'm seven."
 
-There are two hundred and twelve lanterns for the Festival, and they are on the asset register, item three, and Mr Stagg has done them every year since 1961, and since 1999 Clem has helped. He lights them, one at a time, with a taper, on the evening of the twelfth, going round the square in a fixed order which Mr Stagg devised and which he has improved, by eleven seconds, and written down.
+There are two hundred and twelve lanterns for the Festival, and they are on the asset register, item three, and <a href="Perce_Stagg">Mr Stagg</a> has done them every year since 1961, and since 1999 Clem has helped. He lights them, one at a time, with a taper, on the evening of the twelfth, going round the square in a fixed order which Mr Stagg devised and which he has improved, by eleven seconds, and written down.
 
 ## The theory
 

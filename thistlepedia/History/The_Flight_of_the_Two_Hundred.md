@@ -13,7 +13,7 @@ title: The Flight of the Two Hundred
 <tr><th>To</th><td><a href="../Places/The_Obligatory_Tower">The Obligatory Tower</a></td></tr>
 <tr><th>Attempt</th><td>The two hundredth, in two hundred years</td></tr>
 <tr><th>Fabric</th><td>Forty bolts of oilskin, Wick &amp; Barrow, <a href="../Places/Nether_Sopping">Nether Sopping</a>. Counted aloud</td></tr>
-<tr><th>Spar</th><td>Ollerenshaw's. One afternoon, two smiths</td></tr>
+<tr><th>Spar</th><td><a href="../People/Bryd_Ollerenshaw">Ollerenshaw</a>'s. One afternoon, two smiths</td></tr>
 <tr><th>Instruction</th><td>Do not set her down on anything with a roof on it</td></tr>
 <tr><th>Landed</th><td>On the grass, two squares from the Tower door</td></tr>
 <tr><th>The log</th><td>REACHED THE TOWER. LANDED ADJACENT. CAUSE: UNDER REVIEW</td></tr>
@@ -24,13 +24,13 @@ title: The Flight of the Two Hundred
 
 ## Two hundred years
 
-The Hoyle Works was begun by Miss Hoyle's great-grandmother to stop the Dark Lord, and has built an airship to do it, on and off, for two hundred years, under four generations of Hoyles. A hundred and ninety-seven of them came home to the Long Field, and two did not; and the town has turned the ornaments in its front rooms round to face the works, which is what it thinks of the works. Isaac Sowerby, who did sixty years on the rivets, has seen a hundred and ninety-nine go up and the same number come down, never in a hurry about it, mind.
+The Hoyle Works was begun by Miss Hoyle's great-grandmother to stop the Dark Lord, and has built an airship to do it, on and off, for two hundred years, under four generations of Hoyles. A hundred and ninety-seven of them came home to the Long Field, and two did not; and the town has turned the ornaments in its front rooms round to face the works, which is what it thinks of the works. <a href="../People/Isaac_Sowerby">Isaac Sowerby</a>, who did sixty years on the rivets, has seen a hundred and ninety-nine go up and the same number come down, never in a hurry about it, mind.
 
 > "It is the coming down that wants the work. She will get to it."
 
 ## What she wanted
 
-The Two Hundred was finished, all but two things, when the Forty-Eighth walked into the drawing office in the year 2000. She wanted forty bolts of oilskin and a spar that would hold. The oilskin came from Mrs Barrow at Nether Sopping, who would not have forty, and was made to find forty, and Miss Hoyle counted all forty out loud in front of the Forty-Eighth, and did not hurry any of it, and said that nobody had ever brought her forty of anything. The spar came from Ollerenshaw's at the bottom of the hill, and was made in an afternoon, by two smiths, without a word, after which the two smiths went for a drink and the town lost its mind. It held. The tube plate for her boiler was made by four hands as well.
+The Two Hundred was finished, all but two things, when the Forty-Eighth walked into the drawing office in the year 2000. She wanted forty bolts of oilskin and a spar that would hold. The oilskin came from <a href="../People/Lavinia_Barrow">Mrs Barrow</a> at Nether Sopping, who would not have forty, and was made to find forty, and Miss Hoyle counted all forty out loud in front of the Forty-Eighth, and did not hurry any of it, and said that nobody had ever brought her forty of anything. The spar came from Ollerenshaw's at the bottom of the hill, and was made in an afternoon, by two smiths, without a word, after which the two smiths went for a drink and the town lost its mind. It held. The tube plate for her boiler was made by four hands as well.
 
 She was handed over to the Forty-Eighth with one instruction:
 
@@ -44,7 +44,7 @@ She was seen over the Long Field, and over the stack where the Hundred and Ninet
 
 ## The landing
 
-She came down on the grass beside the Tower, ticking as she cooled, two squares from the door, on nothing with a roof on it. The company got off, and walked the two squares, because the Prophecy says in clause seven that the Chosen One shall come unto the Tower upon his own two feet, and somebody at the works had copied that clause onto the flyleaf of a ledger, in a hand a hundred and sixty years dead, with four generations' worth of notes under it in four inks, the last of them one word in pencil: *quite.*
+She came down on the grass beside the Tower, ticking as she cooled, two squares from the door, on nothing with a roof on it. The company got off, and walked the two squares, because the <a href="The_Prophecy_of_Thistlewick">Prophecy</a> says in clause seven that the Chosen One shall come unto the Tower upon his own two feet, and somebody at the works had copied that clause onto the flyleaf of a ledger, in a hand a hundred and sixty years dead, with four generations' worth of notes under it in four inks, the last of them one word in pencil: *quite.*
 
 The log reads:
 

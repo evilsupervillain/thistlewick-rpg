@@ -25,7 +25,7 @@ title: Zephyrine Vance
 
 <p class="lede"><b>Zephyrine Vance</b> is a hedge mage who has lived in <a href="../Places/Thistlewick">Thistlewick</a> since 1989, when she left the <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a> after an incident involving the Dean, a duck, and what the enquiry called, twice, "an unsanctioned quantity of fire". The Dean is fine. The duck is fine. She would like it understood that everyone is fine.</p>
 
-When Bram came to her table in the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a> and began to speak, she said, "Don't. Whatever it is, don't." He said it was a quest. She asked what sort. He said a tower, with a Dark Lord in it. "That's the most fire-adjacent thing anyone has said to me in eleven years," she said. "Give me my hat."
+When <a href="Bram_Thistle">Bram</a> came to her table in the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a> and began to speak, she said, "Don't. Whatever it is, don't." He said it was a quest. She asked what sort. He said a tower, with a Dark Lord in it. "That's the most fire-adjacent thing anyone has said to me in eleven years," she said. "Give me my hat."
 
 ## The incident
 
@@ -50,7 +50,7 @@ The Collegium has been quorate ever since. The duck's vote is held by proxy, per
 ## Other fires
 
 - **The Cinder Fen.** Nine hundred acres of sodden fen had been drowning the road to <a href="../Places/Great_Dunnage">Great Dunnage</a> since the parish's last fire person retired in 1970. The remedy is fire, and in 2000 she was asked for it, in writing, with a form that asked her to state the quantity. "It's the first piece of paper about me and fire that I've liked." The fen was burnt, sanctioned, in triplicate; the road is dry; the form came back countersigned.
-- **Dean Fenwold.** The Dean has made a second career of being the man who was fine, and does an after-dinner talk about it. He asked her to do the fire again, small, in a hall, with buckets. She refused, then agreed, on terms. It went wrong in exactly the way it had gone wrong the first time, for exactly the same reason, which is that the room was wrong. His talk now ends with the room being wrong, and Dr Hapgood's paper has Dr Hapgood's name on it. I take that to have been the terms.
+- **<a href="Dean_Fenwold">Dean Fenwold</a>.** The Dean has made a second career of being the man who was fine, and does an after-dinner talk about it. He asked her to do the fire again, small, in a hall, with buckets. She refused, then agreed, on terms. It went wrong in exactly the way it had gone wrong the first time, for exactly the same reason, which is that the room was wrong. His talk now ends with the room being wrong, and Dr Hapgood's paper has Dr Hapgood's name on it. I take that to have been the terms.
 - **The lay-by.** The hedge mages have an association. It meets in a lay-by on the west road, because none of them will host, and has been trying to agree a name for nine years. One of them taught himself out of a book with four pages missing, and is therefore better than the Collegium at exactly four things. It has four members now, and still no name. Item one is carried forward.
 
 ## Afterwards

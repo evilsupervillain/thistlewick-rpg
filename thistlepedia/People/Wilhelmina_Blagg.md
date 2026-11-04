@@ -17,7 +17,7 @@ title: Wilhelmina Blagg
 <tr><th>The curse</th><td>An asset. Page one of the register</td></tr>
 <tr><th>Depreciating at</th><td>Four per cent a year</td></tr>
 <tr><th>Towards</th><td>Spring, eventually. Budgeted for</td></tr>
-<tr><th>Asset register, item 4</th><td>Mr Stagg. Struck through. NOT AN ASSET. A PERSON. - W.B.</td></tr>
+<tr><th>Asset register, item 4</th><td><a href="Perce_Stagg">Mr Stagg</a>. Struck through. NOT AN ASSET. A PERSON. - W.B.</td></tr>
 <tr><th>Ceiling</th><td>Most interesting of all</td></tr>
 </table>
 
@@ -27,7 +27,7 @@ title: Wilhelmina Blagg
 
 She was born in 1941 in Frostwick, under the old winter, the daughter of the town's accountant, and was keeping her father's books at sixteen. She was nineteen in the spring when Perce Stagg came down the hill and the snow began to drip, and she was at the extraordinary meeting on the twelfth day, as her father's clerk, and took the founding minutes, which are the ones I print in the article on the town, and which end, item five, *The peas. Deferred.*
 
-She has been chair since 1979, when her father retired from it, and in twenty-three years she has introduced the asset register, the depreciation, the budget for spring, and the auditor, and has moved and carried the renewal of Miss Pargeter's contract, on time, three times. She says that a town that lives off its winter ought to know what its winter is worth, and that it is worth a great deal, and that she has it written down.
+She has been chair since 1979, when her father retired from it, and in twenty-three years she has introduced the asset register, the depreciation, the budget for spring, and the auditor, and has moved and carried the renewal of Miss <a href="Pargeter">Pargeter</a>'s contract, on time, three times. She says that a town that lives off its winter ought to know what its winter is worth, and that it is worth a great deal, and that she has it written down.
 
 > "The curse? It's an asset. Page one of the register. Depreciating at four per cent a year. Spring, eventually. We've budgeted for it."
 
@@ -37,7 +37,7 @@ The register's fourth item was, originally, *Mr Stagg*. It is struck through, an
 
 > "The minutes are on the table. Do read them. Clem has. Clem has read everything."
 
-Clem has. In the year 2000, at seven, he told the Forty-Eighth, unprompted, that Nan says Mrs Stagg has never once been cold, not in forty winters, and that it must be Mr Stagg's lanterns. The committee, I am told, found the ceiling very interesting, and Mrs Blagg found it most interesting of all.
+Clem has. In the year 2000, at seven, he told the Forty-Eighth, unprompted, that Nan says <a href="Ida_Stagg">Mrs Stagg</a> has never once been cold, not in forty winters, and that it must be Mr Stagg's lanterns. The committee, I am told, found the ceiling very interesting, and Mrs Blagg found it most interesting of all.
 
 <div class="marginalia">I asked Mrs Blagg about it. She said that the remark had been made in a private conversation, in her own kitchen, about the fire Mr Stagg lays every morning, and that it had been entirely innocent, and that he had reported it entirely accurately, and that that was the trouble with Clem. She then moved that the subject be closed. It was carried. There were no apologies for absence. - H.B.</div>
 

@@ -42,7 +42,7 @@ It burned all afternoon and all night, and nobody in the parish went to bed, and
 
 ## Afterwards
 
-The Commissioner is thirty-five, and she has been in the post for eleven years, and in the wellingtons for longer. The causeway is open, and the parish walks to Great Dunnage on it, eleven miles shorter than the road. The third copy is framed in the parish hut, with its scorch, and she says that it is the only form in the parish's history to have been returned complete, and that it took nine years, and that it was worth every one of them. There is nothing to commission now. The post continues. She stands at the end of the path on Thursdays, in her wellingtons, looking at the Fen, which is dry, and is very content.
+The Commissioner is thirty-five, and she has been in the post for eleven years, and in the wellingtons for longer. The causeway is open, and the parish walks to <a href="../Places/Great_Dunnage">Great Dunnage</a> on it, eleven miles shorter than the road. The third copy is framed in the parish hut, with its scorch, and she says that it is the only form in the parish's history to have been returned complete, and that it took nine years, and that it was worth every one of them. There is nothing to commission now. The post continues. She stands at the end of the path on Thursdays, in her wellingtons, looking at the Fen, which is dry, and is very content.
 
 ## See also
 

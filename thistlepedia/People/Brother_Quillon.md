@@ -50,7 +50,7 @@ The kettle is the village's, and is at the chapel so often that the tea room's c
 
 ## Afterwards
 
-Nothing has changed at the Chapel of Continuance, which is what it is for. The Forty-Eighth's party went down the Stair after the Quest, with the lamp, and came back in through the porch at least once. Brother Quillon does not remember it. The Order forbids it. The Book has their names in it, more than once, and he welcomed them each time.
+Nothing has changed at the Chapel of Continuance, which is what it is for. The Forty-Eighth's party went down the <a href="../Places/The_Stair">Stair</a> after the Quest, with the lamp, and came back in through the porch at least once. Brother Quillon does not remember it. The Order forbids it. The Book has their names in it, more than once, and he welcomed them each time.
 
 He has asked me to say that the chapel is open to everybody, whether or not they are going into the mountain, and that the services are continuous, and that there is tea. He asked me to say nothing else about him, and I have said a great deal, and he has read it, and returned it, and said, "Of course."
 

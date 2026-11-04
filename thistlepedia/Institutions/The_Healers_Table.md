@@ -51,7 +51,7 @@ The Table's Kit is not to be confused with Mrs Marrow's own kit, forty years of 
 
 ## 2001
 
-The Table sat again the next year, as it always does, and Merribell had something to tell it, as the Prophecy's own account said she would. She spoke for eleven minutes, which is the shortest address in the Table's history, and the Table minuted it as the most useful. The subject was water.
+The Table sat again the next year, as it always does, and Merribell had something to tell it, as the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a>'s own account said she would. She spoke for eleven minutes, which is the shortest address in the Table's history, and the Table minuted it as the most useful. The subject was water.
 
 The minutes are the Table's and not mine, and I have not seen them. But Sister Merribell has given me a note, which she says is the same thing, shorter, and which she would like printed where adventurers will find it. Here it is, entire.
 

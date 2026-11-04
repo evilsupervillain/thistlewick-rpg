@@ -43,7 +43,7 @@ He has posted it eleven times. Every rescuer has taken the half, and he has neve
 
 ## Mr Pilbeam
 
-His one sorrow is Mr Pilbeam, who was only passing, and rescued the Princess from an eagle in 1996, and has been sitting at the foot of the council table ever since, waiting for the council to decide whether the eagle counts. The Palace does not count the eagle. The King would like it to. He has said so, in council, eight times, and each time the matter has been deferred, and he has seconded the deferral, because it is not for the King to overrule his shareholders, and because Mr Pilbeam is, he says, such a comfort to have about the place, and he does not know what he would do on a Tuesday without him.
+His one sorrow is <a href="Mr_Pilbeam">Mr Pilbeam</a>, who was only passing, and rescued the Princess from an eagle in 1996, and has been sitting at the foot of the council table ever since, waiting for the council to decide whether the eagle counts. The Palace does not count the eagle. The King would like it to. He has said so, in council, eight times, and each time the matter has been deferred, and he has seconded the deferral, because it is not for the King to overrule his shareholders, and because Mr Pilbeam is, he says, such a comfort to have about the place, and he does not know what he would do on a Tuesday without him.
 
 When the Forty-Eighth told him that he was only passing, the King looked at him with great kindness, and said, "Oh dear. That's how Mr Pilbeam started."
 

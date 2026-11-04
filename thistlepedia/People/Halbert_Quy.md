@@ -22,7 +22,7 @@ title: Halbert Quy
 <tr><th>Distance from Thistlewick</th><td>Forty miles. He has walked it</td></tr>
 </table>
 
-<p class="lede"><b>Halbert Quy</b> was the Forty-Fifth Chosen One of <a href="../Places/Thistlewick">Thistlewick</a>, who went north in 1970, did the sword, was offered a cup of tea at the top of the Tower and said no, and came home and asked one question at a meeting, and has lived in <a href="../Places/Nether_Sopping">Nether Sopping</a> ever since. He is the reason the Quest of the Forty-Eighth ended the way it did, and he would like that left out. I have not left it out.</p>
+<p class="lede"><b>Halbert Quy</b> was the Forty-Fifth Chosen One of <a href="../Places/Thistlewick">Thistlewick</a>, who went north in 1970, did the sword, was offered a cup of tea at the top of the <a href="../Places/The_Obligatory_Tower">Tower</a> and said no, and came home and asked one question at a meeting, and has lived in <a href="../Places/Nether_Sopping">Nether Sopping</a> ever since. He is the reason the Quest of the Forty-Eighth ended the way it did, and he would like that left out. I have not left it out.</p>
 
 ## The tea
 
@@ -50,7 +50,7 @@ The Forty-Eighth asked. What the answer was is in [The Obligatory Quest](../Hist
 
 ## Afterwards
 
-Bram walked south again, after the ending, and sat at the kitchen table, and told him what Grimspite had said, all of it, in order, including the part about the tea. It took most of an afternoon. What was said at the end of it is between the two of them, and in Nether Sopping that is a complete answer, and I have not asked twice.
+<a href="Bram_Thistle">Bram</a> walked south again, after the ending, and sat at the kitchen table, and told him what Grimspite had said, all of it, in order, including the part about the tea. It took most of an afternoon. What was said at the end of it is between the two of them, and in Nether Sopping that is a complete answer, and I have not asked twice.
 
 He still grows roses. He still has no turnips, and says the policy has outlived its purpose and he is keeping it out of loyalty. He has not been back up the Tower, though the kettle at the top is always on now, and he knows it. He sends his regards up the hill, by Bram, once a year, on the day, and Grimspite sends his back.
 

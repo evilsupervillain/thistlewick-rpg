@@ -39,7 +39,7 @@ It was a ballad about a farm boy who walked north, and nobody died in it, and it
 
 ## Afterwards
 
-She is twenty-six. The ballad is now fifteen verses, because the survivor of verse three needed a verse of his own to die in. She is working on a sixteenth, in which he might not. She has not decided. She has written to Miss Quill, care of the Wyvern, to ask how it is done, and Miss Quill has written back, in the third person, four pages, and Miss Moon says that she has read them several times and is not sure she agrees with any of it, and is trying it anyway. She placed second in the Contest of 2001. Mrs Harbottle gave her a six. It was for the new verse.
+She is twenty-six. The ballad is now fifteen verses, because the survivor of verse three needed a verse of his own to die in. She is working on a sixteenth, in which he might not. She has not decided. She has written to Miss Quill, care of the <a href="../Places/The_Slain_Wyvern">Wyvern</a>, to ask how it is done, and Miss Quill has written back, in the third person, four pages, and Miss Moon says that she has read them several times and is not sure she agrees with any of it, and is trying it anyway. She placed second in the Contest of 2001. Mrs Harbottle gave her a six. It was for the new verse.
 
 <div class="marginalia">She sang me the whole ballad, fifteen verses, in the back room of the shop, between two fittings, so that I would get the article right. I have got it as right as I can without telling you what happens to the dog. I will say that I had not expected to mind about the dog. - H.B.</div>
 

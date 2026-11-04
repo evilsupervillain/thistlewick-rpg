@@ -13,7 +13,7 @@ title: Dilys Fenwick
 <tr><th>Born</th><td>Dilys Pugh, 17 January 1971, in the valley over the hill from Firstfield</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td>Tam Fenwick, in the meadow, 1995, with the vows explained first, twice, in capitals</td></tr>
-<tr><th>Post</th><td>Station Three: Quests, the Guild of Guides</td></tr>
+<tr><th>Post</th><td>Station Three: Quests, the <a href="../Institutions/The_Guild_of_Guides">Guild of Guides</a></td></tr>
 <tr><th>Sheep</th><td>Three. Lost, a bit</td></tr>
 <tr><th>Species</th><td>Pig. The form says sheep</td></tr>
 <tr><th>Line the Guild gave her</th><td>But thou must</td></tr>
@@ -38,7 +38,7 @@ It was a potion, from the shelf in her kitchen, and it was a proper one. She say
 
 ## Tam
 
-She married Tam Fenwick, a carter from Firstfield, in the meadow, in 1995, on a fine day, with the whole Guild there, and the sheep. Fizz explained the vows to them first. Twice. In capitals.
+She married Tam Fenwick, a carter from Firstfield, in the meadow, in 1995, on a fine day, with the whole Guild there, and the sheep. <a href="Fizz">Fizz</a> explained the vows to them first. Twice. In capitals.
 
 > "Tam cried at the second one. He says it was the capitals. He cries at the harvest supper as well, bless him."
 

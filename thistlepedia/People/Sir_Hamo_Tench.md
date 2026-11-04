@@ -21,7 +21,7 @@ title: Sir Hamo Tench
 <tr><th>Sponsored</th><td>Sir Aldric's vigil, 2000, dusk to dawn</td></tr>
 </table>
 
-<p class="lede"><b>Sir Hamo Tench</b> of the Order of the Errant came to <a href="../Places/Weeping_Bottom">Weeping Bottom</a> for the sea air in 1986, with a cough, and has been in the bed that is exactly on the line down the middle of the ward ever since, where both halves of the Order treat him, and the cough is exactly the same. He writes to Coldbarrow every quarter, IN THE FIELD, and it is true; they have a pin in him. In the year 2000 he kept the score of the queue from his bed, and stood sponsor at Sir Aldric's vigil, and said that it was very fair.</p>
+<p class="lede"><b>Sir Hamo Tench</b> of the <a href="../Institutions/The_Order_of_the_Errant">Order of the Errant</a> came to <a href="../Places/Weeping_Bottom">Weeping Bottom</a> for the sea air in 1986, with a cough, and has been in the bed that is exactly on the line down the middle of the ward ever since, where both halves of the Order treat him, and the cough is exactly the same. He writes to Coldbarrow every quarter, IN THE FIELD, and it is true; they have a pin in him. In the year 2000 he kept the score of the queue from his bed, and stood sponsor at Sir Aldric's vigil, and said that it was very fair.</p>
 
 ## Errant
 

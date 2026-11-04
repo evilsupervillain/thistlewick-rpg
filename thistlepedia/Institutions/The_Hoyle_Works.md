@@ -17,7 +17,7 @@ title: The Hoyle Works
 <tr><th>Chief engineer</th><td><a href="../People/Ott_Hoyle">O. Hoyle</a>, the fourth</td></tr>
 <tr><th>Apprentices</th><td>Forty since 1804</td></tr>
 <tr><th>Attempts</th><td>Two hundred</td></tr>
-<tr><th>Reached the Tower</th><td>One. Landed adjacent</td></tr>
+<tr><th>Reached the <a href="../Places/The_Obligatory_Tower">Tower</a></th><td>One. Landed adjacent</td></tr>
 <tr><th>Cause</th><td>Under review</td></tr>
 <tr><th>On the slip</th><td>The Two Hundred and First. Behind</td></tr>
 </table>
@@ -30,7 +30,7 @@ TO: Mr H. Bellwether, Nether Sopping. FROM: O. Hoyle. RE: Your questions, "The H
 
 2. **What the works is.** The Hoyle Works builds airships to reach the Obligatory Tower. That is what it was started for and it is what it is for. It does other jobs, for the town and the valley and anybody who pays, because the town needs the work and a shed needs a roof. But the jobs are jobs. The airships are the work.
 
-3. **Who started it.** My great-grandmother, about 1800, to stop the Dark Lord. The parish register has the earliest entry I can find: AT THE WORKS (THINKING), 1802. Somebody has pencilled HOYLE beside it and rubbed it out, because the register does not take marginal notes. I did not do that. I would like that recorded, since you are recording things.
+3. **Who started it.** My great-grandmother, about 1800, to stop the <a href="../People/Grimspite_the_Inevitable">Dark Lord</a>. The parish register has the earliest entry I can find: AT THE WORKS (THINKING), 1802. Somebody has pencilled HOYLE beside it and rubbed it out, because the register does not take marginal notes. I did not do that. I would like that recorded, since you are recording things.
 
 3.1. My grandmother kept it on because the town needed the work. My mother kept it on out of spite. I am not criticising her. Spite is a perfectly good reason. It built most of this shed.
 
@@ -67,7 +67,7 @@ TO: Mr H. Bellwether, Nether Sopping. FROM: O. Hoyle. RE: Your questions, "The H
 
 6.2. Entry 199 was made in 1989. Entry 200 was made in 2000 in a fresh hand at the bottom of a page that had already said UNDER REVIEW once. You have asked me what the review has found. It has not found anything yet. That is what UNDER REVIEW means. When the review finds something, the log will say so, and not before. I do not write down anything I have not checked.
 
-7. **The Two Hundred.** She wanted forty bolts of oilskin and a spar that would hold. The oilskin came from Mrs Barrow, <a href="../Places/Nether_Sopping">Nether Sopping</a>, who would not have forty and was made to find forty. The spar came from Ollerenshaw's, bottom of the hill, and it held, and it was made in an afternoon, by two smiths, which I had been saying for some years that it wanted. The tube plate for her boiler was made by four hands as well. I mention this because you asked who else worked on her, and the answer is most of the town, and two smiths in particular, and a lad from <a href="../Places/Thistlewick">Thistlewick</a> who carried things.
+7. **The Two Hundred.** She wanted forty bolts of oilskin and a spar that would hold. The oilskin came from <a href="../People/Lavinia_Barrow">Mrs Barrow</a>, <a href="../Places/Nether_Sopping">Nether Sopping</a>, who would not have forty and was made to find forty. The spar came from <a href="../People/Bryd_Ollerenshaw">Ollerenshaw</a>'s, bottom of the hill, and it held, and it was made in an afternoon, by two smiths, which I had been saying for some years that it wanted. The tube plate for her boiler was made by four hands as well. I mention this because you asked who else worked on her, and the answer is most of the town, and two smiths in particular, and a lad from <a href="../Places/Thistlewick">Thistlewick</a> who carried things.
 
 7.1. She was handed over with one instruction: do not set her down on anything with a roof on it. You would be astonished how often that has been the finding. She was not set down on anything with a roof on it. She landed on the grass beside the Tower, two squares from the door. The party walked the two squares.
 

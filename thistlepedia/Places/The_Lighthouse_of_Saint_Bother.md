@@ -36,7 +36,7 @@ The Guild paid a stipend for the light until the shipping stopped, which was nin
 
 Forty-seven times that light was lit for somebody. It was lit for nobody a great deal more often than that.
 
-In the spring before the Quest the oil ran out, and Mrs Barrow at Wick & Barrow had oil, and also a price, and there was no stipend. For the rest of that spring and the summer after it, there was no light at the point. The Chandler's in Nether Sopping, which keeps its hours by the light, was shut the whole time.
+In the spring before the Quest the oil ran out, and <a href="../People/Lavinia_Barrow">Mrs Barrow</a> at Wick & Barrow had oil, and also a price, and there was no stipend. For the rest of that spring and the summer after it, there was no light at the point. The Chandler's in Nether Sopping, which keeps its hours by the light, was shut the whole time.
 
 In the year 2000 the Forty-Eighth's company bought a gallon of oil from Mrs Barrow, who charged them, and carried it out to the point, and up all the stairs, and lit the lamp. The brass went from cold to warm to something you have to look away from, and out through the glass the whole south coast got an edge on it. Ferrety Bother pressed a keeper's lamp on them at the bottom of the stairs without a word, which from him is a speech.
 

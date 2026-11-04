@@ -4,7 +4,7 @@ title: Timeline
 
 # Timeline
 
-<p class="hatnote">All years are years of the Third Age, counted the way the sun does. Where the Prophecy counts otherwise, see <a href="Two_Reckonings">Two Reckonings</a>.</p>
+<p class="hatnote">All years are years of the Third Age, counted the way the sun does. Where the <a href="The_Prophecy_of_Thistlewick">Prophecy</a> counts otherwise, see <a href="Two_Reckonings">Two Reckonings</a>.</p>
 
 <p class="lede">This is every date I have been able to pin, in order. A date I have from a headstone, a ledger or a plaque is given plainly. A date I have from somebody's memory is given as "about". Where I have nothing, I have left a gap, which in a timeline is more honest than it looks.</p>
 
@@ -31,12 +31,12 @@ What began the Third Age is not known to me. It was not the Prophecy.
 | 1400 | <a href="../Institutions/The_Collegium_Arcanum">The Collegium Arcanum</a> is founded, by the Founder, in one afternoon. |
 | 1500 | The First Dean's portrait is hung, pending the Hanging Committee. |
 | 1702 | <a href="../Places/Weeping_Bottom">Weeping Bottom</a> is founded by <a href="../People/Mother_Ursula_Pym">Mother Ursula Pym</a>, for the sea air. Her Rule of Life is four lines long, and one of them is about socks. |
-| 1749 | <a href="../Artefacts/The_Sky_Anvil">The Sky Anvil</a> falls into Meech's top field. His great-great-grandfather makes it a gatepost. |
+| 1749 | <a href="../Artefacts/The_Sky_Anvil">The Sky Anvil</a> falls into <a href="../People/Elias_Meech">Meech</a>'s top field. His great-great-grandfather makes it a gatepost. |
 | 1750 | Pilgrims build a shrine round the gatepost. |
 | 1788 | <a href="../Places/Great_Dunnage">Great Dunnage</a> seals its Counting House, "when the key was lost". J. Pocklington, Clerk to the Corporation, leaves behind the Door one chair and a note: WE SPENT IT. |
 | 1794 | <a href="../Places/Sump">Sump</a>: wasps in the well. The Water Committee is wound up. *Cursed 1794.* |
 | 1795 | Sump: a general sense that things used to be better. The parish drafts Standing Orders for the Lifting of the Curse, and does not use them. |
-| About 1800 | <a href="../Places/Nether_Sopping">Nether Sopping</a> begins throwing things down the Pit. |
+| About 1800 | <a href="../Places/Nether_Sopping">Nether Sopping</a> begins throwing things down the <a href="../Places/The_Bottomless_Pit">Pit</a>. |
 | 1802 | <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a> begins its stores book. ITEM 1 is written into it. Bond No. 40, one cabbage, very large, "for the show", goes into the Bonded Warehouse at Great Dunnage. |
 | 1804 | The Hoyle Works takes its first apprentice. |
 | 1811 | Dame Honoria Pemberton-Gore's portrait is painted. |
@@ -61,10 +61,10 @@ What began the Third Age is not known to me. It was not the Prophecy.
 | 1941 | Abel Thrush begins carrying the post between <a href="../Places/Little_Gore">Little Gore</a>, Fenmarch and Sump, every day, for fifty years. |
 | 1949 | <a href="../People/Corvin_Ash">Corvin Ash</a>'s grandfather makes the black sword and cuts its name into his doorstep at <a href="../Places/Ashcombe">Ashcombe</a>, with MIND THE STEP under it for visitors. |
 | 1959 | Wick, of Wick & Barrow, outfitters, of Nether Sopping, goes north, in the spring. His peg is still on the wall. |
-| 1960 | **The Forty-Fourth, <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>.** Beatrice Grumnir makes a sword at the Thistlewick forge and sells it to a man going south. <a href="../People/Perce_Stagg">Perce Stagg</a> breaks <a href="../Places/Frostwick">Frostwick</a>'s winter, and it thaws for <a href="The_Eleven_Days">eleven days</a>. The Adventurers' Guild is founded, provisionally. The Gloamwood Society is founded, to prove the Thing In The Woods is not there. |
+| 1960 | **The Forty-Fourth, <a href="../People/Ambrose_Fitch">Ambrose Fitch</a>.** Beatrice Grumnir makes a sword at the Thistlewick forge and sells it to a man going south. <a href="../People/Perce_Stagg">Perce Stagg</a> breaks <a href="../Places/Frostwick">Frostwick</a>'s winter, and it thaws for <a href="The_Eleven_Days">eleven days</a>. The <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a> is founded, provisionally. The Gloamwood Society is founded, to prove the Thing In The Woods is not there. |
 | 1961 | Frostwick's first Winter Festival, on the twelfth. Perce Stagg cuts the ribbon, and marries Ida Frome the next day. |
 | 1969 | <a href="../People/Gideon_Markup">Gideon Markup</a> prices the <a href="../Artefacts/The_Sword_of_Ultimate_Ending">Sword of Ultimate Ending</a>. |
-| 1970 | **The Forty-Fifth, <a href="../People/Halbert_Quy">Halbert Quy</a>**, declines the tea. Dorcas and <a href="../People/Prudence_Thrupp">Prudence Thrupp</a> stop speaking, and the <a href="The_Thrupp_Feud">Thrupp Feud</a> begins, by parcel. <a href="../People/Tobias_Frayne">Tobias Frayne</a>'s first revival of eleven. Sir Aldric, sixteen, is due to keep his vigil, and keeps it in the wrong chapel. Mr Tinder, the parish's last fire person, retires, and the Cinder Fen is not burnt again for thirty years. Mr Cobley begins fishing for Old Tom. |
+| 1970 | **The Forty-Fifth, <a href="../People/Halbert_Quy">Halbert Quy</a>**, declines the tea. <a href="../People/Dorcas_Thrupp">Dorcas</a> and <a href="../People/Prudence_Thrupp">Prudence Thrupp</a> stop speaking, and the <a href="The_Thrupp_Feud">Thrupp Feud</a> begins, by parcel. <a href="../People/Tobias_Frayne">Tobias Frayne</a>'s first revival of eleven. <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric</a>, sixteen, is due to keep his vigil, and keeps it in the wrong chapel. Mr Tinder, the parish's last fire person, retires, and the Cinder Fen is not burnt again for thirty years. Mr Cobley begins fishing for Old Tom. |
 | 1971 | Edith Pellow sees the Thing In The Woods, and counts nine heads. |
 | 1972 | K and M marry, and carve it into the driftwood on the beach at Nether Sopping. STILL is cut under it later. |
 | 1974 | <a href="../People/Walt_Ashbury">Walt Ashbury</a> begins at the Eight Hours, <a href="../Places/Restwell">Restwell</a>. |
@@ -89,10 +89,10 @@ What began the Third Age is not known to me. It was not the Prophecy.
 
 | When | What |
 |---|---|
-| The last of the winter | **The Forty-Eighth, <a href="../People/Bram_Thistle">Bram Thistle</a>**, is chosen in his sleep. [The Obligatory Quest](The_Obligatory_Quest), from the bed to the throne room. The Prophecy is read in full and stops being binding. Grimspite retires. |
+| The last of the winter | **The Forty-Eighth, <a href="../People/Bram_Thistle">Bram Thistle</a>**, is chosen in his sleep. [The Obligatory Quest](The_Obligatory_Quest), from the bed to the throne room. The Prophecy is read in full and stops being binding. <a href="../People/Grimspite_the_Inevitable">Grimspite</a> retires. |
 | The same winter | On the way, and because of it: <a href="The_Flight_of_the_Two_Hundred">the Two Hundred flies</a>, and lands adjacent. A jar goes south and a reply comes north, and <a href="The_Thrupp_Feud">the Thrupp sisters</a> write to each other. A duck is walked four miles, and the Collegium Arcanum is quorate for the first time since <a href="The_Incident_at_the_Collegium">the incident</a>. Corvin Ash speaks at the Flood Dinner. |
 | The next morning | There are still turnips. The letter on the mat: clause nineteen, a quarter's pension, a key. *We trust Friday will suit.* Clause twelve is struck, and SEE BRAM written in its place. |
-| Spring | Washer, the tenth Cotterill, is born at Upper Clanging at six in the morning, on the hooter. <a href="../People/Clevis_Cotterill">Clevis Cotterill</a>'s book pays twenty to one. |
+| Spring | <a href="../People/Washer_Cotterill">Washer</a>, the tenth Cotterill, is born at Upper Clanging at six in the morning, on the hooter. <a href="../People/Clevis_Cotterill">Clevis Cotterill</a>'s book pays twenty to one. |
 | That year | Bram walks to Nether Sopping and tells Halbert Quy everything Grimspite said, including the part about the tea. My history is completed, and the last page filled. |
 | Autumn | Clause nineteen is struck, after a meeting of eleven hours. |
 | Winter | The forty-eighth frame on the Wall of the Forty-Seven still reads PORTRAIT TO FOLLOW. SITTER AT THE COAST. |

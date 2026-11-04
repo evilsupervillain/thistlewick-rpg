@@ -13,7 +13,7 @@ title: Something Unscheduled
 <tr><th>Sex</th><td>Not applicable. <i>It</i>, which is what it calls itself</td></tr>
 <tr><th>Lives</th><td>At the bottom of <a href="../Places/The_Stair">the Stair</a>, below D. 212, in a chamber with lamps on every ledge, all lit</td></tr>
 <tr><th>Appearance</th><td>Large. Purple. A great many arms. Delighted</td></tr>
-<tr><th>On</th><td>Nothing: not the Prophecy, not the board. It asked</td></tr>
+<tr><th>On</th><td>Nothing: not the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a>, not the board. It asked</td></tr>
 <tr><th>Bounty</th><td>Issued by itself. Discharged on Form Z, 2000</td></tr>
 <tr><th>Fought</th><td>Because nobody had to</td></tr>
 <tr><th>Asks</th><td>"Again?"</td></tr>
@@ -33,7 +33,7 @@ It does not mind being told no. "Oh! No, of course. Nobody's obliged. I'll see y
 
 ## The afternoon
 
-They fought it. I have accounts from all of them, and the accounts agree that it hugged people, and that the hugs went on a bit; that it waved all its arms at once, to say hello; that it showed them round, briskly; and that below half it got overexcited, and there was ink. They agree that it was the hardest fight any of them had, Grimspite included, and that it was not trying to hurt anybody. It simply had not had the practice.
+They fought it. I have accounts from all of them, and the accounts agree that it hugged people, and that the hugs went on a bit; that it waved all its arms at once, to say hello; that it showed them round, briskly; and that below half it got overexcited, and there was ink. They agree that it was the hardest fight any of them had, <a href="Grimspite_the_Inevitable">Grimspite</a> included, and that it was not trying to hurt anybody. It simply had not had the practice.
 
 When it was over it said:
 

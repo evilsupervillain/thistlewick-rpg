@@ -13,7 +13,7 @@ title: The Barrow of the Forty-Fourth
 <tr><th>Of</th><td>Ambrose Fitch, Chosen One #44</td></tr>
 <tr><th>Raised</th><td>About 1999, within a fortnight</td></tr>
 <tr><th>Status</th><td>A Scheduled Monument of the district</td></tr>
-<tr><th>Entry</th><td>Registered adventurers only, by order of the Adventurers' Guild (Provisional)</td></tr>
+<tr><th>Entry</th><td>Registered adventurers only, by order of the <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild (Provisional)</a></td></tr>
 <tr><th>Lock</th><td>None. There is simply a sign</td></tr>
 <tr><th>Curse</th><td>There is a curse on it as well, according to the chalk</td></tr>
 <tr><th>Asked for</th><td>A bench</td></tr>
@@ -30,7 +30,7 @@ Outside the stone mouth there is a sign:
 
 Underneath, in chalk, in a much older hand: THERE IS A CURSE ON IT AS WELL.
 
-The stone is not locked. There is simply a sign, and you are simply not registered, and the Forty-Eighth found, to his considerable annoyance, that this was enough. He went back to Nether Sopping and registered, with a character reference, a hat and the mat, and came back and showed the sign his Guild Card. The sign did not react. He went in anyway, which was the whole of what the card was for.
+The stone is not locked. There is simply a sign, and you are simply not registered, and the Forty-Eighth found, to his considerable annoyance, that this was enough. He went back to <a href="Nether_Sopping">Nether Sopping</a> and registered, with a character reference, a hat and the mat, and came back and showed the sign his Guild Card. The sign did not react. He went in anyway, which was the whole of what the card was for.
 
 ## The dedication
 
@@ -58,7 +58,7 @@ They did what was done. It took four minutes. Then he sat down on the floor of h
 
 Wick & Barrow of Nether Sopping had had a bench in eleven pieces leaning against the wall for some years, under a card: BENCH. 400. NOBODY HAS EVER BOUGHT THIS. The Forty-Eighth bought it, and carried it out to the mound in eleven pieces under his arm, and put it together on the top. The diagram was wrong. He worked it out. It took an hour and a half and one piece was left over, which is traditional.
 
-There is a bench on the top of the Barrow of the Forty-Fourth now, facing the sea. Anybody may sit on it. That was the point; he was very clear that that was the point. From it you can see the sea one way, and the north road and the Tower the other.
+There is a bench on the top of the Barrow of the Forty-Fourth now, facing the sea. Anybody may sit on it. That was the point; he was very clear that that was the point. From it you can see the sea one way, and the north road and the <a href="The_Obligatory_Tower">Tower</a> the other.
 
 The burial chamber is empty. The circle on the floor has gone unswept for the first time in forty years, and there is nobody standing in it. If you want him, he is on the top of the mound, on a bench, facing the sea.
 

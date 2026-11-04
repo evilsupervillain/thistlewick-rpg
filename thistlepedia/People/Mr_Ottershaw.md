@@ -25,7 +25,7 @@ title: Mr Ottershaw
 
 ## The lodge
 
-He was born in 1910 in the gamekeeper's lodge at Fenmarch, the gamekeeper's son, and learned the knife at nine, on a crow, which he says was a very good crow and that he was sorry about it. In 1930, at twenty, Sir Aldric the First asked him to set up a bear for the long gallery, and there was no bear, there being no bears in the county, and he said so, and was told that the family would like a bear, and that he was a clever lad. He had a black bear's front half, from a dealer, and a very large marsh crab, and he went into the stillroom for a fortnight.
+He was born in 1910 in the gamekeeper's lodge at Fenmarch, the gamekeeper's son, and learned the knife at nine, on a crow, which he says was a very good crow and that he was sorry about it. In 1930, at twenty, <a href="Sir_Aldric_Pemberton-Gore_III">Sir Aldric</a> the First asked him to set up a bear for the long gallery, and there was no bear, there being no bears in the county, and he said so, and was told that the family would like a bear, and that he was a clever lad. He had a black bear's front half, from a dealer, and a very large marsh crab, and he went into the stillroom for a fortnight.
 
 The Marsh Bear came out. It is bear to the waist and crab below. The family looked at it for some time and said that it was the rarest thing they had ever seen, and that he must go on. He went on. Seventy years.
 

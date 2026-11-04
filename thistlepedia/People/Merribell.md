@@ -25,7 +25,7 @@ title: Merribell
 
 <p class="lede"><b>Merribell</b> is the healer of <a href="../Places/Thistlewick">Thistlewick</a>, a Sister of the <a href="../Institutions/The_Order_of_Whatever_Works">Order of Whatever Works</a>, and the first person to join the Forty-Eighth, on the grounds that he had not had a glass of water since Tuesday. Her order holds that theology is a distraction from the actual problem, which is usually that you have not had any water today. She has never lost a patient.</p>
 
-"Sit down. When did you last drink water?" is how she meets everybody, and it was how she met Bram. He gave an answer. "That wasn't the question," she said. "Water. When."
+"Sit down. When did you last drink water?" is how she meets everybody, and it was how she met <a href="Bram_Thistle">Bram</a>. He gave an answer. "That wasn't the question," she said. "Water. When."
 
 ## The Order
 
@@ -43,7 +43,7 @@ She carries a basin. She brought it unasked. "Nobody has ever won an argument wi
 
 Of all the things done on the road, three were hers, and the Prophecy's own account records each of them.
 
-**Fit to travel.** Clause eleven of the [Prophecy](../History/The_Prophecy_of_Thistlewick#clause-eleven-fit-to-travel) requires a Chosen One to be certified fit before departure. It had been done forty-seven times. The Forty-Eighth's form was blank, because he had been asleep. She found the form on a pad at <a href="../Places/Upper_Clanging">Upper Clanging</a> and did it properly: stamped scales from the fish stall at <a href="../Places/Nether_Sopping">Nether Sopping</a>, the light of the lighthouse at Saint Bother's, lit, a clean surface, and a witness, from among the company. It is, the account says, the first properly documented attempt in four thousand years. I have interviewed several of the witnesses and they all looked at the ceiling.
+**Fit to travel.** Clause eleven of the [Prophecy](../History/The_Prophecy_of_Thistlewick#clause-eleven-fit-to-travel) requires a Chosen One to be certified fit before departure. It had been done forty-seven times. The Forty-Eighth's form was blank, because he had been asleep. She found the form on a pad at <a href="../Places/Upper_Clanging">Upper Clanging</a> and did it properly: stamped scales from the fish stall at <a href="../Places/Nether_Sopping">Nether Sopping</a>, the light of the lighthouse at <a href="../Places/The_Lighthouse_of_Saint_Bother">Saint Bother</a>'s, lit, a clean surface, and a witness, from among the company. It is, the account says, the first properly documented attempt in four thousand years. I have interviewed several of the witnesses and they all looked at the ceiling.
 
 **The Sisterhouse.** The mother house had split between the Order of Whatever Works and the Order of What Ought To Work, which wins every argument and loses patients, and the two agreed to settle it the way this world settles things, with a ward and a queue. Merribell asked the patients whether they had eaten. Whatever Works won on points, nineteen to one, in an afternoon. <a href="Sister_Bewick">Sister Bewick</a>, of the other order, has since been examined on Whatever Works' doctrine, and passed. It is four lines long.
 

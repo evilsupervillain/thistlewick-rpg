@@ -25,7 +25,7 @@ title: Councillor Fenn
 
 ## The position
 
-Clause twelve reads THE DARK LORD SHALL RISE AGAIN. For two thousand years Thistlewick read it as a warning. Councillor Fenn read it as what it is. "That's not a warning," he said. "That's a subscription." He said it in those words, at the end of the table, under the window, to colleagues who were discussing whether the Dark Lord *shall be slain* or *shall be defeated*, because *slain* is a commitment.
+Clause twelve reads THE DARK LORD SHALL RISE AGAIN. For two thousand years Thistlewick read it as a warning. Councillor Fenn read it as what it is. "That's not a warning," he said. "That's a subscription." He said it in those words, at the end of the table, under the window, to colleagues who were discussing whether the <a href="Grimspite_the_Inevitable">Dark Lord</a> *shall be slain* or *shall be defeated*, because *slain* is a commitment.
 
 The Forty-Eighth heard him say it on the morning he was charged, and the narrator of that morning, whoever it is that narrates mornings in Thistlewick, has it that nobody was listening to him, and adds: *Remember him.* I have. It is one of the few instructions in this history that I have been given by the history itself.
 

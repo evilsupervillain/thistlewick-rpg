@@ -17,7 +17,7 @@ title: Spare Cotterill
 <tr><th>Age</th><td>Nine at the time of the Quest; eleven now</td></tr>
 <tr><th>Good at</th><td>Getting in anywhere; not being hit; getting everybody up again</td></tr>
 <tr><th>Bad at</th><td>Getting past his mother</td></tr>
-<tr><th>Bag</th><td>Packed for two years: a jumper, a tin, a washer off Shim. There was bread</td></tr>
+<tr><th>Bag</th><td>Packed for two years: a jumper, a tin, a washer off <a href="Shim_Cotterill">Shim</a>. There was bread</td></tr>
 <tr><th>Authorised by</th><td>Form P-9, Application by a Minor to Accompany a Chosen One (Parish of Upper Clanging), signed after a discussion</td></tr>
 <tr><th>Terms</th><td>Jumper on. Not in first. Write</td></tr>
 <tr><th>Littlest Cotterill</th><td>Until the spring of 2000</td></tr>
@@ -39,7 +39,7 @@ He was also, that winter, about to stop being the littlest. In the spring there 
 
 ## Joining
 
-It took a great deal. The party had to hear him out, all of it, and meet every Cotterill there is, on the street, in the works, at the forge, in the Safety Valve and at the Parish Rooms, because you do not take a boy out of a family you have not met. It needed the airship, because a nine-year-old does not walk to the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> through the <a href="../Places/The_Gloamwood">Gloamwood</a>. It needed a form, and the parish had one: Form P-9, which his sister Gudgeon, who clerks at the Parish Rooms, had never once issued and knew exactly where to find. It needed a parent's signature.
+It took a great deal. The party had to hear him out, all of it, and meet every Cotterill there is, on the street, in the works, at the forge, in the Safety Valve and at the Parish Rooms, because you do not take a boy out of a family you have not met. It needed the airship, because a nine-year-old does not walk to the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> through the <a href="../Places/The_Gloamwood">Gloamwood</a>. It needed a form, and the parish had one: Form P-9, which his sister <a href="Gudgeon_Cotterill">Gudgeon</a>, who clerks at the Parish Rooms, had never once issued and knew exactly where to find. It needed a parent's signature.
 
 It needed, in the end, a discussion with his mother, which went the way discussions go in this part of the world, and he lost it at least once, alone. He was not upset. She conceded. Her terms were these, and he has kept every one:
 
@@ -63,13 +63,13 @@ has hit me. There is no dragon. Love, Spare.</p>
 
 His mother did more potatoes anyway.
 
-**The Bottom Lock.** His eldest brother Cotter, at the Iron Company's gate in <a href="../Places/Great_Dunnage">Great Dunnage</a>, had a job no man would fit: the bottom gate of the Dunnage cut, jammed, and a paddle to clear in a brick culvert under it. Spare went in alone, in the dark, and counted, and cleared it, and came out. Somebody was there when he came out.
+**The Bottom Lock.** His eldest brother <a href="Cotter_Cotterill">Cotter</a>, at the Iron Company's gate in <a href="../Places/Great_Dunnage">Great Dunnage</a>, had a job no man would fit: the bottom gate of the Dunnage cut, jammed, and a paddle to clear in a brick culvert under it. Spare went in alone, in the dark, and counted, and cleared it, and came out. Somebody was there when he came out.
 
 **The pen pal.** Since he was six he had been writing to <a href="Effie_Gotobed">Effie Gotobed</a> of <a href="../Places/Much_Pottering">Much Pottering</a>, through the same courier, and she had had every untrue thing he ever wrote, and what she wrote back was exactly as untrue. They met, at last. Her volcano is a bonfire. Her sea serpent is a carp. There was no volcano. They are still writing.
 
 ## The tenth
 
-After the Quest, he asked the party every morning, on waking, whether it was spring yet. It was not. Then one morning it was, and Bessie Marsden came for him, and the street was empty for a day, and **Washer** Cotterill was born at six in the morning, on the hooter. Clevis had been running a book on it, and it paid twenty to one.
+After the Quest, he asked the party every morning, on waking, whether it was spring yet. It was not. Then one morning it was, and Bessie Marsden came for him, and the street was empty for a day, and **<a href="Washer_Cotterill">Washer</a>** Cotterill was born at six in the morning, on the hooter. <a href="Clevis_Cotterill">Clevis</a> had been running a book on it, and it paid twenty to one.
 
 Spare is not the littlest any more. He is a big brother. He came back to the party for a while afterwards, and was, I am told, very good at it.
 

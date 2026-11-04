@@ -48,13 +48,13 @@ Whenever somebody else's story came to its last door, the committee sent for him
 
 ## His own quest
 
-The prophecy named a thing in a place: a Worm, under Carn Drey, east of Great Dunnage, with a stone. The party went, with him, and did it. The thing had been scaled for a hero of nineteen, and he was thirty-four, and it took an afternoon, and it was over before <a href="Piper_Quill">Piper Quill</a> had got a verse out. "That's it. That was it. Twenty-two years." He asked them, carefully, and without much hope, whether they would mind being surprised. Only a little. Everybody was.
+The prophecy named a thing in a place: a Worm, under <a href="../Places/Carn_Drey">Carn Drey</a>, east of Great Dunnage, with a stone. The party went, with him, and did it. The thing had been scaled for a hero of nineteen, and he was thirty-four, and it took an afternoon, and it was over before <a href="Piper_Quill">Piper Quill</a> had got a verse out. "That's it. That was it. Twenty-two years." He asked them, carefully, and without much hope, whether they would mind being surprised. Only a little. Everybody was.
 
 I have it from everybody who was there that it was kind, and was not sad, and should be told completely straight, and I have tried to.
 
 ## The sword
 
-The sword he left at the tower door has a maker's mark on it, and Hob Grumnir knew it. It was made in the Thistlewick forge in 1960 by Beatrice Grumnir, Hob's aunt, and sold to a man going south, and it had travelled, and come back. "I leave it at a door," Roland says. "Every time. And every time, somehow, it finds its way back to me." Hob put a Thistlewick haft on it. It went into the last room after all, in a Thistlewick hand.
+The sword he left at the tower door has a maker's mark on it, and <a href="Hob_Grumnir">Hob Grumnir</a> knew it. It was made in the Thistlewick forge in 1960 by Beatrice Grumnir, Hob's aunt, and sold to a man going south, and it had travelled, and come back. "I leave it at a door," Roland says. "Every time. And every time, somehow, it finds its way back to me." Hob put a Thistlewick haft on it. It went into the last room after all, in a Thistlewick hand.
 
 ## The alumni
 

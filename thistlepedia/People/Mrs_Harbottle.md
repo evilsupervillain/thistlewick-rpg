@@ -41,7 +41,7 @@ Mr Tweddle's thrush that had lost its keys drew a three from Miss Quayle, which 
 
 ## Afterwards
 
-She is thirty. The Bell has had more entries since 2000 than in the twenty years before it, because people walking up to see Grimspite's chair stop on the way, and because Piper Quill wrote about the Contest. Mr Ambler still gives everything a nine. Miss Quayle has given two threes since, and the room gasped both times. The fire is still a six. The door has been oiled, and is now a five, and Mrs Harbottle says that she preferred it before, because a four was at least something.
+She is thirty. The Bell has had more entries since 2000 than in the twenty years before it, because people walking up to see <a href="Grimspite_the_Inevitable">Grimspite</a>'s chair stop on the way, and because Piper Quill wrote about the Contest. Mr Ambler still gives everything a nine. Miss Quayle has given two threes since, and the room gasped both times. The fire is still a six. The door has been oiled, and is now a five, and Mrs Harbottle says that she preferred it before, because a four was at least something.
 
 ## See also
 

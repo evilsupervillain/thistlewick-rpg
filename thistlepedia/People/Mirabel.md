@@ -19,7 +19,7 @@ title: Mirabel
 <tr><th>Speaks</th><td>The Old Tongue, flawless and terrible</td></tr>
 <tr><th>Translated by</th><td>Elder Lirien</td></tr>
 <tr><th>Bedtime</th><td>Half past seven. Not a minute after</td></tr>
-<tr><th>Present at</th><td>The signing of the Prophecy of Thistlewick</td></tr>
+<tr><th>Present at</th><td>The signing of the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy of Thistlewick</a></td></tr>
 </table>
 
 <p class="lede"><b>Mirabel</b> is the Last Oracle of <a href="../Places/Olde_Evermore">Olde Evermore</a>, the hidden village of the elves, which every party finds eventually by falling off the same ledge. She is four thousand one hundred and fourteen years old, and looks about eight, and a quarter. She has foreseen the fall of empires, and has to be in bed by half past seven.</p>

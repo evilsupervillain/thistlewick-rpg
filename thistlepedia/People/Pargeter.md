@@ -30,7 +30,7 @@ title: Pargeter
 
 Her own larder, in the Cold Room, is a shelf of frosted jars in neat rows, labelled JANUARY, and which week. Her box files read CONTRACT; CONTRACT (AMENDMENTS); CONTRACT (AMENDMENTS TO THE AMENDMENTS); and a slim one, COMPLIMENTS.
 
-The contract is on her desk, and Appendix C is the Schedule of Snowfalls, which I have read, with her permission, and which I think is the best-drafted document in this encyclopedia. Ordinary snow: four inches, overnight, not on market days. Blizzard: at the committee's request, in writing, on one week's notice, and not during carols. Festival Day: a light dusting, commencing at the ribbon, to settle on Mr Stagg's hat. Tolerance: plus or minus one flake.
+The contract is on her desk, and Appendix C is the Schedule of Snowfalls, which I have read, with her permission, and which I think is the best-drafted document in this encyclopedia. Ordinary snow: four inches, overnight, not on market days. Blizzard: at the committee's request, in writing, on one week's notice, and not during carols. Festival Day: a light dusting, commencing at the ribbon, to settle on <a href="Perce_Stagg">Mr Stagg</a>'s hat. Tolerance: plus or minus one flake.
 
 Asked whether she minds keeping a town under a curse, she says that it isn't a curse, it's a contract. "I'd sign it again tomorrow."
 
@@ -46,7 +46,7 @@ And then she turned back to the beginning, to clause two, which every reader sin
 
 > "'A hundred years' is a defined term. 'Such period as the Committee shall find convenient.'"
 
-That is the whole of what she said about it. Then she mentioned that there would be a light dusting on Tuesday, for the look of the thing; it was in the schedule. She did not explain how forty-seven Chosen Ones could have gone "a hundred years" apart and the Forty-Fifth be alive in <a href="../Places/Nether_Sopping">Nether Sopping</a> and potting things. She did not do the arithmetic for him. She has never done anybody's arithmetic for them, and she sees no reason to start with a document she would not have signed.
+That is the whole of what she said about it. Then she mentioned that there would be a light dusting on Tuesday, for the look of the thing; it was in the schedule. She did not explain how forty-seven Chosen Ones could have gone "a hundred years" apart and the <a href="Halbert_Quy">Forty-Fifth</a> be alive in <a href="../Places/Nether_Sopping">Nether Sopping</a> and potting things. She did not do the arithmetic for him. She has never done anybody's arithmetic for them, and she sees no reason to start with a document she would not have signed.
 
 <div class="marginalia">I have since done the arithmetic, at some length; it is <a href="../History/Two_Reckonings">Two Reckonings</a>. I sent her a copy. She returned it with a note to say that the arithmetic was correct, and that she had not asked for it.</div>
 

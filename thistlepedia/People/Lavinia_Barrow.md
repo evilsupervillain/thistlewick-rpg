@@ -41,13 +41,13 @@ She also engraves. In the year 2000 <a href="Wren_Halloway">Wren Halloway</a> ca
 
 ## On account
 
-In the year 2000 the Hoyle Works at <a href="../Places/Upper_Clanging">Upper Clanging</a>, by the Forty-Eighth's hand, ordered forty bolts of oilskin from her for an airship. She counted them out loud, twice, and made somebody count them again after her. "Forty." And then, when the party said forty again: "I heard you the first time. I was enjoying it." They were bought on account.
+In the year 2000 the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a> at <a href="../Places/Upper_Clanging">Upper Clanging</a>, by the Forty-Eighth's hand, ordered forty bolts of oilskin from her for an airship. She counted them out loud, twice, and made somebody count them again after her. "Forty." And then, when the party said forty again: "I heard you the first time. I was enjoying it." They were bought on account.
 
 > "Thirty-nine years in this trade, and I have never once had cause to write 'on account'."
 
 > "North? Well. Something's going the right way up that road for once."
 
-The account was settled, in full, by Miss Hoyle, by post, inside the month, with a note that said *Received with thanks. It flew.* Mrs Barrow has it framed, beside the till, under the price of the hat.
+The account was settled, in full, by <a href="Ott_Hoyle">Miss Hoyle</a>, by post, inside the month, with a note that said *Received with thanks. It flew.* Mrs Barrow has it framed, beside the till, under the price of the hat.
 
 ## Afterwards
 

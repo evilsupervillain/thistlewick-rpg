@@ -58,7 +58,7 @@ The peas are still deferred. There is a crate of bunting in the room marked BUNT
 
 ## Perce and Ida
 
-**<a href="../People/Perce_Stagg">Percival Stagg</a>**, Perce, is an old man in a red coat with a white fur collar who stands beside the ribbon post as though it might need him. He is the man who broke the winter. He was not, he will tell you, a Chosen One. Nobody chose him. Everybody went north that year, the year of the Forty-Fourth: farmers, tinkers, a man with a goat. He got as far as Frostwick, and the winter was in the way, so he saw to it. He has never mentioned that he was not chosen, because nobody has ever asked, and they were all so pleased, and it is a lovely Festival.
+**<a href="../People/Perce_Stagg">Percival Stagg</a>**, Perce, is an old man in a red coat with a white fur collar who stands beside the ribbon post as though it might need him. He is the man who broke the winter. He was not, he will tell you, a Chosen One. Nobody chose him. Everybody went north that year, the year of the <a href="../People/Ambrose_Fitch">Forty-Fourth</a>: farmers, tinkers, a man with a goat. He got as far as Frostwick, and the winter was in the way, so he saw to it. He has never mentioned that he was not chosen, because nobody has ever asked, and they were all so pleased, and it is a lovely Festival.
 
 When a lady with a basket goes by and says *Our Chosen One!* he does a face, warm and modest and very well practised. He does it again at noon on the twelfth, when he cuts the ribbon, and the whole town cheers, and he goes pink. The ribbon is in a gilt case at the Working Group's rooms, cut and tied so often it is mostly knots: THE RIBBON. 40 FESTIVALS. 1 RIBBON. There are forty-two now.
 

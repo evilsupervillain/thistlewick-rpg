@@ -70,7 +70,7 @@ She is buried at the top of the valley path, where she first stood and looked do
 
 ## Afterwards
 
-The Order is one again, or two that agree; the Prioress says it is a question for a symposium, and that there will not be one. The pamphlet is back in its drawer. The Rule of Life is a by-law of the parish of Sump, and the parish walked it in the year 2000, down the street and back, and saw how it felt, and felt better. Mother Ursula's name is on the stone at the gate and in the chapel glass, and in Sump's Standing Orders, and on the card in every Sister's pocket, and on a plaque at Sallow Cross, put up in 1902 by the chandler's great-great-great-grandson, which reads: SHE WAS RIGHT ABOUT THE WATER. HE WAS WRONG ABOUT THE TRADE.
+The Order is one again, or two that agree; the <a href="Aveline_Stope">Prioress</a> says it is a question for a symposium, and that there will not be one. The pamphlet is back in its drawer. The Rule of Life is a by-law of the parish of <a href="../Places/Sump">Sump</a>, and the parish walked it in the year 2000, down the street and back, and saw how it felt, and felt better. Mother Ursula's name is on the stone at the gate and in the chapel glass, and in Sump's Standing Orders, and on the card in every Sister's pocket, and on a plaque at Sallow Cross, put up in 1902 by the chandler's great-great-great-grandson, which reads: SHE WAS RIGHT ABOUT THE WATER. HE WAS WRONG ABOUT THE TRADE.
 
 ## See also
 

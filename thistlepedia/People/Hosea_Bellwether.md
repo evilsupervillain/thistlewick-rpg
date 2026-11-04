@@ -28,7 +28,7 @@ I did not want to write this article. An encyclopedia that leaves its compiler o
 
 ## Nether Sopping
 
-He is a Nether Sopping man, which is to say that he counts in plain years, sixty and forty and thirty, and that he lives forty miles from <a href="../Places/Thistlewick">Thistlewick</a>, among the people Thistlewick sent there. Clause nineteen of the Prophecy sends a returning Chosen One to a cottage at a mutually agreeable distance, and the distance has been Nether Sopping for most of a century, and Nether Sopping is consequently the only place in the world where everybody in the bar has been to the top of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> except the historian.
+He is a Nether Sopping man, which is to say that he counts in plain years, sixty and forty and thirty, and that he lives forty miles from <a href="../Places/Thistlewick">Thistlewick</a>, among the people Thistlewick sent there. Clause nineteen of the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a> sends a returning Chosen One to a cottage at a mutually agreeable distance, and the distance has been Nether Sopping for most of a century, and Nether Sopping is consequently the only place in the world where everybody in the bar has been to the top of the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> except the historian.
 
 I have sat at the table by the fire in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> for most of my working life, under the goose, as it now is, with ink on my hands, listening. I have had a great many stories. I have had very few of them to the end.
 
@@ -48,7 +48,7 @@ I left the last page blank, until I heard how it went, and told him that hearing
 
 This is Volume Three. It is the encyclopedia: every person, place, institution, creature, artefact and cliche of the Quest, in order, with the cross-references the history could not hold. It is signed on the twenty-first of March, Third Age 2002, which is two years after the Quest and the first day of spring, as <a href="Spare_Cotterill">Spare Cotterill</a> has confirmed by letter.
 
-I have not written all of it. Where somebody knew a thing better than I did, I asked them to write it, and printed what they sent me whole, with my notes in the margin: the <a href="../Bestiary/">Bestiary</a> is Miss Halloway's, the technical articles are Miss Hoyle's, the songs are Miss Quill's, and there are letters from the top of the Tower which have been the greatest pleasure of the work.
+I have not written all of it. Where somebody knew a thing better than I did, I asked them to write it, and printed what they sent me whole, with my notes in the margin: the <a href="../Bestiary/">Bestiary</a> is Miss Halloway's, the technical articles are <a href="Ott_Hoyle">Miss Hoyle</a>'s, the songs are Miss Quill's, and there are letters from the top of the Tower which have been the greatest pleasure of the work.
 
 ## Method
 
@@ -60,7 +60,7 @@ Where I do not know a thing I have said so, which in a history is more honest th
 
 The last page of Volume Two is filled. Volume Three is this.
 
-<a href="Bram_Thistle">Bram Thistle</a> comes south about once a month, to correct me, and is always right, and always about the same thing. Miss Quill and I meet at the Wyvern to disagree. Spare Cotterill writes. Grimspite writes. I have had a kind letter from Miss <a href="Pargeter">Pargeter</a> of <a href="../Places/Frostwick">Frostwick</a>, pointing out a clause.
+<a href="Bram_Thistle">Bram Thistle</a> comes south about once a month, to correct me, and is always right, and always about the same thing. Miss Quill and I meet at the Wyvern to disagree. Spare Cotterill writes. <a href="Grimspite_the_Inevitable">Grimspite</a> writes. I have had a kind letter from Miss <a href="Pargeter">Pargeter</a> of <a href="../Places/Frostwick">Frostwick</a>, pointing out a clause.
 
 I am told that I am in Miss Quill's notebooks, at some length, in the third person. I have asked to see the verses and been told that I may when they are finished, and that she has been finishing them since the Quest, and that they will scan.
 

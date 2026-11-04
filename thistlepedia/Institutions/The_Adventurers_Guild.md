@@ -35,7 +35,7 @@ The crest over the door is a sword, a scroll and a small question mark. The ques
 
 <blockquote>"You cannot be an adventurer in this district unregistered. You can DO the adventuring. You just can't be one."</blockquote>
 
-**<a href="../People/Lionel_Pell">Mr Pell</a>**, the Registrar, keeps the Guild, and has kept it for forty years. There are three requirements, and he will recite them to you whether you have asked or not. One: a character reference from a recognised authority, which means somebody with a chain. Two: a hat. The form requires a hat. It does not say why, and it does not say which; Mrs Barrow across the way sells one for thirty crowns, and no, they are not related. Three: Form A-1.
+**<a href="../People/Lionel_Pell">Mr Pell</a>**, the Registrar, keeps the Guild, and has kept it for forty years. There are three requirements, and he will recite them to you whether you have asked or not. One: a character reference from a recognised authority, which means somebody with a chain. Two: a hat. The form requires a hat. It does not say why, and it does not say which; <a href="../People/Lavinia_Barrow">Mrs Barrow</a> across the way sells one for thirty crowns, and no, they are not related. Three: Form A-1.
 
 Form A-1 was mislaid in 1989. For eleven years nobody registered, because nobody could, and Mr Pell looked for it every day, everywhere in the hall. It was under the doormat, which says WELCOME, six feet from his desk. The Forty-Eighth found it. "Do not say it. I am aware of the tower. I am aware that the key was under the mat. I do not find the pattern amusing." In forty years nobody had brought him all three at once.
 
@@ -43,9 +43,9 @@ The Forty-Eighth's reference was written by <a href="../People/Elder_Wispel">Eld
 
 ## The filing
 
-Every party that ever went north is in the Guild's filing, on its shelves, filed by the surname of the party's least important member, because that was the rule when the rule was made, and nobody has been able to unmake it. Finding a party is therefore a matter of deciding who in it mattered least, which has caused, Mr Pell says, a certain amount of feeling. Where the Forty-Eighth's company is filed I was not told, and I did not ask, because everybody I asked about the Tower said it was them, and I could not face asking them which of them was least.
+Every party that ever went north is in the Guild's filing, on its shelves, filed by the surname of the party's least important member, because that was the rule when the rule was made, and nobody has been able to unmake it. Finding a party is therefore a matter of deciding who in it mattered least, which has caused, Mr Pell says, a certain amount of feeling. Where the Forty-Eighth's company is filed I was not told, and I did not ask, because everybody I asked about the <a href="../Places/The_Obligatory_Tower">Tower</a> said it was them, and I could not face asking them which of them was least.
 
-Cobb Lorrimer, a thief, is registered under T.
+<a href="../People/Cobb_Lorrimer">Cobb Lorrimer</a>, a thief, is registered under T.
 
 ## The board
 
@@ -58,11 +58,11 @@ Both are discharged, in Mr Pell's hand. The fish stall added two bowls of chowde
 
 ## Monuments
 
-The Guild keeps the <a href="../Places/The_Barrow_of_the_Forty-Fourth">Barrow of the Forty-Fourth</a> as a Scheduled Monument of the district, entry restricted to registered adventurers. The stone is not locked. There is simply a sign, and you are simply not registered, and that is enough. It is the Guild's only monument, and it has done more good there than anywhere: a registered party went in, and the Forty-Fourth stopped, and asked for a bench.
+The Guild keeps the <a href="../Places/The_Barrow_of_the_Forty-Fourth">Barrow of the Forty-Fourth</a> as a Scheduled Monument of the district, entry restricted to registered adventurers. The stone is not locked. There is simply a sign, and you are simply not registered, and that is enough. It is the Guild's only monument, and it has done more good there than anywhere: a registered party went in, and the <a href="../People/Ambrose_Fitch">Forty-Fourth</a> stopped, and asked for a bench.
 
 ## The southern roster
 
-Mr Pell also holds Form C-12(S), by which a Chosen One may strike off any companion picked up south of the wall. It is the southern half of the Prophecy Committee's Form C-12 and nothing to do with registration. "A-1 registers you. C-12(S) unregisters them. Entirely separate instruments, and I will not hear otherwise." Nobody had suggested otherwise. He had the answer ready, which means somebody once did, and that he has been waiting.
+Mr Pell also holds Form C-12(S), by which a Chosen One may strike off any companion picked up south of the wall. It is the southern half of the <a href="The_Prophecy_Committee">Prophecy Committee</a>'s Form C-12 and nothing to do with registration. "A-1 registers you. C-12(S) unregisters them. Entirely separate instruments, and I will not hear otherwise." Nobody had suggested otherwise. He had the answer ready, which means somebody once did, and that he has been waiting.
 
 ## Form Z
 

@@ -38,7 +38,7 @@ They were married in 1984, at the church, in the morning, and the parish council
 
 ## The heart
 
-Effie writes to Spare Cotterill of Upper Clanging every month, and he writes back, and his letters are on the cabinet in a box, tied up by the year in string. Mrs Gotobed told the Forty-Eighth so in the kitchen, in a lowered voice, though Effie was at the gate:
+Effie writes to <a href="Spare_Cotterill">Spare Cotterill</a> of Upper Clanging every month, and he writes back, and his letters are on the cabinet in a box, tied up by the year in string. Mrs Gotobed told the Forty-Eighth so in the kitchen, in a lowered voice, though Effie was at the gate:
 
 > "Waiting for the post. Her pen pal writes from Upper Clanging. They've been at it since they were six. He says he drives an airship. I've never had the heart."
 

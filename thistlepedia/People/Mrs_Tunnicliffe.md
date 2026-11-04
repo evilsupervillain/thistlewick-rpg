@@ -24,7 +24,7 @@ title: Mrs Tunnicliffe
 
 ## June
 
-She was born Edna Hargreaves on the eleventh of June 1919, which is to say four months before the Cold Winter's children, and she has never been allowed to forget it, and has never once complained of it.
+She was born Edna Hargreaves on the eleventh of June 1919, which is to say four months before the <a href="../History/The_Cold_Winter">Cold Winter</a>'s children, and she has never been allowed to forget it, and has never once complained of it.
 
 > "Class of 'Nineteen. The Cold Winter lot. Foundry was banked down six weeks that January. No work. No heat in the whole town but what was in the houses. Two hundred and forty of them. All born the same autumn, near enough."
 
@@ -50,7 +50,7 @@ In 2001, at eighty-one, Mrs Tunnicliffe went to the parish council and asked to 
 
 ## Afterwards
 
-She is eighty-two. She is at the Rooms every morning at eight, before Gudgeon, to fill the urns, and she says that she has made, since 2001, the best tea of her life, and that it was the register all along that was spoiling it. She has still not been invited to the dinner. Winnie Marsden has, this winter, asked her whether she would like to come and help with the urns on the second Saturday. Mrs Tunnicliffe said that she would be delighted. There is no seat for her on the plan. She says that she would not want one. She will be at the urn, and at the urn, she says, she has always been invited everywhere.
+She is eighty-two. She is at the Rooms every morning at eight, before Gudgeon, to fill the urns, and she says that she has made, since 2001, the best tea of her life, and that it was the register all along that was spoiling it. She has still not been invited to the dinner. <a href="Winnie_Marsden">Winnie Marsden</a> has, this winter, asked her whether she would like to come and help with the urns on the second Saturday. Mrs Tunnicliffe said that she would be delighted. There is no seat for her on the plan. She says that she would not want one. She will be at the urn, and at the urn, she says, she has always been invited everywhere.
 
 ## See also
 

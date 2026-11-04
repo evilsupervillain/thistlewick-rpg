@@ -43,7 +43,7 @@ The two hundred and forty went to school together in 1923, at four, in two rooms
 
 > "There is a seating plan. There has been a seating plan since we were four. You cannot get in. I am not being unkind about it. You had to be born in it."
 
-The dinner is on the second Saturday in October, at the Safety Valve. Every place on the plan is laid, every year, and a place that is not filled has a card on the plate with the name on it, in Winnie's hand. A little over sixty came last October. The plan has two hundred and forty places and no column for anything else, and in the year 2000 a column was needed, because Winnie's granddaughter Bessie had married <a href="../People/Cotter_Cotterill">Cotter Cotterill</a>, the eldest of nine, then ten, and the <a href="../People/The_Cotterills">Cotterills</a> would all want seats. There is a column now. It is in pencil.
+The dinner is on the second Saturday in October, at the Safety Valve. Every place on the plan is laid, every year, and a place that is not filled has a card on the plate with the name on it, in Winnie's hand. A little over sixty came last October. The plan has two hundred and forty places and no column for anything else, and in the year 2000 a column was needed, because Winnie's granddaughter <a href="../People/Bessie_Cotterill">Bessie</a> had married <a href="../People/Cotter_Cotterill">Cotter Cotterill</a>, the eldest of nine, then ten, and the <a href="../People/The_Cotterills">Cotterills</a> would all want seats. There is a column now. It is in pencil.
 
 ## June
 

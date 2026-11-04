@@ -25,7 +25,7 @@ title: Bryd Ollerenshaw
 
 ## The forge
 
-Miss Hoyle of the works sends him a drawing every spring, and every spring it is a spar. "One of these springs I will get it right." He means the drawing, not the spar; his spars are right. He says *we shall see* of every job he takes, and Miss Hoyle knows what he means by it, and so does everybody else in the town, and none of them has ever explained it to me.
+<a href="Ott_Hoyle">Miss Hoyle</a> of the works sends him a drawing every spring, and every spring it is a spar. "One of these springs I will get it right." He means the drawing, not the spar; his spars are right. He says *we shall see* of every job he takes, and Miss Hoyle knows what he means by it, and so does everybody else in the town, and none of them has ever explained it to me.
 
 There is a certificate on his wall, BEST SMITH IN THE NORTH, awarded by B. Ollerenshaw to B. Ollerenshaw, in real gold leaf. There is also a real one, from the Smiths' Hall at <a href="../Places/Great_Dunnage">Great Dunnage</a>, BEST IN HALL, 1987, which is the year Hob did not enter, having a cold. Hob says he would have won. Bryd says aye. Neither of them has suggested settling it, and I have come to think that neither of them would want it settled.
 
@@ -41,7 +41,7 @@ He asked the Forty-Eighth to tell Miss Hoyle that he said *we shall see*. She kn
 
 ## The tube plate
 
-Later the same year Hob came back up the hill, about a tube plate for the Two Hundred's boiler, which wanted four hands, one heat, and somebody small enough to go inside it afterwards. Everybody in the forge looked at Grommet. Hob took his coat off, which is not a sentence, but is the nearest either of them comes. Grommet went in after, and came out black to the eyebrows, and looked at the two of them, and said what he had to say about it to the Forty-Eighth, not to them.
+Later the same year Hob came back up the hill, about a tube plate for the <a href="../History/The_Flight_of_the_Two_Hundred">Two Hundred</a>'s boiler, which wanted four hands, one heat, and somebody small enough to go inside it afterwards. Everybody in the forge looked at Grommet. Hob took his coat off, which is not a sentence, but is the nearest either of them comes. Grommet went in after, and came out black to the eyebrows, and looked at the two of them, and said what he had to say about it to the Forty-Eighth, not to them.
 
 ## Afterwards
 

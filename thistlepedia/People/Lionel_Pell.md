@@ -16,7 +16,7 @@ title: Lionel Pell
 <tr><th>Requirements</th><td>A reference; a hat; Form A-1</td></tr>
 <tr><th>Form A-1</th><td>Mislaid, 1989. Under the mat, six feet away, 1989-2000</td></tr>
 <tr><th>Form Z</th><td>Kept forty years, in case. Used once</td></tr>
-<tr><th>Related to Mrs Barrow</th><td>No</td></tr>
+<tr><th>Related to <a href="Lavinia_Barrow">Mrs Barrow</a></th><td>No</td></tr>
 <tr><th>Finds the pattern</th><td>Not amusing</td></tr>
 </table>
 

@@ -31,7 +31,7 @@ She is not a thief, and the distinction is not a joke to her, and I have come ro
 
 At fifteen, in 1989, Nix worked out that "I wanted it" was not a sentence that got you anywhere in a village where everybody knows your mother, and opened a ledger instead. Every item in, every item out, every provenance, dated, in a hand that improves visibly from page to page. All of it was done on behalf of a client described in the front of the book as *the party of the second part*.
 
-I have been allowed to read the ledger, at the counter, with her watching. It is the most honest document in the county. The Committee's minutes are longer and the Prophecy is older, and neither of them can account for a single teaspoon.
+I have been allowed to read the ledger, at the counter, with her watching. It is the most honest document in the county. The Committee's minutes are longer and the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a> is older, and neither of them can account for a single teaspoon.
 
 ## On the Quest
 
@@ -39,7 +39,7 @@ She joined because the Tower was "a tower nobody's been inside for a hundred yea
 
 **The tower door.** The door of the Obligatory Tower was barred. There is a key under the mat. She did not use it. "Bar's on the inside. Classic."
 
-**Returned.** In the front of the ledger, where the hand is worst, were eleven things she had never sold on: the longest loans she had. Bram's mother's pie dish, the Old Man's chair, the gate key, <a href="Hulda_Bole">Hulda Bole</a>'s good boots, a cradle for Bessie Marsden at <a href="../Places/Upper_Clanging">Upper Clanging</a>, and six more, across three towns. "Everything's a loan, eventually. That's what the RETURNED column is for." The column had been ruled, very neatly, down eleven years of pages, and there was nothing in it. She returned all eleven in an afternoon that was not one afternoon. None of the owners had known the things were gone, every one of them was pleased to have them back, and two of them tried to pay. The ledger has a RETURNED column now, with eleven lines in it, and a double line under the last, blotted.
+**Returned.** In the front of the ledger, where the hand is worst, were eleven things she had never sold on: the longest loans she had. <a href="Bram_Thistle">Bram</a>'s mother's pie dish, the Old Man's chair, the gate key, <a href="Hulda_Bole">Hulda Bole</a>'s good boots, a cradle for Bessie Marsden at <a href="../Places/Upper_Clanging">Upper Clanging</a>, and six more, across three towns. "Everything's a loan, eventually. That's what the RETURNED column is for." The column had been ruled, very neatly, down eleven years of pages, and there was nothing in it. She returned all eleven in an afternoon that was not one afternoon. None of the owners had known the things were gone, every one of them was pleased to have them back, and two of them tried to pay. The ledger has a RETURNED column now, with eleven lines in it, and a double line under the last, blotted.
 
 **The client.** On the clean page after it, the first new entry was a parcel, brown paper, which Mrs Bole had been carrying for somebody since 1989, marked NOT TO BE OPENED UNTIL I AM TWENTY-SIX. The hand on it was Nix's own, at fifteen. Inside was a letter from the party of the second part, signed *N., aged fifteen*. The client, it said, wanted one thing, which was the first entry in the book, the only line in eleven years with no provenance, which was in bond at <a href="../Places/Great_Dunnage">Great Dunnage</a>, and which she had been avoiding. "Stop it."
 

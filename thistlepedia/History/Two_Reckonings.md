@@ -20,7 +20,7 @@ title: Two Reckonings
 <tr><th>The Tower</th><td>Approximately four thousand eight hundred years old</td></tr>
 </table>
 
-<p class="lede">There are <b>two reckonings</b> of time in the world, and the history of the Obligatory Quest is written in both of them at once, usually in the same sentence. The <i>calendar</i> is the elves' Third Age, in which this is the year 2002. The <i>contract</i> is the Prophecy's, in which a hundred years is whatever the Committee says it is. By the one, the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> is about two thousand years old. By the other it is four thousand eight hundred. Both are correct, and it took a woman in Frostwick with her gloves on to find out why.</p>
+<p class="lede">There are <b>two reckonings</b> of time in the world, and the history of the Obligatory Quest is written in both of them at once, usually in the same sentence. The <i>calendar</i> is the elves' Third Age, in which this is the year 2002. The <i>contract</i> is the Prophecy's, in which a hundred years is whatever the Committee says it is. By the one, the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a> is about two thousand years old. By the other it is four thousand eight hundred. Both are correct, and it took a woman in <a href="../Places/Frostwick">Frostwick</a> with her gloves on to find out why.</p>
 
 ## The calendar
 
@@ -30,7 +30,7 @@ The years in this book, and in most books, are years of the **Third Age**, which
 
 ## The contract
 
-The Prophecy counts in years of its own. Its clause two defines a hundred years as *such period as the Committee shall find convenient*, and every figure that comes from the Prophecy's side of things - from the Tower, from the Dark Lord, from the people who are paid to look after him - is a figure of that kind. These are some of them:
+The Prophecy counts in years of its own. Its clause two defines a hundred years as *such period as the Committee shall find convenient*, and every figure that comes from the Prophecy's side of things - from the Tower, from the <a href="../People/Grimspite_the_Inevitable">Dark Lord</a>, from the people who are paid to look after him - is a figure of that kind. These are some of them:
 
 | What | Says | Means |
 |---|---|---|
@@ -41,7 +41,7 @@ The Prophecy counts in years of its own. Its clause two defines a hundred years 
 | The wayshrine's visitors' book | The last entry, "Feeling good about this one!", is dated a hundred years ago | The Forty-Seventh's, 1990 |
 | <a href="../Places/The_Former_Premises">The Former Premises</a> | Two thousand years of Dark Lords, and nineteen thousand two hundred quarterly reports | Contract years again: four a year, for four thousand eight hundred |
 
-The calendar and the contract ran together at first, while the Committee still found a hundred years convenient, for the first nine Chosen Ones or so. Then it began finding shorter periods convenient, and then shorter still, and always in a round year. By the end the Forty-First went in 1940 and the last five went ten years apart, which is how the Forty-Fifth, a man who set out *three centuries* before the Forty-Eighth, is in his seventies and potting things on his kitchen table forty miles from here.
+The calendar and the contract ran together at first, while the Committee still found a hundred years convenient, for the first nine Chosen Ones or so. Then it began finding shorter periods convenient, and then shorter still, and always in a round year. By the end the <a href="../People/Halloran_Vance">Forty-First</a> went in 1940 and the last five went ten years apart, which is how the Forty-Fifth, a man who set out *three centuries* before the Forty-Eighth, is in his seventies and potting things on his kitchen table forty miles from here.
 
 ## Who notices
 

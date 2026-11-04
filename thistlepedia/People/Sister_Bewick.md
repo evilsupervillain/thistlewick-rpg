@@ -42,7 +42,7 @@ In 1994 she and nine Sisters asked to be examined on the doctrine, and were, and
 
 In the year 2000 there was a queue at the gate, numbered, in the wet, and twenty patients to each half, and Whatever Works was through its twenty while What Ought To Work was on patient one, stage eleven. Patient one was Mr Grebe, a fisherman, who had the Weeping Bottom ague, properly, the first case anybody had seen in nine years, and at stage eleven he sat up and felt better.
 
-Sister Bewick said, *It worked.* Merribell said of course it worked, he had it, and that was a point to the east, fair's fair.
+Sister Bewick said, *It worked.* <a href="Merribell">Merribell</a> said of course it worked, he had it, and that was a point to the east, fair's fair.
 
 Then she asked to be examined on the Order's doctrine. The Prioress took the pamphlet out of a drawer. Sister Bewick read it twice, and was examined on it, and passed, and said that it was very short, and that she could find nothing wrong with it, and that that was very annoying. There was soup on both sides of the line at three. She had some. She wrote in her notebook: *Intervention. Supported.*
 

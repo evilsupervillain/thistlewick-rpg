@@ -19,7 +19,7 @@ title: Wren Halloway
 <tr><th>Bad at</th><td>Raw damage; tolerating the phrase "basically a dragon"</td></tr>
 <tr><th>Published</th><td><i><a href="../Bestiary/The_Fauna_of_the_Valley">The Fauna of the Valley</a>, by What They Are</i>, 2000</td></tr>
 <tr><th>Reviewers</th><td>Three, one a duck</td></tr>
-<tr><th>Named</th><td><i>Bramus agricola</i></td></tr>
+<tr><th>Named</th><td><i><a href="../Bestiary/Bramus_agricola">Bramus agricola</a></i></td></tr>
 <tr><th>On the wyvern</th><td>A goose</td></tr>
 </table>
 

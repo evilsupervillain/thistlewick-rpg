@@ -37,7 +37,7 @@ He is a big, cheerful man, and his hand, in chalk, is the most cheerful hand in 
 
 > "Dunstable. Sir. Of the Vale. Just signed the Book. Just in case."
 
-Asked whether he has been through before: "Oh, once or twice. Nothing happened, mind. Nothing at all. Went in, had a look round, came out. Grand day." The tea is on the lectern, poured by Brother Quillon at ten past, still warm. "Oh, how kind. Every time! The fellow's a mind-reader." Brother Quillon says nothing, with enormous tact.
+Asked whether he has been through before: "Oh, once or twice. Nothing happened, mind. Nothing at all. Went in, had a look round, came out. Grand day." The tea is on the lectern, poured by <a href="Brother_Quillon">Brother Quillon</a> at ten past, still warm. "Oh, how kind. Every time! The fellow's a mind-reader." Brother Quillon says nothing, with enormous tact.
 
 He has not looked at a clock once in anybody's sight. He does not need to. It is a quarter past four.
 

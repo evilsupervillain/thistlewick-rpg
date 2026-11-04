@@ -50,7 +50,7 @@ In both, Roland laughed, properly, out loud, which nobody at the Bell had heard 
 
 She is eighteen. She is in the yard at Great Dunnage still, between, she says, which is a word she has borrowed from Roland and is using better than he does. She still practises his guard, and has improved it, and he has looked at it, and said almost nothing, and she knows what that means.
 
-Roland's prophecy was discharged under Carn Drey, with help, in 2000, and nobody needs an understudy for a thing that is done; she stayed in the yard anyway, and Fellow Blunt has not asked her to leave, and has, I am told, started asking her opinion. Roland has finished two further things since 2000, and keeps a list, and she has a copy of the list, and is on it, and will not tell me under what.
+Roland's prophecy was discharged under <a href="../Places/Carn_Drey">Carn Drey</a>, with help, in 2000, and nobody needs an understudy for a thing that is done; she stayed in the yard anyway, and Fellow Blunt has not asked her to leave, and has, I am told, started asking her opinion. Roland has finished two further things since 2000, and keeps a list, and she has a copy of the list, and is on it, and will not tell me under what.
 
 The question has not been answered. She says she is in no hurry. She says the bit after is very quiet, and she likes it.
 

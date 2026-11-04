@@ -14,7 +14,7 @@ title: Elder Wispel
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Office</th><td>Chair of the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a></td></tr>
-<tr><th>Duties</th><td>Unrolling the Prophecy to the far wall; rolling it back up</td></tr>
+<tr><th>Duties</th><td>Unrolling the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a> to the far wall; rolling it back up</td></tr>
 <tr><th>Assisted by</th><td>Nobody</td></tr>
 <tr><th>Note on his desk</th><td>BUY MORE SCROLL (underlined twice)</td></tr>
 <tr><th>Married to</th><td>Mrs Wispel, the one against</td></tr>
@@ -25,7 +25,7 @@ title: Elder Wispel
 
 ## The charge
 
-The charge is the same every time, and he gives it beautifully. He says the Chosen One's name and number. He unrolls the Prophecy, which keeps unrolling until it reaches the far wall. He says that every hundred years the Dark Lord rises in the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, and every hundred years Thistlewick sends someone, and that it has worked forty-seven times. The Forty-Eighth asked him what had happened the other times. He said that it had worked forty-seven times.
+The charge is the same every time, and he gives it beautifully. He says the Chosen One's name and number. He unrolls the Prophecy, which keeps unrolling until it reaches the far wall. He says that every hundred years the <a href="Grimspite_the_Inevitable">Dark Lord</a> rises in the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, and every hundred years Thistlewick sends someone, and that it has worked forty-seven times. The Forty-Eighth asked him what had happened the other times. He said that it had worked forty-seven times.
 
 Then he rolls the scroll back up. It takes a while. Nobody helps. The Committee has considered helping, and minuted it, and decided that the rolling is part of the dignity of the office, and also that nobody else knows which way it goes.
 
@@ -35,7 +35,7 @@ He is fond of every Chosen One he has charged, and he is not able to say how man
 
 ## The reference
 
-When the Adventurers' Guild at Nether Sopping asked the Forty-Eighth for a character reference, he walked forty miles back to the Elder for it, as the nearest thing to a recognised authority for eleven leagues. The Elder was extremely pleased to be asked. He was already looking for the good pen before Bram had finished the sentence. "For a GUILD? Do they know who you are?"
+When the <a href="../Institutions/The_Adventurers_Guild">Adventurers' Guild</a> at Nether Sopping asked the Forty-Eighth for a character reference, he walked forty miles back to the Elder for it, as the nearest thing to a recognised authority for eleven leagues. The Elder was extremely pleased to be asked. He was already looking for the good pen before <a href="Bram_Thistle">Bram</a> had finished the sentence. "For a GUILD? Do they know who you are?"
 
 He wrote for some time. The reference confirms that Bram Thistle is the Chosen One, is of good character, and grows a decent turnip, and the last part is underlined. He asked that the Guild be told the Committee would welcome a reciprocal arrangement, "by which I mean tell them we exist, because I do not think they know," and that they not be allowed to keep the reference, because it was Committee stationery. They kept it. It is framed in Registrar Pell's office, beside the Charter, and I have seen the underlining.
 

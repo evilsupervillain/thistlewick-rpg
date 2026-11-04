@@ -10,7 +10,7 @@ title: Winnie Marsden
 <caption>Winnie Marsden</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Winnie_Marsden.png" alt="Winnie Marsden, silver-haired, in a brown waistcoat with a brass cog and a watch chain" width="200"><span class="infobox-caption">Class of 'Nineteen</span></td></tr>
 <tr><th>Known as</th><td>Winnie; Mrs Marsden; "Gran", by Bessie, and since the summer of 2000 by Cotter, who was told to</td></tr>
-<tr><th>Born</th><td>Winifred Platt, 4 October 1919, <a href="../Places/Upper_Clanging">Upper Clanging</a>, in the Cold Winter's autumn</td></tr>
+<tr><th>Born</th><td>Winifred Platt, 4 October 1919, <a href="../Places/Upper_Clanging">Upper Clanging</a>, in the <a href="../History/The_Cold_Winter">Cold Winter</a>'s autumn</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Class</th><td>Of 'Nineteen. Two hundred and forty, near enough all together</td></tr>
 <tr><th>Married</th><td>Albert Marsden, pattern-maker, 1941; widowed 1979</td></tr>
@@ -25,7 +25,7 @@ title: Winnie Marsden
 
 ## The Cold Winter
 
-In January 1919 the foundry at Upper Clanging was banked down for six weeks, for the first and only time in its history, for want of coke. There was no work. There was no heat in the whole town but what was in the houses. In the autumn two hundred and forty children were born, near enough all together, and the town has called them the Class of 'Nineteen ever since. Mrs Tunnicliffe at the Parish Rooms, who keeps the census, says so, and so does the census, which, as she says, is only dates.
+In January 1919 the foundry at Upper Clanging was banked down for six weeks, for the first and only time in its history, for want of coke. There was no work. There was no heat in the whole town but what was in the houses. In the autumn two hundred and forty children were born, near enough all together, and the town has called them the Class of 'Nineteen ever since. <a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a> at the Parish Rooms, who keeps the census, says so, and so does the census, which, as she says, is only dates.
 
 Winifred Platt was born on the fourth of October, in the middle of them, at the house behind the Safety Valve, a fitter's daughter. She says that she does not remember a time before the Class, and that she supposes nobody does, it being the sort of thing you are born into, like a family, only larger and with a better dinner.
 

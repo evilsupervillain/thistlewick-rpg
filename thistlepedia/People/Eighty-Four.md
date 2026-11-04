@@ -6,12 +6,12 @@ title: Eighty-Four
 
 <p class="contributor">Contributed by O. Hoyle, Works Manager</p>
 
-<p class="hatnote">She is not a person, and I have put her in the People volume anyway, because Miss Hoyle asked me to, and when I said that an airship was not a person, sent me, by return, her service record, and a note: <i>She went north up a field on her own for a hundred and forty years. File her where you like.</i> I have filed her here. For the field, see <a href="../Places/The_Long_Field">The Long Field</a>. - H.B.</p>
+<p class="hatnote">She is not a person, and I have put her in the People volume anyway, because <a href="Ott_Hoyle">Miss Hoyle</a> asked me to, and when I said that an airship was not a person, sent me, by return, her service record, and a note: <i>She went north up a field on her own for a hundred and forty years. File her where you like.</i> I have filed her here. For the field, see <a href="../Places/The_Long_Field">The Long Field</a>. - H.B.</p>
 
 <table class="infobox">
 <caption>Attempt Eighty-Four</caption>
 <tr><th>Known as</th><td>Eighty-Four; Attempt 84; "her", at the works</td></tr>
-<tr><th>Laid down</th><td>14 April 1857, the Hoyle Works, bay 84</td></tr>
+<tr><th>Laid down</th><td>14 April 1857, the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>, bay 84</td></tr>
 <tr><th>Sex</th><td>Not applicable. <i>Her</i>, by the custom of the works, which she has earned</td></tr>
 <tr><th>First lifted</th><td>3 May 1860</td></tr>
 <tr><th>Came down</th><td>3 May 1860, in the Long Field, in her own plot</td></tr>
@@ -26,9 +26,9 @@ title: Eighty-Four
 
 ## Service record
 
-1. **Type.** Steam airship, rigid, single envelope, one boiler of forty-eight tubes. The eighty-fourth attempt of the Hoyle Works to answer the question in the Prophecy, which is how to get up that road without walking. Designed by the chief engineer of the day, in her first year in charge, who also drew 82, 83 and 85, and who said of her on the slip that she was *the first of mine I would trust with my dinner.*
+1. **Type.** Steam airship, rigid, single envelope, one boiler of forty-eight tubes. The eighty-fourth attempt of the Hoyle Works to answer the question in the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a>, which is how to get up that road without walking. Designed by the chief engineer of the day, in her first year in charge, who also drew 82, 83 and 85, and who said of her on the slip that she was *the first of mine I would trust with my dinner.*
 
-2. **Building.** Laid down in bay 84 on 14 April 1857. Three years on the slip. Envelope by the works; frames by the Ollerenshaw forge, three generations back; boiler tubes by the works, brushed by the apprentice of the day, who was the eleventh.
+2. **Building.** Laid down in bay 84 on 14 April 1857. Three years on the slip. Envelope by the works; frames by the <a href="Bryd_Ollerenshaw">Ollerenshaw</a> forge, three generations back; boiler tubes by the works, brushed by the apprentice of the day, who was the eleventh.
 
 3. **Lifting.** 3 May 1860, nine in the morning, a light westerly. Rose to sixty feet and made north up the line of the field. Came down at nine fifty-one in her own plot, which had been marked out for her the week before, as is the practice, in case. Her plate reads LOST OVER THE LONG FIELD, and the cause line is blank: the only blank cause line in the field. The chief engineer cut that plate herself, and left it blank, and I have read her notes, and she did not know, and she would not write down a guess. Neither will I.
 

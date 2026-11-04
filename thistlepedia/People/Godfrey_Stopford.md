@@ -26,7 +26,7 @@ title: Godfrey Stopford
 
 ## The name
 
-My last volume did not give his name, and nor did the Committee's souvenir book, *The Forty-Seven*, which I am told has a portrait on his page, and a date, and a pressed turnip flower, and the word FORTY-SIX in very small letters, as if the Committee were not sure it ought to count him. It counts him. Miss Hoyle of <a href="../Places/Upper_Clanging">Upper Clanging</a> does not.
+My last volume did not give his name, and nor did the Committee's souvenir book, *The Forty-Seven*, which I am told has a portrait on his page, and a date, and a pressed turnip flower, and the word FORTY-SIX in very small letters, as if the Committee were not sure it ought to count him. It counts him. <a href="Ott_Hoyle">Miss Hoyle</a> of <a href="../Places/Upper_Clanging">Upper Clanging</a> does not.
 
 I did not get the name from him. He does not write. I got it from <a href="Tolly">Tolly</a>, of his old party, who addresses the envelopes, in the narrow hand. Every one of them, every month for twenty-two years, is addressed the same way:
 
@@ -38,13 +38,13 @@ and carries two stamps, because it is a long way, and he is worth two stamps. Th
 
 He was born in Thistlewick on the fourteenth of March 1956, the only son of a thatcher, and was a quiet boy who liked to sit on walls. He was chosen in the spring of 1980, at twenty-four, in the usual way, which is to say that the Committee met and he was not at the meeting. His armour was made for him at the village forge by Beatrice Grumnir, who made a good many things in her time for people going north, and who said of this suit that it was the best she had done, and that it was a pity about the wearer, who had told her when he was measured that he did not expect to need it.
 
-He did not need it. It has never been struck. It is the best-kept suit of armour in the country, and I have been to the Chapter House of the <a href="../Institutions/The_Order_of_the_Errant">Order of the Errant</a>, where they oil theirs on Fridays.
+He did not need it. It has never been struck. It is the best-kept suit of armour in the country, and I have been to the <a href="../Places/Coldbarrow">Chapter House</a> of the <a href="../Institutions/The_Order_of_the_Errant">Order of the Errant</a>, where they oil theirs on Fridays.
 
-<div class="marginalia">Halbert Quy, who knew him slightly, says that young Stopford came to see him in <a href="../Places/Nether_Sopping">Nether Sopping</a> the week before he set out, and asked him one question, which was whether it was a long way. Mr Quy said that it was. Young Stopford said, "Right," and thanked him, and went home. Mr Quy says that he has thought since that it was the most sensible question any Chosen One ever asked him, and that it was the only one he answered correctly. - H.B.</div>
+<div class="marginalia"><a href="Halbert_Quy">Halbert Quy</a>, who knew him slightly, says that young Stopford came to see him in <a href="../Places/Nether_Sopping">Nether Sopping</a> the week before he set out, and asked him one question, which was whether it was a long way. Mr Quy said that it was. Young Stopford said, "Right," and thanked him, and went home. Mr Quy says that he has thought since that it was the most sensible question any Chosen One ever asked him, and that it was the only one he answered correctly. - H.B.</div>
 
 ## The woods
 
-The party was five, and set out on a Tuesday. Half way along the first path in the Gloamwood there was a log across the way, and Godfrey Stopford stopped at it. <a href="Nabb">Nabb</a>, who was there, has told the story many times at the Slain Wyvern, and it does not get any longer:
+The party was five, and set out on a Tuesday. Half way along the first path in the Gloamwood there was a log across the way, and Godfrey Stopford stopped at it. <a href="Nabb">Nabb</a>, who was there, has told the story many times at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, and it does not get any longer:
 
 > "He stopped. Just - stopped, on the path, and said the woods were enough. And we looked at each other, and we said: fair."
 
@@ -68,11 +68,11 @@ It is why he did not know, when the Forty-Eighth came through, that the Forty-Se
 
 ## The Lay
 
-At Olde Evermore, Aelwen sings the *Lay of the Chosen*, which has a verse for every Chosen One who has come off the ledge, and is three days long, and nobody has heard the end. The Forty-Sixth never came at all, and so his verse is a rest, four bars long, and she says it is the best bit. I told him so. He was quiet for a while. Then he asked me to tell her that it was very kind, and that four bars was about right, and that if she ever needed it to be longer she was not to go to any trouble.
+At <a href="../Places/Olde_Evermore">Olde Evermore</a>, Aelwen sings the *Lay of the Chosen*, which has a verse for every Chosen One who has come off the ledge, and is three days long, and nobody has heard the end. The Forty-Sixth never came at all, and so his verse is a rest, four bars long, and she says it is the best bit. I told him so. He was quiet for a while. Then he asked me to tell her that it was very kind, and that four bars was about right, and that if she ever needed it to be longer she was not to go to any trouble.
 
 ## Afterwards
 
-He is still on the log. The Forty-Eighth stopped on the way north, and talked to him, and the company went on to the Tower and did what forty-seven before them had not, and when the news came south the letters that month were longer than usual, and he read them three times. Nabb and Tolly write still, every month. The armour is still oiled. He became forty-six on the fourteenth of March this year, and says that it is the first time in his life that the number and the man have agreed, and that he intends to enjoy it, and that he will think about forty-seven when it comes, sitting down.
+He is still on the log. The Forty-Eighth stopped on the way north, and talked to him, and the company went on to the <a href="../Places/The_Obligatory_Tower">Tower</a> and did what forty-seven before them had not, and when the news came south the letters that month were longer than usual, and he read them three times. Nabb and Tolly write still, every month. The armour is still oiled. He became forty-six on the fourteenth of March this year, and says that it is the first time in his life that the number and the man have agreed, and that he intends to enjoy it, and that he will think about forty-seven when it comes, sitting down.
 
 ## See also
 

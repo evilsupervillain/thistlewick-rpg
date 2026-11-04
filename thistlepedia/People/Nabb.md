@@ -13,7 +13,7 @@ title: Nabb
 <tr><th>Born</th><td>14 October 1960, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Party</th><td>The Forty-Sixth's, 1980; cook</td></tr>
-<tr><th>Got as far as</th><td>The Gloamwood, the first path, about half way</td></tr>
+<tr><th>Got as far as</th><td><a href="../Places/The_Gloamwood">The Gloamwood</a>, the first path, about half way</td></tr>
 <tr><th>Said</th><td>Fair</td></tr>
 <tr><th>Writes</th><td>Every month, in the round hand</td></tr>
 <tr><th>Has had back</th><td>Nothing, which is the answer</td></tr>
@@ -21,7 +21,7 @@ title: Nabb
 <tr><th>Tolly knows</th><td>Yes</td></tr>
 </table>
 
-<p class="lede"><b>Nabb</b> was the cook in the Forty-Sixth's party, in 1980, and was there when he stopped on the path in the Gloamwood and said that the woods were enough, and looked at the others, and said: fair. She has written to him every month since, in the round hand, and drinks at the Slain Wyvern with Tolly, who writes in the narrow one, and gave the Forty-Eighth the shortest of the six tales in my history, which is also the only one with nothing missing from it.</p>
+<p class="lede"><b>Nabb</b> was the cook in the Forty-Sixth's party, in 1980, and was there when he stopped on the path in the Gloamwood and said that the woods were enough, and looked at the others, and said: fair. She has written to him every month since, in the round hand, and drinks at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> with Tolly, who writes in the narrow one, and gave the Forty-Eighth the shortest of the six tales in my history, which is also the only one with nothing missing from it.</p>
 
 ## The whole story
 

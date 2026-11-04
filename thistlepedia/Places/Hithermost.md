@@ -13,7 +13,7 @@ title: Hithermost
 <tr><th>Where</th><td>The far north-west, at the foot of the mountain</td></tr>
 <tr><th>Chapel</th><td>The Chapel of Continuance</td></tr>
 <tr><th>Services</th><td>Continuous</td></tr>
-<tr><th>Keeper of the Record</th><td>Brother Quillon</td></tr>
+<tr><th>Keeper of the Record</th><td><a href="../People/Brother_Quillon">Brother Quillon</a></td></tr>
 <tr><th>Teas</th><td>Kettle permitting</td></tr>
 <tr><th>The village lamp</th><td>Borrowed. Back directly</td></tr>
 <tr><th>Saved</th><td>Four times in the one year, by one account. Please stop</td></tr>

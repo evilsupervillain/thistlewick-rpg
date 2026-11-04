@@ -23,7 +23,7 @@ title: Perpetua Small
 
 ## A note on this article
 
-This article has been written so that it can be left on the bar. The Wyvern asked me to do that, by a show of hands, and Dorcas Thrupp read it before it went to the printer, and took one sentence out, and gave it back. I have not put the sentence back. If you know the thing that this article does not say, the Wyvern would be grateful if you looked very hard at the ceiling.
+This article has been written so that it can be left on the bar. The Wyvern asked me to do that, by a show of hands, and <a href="Dorcas_Thrupp">Dorcas Thrupp</a> read it before it went to the printer, and took one sentence out, and gave it back. I have not put the sentence back. If you know the thing that this article does not say, the Wyvern would be grateful if you looked very hard at the ceiling.
 
 ## What she knows
 

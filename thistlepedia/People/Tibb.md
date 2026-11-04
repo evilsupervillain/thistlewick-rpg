@@ -19,7 +19,7 @@ title: Tibb
 <tr><th>Last item on the list</th><td>ONE DARK LORD (WHO LOSES)</td></tr>
 </table>
 
-<p class="lede"><b>Tibb</b> is a boy of <a href="../Places/Nether_Sopping">Nether Sopping</a> who plays Chosen One on the front with Sops in the afternoons, and who settled, with Sops, the question of who should have to be the Dark Lord, which the Prophecy had not settled in two thousand years, by deciding that nobody should, and that the Dark Lord had stayed at home.</p>
+<p class="lede"><b>Tibb</b> is a boy of <a href="../Places/Nether_Sopping">Nether Sopping</a> who plays Chosen One on the front with Sops in the afternoons, and who settled, with Sops, the question of who should have to be the Dark Lord, which the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a> had not settled in two thousand years, by deciding that nobody should, and that the Dark Lord had stayed at home.</p>
 
 ## The settlement
 
@@ -29,7 +29,7 @@ The difficulty with a game in which nobody is the Dark Lord is that nothing happ
 
 ## The list
 
-When Nix and Cobb Lorrimer had their contest on the front in the year 2000, it was Sops and Tibb who wrote the list. Lorrimer came back with a helmet out of the outfitters' window and a sword off the knees of a man having a day off, who came up the street after it in his socks. "I STOLE them," said Lorrimer. "I'm a thief. It's the whole point of me."
+When <a href="Nix">Nix</a> and Cobb Lorrimer had their contest on the front in the year 2000, it was Sops and Tibb who wrote the list. Lorrimer came back with a helmet out of the outfitters' window and a sword off the knees of a man having a day off, who came up the street after it in his socks. "I STOLE them," said Lorrimer. "I'm a thief. It's the whole point of me."
 
 > "Mum says we're not to have stolen things. She says it twice."
 

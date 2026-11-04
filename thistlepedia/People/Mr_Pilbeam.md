@@ -15,7 +15,7 @@ title: Mr Pilbeam
 <tr><th>Trade</th><td>Traveller in buttons, 1990-1996</td></tr>
 <tr><th>Was</th><td>Only passing</td></tr>
 <tr><th>There was</th><td>An eagle</td></tr>
-<tr><th>Rescued</th><td>Princess Rosamund, from it, 1996</td></tr>
+<tr><th>Rescued</th><td><a href="Princess_Rosamund">Princess Rosamund</a>, from it, 1996</td></tr>
 <tr><th>Share</th><td>Pending. Twelve, if the eagle counts. The potted plant is holding it</td></tr>
 <tr><th>Deferred</th><td>Eight times, as of 2002</td></tr>
 <tr><th>May he go?</th><td>Deferred</td></tr>

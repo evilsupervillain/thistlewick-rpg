@@ -6,13 +6,13 @@ title: The North, and Below
 
 <p class="contributor">Contributed by W. Halloway, Cataloguer</p>
 
-<p class="hatnote">From Miss Halloway's Bestiary: what is met in the Long Field and on the crag, under Carn Drey, in a chapel at Weeping Bottom at night, and on the Stair under <a href="../Places/Hithermost">Hithermost</a>. Very little of it is an animal, and Miss Halloway has said so, at the top, so that nobody can say she did not. - H.B.</p>
+<p class="hatnote">From Miss Halloway's Bestiary: what is met in the Long Field and on the crag, under <a href="../Places/Carn_Drey">Carn Drey</a>, in a chapel at <a href="../Places/Weeping_Bottom">Weeping Bottom</a> at night, and on the <a href="../Places/The_Stair">Stair</a> under <a href="../Places/Hithermost">Hithermost</a>. Very little of it is an animal, and Miss Halloway has said so, at the top, so that nobody can say she did not. - H.B.</p>
 
 I was asked to write up everything a party is likely to fight between <a href="../Places/Upper_Clanging">Upper Clanging</a> and the bottom of the Stair. I have done so. Most of it is machinery, weather, the time of night, or architecture, and one of it is a weasel. I have been strict about what I describe and lenient about what I list, because people will look.
 
 ## The Long Field and the crag
 
-None of these is an animal. All of them are the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>', and I have referred them to Miss Hoyle, who has replied that they are attempts, and are documented, and that their documentation is not open to the public.
+None of these is an animal. All of them are the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>', and I have referred them to <a href="../People/Ott_Hoyle">Miss Hoyle</a>, who has replied that they are attempts, and are documented, and that their documentation is not open to the public.
 
 **Loose pressure.** A hundred and forty years of stored steam, finding the way out all at once. It is not attacking anybody. It is just leaving. Stand aside.
 
@@ -40,7 +40,7 @@ None of these is an animal. All of them are the <a href="../Institutions/The_Hoy
 
 ## A chapel at Weeping Bottom, at night
 
-These are reported by the watch who kept Sir Aldric Pemberton-Gore's vigil with him in the chapel across the yard from the Sisterhouse, in the year 2000, dusk to dawn. Sir Aldric did not move or speak, by the rules, and so is not a witness to any of them, though he took all of them. He has asked that they be recorded. None of them is an animal.
+These are reported by the watch who kept Sir Aldric Pemberton-Gore's vigil with him in the chapel across the yard from the Sisterhouse, in the year 2000, dusk to dawn. <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric</a> did not move or speak, by the rules, and so is not a witness to any of them, though he took all of them. He has asked that they be recorded. None of them is an animal.
 
 **The damp.** It comes in under the chapel door every night. It always has. It is condensation, and it is Weeping Bottom's, and it is, in my professional opinion, the most dangerous thing in this section.
 
@@ -86,7 +86,7 @@ The Stair goes down from the Door into the Mountain at Hithermost, and the paris
 
 **Where.** The bottom of the Stair, below D. 212, in a chamber with lamps on every ledge, all lit.
 
-**Description.** Large. Purple. Delighted. It is not on the schedule, except as item six; it is not in the Prophecy; and it asked. It had written itself a bounty card, a long time ago, because nobody would put it on anything.
+**Description.** Large. Purple. Delighted. It is not on the schedule, except as item six; it is not in the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a>; and it asked. It had written itself a bounty card, a long time ago, because nobody would put it on anything.
 
 **Method.** It asks whether you have the afternoon. Nobody is obliged to fight it, and it says afterwards that that is what it liked best about it.
 

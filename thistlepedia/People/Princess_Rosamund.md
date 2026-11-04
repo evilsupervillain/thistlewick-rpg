@@ -10,7 +10,7 @@ title: Princess Rosamund
 <caption>Princess Rosamund of Fairholme</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Princess_Rosamund.png" alt="Princess Rosamund, in a sturdy tiara" width="200"><span class="infobox-caption">The tiara for kidnappings</span></td></tr>
 <tr><th>Known as</th><td>Princess Rosamund; Her Highness; "the bag by the window", by the Heroes' Guild</td></tr>
-<tr><th>Born</th><td>14 February 1978, at the palace, <a href="../Places/Fairholme">Fairholme</a>; the only child of King Aldous and Queen Isobel</td></tr>
+<tr><th>Born</th><td>14 February 1978, at the palace, <a href="../Places/Fairholme">Fairholme</a>; the only child of <a href="King_Aldous">King Aldous</a> and Queen Isobel</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Kidnapped</th><td>Eleven times, 1986-1999. Twelve, if you count the eagle (1996). The Palace does not</td></tr>
 <tr><th>Rescued</th><td>Eleven times, by eleven shareholders</td></tr>

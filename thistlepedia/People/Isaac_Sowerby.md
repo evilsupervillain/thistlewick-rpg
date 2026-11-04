@@ -26,7 +26,7 @@ title: Isaac Sowerby
 
 > "Sixty years I gave that works. Started on the rivets. Finished on the rivets."
 
-He went into the works at fourteen, in the autumn of 1939, as an apprentice, with a number. The works has numbered its apprentices since 1804, and Miss Hoyle's present apprentice, Nib, is the fortieth. Of the thirty-nine before her, thirty-three left, and six stayed, and one of them is Sowerby. He was put on the rivets in his first week, because somebody had to be, and he found that he liked it, and asked to stay on them, and he did, until the autumn of 1999. He says that he was offered other work, several times, and that he always asked what was wrong with the rivets, and nobody could tell him.
+He went into the works at fourteen, in the autumn of 1939, as an apprentice, with a number. The works has numbered its apprentices since 1804, and Miss Hoyle's present apprentice, <a href="Nib">Nib</a>, is the fortieth. Of the thirty-nine before her, thirty-three left, and six stayed, and one of them is Sowerby. He was put on the rivets in his first week, because somebody had to be, and he found that he liked it, and asked to stay on them, and he did, until the autumn of 1999. He says that he was offered other work, several times, and that he always asked what was wrong with the rivets, and nobody could tell him.
 
 > "I have seen a hundred and ninety-nine of them go up. I have seen the same number come down. Never in a hurry about it, mind. They come down like a man sitting."
 
@@ -52,7 +52,7 @@ He did not say anything else about who she was, and I did not ask. He held out a
 
 ## Afterwards
 
-He is seventy-six. In the year 2000 he saw the two hundredth go up, and he was, I am told, the only man in Upper Clanging who did not cheer. He was watching for the coming down. When she came down, beside the Tower, in her own time, he said that it was very well done, in the voice other men keep for a rivet, and went back to his bench. He still sits on the other one. The two hundred and first's keel was laid in 2001, and he has been down to look at the rivets, and has said that they will do.
+He is seventy-six. In the year 2000 he saw the two hundredth go up, and he was, I am told, the only man in Upper Clanging who did not cheer. He was watching for the coming down. When she came down, beside the <a href="../Places/The_Obligatory_Tower">Tower</a>, in her own time, he said that it was very well done, in the voice other men keep for a rivet, and went back to his bench. He still sits on the other one. The two hundred and first's keel was laid in 2001, and he has been down to look at the rivets, and has said that they will do.
 
 ## See also
 

@@ -14,7 +14,7 @@ title: The Gilded Turnip
 <tr><th>Rooms</th><td>Twenty crowns. Still twenty crowns</td></tr>
 <tr><th>Breakfast</th><td>Turnip</td></tr>
 <tr><th>Rating</th><td>One star, in chalk. Four more, in a different chalk, in Prudence's handwriting</td></tr>
-<tr><th>Credit</th><td>None. That means you, Bram</td></tr>
+<tr><th>Credit</th><td>None. That means you, <a href="../People/Bram_Thistle">Bram</a></td></tr>
 <tr><th>Singing on tables</th><td>Not permitted</td></tr>
 <tr><th>Piano</th><td>Please do not play</td></tr>
 <tr><th>Societies meeting</th><td>One, on Thursdays</td></tr>
@@ -34,7 +34,7 @@ was worth the journey, and the wait.</p>
 <span class="attribution">P. Quill, the ballad, its last verse (in part)</span>
 </div>
 
-**The piano.** An upright, with a sign on the lid: PLEASE DO NOT PLAY THE PIANO, and under it, smaller, THIS MEANS YOU, BRAM. The Forty-Eighth knows one tune, with one finger. The company between them have played everything else on it: Sir Aldric a stirring march that turns into a different stirring march and back; Hob, hard and in time, taking two keys off and putting them back on better than they were; Zephyrine a scale, after which the piano smelt faintly of toast for the rest of the evening. Middle C is still a bit warm.
+**The piano.** An upright, with a sign on the lid: PLEASE DO NOT PLAY THE PIANO, and under it, smaller, THIS MEANS YOU, BRAM. The Forty-Eighth knows one tune, with one finger. The company between them have played everything else on it: <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric</a> a stirring march that turns into a different stirring march and back; <a href="../People/Hob_Grumnir">Hob</a>, hard and in time, taking two keys off and putting them back on better than they were; <a href="../People/Zephyrine_Vance">Zephyrine</a> a scale, after which the piano smelt faintly of toast for the rest of the evening. Middle C is still a bit warm.
 
 **The shelves.** Sacks and boxes of turnip, labelled by year like wine. The '87 is said to be very good. The '91 is not spoken of. Behind the bar, jars and bottles each with a regular's name painted on: REGULAR, REGULAR, REGULAR, REGULAR, and at the end, PIPER (NOT ON THE TABLE). There is a big lidded pot labelled POT, so that everybody knows, with a second label inside it that says INSIDE OF POT. There is Prudence's own cordial, elderflower and turnip, which is better than it sounds. It would more or less have to be.
 
@@ -46,7 +46,7 @@ was worth the journey, and the wait.</p>
 
 ## The regulars
 
-**Prudence Thrupp** keeps the house, and has kept it for longer than she will say, and her sister **Dorcas** keeps the <a href="The_Slain_Wyvern">Slain Wyvern</a>, forty miles south, which nobody in Thistlewick had mentioned. They did not speak for thirty years. "That's not a falling-out. We just stopped one day and neither of us started again. So we send each other things instead." In the year 2000 the Forty-Eighth carried a jar south for her, warm on one side, which he was told not to shake or ask about, and carried a reply back north which was heavier, and deliberately worse, and had been under construction for some time. Prudence laughed. She has written since: four pages, two of them about the Forty-Eighth, and one of those complimentary. The sisters' locket, two portraits facing opposite ways, which had been in a drawer since they were girls, went north on the Quest. "That was HER idea, that was."
+**Prudence Thrupp** keeps the house, and has kept it for longer than she will say, and her sister **<a href="../People/Dorcas_Thrupp">Dorcas</a>** keeps the <a href="The_Slain_Wyvern">Slain Wyvern</a>, forty miles south, which nobody in Thistlewick had mentioned. They did not speak for thirty years. "That's not a falling-out. We just stopped one day and neither of us started again. So we send each other things instead." In the year 2000 the Forty-Eighth carried a jar south for her, warm on one side, which he was told not to shake or ask about, and carried a reply back north which was heavier, and deliberately worse, and had been under construction for some time. Prudence laughed. She has written since: four pages, two of them about the Forty-Eighth, and one of those complimentary. The sisters' locket, two portraits facing opposite ways, which had been in a drawer since they were girls, went north on the Quest. "That was HER idea, that was."
 
 **The Regular**, whose cousin was the Thirty-Ninth. Lovely tower, apparently. Since the ending, lovely coast, apparently.
 

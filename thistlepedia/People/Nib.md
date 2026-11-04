@@ -38,7 +38,7 @@ Every day for two years Miss Hoyle asked for the small can, and every day Nib br
 
 ## The sweep
 
-At the dinner hour the shift is Miss Hoyle, and Nib, and Tappet Cotterill, which at the Hoyle Works is all of it, and in the year 2000 Mrs Cotterill came up at the dinner hour to read out her son's letters from the road. The works ran a sweep, all month, on what the last letter would say. Nib had Thursday. Tappet had *there is no dragon*. There was no dragon. Nib paid, and she was not happy about it.
+At the dinner hour the shift is Miss Hoyle, and Nib, and <a href="Tappet_Cotterill">Tappet Cotterill</a>, which at the Hoyle Works is all of it, and in the year 2000 <a href="Nora_Cotterill">Mrs Cotterill</a> came up at the dinner hour to read out her son's letters from the road. The works ran a sweep, all month, on what the last letter would say. Nib had Thursday. Tappet had *there is no dragon*. There was no dragon. Nib paid, and she was not happy about it.
 
 ### A note on the apprentice
 
@@ -50,7 +50,7 @@ At the dinner hour the shift is Miss Hoyle, and Nib, and Tappet Cotterill, which
 
 3. The can. I did know. I have always known. The small can was lost in 1981 by the thirty-seventh. I ask for it every day so that the apprentice will bring me the big one, which is the one I want, without either of us having to discuss the matter. It works. She worked it out in 2000, and has gone on bringing me the big one, and I have gone on asking for the small one. That is not a joke either.
 
-4. She has the makings. Ollerenshaw says that of his. I say it of mine, faster.
+4. She has the makings. <a href="Bryd_Ollerenshaw">Ollerenshaw</a> says that of his. I say it of mine, faster.
 
 O. HOYLE, Works Manager. 16 March 2002.
 

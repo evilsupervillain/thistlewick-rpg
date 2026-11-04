@@ -35,7 +35,7 @@ In 1989 a younger man set up in the town, with newer methods, and Dr Pike found 
 
 > "Eleven years. I took a room for a fortnight, to think about it."
 
-He went up the stairs on his first night, and Walt Ashbury played him up, and he came down at twenty past two the next afternoon better than he had been in thirty years, and had a chop, and sat down by the fire to think about why. He has been thinking about it since. It is now thirteen years. The fortnight has never formally ended. He pays by the week, on Fridays, and Mrs Ashbury writes *fortnight (contd.)* in the book.
+He went up the stairs on his first night, and Walt Ashbury played him up, and he came down at twenty past two the next afternoon better than he had been in thirty years, and had a chop, and sat down by the fire to think about why. He has been thinking about it since. It is now thirteen years. The fortnight has never formally ended. He pays by the week, on Fridays, and <a href="Hester_Ashbury">Mrs Ashbury</a> writes *fortnight (contd.)* in the book.
 
 ## The watching
 
@@ -55,7 +55,7 @@ I asked him, before I left, whether the stairs had done him any good. He said th
 
 ## Afterwards
 
-He is still by the fire. The younger man at Haverleigh has written to him, twice, to ask whether he would come back and take some of the patients, the town being busier since the road to the Tower opened up; he wrote back to say that he would think about it, and that he was at present in the middle of a fortnight. He has begun a new notebook, number forty, headed THE NORTH ROAD: VISITORS TO THE CHAIR, because the traffic since 2000 has doubled his sample. He says that it has not helped.
+He is still by the fire. The younger man at Haverleigh has written to him, twice, to ask whether he would come back and take some of the patients, the town being busier since the road to the <a href="../Places/The_Obligatory_Tower">Tower</a> opened up; he wrote back to say that he would think about it, and that he was at present in the middle of a fortnight. He has begun a new notebook, number forty, headed THE NORTH ROAD: VISITORS TO THE CHAIR, because the traffic since 2000 has doubled his sample. He says that it has not helped.
 
 ## See also
 

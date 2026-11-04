@@ -39,7 +39,7 @@ In the year 2000 he asked the Forty-Eighth's company whether any of them was, by
 
 That was not the Opening. The Counting House is opened informally; the Opening proper will follow on completion of Form L. Behind the Door there was one room, one chair, and on the chair a note: WE SPENT IT. J. POCKLINGTON, CLERK TO THE CORPORATION. 1788. He sat down on the chair, as the first Mayor to do so, and read the preamble to it, in full, twice.
 
-<div class="marginalia">The money stacked under the note came to one thousand seven hundred and eighty-eight crowns, which nobody can explain, and the Mayor said that it was not the Corporation's, because the memorandum says they have enough. He has put it in the Bonded Warehouse, under Mr Tibbs, as Bond No. 1788, <i>money, a little, provenance none whatever</i>, and the Corporation pays the rent on it. He says that it is the first sound financial decision the Corporation has made since 1788, and that it is a very good chair. - H.B.</div>
+<div class="marginalia">The money stacked under the note came to one thousand seven hundred and eighty-eight crowns, which nobody can explain, and the Mayor said that it was not the Corporation's, because the memorandum says they have enough. He has put it in the Bonded Warehouse, under <a href="Mr_Tibbs">Mr Tibbs</a>, as Bond No. 1788, <i>money, a little, provenance none whatever</i>, and the Corporation pays the rent on it. He says that it is the first sound financial decision the Corporation has made since 1788, and that it is a very good chair. - H.B.</div>
 
 ## The scissors
 

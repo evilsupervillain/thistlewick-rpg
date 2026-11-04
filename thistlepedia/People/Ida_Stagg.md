@@ -14,7 +14,7 @@ title: Ida Stagg
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td><a href="Perce_Stagg">Perce Stagg</a>, 1961, the day after the first Festival</td></tr>
 <tr><th>Festivals</th><td>Forty-two. Loved every one</td></tr>
-<tr><th>Cold</th><td>Never once, in forty winters, by Clem's account</td></tr>
+<tr><th>Cold</th><td>Never once, in forty winters, by <a href="Clem_Blagg">Clem</a>'s account</td></tr>
 <tr><th>Ribbons for the great many things since</th><td>None</td></tr>
 <tr><th>Don't tell him</th><td>He'll only go pink again</td></tr>
 </table>
@@ -33,7 +33,7 @@ They were married the next spring, the day after the first Festival, at which he
 
 > "He did one great thing forty years ago. And a great many things since. None of THOSE ever got a ribbon."
 
-I asked her for the great many things, for this article, and she gave me a list, on condition that it did not go any further than the encyclopedia. It is long. It includes the lanterns, every year, two hundred and twelve; the roof of the Working Group's room, twice; Mrs Blagg's mother's garden wall; the year the well froze and he carried water up the hill for six weeks; the dog; and *every morning, the fire, before I am up, for forty years, without once being asked*. I have not printed the rest. She has asked me to say that it goes on.
+I asked her for the great many things, for this article, and she gave me a list, on condition that it did not go any further than the encyclopedia. It is long. It includes the lanterns, every year, two hundred and twelve; the roof of the Working Group's room, twice; <a href="Wilhelmina_Blagg">Mrs Blagg</a>'s mother's garden wall; the year the well froze and he carried water up the hill for six weeks; the dog; and *every morning, the fire, before I am up, for forty years, without once being asked*. I have not printed the rest. She has asked me to say that it goes on.
 
 <div class="marginalia">Clem Blagg, at seven, told the Forty-Eighth that Nan says Mrs Stagg has never once been cold, not in forty winters, and that it must be Mr Stagg's lanterns, because he does ever such good lanterns. The committee found the ceiling very interesting. I put Clem's observation to Mrs Stagg. She said that it was the fire, every morning, before she was up, and that the boy was quite right, and that I was to say so, and that Mrs Blagg was to stop looking at the ceiling. - H.B.</div>
 

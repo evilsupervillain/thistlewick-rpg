@@ -32,7 +32,7 @@ He went into the forge at fourteen, in the autumn of 1999, and in his first mont
 
 > "A gudgeon is a pin. That one is fine."
 
-He has said it every day since, and they have taken it, he says, very badly, by which he means that they have taken no notice of it at all. Mrs Cotterill says that the names are not wrong; they are what she called them. Shim says that she does not mind being a packing piece, because a packing piece is what you put in to make a thing fit, and that is a good thing to be. Ferrule says nothing, and makes him stand up.
+He has said it every day since, and they have taken it, he says, very badly, by which he means that they have taken no notice of it at all. <a href="Nora_Cotterill">Mrs Cotterill</a> says that the names are not wrong; they are what she called them. <a href="Shim_Cotterill">Shim</a> says that she does not mind being a packing piece, because a packing piece is what you put in to make a thing fit, and that is a good thing to be. <a href="Ferrule_Cotterill">Ferrule</a> says nothing, and makes him stand up.
 
 He has not been asked about his own name, and so I asked him. He said that a grommet is the ring that goes round a hole in a sail, so that the rope does not chafe it, and that it is not a fastener either, and that he had known that since his first week, and had decided not to bring it up. "Somebody has to be right in this family," he said. "It doesn't have to be me."
 
@@ -50,15 +50,15 @@ In the year 2000 a drawing came down the hill from the <a href="../Institutions/
 
 It was done in one heat, because it could only be done in one, and in the whole of it the four hands were never once in each other's way. Then Grommet went in, feet first, with a candle and a drift, and sighted the holes from the inside. "They're true. All of them. Can I come out." Mr Ollerenshaw said, "When it's -" and Hob said, "Let the lad out," and he came out black to the eyebrows, and looked at the two of them, and said it to the company, not to them: "They do this every time."
 
-Miss Hoyle tried every one of the forty-one holes with a gauge pin, and nodded at every one, and asked who had gone in. She was told. "Good lad," she said. In the Hoyle Works that is not framed, because "that will do" is framed, and there is only so much wall; but Grommet has it written down, on the inside of his cap.
+<a href="Ott_Hoyle">Miss Hoyle</a> tried every one of the forty-one holes with a gauge pin, and nodded at every one, and asked who had gone in. She was told. "Good lad," she said. In the Hoyle Works that is not framed, because "that will do" is framed, and there is only so much wall; but Grommet has it written down, on the inside of his cap.
 
 "I've been inside a tube plate," he says now, to anybody. "Mr Ollerenshaw says I did it right." And then, because he is a fair-minded boy: "He said it quick, an' all."
 
-<div class="marginalia">Rivet, who shares a bed with him, would like it known that he sleeps with his elbows. Grommet would like it known that Rivet has never once said so to his face, and that a man who has things to say about elbows should say them in the bed, where the elbows are. - H.B.</div>
+<div class="marginalia"><a href="Rivet_Cotterill">Rivet</a>, who shares a bed with him, would like it known that he sleeps with his elbows. Grommet would like it known that Rivet has never once said so to his face, and that a man who has things to say about elbows should say them in the bed, where the elbows are. - H.B.</div>
 
 ## Afterwards
 
-He is seventeen, and two years and more at the forge. Mr Ollerenshaw still says he has got the makings, and says it a little faster, and on one occasion in 2001, Grommet says, he said it before he had finished looking at the work, which Grommet regards as the high point of his career so far. He still tells the family every day that the names are wrong. Washer, two today, has not said a word yet, but looks at him, when he starts, with what Grommet calls an expression. The whole street has money on what the first word will be. Grommet says that if it is *wrong* he will consider the matter closed.
+He is seventeen, and two years and more at the forge. Mr Ollerenshaw still says he has got the makings, and says it a little faster, and on one occasion in 2001, Grommet says, he said it before he had finished looking at the work, which Grommet regards as the high point of his career so far. He still tells the family every day that the names are wrong. <a href="Washer_Cotterill">Washer</a>, two today, has not said a word yet, but looks at him, when he starts, with what Grommet calls an expression. The whole street has money on what the first word will be. Grommet says that if it is *wrong* he will consider the matter closed.
 
 ## See also
 

@@ -6,7 +6,7 @@ title: The Long Field
 
 <p class="contributor">Contributed by O. Hoyle, of the Hoyle Works, Upper Clanging</p>
 
-<p class="hatnote">I asked Miss Hoyle whether she would read over what I had written about the Long Field. She sent it back with a line through all of it and this memorandum attached, which I print whole. The field is hers. For the town above it, see <a href="Upper_Clanging">Upper Clanging</a>. For the works, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>. - H.B.</p>
+<p class="hatnote">I asked <a href="../People/Ott_Hoyle">Miss Hoyle</a> whether she would read over what I had written about the Long Field. She sent it back with a line through all of it and this memorandum attached, which I print whole. The field is hers. For the town above it, see <a href="Upper_Clanging">Upper Clanging</a>. For the works, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>. - H.B.</p>
 
 <table class="infobox">
 <caption>The Long Field</caption>
@@ -84,7 +84,7 @@ TO: Mr H. Bellwether, Nether Sopping. FROM: O. Hoyle. RE: Your draft, "The Long 
 
 8.1. Every other plate names the part that failed. Nobody ever got to her to find out which part. Somebody wrote it out correctly in five words and would not put up a wrong one instead.
 
-8.2. In 2000 the Two Hundred flew out to the stack, and her number-plate came off in one turn of a spanner, and it is on the bolts now. It fits. Of course it fits. That is the thirteenth plate. There are twelve readable plates in this field, and the thirteenth is one you make, and it does not count, because twelve is twelve.
+8.2. In 2000 the <a href="../History/The_Flight_of_the_Two_Hundred">Two Hundred</a> flew out to the stack, and her number-plate came off in one turn of a spanner, and it is on the bolts now. It fits. Of course it fits. That is the thirteenth plate. There are twelve readable plates in this field, and the thirteenth is one you make, and it does not count, because twelve is twelve.
 
 9. **The Two Hundred.** The two hundredth attempt reached the tower and landed adjacent. She is not in this field and is not going to be. The attempt log reads REACHED THE TOWER. LANDED ADJACENT. CAUSE: UNDER REVIEW. Mr Bellwether has asked me what is under review. It is under review.
 

@@ -26,7 +26,7 @@ title: Ysolde Marrow
 
 ## The trade
 
-She will tell you, if you ask what the job was like, about the duke's son. The party was paid to walk him from the coast to the Tower, for the exposure, they said; for his character. He had four hit points. She counted them. He walked into every fight they had, not bravely, but the way you walk into a room, and she stood in front of him for nine weeks. He made it. He runs a shipping concern now, and sent her a card once, with a Y in the wrong place in her name.
+She will tell you, if you ask what the job was like, about the duke's son. The party was paid to walk him from the coast to the <a href="../Places/The_Obligatory_Tower">Tower</a>, for the exposure, they said; for his character. He had four hit points. She counted them. He walked into every fight they had, not bravely, but the way you walk into a room, and she stood in front of him for nine weeks. He made it. He runs a shipping concern now, and sent her a card once, with a Y in the wrong place in her name.
 
 Everybody in the Wyvern has heard about the duke's son. Everybody nods anyway, because it is a very good one.
 
@@ -36,7 +36,7 @@ In her kit, which every fold of is worn where somebody's hand went, there is one
 
 ## The Forty-Fourth
 
-When they put Ambrose in the mound, with a curse on it, she had a good deal to say, and has said it at the bar for forty years to anybody from Thistlewick who would stand still. "Forty years they ignored him, and then they did THAT." In the year 2000 the Forty-Eighth came back from the Barrow and found her looking up before he had said anything at all. "You've been out to the mound."
+When they put Ambrose in the mound, with a curse on it, she had a good deal to say, and has said it at the bar for forty years to anybody from Thistlewick who would stand still. "Forty years they ignored him, and then they did THAT." In the year 2000 the Forty-Eighth came back from the <a href="../Places/The_Barrow_of_the_Forty-Fourth">Barrow</a> and found her looking up before he had said anything at all. "You've been out to the mound."
 
 He told her what Ambrose had asked for, and that it was there now, on the top, facing the sea. He told her, too, the message: that she was right about the four hit points. She was quiet for what felt like a long time. Nobody in the room looked over. Everybody in the room was listening.
 
@@ -52,7 +52,7 @@ Once a year she chairs the Table, in the back room of the Wyvern behind the red 
 
 The kit came back. I am not able to say what state it was in, having been told by Mrs Marrow that the state it was in is a matter between her and the Forty-Eighth, and having heard, from the other side of the bar, what she said to him about it, which took some time and was very rude, as promised. She has it open in front of her again, out of habit. The bottle labelled FOR AFTER has been refilled.
 
-When Bram told her he had been in Ambrose's cottage, she asked whether he had watered that thing in the pot. He had. "He watered it every morning for forty years. It was dead when he bought it. He said it was the principle." She has been out to the Barrow since, once, and sat on the bench, and come back, and has not said a word about it to anybody, which is the longest she has gone without saying a word about Thistlewick in forty years.
+When <a href="Bram_Thistle">Bram</a> told her he had been in Ambrose's cottage, she asked whether he had watered that thing in the pot. He had. "He watered it every morning for forty years. It was dead when he bought it. He said it was the principle." She has been out to the Barrow since, once, and sat on the bench, and come back, and has not said a word about it to anybody, which is the longest she has gone without saying a word about Thistlewick in forty years.
 
 The Table sat again in 2001, and Merribell spoke, for eleven minutes, and the minutes record it as the most useful address in the Table's history, and the subject was water. Mrs Marrow chaired. She has told me that she is not going to retire, and that if I print anything to the contrary she will want it back.
 

@@ -116,7 +116,7 @@ The Obligatory Tower is, I am told, under contract, and so is most of what is in
 
 **Where.** The Tower, in the walls, until it is not.
 
-**Remarks.** It is structurally important, and it attacks anyway, which raises questions about the Tower. Miss Hoyle of <a href="../Places/Upper_Clanging">Upper Clanging</a> asked one of those questions, in writing, and it went up the Tower with the Forty-Eighth, and I understand that it was not answered. I am not competent to answer it. I list the gargoyle so that the next person who asks what the Tower is made of has a place to start: in part, it is made of things that do not want to be in it.
+**Remarks.** It is structurally important, and it attacks anyway, which raises questions about the Tower. <a href="../People/Ott_Hoyle">Miss Hoyle</a> of <a href="../Places/Upper_Clanging">Upper Clanging</a> asked one of those questions, in writing, and it went up the Tower with the Forty-Eighth, and I understand that it was not answered. I am not competent to answer it. I list the gargoyle so that the next person who asks what the Tower is made of has a place to start: in part, it is made of things that do not want to be in it.
 
 ## Persons
 

@@ -13,7 +13,7 @@ title: Old Hollis
 <tr><th>Born</th><td>Amos Hollis, 8 August 1925, at Firstfield, in the cottage behind the tent</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Married</th><td>Nell Hollis, née Coombe, 1951</td></tr>
-<tr><th>Post</th><td>Station One: Items, the Guild of Guides, since 1959</td></tr>
+<tr><th>Post</th><td>Station One: Items, the <a href="../Institutions/The_Guild_of_Guides">Guild of Guides</a>, since 1959</td></tr>
 <tr><th>Line</th><td>It's dangerous to go alone! Take this. Adjusted for party size</td></tr>
 <tr><th>Sticks given</th><td>Eleven thousand, two hundred and six, by 2000</td></tr>
 <tr><th>Sticks come back</th><td>One</td></tr>

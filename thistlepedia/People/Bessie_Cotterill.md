@@ -30,7 +30,7 @@ She was christened Elizabeth, which nobody has ever used, except the vicar once,
 
 ## The match
 
-She and Cotter Cotterill had known each other all their lives, in the sense that in Upper Clanging you cannot not know a Cotterill, there being too many of them, and she had walked past him at the chapel door every Sunday for twenty years. She says that he asked her out on the first Saturday he walked home from <a href="../Places/Great_Dunnage">Great Dunnage</a>, in 1994, eleven miles, and that he was too tired to say anything else, and that she said yes to stop him falling over. He says he asked on the second Saturday, and that on the first he had been too tired to ask. Mrs Cotterill says it was the third, and that she knows, because he came in and ate two dinners.
+She and Cotter Cotterill had known each other all their lives, in the sense that in Upper Clanging you cannot not know a Cotterill, there being too many of them, and she had walked past him at the chapel door every Sunday for twenty years. She says that he asked her out on the first Saturday he walked home from <a href="../Places/Great_Dunnage">Great Dunnage</a>, in 1994, eleven miles, and that he was too tired to say anything else, and that she said yes to stop him falling over. He says he asked on the second Saturday, and that on the first he had been too tired to ask. <a href="Nora_Cotterill">Mrs Cotterill</a> says it was the third, and that she knows, because he came in and ate two dinners.
 
 They married in September 1999, at the chapel, on a Saturday, so that he could walk home for it. Winnie Marsden spent the reception drawing the Cotterills into the Class of 'Nineteen's seating plan, and found that there was no column for nine of them, ten in the spring, and that the plan had been settled when she was four, and she went home early and sat up with it, and nobody has been told what she said to it.
 
@@ -50,7 +50,7 @@ Nobody has. Winnie came round the next day and looked at the cradle for some tim
 
 ## Afterwards
 
-The baby came in the summer of 2000, as she had said it would, on time. Mrs Cotterill says it is the second Cotterill ever to be on time, after Washer, and that it is a very good start. The baby is not named in this encyclopedia, at Winnie's request, until the seating plan is settled. The seating plan has a high chair in it now, in pencil, which Winnie drew in herself. It is the first thing on that plan that has ever been in pencil, and Bessie says it is the first time she has ever known her gran to leave anything open to revision.
+The baby came in the summer of 2000, as she had said it would, on time. Mrs Cotterill says it is the second Cotterill ever to be on time, after <a href="Washer_Cotterill">Washer</a>, and that it is a very good start. The baby is not named in this encyclopedia, at Winnie's request, until the seating plan is settled. The seating plan has a high chair in it now, in pencil, which Winnie drew in herself. It is the first thing on that plan that has ever been in pencil, and Bessie says it is the first time she has ever known her gran to leave anything open to revision.
 
 She still has her dinner at the end of the street. She still has the house to herself on the second Saturday, though now it is the house, and Cotter, and the baby, and she says that is a better house.
 

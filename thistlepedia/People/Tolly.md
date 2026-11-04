@@ -37,9 +37,9 @@ She has known all along. She has known, too, what the Forty-Sixth told the Forty
 
 ## The sheet of stamps
 
-In 1989 she bought a whole sheet of stamps, once, forty of them at the old rate, off the counter at the Wyvern, to save going in every month, and was very pleased with herself, and put it down on the counter while she paid for her half, and it was gone. She never found out where. She went back to buying them in twos the next month, and has bought them in twos since, and says that she found she did not mind, because going in to buy them had turned out to be part of it.
+In 1989 she bought a whole sheet of stamps, once, forty of them at the old rate, off the counter at the <a href="../Places/The_Slain_Wyvern">Wyvern</a>, to save going in every month, and was very pleased with herself, and put it down on the counter while she paid for her half, and it was gone. She never found out where. She went back to buying them in twos the next month, and has bought them in twos since, and says that she found she did not mind, because going in to buy them had turned out to be part of it.
 
-In the year 2000 Nix came into the Wyvern with the eleven things on the first page of her ledger, which she had taken in 1989, at fifteen, and had never sold, and was taking back to their owners. "Stamps. A sheet of forty, off the Wyvern's counter. The old rate."
+In the year 2000 <a href="Nix">Nix</a> came into the Wyvern with the eleven things on the first page of her ledger, which she had taken in 1989, at fifteen, and had never sold, and was taking back to their owners. "Stamps. A sheet of forty, off the Wyvern's counter. The old rate."
 
 > "We don't buy them by the sheet. We buy them in twos."
 

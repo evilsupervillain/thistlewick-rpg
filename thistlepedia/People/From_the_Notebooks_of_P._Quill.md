@@ -107,11 +107,11 @@ Piper Quill has been asked about verse seven by everyone she has ever met, inclu
 
 ## The elegy
 
-*Abel Thrush, Carrier*, nine lines, is on the fingerpost at <a href="../Places/Little_Gore">Little Gore</a>, under a little roof somebody made for it, and is printed whole in the <a href="Piper_Quill#the-elegy">compiler's article on her</a>, by her leave. She would only add that Mrs Vane asked whether it might have a bit more of a tune, and that Piper Quill laughed, out loud, at her own work, for the first time, and said: next time. There has not been a next time yet. There will be. She is working on the tune.
+*Abel Thrush, Carrier*, nine lines, is on the fingerpost at <a href="../Places/Little_Gore">Little Gore</a>, under a little roof somebody made for it, and is printed whole in the <a href="Piper_Quill#the-elegy">compiler's article on her</a>, by her leave. She would only add that <a href="Hester_Vane">Mrs Vane</a> asked whether it might have a bit more of a tune, and that Piper Quill laughed, out loud, at her own work, for the first time, and said: next time. There has not been a next time yet. There will be. She is working on the tune.
 
 ## The tea
 
-Written at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, the evening the Forty-Eighth came in from the cottage of the Forty-Fifth and told the compiler the end, and the compiler filled his last page, and Piper Quill was at the next table, and wrote this, and did not show either of them:
+Written at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, the evening the Forty-Eighth came in from the cottage of the <a href="Halbert_Quy">Forty-Fifth</a> and told the compiler the end, and the compiler filled his last page, and Piper Quill was at the next table, and wrote this, and did not show either of them:
 
 <div class="verse">
 <p>'Forty-seven did the sword. The one<br>

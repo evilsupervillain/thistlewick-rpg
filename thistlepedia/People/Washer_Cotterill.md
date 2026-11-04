@@ -12,20 +12,20 @@ title: Washer Cotterill
 <tr><th>Born</th><td>21 March 2000, at six in the morning, on the hooter, at the house at the end of the street, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Age</th><td>Two, today, as this volume goes to press</td></tr>
-<tr><th>Named for</th><td>A washer, which goes under a nut, so that it holds. Grommet has not ruled on it; it is the only one he says he would not dare to</td></tr>
+<tr><th>Named for</th><td>A washer, which goes under a nut, so that it holds. <a href="Grommet_Cotterill">Grommet</a> has not ruled on it; it is the only one he says he would not dare to</td></tr>
 <tr><th>Named by</th><td>Spare, who got to it first. Mam was tired</td></tr>
 <tr><th>Price</th><td>Twenty to one</td></tr>
 <tr><th>On time</th><td>Yes. The only Cotterill who ever was</td></tr>
 <tr><th>Register</th><td>Entered at a quarter to seven, in ink, in a new column, ruled</td></tr>
 <tr><th>First word</th><td>Not yet. The whole street has money on it</td></tr>
-<tr><th>Is owed</th><td>One washer, by Shim, when bigger</td></tr>
+<tr><th>Is owed</th><td>One washer, by <a href="Shim_Cotterill">Shim</a>, when bigger</td></tr>
 </table>
 
-<p class="lede"><b>Washer Cotterill</b> is the tenth and youngest of the Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, born at six in the morning on the first day of spring in the year 2000, on the hooter, the only one of them, Mrs Cotterill says, who was ever on time. Mr Cotterill had said not Washer. Spare got to it first.</p>
+<p class="lede"><b>Washer Cotterill</b> is the tenth and youngest of the Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, born at six in the morning on the first day of spring in the year 2000, on the hooter, the only one of them, <a href="Nora_Cotterill">Mrs Cotterill</a> says, who was ever on time. <a href="Ernest_Cotterill">Mr Cotterill</a> had said not Washer. Spare got to it first.</p>
 
 ## Before
 
-The tenth was expected in the spring. Every Cotterill in the town knew it, and so did the Forty-Eighth, the moment he came up the street, because Mrs Cotterill told him at the door, "Nine. And one in the oven," and then, "Ten in the spring. Mr Cotterill is very pleased." The family had given all the small clothes away and Mrs Cotterill had to go round the town and ask for them back. Ferrule was in charge of her not lifting anything. <a href="Winnie_Marsden">Winnie Marsden</a> had been to the seating plan of the Class of 'Nineteen and found that it had no column for it. Clevis had opened a book on the name, with Gib at evens and Washer at twenty to one, because Da had said not Washer. Shim had said that Spare could have a washer if he went away before the baby came, and Spare had gone away, with the washer, to the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>.
+The tenth was expected in the spring. Every Cotterill in the town knew it, and so did the Forty-Eighth, the moment he came up the street, because Mrs Cotterill told him at the door, "Nine. And one in the oven," and then, "Ten in the spring. Mr Cotterill is very pleased." The family had given all the small clothes away and Mrs Cotterill had to go round the town and ask for them back. <a href="Ferrule_Cotterill">Ferrule</a> was in charge of her not lifting anything. <a href="Winnie_Marsden">Winnie Marsden</a> had been to the seating plan of the Class of 'Nineteen and found that it had no column for it. Clevis had opened a book on the name, with Gib at evens and Washer at twenty to one, because Da had said not Washer. Shim had said that Spare could have a washer if he went away before the baby came, and Spare had gone away, with the washer, to the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>.
 
 So Washer was talked about, priced, provided for, argued over and twice named before being born, and she was, at the time, the most discussed person in the north who had not yet done anything.
 
@@ -35,11 +35,11 @@ The Forty-Eighth's company came down from the Tower, and after the ending Spare 
 
 He asked every morning, on waking. *Is it spring yet?* He was told not yet, and took it extremely well, and was told soon, and asked how soon, and looked at the sky as if it were late with something, and said that he would ask tomorrow, and did. Then one morning the light was a different colour, and the air smelt green, and something was singing that had not been singing the day before, and he was told yes. "Then I have to go home. Mam said ten in the spring. It is the spring." He had the bag on before anybody had finished saying it. It was, as everybody who was with him has told me, the first deadline in the whole of the Quest that anybody could actually have missed, and he did not intend to.
 
-He was home by the evening. Every Cotterill in Upper Clanging was indoors, and the street was empty, which nobody in the town could remember happening before, and every window in the house was lit. Bessie was at the Cotterills' door, not her own, and saw him, and opened it, and held it. "I have to go in now," said Spare to the company. "Come back in the morning. Not before. Mam said." He went in with the bag, and the door shut.
+He was home by the evening. Every Cotterill in Upper Clanging was indoors, and the street was empty, which nobody in the town could remember happening before, and every window in the house was lit. <a href="Bessie_Cotterill">Bessie</a> was at the Cotterills' door, not her own, and saw him, and opened it, and held it. "I have to go in now," said Spare to the company. "Come back in the morning. Not before. Mam said." He went in with the bag, and the door shut.
 
-Mr Cotterill came off nights for it, for the first time in twenty-two years, and he and Rivet passed at the door at six the next morning, the both of them going in. At six o'clock exactly the works hooter went for the day shift, and Washer was born on it.
+Mr Cotterill came off nights for it, for the first time in twenty-two years, and he and <a href="Rivet_Cotterill">Rivet</a> passed at the door at six the next morning, the both of them going in. At six o'clock exactly the works hooter went for the day shift, and Washer was born on it.
 
-Bessie told it at the door to anybody who came by: "Washer. Six o'clock this morning, on the hooter. Mrs Cotterill says it is the only one of them that was ever on time." Gudgeon entered it in the register at a quarter to seven, in ink, and had to rule a new column, because the old one was full. Clevis paid out most of Upper Clanging. Cotter came home on the Saturday, for good. And Spare came out onto the step, and told the company, as if they could not possibly have heard:
+Bessie told it at the door to anybody who came by: "Washer. Six o'clock this morning, on the hooter. Mrs Cotterill says it is the only one of them that was ever on time." <a href="Gudgeon_Cotterill">Gudgeon</a> entered it in the register at a quarter to seven, in ink, and had to rule a new column, because the old one was full. Clevis paid out most of Upper Clanging. <a href="Cotter_Cotterill">Cotter</a> came home on the Saturday, for good. And Spare came out onto the step, and told the company, as if they could not possibly have heard:
 
 > "It is a baby. It is very small. It got hold of my finger and it would not give it back. I am not the youngest any more. I am a big brother."
 

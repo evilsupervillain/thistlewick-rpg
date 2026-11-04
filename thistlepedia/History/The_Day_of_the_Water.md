@@ -35,7 +35,7 @@ It rained, in 1989, and went on raining, and on a Tuesday the water in the botto
 
 > "Oh, the flood. It was a Tuesday. We all went up the hill with the kettles, and by teatime we'd decided to build it again, only better."
 
-That is Mrs Ash, and it is the account of the day that everybody in Ashcombe gives, nearly word for word, because it is the true one. They went up the hill in the order on the plan, which was by streets, and took the kettles, which were not on the plan but which everybody took regardless, and the church bell, which came up on a cart, because nobody saw why it shouldn't. The schoolmistress brought the strongbox of reports up as far as the schoolroom door, decided that it was safer where it was, and left it there in oilcloth, and she was right. The water came up over the street and the Anchor and the school, and up the church to its eaves, and stopped there, and has stayed.
+That is <a href="../People/Mrs_Ash">Mrs Ash</a>, and it is the account of the day that everybody in Ashcombe gives, nearly word for word, because it is the true one. They went up the hill in the order on the plan, which was by streets, and took the kettles, which were not on the plan but which everybody took regardless, and the church bell, which came up on a cart, because nobody saw why it shouldn't. The schoolmistress brought the strongbox of reports up as far as the schoolroom door, decided that it was safer where it was, and left it there in oilcloth, and she was right. The water came up over the street and the Anchor and the school, and up the church to its eaves, and stopped there, and has stayed.
 
 ## The Roll
 

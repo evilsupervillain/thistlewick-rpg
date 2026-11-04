@@ -32,9 +32,9 @@ She is my colleague, and my rival, and she has read this article, and she says i
 
 ## The Quills
 
-The text under all forty-seven portraits on the Wall of the Forty-Seven in <a href="../Places/Prophecy_Hall">Prophecy Hall</a> was written by somebody in her family. Her grandmother did numbers forty to forty-three, and is quoted in the Prophecy's own preamble. The house style is one line long: *never let the truth spoil the metre.* Piper's entire professional rebellion has been to let it.
+The text under all forty-seven portraits on the Wall of the Forty-Seven in <a href="../Places/Prophecy_Hall">Prophecy Hall</a> was written by somebody in her family. Her grandmother did numbers forty to forty-three, and is quoted in the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a>'s own preamble. The house style is one line long: *never let the truth spoil the metre.* Piper's entire professional rebellion has been to let it.
 
-Her aunt, Ambrosine Quill, is the senior chronicler now, and is an extremely good writer. I have reason to know.
+Her aunt, <a href="Ambrosine_Quill">Ambrosine Quill</a>, is the senior chronicler now, and is an extremely good writer. I have reason to know.
 
 ## On the Quest
 
@@ -44,7 +44,7 @@ She joined in the Gilded Turnip, mid-verse:
 
 and immediately needed a rhyme for *turnip*, and said she would get one on the road. She always does. She did not, because there isn't one, and that, as it turned out, was the point.
 
-**A rhyme for turnip.** In the Gilded Turnip, which is named after the problem, the whole company sat down one afternoon and offered her rhymes. Hob offered *burnip*, without embarrassment. Zephyrine offered a slant rhyme with *sherbet*, which the Collegium would accept. Wren ruled everything ending in *-nip* inadmissible, pre-emptively, on the grounds that it is a genus. Sir Aldric offered the word for turnip in the old tongue of his house, which rhymes beautifully with nothing, in his tongue or anybody's. Corvin's scanned perfectly, and was about drowning. <a href="Merribell">Merribell</a> went looking for something anatomical, right down to the feet, and found nothing. <a href="Nix">Nix</a> located one, ahead of schedule, on behalf of a client, and it was *turnip*. Bram offered a parsnip, and was told it is a different vegetable. There is no rhyme for *turnip*, and any competent poet would have changed the other line in the first week, which she then did, in nine seconds, moving the turnip into the middle of a line where nothing has to rhyme with it. "It was always going to be the last verse. I just had the lines the wrong way round." Everybody who had spent the afternoon on it was furious. She has asked for the nine seconds on her headstone. The verse is quoted under [The Obligatory Quest](../History/The_Obligatory_Quest#the-account).
+**A rhyme for turnip.** In the Gilded Turnip, which is named after the problem, the whole company sat down one afternoon and offered her rhymes. <a href="Hob_Grumnir">Hob</a> offered *burnip*, without embarrassment. <a href="Zephyrine_Vance">Zephyrine</a> offered a slant rhyme with *sherbet*, which the <a href="../Institutions/The_Collegium_Arcanum">Collegium</a> would accept. <a href="Wren_Halloway">Wren</a> ruled everything ending in *-nip* inadmissible, pre-emptively, on the grounds that it is a genus. <a href="Sir_Aldric_Pemberton-Gore_III">Sir Aldric</a> offered the word for turnip in the old tongue of his house, which rhymes beautifully with nothing, in his tongue or anybody's. <a href="Corvin_Ash">Corvin</a>'s scanned perfectly, and was about drowning. <a href="Merribell">Merribell</a> went looking for something anatomical, right down to the feet, and found nothing. <a href="Nix">Nix</a> located one, ahead of schedule, on behalf of a client, and it was *turnip*. <a href="Bram_Thistle">Bram</a> offered a parsnip, and was told it is a different vegetable. There is no rhyme for *turnip*, and any competent poet would have changed the other line in the first week, which she then did, in nine seconds, moving the turnip into the middle of a line where nothing has to rhyme with it. "It was always going to be the last verse. I just had the lines the wrong way round." Everybody who had spent the afternoon on it was furious. She has asked for the nine seconds on her headstone. The verse is quoted under [The Obligatory Quest](../History/The_Obligatory_Quest#the-account).
 
 **The Contest at the Sign of the Bell.** A bardic competition at <a href="../Places/Great_Dunnage">Great Dunnage</a>, with categories nobody can defend and a panel of three judges, one of whom cannot hear. She lost, by one point, to a man who does birdcalls. The birdcalls are, in fairness, extraordinary; his thrush in particular. She has framed the certificate. It is the first prize a Quill has ever won for writing down what actually happened.
 
@@ -54,7 +54,7 @@ and immediately needed a rhyme for *turnip*, and said she would get one on the r
 
 ## The elegy
 
-On the road at <a href="../Places/Little_Gore">Little Gore</a> there was a card nailed to the back of the fingerpost: WANTED: AN ELEGY. For Abel Thrush, carrier, who walked the road between Little Gore, Fenmarch and <a href="../Places/Sump">Sump</a> every day for fifty years, from 1941 until he died, in the spring of 1991, and never had one. Something with a bit of a tune.
+On the road at <a href="../Places/Little_Gore">Little Gore</a> there was a card nailed to the back of the fingerpost: WANTED: AN ELEGY. For Abel Thrush, carrier, who walked the road between Little Gore, <a href="../Places/Fenmarch_Hall">Fenmarch</a> and <a href="../Places/Sump">Sump</a> every day for fifty years, from 1941 until he died, in the spring of 1991, and never had one. Something with a bit of a tune.
 
 She had never met him. She asked eleven people, and every one of them described a different man, and she wrote it out of the contradictions rather than choosing between them. She did not stand on anything. She did not read it out. She pinned it to the post, under the Fenmarch arm, and stepped back. It is still there, under a little roof that somebody has made for it, and people stop and read it on their way past, and with her leave I print it whole.
 
@@ -72,7 +72,7 @@ The road is four miles long. He walks it still.</p>
 <span class="attribution">P. Quill, the fingerpost at Little Gore</span>
 </div>
 
-Mrs Vane, of Little Gore, read it twice, and said that it was him, all of him, and that every one of them was in it. Then she said they had wondered whether it might have a bit more of a tune. Piper laughed, out loud, about her own work, which nobody had heard her do before. "Next time."
+<a href="Hester_Vane">Mrs Vane</a>, of Little Gore, read it twice, and said that it was him, all of him, and that every one of them was in it. Then she said they had wondered whether it might have a bit more of a tune. Piper laughed, out loud, about her own work, which nobody had heard her do before. "Next time."
 
 ## Afterwards
 

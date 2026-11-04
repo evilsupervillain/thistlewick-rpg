@@ -9,7 +9,7 @@ title: Jack Furrow
 <table class="infobox">
 <caption>Jack Furrow</caption>
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Jack_Furrow.png" alt="Jack Furrow, white-bearded, in a large gold crown" width="200"><span class="infobox-caption">In a peasant crown</span></td></tr>
-<tr><th>Known as</th><td>A very ordinary traveller. "Jack Furrow, farm", on Dorcas's board</td></tr>
+<tr><th>Known as</th><td>A very ordinary traveller. "Jack Furrow, farm", on <a href="Dorcas_Thrupp">Dorcas</a>'s board</td></tr>
 <tr><th>Born</th><td>On a farm. Beans, mostly</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Trade</th><td>Peasant</td></tr>

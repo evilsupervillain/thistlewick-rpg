@@ -4,7 +4,7 @@ title: Tappet Cotterill
 
 # Tappet Cotterill
 
-<p class="hatnote">For the family, see <a href="The_Cotterills">The Cotterills</a>. For the thing that did not fly, and then did, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>, in Miss Hoyle's own words.</p>
+<p class="hatnote">For the family, see <a href="The_Cotterills">The Cotterills</a>. For the thing that did not fly, and then did, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>, in <a href="Ott_Hoyle">Miss Hoyle</a>'s own words.</p>
 
 <table class="infobox">
 <caption>Tappet Cotterill</caption>
@@ -13,7 +13,7 @@ title: Tappet Cotterill
 <tr><th>Born</th><td>28 January 1982, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Named for</th><td>A tappet, which is pushed, so that something else can open</td></tr>
-<tr><th>Works</th><td>Carting, for the foundry; and the shift at the Hoyle Works, which is Miss Hoyle, Nib, and her</td></tr>
+<tr><th>Works</th><td>Carting, for the foundry; and the shift at the Hoyle Works, which is Miss Hoyle, <a href="Nib">Nib</a>, and her</td></tr>
 <tr><th>Brings up</th><td>The castings, on Tuesdays. Six crates. Same place as always</td></tr>
 <tr><th>Watched the airship not fly</th><td>Four years</td></tr>
 <tr><th>Would still get in it</th><td>Yes</td></tr>
@@ -21,11 +21,11 @@ title: Tappet Cotterill
 <tr><th>Sweepstake</th><td>Had "there is no dragon"; won</td></tr>
 </table>
 
-<p class="lede"><b>Tappet Cotterill</b> is the fourth of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>. She brings the castings up from the foundry to the Hoyle Works on Tuesdays, six crates, and puts them in the same place as always, and for four years she watched the Two Hundred not fly from the bottom of the gantry while she did it. She would still have got in it. When it flew she stood under the empty gantry and said, "It flew," and that was all she said, grinning, and that is, I think, the best review any airship has ever had.</p>
+<p class="lede"><b>Tappet Cotterill</b> is the fourth of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>. She brings the castings up from the foundry to the Hoyle Works on Tuesdays, six crates, and puts them in the same place as always, and for four years she watched the <a href="../History/The_Flight_of_the_Two_Hundred">Two Hundred</a> not fly from the bottom of the gantry while she did it. She would still have got in it. When it flew she stood under the empty gantry and said, "It flew," and that was all she said, grinning, and that is, I think, the best review any airship has ever had.</p>
 
 ## Tuesdays
 
-She has carted for the foundry since she was fifteen, in 1997, with the foundry's pony, whose name is Gearbox, and who was named by her, and who is the only creature in Upper Clanging named by a Cotterill other than Mrs Cotterill, Mr Cotterill or Spare. On Tuesdays she brings the castings up the hill to the works, six crates of them, and backs the cart in under the gantry, and asks, every week, "Castings. Six crates. Where do you want them?" and is told, every week, the same place as always, and puts them there.
+She has carted for the foundry since she was fifteen, in 1997, with the foundry's pony, whose name is Gearbox, and who was named by her, and who is the only creature in Upper Clanging named by a Cotterill other than <a href="Nora_Cotterill">Mrs Cotterill</a>, <a href="Ernest_Cotterill">Mr Cotterill</a> or <a href="Spare_Cotterill">Spare</a>. On Tuesdays she brings the castings up the hill to the works, six crates of them, and backs the cart in under the gantry, and asks, every week, "Castings. Six crates. Where do you want them?" and is told, every week, the same place as always, and puts them there.
 
 Nobody ever asks her anything else. "Nobody does," she says. "That is the trouble with this place."
 

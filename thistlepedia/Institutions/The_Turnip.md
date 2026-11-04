@@ -26,7 +26,7 @@ title: The Turnip
 
 ## A note on the filing
 
-I define an institution, in the introduction to this volume, as a group of people who have agreed to keep minutes. The turnip keeps no minutes. When I put this to the parish of Thistlewick, by letter, I received in reply a letter of four pages from the clerk to the Prophecy Committee, setting out that the turnip had been in the village longer than the Committee had, that it had sent forty-eight Chosen Ones north on its strength, that it was on the crest and over the door of the inn, and that if those were not the marks of an institution then the clerk would be glad to know what were. The fourth page was about biscuits, and I think was from another letter.
+I define an institution, in the introduction to this volume, as a group of people who have agreed to keep minutes. The turnip keeps no minutes. When I put this to the parish of Thistlewick, by letter, I received in reply a letter of four pages from the clerk to the <a href="The_Prophecy_Committee">Prophecy Committee</a>, setting out that the turnip had been in the village longer than the Committee had, that it had sent forty-eight Chosen Ones north on its strength, that it was on the crest and over the door of the inn, and that if those were not the marks of an institution then the clerk would be glad to know what were. The fourth page was about biscuits, and I think was from another letter.
 
 <a href="../People/Wren_Halloway">Wren Halloway</a>, who keeps the Bestiary in this volume and who does not care for any of this, wrote to say that the turnip is a plant, *Brassica rapa*, and that she has already given it an entry, under its militant form, and that if it went anywhere else it should go in the Bestiary, and that nobody should send her theories. I have not sent her a theory. I have sent her this article, which is not a theory, but is long, and she has written back one word, which was *fine*, and was underlined, which I have chosen to read as approval.
 
@@ -51,7 +51,7 @@ SOUTH: The turnip fields. 40 paces.<br>
 EAST: The pond. There are no fish in it.<br>
 WEST: Also the turnip fields.</div>
 
-It is the most accurate signpost I have ever read, and I have read a great many, some of them in Firstfield, which explain themselves at length. It does not mention that the fields to the south and the fields to the west are the same fields, going round the corner, because to a Thistlewick person this does not need mentioning. To a visitor it is the first thing you notice, and then the only thing.
+It is the most accurate signpost I have ever read, and I have read a great many, some of them in <a href="../Places/Firstfield_Meadow">Firstfield</a>, which explain themselves at length. It does not mention that the fields to the south and the fields to the west are the same fields, going round the corner, because to a Thistlewick person this does not need mentioning. To a visitor it is the first thing you notice, and then the only thing.
 
 Several of the rows are worth seeing, and I give them in order, walking down from the lane.
 
@@ -90,7 +90,7 @@ The motto is the best thing about the arms, and Thistlewick does not seem to kno
 
 ### Breakfast
 
-In Thistlewick breakfast is turnip. It is turnip at the Gilded Turnip, where Prudence Thrupp's bed is twenty crowns and includes breakfast and breakfast is turnip, and she has never been asked to change this and would not, and it is turnip in the houses, and it was turnip on the morning the Forty-Eighth was Chosen, when his mother did it for him as a steak, for the occasion, and cut his into the shape of a sword. He has told me that it was the most supportive thing anybody did for him all day, and that he did not eat it at the time, and ate it later, as a sort of rehearsal.
+In Thistlewick breakfast is turnip. It is turnip at the Gilded Turnip, where <a href="../People/Prudence_Thrupp">Prudence Thrupp</a>'s bed is twenty crowns and includes breakfast and breakfast is turnip, and she has never been asked to change this and would not, and it is turnip in the houses, and it was turnip on the morning the Forty-Eighth was Chosen, when his mother did it for him as a steak, for the occasion, and cut his into the shape of a sword. He has told me that it was the most supportive thing anybody did for him all day, and that he did not eat it at the time, and ate it later, as a sort of rehearsal.
 
 I have stayed a night at the Gilded Turnip, and breakfast was turnip. It was a very good turnip. I would like that on the record, in case it is thought that a Nether Sopping man came to Thistlewick and was rude about the breakfast.
 
@@ -117,7 +117,7 @@ The Gilded Turnip keeps turnip on its shelves in sacks and boxes, labelled by ye
 
 Prudence makes a cordial of elderflower and turnip, which is better than it sounds, and would more or less have to be. The Field Tonic that is sold to adventurers in the south, which restores a whole company at once, also tastes of turnip, and nobody in the trade has been able to tell me why, and I have stopped asking, because the last man I asked said that most things did if you were from Thistlewick, and looked at me as though I might have been.
 
-The market stall on the square at Thistlewick sells turnips, for two crowns, under a card that reads FRESH! MOSTLY! A turnip eaten in the field restores the eater by an amount which the Adventurers' Guild has measured and which I will not print, because it is very small, and the turnip is not to blame for that, and would be hurt. The Guild's own description of the article reads in full: *A turnip. Bram grew it and would prefer you did not throw it away.* I asked the Guild who had written that, and they said it had come with the turnip.
+The market stall on the square at Thistlewick sells turnips, for two crowns, under a card that reads FRESH! MOSTLY! A turnip eaten in the field restores the eater by an amount which the <a href="The_Adventurers_Guild">Adventurers' Guild</a> has measured and which I will not print, because it is very small, and the turnip is not to blame for that, and would be hurt. The Guild's own description of the article reads in full: *A turnip. Bram grew it and would prefer you did not throw it away.* I asked the Guild who had written that, and they said it had come with the turnip.
 
 ## The chair
 
@@ -189,9 +189,9 @@ The afternoon is in her notebook, <a href="../People/From_the_Notebooks_of_P._Qu
 
 * *Burnip*. From the blacksmith, who said that it was a word now, and that he had made worse out of less.
 * Nothing ending in *-nip*. From the naturalist, pre-emptively, on the grounds that a nip is a bite, or a pinch, or catmint, genus *Nepeta*, and is inadmissible.
-* *Navet*, which is turnip in the old tongue of Sir Aldric's house, and rhymes very beautifully with nothing, in that tongue either.
+* *Navet*, which is turnip in the old tongue of <a href="../People/Sir_Aldric_Pemberton-Gore_III">Sir Aldric</a>'s house, and rhymes very beautifully with nothing, in that tongue either.
 * *Turnip*. Located, on behalf of a client, by <a href="../People/Nix">Nix</a>, written on a folded slip, with the provenance on the back. The client had not said it had to be a different word.
-* *Sherbet*. A slant rhyme, defended by the hedge mage on the grounds that the Collegium would accept it, which I am told is not, in itself, a defence.
+* *Sherbet*. A slant rhyme, defended by the hedge mage on the grounds that the <a href="The_Collegium_Arcanum">Collegium</a> would accept it, which I am told is not, in itself, a defence.
 * Something anatomical. From the field medic, who began at the scalp and went down, aloud, in order, and the Gilded Turnip went quiet somewhere around the pelvis, and she went right down to the feet, and there was nothing.
 * *Parsnip*. From the Forty-Eighth, who pointed out that it was very nearly there. It is a different vegetable.
 
@@ -221,7 +221,7 @@ At the edge of <a href="../Places/Wayside_Sights#the-cinder-fen">the Cinder Fen<
 
 In <a href="../Places/Fairholme">Fairholme</a>, where the kingdom has been divided among everybody who ever rescued its princess, one of the shareholders told him that she had got a turnip field and the north bridge, and that the bridge was the troll's, and they took turns. I have been to see the field. It is not as good as Thistlewick's. She knows.
 
-At <a href="../Places/Nether_Sopping">Nether Sopping</a>, in the outfitters, there is a crate marked RETURNS, full of compasses, and every one of them is pointing at the Gilded Turnip in Thistlewick. Mrs Barrow says it is a known fault. I do not dispute it. I have only to say that I have held one of those compasses in my hand, in Nether Sopping, forty miles away, and turned round with it, slowly, and it stayed pointing at Thistlewick the whole time, and at the turnip, and I put it down rather quickly.
+At <a href="../Places/Nether_Sopping">Nether Sopping</a>, in the outfitters, there is a crate marked RETURNS, full of compasses, and every one of them is pointing at the Gilded Turnip in Thistlewick. <a href="../People/Lavinia_Barrow">Mrs Barrow</a> says it is a known fault. I do not dispute it. I have only to say that I have held one of those compasses in my hand, in Nether Sopping, forty miles away, and turned round with it, slowly, and it stayed pointing at Thistlewick the whole time, and at the turnip, and I put it down rather quickly.
 
 <div class="marginalia">A guess, and marked as one. Thistlewick has believed for as long as it has had a fingerpost that it is the middle of the world. I do not believe this. I am a Nether Sopping man. But I have seen the compasses, and I am not, after that, as certain as I was. - H.B.</div>
 

@@ -29,11 +29,11 @@ Through one window you can see the Committee in session, and one of them will se
 
 ## The Hall
 
-The Elder stands at the far end, under a stained-glass window of the First Chosen One slaying the Dark Lord. The glazier has given the Dark Lord a very patient expression, like a man waiting for a bus he has been told is coming. I did not think anything of it until I had been to the top of the story, by letter; I think the glazier had been there in person.
+The Elder stands at the far end, under a stained-glass window of the First Chosen One slaying the <a href="../People/Grimspite_the_Inevitable">Dark Lord</a>. The glazier has given the Dark Lord a very patient expression, like a man waiting for a bus he has been told is coming. I did not think anything of it until I had been to the top of the story, by letter; I think the glazier had been there in person.
 
 **Elder <a href="../People/Elder_Wispel">Wispel</a>** gives the Prophecy to each Chosen One by unrolling it until it reaches the far wall, and then rolling it back up, which takes a while, and nobody helps. On his desk is a note in his own hand: BUY MORE SCROLL. It is underlined twice. Beside it is THE PROPHECY OF THISTLEWICK (ABRIDGED), which is exactly as long as the unabridged one, the abridging having been done by the Committee.
 
-**The Committee's table** runs down one side. At one end sits the Clerk, with Form C-12, Roster Amendments, by which a Chosen One may strike a companion from the roster and send them home to think about it. Thistlewick personnel only. Anybody picked up south of the wall is Form C-12(S), which is held in Nether Sopping, by a man called Pell. "Not my circus." A companion struck off keeps the kit and the experience. It was tried the other way once. There is a form about why not.
+**The Committee's table** runs down one side. At one end sits the Clerk, with Form C-12, Roster Amendments, by which a Chosen One may strike a companion from the roster and send them home to think about it. Thistlewick personnel only. Anybody picked up south of the wall is Form C-12(S), which is held in Nether Sopping, by a man called <a href="../People/Lionel_Pell">Pell</a>. "Not my circus." A companion struck off keeps the kit and the experience. It was tried the other way once. There is a form about why not.
 
 At the other end sits a councillor whose whole contribution to the year 2000, so far as the minutes show, was to ask whether the Dark Lord *shall be slain* or *shall be defeated*, because *slain* is a commitment, and to countersign one form, as to the wording.
 

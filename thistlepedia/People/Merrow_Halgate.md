@@ -21,7 +21,7 @@ title: Merrow Halgate
 <tr><th>Believed about the apology</th><td>Rarely</td></tr>
 </table>
 
-<p class="lede"><b>Merrow Halgate</b> is a big man in old armour who drinks carefully in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, and was one of a party of twenty, the best-equipped party that ever went north, which fought the Dark Lord at the bridge and lost. They were meant to lose. It was written down.</p>
+<p class="lede"><b>Merrow Halgate</b> is a big man in old armour who drinks carefully in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a>, and was one of a party of twenty, the best-equipped party that ever went north, which fought the <a href="Grimspite_the_Inevitable">Dark Lord</a> at the bridge and lost. They were meant to lose. It was written down.</p>
 
 ## The bridge
 
@@ -41,9 +41,9 @@ I do. I believed him before the Forty-Eighth came back, and I believe him a good
 
 ## Afterwards
 
-He still drinks carefully. He has been told, by the Forty-Eighth and by me, what was said at the top of the Tower in the year 2000, and about the contract, and the clauses, and the forty-eight hundred years; and he listened to all of it, and was quiet, and then said that it was a comfort, in a way, to know that the paperwork had been bothering the other fellow as well.
+He still drinks carefully. He has been told, by the Forty-Eighth and by me, what was said at the top of the <a href="../Places/The_Obligatory_Tower">Tower</a> in the year 2000, and about the contract, and the clauses, and the forty-eight hundred years; and he listened to all of it, and was quiet, and then said that it was a comfort, in a way, to know that the paperwork had been bothering the other fellow as well.
 
-He has his own theory about the old bench on the Middle Distance, which is older than anybody's memory and faces the sea: that it was put there by somebody who had walked that road tired and done something about it, and had not wanted a plaque. He thinks Ambrose Fitch may have known about it, and wanted one nearer the road. He went out to Ambrose's bench, when it was built, and sat on it, and came back, and said that it was a good bench.
+He has his own theory about the old bench on the Middle Distance, which is older than anybody's memory and faces the sea: that it was put there by somebody who had walked that road tired and done something about it, and had not wanted a plaque. He thinks <a href="Ambrose_Fitch">Ambrose Fitch</a> may have known about it, and wanted one nearer the road. He went out to Ambrose's bench, when it was built, and sat on it, and came back, and said that it was a good bench.
 
 People believe him about that.
 

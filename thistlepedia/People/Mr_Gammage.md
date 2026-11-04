@@ -29,7 +29,7 @@ Mr Gammage was born into it, in 1926, and grew up, and worked as a hurdle-maker 
 
 ## The riddle
 
-In the year 2000 the parish, with a Chosen One present and Merribell of the <a href="../Institutions/The_Order_of_Whatever_Works">Order of Whatever Works</a> in attendance, followed the Standing Orders of 1795 in order. Clause five required the eldest to speak the riddle. Mr Gammage was the eldest. He opened one eye.
+In the year 2000 the parish, with a Chosen One present and <a href="Merribell">Merribell</a> of the <a href="../Institutions/The_Order_of_Whatever_Works">Order of Whatever Works</a> in attendance, followed the Standing Orders of 1795 in order. Clause five required the eldest to speak the riddle. Mr Gammage was the eldest. He opened one eye.
 
 > "What's wet, and in the middle of the village, and we've not had any since 1794?"
 
@@ -39,7 +39,7 @@ He shut it again. It had, he said, taken them six generations, that one. Then th
 
 ## Abel Thrush
 
-Sump was the far end of Abel Thrush's road, and Mr Gammage told Piper Quill, for her elegy, that for forty years, every Tuesday, a bottle of Fenmarch water was left on their well, by Abel, and nobody drank it, because it was not Sump water, and Sump did not take charity. She put that in the elegy: *He brought the water nobody would drink.* Mr Gammage says that it is the best line in it, and that he drinks Fenmarch water now, out of respect, every Tuesday, and that it is very good water, and that they were fools.
+Sump was the far end of Abel Thrush's road, and Mr Gammage told <a href="Piper_Quill">Piper Quill</a>, for her elegy, that for forty years, every Tuesday, a bottle of <a href="../Places/Fenmarch_Hall">Fenmarch</a> water was left on their well, by Abel, and nobody drank it, because it was not Sump water, and Sump did not take charity. She put that in the elegy: *He brought the water nobody would drink.* Mr Gammage says that it is the best line in it, and that he drinks Fenmarch water now, out of respect, every Tuesday, and that it is very good water, and that they were fools.
 
 ## Afterwards
 

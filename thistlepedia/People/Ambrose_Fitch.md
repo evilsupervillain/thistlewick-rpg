@@ -55,9 +55,9 @@ It was built. How, and by whom, and with what timber, is in the article on <a hr
 
 ## Afterwards
 
-The bench is on the mound, and he is on the bench. When I went out, there was a cup on the end of it, not mine; I do not know whose. Merrow Halgate thinks that Ambrose may have known about the older bench on the Middle Distance, which has no plaque and faces the sea, and wanted one nearer the road.
+The bench is on the mound, and he is on the bench. When I went out, there was a cup on the end of it, not mine; I do not know whose. <a href="Merrow_Halgate">Merrow Halgate</a> thinks that Ambrose may have known about the older bench on the Middle Distance, which has no plaque and faces the sea, and wanted one nearer the road.
 
-The cottage on the front was the Committee's to give again, and the Committee gave it, with the key, to the Forty-Eighth, and trusted that Friday would suit. Bram does not live in it. He uses it when he comes south. The chair is still turned to the window, and Bram has never moved it, and has never sat in it. He waters the pot. It goes on being dead, but it has been watered. Mrs Pimm, who has the other key, still airs the place on Tuesdays.
+The cottage on the front was the Committee's to give again, and the Committee gave it, with the key, to the Forty-Eighth, and trusted that Friday would suit. <a href="Bram_Thistle">Bram</a> does not live in it. He uses it when he comes south. The chair is still turned to the window, and Bram has never moved it, and has never sat in it. He waters the pot. It goes on being dead, but it has been watered. Mrs Pimm, who has the other key, still airs the place on Tuesdays.
 
 Thistlewick has not written. I have checked. But the Committee's minute book for the autumn of 2000 records that clause nineteen, the clause that sent him south, was struck, after a very long meeting, and I have chosen to read that as a letter, late.
 

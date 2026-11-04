@@ -40,7 +40,7 @@ She argued about it for a year: with Walt, with the guests, with the clock, and 
 
 > "Resurrection's extra. And I'll want the room back by noon."
 
-That is what she says when guests ask her about the eight bars, and how they work, and whether it is true that a man came in with one foot in the grave and went out dancing. It is a joke, and it is meant as one, and she has never in her life charged anybody for anything but the room, and the room is ten crowns. I asked her whether anybody had ever come in very ill. She said that people came in all sorts of ways, and that they all went up the stairs the same way, and came down the same way, and that she did not ask, and that it was not a hospital, and that Dr Pike would tell me otherwise and that I was to take no notice.
+That is what she says when guests ask her about the eight bars, and how they work, and whether it is true that a man came in with one foot in the grave and went out dancing. It is a joke, and it is meant as one, and she has never in her life charged anybody for anything but the room, and the room is ten crowns. I asked her whether anybody had ever come in very ill. She said that people came in all sorts of ways, and that they all went up the stairs the same way, and came down the same way, and that she did not ask, and that it was not a hospital, and that <a href="Dr_Pike">Dr Pike</a> would tell me otherwise and that I was to take no notice.
 
 <div class="marginalia">She wants the room back by noon. It is generally twenty past two when anybody comes down. She has never once, in twenty-five years, asked anybody to hurry. I asked her why she says noon at all. She said that you have to say something, and that noon was what her father-in-law said, and that it was a comfort to the guests to be told a time they could then miss. - H.B.</div>
 
@@ -50,7 +50,7 @@ She has listened to the eight bars from the kitchen twelve hundred times a year 
 
 ## Afterwards
 
-She is fifty-three. The Eight Hours is busier than it has ever been, since 2000, with people going up to see Grimspite's chair, and she has taken on a girl from the baker's to help with the chops. The register at the foot of the stairs has a column for remarks, and the remarks have all said much the same thing for twenty-eight years; she has had a second column added, at the guests' request, headed HOW LONG, so that they can write down how long they slept, and nobody has ever written down a number. They write *eight hours*.
+She is fifty-three. The Eight Hours is busier than it has ever been, since 2000, with people going up to see <a href="Grimspite_the_Inevitable">Grimspite</a>'s chair, and she has taken on a girl from the baker's to help with the chops. The register at the foot of the stairs has a column for remarks, and the remarks have all said much the same thing for twenty-eight years; she has had a second column added, at the guests' request, headed HOW LONG, so that they can write down how long they slept, and nobody has ever written down a number. They write *eight hours*.
 
 ## See also
 

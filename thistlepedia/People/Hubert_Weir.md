@@ -36,7 +36,7 @@ The village moved up the hill, and he drained it. Fourteen hundred yards of culv
 
 ## The Flood Dinner
 
-Every year there is a Flood Dinner at the church hall, with soup, a fish, a pudding and speeches, and the toast is TO THE WATER, WHICH WAS VERY GOOD ABOUT IT. The menus are pinned up in the museum, and at the foot of each is the speaker: the Curator; the Curator; Mrs Ash, on knitting; the Curator; the Curator. The notice for the year 2000 read SPEAKER: TO BE CONFIRMED, and under it, in pencil, *Mr Weir has kindly offered. Again.*
+Every year there is a Flood Dinner at the church hall, with soup, a fish, a pudding and speeches, and the toast is TO THE WATER, WHICH WAS VERY GOOD ABOUT IT. The menus are pinned up in the museum, and at the foot of each is the speaker: the Curator; the Curator; <a href="Mrs_Ash">Mrs Ash</a>, on knitting; the Curator; the Curator. The notice for the year 2000 read SPEAKER: TO BE CONFIRMED, and under it, in pencil, *Mr Weir has kindly offered. Again.*
 
 It was confirmed: C. ASH. And under it, in pencil, *Mr Weir has kindly offered. Next year.* He did not mind in the least, he says; it was a very good speech, and the boy brought the name back, and that is worth more than culverts, which he does not say lightly.
 

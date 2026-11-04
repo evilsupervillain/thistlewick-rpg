@@ -48,7 +48,7 @@ He said that he had sat in a corner for eleven years. She said: "And then you go
 
 ## Afterwards
 
-She is seventy-nine. She is still in the booth, at the back of the fair, and the sign still says NEVER WRONG, and she still is. Since 2000 a great many more people have come to the fair, because the road to the Tower is busy, and she has read a great many of them, and told them that they will go a long way and meet a great many people, and she says that this is true of everybody walking to see a chair, and that it is the easiest money she has ever made, and that she has not put the price up, because the cards do not do credit, and nor do they do profiteering.
+She is seventy-nine. She is still in the booth, at the back of the fair, and the sign still says NEVER WRONG, and she still is. Since 2000 a great many more people have come to the fair, because the road to the <a href="../Places/The_Obligatory_Tower">Tower</a> is busy, and she has read a great many of them, and told them that they will go a long way and meet a great many people, and she says that this is true of everybody walking to see a chair, and that it is the easiest money she has ever made, and that she has not put the price up, because the cards do not do credit, and nor do they do profiteering.
 
 ## See also
 

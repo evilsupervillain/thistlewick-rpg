@@ -49,7 +49,7 @@ Which three of them were with him at the top of the Tower is a matter on which I
 
 The north gate of Thistlewick turns back a Chosen One who goes alone, and is where it has always been, whatever Sir Aldric tells you. Beyond it is the <a href="../Places/The_Gloamwood">Gloamwood</a>, where the Thing In The Woods, about which Thistlewick had argued for two hundred years - is it a bear? several bears? a bear-shaped hole in the idea of a wood? - stopped being in the woods. Thistlewick will never believe it. Bram has not told them anyway.
 
-In the Gloamwood, on a log, the party met the Forty-Sixth, who had got as far as the woods in 1980, decided the woods were enough, and sat down. He asked whether the Forty-Seventh had come back. He has a sack of letters beside him from two members of his old party, who write every month.
+In the Gloamwood, on a log, the party met the <a href="../People/Godfrey_Stopford">Forty-Sixth</a>, who had got as far as the woods in 1980, decided the woods were enough, and sat down. He asked whether the Forty-Seventh had come back. He has a sack of letters beside him from two members of his old party, who write every month.
 
 ## The south, which nobody does
 

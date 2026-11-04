@@ -41,7 +41,7 @@ and then explained walking to him, because he had just done it, and told him he 
 
 ## Lore
 
-Asked what the Dark Lord's weakness was, where the Sacred Key was, or what the lever does, she says LORE, three times. She was right about the lever, which does not exist, and which there always is. I have asked her other things, for this article: how old she is, what a sprite eats, whether she sleeps, and what the Guild pays. All of them were lore. I asked what was not lore. She said that doors were not lore, and explained one to me, and I was holding it open.
+Asked what the <a href="Grimspite_the_Inevitable">Dark Lord</a>'s weakness was, where the Sacred Key was, or what the lever does, she says LORE, three times. She was right about the lever, which does not exist, and which there always is. I have asked her other things, for this article: how old she is, what a sprite eats, whether she sleeps, and what the Guild pays. All of them were lore. I asked what was not lore. She said that doors were not lore, and explained one to me, and I was holding it open.
 
 ## Boss Warning Sprite, First Class
 

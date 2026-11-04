@@ -48,7 +48,7 @@ The minutes read: 2000. Item 3: The Rule. Carried, and done, in order. Under it:
 
 The sign on the spit now reads, in fresh paint under the old: LIFTED 2000. PLEASE MIND THE WELL. (RULE OF LIFE APPLIES.) The well has a rope on it, and a tin cup on the rope. Mrs Pardew can be spoken to before noon now; not after, but that is just her. Mr Thurle writes WASPS on every agenda still, and after it, NOT DEFERRED, to see how it looks. The wasps carry on at the far end of the spit, unminuted.
 
-Sump was the far end of Abel Thrush's road, and Mr Gammage told <a href="../People/Piper_Quill">Piper Quill</a> that for forty years, every Tuesday, a bottle of Fenmarch water was left on their well, and nobody drank it. She put that in the elegy: *He brought the water nobody would drink.* Mrs Pardew told her that he was a terrible man for his tea, and stopped anywhere for it, and took all day to do four miles.
+Sump was the far end of Abel Thrush's road, and Mr Gammage told <a href="../People/Piper_Quill">Piper Quill</a> that for forty years, every Tuesday, a bottle of <a href="Fenmarch_Hall">Fenmarch</a> water was left on their well, and nobody drank it. She put that in the elegy: *He brought the water nobody would drink.* Mrs Pardew told her that he was a terrible man for his tea, and stopped anywhere for it, and took all day to do four miles.
 
 <div class="marginalia">I wrote to the parish of Sump, as I have written to every parish in this volume, for anything it wished to add. Mr Thurle replied for the chair. The parish wished to add that things are better, and that it is in the minutes, and that the cactus planted to cheer the place up, which has been trying for two hundred years, has flowered.</div>
 

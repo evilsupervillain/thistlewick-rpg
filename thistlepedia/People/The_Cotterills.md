@@ -33,12 +33,12 @@ I have the ages from **Gudgeon**, who copies the parish register at the Parish R
 
 | Who | Age | |
 | --- | --- | --- |
-| **<a href="Cotter_Cotterill">Cotter</a>** | 26 | The eldest. Married to **<a href="Bessie_Cotterill">Bessie Marsden</a>**, Winnie's granddaughter. Was down the valley at the big foundry at <a href="../Places/Great_Dunnage">Great Dunnage</a>, at the Iron Company's gate, until the spring of 2000 |
+| **<a href="Cotter_Cotterill">Cotter</a>** | 26 | The eldest. Married to **<a href="Bessie_Cotterill">Bessie Marsden</a>**, <a href="Winnie_Marsden">Winnie</a>'s granddaughter. Was down the valley at the big foundry at <a href="../Places/Great_Dunnage">Great Dunnage</a>, at the Iron Company's gate, until the spring of 2000 |
 | **<a href="Rivet_Cotterill">Rivet</a>** | 24 | Days, while Da does nights. They pass at the door at six. He says "Rivet." Rivet says "Da." "That is a conversation, that is." Has shared a bed his whole life, and one of the people in it is Grommet, and he has never once been in a room by himself |
 | **<a href="Gudgeon_Cotterill">Gudgeon</a>** | 22 | Clerks at the Parish Rooms; copies the register; knew exactly which drawer Form P-9 was in, without looking. Read it aloud to the Forty-Eighth one section at a time |
 | **<a href="Tappet_Cotterill">Tappet</a>** | 20 | Brings the castings up to the works on Tuesdays, six crates, and watched the airship not fly for four years. She would still get in it. When it flew she stood under the empty gantry and said, "It flew," and that was all she said, grinning |
 | **<a href="Ferrule_Cotterill">Ferrule</a>** | 18 | In charge from six, when Da goes to work, and then nobody gets to sit down |
-| **<a href="Grommet_Cotterill">Grommet</a>** | 17 | Apprenticed to Bryd Ollerenshaw at the forge, and put upon. Mr Ollerenshaw says he has got the makings, and says it slowly. Points out to the family every day that their names are wrong: a shim is a packing piece, and a ferrule is a collar, and fastens nothing, and only stops a split. Small enough to go inside a boiler, and has |
+| **<a href="Grommet_Cotterill">Grommet</a>** | 17 | Apprenticed to <a href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a> at the forge, and put upon. Mr Ollerenshaw says he has got the makings, and says it slowly. Points out to the family every day that their names are wrong: a shim is a packing piece, and a ferrule is a collar, and fastens nothing, and only stops a split. Small enough to go inside a boiler, and has |
 | **<a href="Clevis_Cotterill">Clevis</a>** | 15 | Ran a book on the tenth one's name. Gib was evens; Cleat two to one; Washer twenty to one, because Da had said not Washer |
 | **<a href="Shim_Cotterill">Shim</a>** | 13 | Collects things. A tin of washers, mostly, and three bolts, a doorknob and a bearing, and the bearing is the best one, because you can hold it and it goes round. Gave Spare a washer |
 | **Spare** | 11 | The ninth. See <a href="Spare_Cotterill">his article</a> |
@@ -54,7 +54,7 @@ He came back. On the morning it was spring, every Cotterill in Upper Clanging wa
 
 ## Afterwards
 
-Cotter has been home for good since that spring, and Bessie's came in the summer, as she said it would, on time, and is not named in this encyclopedia because Winnie has asked me not to, until the seating plan is settled. Ferrule is still in charge from six. Grommet has been two years at the forge now, and Mr Ollerenshaw still says he has the makings, a little faster. Tappet has asked Miss Hoyle whether there will be room aboard the Two Hundred and First, and was told that it is not a question with an answer; it is a question with a schedule. Shim's bearing is still the best one.
+Cotter has been home for good since that spring, and Bessie's came in the summer, as she said it would, on time, and is not named in this encyclopedia because Winnie has asked me not to, until the seating plan is settled. Ferrule is still in charge from six. Grommet has been two years at the forge now, and Mr Ollerenshaw still says he has the makings, a little faster. Tappet has asked <a href="Ott_Hoyle">Miss Hoyle</a> whether there will be room aboard the Two Hundred and First, and was told that it is not a question with an answer; it is a question with a schedule. Shim's bearing is still the best one.
 
 Through the kitchen window there is a line of vests in order of size, and the peg on the end that was put there in hope has a vest on it now. Round the rim of the rain barrel there are ten tin cups on ten nails. Washer has not said a word yet, and Spare is working on it, and the whole street has money on what the first one will be. Clevis is not taking bets. He says the family has been through enough.
 

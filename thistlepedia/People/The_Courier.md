@@ -25,7 +25,7 @@ title: The Courier
 
 He says very little. To anybody with a letter to send he says, "Post?" When he has it he says where it is going and when it will get there: "Upper Clanging. Dinner hour." Asked what he is doing, he says, "On my rounds," and does not say whose.
 
-He was there, in the end, for <a href="Spare_Cotterill">Spare Cotterill</a>, who had promised his mother that he would write. Spare wrote from eight towns, four lines a time, on his knee, with his tongue out, and handed every letter to the courier, and the courier took it up the valley to <a href="../Places/Upper_Clanging">Upper Clanging</a>, where Mrs Cotterill read it out to the shift at the works at the dinner hour. Every one got there by the dinner hour. The towns were a long way apart, and some of them were not on a road at all, and one of them was on a rock in the sky. As the letters went on the party's notes on where they found him got shorter:
+He was there, in the end, for <a href="Spare_Cotterill">Spare Cotterill</a>, who had promised his mother that he would write. Spare wrote from eight towns, four lines a time, on his knee, with his tongue out, and handed every letter to the courier, and the courier took it up the valley to <a href="../Places/Upper_Clanging">Upper Clanging</a>, where <a href="Nora_Cotterill">Mrs Cotterill</a> read it out to the shift at the works at the dinner hour. Every one got there by the dinner hour. The towns were a long way apart, and some of them were not on a road at all, and one of them was on a rock in the sky. As the letters went on the party's notes on where they found him got shorter:
 
 > A man in a red coat and a flat cap, with a satchel on a strap, is standing here as if he has been here all morning.
 >

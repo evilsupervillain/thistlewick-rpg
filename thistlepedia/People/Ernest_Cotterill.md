@@ -14,11 +14,11 @@ title: Ernest Cotterill
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Works</th><td>The foundry. Nights: twelve on, twelve off, six days</td></tr>
 <tr><th>On nights since</th><td>1978</td></tr>
-<tr><th>Off nights</th><td>Once, spring 2000, for Washer</td></tr>
+<tr><th>Off nights</th><td>Once, spring 2000, for <a href="Washer_Cotterill">Washer</a></td></tr>
 <tr><th>Minds</th><td>The walk home in the dark</td></tr>
 <tr><th>Has ever once minded</th><td>The walk home</td></tr>
-<tr><th>Has said</th><td>Call it Spare (1991); not Washer (1999-2000)</td></tr>
-<tr><th>Views</th><td>None, since about Ferrule</td></tr>
+<tr><th>Has said</th><td>Call it <a href="Spare_Cotterill">Spare</a> (1991); not Washer (1999-2000)</td></tr>
+<tr><th>Views</th><td>None, since about <a href="Ferrule_Cotterill">Ferrule</a></td></tr>
 </table>
 
 <p class="lede"><b>Ernest Cotterill</b> is the father of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and works nights at the foundry: twelve on, twelve off, six days, since 1978. He passes his second son at the front door at six every morning, going the other way. He is always very glad to get home. Mrs Cotterill says so, and so does everybody on the street, and so does he, and it is the most reliably reported fact in the north.</p>
@@ -27,7 +27,7 @@ title: Ernest Cotterill
 
 He was born in 1951, in the house at the end of the street, which was his father's, who was also on nights, so that Ernest says he grew up thinking that fathers were something that came in for breakfast. He went into the foundry at fourteen, on days, and met Nora Sprag at nineteen, when he walked into a coal wagon she had just stopped, and apologised to it.
 
-He went on to nights in 1978, after Rivet, because nights paid a crown a week more and the house had stopped being big enough by day. He has been on them since. His own account of it is short, and I give it whole, because it is the most complete statement of a working life I have ever been given, and it took eleven seconds:
+He went on to nights in 1978, after <a href="Rivet_Cotterill">Rivet</a>, because nights paid a crown a week more and the house had stopped being big enough by day. He has been on them since. His own account of it is short, and I give it whole, because it is the most complete statement of a working life I have ever been given, and it took eleven seconds:
 
 > "Nights. Twelve on, twelve off, six days. It is not the work I mind. It is the walk home in the dark."
 
@@ -43,7 +43,7 @@ Rivet is on days. They pass at the front door at six, every day, Sunday and all,
 
 ## The names
 
-He named two of the ten, which is not many, and he would like that understood: the rest were Mrs Cotterill's, and very good names, and he had no hand in them. In 1991 they had run out, and she was tired, and he said call it Spare. He has never been allowed to forget it. In 1999, when the tenth was coming, he said, very firmly, *not Washer*. Clevis, who was running a book on the name, immediately lengthened Washer to twenty to one, and half the works put a farthing on it, because Mr Cotterill had said not Washer, and the works has known Mr Cotterill a long time.
+He named two of the ten, which is not many, and he would like that understood: the rest were Mrs Cotterill's, and very good names, and he had no hand in them. In 1991 they had run out, and she was tired, and he said call it Spare. He has never been allowed to forget it. In 1999, when the tenth was coming, he said, very firmly, *not Washer*. <a href="Clevis_Cotterill">Clevis</a>, who was running a book on the name, immediately lengthened Washer to twenty to one, and half the works put a farthing on it, because Mr Cotterill had said not Washer, and the works has known Mr Cotterill a long time.
 
 Spare got to it first. "I said not Washer," Mr Cotterill says now, with no hope at all, and great contentment. "Washer. I have stopped saying not."
 

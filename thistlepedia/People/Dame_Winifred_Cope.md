@@ -17,7 +17,7 @@ title: Dame Winifred Cope
 <tr><th>Pins at <a href="../Places/Coldbarrow">Coldbarrow</a></th><td>One. Correct</td></tr>
 <tr><th>Reports</th><td>Quarterly. NOTHING TO REPORT</td></tr>
 <tr><th>Replies</th><td>VERY GOOD</td></tr>
-<tr><th>Helmet</th><td>Not a dent in it. Hob Grumnir's</td></tr>
+<tr><th>Helmet</th><td>Not a dent in it. <a href="Hob_Grumnir">Hob Grumnir</a>'s</td></tr>
 <tr><th>Distance from her front door</th><td>Four feet</td></tr>
 </table>
 
@@ -45,7 +45,7 @@ For two years, from 1989 to 1991, the carrier Abel Thrush came through Little Go
 
 ## Afterwards
 
-She is forty-four. Since 2000 a second Pemberton-Gore has come through Little Gore, as squire, the Fourth, with Sir Aldric, and found the way to her door first time, and saluted, and she says that it was very correct, and that she reported it, which was the first time in eleven years that she had anything to report, and that she wrote it under NOTHING TO REPORT, as a postscript, so as not to spoil the run.
+She is forty-four. Since 2000 a second Pemberton-Gore has come through Little Gore, as squire, the Fourth, with <a href="Sir_Aldric_Pemberton-Gore_III">Sir Aldric</a>, and found the way to her door first time, and saluted, and she says that it was very correct, and that she reported it, which was the first time in eleven years that she had anything to report, and that she wrote it under NOTHING TO REPORT, as a postscript, so as not to spoil the run.
 
 ## See also
 

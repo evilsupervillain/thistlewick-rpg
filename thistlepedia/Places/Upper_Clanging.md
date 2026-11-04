@@ -4,7 +4,7 @@ title: Upper Clanging
 
 # Upper Clanging
 
-<p class="hatnote">This article is about the town. For the works, its airships and its two hundred years, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>, which Miss Hoyle has written up herself. For the field below the town, see <a href="The_Long_Field">The Long Field</a>. For its most travelled resident, see <a href="../People/Spare_Cotterill">Spare Cotterill</a>.</p>
+<p class="hatnote">This article is about the town. For the works, its airships and its two hundred years, see <a href="../Institutions/The_Hoyle_Works">The Hoyle Works</a>, which <a href="../People/Ott_Hoyle">Miss Hoyle</a> has written up herself. For the field below the town, see <a href="The_Long_Field">The Long Field</a>. For its most travelled resident, see <a href="../People/Spare_Cotterill">Spare Cotterill</a>.</p>
 
 <table class="infobox">
 <caption>Upper Clanging</caption>
@@ -22,7 +22,7 @@ title: Upper Clanging
 
 <p class="lede"><b>Upper Clanging</b> is a works town in the north-west, at the top of the west road, built on a hill round the sheds of the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>, which have been trying to fly to the <a href="The_Obligatory_Tower">Obligatory Tower</a> for two hundred years. It is loud, early, grey and extremely proud of all three. In the year 2000 the two hundredth attempt got there.</p>
 
-The town read the Prophecy two hundred years ago, believed every word of it, and made an engineering programme out of "every hundred years". It does not count. It has never needed to. Everybody up here is too busy.
+The town read the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a> two hundred years ago, believed every word of it, and made an engineering programme out of "every hundred years". It does not count. It has never needed to. Everybody up here is too busy.
 
 ## The street
 
@@ -48,9 +48,9 @@ On the dresser is the inn's best china, with a card on top, FOR WHEN SHE FLIES. 
 
 ## The forge
 
-**Ollerenshaw's** is at the foot of the street, under a painted sword and three lines of lettering: BRYD - SMITH; THE BEST IN THE NORTH; and, in a different paint, SAYS WHO. The third line is <a href="../People/Hob_Grumnir">Hob Grumnir</a>'s, from the year 2000. He asked me not to tell Bryd. Bryd knows.
+**<a href="../People/Bryd_Ollerenshaw">Ollerenshaw</a>'s** is at the foot of the street, under a painted sword and three lines of lettering: BRYD - SMITH; THE BEST IN THE NORTH; and, in a different paint, SAYS WHO. The third line is <a href="../People/Hob_Grumnir">Hob Grumnir</a>'s, from the year 2000. He asked me not to tell Bryd. Bryd knows.
 
-**Bryd Ollerenshaw** has the forge from his father, who had it from his mother. If it is iron and it has to hold, it goes to him. Miss Hoyle sends him a drawing every spring, and every spring it is a spar. He and Hob were apprenticed together, and he has waited twenty years for Hob to admit that some jobs want two smiths. The meeting between them in the year 2000 consisted of each saying the other's surname and finding something wrong with the other's anvil, and was described to me by a child of the town as "what they do every time". They then made the Two Hundred's main spar in an afternoon without a word, and went down the hill to the house that does a pale, already arguing about who was buying. Half the town has money on which of them will admit the other is the better smith. Nobody has collected.
+**Bryd Ollerenshaw** has the forge from his father, who had it from his mother. If it is iron and it has to hold, it goes to him. Miss Hoyle sends him a drawing every spring, and every spring it is a spar. He and Hob were apprenticed together, and he has waited twenty years for Hob to admit that some jobs want two smiths. The meeting between them in the year 2000 consisted of each saying the other's surname and finding something wrong with the other's anvil, and was described to me by a child of the town as "what they do every time". They then made the <a href="../History/The_Flight_of_the_Two_Hundred">Two Hundred</a>'s main spar in an afternoon without a word, and went down the hill to the house that does a pale, already arguing about who was buying. Half the town has money on which of them will admit the other is the better smith. Nobody has collected.
 
 In the forge there is a certificate, BEST SMITH IN THE NORTH, awarded by B. Ollerenshaw to B. Ollerenshaw, in real gold leaf. There is a cabinet of three drawers: RIVETS; OTHER RIVETS; RIVETS (GRUMNIR'S - DO NOT USE). There is a quenching tub which hisses faintly whenever anybody in the room says *Thistlewick*. <a href="../People/Merribell">Merribell</a> has told me that it is steam, and that I am not to encourage it.
 
@@ -64,9 +64,9 @@ The parish lost-and-found book has the entry FOUND: ONE BOY, NINE, WITH A PACKED
 
 ## The Cotterills
 
-The house at the end of the street is the <a href="../People/The_Cotterills">Cotterills</a>', and the street is mostly theirs as well. **Mrs Cotterill** has the names off by heart, because she chose them: Cotter, Rivet, Gudgeon, Tappet, Ferrule, Grommet, Clevis, Shim, and Spare, because they had run out, and Mr Cotterill said call it Spare, and she was tired. **Mr Cotterill** is on nights, twelve on and twelve off, and is always very glad to get home. He says that he has never once minded the walk.
+The house at the end of the street is the <a href="../People/The_Cotterills">Cotterills</a>', and the street is mostly theirs as well. **<a href="../People/Nora_Cotterill">Mrs Cotterill</a>** has the names off by heart, because she chose them: <a href="../People/Cotter_Cotterill">Cotter</a>, <a href="../People/Rivet_Cotterill">Rivet</a>, <a href="../People/Gudgeon_Cotterill">Gudgeon</a>, <a href="../People/Tappet_Cotterill">Tappet</a>, <a href="../People/Ferrule_Cotterill">Ferrule</a>, <a href="../People/Grommet_Cotterill">Grommet</a>, <a href="../People/Clevis_Cotterill">Clevis</a>, <a href="../People/Shim_Cotterill">Shim</a>, and Spare, because they had run out, and <a href="../People/Ernest_Cotterill">Mr Cotterill</a> said call it Spare, and she was tired. **Mr Cotterill** is on nights, twelve on and twelve off, and is always very glad to get home. He says that he has never once minded the walk.
 
-The tenth, **Washer**, was born in the spring of 2000, at six in the morning, on the hooter. Mrs Cotterill says it is the only one of them that was ever on time. Mr Cotterill had said not Washer. Spare got to it first. Clevis was running a book on the name, and Washer came in at twenty to one, because half the works had a farthing on it once Mr Cotterill said not Washer, and Clevis had to pay out most of Upper Clanging. The book is closed. Mrs Cotterill says that there is not going to be another one.
+The tenth, **<a href="../People/Washer_Cotterill">Washer</a>**, was born in the spring of 2000, at six in the morning, on the hooter. Mrs Cotterill says it is the only one of them that was ever on time. Mr Cotterill had said not Washer. Spare got to it first. Clevis was running a book on the name, and Washer came in at twenty to one, because half the works had a farthing on it once Mr Cotterill said not Washer, and Clevis had to pay out most of Upper Clanging. The book is closed. Mrs Cotterill says that there is not going to be another one.
 
 I have the family's ages from Gudgeon, who copies the register and has written *Cotterill* more than four hundred times in the best hand Mrs Tunnicliffe has had: in this year of 2002 Cotter is twenty-six, Rivet twenty-four, Gudgeon twenty-two, Tappet twenty, Ferrule eighteen, Grommet seventeen, Clevis fifteen, Shim thirteen, Spare eleven, and Washer is two today, which is the first day of spring. Through the kitchen window there is a line of vests in order of size, and the peg on the end that was put there in hope has a vest on it now. Round the rim of the rain barrel there are ten tin cups on ten nails.
 

@@ -12,9 +12,9 @@ title: Gudgeon Cotterill
 <tr><th>Known as</th><td>Gudgeon; Miss Cotterill, at the counter, where it is official</td></tr>
 <tr><th>Born</th><td>12 January 1980, <a href="../Places/Upper_Clanging">Upper Clanging</a>; entered in the register in somebody else's hand, which she has looked at, and would have done better</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
-<tr><th>Named for</th><td>A gudgeon, which is a pin. Grommet says that one is fine</td></tr>
+<tr><th>Named for</th><td>A gudgeon, which is a pin. <a href="Grommet_Cotterill">Grommet</a> says that one is fine</td></tr>
 <tr><th>Works</th><td>The Parish Rooms: the register, the census, and the forms</td></tr>
-<tr><th>Hand</th><td>The best Mrs Tunnicliffe has had, out of eleven</td></tr>
+<tr><th>Hand</th><td>The best <a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a> has had, out of eleven</td></tr>
 <tr><th>Has written Cotterill</th><td>A hundred and twelve times, by the year 2000. More since. One column ruled extra</td></tr>
 <tr><th>Knows where</th><td>Form P-9 is, without looking</td></tr>
 <tr><th>Everybody gets</th><td>It wrong</td></tr>
@@ -48,13 +48,13 @@ It was the most helpful thing anybody said to him in the north, and she said it 
 
 ## The column
 
-On the morning of Washer, in the spring of 2000, she entered the tenth Cotterill in the register before anybody else in the town knew there was one, in ink, at a quarter to seven. "Washer Cotterill. Entered in the register this morning, in ink. Two t's and two l's. Everybody gets it wrong." Then: "Ten. The column was full. I have had to rule another one."
+On the morning of <a href="Washer_Cotterill">Washer</a>, in the spring of 2000, she entered the tenth Cotterill in the register before anybody else in the town knew there was one, in ink, at a quarter to seven. "Washer Cotterill. Entered in the register this morning, in ink. Two t's and two l's. Everybody gets it wrong." Then: "Ten. The column was full. I have had to rule another one."
 
 I have seen the page. The new column is ruled with a ruler, and is the straightest line in the parish register of Upper Clanging, which goes back to 1748, and has had a good many clerks.
 
 ## Afterwards
 
-She is still at the Parish Rooms, and is now the clerk, Mrs Tunnicliffe having become, in 2001, the clerk's assistant, at her own request, so that she could do the urns. She has entered Bessie's baby, in a column of its own. She has begun, in the evenings, a fair copy of the whole of the register from its first page, which is 1748, because the early hands were bad, she says, and somebody ought to, and she is up to 1790. She says that there were a great many Cotterills then as well, and that they could not spell it either.
+She is still at the Parish Rooms, and is now the clerk, Mrs Tunnicliffe having become, in 2001, the clerk's assistant, at her own request, so that she could do the urns. She has entered <a href="Bessie_Cotterill">Bessie</a>'s baby, in a column of its own. She has begun, in the evenings, a fair copy of the whole of the register from its first page, which is 1748, because the early hands were bad, she says, and somebody ought to, and she is up to 1790. She says that there were a great many Cotterills then as well, and that they could not spell it either.
 
 ## See also
 

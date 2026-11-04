@@ -33,7 +33,7 @@ I have noticed, being a <a href="../Places/Nether_Sopping">Nether Sopping</a> ma
 
 The house style is one line long: *never let the truth spoil the metre*. It is not cynical. It is a craftsman's rule, and it is kept by craftsmen. It produces accounts that scan, which is more than most history does; I have read Volume Two again, and I know.
 
-Its conventions are easily learned, and every account keeps them. The Chosen One is an orphan of humble birth, because nobody goes north with a mother; it does not scan. One of his companions dies, in about canto nine, of nothing in particular, because it scans. He slays the Dark Lord at the top of the Tower in a thunderstorm, in a rhyme on *tower* that was never going to be anything but *hour*. And there is a wolf. Piper's grandmother had a wolf in forty-one, forty-two and forty-three, and it was the same wolf. A good wolf.
+Its conventions are easily learned, and every account keeps them. The Chosen One is an orphan of humble birth, because nobody goes north with a mother; it does not scan. One of his companions dies, in about canto nine, of nothing in particular, because it scans. He slays the <a href="../People/Grimspite_the_Inevitable">Dark Lord</a> at the top of the <a href="../Places/The_Obligatory_Tower">Tower</a> in a thunderstorm, in a rhyme on *tower* that was never going to be anything but *hour*. And there is a wolf. Piper's grandmother had a wolf in forty-one, forty-two and forty-three, and it was the same wolf. A good wolf.
 
 ## The rebellion
 

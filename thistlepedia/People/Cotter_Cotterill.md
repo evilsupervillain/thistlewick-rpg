@@ -31,7 +31,7 @@ He introduces himself the same way to everybody, and he introduced himself that 
 
 That was in the year 2000, before the spring, and it was correct at the time. He has since had to change it, and says it now with a short pause in the middle, *eldest of... ten*, as if checking, and he is always pleased with the answer.
 
-A cotter pin goes through the end of an axle and holds the wheel on. Grommet, who has a view on the names, says that this one is fine. It is one of only two names in the family that Grommet has passed, the other being Gudgeon's (a gudgeon is a pin), and Cotter, who passed first, being the eldest, would like that on his headstone, and Mrs Cotterill has told him not to be morbid, and also that he is not to have a headstone for a good long while yet, and that is not a request.
+A cotter pin goes through the end of an axle and holds the wheel on. <a href="Grommet_Cotterill">Grommet</a>, who has a view on the names, says that this one is fine. It is one of only two names in the family that Grommet has passed, the other being <a href="Gudgeon_Cotterill">Gudgeon</a>'s (a gudgeon is a pin), and Cotter, who passed first, being the eldest, would like that on his headstone, and <a href="Nora_Cotterill">Mrs Cotterill</a> has told him not to be morbid, and also that he is not to have a headstone for a good long while yet, and that is not a request.
 
 ## Down the valley
 
@@ -41,23 +41,23 @@ He lodged in Great Dunnage, with a Mrs Pettit in Cinder Lane, who gave him a roo
 
 "I'm always very glad to get home," he says. His father says it too. It is, I think, the family motto, and it has never been written down, and it does not need to be.
 
-<div class="marginalia">The heel-irons on his boots, which are worn bright, came from the forge in <a href="../Places/Thistlewick">Thistlewick</a>, and Hob Grumnir knew them at once, and asked whether he could have them back till the spring. Cotter said that he was home in the spring, for good, and that he would not get home without them, eleven miles up every Saturday and eleven back. Hob said, "Aye. Get home." I have asked Hob how his heel-irons came to be on a furnace man in Great Dunnage. He says that things he makes go where they are needed, and that this is the best place he has ever heard of one going. - H.B.</div>
+<div class="marginalia">The heel-irons on his boots, which are worn bright, came from the forge in <a href="../Places/Thistlewick">Thistlewick</a>, and <a href="Hob_Grumnir">Hob Grumnir</a> knew them at once, and asked whether he could have them back till the spring. Cotter said that he was home in the spring, for good, and that he would not get home without them, eleven miles up every Saturday and eleven back. Hob said, "Aye. Get home." I have asked Hob how his heel-irons came to be on a furnace man in Great Dunnage. He says that things he makes go where they are needed, and that this is the best place he has ever heard of one going. - H.B.</div>
 
 ## The bottom lock
 
 In the year 2000, a little before the spring, the bottom lock on the Dunnage cut jammed, with thirty of the Iron Company's boats sat on the water behind it, and the Canal Company sent in their smallest man at eleven, and he did not come out. Cotter saw his brother at the gate, and knew at once what the answer was, and would not ask. "I'd not ask," he said. "Mam would say -"
 
-Spare went down. What happened in the culvert is Spare's, and in his article. Mr Pocock came out, and the paddle came clear, and thirty boats went down the cut, and the Mayor had his scissors back, which had been on the paddle since Tuesday, and cut the ribbon again, properly, with scissors, having had to open two things with a knife in the meantime. The Canal Company's man went home for a lie down, and said that Spare was to have his job. Cotter gave him a bun. "That's from me," he said. "I'll tell Mam on Saturday."
+<a href="Spare_Cotterill">Spare</a> went down. What happened in the culvert is Spare's, and in his article. Mr Pocock came out, and the paddle came clear, and thirty boats went down the cut, and the Mayor had his scissors back, which had been on the paddle since Tuesday, and cut the ribbon again, properly, with scissors, having had to open two things with a knife in the meantime. The Canal Company's man went home for a lie down, and said that Spare was to have his job. Cotter gave him a bun. "That's from me," he said. "I'll tell Mam on Saturday."
 
 He did tell Mam on Saturday. Mrs Cotterill has not said what she said. Cotter says she was very quiet for a long time, and then she did more potatoes.
 
 ## Home
 
-He came home in the spring, as he had said. Bessie wrote to him that Washer had been born, at six on the hooter, and that Da had said not Washer. "It's spring," he told the Iron Company. "I'm going home on Saturday, for good." He asked for the day, and they gave him the rest.
+He came home in the spring, as he had said. Bessie wrote to him that <a href="Washer_Cotterill">Washer</a> had been born, at six on the hooter, and that Da had said not Washer. "It's spring," he told the Iron Company. "I'm going home on Saturday, for good." He asked for the day, and they gave him the rest.
 
 ## Afterwards
 
-He is at the foundry in Upper Clanging, on days, with Rivet, and the two of them pass their father on the foundry steps at six, going the other way; Rivet says that between the three of them there is now a great deal of passing, and that some mornings there is a queue. He is a father. The child came in the summer of 2000, on time, and is not named in this encyclopedia, at the request of its great-grandmother, until the seating plan is settled. He walks to work four hundred yards and back. He says he misses the eleven miles, a little, on a Saturday, and that he goes for a walk instead, up the valley road and back, and that he is very glad to get home.
+He is at the foundry in Upper Clanging, on days, with <a href="Rivet_Cotterill">Rivet</a>, and the two of them pass their father on the foundry steps at six, going the other way; Rivet says that between the three of them there is now a great deal of passing, and that some mornings there is a queue. He is a father. The child came in the summer of 2000, on time, and is not named in this encyclopedia, at the request of its great-grandmother, until the seating plan is settled. He walks to work four hundred yards and back. He says he misses the eleven miles, a little, on a Saturday, and that he goes for a walk instead, up the valley road and back, and that he is very glad to get home.
 
 ## See also
 

@@ -35,7 +35,7 @@ In 1974, at twenty-four, on an evening when the bar was full and he had played e
 
 ## The tune
 
-I have heard it, twice: once going up, and once from the bar, sitting where I could see. It is eight bars long, in what I believe Piper Quill would call a minor key that is not sad, and it goes up, and it does not come down again at the end, but stops, at the top, as if it had arrived somewhere. Miss Quill, who has stayed at the Eight Hours, has tried to write it down, and says that she can write down the notes and that the notes are not it, and that she has stopped trying, and that it is the only tune in the world she has ever stopped trying to write down.
+I have heard it, twice: once going up, and once from the bar, sitting where I could see. It is eight bars long, in what I believe <a href="Piper_Quill">Piper Quill</a> would call a minor key that is not sad, and it goes up, and it does not come down again at the end, but stops, at the top, as if it had arrived somewhere. Miss Quill, who has stayed at the Eight Hours, has tried to write it down, and says that she can write down the notes and that the notes are not it, and that she has stopped trying, and that it is the only tune in the world she has ever stopped trying to write down.
 
 <div class="marginalia">I went up to bed at the Eight Hours on my way back from the coast road, and he played me up, and I came down, and it was morning, and I agreed that it was. I looked at the clock and I would rather not say. I have written in the register: eight hours. Remarks: I am a historian, and I should like to have stayed longer. I have said that elsewhere in this volume. I find that I wanted to say it twice. - H.B.</div>
 
@@ -49,7 +49,7 @@ His wife Hester has listened to those eight bars twelve hundred times a year for
 
 ## Afterwards
 
-He is fifty-one. He is still on the step. The Eight Hours has had more guests since 2000 than ever, because the road to the Tower is busy with people going to see the chair, and every one of them goes up to the eight bars and comes down better, and many of them come back on the way home. Dr Pike still watches him. Walt says that the doctor is welcome to watch, and that he has watched himself, often, and has never found out anything either.
+He is fifty-one. He is still on the step. The Eight Hours has had more guests since 2000 than ever, because the road to the <a href="../Places/The_Obligatory_Tower">Tower</a> is busy with people going to see the chair, and every one of them goes up to the eight bars and comes down better, and many of them come back on the way home. Dr Pike still watches him. Walt says that the doctor is welcome to watch, and that he has watched himself, often, and has never found out anything either.
 
 ## See also
 

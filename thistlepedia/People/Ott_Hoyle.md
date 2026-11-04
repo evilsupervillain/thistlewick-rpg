@@ -22,7 +22,7 @@ title: Ott Hoyle
 <tr><th>Offence</th><td>None intended. Some given</td></tr>
 </table>
 
-<p class="lede"><b>Ott Hoyle</b> is the chief engineer of <a href="../Institutions/The_Hoyle_Works">the Hoyle Works</a> at <a href="../Places/Upper_Clanging">Upper Clanging</a>, the fourth of her family to try to fly to the Obligatory Tower, and the first to manage it. She is deadpan, precise and kind, in that order, and she has never been embarrassed by anything in her life, which in a works where every second word is a technical term is a professional qualification.</p>
+<p class="lede"><b>Ott Hoyle</b> is the chief engineer of <a href="../Institutions/The_Hoyle_Works">the Hoyle Works</a> at <a href="../Places/Upper_Clanging">Upper Clanging</a>, the fourth of her family to try to fly to the <a href="../Places/The_Obligatory_Tower">Obligatory Tower</a>, and the first to manage it. She is deadpan, precise and kind, in that order, and she has never been embarrassed by anything in her life, which in a works where every second word is a technical term is a professional qualification.</p>
 
 ## Four generations
 
@@ -45,11 +45,11 @@ I give a selection, all of them hers, all said in the drawing office in the cour
 
 Her apprentice, <a href="Nib">Nib</a>, is the works' fortieth since 1804, and has asked her nine times whether they are going to manage it, and has been told nine times that it is not a question with an answer: it is a question with a schedule. Nib stands on the NO side of the line on the floor. She always stands on the NO side.
 
-<a href="Merribell">Merribell</a> once asked her, politely, how the work was going, and was told about the drain cock and the gland on the big end, and that the engine primes if you heat her too fast, and that otherwise she is sound. Merribell nodded along, being a field medic, to whom this was a Tuesday. Bram found something to look at.
+<a href="Merribell">Merribell</a> once asked her, politely, how the work was going, and was told about the drain cock and the gland on the big end, and that the engine primes if you heat her too fast, and that otherwise she is sound. Merribell nodded along, being a field medic, to whom this was a Tuesday. <a href="Bram_Thistle">Bram</a> found something to look at.
 
 ## The Two Hundred
 
-The Two Hundred wanted forty bolts of oilskin, and a spar that would hold. Mrs Barrow of <a href="../Places/Nether_Sopping">Nether Sopping</a> would not have forty, and was made to find forty, and Miss Hoyle counted all forty, out loud, in front of the Forty-Eighth, and did not hurry any of it, and said that nobody had ever brought her forty of anything. The spar came from Ollerenshaw's, at the bottom of the hill, and Bryd Ollerenshaw said *we shall see*, as he always does, and it held. She handed the airship over with one instruction - do not set her down on anything with a roof on it; you would be astonished how often that has been the finding - and asked the Forty-Eighth where he would take her first, and was told, and said that she was told that was traditional. She did ask.
+The Two Hundred wanted forty bolts of oilskin, and a spar that would hold. <a href="Lavinia_Barrow">Mrs Barrow</a> of <a href="../Places/Nether_Sopping">Nether Sopping</a> would not have forty, and was made to find forty, and Miss Hoyle counted all forty, out loud, in front of the Forty-Eighth, and did not hurry any of it, and said that nobody had ever brought her forty of anything. The spar came from Ollerenshaw's, at the bottom of the hill, and <a href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a> said *we shall see*, as he always does, and it held. She handed the airship over with one instruction - do not set her down on anything with a roof on it; you would be astonished how often that has been the finding - and asked the Forty-Eighth where he would take her first, and was told, and said that she was told that was traditional. She did ask.
 
 She had two questions for the top of the Tower, and sent them up with him. The first was clause seven, which somebody had copied onto the flyleaf of a ledger older than the building it is kept in, in a hand a hundred and sixty years dead, AND THE CHOSEN ONE SHALL COME UNTO THE TOWER UPON HIS OWN TWO FEET, with four generations' worth of notes under it in four inks, the last of them one word in pencil, recent: *quite.* The second was what the Tower is made of.
 
@@ -59,7 +59,7 @@ The Two Hundred landed on the grass two squares from the Tower door. The party w
 
 ## Afterwards
 
-Grimspite answered both her questions. Clause seven, he said, requires a Chosen One to go on foot, because a thing that flies over and drops something is not a story; it is a Tuesday. He was of the view that she would never get one off the ground in sight of his Tower, and nobody has corrected him, and nobody is going to; I have been asked by everyone concerned not to, and I am not. As to the Tower, he said that nobody had ever asked, and he did not know, and he had leaned on that wall every day for four thousand years and never once wondered. "Tell her the work was good."
+<a href="Grimspite_the_Inevitable">Grimspite</a> answered both her questions. Clause seven, he said, requires a Chosen One to go on foot, because a thing that flies over and drops something is not a story; it is a Tuesday. He was of the view that she would never get one off the ground in sight of his Tower, and nobody has corrected him, and nobody is going to; I have been asked by everyone concerned not to, and I am not. As to the Tower, he said that nobody had ever asked, and he did not know, and he had leaned on that wall every day for four thousand years and never once wondered. "Tell her the work was good."
 
 Bram told her. She said that she had not asked whether it was good, she had asked what it was made of, and that it was a very poor answer to a perfectly clear question. Then she wrote it in the drawing office day book, in full, and underlined *good*, which nobody at the works has ever seen her underline before. The attempt log still says UNDER REVIEW.
 

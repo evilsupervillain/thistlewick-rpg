@@ -9,7 +9,7 @@ title: Coldbarrow
 <table class="infobox">
 <caption>Coldbarrow</caption>
 <tr><th>Known as</th><td>The Chapter House</td></tr>
-<tr><th>Where</th><td>In the snow of the far north, west of Frostwick</td></tr>
+<tr><th>Where</th><td>In the snow of the far north, west of <a href="Frostwick">Frostwick</a></td></tr>
 <tr><th>Of</th><td>The Order of the Errant</td></tr>
 <tr><th>Clerk</th><td>Mordaunt</td></tr>
 <tr><th>System</th><td>One knight, one pin</td></tr>
@@ -25,7 +25,7 @@ title: Coldbarrow
 
 The great map is the island in the Order's own survey, four sheets wide. Each knight in the field is a white-headed pin, spread thin, standing where they were put. Until the year 2000 there were also nine red ones, all over it, for one knight, three of them labelled in the same hand: SAME WEEK. SEE COMMITTEE.
 
-The knight was Sir Aldric Pemberton-Gore the Third. Six of his pins were correct, on different dates. Three of them were the same week: Frostwick, and Fenmarch, and a lay-by in the west. The Order had not lost his file. People said it had. It had nine of them, on the bottom shelf, nine fat volumes each labelled PEMBERTON-GORE, and each one certain that it was the real one. Mordaunt's ledger lay open at P, and every entry on the page had been crossed out and written in again somewhere else. He asked anybody who saw Sir Aldric to note the place, the date and the time, in ink. Not pencil. Pencil is how they got there.
+The knight was Sir Aldric Pemberton-Gore the Third. Six of his pins were correct, on different dates. Three of them were the same week: Frostwick, and <a href="Fenmarch_Hall">Fenmarch</a>, and a lay-by in the west. The Order had not lost his file. People said it had. It had nine of them, on the bottom shelf, nine fat volumes each labelled PEMBERTON-GORE, and each one certain that it was the real one. Mordaunt's ledger lay open at P, and every entry on the page had been crossed out and written in again somewhere else. He asked anybody who saw Sir Aldric to note the place, the date and the time, in ink. Not pencil. Pencil is how they got there.
 
 ## The committee
 

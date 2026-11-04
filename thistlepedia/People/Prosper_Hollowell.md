@@ -14,7 +14,7 @@ title: Prosper Hollowell
 <tr><th>Known as</th><td>P. Hollowell; Mr Hollowell; the Caretaker</td></tr>
 <tr><th>Born</th><td>Not on file. The file was opened after I was retained, and I have never thought it my place to go back and enter myself</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
-<tr><th>Retained</th><td>Year one of the engagement, on its removal to the Tower: four thousand eight hundred years ago, in the engagement's years</td></tr>
+<tr><th>Retained</th><td>Year one of the engagement, on its removal to the <a href="../Places/The_Obligatory_Tower">Tower</a>: four thousand eight hundred years ago, in the engagement's years</td></tr>
 <tr><th>Post</th><td>Caretaker, the Former Premises, the sky</td></tr>
 <tr><th>Quarterly reports</th><td>Nineteen thousand two hundred, all filed</td></tr>
 <tr><th>Underlinings</th><td>One. ITEM TWO: VISITORS. <i>Yes!</i></td></tr>

@@ -9,7 +9,7 @@ title: The Bottomless Pit
 <table class="infobox">
 <caption>The Bottomless Pit</caption>
 <tr><th>Known as</th><td>The Bottomless Pit; a wonder of the district</td></tr>
-<tr><th>Where</th><td>A hillside in the western hills, west of <a href="Thistlewick">Thistlewick</a>; Nether Sopping's, by custom</td></tr>
+<tr><th>Where</th><td>A hillside in the western hills, west of <a href="Thistlewick">Thistlewick</a>; <a href="Nether_Sopping">Nether Sopping</a>'s, by custom</td></tr>
 <tr><th>Custodian</th><td>Fenwick Splint</td></tr>
 <tr><th>Admission</th><td>2 crowns. Children, 1. Free, for ever, to one party</td></tr>
 <tr><th>Refunds</th><td>None, re: depth</td></tr>

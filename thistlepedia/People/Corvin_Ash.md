@@ -19,8 +19,8 @@ title: Corvin Ash
 <tr><th>Bad at</th><td>Defence; luck; being told the school is very good</td></tr>
 <tr><th>Sword</th><td>Black. Called <i>Mind The Step</i></td></tr>
 <tr><th>Scarf</th><td>Knitted by his mother. The wrong colour. Worn</td></tr>
-<tr><th>League table</th><td>Second, the Sable Hart</td></tr>
-<tr><th>Destiny</th><td>None whatsoever (Mother Selvidge, three readings)</td></tr>
+<tr><th>League table</th><td>Second, the <a href="../Places/The_Sable_Hart">Sable Hart</a></td></tr>
+<tr><th>Destiny</th><td>None whatsoever (<a href="Mother_Selvidge">Mother Selvidge</a>, three readings)</td></tr>
 </table>
 
 <p class="lede"><b>Corvin Ash</b> sat in the corner of the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a> from the age of nineteen, waiting for a destiny, for eleven years, which is longer than most careers. His village was destroyed by flooding, in his absence, and everyone was fine, and they moved eight miles inland, and there is a school now, and it is very good, and he could not make anybody understand.</p>

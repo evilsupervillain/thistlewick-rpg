@@ -4,7 +4,7 @@ title: The Sword of Ultimate Ending
 
 # The Sword of Ultimate Ending
 
-<p class="hatnote">For the shop, the town and Mr and Mrs Markup, see <a href="../Places/Penultima">Penultima</a>. For a sword you can actually have, see the <a href="./">catalogue</a>, which has several.</p>
+<p class="hatnote">For the shop, the town and Mr and <a href="../People/Dorothy_Markup">Mrs Markup</a>, see <a href="../Places/Penultima">Penultima</a>. For a sword you can actually have, see the <a href="./">catalogue</a>, which has several.</p>
 
 <table class="infobox">
 <caption>The Sword of Ultimate Ending</caption>
@@ -41,7 +41,7 @@ It is not unkind. I have watched him do it, on the occasion of my visit. He said
 
 ## Afterwards
 
-The sword is still in the window. Penultima does a trade, since 2000, in people walking up the road to see Grimspite's chair, and most of them stop at the Final Shoppe on the way, and look at the sword, and are asked whether they would like to hold it, and are told. Mr Markup says that it has never been better for business, and that he has had to have the rope re-velveted.
+The sword is still in the window. Penultima does a trade, since 2000, in people walking up the road to see <a href="../People/Grimspite_the_Inevitable">Grimspite</a>'s chair, and most of them stop at the Final Shoppe on the way, and look at the sword, and are asked whether they would like to hold it, and are told. Mr Markup says that it has never been better for business, and that he has had to have the rope re-velveted.
 
 He brings Mrs Markup her tea every morning, and then he does the window. In thirty-three years he has never once had to be asked.
 

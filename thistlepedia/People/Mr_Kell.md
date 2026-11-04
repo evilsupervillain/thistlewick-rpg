@@ -25,7 +25,7 @@ title: Mr Kell
 
 ## The Valve
 
-He was born over the bar in 1968, and took the house over from his mother, Mrs Ada Kell, in 1993, when she retired to the chair by the fire, which she gave up in 1997 to Winnie Marsden, after a discussion. The inn has been the Kells' since 1841, when his great-great-grandfather, a boilerman, was blown clean through the foundry roof by an engine without one, and landed in the street unhurt, and went straight into the business of putting people up for the night, on the grounds that he had had enough excitement.
+He was born over the bar in 1968, and took the house over from his mother, Mrs Ada Kell, in 1993, when she retired to the chair by the fire, which she gave up in 1997 to <a href="Winnie_Marsden">Winnie Marsden</a>, after a discussion. The inn has been the Kells' since 1841, when his great-great-grandfather, a boilerman, was blown clean through the foundry roof by an engine without one, and landed in the street unhurt, and went straight into the business of putting people up for the night, on the grounds that he had had enough excitement.
 
 > "The Safety Valve. Named for the one part of a boiler whose entire job is to give up before anything else does. We are very proud of it."
 
@@ -49,7 +49,7 @@ He said it, I am told, with something like awe. He has said since that he has ke
 
 ## Afterwards
 
-He is thirty-three. On the dresser is the best china, under a card, FOR WHEN SHE FLIES, which was dusted every week for as long as anybody can remember, and never used. It has now been used once, on the night the Two Hundred flew, for the whole of the Safety Valve, and Miss Hoyle, who came down, and drank one cup of tea out of it, standing up, and said that it would do, and went back up the hill. The china has been dusted since and put back, with a new card in front of the old one: FOR WHEN SHE FLIES AGAIN.
+He is thirty-three. On the dresser is the best china, under a card, FOR WHEN SHE FLIES, which was dusted every week for as long as anybody can remember, and never used. It has now been used once, on the night the <a href="../History/The_Flight_of_the_Two_Hundred">Two Hundred</a> flew, for the whole of the Safety Valve, and <a href="Ott_Hoyle">Miss Hoyle</a>, who came down, and drank one cup of tea out of it, standing up, and said that it would do, and went back up the hill. The china has been dusted since and put back, with a new card in front of the old one: FOR WHEN SHE FLIES AGAIN.
 
 ## See also
 

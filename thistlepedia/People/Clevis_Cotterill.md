@@ -12,7 +12,7 @@ title: Clevis Cotterill
 <tr><th>Known as</th><td>Clevis; "the bookie", by the works; "that child", by the Parish Rooms</td></tr>
 <tr><th>Born</th><td>1 February 1987, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
-<tr><th>Named for</th><td>A clevis, which is a U-shaped shackle with a pin through it. Grommet has not ruled on it</td></tr>
+<tr><th>Named for</th><td>A clevis, which is a U-shaped shackle with a pin through it. <a href="Grommet_Cotterill">Grommet</a> has not ruled on it</td></tr>
 <tr><th>Ran</th><td>A book on the tenth one's name, 1999-2000</td></tr>
 <tr><th>Opening prices</th><td>Gib evens; Cleat two to one; Washer twenty to one</td></tr>
 <tr><th>Winner</th><td>Washer, at twenty to one</td></tr>
@@ -21,11 +21,11 @@ title: Clevis Cotterill
 <tr><th>Odds of Clevis running another</th><td>Not quoted</td></tr>
 </table>
 
-<p class="lede"><b>Clevis Cotterill</b> is the seventh of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and in 1999 and 2000 ran a book on the name of the tenth, which was the most popular wager in the history of the town, and which he lost, comprehensively, because Mr Cotterill had said <i>not Washer</i>, and he had priced Washer at twenty to one on the strength of it, and had not reckoned with Spare.</p>
+<p class="lede"><b>Clevis Cotterill</b> is the seventh of the ten Cotterills of <a href="../Places/Upper_Clanging">Upper Clanging</a>, and in 1999 and 2000 ran a book on the name of the tenth, which was the most popular wager in the history of the town, and which he lost, comprehensively, because <a href="Ernest_Cotterill">Mr Cotterill</a> had said <i>not Washer</i>, and he had priced Washer at twenty to one on the strength of it, and had not reckoned with <a href="Spare_Cotterill">Spare</a>.</p>
 
 ## The book
 
-Clevis has run a book on something since the age of seven: on which of the family would be first down to breakfast, on whether the rain would stop by the dinner hour, on how many times Mrs Cotterill would get up while she was meant to be sitting down. The stakes are farthings, and buttons, and on one occasion Shim's bearing, which Shim would not put up, and which he has been trying to get onto the board ever since. He keeps the book in a penny notebook with a pencil in the spine and keeps it honestly, which everybody in the town agrees about, and which is, he says, the whole of the trade.
+Clevis has run a book on something since the age of seven: on which of the family would be first down to breakfast, on whether the rain would stop by the dinner hour, on how many times <a href="Nora_Cotterill">Mrs Cotterill</a> would get up while she was meant to be sitting down. The stakes are farthings, and buttons, and on one occasion <a href="Shim_Cotterill">Shim</a>'s bearing, which Shim would not put up, and which he has been trying to get onto the board ever since. He keeps the book in a penny notebook with a pencil in the spine and keeps it honestly, which everybody in the town agrees about, and which is, he says, the whole of the trade.
 
 When the tenth was on the way, he opened a book on the name. The Forty-Eighth was offered a price at the door. "Do you want to put money on the name? Gib is evens. Cleat is two to one. Washer is twenty to one, because Da has said not Washer."
 
@@ -39,7 +39,7 @@ Spare got to it first. "He said call it Washer," said Mrs Cotterill, "and I was 
 
 > "Washer came in at twenty to one. Half the works had a farthing on it because Da said not Washer. I have had to pay out most of Upper Clanging. The book is closed. Mam says there is not going to be another one."
 
-He paid every farthing. It took three days, and a loan from Gudgeon at no interest, and the sale of the notebook's spare pencil, and Tappet's sweepstake winnings on the dragon, which Tappet lent without being asked, and which he says is the only time in the family's history that anybody has lent a bookmaker money without first asking what the odds were.
+He paid every farthing. It took three days, and a loan from <a href="Gudgeon_Cotterill">Gudgeon</a> at no interest, and the sale of the notebook's spare pencil, and <a href="Tappet_Cotterill">Tappet</a>'s sweepstake winnings on the dragon, which Tappet lent without being asked, and which he says is the only time in the family's history that anybody has lent a bookmaker money without first asking what the odds were.
 
 <div class="marginalia">I asked Clevis whether there was any lesson in it. He thought about it for some time, and then said that the lesson was that you should never price a name on what Da says, because Da says things, and that you should price it on who is going to be in the room when Mam is tired. And then, after a moment: that it had been Spare, and you could not have priced Spare. Nobody could. That was the whole trouble with Spare, and the whole point. - H.B.</div>
 
@@ -47,7 +47,7 @@ He paid every farthing. It took three days, and a loan from Gudgeon at no intere
 
 Clevis is fifteen. The book is closed, and has stayed closed, on the subject of names, Mam having said that there is not going to be another one. The whole street now has money on what Washer's first word will be, and he has been begged, by the works, by the Safety Valve and by the vicar, to make a book on it. He will not. "The family," he says, "has been through enough." That is the official position. I have it from Shim that the true position is that he has worked out that Spare will be in the room for it, and has declined to be beaten twice by the same brother.
 
-He has begun a second notebook, on the airship, the Two Hundred and First, and when it will fly, and is offering six to four on the spring of 2003, and is not taking any bets at all from Miss Hoyle, who has asked, because Miss Hoyle has the schedule.
+He has begun a second notebook, on the airship, the Two Hundred and First, and when it will fly, and is offering six to four on the spring of 2003, and is not taking any bets at all from <a href="Ott_Hoyle">Miss Hoyle</a>, who has asked, because Miss Hoyle has the schedule.
 
 ## See also
 

@@ -25,7 +25,7 @@ title: Dorothy Markup
 
 ## The ledger
 
-She was born in 1946 at Haverleigh, the daughter of the clerk of the corn exchange, and was keeping her father's books by fourteen, and correcting them by fifteen, and he says she was right every time. She came to Penultima in the spring of 1969, at twenty-three, to see the Tower, which everybody in the south went to look at once, from a safe distance, and she stopped at the last shop on the way, which had been open a week.
+She was born in 1946 at Haverleigh, the daughter of the clerk of the corn exchange, and was keeping her father's books by fourteen, and correcting them by fifteen, and he says she was right every time. She came to Penultima in the spring of 1969, at twenty-three, to see the <a href="../Places/The_Obligatory_Tower">Tower</a>, which everybody in the south went to look at once, from a safe distance, and she stopped at the last shop on the way, which had been open a week.
 
 She did not, she says, go any further up the road. She was married to the shopkeeper the spring after, and has kept the shop's books since, in a hand very like her father's, in a plain dark dress, in gold wire spectacles, the same as her husband's, which was the one deliberate thing about the wedding.
 

@@ -17,7 +17,7 @@ title: Aveline Stope
 <tr><th>Symposia chaired</th><td>Ten. Very well</td></tr>
 <tr><th>Eleventh</th><td><i>Whether Anything Works.</i> Not held. A queue instead</td></tr>
 <tr><th>Score</th><td>Whatever Works, nineteen to one, on points</td></tr>
-<tr><th>Laughed at Merribell's proposal</th><td>Once</td></tr>
+<tr><th>Laughed at <a href="Merribell">Merribell</a>'s proposal</th><td>Once</td></tr>
 <tr><th>In her drawer</th><td>The founder's pamphlet, damp at the corners</td></tr>
 </table>
 
@@ -33,7 +33,7 @@ She found, as Prioress, that the Order had no doctrine, and that this worried th
 
 ## The line
 
-By the year 2000 a party of the Sisters under Sister Bewick had found a doctrine, and called themselves What Ought To Work, and dyed the trim of their habits black, and the ward was divided down the middle by a line, with the Prioress's half on the west and Sister Bewick's on the east. The patients crossed it in the night, because there was soup.
+By the year 2000 a party of the Sisters under <a href="Sister_Bewick">Sister Bewick</a> had found a doctrine, and called themselves What Ought To Work, and dyed the trim of their habits black, and the ward was divided down the middle by a line, with the Prioress's half on the west and Sister Bewick's on the east. The patients crossed it in the night, because there was soup.
 
 Merribell, who had left the mother house in 1996, at twenty-two, because it had begun holding symposia, came back on the day of the eleventh.
 

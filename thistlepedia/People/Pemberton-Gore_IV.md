@@ -45,11 +45,11 @@ In the year 2000 Sir Aldric came back to Fenmarch, briefly, with the Forty-Eight
 
 And then, gently, to an uncle who had spent nine years going the long way round: "Grandfather said we always go the long way round. And the long way round is still a way. And nobody else in the family ever went OUT, uncle. They all came over the wall. You went OUT."
 
-<div class="marginalia">When Miss Halloway told the household that none of the eighty animals in the gallery had ever lived, every one of them being two animals composed by Mr Ottershaw, it was the Fourth who said <i>COMPOSED, by Mr Ottershaw; nobody else in the county has a COMPOSER; that's better than real; anybody can have real.</i> I have thought about that a good deal since. I think he is the only person in this encyclopedia who has never once been disappointed by the truth about anything, and I do not believe it is because he is easily pleased. I believe it is because he is looking for what is good in it, and finding it first time, like the gate. - H.B.</div>
+<div class="marginalia">When Miss Halloway told the household that none of the eighty animals in the gallery had ever lived, every one of them being two animals composed by <a href="Mr_Ottershaw">Mr Ottershaw</a>, it was the Fourth who said <i>COMPOSED, by Mr Ottershaw; nobody else in the county has a COMPOSER; that's better than real; anybody can have real.</i> I have thought about that a good deal since. I think he is the only person in this encyclopedia who has never once been disappointed by the truth about anything, and I do not believe it is because he is easily pleased. I believe it is because he is looking for what is good in it, and finding it first time, like the gate. - H.B.</div>
 
 ## Squire
 
-He is his uncle's squire now, and finds the gates. Every week, by arrangement, he writes to Mordaunt at Coldbarrow, giving his uncle's place, the date and the time, in ink, and Mordaunt keeps the notes in a tenth volume of the Pemberton-Gore file, and it is the only one of the ten that agrees with itself.
+He is his uncle's squire now, and finds the gates. Every week, by arrangement, he writes to <a href="Mordaunt">Mordaunt</a> at Coldbarrow, giving his uncle's place, the date and the time, in ink, and Mordaunt keeps the notes in a tenth volume of the Pemberton-Gore file, and it is the only one of the ten that agrees with itself.
 
 ## Afterwards
 

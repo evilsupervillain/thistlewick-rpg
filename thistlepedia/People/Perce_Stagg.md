@@ -12,7 +12,7 @@ title: Perce Stagg
 <tr><th>Known as</th><td>Perce; Mr Stagg; the Man Who Broke the Winter</td></tr>
 <tr><th>Born</th><td>Percival Stagg, 1 March 1934, at Fenny Stretton, a long way south, on a smallholding</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
-<tr><th>Went north</th><td>Spring 1960, the year of the Forty-Fourth, with everybody</td></tr>
+<tr><th>Went north</th><td>Spring 1960, the year of the <a href="Ambrose_Fitch">Forty-Fourth</a>, with everybody</td></tr>
 <tr><th>Chosen</th><td>No. Nobody chose him</td></tr>
 <tr><th>Got as far as</th><td><a href="../Places/Frostwick">Frostwick</a>. The winter was in the way</td></tr>
 <tr><th>So</th><td>He saw to it</td></tr>
@@ -50,7 +50,7 @@ The iron crown on top of the ribbon post was made by <a href="Hob_Grumnir">Hob G
 
 ## Afterwards
 
-He is sixty-eight, and has cut forty-two ribbons. He still does the lanterns for the Festival, two hundred and twelve of them, with Clem Blagg, who is learning, and whom he describes as having the makings of a very good lanterner, if not yet the patience. Frostwick has forty-two ribbons on the crown now, one for every Festival, and he says that he knows every one of them, and which year, and that the first is the one at the bottom, faded nearly white, and that it is his favourite, because it is the one he tied himself, before he knew there would be any others.
+He is sixty-eight, and has cut forty-two ribbons. He still does the lanterns for the Festival, two hundred and twelve of them, with <a href="Clem_Blagg">Clem Blagg</a>, who is learning, and whom he describes as having the makings of a very good lanterner, if not yet the patience. Frostwick has forty-two ribbons on the crown now, one for every Festival, and he says that he knows every one of them, and which year, and that the first is the one at the bottom, faded nearly white, and that it is his favourite, because it is the one he tied himself, before he knew there would be any others.
 
 ## See also
 

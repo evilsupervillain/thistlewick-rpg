@@ -12,7 +12,7 @@ title: Mrs Emberthwaite
 <tr><th>Known as</th><td>Mrs Emberthwaite; "dear", to herself, when she has lost a trick, which is rare</td></tr>
 <tr><th>Born</th><td>Hatched 9 May 1930, in the hills above Fairholme, on a sunny ledge, the only egg of the clutch, which her mother said was plenty</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
-<tr><th>Age</th><td>Seventy-two this year, by Rosamund's reckoning</td></tr>
+<tr><th>Age</th><td>Seventy-two this year, by <a href="Princess_Rosamund">Rosamund</a>'s reckoning</td></tr>
 <tr><th>Married</th><td>Mr Emberthwaite, 1951. He did the roaring, mostly</td></tr>
 <tr><th>Widowed</th><td>1984</td></tr>
 <tr><th>Retired</th><td>She has had a letter</td></tr>
