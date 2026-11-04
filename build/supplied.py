@@ -20,6 +20,8 @@ SHEET = "Supplied"
 # colours. The eight from 3 November replace generated or stock faces the same
 # way, walking sprites and battlers unchanged; they came at 133 pixels and are
 # scaled to the cell. `Supplied` was full at eight, so `Supplied2` follows it.
+# Winnie's face and picture were replaced on 4 November with Mike's second
+# go, closer to how the game describes her; same cell, so no data changed.
 PORTRAITS = [
     (SHEET, 0, "nix_portrait.png"),                # Nix
     (SHEET, 1, "mrs_emberthwaite_portrait.png"),   # Mrs Emberthwaite
