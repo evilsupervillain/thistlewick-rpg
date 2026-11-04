@@ -772,8 +772,9 @@ to agree with Washer's own page (21 March 2000).
 
 Asked for by Mike on 2 November 2026. Fellow Blunt was settled as a man of about
 sixty. His face and sprite (`People1` 3, a young woman shared with the Councillor)
-are a stand-in, and are noted with Mr Pilbeam's (Hosea's face) under
-`ART-TODO.md`, *Wanted*. His page has no portrait until then.
+are a stand-in, and are noted under `ART-TODO.md`, *Wanted*. His page has no
+portrait until then. (Mr Pilbeam, noted with him then, wore Hosea's face; he was
+drawn on 3 November 2026, `Gen_People16` 2, and his page has the new one.)
 
 * **Fellow Blunt**. *Canon:* the stone and the sword under item three ("Not
   ready." / "In the stone."); "The stone is not ready. I check the stone.";
