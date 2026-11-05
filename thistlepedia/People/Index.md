@@ -236,6 +236,7 @@ At <a href="../Places/Great_Dunnage">Great Dunnage</a>.
 <figure><a href="Brother_Quillon"><img src="../images/portraits/Brother_Quillon.png" alt="Brother Quillon"></a><figcaption><a href="Brother_Quillon">Brother Quillon</a></figcaption></figure>
 <figure><a href="Mirabel"><img src="../images/portraits/Mirabel.png" alt="Mirabel"></a><figcaption><a href="Mirabel">Mirabel</a></figcaption></figure>
 <figure><a href="Elder_Faelan"><img src="../images/portraits/Elder_Faelan.png" alt="Elder Faelan"></a><figcaption><a href="Elder_Faelan">Elder Faelan</a></figcaption></figure>
+<figure><a href="Elder_Lirien"><img src="../images/portraits/Elder_Lirien.png" alt="Elder Lirien"></a><figcaption><a href="Elder_Lirien">Elder Lirien</a></figcaption></figure>
 <figure><a href="Maud_Penhallow"><img src="../images/portraits/Maud_Penhallow.png" alt="Maud Penhallow"></a><figcaption><a href="Maud_Penhallow">Maud Penhallow</a></figcaption></figure>
 <figure><a href="Dean_Fenwold"><img src="../images/portraits/Dean_Fenwold.png" alt="Dean Fenwold"></a><figcaption><a href="Dean_Fenwold">Dean Fenwold</a></figcaption></figure>
 </div>

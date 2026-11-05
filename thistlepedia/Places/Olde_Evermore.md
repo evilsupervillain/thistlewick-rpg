@@ -37,7 +37,7 @@ Beside the heap stands **Thalion**, Judge of Arrivals, with a little book. He ha
 
 **Ninian** sweeps the path out. Nobody has ever come in by it, so it is always very clean. He sweeps it because somebody might go out by it one day, and you would want it nice for them. When the Forty-Eighth said that he would be going out by it, Ninian looked delighted and swept a little faster.
 
-**Elowen**, an old elf at her front door, is knitting something very small, very fast. It is a tea cosy with two little sleeves, and a large B on the front. B for Bryony. Or Bronwen. It is not for anything else. Asked about the sleeves, she says it is for a very small teapot. They get cold. Her daughter is **Elder Lirien**, who has been married to **<a href="../People/Elder_Faelan">Elder Faelan</a>** since the Second Age. Elowen had stopped knitting.
+**Elowen**, an old elf at her front door, is knitting something very small, very fast. It is a tea cosy with two little sleeves, and a large B on the front. B for Bryony. Or Bronwen. It is not for anything else. Asked about the sleeves, she says it is for a very small teapot. They get cold. Her daughter is **<a href="../People/Elder_Lirien">Elder Lirien</a>**, who has been married to **<a href="../People/Elder_Faelan">Elder Faelan</a>** since the Second Age. Elowen had stopped knitting.
 
 The rest of the village is beautifully kept. There is a room in which everything has been carved, including, as far as can be told, the soap. There are mushrooms growing in a perfect spiral, which in Olde Evermore counts as untidy, and somebody has already been told. There is a carved elven door with no handle, no lock and no keyhole, which opens for those it expects. It has not expected anybody for four thousand years, and has got very good at it. There is a front door in a knitted cosy, and so is the knocker, and so is the handle, and so, very likely, is the key, which would be why nobody can find it.
 
@@ -47,7 +47,7 @@ The notice by the Archive door reads: THE FORBIDDEN ARCHIVE. THE ORACLE RECEIVES
 
 Inside, on a stepstool, stands **Mirabel**, the Last Oracle of Olde Evermore, a very small girl with long silver hair and a silver circlet, who is four thousand one hundred and twelve, and likes the quarter mentioned. She prophesies in the Old Tongue. It is flawless, and it is terrible, and every candle in the Archive leans towards her, and Elder Lirien translates: *When the moon devours the sun, and the last bell falls silent, the one who was not chosen shall-* and then Mirabel asks whether that is a biscuit. It is always a biscuit. She has been doing that one since the Second Age, and it never gets finished, and nobody seems to mind. The shelf of discarded prophecies has it on top, AND THE ONE WHO WAS NOT CHOSEN SHALL, and then a jam stain.
 
-**Elder Lirien** translates for Grandmother, when she prophesies, and when she asks for pudding, and the pudding is more urgent. **Elder Faelan** fetches things from the top shelf, which is where the *Chronicle of the Second Age* is kept, so that she cannot reach it, because she reads the endings first. Everybody calls her Grandmother. She was old when Faelan's grandmother was a girl, and his grandmother was a girl for a long time.
+**<a href="../People/Elder_Lirien">Elder Lirien</a>** translates for Grandmother, when she prophesies, and when she asks for pudding, and the pudding is more urgent. **Elder Faelan** fetches things from the top shelf, which is where the *Chronicle of the Second Age* is kept, so that she cannot reach it, because she reads the endings first. Everybody calls her Grandmother. She was old when Faelan's grandmother was a girl, and his grandmother was a girl for a long time.
 
 Faelan is the source for a sentence I have quoted elsewhere in this volume and will quote again: the Committee counts the way the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy</a> does; the elves count the way the sun does. The Forty-Seventh came off the ledge ten years before the Forty-Eighth, he said, and not a hundred, and when the Forty-Eighth said that the Age began with the Prophecy, Faelan said that the Age began with a great many things, and that the Prophecy was the one with a clerk present. See <a href="../History/Two_Reckonings">Two Reckonings</a>.
 
@@ -65,5 +65,6 @@ Asked who the villain really is, Mirabel said that she knows, and is not allowed
 
 - <a href="../People/Mirabel">Mirabel</a>
 - <a href="../People/Elder_Faelan">Elder Faelan</a>
+- <a href="../People/Elder_Lirien">Elder Lirien</a>
 - <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>, clause twelve
 - <a href="../History/Two_Reckonings">Two Reckonings</a>

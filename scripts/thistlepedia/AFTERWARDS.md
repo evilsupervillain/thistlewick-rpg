@@ -1086,3 +1086,20 @@ plates. What the captions add:
 * The empty chairs in the hut were first sat in in spring 2001, at the
   meeting that carried the plaque (Mr Gammage's article), forty minutes, the
   longest in the parish's history.
+
+## Elder Lirien (5 November 2026, Mike)
+
+* Born in the Second Age, in the spring; Elowen has the date. Faelan keeps
+  his Tuesday.
+* The scroll she dropped at the secret is the only thing she has ever
+  dropped, as far as Olde Evermore remembers.
+* Elowen started knitting again the morning Mirabel told the breakfast
+  table (canon: "I had stopped knitting").
+* Her letter to Hosea was in the Old Tongue, translated underneath and
+  shorter: "Yes. Spell Bryony with a y." Below it there was something in
+  wax crayon that was left untranslated.
+* The slate in the Elders' kitchen says BRYONY and BRONWEN, and under them a
+  third name in wax crayon, which is not printed. Faelan has crossed it out
+  several times. Breakfast has not decided. **The baby is still not said to
+  have been born**, and the wiki never says Biscuit is the name
+  hers: only Mirabel says it.

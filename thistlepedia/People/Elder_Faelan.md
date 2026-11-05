@@ -13,7 +13,7 @@ title: Elder Faelan
 <tr><th>Born</th><td>The Second Age, some while after Grandmother; a Tuesday. He is certain about the Tuesday</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Of</th><td><a href="../Places/Olde_Evermore">Olde Evermore</a>, the Forbidden Archive, the ladder</td></tr>
-<tr><th>Married</th><td>To Elder Lirien, since the Second Age</td></tr>
+<tr><th>Married</th><td>To <a href="Elder_Lirien">Elder Lirien</a>, since the Second Age</td></tr>
 <tr><th>Duties</th><td>Fetching things from the top shelf</td></tr>
 <tr><th>Which is</th><td>Always the top shelf</td></tr>
 <tr><th>Counts</th><td>The way the sun does</td></tr>
@@ -21,7 +21,7 @@ title: Elder Faelan
 <tr><th>Colour, on occasion</th><td>The carpet's</td></tr>
 </table>
 
-<p class="lede"><b>Elder Faelan</b> is one of the Elders of <a href="../Places/Olde_Evermore">Olde Evermore</a>, the husband of Elder Lirien, and the elf who fetches things down from the top shelf of the Forbidden Archive for <a href="Mirabel">Mirabel</a>, whom he calls Grandmother. He is also the only person in the world who will tell you, plainly and without being asked twice, how the years have actually gone.</p>
+<p class="lede"><b>Elder Faelan</b> is one of the Elders of <a href="../Places/Olde_Evermore">Olde Evermore</a>, the husband of <a href="Elder_Lirien">Elder Lirien</a>, and the elf who fetches things down from the top shelf of the Forbidden Archive for <a href="Mirabel">Mirabel</a>, whom he calls Grandmother. He is also the only person in the world who will tell you, plainly and without being asked twice, how the years have actually gone.</p>
 
 ## The top shelf
 
@@ -50,5 +50,6 @@ He is still at the foot of the ladder. He has made no further statement on the s
 ## See also
 
 - <a href="Mirabel">Mirabel</a>
+- <a href="Elder_Lirien">Elder Lirien</a>
 - <a href="../Places/Olde_Evermore">Olde Evermore</a>
 - <a href="../History/Two_Reckonings">Two Reckonings</a>

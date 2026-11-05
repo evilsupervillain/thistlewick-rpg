@@ -17,7 +17,7 @@ title: Mirabel
 <tr><th>Looks</th><td>Eight and a quarter; she would like that mentioned</td></tr>
 <tr><th>Foresaw</th><td>The fall of empires; all forty-eight risings; a biscuit</td></tr>
 <tr><th>Speaks</th><td>The Old Tongue, flawless and terrible</td></tr>
-<tr><th>Translated by</th><td>Elder Lirien</td></tr>
+<tr><th>Translated by</th><td><a href="Elder_Lirien">Elder Lirien</a></td></tr>
 <tr><th>Bedtime</th><td>Half past seven. Not a minute after</td></tr>
 <tr><th>Present at</th><td>The signing of the <a href="../History/The_Prophecy_of_Thistlewick">Prophecy of Thistlewick</a></td></tr>
 </table>
@@ -66,5 +66,6 @@ Elowen's tea cosy, with the two little sleeves and the B on the front, is finish
 
 - <a href="../Places/Olde_Evermore">Olde Evermore</a>
 - <a href="Elder_Faelan">Elder Faelan</a>
+- <a href="Elder_Lirien">Elder Lirien</a>
 - <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>
 - <a href="../History/Two_Reckonings">Two Reckonings</a>

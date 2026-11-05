@@ -15,7 +15,7 @@ title: Timeline
 | When | What |
 |---|---|
 | The First Age | <a href="../Places/Olde_Evermore">Olde Evermore</a> is where it is. Thalion begins judging every arrival off the ledge, out of six. |
-| The Second Age | <a href="../People/Mirabel">Mirabel</a> is born, about two thousand one hundred and thirteen years before the Prophecy. Elder Lirien and <a href="../People/Elder_Faelan">Elder Faelan</a> marry. Calder begins fishing for the one fish in the pond. |
+| The Second Age | <a href="../People/Mirabel">Mirabel</a> is born, about two thousand one hundred and thirteen years before the Prophecy. <a href="../People/Elder_Lirien">Elder Lirien</a> and <a href="../People/Elder_Faelan">Elder Faelan</a> marry. Calder begins fishing for the one fish in the pond. |
 | Before the year 1 | The Dark Lord's engagement is held at the castle on the cloud, the <a href="../Places/The_Former_Premises">Former Premises</a>, so that no hero could ever reach it. None ever does. |
 
 What began the Third Age is not known to me. It was not the Prophecy.
