@@ -34,7 +34,7 @@ You cannot read the plinth from the path. You have to stand on the grass, and th
 
 ## The Lodge
 
-The real power in the Collegium is the Porter's Lodge, and the Lodge knows it. **Mr Gedge**, the Head Porter, is a large man in a dark suit with a ginger beard, and he stands in the gateway. He does not own it. He has the air of somebody who could, and has decided not to bother.
+The real power in the Collegium is the Porter's Lodge, and the Lodge knows it. **<a href="../People/Mr_Gedge">Mr Gedge</a>**, the Head Porter, is a large man in a dark suit with a ginger beard, and he stands in the gateway. He does not own it. He has the air of somebody who could, and has decided not to bother.
 
 A visitor needs a pass, which is issued by the Lodge, on the recommendation of a Fellow, and countersigned by the Lodge. Nobody knows any Fellows. "They don't come out." So Mr Gedge recommends you himself, and countersigns it, and issues it, three times on one card in the same hand, and the whole thing takes about four seconds. He put it to the Forty-Eighth like this: "The Master needs a meeting. The Dean needs a form. I need a pencil." Then: "Hall's on the left, Library's on the right. Keep off the grass."
 

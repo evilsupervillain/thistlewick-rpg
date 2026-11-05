@@ -240,6 +240,7 @@ At <a href="../Places/Great_Dunnage">Great Dunnage</a>.
 <figure><a href="Elder_Lirien"><img src="../images/portraits/Elder_Lirien.png" alt="Elder Lirien"></a><figcaption><a href="Elder_Lirien">Elder Lirien</a></figcaption></figure>
 <figure><a href="Maud_Penhallow"><img src="../images/portraits/Maud_Penhallow.png" alt="Maud Penhallow"></a><figcaption><a href="Maud_Penhallow">Maud Penhallow</a></figcaption></figure>
 <figure><a href="Dean_Fenwold"><img src="../images/portraits/Dean_Fenwold.png" alt="Dean Fenwold"></a><figcaption><a href="Dean_Fenwold">Dean Fenwold</a></figcaption></figure>
+<figure><a href="Mr_Gedge"><img src="../images/portraits/Mr_Gedge.png" alt="Mr Gedge"></a><figcaption><a href="Mr_Gedge">Mr Gedge</a></figcaption></figure>
 <figure><a href="Sub-Librarian_Prewitt"><img src="../images/portraits/Sub-Librarian_Prewitt.png" alt="Sub-Librarian Prewitt"></a><figcaption><a href="Sub-Librarian_Prewitt">Sub-Librarian Prewitt</a></figcaption></figure>
 </div>
 

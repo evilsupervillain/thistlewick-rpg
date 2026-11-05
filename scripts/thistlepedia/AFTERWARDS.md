@@ -1146,3 +1146,27 @@ plates. What the captions add:
   the clause another way, and told her so she could close the referral.
 * Afterwards: Mr Pennock shares the east end of her desk; the reader from
   Michaelmas is still waiting, and she brings him a glass of water at four.
+
+## Mr Gedge (5 November 2026, Mike)
+
+* Born 1940; at the Lodge since 1956, at sixteen, the junior of three
+  porters; the other two retired and their replacement was referred. Head
+  Porter since 1970, "of a Lodge of one", appointed by the Lodge in four
+  seconds. No first name.
+* The throat cleared in the gateway when the Founder is read from the grass
+  (`collegium.founder_pages`) is taken to be his. Canon only says "somebody".
+* **ZEPH-1's ending stays undecided**, as on Prewitt's page: the pigeonhole
+  and "The Lodge is never asked" are before the choice; the Register lifted
+  on a day that was not a Monday is common to both; afterwards "both of the
+  things he says are kind" covers the slide he painted and "Lovely to see
+  you" without printing either.
+* The duck walking into him and the handcart are ZEPH-2's; the wiki already
+  has the Congregation vote on Zephyrine's page.
+* Marginalia: every letter Hosea sent the Collegium was answered by Gedge in
+  pencil by return, including those to the Master, the Dean, Congregation
+  and the Committee for Readers; the one to Gedge himself went via the
+  Committee for Readers, which referred it to the Lodge.
+* Afterwards: he oils the Master's rusted slide every spring and leaves it at
+  OUT; "one at a time, sir", pencils since 1970.
+* Not used: his name on WRE-1's subscription list, since only six of the
+  eight subscriptions need buying and his may not be bound in.

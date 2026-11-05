@@ -29,7 +29,7 @@ She greets everybody the same way, and means it:
 
 > "Good afternoon. Prewitt, Sub-Librarian. How may the Library help you?"
 
-A book may be borrowed on a reader's ticket. The Library issues reader's tickets on a letter from a Fellow. The Fellows do not come out. The only letter most visitors can get is Mr Gedge's card from the Porter's Lodge, which he writes, countersigns and issues in four seconds, and which she will not accept, very kindly, on the grounds that Mr Gedge is not a Fellow: "Mr Gedge is a great deal more than a Fellow, and the Library cannot accept his letters on that account." I have thought about this sentence a good deal since, and I believe every word of it is true, and I believe Mr Gedge would say so too.
+A book may be borrowed on a reader's ticket. The Library issues reader's tickets on a letter from a Fellow. The Fellows do not come out. The only letter most visitors can get is <a href="Mr_Gedge">Mr Gedge</a>'s card from the Porter's Lodge, which he writes, countersigns and issues in four seconds, and which she will not accept, very kindly, on the grounds that Mr Gedge is not a Fellow: "Mr Gedge is a great deal more than a Fellow, and the Library cannot accept his letters on that account." I have thought about this sentence a good deal since, and I believe every word of it is true, and I believe Mr Gedge would say so too.
 
 It is not a no. She was quite firm about that.
 
@@ -70,3 +70,4 @@ She has not bound anything since. Asked whether she would, she said that it woul
 - <a href="Wren_Halloway">Wren Halloway</a>, and the inch on the shelf
 - <a href="../Bestiary/The_Fauna_of_the_Valley">The Fauna of the Valley</a>, bound by hand
 - <a href="Dean_Fenwold">Dean Fenwold</a>
+- <a href="Mr_Gedge">Mr Gedge</a>, who lifts it on Mondays
