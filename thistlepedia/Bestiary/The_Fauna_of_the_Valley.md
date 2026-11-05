@@ -64,7 +64,7 @@ Each entry gives the animal under what it is, and then Rowbotham's name for it, 
 
 <figure class="thumb right">
 <img src="../images/battlers/Hearth_Salamander.png" alt="An orange salamander wreathed in flame" width="118">
-<figcaption>Warm.</figcaption>
+<figcaption>Warm. Drawn by the note-taker, afterwards.</figcaption>
 </figure>
 
 **What it is.** A salamander which lives in hearths. It is warm.
@@ -79,7 +79,7 @@ Each entry gives the animal under what it is, and then Rowbotham's name for it, 
 
 <figure class="thumb right">
 <img src="../images/battlers/Turnip_Gnome.png" alt="A small bearded gnome with a turnip for a head and a staff" width="167">
-<figcaption>Of fixed opinions.</figcaption>
+<figcaption>Of fixed opinions, and wearing the turnip. It does not always get out of it first.</figcaption>
 </figure>
 
 **What it is.** A gnome that lives in turnips. Small, brown, bearded, and of fixed opinions. Not to be confused with *<a href="Bramus_agricola">Bramus agricola</a>*, which also lives in turnips, and has no opinions at all.
@@ -124,7 +124,7 @@ Each entry gives the animal under what it is, and then Rowbotham's name for it, 
 
 <figure class="thumb right">
 <img src="../images/battlers/Upright_Fox.png" alt="A white fox standing upright, with many tails" width="180">
-<figcaption>Upright.</figcaption>
+<figcaption>Pelham-Rudd's Fox, as Mr Pelham-Rudd paid to have it drawn. The tails were extra.</figcaption>
 </figure>
 
 **What it is.** A fox that walks upright. Otherwise a fox, in every particular.

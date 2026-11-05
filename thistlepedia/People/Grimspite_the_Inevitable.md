@@ -59,7 +59,7 @@ The rest is under [The Obligatory Quest](../History/The_Obligatory_Quest#the-top
 
 <figure class="thumb right">
 <img src="../images/battlers/Grimspite_the_Inevitable.png" alt="Grimspite in gold armour, braced to fight" width="180">
-<figcaption>At work, which he does not enjoy, and is very good at.</figcaption>
+<figcaption>At work, which he does not enjoy, and is very good at. The armour is issued. It is not his size; it is the post's.</figcaption>
 </figure>
 
 The room at the top is furnished in the traditional manner, and he will tell you about every piece of it, which nobody did before the ending because nobody stayed. The tablet over the door was a present from the Prophecy, in the year one, and was the only joke it ever made. The two statues are of an aunt, who sat for both and would not stop talking, and did not like either of them, "and you don't throw away an aunt". One mirror is late, because of the altitude. The other shows where you would rather be, and he has put his name down for a bungalow. There are two seeing-orbs, which are very old and very heavy and show only each other.

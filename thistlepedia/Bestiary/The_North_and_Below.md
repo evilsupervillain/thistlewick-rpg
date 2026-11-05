@@ -26,7 +26,7 @@ None of these is an animal. All of them are the <a href="../Institutions/The_Hoy
 <figure><img src="../images/battlers/Loose_Pressure.png" alt="A crackling violet light"><figcaption>Loose pressure, leaving</figcaption></figure>
 <figure><img src="../images/battlers/Attempt_Unnumbered.png" alt="A small brass flying machine with a sting"><figcaption>Attempt (unnumbered), one foot off the ground</figcaption></figure>
 <figure><img src="../images/battlers/Ambulant_Salvage.png" alt="A black iron scorpion"><figcaption>Ambulant salvage, under review</figcaption></figure>
-<figure><img src="../images/battlers/Attempt_Eighty-Four.png" alt="A tall red engine on legs, with cannons"><figcaption>Attempt Eighty-Four, in the field, out of her neighbours</figcaption></figure>
+<figure><img src="../images/battlers/Attempt_Eighty-Four.png" alt="A tall red engine on legs, with cannons"><figcaption>Attempt Eighty-Four, in the field, out of her neighbours. Miss Hoyle asks me to say that those are not guns</figcaption></figure>
 </div>
 
 ## Under Carn Drey
@@ -89,9 +89,9 @@ The Stair goes down from the Door into the Mountain at Hithermost, and the paris
 
 <div class="gallery plates">
 <figure><img src="../images/battlers/The_Dark_Some_Of_It.png" alt="A black shape with red eyes"><figcaption>The dark (some of it)</figcaption></figure>
-<figure><img src="../images/battlers/The_Echo.png" alt="A young man in a cloak with a sword"><figcaption>The echo, which has lovely manners</figcaption></figure>
+<figure><img src="../images/battlers/The_Echo.png" alt="A young man in a cloak with a sword"><figcaption>The echo, as described by everybody who has answered it: exactly like themselves, only better at it</figcaption></figure>
 <figure><img src="../images/battlers/Somebody_Coming_Up.png" alt="A white-haired figure in blue and silver, with a staff"><figcaption>Somebody coming up. Not seen; drawn anyway, by somebody who also did not see them</figcaption></figure>
-<figure><img src="../images/battlers/The_Half-Way_Warden.png" alt="A figure in black armour and a cloak"><figcaption>The warden, half way, in the opinion of the warden</figcaption></figure>
+<figure><img src="../images/battlers/The_Half-Way_Warden.png" alt="A figure in black armour and a cloak"><figcaption>The warden, half way, in the opinion of the warden. The engraver used the plate from the Barrow again, and says that armour is armour</figcaption></figure>
 </div>
 
 ### Weasel

@@ -1040,3 +1040,18 @@ plates. What the captions add:
   no other witness. Its plate is the one captioned as not wrong.
 * The Bothers' *Book of Coast Birds*: the NOT A GULL (?) entry and the GULL
   after it are in the same hand. Wren thinks he asked it.
+
+## More plates explained (5 November 2026, Mike)
+
+* The Load-Bearing Gargoyle was carved as a knight: the Tower ordered
+  gargoyles, was invoiced for gargoyles, and nobody went up to look.
+* Pelham-Rudd's Fox was drawn as he paid to have it drawn; the tails were extra.
+* The hearth salamander's plate was drawn by the note-taker, after the bite.
+* The turnip gnome is drawn wearing its turnip.
+* The echo looks like whoever answers it, only better at it.
+* The warden's plate is the Barrow's grave goods again (both `Blackknight`);
+  the engraver says armour is armour.
+* Eighty-Four's plate: Miss Hoyle says those are not guns.
+* The Barrow Hound was drawn as a wolf by somebody who did not stay for the
+  collar.
+* Grimspite's armour is issued with the post, and is not his size.

@@ -161,7 +161,7 @@ The Obligatory Tower is, I am told, under contract, and so is most of what is in
 
 <figure class="thumb right">
 <img src="../images/battlers/Load-Bearing_Gargoyle.png" alt="A grey stone knight with a sword" width="151">
-<figcaption>The Load-Bearing Gargoyle, off its post, which raises the questions.</figcaption>
+<figcaption>The Load-Bearing Gargoyle. Carved as a knight. The Tower ordered gargoyles, and was invoiced for gargoyles, and nobody went up to look.</figcaption>
 </figure>
 
 **What it is.** Masonry. Not an animal.

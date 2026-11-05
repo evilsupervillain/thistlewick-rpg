@@ -136,7 +136,7 @@ The Pit is a hole in a hillside, four feet deep, with a turnstile. It is called 
 
 <figure class="thumb right">
 <img src="../images/battlers/Barrow_Hound.png" alt="A big grey dog, hackles up" width="180">
-<figcaption>The Barrow Hound, on duty.</figcaption>
+<figcaption>The Barrow Hound, drawn as a wolf, by somebody who met him in a barrow in the dark and did not stay for the collar.</figcaption>
 </figure>
 
 **What it is.** A dog. A large one.
