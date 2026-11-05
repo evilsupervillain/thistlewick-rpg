@@ -260,10 +260,9 @@ And <a href="Something_Unscheduled">Something Unscheduled</a>, at the bottom of 
 <div class="gallery">
 <figure><a href="Effie_Gotobed"><img src="../images/portraits/Effie_Gotobed.png" alt="Effie Gotobed"></a><figcaption><a href="Effie_Gotobed">Effie Gotobed</a></figcaption></figure>
 <figure><a href="Marjorie_Gotobed"><img src="../images/portraits/Marjorie_Gotobed.png" alt="Marjorie Gotobed"></a><figcaption><a href="Marjorie_Gotobed">Mrs Gotobed</a></figcaption></figure>
+<figure><a href="Humphrey_Gotobed"><img src="../images/portraits/Humphrey_Gotobed.png" alt="Humphrey Gotobed"></a><figcaption><a href="Humphrey_Gotobed">Mr Gotobed</a></figcaption></figure>
 <figure><a href="Mr_Cobley"><img src="../images/portraits/Mr_Cobley.png" alt="Mr Cobley"></a><figcaption><a href="Mr_Cobley">Mr Cobley</a></figcaption></figure>
 </div>
-
-And <a href="Humphrey_Gotobed">Humphrey Gotobed</a>, adventurer, retired, who was out.
 
 ## Further back
 

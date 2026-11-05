@@ -8,6 +8,7 @@ title: The Guild of Guides
 
 <table class="infobox">
 <caption>The Guild of Guides</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Fizz.png" alt="Fizz, a fairy with pink hair, a green scarf and glass wings, one finger raised to explain something" width="200"><span class="infobox-caption"><a href="../People/Fizz">Fizz</a>, Tutorial Sprite, Third Class, of the Firstfield Chapter</span></td></tr>
 <tr><th>Chapters</th><td>Firstfield, at least</td></tr>
 <tr><th>Explains</th><td>Everything, once</td></tr>
 <tr><th>Does not cover</th><td>Lore</td></tr>
