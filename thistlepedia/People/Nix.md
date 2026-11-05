@@ -49,7 +49,7 @@ It was her gran's coat. It had gone down to her ankles. She would not wear it un
 
 **The Counting House.** Great Dunnage sealed its counting house in 1788, when the key was lost, and the Corporation wanted it opened by a licensed person, on Form L. She opened it in nine seconds while the Mayor was still reading the preamble. It held one chair and a note: WE SPENT IT. Form L remains blank.
 
-**Half an encounter.** She has a way of moving through a wood at night that halves the number of things that notice you. In 2000 the Works Band at Upper Clanging needed Mr Enoch Bagshawe, and his bassoon, brought through the <a href="../Places/The_Gloamwood">Gloamwood</a> by night without a single fight. He was brought through without one, or half of one. The Works Band has a bassoon.
+**Half an encounter.** She has a way of moving through a wood at night that halves the number of things that notice you. In 2000 the Works Band at Upper Clanging needed <a href="Enoch_Bagshawe">Mr Enoch Bagshawe</a>, and his bassoon, brought through the <a href="../Places/The_Gloamwood">Gloamwood</a> by night without a single fight. He was brought through without one, or half of one. The Works Band has a bassoon.
 
 ## Afterwards
 

@@ -1170,3 +1170,83 @@ plates. What the captions add:
   OUT; "one at a time, sir", pencils since 1970.
 * Not used: his name on WRE-1's subscription list, since only six of the
   eight subscriptions need buying and his may not be bound in.
+
+## Enoch Bagshawe (5 November 2026, Mike)
+
+* Born 1949, on the south side of the Gloamwood (no town named); has
+  played since he was eleven, alone in his front room, playing the other
+  parts. The Band's letter of spring 2000: *We have heard there is a
+  bassoon. Could it come up?*
+* What a reed is (two blades of cane, made by hand by the player) is
+  explanation, not canon.
+* Only lines common to every run of NIX-5 are quoted as having happened:
+  the ask, the mothballs, the note, the fee. The failure lines ("It's
+  forwards I'm no good at", the polite sneeze) are not used; "I've had words
+  with it" appears only in Afterwards, as something said since.
+* Upper Clanging heard the note three miles off and took it for the works.
+* Marginalia: the Band has no bassoon music, so he plays the tuba part an
+  octave up from the tuba's copy; Hosea could not hear him, which Bagshawe
+  says is correct.
+* Afterwards: he goes up the afternoon before each engagement by daylight,
+  with mothballs, and stays at the inn; still the only bassoon; Mrs Bagshawe
+  has been up twice.
+
+## Prime Warden Stannard (5 November 2026, Mike)
+
+* Born 1936 in Great Dunnage; the Chain Works at fourteen (1950); one piece
+  at the Assize of 1958, a chain, ruled one piece after two days under a
+  clause she would not number. Warden 1974, Prime Warden 1982. A Warden may
+  not submit. The chain hangs behind the Wardens' table and holds up the
+  Schedule. No first name.
+* "A history is not a piece. Half a history is not a piece either."
+* Clause thirty-nine is quoted from her HOB-1 line; the Smiths article's
+  "clauses four to thirty-nine I have not seen in writing" still holds.
+* **The remark is hers**: canon has her write the Wardens' notes; the wiki
+  says she wrote the remarks line, in a space nobody had used, which agrees
+  with the Smiths article's "only entry disqualified with a remark".
+* Afterwards: four smiths since 2000 have brought pieces not their own in
+  hope of a remark; all disqualified under clause one, no remarks. "A remark
+  is not a prize." BEST IN HALL is "in the Hall's gift and not the
+  Company's".
+* Marginalia: she will keep Hosea a chair for the reading of the Schedule
+  in spring 2003.
+
+## Mr Plummer (5 November 2026, Mike)
+
+* Born 1944 in Great Dunnage; the yard was his father's; the sign read
+  PLUMMER. HAULAGE. until the spring after Duchess came (1995). Hauling,
+  mostly to Sump, since he was nineteen. Why Tuesday: Monday is too soon to
+  be honest and Wednesday too late to be any use.
+* The second line of the sign was painted by a sign-painter at his request;
+  the third (canon, after ALD-4, "a third hand, very neat") he will not
+  attribute: "the partner's business".
+* Duchess waits at any gate as long as it takes, which he thinks she was
+  taught; nods to Aldric's gate-finding without saying so.
+* He kept the saddle oiled six years; it hangs over her stall. A chair by
+  her stall for callers, never sat in.
+* Marginalia: the fair copy of the first half of the history went to
+  Hosea's printer by Plummer & Partner in summer 2001, by a road Duchess
+  chose, four miles shorter, no fords; the invoice has a pencilled
+  horseshoe.
+* **Fixed in `Places/Great_Dunnage.md`**: it said the cart's tailboard bore
+  the sign's three lines. The tailboard says only PLUMMER & PARTNER
+  (`dunnage.cart_pages`); the lines are on the sign inside the yard gate
+  (`partner_sign_pages`, `q_aldric.sign_page`).
+
+## Convenor Swale (5 November 2026, Mike)
+
+* **The name is from `build/characters/convenor-swale.json` only**; the game
+  says "The Convenor" throughout. The wiki takes it from the head of the
+  minutes: *Present: Swale (Convenor), Grice, Amory, Blunt. In attendance:
+  the asset.* No first name, like Fellow Blunt.
+* Born 1929 in Great Dunnage; forty-nine when the review began. Convenes
+  other things in the town, including the Bell's quiz.
+* **Who appointed her, and whose prophecy it is, stay unanswered** (ROL-5
+  drops the question for good). The marginalia has her answer Hosea "not on
+  the agenda", to be raised under item five at a next meeting that there
+  will not be.
+* 142 meetings counting the last (Fellow Blunt's four-minute one). At it
+  she thanked Roland "without the word continued", and closed the review.
+* Mrs Dewhirst says she paid for the snug and Roland's half, unseen.
+* Afterwards: the snug is still booked quarterly in his name by standing
+  order, uncancelled; Maud has her pie at the RESERVED table.

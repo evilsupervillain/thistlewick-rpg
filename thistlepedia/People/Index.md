@@ -198,6 +198,7 @@ At <a href="../Places/Upper_Clanging">Upper Clanging</a>. And <a href="Eighty-Fo
 <figure><a href="Mr_Kell"><img src="../images/portraits/Mr_Kell.png" alt="Mr Kell"></a><figcaption><a href="Mr_Kell">Mr Kell</a></figcaption></figure>
 <figure><a href="Nib"><img src="../images/portraits/Nib.png" alt="Nib"></a><figcaption><a href="Nib">Nib</a></figcaption></figure>
 <figure><a href="Isaac_Sowerby"><img src="../images/portraits/Isaac_Sowerby.png" alt="Isaac Sowerby"></a><figcaption><a href="Isaac_Sowerby">Old Sowerby</a></figcaption></figure>
+<figure><a href="Enoch_Bagshawe"><img src="../images/portraits/Enoch_Bagshawe.png" alt="Enoch Bagshawe"></a><figcaption><a href="Enoch_Bagshawe">Enoch Bagshawe</a></figcaption></figure>
 </div>
 
 ### Frostwick and Coldbarrow
@@ -223,6 +224,9 @@ At <a href="../Places/Great_Dunnage">Great Dunnage</a>.
 <figure><a href="Lettice_Moon"><img src="../images/portraits/Lettice_Moon.png" alt="Lettice Moon"></a><figcaption><a href="Lettice_Moon">Miss Moon</a></figcaption></figure>
 <figure><a href="Miss_Fettle"><img src="../images/portraits/Miss_Fettle.png" alt="Miss Fettle"></a><figcaption><a href="Miss_Fettle">Miss Fettle</a></figcaption></figure>
 <figure><a href="Fellow_Blunt"><img src="../images/portraits/Fellow_Blunt.png" alt="Fellow Blunt"></a><figcaption><a href="Fellow_Blunt">Fellow Blunt</a></figcaption></figure>
+<figure><a href="Convenor_Swale"><img src="../images/portraits/Convenor_Swale.png" alt="Convenor Swale"></a><figcaption><a href="Convenor_Swale">Convenor Swale</a></figcaption></figure>
+<figure><a href="Prime_Warden_Stannard"><img src="../images/portraits/Prime_Warden_Stannard.png" alt="Prime Warden Stannard"></a><figcaption><a href="Prime_Warden_Stannard">Prime Warden Stannard</a></figcaption></figure>
+<figure><a href="Mr_Plummer"><img src="../images/portraits/Mr_Plummer.png" alt="Mr Plummer"></a><figcaption><a href="Mr_Plummer">Mr Plummer</a></figcaption></figure>
 </div>
 
 ### The Sable Hart

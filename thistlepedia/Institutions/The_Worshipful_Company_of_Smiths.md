@@ -9,7 +9,7 @@ title: The Worshipful Company of Smiths
 <table class="infobox">
 <caption>The Worshipful Company of Smiths of Great Dunnage</caption>
 <tr><th>Hall</th><td>The Smiths' Hall, <a href="../Places/Great_Dunnage">Great Dunnage</a></td></tr>
-<tr><th>Prime Warden</th><td>Stannard</td></tr>
+<tr><th>Prime Warden</th><td><a href="../People/Prime_Warden_Stannard">Stannard</a></td></tr>
 <tr><th>Junior Warden</th><td>Crabbe, who reads the Schedule out</td></tr>
 <tr><th>Appraiser</th><td>Miss Fettle, who asks after the tang</td></tr>
 <tr><th>Motto</th><td>BY HAMMER AND HAND (and, in chalk, BY SCHEDULE)</td></tr>
@@ -47,7 +47,7 @@ Clauses four to thirty-nine I have not seen in writing, and Warden Crabbe has of
 
 ## The officers
 
-**Prime Warden Stannard** is a tall woman in black, with iron-grey hair pinned up and gold at her collar, who stands at the Company's table as if it might try something. She asks whether you are a smith. If you are not, you may look. Do not touch.
+**<a href="../People/Prime_Warden_Stannard">Prime Warden Stannard</a>** is a tall woman in black, with iron-grey hair pinned up and gold at her collar, who stands at the Company's table as if it might try something. She asks whether you are a smith. If you are not, you may look. Do not touch.
 
 **Warden Crabbe**, the Junior Warden, keeps the Schedule, aloud, and the cards on the hall's exhibits, in writing, among them the one on a suit of armour entered for the prize *by a smith who wishes to remain anonymous*.
 
@@ -72,4 +72,5 @@ The next Assize is in the spring of 2003. The Schedule has not been amended. It 
 - <a href="../Places/Great_Dunnage">Great Dunnage</a>
 - <a href="../People/Hob_Grumnir">Hob Grumnir</a>
 - <a href="../People/Bryd_Ollerenshaw">Bryd Ollerenshaw</a>
+- <a href="../People/Prime_Warden_Stannard">Prime Warden Stannard</a>, at the table
 - <a href="The_Hoyle_Works">The Hoyle Works</a>, which Great Dunnage would like you to know is only one works

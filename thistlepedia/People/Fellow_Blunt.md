@@ -24,7 +24,7 @@ title: Fellow Blunt
 
 ## Readiness
 
-The review sat in the snug of the Bell at <a href="../Places/Great_Dunnage">Great Dunnage</a>, under a Convenor, with three Fellows: Fellow Grice, who reported the sorcerer's apologies; Fellow Amory, who took the minutes; and Fellow Blunt, who reported on the stone and the sword. At the hundred and forty-first meeting, which the Forty-Eighth's party attended, item three went like this, and I am told it had always gone like this:
+The review sat in the snug of the Bell at <a href="../Places/Great_Dunnage">Great Dunnage</a>, under a Convenor, <a href="Convenor_Swale">Swale</a>, with three Fellows: Fellow Grice, who reported the sorcerer's apologies; Fellow Amory, who took the minutes; and Fellow Blunt, who reported on the stone and the sword. At the hundred and forty-first meeting, which the Forty-Eighth's party attended, item three went like this, and I am told it had always gone like this:
 
 > **The Convenor:** Item three. Readiness. The stone?
 >
@@ -58,5 +58,6 @@ Miss Penhallow is still in the yard. He has not asked her to leave. He has start
 
 - <a href="Roland_Fairweather">Roland Fairweather</a>
 - <a href="Maud_Penhallow">Maud Penhallow</a>
+- <a href="Convenor_Swale">Convenor Swale</a>, who took item three
 - <a href="../Places/Carn_Drey">Carn Drey</a>
 - <a href="../Places/Great_Dunnage">Great Dunnage</a>
