@@ -780,7 +780,7 @@ def tower_events():
 
     # Every character's best weapon lives in one cupboard, because the party
     # is four of seven and there is no way to know which four in advance.
-    cache = [R.play_se("Chest1")]
+    cache = [R.play_se("Chest1")] + S.chest_opening()
     cache += S.narrate([
         "A cupboard. Inside, ten hooks, each with a",
         "small brass label.",
@@ -813,10 +813,10 @@ def tower_events():
         "THE STAIRS. I DO NOT UNDERSTAND ANY OF YOU.'"])
     cache += [S.trope(), R.self_switch("A", True)]
     evs.append(R.event(11, "Contingency Cache", *T.at(4, "k"), [
-        R.page(cache, img=R.image("!Chest", 0, direction=2, pattern=1),
+        R.page(cache, img=S.chest_image(),
                trigger=0, priority=1, direction_fix=True),
         R.page(S.narrate(["Ten empty hooks and a very smug note."]),
-               img=R.image("!Chest", 0, direction=2, pattern=2), trigger=0,
+               img=S.chest_image(opened=True), trigger=0,
                priority=1, direction_fix=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))

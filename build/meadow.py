@@ -492,7 +492,7 @@ def chest_event():
                      "Chests are for OPENING!",
                      "Press the button to OPEN it!"])
     open_it += fizz_out()
-    open_it += [R.play_se("Open1")]
+    open_it += [R.play_se("Open1")] + S.chest_opening()
     open_it += S.narrate(["Inside is a Potion, and a note."])
     open_it += [R.gain_item(db.IT_POTION, 1)]
     open_it += S.got(["Got \\I[176]\\C[3]Potion\\C[0]."])
@@ -515,9 +515,9 @@ def chest_event():
         "It is the most-opened chest in the world, and",
         "the only one that has ever been expecting you."])
     return R.event(EV_CHEST, "The Tutorial Chest", *CHEST, [
-        R.page(open_it, img=R.image("!Chest", 0, direction=2, pattern=1),
+        R.page(open_it, img=S.chest_image(),
                trigger=0, priority=1, direction_fix=True),
-        R.page(empty, img=R.image("!Chest", 0, direction=2, pattern=2),
+        R.page(empty, img=S.chest_image(opened=True),
                trigger=0, priority=1, direction_fix=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ])

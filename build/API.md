@@ -493,7 +493,9 @@ sign(event_id, name, x, y, lines, sheet='', index=0) Something you read. No spri
 npc(event_id, name, x, y, commands, sheet, index, direction=2, move_type=0, trigger=0, priority=1, step_anime=False, pages=None, move_speed=3, move_frequency=3) A person who says something when you talk to them.
 prop(event_id, name, x, y, lines, sheet, index, direction=2, pattern=1, extra=()) A searchable object - a barrel, a bookshelf, a scarecrow.
 specimen(event_id, name, x, y, lines, wren_says, again, sheet='', index=0) One of NORTH.md 3.4's three things on the road, for Wren to be correct
-chest(event_id, name, x, y, contents, lines)         A treasure chest: page one gives you the thing, page two is empty.
+chest_image(index=0, opened=False)                   A `!Chest` box, shut or open.
+chest_opening(indent=0)                              Lift the lid: the sample's treasure routine, turning the event through
+chest(event_id, name, x, y, contents, lines, index=0) A treasure chest: page one opens it and gives you the thing, page two
 recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline, full, direction=2, move_type=0, extra_pages=(), after=(), again=None) One of the nine.
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
@@ -697,7 +699,7 @@ DUNNAGE_STEP                 (31, 53)
 WORLD_SIGN_SOUTH             (58, 73)
 WORLD_SIGN_NORTH             (64, 46)
 WORLD_SIGN_COAST             (63, 80)
-FEN_ROAD_SIGN                (33, 53)
+FEN_ROAD_SIGN                (34, 55)
 FEN_ROAD_END                 (47, 117)
 UNDERSTUDY_BELL              (4, 9)
 UNDERSTUDY_DOOR              (64, 43)
@@ -712,7 +714,7 @@ MAP_DROWNED_STREET           66
 MAP_CARN_DREY                67
 TOWER_DOOR_EVENT             4
 CARN_DREY                    (39, 55)
-CARN_DREY_STEP               (40, 55)
+CARN_DREY_STEP               (39, 56)
 SNUG_CARD                    (4, 8)
 WYVERN_BACK_DOOR             (18, 5)
 WYVERN_CURTAIN               (17, 4)

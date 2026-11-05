@@ -780,16 +780,40 @@ def specimen(event_id, name, x, y, lines, wren_says, again,
     ])
 
 
-def chest(event_id, name, x, y, contents, lines):
-    """A treasure chest: page one gives you the thing, page two is empty."""
-    open_it = [R.play_se("Open1")] + list(contents)
+def chest_image(index=0, opened=False):
+    """A `!Chest` box, shut or open.
+
+    The sheet draws a box opening down its four *direction* rows - down shut,
+    left ajar, right open, up wide - and the three columns of a row are the
+    same picture. So the open box is direction 8, not another pattern: the
+    chests were built with pattern 2 of the shut row for "open", which is the
+    shut box again, and every chest in the game stayed closed after looting."""
+    return R.image("!Chest", index, direction=8 if opened else 2, pattern=1)
+
+
+def chest_opening(indent=0):
+    """Lift the lid: the sample's treasure routine, turning the event through
+    the three rows above the shut one. The shut page is direction-fixed so
+    nothing else turns it, so the fix comes off first; the open page that the
+    self switch brings up is fixed again, on direction 8."""
+    return R.move_route(0, [{"code": 36},
+                            {"code": 17}, {"code": 15, "parameters": [3]},
+                            {"code": 18}, {"code": 15, "parameters": [3]},
+                            {"code": 19}, {"code": 15, "parameters": [3]}],
+                        repeat=False, wait_flag=True, indent=indent)
+
+
+def chest(event_id, name, x, y, contents, lines, index=0):
+    """A treasure chest: page one opens it and gives you the thing, page two
+    is the open, empty box."""
+    open_it = [R.play_se("Open1")] + chest_opening() + list(contents)
     open_it += got(lines)
     open_it.append(R.self_switch("A", True))
     return R.event(event_id, name, x, y, [
-        R.page(open_it, img=R.image("!Chest", 0, direction=2, pattern=1),
+        R.page(open_it, img=chest_image(index),
                trigger=0, priority=1, direction_fix=True),
         R.page(narrate(["Empty. You were thorough."]),
-               img=R.image("!Chest", 0, direction=2, pattern=2),
+               img=chest_image(index, opened=True),
                trigger=0, priority=1, direction_fix=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ])

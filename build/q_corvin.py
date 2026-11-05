@@ -688,6 +688,7 @@ def _cor2_card():
     c += S.narrate([
         "The strongbox is rusted shut. Corvin opens it with the",
         "black sword, which turns out to be very good at it."])
+    c += S.chest_opening()
     c += S.narrate([
         "Inside, dry, wrapped in oilcloth: a report for every",
         "child old Ashcombe ever had, in the schoolmistress's",
@@ -743,7 +744,9 @@ def _cor2_events():
         R.page(R.if_then(R.condition_switch(db.SW_COR2_STEP), named,
                          _cor2_step()), conditions=corvin, **wall)]))
 
-    box = dict(wall, img=R.image("!Chest", 5, direction=2))   # the iron one
+    box = dict(wall, img=S.chest_image(5))   # the iron one
+    # Corvin opens it, and nothing shuts it again.
+    box_open = dict(wall, img=S.chest_image(5, opened=True))
     shut = S.narrate([
         "A strongbox, in the mud of what was the schoolroom, rusted",
         "shut."])
@@ -758,7 +761,10 @@ def _cor2_events():
         R.page(R.if_then(R.condition_switch(db.SW_COR2_DONE), opened,
                          R.if_then(R.condition_switch(db.SW_COR2_STEP),
                                    _cor2_card(), waiting)),
-               conditions=corvin, **box)]))
+               conditions=corvin, **box),
+        R.page(opened, conditions={"switch1Valid": True,
+                                   "switch1Id": db.SW_COR2_DONE},
+               **box_open)]))
 
     church = S.narrate([
         "The street goes on into the water. Just under the surface,",

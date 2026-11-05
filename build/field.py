@@ -1119,16 +1119,18 @@ def item_one(event_id, x, y):
     return R.event(event_id, "ITEM 1", x, y, [
         # `!Chest` index 6 is the plain banded wooden crate, not one of the
         # ornate treasure chests - the same sheet `story.chest` uses and the
-        # same closed/open patterns, because that is what the idiom is for.
+        # same shut frame, because that is what the idiom is for.
         # `!Other1` index 6 was here first and is a rack of coloured orbs on
         # pedestals; a map-scale screenshot showed a red dome in the hold and
         # nothing else about it.
-        R.page(crate, img=R.image("!Chest", 6, direction=2, pattern=1),
+        R.page(crate, img=S.chest_image(6),
                trigger=0, priority=1, direction_fix=True),
-        R.page(gone, img=R.image("!Chest", 6, direction=2, pattern=2),
+        # Two of you carry it off, so afterwards there is no crate: the
+        # straps and chocks keep the cell, which is what `<unseen>` says.
+        R.page(gone, img=R.image(""),
                trigger=0, priority=1, direction_fix=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
-    ])
+    ], note="<unseen>")
 
 
 # ================================== what the field is worth, back in the works ==
