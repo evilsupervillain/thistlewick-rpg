@@ -547,8 +547,8 @@ def pit_events():
                          "waiting forty years to be told."])
     badger += [S.trope(), R.self_switch("A", True)]
     evs.append(R.event(3, "The Thing At The Bottom", 12, 7, [
-        R.page(badger, img=R.image("Nature", 0, direction=2), trigger=1,
-               priority=1, step_anime=True),
+        R.page(badger, img=R.image("!$BadgerAsleep", 0, direction=2),
+               trigger=1, priority=1, step_anime=True),
         R.page([], img=R.image(""), trigger=0, priority=0, through=True,
                conditions={"selfSwitchValid": True, "selfSwitchCh": "A"}),
     ]))

@@ -214,6 +214,14 @@ def clanging_map():
     # the two houses (30 Oct): theirs is the big one now, door (11, 39), and
     # (13, 40) is the end of Mrs Cotterill's bench.
     m["events"].append(q_spare.bessie_at_the_door(len(m["events"]), 11, 40))
+    # ...and from the morning after, Washer is asleep on the other end of it
+    # (Mike's sprite, 4 November): Mam is to stay sat down for a week.
+    m["events"].append(R.event(len(m["events"]), "Washer", 13, 40, [
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True),
+        R.page([], img=R.image("!$Washer", 0, direction=2), trigger=0,
+               priority=1, conditions={"switch1Valid": True,
+                                       "switch1Id": db.SW_SPA3_DONE}),
+    ]))
     return m
 
 

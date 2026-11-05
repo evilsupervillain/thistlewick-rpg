@@ -84,6 +84,10 @@ SPRITES = [
     ("!$BarrowBench", "barrow_bench.png", 0, True),            # wilds.py
     ("!$MiddleBench", "middle_distance_bench.png", 0, True),   # field.py
     ("!$HeightMarks", "height_marks.png", 0, False),           # q_corvin.py
+    # 4 November: the badger asleep in the pit, in place of `Nature` 0's
+    # small black dog, and Washer on the end of Mrs Cotterill's bench.
+    ("!$BadgerAsleep", "badger_sprite.png", 0, False),         # wilds.py
+    ("!$Washer", "washer_sprite.png", 0, False),               # north.py
 ]
 
 
@@ -91,6 +95,15 @@ SPRITES = [
 BATTLERS = [
     ("Grimspite", "grimspite_battler.png"),  # db.EN_GRIMSPITE (29 Oct)
     ("Prophecy", "prophecy_battler.png"),    # db.EN_PROPHECY (29 Oct)
+    # 4 November, each in place of a stock battler and its hue
+    ("MilitantTurnip", "militant_turnip_battler.png"),  # db.EN_TURNIP
+    ("TurnipGnome", "turnip_gnome_battler.png"),        # db.SPECIMENS
+    ("SkeletonIntern", "skeleton_intern_battler.png"),  # db.EN_SKELETON
+    ("TowerBat", "tower_bat_battler.png"),              # db.EN_BAT
+    ("Badger", "badger_battler.png"),                   # db.EN_BADGER
+    ("SmallHours", "small_hours_battler.png"),          # db.EN_SMALL_HOURS
+    ("Echo", "echo_battler.png"),                       # db.EN_ECHO, Bram
+    ("BarnCait", "barn_cait_battler.png"),              # db.SPECIMENS
 ]
 
 

@@ -2172,7 +2172,7 @@ def build_enemies():
     base = [trait(22, 0, 0.95), trait(22, 1, 0.05)]
 
     upsert(en, enemy(
-        EN_TURNIP, "Militant Turnip", "Matango", 60,
+        EN_TURNIP, "Militant Turnip", "MilitantTurnip", 0,
         [420, 0, 30, 12, 8, 8, 10, 5], 45, 60,
         [action(SK_ATTACK, 6), action(SK_NIBBLE, 4)],
         traits=base + [trait(11, EL_FIRE, 1.5)],
@@ -2223,14 +2223,14 @@ def build_enemies():
         note="Objects to being walked past."))
 
     upsert(en, enemy(
-        EN_BAT, "Tower Bat", "Crow", 180,
+        EN_BAT, "Tower Bat", "TowerBat", 0,
         [420, 0, 32, 10, 10, 10, 34, 10], 60, 80,
         [action(SK_ATTACK, 6)],
         traits=base + [trait(22, 1, 0.3)],
         note="There are always bats. It is in the contract."))
 
     upsert(en, enemy(
-        EN_SKELETON, "Skeleton (Intern)", "Zombie", 40,
+        EN_SKELETON, "Skeleton (Intern)", "SkeletonIntern", 0,
         [800, 30, 44, 26, 16, 18, 14, 6], 130, 190,
         [action(SK_ATTACK, 6), action(SK_DRAIN, 2)],
         traits=base + [trait(11, EL_LIGHT, 2.0), trait(11, EL_DARK, 0.2),
@@ -2361,7 +2361,7 @@ def build_enemies():
         note="Clause twelve enforces itself. That is the whole problem."))
     # -- the four optional ones ----------------------------------------------
     upsert(en, enemy(
-        EN_BADGER, "The Thing At The Bottom", "SF_Brownbear", 0,
+        EN_BADGER, "The Thing At The Bottom", "Badger", 0,
         [3000, 60, 48, 34, 16, 22, 26, 14], 560, 900,
         [action(SK_ATTACK, 6), action(SK_OPINION, 4),
          action(SK_RUMMAGE, 3)],
@@ -2855,9 +2855,9 @@ SPECIMENS = [
      "Rowbotham's Magnificent", SK_STARTLE),
     ("Hearth Salamander", "Salamander", 0, 1900, 58, 36, 28,
      "Rowbotham's Comfort", SK_BITE_NOTES),
-    ("Turnip Gnome", "Gnome", 0, 1500, 50, 40, 22,
+    ("Turnip Gnome", "TurnipGnome", 0, 1500, 50, 40, 22,
      "Mrs Rowbotham", SK_NOT_THERE),
-    ("Barn Cait", "Caitsith", 0, 1600, 56, 30, 44,
+    ("Barn Cait", "BarnCait", 0, 1600, 56, 30, 44,
      "Biscuit (his dog)", SK_BOLT),
     ("Striped Warren Hare", "Tigerbunny", 0, 1600, 54, 30, 46,
      "Rowbotham's Tiger", SK_BOLT),
@@ -2990,7 +2990,7 @@ def build_vigil():
         note="ALD-2. It comes in under the chapel door at Weeping Bottom "
              "every night. It always has."))
     upsert(en, enemy(
-        EN_SMALL_HOURS, "The Small Hours", "Siren", 0,
+        EN_SMALL_HOURS, "The Small Hours", "SmallHours", 0,
         [999999, 0, 20, 999, 20, 999, 8, 10], 200, 0,
         [action(SK_HOW_LATE, 5)],
         note="ALD-2. Cannot be fought, only got through. Gone at dawn."))
@@ -3485,7 +3485,7 @@ def build_mountain():
         note="Schedule of Hazards, item two: puts lamps out. It is a weasel, "
              "it turns out, made of wind."))
     upsert(en, enemy(
-        EN_ECHO, "The Echo", "SF_Hannyamask", 0,
+        EN_ECHO, "The Echo", "Echo", 0,
         [2400, 240, 50, 50, 82, 80, 44, 30], 600, 360,
         [action(SK_SAYS_IT_BACK, 5), action(SK_ATTACK, 3)],
         traits=base + [trait(22, 5, 0.3), trait(11, EL_PHYSICAL, 1.3),

@@ -1146,13 +1146,13 @@ Battlers that are the wrong thing:
 
 | enemy | uses | is described as |
 | --- | --- | --- |
-| #1 Militant Turnip | Matango, a mushroom cluster | a turnip - Bram's signature enemy |
-| #10 Tower Bat | a recoloured crow | a bat |
-| #7 Skeleton (Intern) | Zombie | a skeleton |
-| #8 Load-Bearing Gargoyle | Stoneknight, an armoured statue | a gargoyle |
-| #13 Gull With Ambitions | Harpy | a gull |
-| #23 The Thing At The Bottom | SF_Brownbear | a badger the size of a hay cart |
-| #47 Turnip Gnome | Gnome, a mushroom creature | a gnome that lives in turnips |
+| ~~#1 Militant Turnip~~ | Matango, a mushroom cluster | a turnip: **now Mike's `MilitantTurnip`** |
+| ~~#10 Tower Bat~~ | a recoloured crow | a bat: **now Mike's `TowerBat`** |
+| ~~#7 Skeleton (Intern)~~ | Zombie | a skeleton: **now Mike's `SkeletonIntern`** |
+| ~~#8 Load-Bearing Gargoyle~~ | Stoneknight, an armoured statue | a gargoyle: **kept** (Mike, 4 Nov: "a less grotesque gargoyle") |
+| ~~#13 Gull With Ambitions~~ | Harpy | a gull: **kept** (Mike, 4 Nov: the ambition is the joke) |
+| ~~#23 The Thing At The Bottom~~ | SF_Brownbear | a badger: **now Mike's `Badger`** |
+| ~~#47 Turnip Gnome~~ | Gnome, a mushroom creature | a gnome: **now Mike's `TurnipGnome`** |
 | ~~#17 Barrow Hound~~ | Wolfman, upright | a hound: **now stock `SF_Wolf`** |
 | ~~#64 Half-Way Warden~~ | Gatekeeper, a blue robe | black armour: **now stock `Blackknight`** (#18 uses it too) |
 
@@ -1160,8 +1160,12 @@ Weaker, optional: #27 Attempt Eighty-Four is a modern war robot (an 1860
 steam airship); #30 Loose Pressure an electric orb (steam); #53 Tall Marsh
 Wader an armoured owl (a heron); #56 The Small Hours a mermaid (a chapel
 vigil); #62 The Echo a masked samurai; #48 Barn Cait a catgirl (a cat).
+**Delivered 4 November**: The Small Hours (`SmallHours`, asleep on a pew), The
+Echo (`Echo`, Bram) and Barn Cait (`BarnCait`); the rest are fine for now
+(Mike). All installed by `build/supplied.py` `BATTLERS`, each at hue 0.
 
-Map sprites: the Thing At The Bottom is a small black dog (`Nature#0`);
+Map sprites: ~~the Thing At The Bottom is a small black dog (`Nature#0`)~~
+**now Mike's `!$BadgerAsleep`, 4 Nov**;
 Number Forty-Six and Ambrose Fitch are both "in armour" and both plain-clothes
 sprites, and Ambrose's is Ferrety Bother's; the Memorial Stone (above, V10).
 Fenmarch's case "A ROOK (Scaled)" shows a blue horned beetle-knight.
