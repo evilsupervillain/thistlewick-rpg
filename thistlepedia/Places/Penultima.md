@@ -8,7 +8,7 @@ title: Penultima
 
 <table class="infobox">
 <caption>Penultima</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Penultima.png"><img src="../images/views/Penultima.png" alt="Penultima from above: four houses round a cobbled street" width="300"></a><span class="infobox-caption">Penultima, the last town but one</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Penultima.png" alt="Penultima from above: four houses round a cobbled street" width="300"><span class="infobox-caption">Penultima, the last town but one</span></td></tr>
 <tr><th>Known as</th><td>The Last Town Before The End</td></tr>
 <tr><th>Where</th><td>On the road north, just short of the Tower</td></tr>
 <tr><th>Signs</th><td>LAST CHANCE FOR POTIONS (WE MEAN IT)</td></tr>

@@ -480,6 +480,20 @@ mark { background: var(--sp-mark-bg); color: inherit; padding: 0 .1em; border-ra
 .sp-btn-primary:hover { background: var(--sp-link-hover); }
 .sp-settings-note { font-size: .85rem; color: var(--sp-text-muted); margin: .75rem 0 0; }
 
+/* ---- Image viewer ---------------------------------------------------------- */
+.sp-content img.sp-zoomable { cursor: zoom-in; }
+.sp-lightbox {
+  width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none;
+  margin: 0; padding: 1rem; border: 0; background: transparent; color: #f2f2f2; overflow: hidden; cursor: zoom-out;
+}
+.sp-lightbox[open] { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .75rem; }
+.sp-lightbox::backdrop { background: rgba(0, 0, 0, .92); }
+.sp-lightbox-img { display: block; max-width: 100%; max-height: calc(100% - 3rem); min-height: 0; object-fit: contain; }
+.sp-lightbox-img.sp-fill { width: min(100%, calc((100vh - 6rem) * var(--sp-ratio, 1))); height: auto; }
+.sp-lightbox-caption { margin: 0; max-width: 60rem; text-align: center; font-size: .95rem; line-height: 1.4; }
+.sp-lightbox-close { position: absolute; top: .5rem; right: .5rem; color: #f2f2f2; background: rgba(0, 0, 0, .4); }
+.sp-lightbox-close:hover { background: rgba(255, 255, 255, .15); }
+
 /* ---- Mobile ------------------------------------------------------------------ */
 @media (max-width: 800px) {
   .sp-header { padding: .5rem .75rem; }
@@ -514,7 +528,7 @@ mark { background: var(--sp-mark-bg); color: inherit; padding: 0 .1em; border-ra
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 @media print {
-  .sp-header, .sp-sidebar, .sp-backdrop, .sp-skip, .sp-anchor, .sp-dialog { display: none !important; }
+  .sp-header, .sp-sidebar, .sp-backdrop, .sp-skip, .sp-anchor, .sp-dialog, .sp-lightbox { display: none !important; }
   body { background: #fff; color: #000; }
   .sp-main { border: 0; padding: 0; }
   .sp-content a.external::after { display: none; }
@@ -592,6 +606,14 @@ mark { background: var(--sp-mark-bg); color: inherit; padding: 0 .1em; border-ra
       <button type="button" class="sp-btn sp-btn-primary" data-sp-close>Done</button>
     </div>
   </div>
+</dialog>
+
+<dialog class="sp-lightbox" id="sp-lightbox" aria-label="Image viewer">
+  <button type="button" class="sp-icon-btn sp-lightbox-close" id="sp-lightbox-close" aria-label="Close image">
+    <svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <img class="sp-lightbox-img" id="sp-lightbox-img" alt="">
+  <p class="sp-lightbox-caption" id="sp-lightbox-caption" hidden></p>
 </dialog>
 
 <script>
@@ -1694,6 +1716,7 @@ function renderArticle(route, res) {
   const box = content();
   renderMarkdownInto(box, body, dirOf(route.path));
   wrapTables(box);
+  ImageViewer.mark(box);
   let h1 = box.querySelector('h1');
   const fallback = typeof meta.title === 'string' && meta.title ? meta.title
     : route.path === 'Index' ? config.siteName || DEFAULT_CONFIG.siteName : titleFromPath(route.path);
@@ -1923,7 +1946,7 @@ function initChrome() {
     if (e.key === 'Escape' && document.documentElement.classList.contains('sp-drawer-open')) closeDrawer(true);
     // "/" focuses search, like many wikis
     if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) &&
-        !$('#sp-search').hidden && !$('#sp-settings').open) {
+        !$('#sp-search').hidden && !$('#sp-settings').open && !$('#sp-lightbox').open) {
       e.preventDefault(); $('#sp-search-input').focus();
     }
   });
@@ -2249,11 +2272,79 @@ const Search = (() => {
 })();
 
 /* ==========================================================================
-   9. BOOT
+   9. IMAGE VIEWER
+   Clicking an article image that isn't inside a link opens it full screen.
+   Opt out per image (or for a whole container) with class="no-zoom".
+   ========================================================================== */
+const ImageViewer = (() => {
+  const dialog = () => $('#sp-lightbox');
+  let opener = null;
+
+  function mark(root) {
+    for (const img of root.querySelectorAll('img')) {
+      if (img.closest('a, .no-zoom')) continue;
+      img.classList.add('sp-zoomable');
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      if (!img.getAttribute('alt')) img.setAttribute('aria-label', 'View image full screen');
+    }
+  }
+
+  function captionFor(img) {
+    const cap = img.closest('figure')?.querySelector('figcaption');
+    return (cap ? cap.textContent : img.getAttribute('title') || img.getAttribute('alt') || '').trim();
+  }
+
+  function open(img) {
+    const d = dialog();
+    if (d.open) return;
+    const big = $('#sp-lightbox-img');
+    big.src = img.currentSrc || img.src;
+    big.alt = img.getAttribute('alt') || '';
+    // SVGs scale cleanly, so let them fill the screen; raster images stop at their natural size.
+    big.classList.toggle('sp-fill', /\.svgz?(?:[?#]|$)/i.test(big.src));
+    const w = img.naturalWidth, hgt = img.naturalHeight;
+    big.style.setProperty('--sp-ratio', w && hgt ? String(w / hgt) : '1');
+    const caption = captionFor(img), capEl = $('#sp-lightbox-caption');
+    capEl.textContent = caption;
+    capEl.hidden = !caption;
+    opener = img;
+    d.showModal();
+    $('#sp-lightbox-close').focus();
+  }
+  function close() { if (dialog().open) dialog().close(); }
+
+  function init() {
+    const box = $('#sp-content'), d = dialog();
+    box.addEventListener('click', e => {
+      const img = e.target.closest && e.target.closest('img.sp-zoomable');
+      if (img && !e.defaultPrevented && e.button === 0) open(img);
+    });
+    box.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('img.sp-zoomable')) {
+        e.preventDefault(); open(e.target);
+      }
+    });
+    d.addEventListener('click', close); // anywhere, including the image itself
+    d.addEventListener('keydown', e => { if (e.key === 'Tab') e.preventDefault(); }); // only one control to focus
+    d.addEventListener('close', () => {
+      $('#sp-lightbox-img').removeAttribute('src');
+      if (opener && opener.isConnected) opener.focus({ preventScroll: true });
+      opener = null;
+    });
+    window.addEventListener('popstate', close);
+  }
+
+  return { init, mark, open, close };
+})();
+
+/* ==========================================================================
+   10. BOOT
    ========================================================================== */
 function boot() {
   Settings.init();
   Search.init();
+  ImageViewer.init();
   initChrome();
   initRouter();
   syncMenuButton();

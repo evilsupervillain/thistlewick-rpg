@@ -8,7 +8,7 @@ title: The Slain Wyvern
 
 <table class="infobox">
 <caption>The Slain Wyvern</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Slain_Wyvern.png"><img src="../images/views/The_Slain_Wyvern.png" alt="The bar of the Slain Wyvern from above: tables, a piano and a fire" width="300"></a><span class="infobox-caption">The bar, from above. The wyvern is over the fireplace</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Slain_Wyvern.png" alt="The bar of the Slain Wyvern from above: tables, a piano and a fire" width="300"><span class="infobox-caption">The bar, from above. The wyvern is over the fireplace</span></td></tr>
 <tr><th>Known as</th><td>The Wyvern</td></tr>
 <tr><th>Of</th><td><a href="Nether_Sopping">Nether Sopping</a>, on the front</td></tr>
 <tr><th>Landlady</th><td>Dorcas Thrupp</td></tr>

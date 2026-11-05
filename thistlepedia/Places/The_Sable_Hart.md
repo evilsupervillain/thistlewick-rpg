@@ -8,7 +8,7 @@ title: The Sable Hart
 
 <table class="infobox">
 <caption>The Sable Hart</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Sable_Hart.png"><img src="../images/views/The_Sable_Hart.png" alt="The Sable Hart from above: tables round the walls, every one of them taken" width="300"></a><span class="infobox-caption">The Sable Hart. Every corner is taken</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Sable_Hart.png" alt="The Sable Hart from above: tables round the walls, every one of them taken" width="300"><span class="infobox-caption">The Sable Hart. Every corner is taken</span></td></tr>
 <tr><th>Known as</th><td>The Hart</td></tr>
 <tr><th>Where</th><td>The west, on its own, by the road</td></tr>
 <tr><th>Kept by</th><td>Mrs Garrow</td></tr>

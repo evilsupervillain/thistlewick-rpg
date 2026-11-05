@@ -8,7 +8,7 @@ title: Thistlewick
 
 <table class="infobox">
 <caption>Thistlewick</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Thistlewick.png"><img src="../images/views/Thistlewick.png" alt="Thistlewick from above: Prophecy Hall and the chapel at the head of the square, the inn, the turnip field and the pond" width="300"></a><span class="infobox-caption">The village, from higher up than anybody in it has ever been</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Thistlewick.png" alt="Thistlewick from above: Prophecy Hall and the chapel at the head of the square, the inn, the turnip field and the pond" width="300"><span class="infobox-caption">The village, from higher up than anybody in it has ever been</span></td></tr>
 <tr><th>Known as</th><td>The village that sends the Chosen Ones</td></tr>
 <tr><th>Crest</th><td>A turnip rampant, on a field of slightly different turnips</td></tr>
 <tr><th>Motto</th><td><i>Non nobis, nisi forte</i>: not us, unless it has to be</td></tr>

@@ -8,7 +8,7 @@ title: Weeping Bottom
 
 <table class="infobox">
 <caption>Weeping Bottom</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Weeping_Bottom.png"><img src="../images/views/Weeping_Bottom.png" alt="Weeping Bottom from above: houses and gardens in a valley bottom, with the Sisterhouse" width="300"></a><span class="infobox-caption">Weeping Bottom, from above, in the drizzle</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Weeping_Bottom.png" alt="Weeping Bottom from above: houses and gardens in a valley bottom, with the Sisterhouse" width="300"><span class="infobox-caption">Weeping Bottom, from above, in the drizzle</span></td></tr>
 <tr><th>Known as</th><td>The Sisterhouse</td></tr>
 <tr><th>Where</th><td>The bottom of a valley on the south coast, in a drizzle</td></tr>
 <tr><th>Founded</th><td>1702, by Mother Ursula Pym, for the air</td></tr>

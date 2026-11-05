@@ -8,7 +8,7 @@ title: Hithermost
 
 <table class="infobox">
 <caption>Hithermost</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Hithermost.png"><img src="../images/views/Hithermost.png" alt="Hithermost from above: houses down a lane, and a door in the hill at the top" width="300"></a><span class="infobox-caption">Hithermost, from above, with the Door at the top</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Hithermost.png" alt="Hithermost from above: houses down a lane, and a door in the hill at the top" width="300"><span class="infobox-caption">Hithermost, from above, with the Door at the top</span></td></tr>
 <tr><th>Known as</th><td>The last village before the mountain</td></tr>
 <tr><th>And</th><td>For some, the first one after it</td></tr>
 <tr><th>Where</th><td>The far north-west, at the foot of the mountain</td></tr>

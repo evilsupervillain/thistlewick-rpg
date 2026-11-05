@@ -8,7 +8,7 @@ title: Nether Sopping
 
 <table class="infobox">
 <caption>Nether Sopping</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Nether_Sopping.png"><img src="../images/views/Nether_Sopping.png" alt="Nether Sopping from above: the square, the houses round it and the pier going out into the harbour" width="300"></a><span class="infobox-caption">The town and the harbour, from above</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Nether_Sopping.png" alt="Nether Sopping from above: the square, the houses round it and the pier going out into the harbour" width="300"><span class="infobox-caption">The town and the harbour, from above</span></td></tr>
 <tr><th>Known as</th><td>The coast; the seaside; "somewhere with sea air"</td></tr>
 <tr><th>Where</th><td>The south coast, at the east end of the coast road from <a href="Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Distance</th><td>Four leagues, by the signpost; forty miles, by Mr Quy</td></tr>

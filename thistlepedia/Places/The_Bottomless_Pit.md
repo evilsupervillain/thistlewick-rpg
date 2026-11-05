@@ -8,7 +8,7 @@ title: The Bottomless Pit
 
 <table class="infobox">
 <caption>The Bottomless Pit</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Bottomless_Pit.png"><img src="../images/views/The_Bottomless_Pit.png" alt="The Bottomless Pit from above: a cave of brown rock" width="300"></a><span class="infobox-caption">The Pit, from above. The bottom is not shown</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Bottomless_Pit.png" alt="The Bottomless Pit from above: a cave of brown rock" width="300"><span class="infobox-caption">The Pit, from above. The bottom is not shown</span></td></tr>
 <tr><th>Known as</th><td>The Bottomless Pit; a wonder of the district</td></tr>
 <tr><th>Where</th><td>A hillside in the western hills, west of <a href="Thistlewick">Thistlewick</a>; <a href="Nether_Sopping">Nether Sopping</a>'s, by custom</td></tr>
 <tr><th>Custodian</th><td><a href="../People/Fenwick_Splint">Fenwick Splint</a></td></tr>

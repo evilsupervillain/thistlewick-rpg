@@ -8,7 +8,7 @@ title: Restwell
 
 <table class="infobox">
 <caption>Restwell</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Restwell.png"><img src="../images/views/Restwell.png" alt="Restwell from above: houses at a crossroads" width="300"></a><span class="infobox-caption">Restwell, from above</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Restwell.png" alt="Restwell from above: houses at a crossroads" width="300"><span class="infobox-caption">Restwell, from above</span></td></tr>
 <tr><th>Known as</th><td>Restwell; Restwell (Cont.)</td></tr>
 <tr><th>Where</th><td>A crossroads in the south-west</td></tr>
 <tr><th>Inns</th><td>Nineteen</td></tr>

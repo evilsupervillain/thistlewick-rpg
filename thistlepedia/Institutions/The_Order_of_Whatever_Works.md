@@ -8,7 +8,7 @@ title: The Order of Whatever Works
 
 <table class="infobox">
 <caption>The Order of Whatever Works</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Order_of_Whatever_Works.png"><img src="../images/views/The_Order_of_Whatever_Works.png" alt="The Chapel of Whatever Works from above: pews either side of a red carpet, and the altar" width="300"></a><span class="infobox-caption">The Chapel of Whatever Works, Thistlewick</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Order_of_Whatever_Works.png" alt="The Chapel of Whatever Works from above: pews either side of a red carpet, and the altar" width="300"><span class="infobox-caption">The Chapel of Whatever Works, Thistlewick</span></td></tr>
 <tr><th>Founded</th><td>1702, by Mother Ursula Pym</td></tr>
 <tr><th>Mother house</th><td>The Sisterhouse, <a href="../Places/Weeping_Bottom">Weeping Bottom</a></td></tr>
 <tr><th>Prioress</th><td>Aveline Stope</td></tr>

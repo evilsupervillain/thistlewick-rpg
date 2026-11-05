@@ -8,7 +8,7 @@ title: The Healers' Table
 
 <table class="infobox">
 <caption>The Healers' Table</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Healers_Table.png"><img src="../images/views/The_Healers_Table.png" alt="The Slain Wyvern's cellar from above: a stone room with a long table in it" width="264"></a><span class="infobox-caption">The cellar under the Slain Wyvern, and the table</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Healers_Table.png" alt="The Slain Wyvern's cellar from above: a stone room with a long table in it" width="264"><span class="infobox-caption">The cellar under the Slain Wyvern, and the table</span></td></tr>
 <tr><th>Sits</th><td>Once a year</td></tr>
 <tr><th>Where</th><td>Behind the red curtain, the back room of <a href="../Places/The_Slain_Wyvern">the Slain Wyvern</a></td></tr>
 <tr><th>On the door</th><td>THE TABLE. MEDICS ONLY</td></tr>

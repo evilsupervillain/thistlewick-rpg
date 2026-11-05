@@ -8,7 +8,7 @@ title: Firstfield Meadow
 
 <table class="infobox">
 <caption>Firstfield Meadow</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Firstfield_Meadow.png"><img src="../images/views/Firstfield_Meadow.png" alt="Firstfield Meadow from above: a fenced meadow with paths, a tent and signs" width="300"></a><span class="infobox-caption">The meadow, from above. There are signs</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Firstfield_Meadow.png" alt="Firstfield Meadow from above: a fenced meadow with paths, a tent and signs" width="300"><span class="infobox-caption">The meadow, from above. There are signs</span></td></tr>
 <tr><th>Known as</th><td>Where Every Journey Begins*</td></tr>
 <tr><th>Footnote</th><td>*Journeys already in progress also welcome</td></tr>
 <tr><th>Where</th><td>At the foot of the rainbow, north-west of Thistlewick</td></tr>

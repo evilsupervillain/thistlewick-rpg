@@ -8,7 +8,7 @@ title: The Eleven Days
 
 <table class="infobox">
 <caption>The Eleven Days</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Eleven_Days.png"><img src="../images/views/The_Eleven_Days.png" alt="The Eleven Days from above: an inn, with tables round a fire and a room of beds" width="300"></a><span class="infobox-caption">The Eleven Days, Frostwick, the inn named after them</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Eleven_Days.png" alt="The Eleven Days from above: an inn, with tables round a fire and a room of beds" width="300"><span class="infobox-caption">The Eleven Days, Frostwick, the inn named after them</span></td></tr>
 <tr><th>Also called</th><td>The Thaw; the Breaking of the Winter</td></tr>
 <tr><th>When</th><td>Spring 1960, the year of the Forty-Fourth</td></tr>
 <tr><th>Where</th><td><a href="../Places/Frostwick">Frostwick</a></td></tr>

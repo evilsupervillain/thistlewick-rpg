@@ -10,7 +10,7 @@ title: The Long Field
 
 <table class="infobox">
 <caption>The Long Field</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Long_Field.png"><img src="../images/views/The_Long_Field.png" alt="The Long Field from above: rows of wrecked machines in plots, with a road up either side" width="300"></a><span class="infobox-caption">The Long Field, from above, in rows</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Long_Field.png" alt="The Long Field from above: rows of wrecked machines in plots, with a road up either side" width="300"><span class="infobox-caption">The Long Field, from above, in rows</span></td></tr>
 <tr><th>Known as</th><td>The field</td></tr>
 <tr><th>Where</th><td>Below the town, on the slope, off the spur road</td></tr>
 <tr><th>Keeper</th><td>The Hoyle Works</td></tr>

@@ -8,7 +8,7 @@ title: The Obligatory Tower
 
 <table class="infobox">
 <caption>The Obligatory Tower</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Obligatory_Tower.png"><img src="../images/views/The_Obligatory_Tower.png" alt="The Obligatory Tower on the world map, by a range of grey hills, with Penultima to the south of it" width="300"></a><span class="infobox-caption">The Tower, with Penultima below it, as the airship sees them</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Obligatory_Tower.png" alt="The Obligatory Tower on the world map, by a range of grey hills, with Penultima to the south of it" width="300"><span class="infobox-caption">The Tower, with Penultima below it, as the airship sees them</span></td></tr>
 <tr><th>Known as</th><td>The Tower; the Dark Lord's tower</td></tr>
 <tr><th>Where</th><td>At the top of the north road, two hundred leagues from <a href="Thistlewick">Thistlewick</a> by the fingerpost</td></tr>
 <tr><th>Established</th><td>Approx. 4,800 years ago, by the contract; about two thousand, by the calendar</td></tr>

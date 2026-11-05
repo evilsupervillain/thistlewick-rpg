@@ -8,7 +8,7 @@ title: The Sword of Ultimate Ending
 
 <table class="infobox">
 <caption>The Sword of Ultimate Ending</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Sword_of_Ultimate_Ending.png"><img src="../images/views/The_Sword_of_Ultimate_Ending.png" alt="Ye Final Shoppe from above: shelves, counters, and the sword and shield on the back wall between the windows" width="300"></a><span class="infobox-caption">Ye Final Shoppe. The sword is in the window</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Sword_of_Ultimate_Ending.png" alt="Ye Final Shoppe from above: shelves, counters, and the sword and shield on the back wall between the windows" width="300"><span class="infobox-caption">Ye Final Shoppe. The sword is in the window</span></td></tr>
 <tr><th>What it is</th><td>A sword, and a shield, in a window</td></tr>
 <tr><th>Where</th><td>Ye Final Shoppe, <a href="../Places/Penultima">Penultima</a></td></tr>
 <tr><th>Behind</th><td>A velvet rope</td></tr>

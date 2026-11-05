@@ -8,7 +8,7 @@ title: Great Dunnage
 
 <table class="infobox">
 <caption>Great Dunnage</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Great_Dunnage.png"><img src="../images/views/Great_Dunnage.png" alt="Great Dunnage from above: brick buildings and yards inside a wall, with the cut along the east side" width="300"></a><span class="infobox-caption">Great Dunnage, inside its wall</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Great_Dunnage.png" alt="Great Dunnage from above: brick buildings and yards inside a wall, with the cut along the east side" width="300"><span class="infobox-caption">Great Dunnage, inside its wall</span></td></tr>
 <tr><th>Known as</th><td>The Corporation of Great Dunnage</td></tr>
 <tr><th>Where</th><td>In the west, inside its own wall, on the cut, eleven miles down the valley from Upper Clanging</td></tr>
 <tr><th>Arms</th><td>An anvil, a bell and a key</td></tr>

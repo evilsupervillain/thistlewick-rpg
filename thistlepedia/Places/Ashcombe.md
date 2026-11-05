@@ -8,7 +8,7 @@ title: Ashcombe
 
 <table class="infobox">
 <caption>Ashcombe</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Ashcombe.png"><img src="../images/views/Ashcombe.png" alt="Ashcombe from above: a village of houses, gardens and lanes beside a river" width="300"></a><span class="infobox-caption">Ashcombe, which is fine</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Ashcombe.png" alt="Ashcombe from above: a village of houses, gardens and lanes beside a river" width="300"><span class="infobox-caption">Ashcombe, which is fine</span></td></tr>
 <tr><th>Known as</th><td>Ashcombe; the village that is fine</td></tr>
 <tr><th>Where</th><td>The east, on the shore of Ashcombe Lake</td></tr>
 <tr><th>Flooded</th><td>1989, on a Tuesday</td></tr>

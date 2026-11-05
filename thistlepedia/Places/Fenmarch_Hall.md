@@ -8,7 +8,7 @@ title: Fenmarch Hall
 
 <table class="infobox">
 <caption>Fenmarch Hall</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Fenmarch_Hall.png"><img src="../images/views/Fenmarch_Hall.png" alt="Fenmarch Hall from above: the house in its moat, with a bridge over, inside a walled garden" width="300"></a><span class="infobox-caption">The hall in its moat, from above</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Fenmarch_Hall.png" alt="Fenmarch Hall from above: the house in its moat, with a bridge over, inside a walled garden" width="300"><span class="infobox-caption">The hall in its moat, from above</span></td></tr>
 <tr><th>Known as</th><td>Fenmarch</td></tr>
 <tr><th>Where</th><td>A headland in the far south-east, the sea on both sides</td></tr>
 <tr><th>Of</th><td>The Pemberton-Gores</td></tr>

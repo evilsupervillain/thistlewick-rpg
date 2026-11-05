@@ -8,7 +8,7 @@ title: The Worshipful Company of Smiths
 
 <table class="infobox">
 <caption>The Worshipful Company of Smiths of Great Dunnage</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Worshipful_Company_of_Smiths.png"><img src="../images/views/The_Worshipful_Company_of_Smiths.png" alt="The Smiths' Hall from above: a stone hall with a long bench and banners on the wall" width="300"></a><span class="infobox-caption">The Smiths' Hall, from above</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Worshipful_Company_of_Smiths.png" alt="The Smiths' Hall from above: a stone hall with a long bench and banners on the wall" width="300"><span class="infobox-caption">The Smiths' Hall, from above</span></td></tr>
 <tr><th>Hall</th><td>The Smiths' Hall, <a href="../Places/Great_Dunnage">Great Dunnage</a></td></tr>
 <tr><th>Prime Warden</th><td><a href="../People/Prime_Warden_Stannard">Stannard</a></td></tr>
 <tr><th>Junior Warden</th><td>Crabbe, who reads the Schedule out</td></tr>

@@ -8,7 +8,7 @@ title: The Collegium Arcanum
 
 <table class="infobox">
 <caption>The Collegium Arcanum</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Collegium_Arcanum.png"><img src="../images/views/The_Collegium_Arcanum.png" alt="The Great Court of the Collegium Arcanum from above: purple-roofed buildings round a lawn, with the Founder in the middle" width="300"></a><span class="infobox-caption">The Great Court. Keep off the grass</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Collegium_Arcanum.png" alt="The Great Court of the Collegium Arcanum from above: purple-roofed buildings round a lawn, with the Founder in the middle" width="300"><span class="infobox-caption">The Great Court. Keep off the grass</span></td></tr>
 <tr><th>Known as</th><td>The Collegium; the old place</td></tr>
 <tr><th>Seat</th><td>The east, near the coast, at the end of a dirt road</td></tr>
 <tr><th>Founded</th><td>About 1400, in one afternoon, by one wizard</td></tr>

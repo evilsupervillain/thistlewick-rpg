@@ -8,7 +8,7 @@ title: The Order of the Errant
 
 <table class="infobox">
 <caption>The Order of the Errant</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Order_of_the_Errant.png"><img src="../images/views/The_Order_of_the_Errant.png" alt="The great map at Coldbarrow: the island, with red and white pins" width="300"></a><span class="infobox-caption">The great map. One knight, one pin</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Order_of_the_Errant.png" alt="The great map at Coldbarrow: the island, with red and white pins" width="300"><span class="infobox-caption">The great map. One knight, one pin</span></td></tr>
 <tr><th>Chapter House</th><td><a href="../Places/Coldbarrow">Coldbarrow</a>, in the snow of the far north</td></tr>
 <tr><th>Clerk</th><td><a href="../People/Mordaunt">Mordaunt</a></td></tr>
 <tr><th>Knights</th><td>In the field</td></tr>

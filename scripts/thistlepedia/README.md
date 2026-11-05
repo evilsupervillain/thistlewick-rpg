@@ -73,8 +73,10 @@ party hidden and no event allowed to start, cropped and halved into
 `thistlepedia/images/views/`. It needs the game served on 8766, and takes
 about half an hour for all of them, so name the ones you want. A view
 cannot be checked for staleness the way a portrait can (people walk about),
-so rerun it for a place whenever its map changes. The infobox links the
-picture to itself, so it can be seen at full size.
+so rerun it for a place whenever its map changes. Do not wrap a view in a
+link: Static-Pedia opens any article image that is not inside one full
+screen when it is clicked, and a link turns that off (so does
+`class="no-zoom"`).
 
     .venv/bin/python scripts/thistlepedia/views.py Sump Restwell
 

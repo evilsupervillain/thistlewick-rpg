@@ -8,7 +8,7 @@ title: Nix's Emporium
 
 <table class="infobox">
 <caption>Nix's Emporium</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/Nixs_Emporium.png"><img src="../images/views/Nixs_Emporium.png" alt="Nix's Emporium from above: shelves along the back wall and wares on tables" width="300"></a><span class="infobox-caption">The Emporium, from above</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/Nixs_Emporium.png" alt="Nix's Emporium from above: shelves along the back wall and wares on tables" width="300"><span class="infobox-caption">The Emporium, from above</span></td></tr>
 <tr><th>Known as</th><td>The Emporium</td></tr>
 <tr><th>Of</th><td><a href="Thistlewick">Thistlewick</a>, the east side of the square</td></tr>
 <tr><th>Established</th><td>Recently</td></tr>

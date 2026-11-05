@@ -8,7 +8,7 @@ title: The Lighthouse of Saint Bother
 
 <table class="infobox">
 <caption>The Lighthouse of Saint Bother</caption>
-<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Lighthouse_of_Saint_Bother.png"><img src="../images/views/The_Lighthouse_of_Saint_Bother.png" alt="The Lighthouse of Saint Bother on the world map, on the coast, with the sea to the east" width="300"></a><span class="infobox-caption">The light, on its rock, from above</span></td></tr>
+<tr><td colspan="2" class="infobox-image"><img src="../images/views/The_Lighthouse_of_Saint_Bother.png" alt="The Lighthouse of Saint Bother on the world map, on the coast, with the sea to the east" width="300"><span class="infobox-caption">The light, on its rock, from above</span></td></tr>
 <tr><th>Known as</th><td>The light at the point</td></tr>
 <tr><th>Where</th><td>A headland east of <a href="Nether_Sopping">Nether Sopping</a>, at the end of a road that goes nowhere else</td></tr>
 <tr><th>Keeper</th><td><a href="../People/Ferrety_Bother">Ferrety Bother</a>, fourth generation</td></tr>
