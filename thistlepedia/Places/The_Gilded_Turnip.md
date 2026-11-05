@@ -8,6 +8,7 @@ title: The Gilded Turnip
 
 <table class="infobox">
 <caption>The Gilded Turnip</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Gilded_Turnip.png"><img src="../images/views/The_Gilded_Turnip.png" alt="The Gilded Turnip from above: the bar, the tables and a bedroom off it" width="300"></a><span class="infobox-caption">Prudence Thrupp's, from above</span></td></tr>
 <tr><th>Known as</th><td>The inn; the Turnip</td></tr>
 <tr><th>Of</th><td><a href="Thistlewick">Thistlewick</a>, the south side of the square</td></tr>
 <tr><th>Landlady</th><td>Prudence Thrupp</td></tr>

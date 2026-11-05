@@ -8,6 +8,7 @@ title: Sump
 
 <table class="infobox">
 <caption>Sump</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Sump.png"><img src="../images/views/Sump.png" alt="Sump from above: houses on dry sand round a single pool, with water on two sides" width="300"></a><span class="infobox-caption">Sump, from above</span></td></tr>
 <tr><th>Known as</th><td>Sump</td></tr>
 <tr><th>Where</th><td>A spit of sand on the south coast, the far end of the carrier's road</td></tr>
 <tr><th>Cursed</th><td>1794</td></tr>

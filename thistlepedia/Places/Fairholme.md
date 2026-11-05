@@ -8,6 +8,7 @@ title: Fairholme
 
 <table class="infobox">
 <caption>Fairholme</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Fairholme.png"><img src="../images/views/Fairholme.png" alt="The council chamber of Fairholme from above: one very long table with the council along it" width="300"></a><span class="infobox-caption">The council chamber, and the table</span></td></tr>
 <tr><th>Known as</th><td>The Kingdom of Fairholme</td></tr>
 <tr><th>Where</th><td>The east, past the hills</td></tr>
 <tr><th>King</th><td>HM King Aldous</td></tr>

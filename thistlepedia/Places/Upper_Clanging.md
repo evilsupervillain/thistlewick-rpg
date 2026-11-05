@@ -8,6 +8,7 @@ title: Upper Clanging
 
 <table class="infobox">
 <caption>Upper Clanging</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Upper_Clanging.png"><img src="../images/views/Upper_Clanging.png" alt="Upper Clanging from above: brick works and houses in terraces, one above the next, in the rain" width="300"></a><span class="infobox-caption">Upper Clanging, from above, in the usual weather</span></td></tr>
 <tr><th>Known as</th><td>Clanging</td></tr>
 <tr><th>Where</th><td>Up the west road from the <a href="The_Gloamwood">Gloamwood</a>'s north mouth, on a hill, under its own chimneys</td></tr>
 <tr><th>Motto</th><td><i>It will be quieter soon</i> (a works hazard plate on a post)</td></tr>

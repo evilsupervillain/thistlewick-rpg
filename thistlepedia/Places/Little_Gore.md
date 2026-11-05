@@ -8,6 +8,7 @@ title: Little Gore
 
 <table class="infobox">
 <caption>Little Gore</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Little_Gore.png"><img src="../images/views/Little_Gore.png" alt="Little Gore from above: a few houses along one street, and the green" width="300"></a><span class="infobox-caption">Little Gore, from above</span></td></tr>
 <tr><th>Known as</th><td>Little Gore</td></tr>
 <tr><th>Where</th><td>The south-east, four miles from Fenmarch, which round here is the same as a long way from anywhere</td></tr>
 <tr><th>Population</th><td>Eleven, and a cat, and some more since</td></tr>

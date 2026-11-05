@@ -10,6 +10,7 @@ title: The Former Premises
 
 <table class="infobox">
 <caption>The Former Premises</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Former_Premises.png"><img src="../images/views/The_Former_Premises.png" alt="The Former Premises from above: a white hall with a red carpet, a sofa, and the lift" width="300"></a><span class="infobox-caption">The hall, from above, with the lift</span></td></tr>
 <tr><th>Known as</th><td>The venue; the castle on the cloud</td></tr>
 <tr><th>Where</th><td>The sky, above the southern sea</td></tr>
 <tr><th>Built by</th><td>Malagant the Provisional</td></tr>

@@ -8,6 +8,7 @@ title: Frostwick
 
 <table class="infobox">
 <caption>Frostwick</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Frostwick.png"><img src="../images/views/Frostwick.png" alt="Frostwick from above: a street of houses in the snow" width="300"></a><span class="infobox-caption">Frostwick, in the snow</span></td></tr>
 <tr><th>Known as</th><td>Home of the Winter Festival</td></tr>
 <tr><th>Where</th><td>The far north, east of the road</td></tr>
 <tr><th>Snow</th><td>Guaranteed*</td></tr>

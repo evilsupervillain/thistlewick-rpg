@@ -8,6 +8,7 @@ title: Gladhollow
 
 <table class="infobox">
 <caption>Gladhollow</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Gladhollow.png"><img src="../images/views/Gladhollow.png" alt="Gladhollow from above: houses along a lane" width="300"></a><span class="infobox-caption">Gladhollow, from above</span></td></tr>
 <tr><th>Known as</th><td>Gladhollow (welcome to it)</td></tr>
 <tr><th>Where</th><td>The far south-west, a gate at each end</td></tr>
 <tr><th>Mayor</th><td>A. Podmore</td></tr>

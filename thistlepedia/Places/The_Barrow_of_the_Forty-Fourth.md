@@ -8,6 +8,7 @@ title: The Barrow of the Forty-Fourth
 
 <table class="infobox">
 <caption>The Barrow of the Forty-Fourth</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Barrow_of_the_Forty-Fourth.png"><img src="../images/views/The_Barrow_of_the_Forty-Fourth.png" alt="The Barrow of the Forty-Fourth from above: earthen chambers in the shape of a cross" width="300"></a><span class="infobox-caption">The Barrow, from above</span></td></tr>
 <tr><th>Known as</th><td>The mound; the Barrow</td></tr>
 <tr><th>Where</th><td>The eastern hills, above the north road, facing the sea</td></tr>
 <tr><th>Of</th><td>Ambrose Fitch, Chosen One #44</td></tr>

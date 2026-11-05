@@ -8,6 +8,7 @@ title: Prophecy Hall
 
 <table class="infobox">
 <caption>Prophecy Hall</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Prophecy_Hall.png"><img src="../images/views/Prophecy_Hall.png" alt="Prophecy Hall from above: a long red rug between pillars and bookcases, with two lecterns on it" width="300"></a><span class="infobox-caption">The hall, from above, which is the only way to see all of the rug</span></td></tr>
 <tr><th>Known as</th><td>The gold one, up the road</td></tr>
 <tr><th>Of</th><td><a href="Thistlewick">Thistlewick</a>, the top of the square</td></tr>
 <tr><th>Use</th><td>The Committee, in session</td></tr>

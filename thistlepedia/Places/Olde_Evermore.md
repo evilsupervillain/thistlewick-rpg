@@ -8,6 +8,7 @@ title: Olde Evermore
 
 <table class="infobox">
 <caption>Olde Evermore</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Olde_Evermore.png"><img src="../images/views/Olde_Evermore.png" alt="Olde Evermore from above: elven houses at the foot of a ledge, with a path out" width="300"></a><span class="infobox-caption">Olde Evermore, from above. The path is there</span></td></tr>
 <tr><th>Known as</th><td>Hidden Village of the Elves</td></tr>
 <tr><th>Since</th><td>The First Age</td></tr>
 <tr><th>Where</th><td>Under a ledge in the south-west, at the bottom</td></tr>

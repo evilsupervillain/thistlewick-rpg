@@ -8,6 +8,7 @@ title: Humphrey Gotobed
 
 <table class="infobox">
 <caption>Humphrey Gotobed</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Humphrey_Gotobed.png" alt="Humphrey Gotobed, a man with tousled brown hair and a large moustache, in a high leather collar" width="200"><span class="infobox-caption">Adventurer (Retired)</span></td></tr>
 <tr><th>Known as</th><td>Mr Gotobed; H. Gotobed, Adventurer (Retired), on the brass plate</td></tr>
 <tr><th>Born</th><td>7 November 1944, at Brinkworth Halt, a railway cottage "on the way to everywhere"</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>

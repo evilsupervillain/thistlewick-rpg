@@ -8,6 +8,7 @@ title: Carn Drey
 
 <table class="infobox">
 <caption>Carn Drey</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Carn_Drey.png"><img src="../images/views/Carn_Drey.png" alt="Under Carn Drey from above: a cave of brown rock in two chambers" width="300"></a><span class="infobox-caption">Under the hill, from above</span></td></tr>
 <tr><th>Known as</th><td>Carn Drey; the hill east of Great Dunnage</td></tr>
 <tr><th>On top</th><td>A field, with sheep in it</td></tr>
 <tr><th>Underneath</th><td>A stone, a sword, and the Worm</td></tr>

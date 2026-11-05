@@ -10,6 +10,7 @@ title: The Goose
 
 <table class="infobox">
 <caption>The Goose</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/The_Goose.png" alt="The goose, stuffed and varnished, lying on her side" width="192"><span class="infobox-caption">Filed under what it is. W.H.</span></td></tr>
 <tr><th>What it is</th><td>A greylag goose, <i>Anser anser</i></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Age</th><td>Adult, at death</td></tr>

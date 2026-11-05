@@ -8,6 +8,7 @@ title: Much Pottering
 
 <table class="infobox">
 <caption>Much Pottering</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Much_Pottering.png"><img src="../images/views/Much_Pottering.png" alt="Much Pottering from above: houses round a duck pond and kitchen gardens" width="300"></a><span class="infobox-caption">Much Pottering, where nothing has happened</span></td></tr>
 <tr><th>Known as</th><td>Much Pottering</td></tr>
 <tr><th>Where</th><td>In the middle of the island, off the roads, at no great distance from anything</td></tr>
 <tr><th>Twinned with</th><td>Upper Clanging, chosen off the map, 1997. Neither has visited. It's going beautifully</td></tr>

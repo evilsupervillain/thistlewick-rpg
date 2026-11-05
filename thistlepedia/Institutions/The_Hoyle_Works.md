@@ -10,6 +10,7 @@ title: The Hoyle Works
 
 <table class="infobox">
 <caption>The Hoyle Works</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Hoyle_Works.png"><img src="../images/views/The_Hoyle_Works.png" alt="The Hoyle Works from above: machinery, benches and pipes round a dark floor" width="300"></a><span class="infobox-caption">The works floor, from above</span></td></tr>
 <tr><th>Where</th><td>The top of the street, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sign</th><td>None. It is where the noise is</td></tr>
 <tr><th>Plate</th><td>DANGER. HOT. LOUD. EARLY</td></tr>

@@ -8,6 +8,7 @@ title: The Prophecy of Thistlewick
 
 <table class="infobox">
 <caption>The Prophecy of Thistlewick</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/battlers/THE_PROPHECY.png" alt="The Prophecy, an unrolled scroll, crackling with purple light" width="180"><span class="infobox-caption">Clause twelve, enforcing itself</span></td></tr>
 <tr><th>Kind</th><td>A prophecy, according to the title. A contract, according to everything underneath it</td></tr>
 <tr><th>Signed</th><td>Third Age 1, three times by everybody</td></tr>
 <tr><th>Length</th><td>Unrolled in Prophecy Hall, it reaches the far wall</td></tr>
@@ -93,11 +94,6 @@ Six months later, after a very long meeting, the Committee struck clause ninetee
 This is why ITEM 1, which had stood unticked in the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>' stores book since 1802, did nothing whatever when it was finally set down in front of the throne, except make smoke and knock Grimspite's bookmark on to the floor. "Ordnance is not provided for," he said. "Nothing is provided for. That is what a renewal notice is."
 
 ## How it ended
-
-<figure class="thumb right">
-<img src="../images/battlers/THE_PROPHECY.png" alt="The Prophecy, an unrolled scroll, crackling with purple light" width="180">
-<figcaption>Clause twelve, enforcing itself.</figcaption>
-</figure>
 
 The Forty-Eighth beat Grimspite, as forty-seven had before him. Clause twelve unrolled - the Prophecy itself, the width of the room, moving like something with an opinion - to renew him, and then, instead of renewing him, it turned to the party. It had found a party of the correct size, at the correct place, on the correct date.
 

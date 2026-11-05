@@ -8,6 +8,7 @@ title: The Adventurers' Guild (Provisional)
 
 <table class="infobox">
 <caption>The Adventurers' Guild (Provisional)</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Adventurers_Guild.png"><img src="../images/views/The_Adventurers_Guild.png" alt="The Adventurers' Guild from above: a counter and a long table on a red rug, in a stone hall" width="300"></a><span class="infobox-caption">The Guild (Provisional), from above</span></td></tr>
 <tr><th>Seat</th><td>The front, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Founded</th><td>1960, provisionally</td></tr>
 <tr><th>Pending</th><td>A review. Scheduled</td></tr>

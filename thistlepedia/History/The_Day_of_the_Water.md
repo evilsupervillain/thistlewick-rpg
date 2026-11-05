@@ -8,6 +8,7 @@ title: The Day of the Water
 
 <table class="infobox">
 <caption>The Day of the Water</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Day_of_the_Water.png"><img src="../images/views/The_Day_of_the_Water.png" alt="Old Ashcombe from above: the drowned street, let down, between two pools" width="300"></a><span class="infobox-caption">Old Ashcombe, the week the lake was let down</span></td></tr>
 <tr><th>Also called</th><td>The Ashcombe Flood; the flood; a tremendous success</td></tr>
 <tr><th>When</th><td>1989, on a Tuesday</td></tr>
 <tr><th>Where</th><td>Old Ashcombe, in the valley that is now Ashcombe Lake</td></tr>

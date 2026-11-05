@@ -8,6 +8,7 @@ title: The Gloamwood
 
 <table class="infobox">
 <caption>The Gloamwood</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Gloamwood.png"><img src="../images/views/The_Gloamwood.png" alt="The Gloamwood from above: a narrow path winding through dark trees" width="300"></a><span class="infobox-caption">The near part of the wood. It goes on like this</span></td></tr>
 <tr><th>Known as</th><td>The wood; the woods; "enough"</td></tr>
 <tr><th>Where</th><td>Across the north road, between <a href="Thistlewick">Thistlewick</a> and the <a href="The_Obligatory_Tower">Obligatory Tower</a></td></tr>
 <tr><th>Ways through</th><td>One. The gap is the road</td></tr>

@@ -8,6 +8,7 @@ title: Coldbarrow
 
 <table class="infobox">
 <caption>Coldbarrow</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/Coldbarrow.png"><img src="../images/views/Coldbarrow.png" alt="The Chapter House at Coldbarrow from above: a stone hall with the great map on the far wall" width="300"></a><span class="infobox-caption">The Chapter House, from above</span></td></tr>
 <tr><th>Known as</th><td>The Chapter House</td></tr>
 <tr><th>Where</th><td>In the snow of the far north, west of <a href="Frostwick">Frostwick</a></td></tr>
 <tr><th>Of</th><td>The Order of the Errant</td></tr>

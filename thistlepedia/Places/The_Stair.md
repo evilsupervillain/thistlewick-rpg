@@ -8,6 +8,7 @@ title: The Stair
 
 <table class="infobox">
 <caption>The Stair</caption>
+<tr><td colspan="2" class="infobox-image"><a href="../images/views/The_Stair.png"><img src="../images/views/The_Stair.png" alt="The bottom of the Stair from above: a round chamber of grey rock, lit by lamps all round the wall" width="300"></a><span class="infobox-caption">The bottom of the Stair, lit</span></td></tr>
 <tr><th>Known as</th><td>The mountain stair</td></tr>
 <tr><th>Way in</th><td>The Door into the Mountain, Hithermost</td></tr>
 <tr><th>Admittance</th><td>Not without a lamp. By order</td></tr>

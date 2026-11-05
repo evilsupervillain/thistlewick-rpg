@@ -66,6 +66,18 @@ A plated entry is followed by `<div class="clear"></div>` so the plate cannot
 float into the next section. When final art lands in `img/` under the same names, rerun it; `--check` says
 whether any copy is stale.
 
+**Views.** The places - and an institution or a history that has a room
+of its own - carry a picture of the map in their infobox, taken out of the
+running game by `views.py` from `views.json`: the whole map at once, the
+party hidden and no event allowed to start, cropped and halved into
+`thistlepedia/images/views/`. It needs the game served on 8766, and takes
+about half an hour for all of them, so name the ones you want. A view
+cannot be checked for staleness the way a portrait can (people walk about),
+so rerun it for a place whenever its map changes. The infobox links the
+picture to itself, so it can be seen at full size.
+
+    .venv/bin/python scripts/thistlepedia/views.py Sump Restwell
+
 **Red links.** Write links to articles as ordinary links whether or not the
 article exists yet; `redlinks.py` turns the missing ones red and turns them
 back when the article is written, and prints the list of articles still owed.
