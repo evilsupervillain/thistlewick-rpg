@@ -2304,7 +2304,7 @@ def build_enemies():
         note="Buried with him, which nobody asked the hound about."))
 
     upsert(en, enemy(
-        EN_OCCUPANT, "Previous Occupant", "Wraith", 0,
+        EN_OCCUPANT, "Previous Occupant", "Zombie", 0,
         [880, 80, 40, 24, 38, 30, 24, 12], 170, 210,
         [action(SK_ATTACK, 4), action(SK_GRAVE_DUTY, 5),
          action(SK_DRAIN, 3)],
