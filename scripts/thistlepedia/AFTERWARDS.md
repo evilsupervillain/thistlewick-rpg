@@ -1071,3 +1071,18 @@ plates. What the captions add:
   crowns at a time, and has not asked.
 * The Guild has still not sent anybody to see the badger; Pell says the matter
   is closed, there being no badger.
+
+## Absalom Thurle (5 November 2026, Mike)
+
+* Born 14 May 1941 at Sump; Parish Clerk since 1972, from his uncle. The
+  minutes' "six different hands" (canon) make his the sixth.
+* He is the chair because nobody ever moved that he be, there having been
+  nobody to second it.
+* He found how a seconded motion is written down in the last one, 1794's
+  winding-up of the Water Committee, and wrote the new one under it.
+* Hosea's letter about this article went on the agenda as item four, the
+  parish's first; carried on a show of hands, on condition the hat is
+  mentioned.
+* The empty chairs in the hut were first sat in in spring 2001, at the
+  meeting that carried the plaque (Mr Gammage's article), forty minutes, the
+  longest in the parish's history.

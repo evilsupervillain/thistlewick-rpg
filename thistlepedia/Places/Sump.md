@@ -13,7 +13,7 @@ title: Sump
 <tr><th>Cursed</th><td>1794</td></tr>
 <tr><th>Lifted</th><td>2000</td></tr>
 <tr><th>The curse</th><td>Thirst</td></tr>
-<tr><th>Parish Clerk</th><td>Absalom Thurle, who is also the chair</td></tr>
+<tr><th>Parish Clerk</th><td><a href="../People/Absalom_Thurle">Absalom Thurle</a>, who is also the chair</td></tr>
 <tr><th>Water Committee</th><td>Wound up 1794. Re-formed 2000. One member</td></tr>
 <tr><th>Wasps</th><td>Not deferred. Removed, to the end of the spit</td></tr>
 <tr><th>By-law</th><td>The Rule of Life, four lines, one about socks</td></tr>
@@ -28,7 +28,7 @@ The first thing anybody sees of Sump is a pool with a palm tree leaning over it,
 
 The parish minutes are posted. 1794. Item 1: Wasps, in the well. Whose? Deferred. 1794. Item 2: The Water Committee to be wound up, there being no water. Carried. 1795. Item 1: Wasps. Deferred. 1795. Item 2: A general sense that things used to be better. Noted. Suspected curse. And so on, every year, in six different hands, WASPS - DEFERRED, until the year 2000, when it was underlined, and the pen had gone through the paper.
 
-Nobody could say whose the wasps were. A wasp is an animal, which is the Pound. A nest is a structure, which is Buildings. A well is Water, and the Water Committee was wound up in 1794. The parish clerk, **Mr Absalom Thurle**, in a wide hat, pressing two fingers very hard to the side of his head, had a head like a drum, and so did everybody, and nobody in Sump had had a decent night's sleep in six generations. Item one was always the curse. Item two was always the wasps, deferred. There was never an item three. There was never time.
+Nobody could say whose the wasps were. A wasp is an animal, which is the Pound. A nest is a structure, which is Buildings. A well is Water, and the Water Committee was wound up in 1794. The parish clerk, **<a href="../People/Absalom_Thurle">Mr Absalom Thurle</a>**, in a wide hat, pressing two fingers very hard to the side of his head, had a head like a drum, and so did everybody, and nobody in Sump had had a decent night's sleep in six generations. Item one was always the curse. Item two was always the wasps, deferred. There was never an item three. There was never time.
 
 The houses said the rest. QUIET PLEASE. TRYING TO SLEEP, on an old card, put up in hope. NO CALLERS. NO HAWKERS. NO CHOSEN ONES. THE CURSE IS QUITE ENOUGH TO BE GOING ON WITH, THANK YOU. A clay pot, empty, with a card, FOR RAIN, a very optimistic pot. A cactus with a card on a spine, THINGS USED TO BE BETTER, and it was the only thing in Sump that disagreed. In the parish hut a long table, one chair at its head, and a great many empty chairs, kept for when things got better. **Mrs Pardew** would not be talked to before noon, or after; it was the curse. **<a href="../People/Mr_Gammage">Mr Gammage</a>** sat against a wall with his eyes shut and was not asleep, and had been trying to get off since Tuesday.
 
@@ -55,5 +55,6 @@ Sump was the far end of Abel Thrush's road, and Mr Gammage told <a href="../Peop
 ## See also
 
 - <a href="../People/Merribell">Merribell</a>
+- <a href="../People/Absalom_Thurle">Absalom Thurle</a>, Parish Clerk and the chair
 - <a href="Little_Gore">Little Gore</a>, the other end of the carrier's road
 - <a href="Weeping_Bottom">Weeping Bottom</a>, where Mother Ursula Pym founded her house

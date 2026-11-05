@@ -123,6 +123,7 @@ At <a href="../Places/Fairholme">Fairholme</a>.
 <div class="gallery">
 <figure><a href="Hester_Vane"><img src="../images/portraits/Hester_Vane.png" alt="Hester Vane"></a><figcaption><a href="Hester_Vane">Hester Vane</a></figcaption></figure>
 <figure><a href="Dame_Winifred_Cope"><img src="../images/portraits/Dame_Winifred_Cope.png" alt="Dame Winifred Cope"></a><figcaption><a href="Dame_Winifred_Cope">Dame Winifred Cope</a></figcaption></figure>
+<figure><a href="Absalom_Thurle"><img src="../images/portraits/Absalom_Thurle.png" alt="Absalom Thurle"></a><figcaption><a href="Absalom_Thurle">Absalom Thurle</a></figcaption></figure>
 <figure><a href="Mr_Gammage"><img src="../images/portraits/Mr_Gammage.png" alt="Mr Gammage"></a><figcaption><a href="Mr_Gammage">Mr Gammage</a></figcaption></figure>
 <figure><a href="Mrs_Ash"><img src="../images/portraits/Mrs_Ash.png" alt="Mrs Ash"></a><figcaption><a href="Mrs_Ash">Mrs Ash</a></figcaption></figure>
 <figure><a href="Hubert_Weir"><img src="../images/portraits/Hubert_Weir.png" alt="Hubert Weir"></a><figcaption><a href="Hubert_Weir">Hubert Weir</a></figcaption></figure>
