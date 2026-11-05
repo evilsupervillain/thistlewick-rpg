@@ -143,6 +143,9 @@ Four things were true of the specification and are worth not rediscovering:
                       drawn south to the Cinder Fen, a pass from Great
                       Dunnage past Carn Drey to Upper Clanging, and three
                       lakes opened to the sea (377 cells, layers 0, 1, 3)
+      labels.json     the places worth a name on a world map, by event id,
+                      for `tools/mapshot.js --labels` (towns, villages and
+                      landmarks; not cottages, camps, signposts or specimens)
       worldmap.json   the finished map. **This is Map 8**: `journey.world_map`
                       loads it, so a rebuild of the game picks up whatever
                       `run_finish.py` last wrote. Never edited by hand
