@@ -35,7 +35,7 @@ I describe only what I have seen, or what has been described to me by a witness 
 | **Chest mimic** | The Chest (Definitely A Chest) | The Gloamwood | <a href="The_Road_North#chest-mimic">The Road North</a> |
 | **Crested grass snake**, nine of | The Thing in the Woods | The Gloamwood, the deep clearing | <a href="The_Road_North#the-thing-in-the-woods">The Road North</a> |
 | **Goose**, greylag, *Anser anser* | The Wyvern; the Slain Wyvern | Over a mantel, Nether Sopping | <a href="The_Goose">The Goose</a> |
-| **Herring gull** | The Gull With Ambitions | The coast; the Pit | <a href="The_Coast_and_Under#herring-gull">The Coast</a> |
+| **Herring gull**, on its own account | The Gull With Ambitions | The coast; the Pit | <a href="The_Coast_and_Under#herring-gull">The Coast</a> |
 | **Hound** | The Barrow Hound; Budge | The Barrow of the Forty-Fourth | <a href="The_Coast_and_Under#hound">The Coast</a> |
 | **Oak** | The Grumblewood Treant | The Gloamwood | <a href="The_Road_North#oak">The Road North</a> |
 | **Shore crab** | The Territorial Crab | The coast road; a well | <a href="The_Coast_and_Under#shore-crab">The Coast</a> |

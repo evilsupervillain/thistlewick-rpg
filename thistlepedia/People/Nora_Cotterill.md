@@ -48,7 +48,7 @@ That was the whole of her case against the <a href="../Places/The_Obligatory_Tow
 ## The argument
 
 <figure class="thumb right">
-<img src="../images/battlers/Mrs_Cotterill.png" alt="Mrs Cotterill in a cardigan, arms folded" width="87">
+<img src="../images/battlers/Mrs_Cotterill.png" alt="Mrs Cotterill in a yellow cardigan, expecting" width="87">
 <figcaption>In the front room. She was right.</figcaption>
 </figure>
 

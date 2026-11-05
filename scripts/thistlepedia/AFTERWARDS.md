@@ -1022,11 +1022,21 @@ plates. What the captions add:
   accounts. Wren allowed them if each caption gave what the thing is called,
   and said so wherever a plate is wrong.
 * Wrong plates, so captioned: the Territorial Crab (drawn red; it is green),
-  the Crab of Unusual Size (drawn blue, the adventurer having run out of red),
-  the Gull With Ambitions (drawn as a winged woman; it is a gull), the Thing
-  in the Woods (drawn as one many-headed animal; it is nine snakes), and the
-  Draught (drawn as the parish imagined it; it is a weasel).
+  the Crab of Unusual Size (drawn blue, the adventurer having run out of red), the Thing in the Woods (drawn as one many-headed
+  animal; it is nine snakes), and the Draught (drawn as the parish imagined it; it is a weasel).
 * Somebody coming up has a plate, "drawn by somebody who also did not see
   them". Something in the sand has one by somebody standing on it.
 * A small temptation is not described, but nobody thought to forbid drawing it.
 * Washer's portrait was drawn on the morning she was born, 21 March 2000.
+
+## The gull (5 November 2026, Mike)
+
+* The Gull With Ambitions is a harpy that says it is a herring gull. It says it
+  is only after a bit of pasty, the crimp, and is not concerned; asked how a
+  gull talks, it is a gull with ambitions. It stands on the coast-road posts in
+  threes (`TR_GULLS`). The game's own description ("adventurers carry food")
+  and Swoop ("%1 goes for the food") are read as the food being the adventurer.
+* It is the one Bestiary entry filed under what the animal says it is; Wren had
+  no other witness. Its plate is the one captioned as not wrong.
+* The Bothers' *Book of Coast Birds*: the NOT A GULL (?) entry and the GULL
+  after it are in the same hand. Wren thinks he asked it.

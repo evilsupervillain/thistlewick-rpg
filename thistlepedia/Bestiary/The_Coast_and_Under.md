@@ -55,17 +55,23 @@ The south is better documented than the north, because Nether Sopping is full of
 ### Herring gull
 
 <figure class="thumb right">
-<img src="../images/battlers/Gull_With_Ambitions.png" alt="A winged woman with green and brown feathers" width="150">
-<figcaption>The Gull With Ambitions, as an adventurer drew it. Miss Halloway asks me to say that it is a gull.</figcaption>
+<img src="../images/battlers/Gull_With_Ambitions.png" alt="A harpy: a woman's face, a great deal of green and brown wing, and the feet of a bird" width="150">
+<figcaption>The Gull With Ambitions. This plate is not wrong. The gull asks me to say that it is a gull, and that it is not concerned.</figcaption>
 </figure>
 
-**What it is.** The herring gull.
+**What it is.** A herring gull. It says so.
 
 **Called.** The Gull With Ambitions.
 
 **Where.** The coast road, the beach, and the mouth of the Bottomless Pit, which it has worked out.
 
-**Description.** Has worked out that adventurers carry food and that adventurers are, as a class, slow. Both observations are correct.
+**Description.** About the size of a woman, with a woman's face, a great deal of green and brown wing, and the feet of a bird, on which it stands along the posts of the coast road in threes, watching people go by. Has worked out that adventurers carry food and that adventurers are, as a class, slow. Both observations are correct. It has not said which food.
+
+**Its account.** I asked it what it was. It said that it was a gull. It said that it was only after a bit of pasty, and would settle for the crimp, which nobody eats anyway. I said that I had no pasty. It said that it was not concerned. I said that a gull cannot talk. It looked at me for some time, in the way it looks at everybody, as if working out how much of them it could lift, and said that it was a gull with ambitions.
+
+**Method.** It goes for the food. Every adventurer's account agrees that it went for them, and its own account is that they were standing in front of the pasty. Engaged. I did not measure it. I do not hold a ruler up to anything that is measuring me back.
+
+**Remarks.** This is the only entry in this Bestiary filed under what the animal says it is. I have no other witness: everybody else it has talked to was some way off the ground at the time. I have entered it under gulls, on its own account, and set out the face, the wings and the feet beside it, and the reader may do the arithmetic. The keepers of the <a href="../Places/The_Lighthouse_of_Saint_Bother">Saint Bother light</a> have kept a *Book of Coast Birds* for four generations. Every entry says GULL. One says NOT A GULL (?). The next, in the same hand, says GULL. I think he asked it. I would ask visitors to the coast road to eat their pasties indoors, and to stay in with them.
 
 <div class="clear"></div>
 
@@ -153,7 +159,7 @@ The Pit is a hole in a hillside, four feet deep, with a turnstile. It is called 
 
 <div class="gallery plates">
 <figure><img src="../images/battlers/Grave_Goods_Animated.png" alt="A suit of black armour with a cloak"><figcaption>Grave goods (animated)</figcaption></figure>
-<figure><img src="../images/battlers/Previous_Occupant.png" alt="A cowled figure in purple with a staff"><figcaption>The previous occupant, with views</figcaption></figure>
+<figure><img src="../images/battlers/Previous_Occupant.png" alt="A long-dead man in a torn shirt, arms out"><figcaption>The previous occupant, with views</figcaption></figure>
 </div>
 
 ## See also
