@@ -1101,5 +1101,5 @@ plates. What the captions add:
 * The slate in the Elders' kitchen says BRYONY and BRONWEN, and under them a
   third name in wax crayon, which is not printed. Faelan has crossed it out
   several times. Breakfast has not decided. **The baby is still not said to
-  have been born**, and the wiki never says Biscuit is the name
-  hers: only Mirabel says it.
+  have been born**, and the wiki never says Biscuit is her name: only
+  Mirabel says it.
