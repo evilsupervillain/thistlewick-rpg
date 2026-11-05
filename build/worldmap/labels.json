@@ -21,11 +21,7 @@
   {"name": "Firstfield Meadow", "event": 28},
   {"name": "The Former Premises", "event": [43, 44]},
   {"name": "The Sable Hart", "event": 49},
-  {"name": "The Sky Anvil", "event": 50},
-  {"name": "The Cinder Fen", "event": 52},
-  {"name": "The Fair", "event": 54},
   {"name": "Ashcombe Lake", "event": 55},
   {"name": "Fenmarch Hall", "event": [62, 63]},
-  {"name": "The Collegium Arcanum", "event": [64, 65]},
-  {"name": "Carn Drey", "event": 83}
+  {"name": "The Collegium Arcanum", "event": [64, 65]}
 ]
