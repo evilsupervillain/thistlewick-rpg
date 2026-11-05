@@ -230,11 +230,11 @@ def washer_event(event_id, x, y):
         "round all nine of the others."], face="Washer")
     first += S.narrate([
         "A hand comes out of the shawl and takes hold",
-        "of your finger. It does not give it back."], face="Washer")
+        "of your finger. She does not give it back."], face="Washer")
     first += S.say("Mrs Cotterill", ["They all do that.",
                                      "Spare held on till teatime."])
     first += S.narrate([
-        "Eventually it lets go. Washer has not woken",
+        "Eventually she lets go. Washer has not woken",
         "up for any of this."], face="Washer")
     first += [R.self_switch("A", True)]
     again = S.narrate(["Washer is asleep, with one fist out of the",

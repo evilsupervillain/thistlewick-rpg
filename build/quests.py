@@ -1315,8 +1315,9 @@ def spare():
                 desc("It is spring, and every Cotterill in Upper Clanging is "
                      "indoors today.",
                      when=sw(db.SW_SPA3_INSIDE)),
-                desc("Ten Cotterills. The new one is called Washer. Clevis "
-                     "had it at twenty to one, and has had to pay out.",
+                desc("Ten Cotterills. The new one is a girl, called Washer. "
+                     "Clevis had it at twenty to one, and has had to pay "
+                     "out.",
                      when=sw(db.SW_SPA3_DONE)),
             ],
             objectives=[

@@ -1605,10 +1605,10 @@ def _spa3_rejoin():
 
 def _spa3_step():
     """Spare on the step, the morning after."""
-    told = S.say("Spare", ["It is a baby."])
+    told = S.say("Spare", ["It is a baby. A girl."])
     told += S.narrate(["You say that you had heard."])
-    told += S.say("Spare", ["It is very small. It got hold of my",
-                            "finger and it would not give it",
+    told += S.say("Spare", ["She is very small. She got hold of my",
+                            "finger and she would not give it",
                             "back."])
     told += S.say("Spare", ["I am not the youngest any more.",
                             "I am a big brother."])
@@ -1648,11 +1648,11 @@ def spare_spa3_pages(img):
 SPA3_LINES = {
     "mam": ("Mrs Cotterill",
             S.say("Mrs Cotterill", ["Ten."]) + S.narrate([
-                "You ask what it is called."]) + S.say("Mrs Cotterill", [
+                "You ask what she is called."]) + S.say("Mrs Cotterill", [
                     "Washer."]) + S.narrate([
                         "You ask what happened to not Washer."])
             + S.say("Mrs Cotterill", ["Spare got to it first."])
-            + S.say("Mrs Cotterill", ["He said call it Washer,",
+            + S.say("Mrs Cotterill", ["He said call her Washer,",
                                       "and I was tired."]),
             S.say("Mrs Cotterill", ["Ten.", "Mr Cotterill is very pleased.",
                                     "He says that is all of them."])),
@@ -1678,19 +1678,19 @@ SPA3_LINES = {
                S.say("Clevis", ["The book is closed. Mam says there",
                                 "is not going to be another one."])),
     "shim": ("Shim",
-             S.say("Shim", ["I am going to give it a washer.",
-                            "When it is bigger. Not yet."])
+             S.say("Shim", ["I am going to give her a washer.",
+                            "When she is bigger. Not yet."])
              + S.say("Shim", ["Mam said not yet."]),
-             S.say("Shim", ["When it is bigger."])),
+             S.say("Shim", ["When she is bigger."])),
     "bessie": ("Bessie",
                S.say("Bessie", ["Washer. Six o'clock this morning,",
                                 "on the hooter."])
-               + S.say("Bessie", ["Mrs Cotterill says it is the only",
+               + S.say("Bessie", ["Mrs Cotterill says she is the only",
                                   "one of them that was ever on time."]),
                S.say("Bessie", ["Mine is in the summer.",
                                 "I am going to be on time as well."])),
     "rivet": ("Rivet",
-              S.say("Rivet", ["Da came off nights for it.",
+              S.say("Rivet", ["Da came off nights for her.",
                               "First time in twenty-two years."])
               + S.say("Rivet", ["We passed at the door at six,",
                                 "the both of us going in."]),
@@ -1706,7 +1706,7 @@ SPA3_LINES = {
     "winnie": ("Winnie",
                S.say("Winnie", ["Ten, then."]) + S.say("Winnie", [
                    "I have been to the plan. There is",
-                   "a column for it now."]) + S.say("Winnie", [
+                   "a column for her now."]) + S.say("Winnie", [
                        "I drew it in myself. In pencil."]),
                S.say("Winnie", ["Second Saturday.",
                                 "There will be a high chair."])),
