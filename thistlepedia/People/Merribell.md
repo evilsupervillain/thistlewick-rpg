@@ -12,6 +12,7 @@ title: Merribell
 <tr><th>Known as</th><td>Sister Merribell; the Sister of Whatever Works</td></tr>
 <tr><th>Born</th><td>4 February 1974, <a href="../Places/Thistlewick">Thistlewick</a>, in the chapel house; she was given a glass of water at once</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, at the chapel</td></tr>
 <tr><th>Trade</th><td>Village healer; field medic</td></tr>
 <tr><th>Order</th><td>The Order of Whatever Works, the only member for eleven miles</td></tr>

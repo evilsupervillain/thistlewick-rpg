@@ -12,7 +12,8 @@ title: Marjorie Gotobed
 <tr><th>Known as</th><td>Mrs Gotobed; Marjorie, to the parish council, at which she takes the minutes when Mrs Throssell has a cold</td></tr>
 <tr><th>Born</th><td>Marjorie Thorne, 23 April 1955, <a href="../Places/Much_Pottering">Much Pottering</a>, in the cottage she lives in</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
-<tr><th>Married</th><td>Humphrey Gotobed, adventurer, 1984, who had knocked on the wrong door</td></tr>
+<tr><th>Married</th><td><a href="Humphrey_Gotobed">Humphrey Gotobed</a>, adventurer, 1984, who had knocked on the wrong door</td></tr>
+<tr><th>Daughter</th><td><a href="Effie_Gotobed">Effie</a>, born 1990</td></tr>
 <tr><th>Was being rescued</th><td>No</td></tr>
 <tr><th>Has been rescued since</th><td>Continually, mostly from spiders</td></tr>
 <tr><th>Tea cosies</th><td>Two: one for an ordinary afternoon, and one to go on top of the first, for a really quiet one</td></tr>

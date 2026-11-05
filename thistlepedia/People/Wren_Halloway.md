@@ -12,6 +12,7 @@ title: Wren Halloway
 <tr><th>Known as</th><td>W. Halloway; the Cataloguer</td></tr>
 <tr><th>Born</th><td>17 April 1972. She has not said where, and has corrected two people who guessed</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>Of</th><td>A corner of the Slain Wyvern, and then outside it, and then a seat under the goose</td></tr>
 <tr><th>Trade</th><td>Cataloguer of monsters, by what they are</td></tr>
 <tr><th>Carries</th><td>A crossbow; seventeen specimen jars; the monograph</td></tr>

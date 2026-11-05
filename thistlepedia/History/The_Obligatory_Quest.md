@@ -11,7 +11,7 @@ title: The Obligatory Quest
 <tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Bram_Thistle.png" alt="Bram Thistle, a young farmer with a sword he is not entirely comfortable holding" width="200"><span class="infobox-caption">The Forty-Eighth, after the event</span></td></tr>
 <tr><th>Date</th><td>Third Age 2000, the last of the winter</td></tr>
 <tr><th>Chosen One</th><td>Bram Thistle, No. 48</td></tr>
-<tr><th>Companions</th><td>Up to three at any one time (that is the clause); eleven in all, at one time or another</td></tr>
+<tr><th>Companions</th><td>Up to three at any one time (that is the clause); <a href="../People/The_Forty-Eighth_Company">eleven in all</a>, at one time or another</td></tr>
 <tr><th>Objective</th><td>Go north. Kill the Dark Lord. Come home. In that order, ideally</td></tr>
 <tr><th>Outcome</th><td>The Dark Lord retired. The Prophecy read in full, and no longer binding. The Chosen One home</td></tr>
 <tr><th>Cliches encountered</th><td>Very nearly all of them</td></tr>

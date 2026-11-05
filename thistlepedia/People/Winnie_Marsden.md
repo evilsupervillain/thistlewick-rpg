@@ -14,6 +14,9 @@ title: Winnie Marsden
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Class</th><td>Of 'Nineteen. Two hundred and forty, near enough all together</td></tr>
 <tr><th>Married</th><td>Albert Marsden, pattern-maker, 1941; widowed 1979</td></tr>
+<tr><th>Granddaughter</th><td><a href="Bessie_Cotterill">Bessie Cotterill</a>, who has her face</td></tr>
+<tr><th>Grandson-in-law</th><td><a href="Cotter_Cotterill">Cotter Cotterill</a>, who was told to call her Gran</td></tr>
+<tr><th>Great-grandchild</th><td>Bessie's, summer 2000. Unnamed, until the seating plan is settled</td></tr>
 <tr><th>Drinks</th><td>A half of shandy, on a doily embroidered CLASS OF '19</td></tr>
 <tr><th>Dinner</th><td>Every year, second Saturday</td></tr>
 <tr><th>Seating plan</th><td>Settled when they were four, in 1923</td></tr>

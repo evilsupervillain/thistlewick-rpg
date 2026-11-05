@@ -12,6 +12,11 @@ title: Washer Cotterill
 <tr><th>Known as</th><td>Washer; the tenth; "not Washer", formerly, by Da</td></tr>
 <tr><th>Born</th><td>21 March 2000, at six in the morning, on the hooter, at the house at the end of the street, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a> and <a href="Shim_Cotterill">Shim</a></td></tr>
+<tr><th>Sister-in-law</th><td><a href="Bessie_Cotterill">Bessie</a>, Cotter's wife</td></tr>
 <tr><th>Age</th><td>Two, today, as this volume goes to press</td></tr>
 <tr><th>Named for</th><td>A washer, which goes under a nut, so that it holds. <a href="Grommet_Cotterill">Grommet</a> has not ruled on it; it is the only one he says he would not dare to</td></tr>
 <tr><th>Named by</th><td>Spare, who got to it first. Mam was tired</td></tr>

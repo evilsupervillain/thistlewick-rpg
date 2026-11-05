@@ -13,7 +13,9 @@ title: Nora Cotterill
 <tr><th>Born</th><td>Nora Sprag, 30 August 1954, at Haggit's Bank, a pit hamlet half way down the valley road, a pit family</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, 1975, at the chapel, on a Saturday, between shifts</td></tr>
-<tr><th>Children</th><td>Ten. Not going to be another one</td></tr>
+<tr><th>Children</th><td>Ten: <a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a>, <a href="Shim_Cotterill">Shim</a>, <a href="Spare_Cotterill">Spare</a> and <a href="Washer_Cotterill">Washer</a>. Not going to be another one</td></tr>
+<tr><th>Daughter-in-law</th><td><a href="Bessie_Cotterill">Bessie</a></td></tr>
+<tr><th>Grandchild</th><td><a href="Cotter_Cotterill">Cotter</a> and <a href="Bessie_Cotterill">Bessie</a>'s, summer 2000. Unnamed, here, by request</td></tr>
 <tr><th>Names</th><td>Chose them. Has them off by heart. Was tired for two of them</td></tr>
 <tr><th>Has had him out of</th><td>A boiler, nine times; a flue; a culvert; a drain we do not discuss</td></tr>
 <tr><th>Fighting style</th><td>You Are Nine; Ask Your Father; That Is Not The Point; I Have Said No</td></tr>

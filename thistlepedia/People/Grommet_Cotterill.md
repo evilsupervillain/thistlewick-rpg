@@ -13,7 +13,12 @@ title: Grommet Cotterill
 <tr><th>Born</th><td>19 January 1985, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Named for</th><td>A grommet, which is a ring that keeps a rope from chafing. It is not a fastener either, and he knows</td></tr>
-<tr><th>Apprenticed</th><td>To Bryd Ollerenshaw, at the forge, autumn 1999</td></tr>
+<tr><th>Apprenticed</th><td>To <a href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a>, at the forge, autumn 1999</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Clevis_Cotterill">Clevis</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Sister-in-law</th><td><a href="Bessie_Cotterill">Bessie</a>, Cotter's wife</td></tr>
 <tr><th>Has got</th><td>The makings. Said slowly (1999-2000); said a little faster (2002)</td></tr>
 <tr><th>Has been inside</th><td>A boiler tube plate, with a candle and a drift. All forty-one holes true</td></tr>
 <tr><th>Corrects the family</th><td>Every day</td></tr>

@@ -12,6 +12,11 @@ title: Clevis Cotterill
 <tr><th>Known as</th><td>Clevis; "the bookie", by the works; "that child", by the Parish Rooms</td></tr>
 <tr><th>Born</th><td>1 February 1987, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Grommet_Cotterill">Grommet</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Sister-in-law</th><td><a href="Bessie_Cotterill">Bessie</a>, Cotter's wife</td></tr>
 <tr><th>Named for</th><td>A clevis, which is a U-shaped shackle with a pin through it. <a href="Grommet_Cotterill">Grommet</a> has not ruled on it</td></tr>
 <tr><th>Ran</th><td>A book on the tenth one's name, 1999-2000</td></tr>
 <tr><th>Opening prices</th><td>Gib evens; Cleat two to one; Washer twenty to one</td></tr>

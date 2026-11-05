@@ -12,6 +12,11 @@ title: Ferrule Cotterill
 <tr><th>Known as</th><td>Ferrule</td></tr>
 <tr><th>Born</th><td>6 February 1984, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Sister-in-law</th><td><a href="Bessie_Cotterill">Bessie</a>, Cotter's wife</td></tr>
 <tr><th>Named for</th><td>A ferrule, which is a collar. It fastens nothing. It only stops a split. (<a href="Grommet_Cotterill">Grommet</a>)</td></tr>
 <tr><th>In charge</th><td>From six, when Da goes to work</td></tr>
 <tr><th>Policy</th><td>Nobody gets to sit down</td></tr>

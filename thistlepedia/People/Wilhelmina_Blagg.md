@@ -12,6 +12,7 @@ title: Wilhelmina Blagg
 <tr><th>Known as</th><td>Mrs Blagg; the Chair; Nan, to Clem</td></tr>
 <tr><th>Born</th><td>Wilhelmina Thorley, 30 April 1941, <a href="../Places/Frostwick">Frostwick</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Grandchild</th><td><a href="Clem_Blagg">Clem</a>, who has read everything</td></tr>
 <tr><th>Chairs</th><td>The Working Group on the Winter, since 1979; the Festival committee, which is the same people on a different day</td></tr>
 <tr><th>Apologies for absence</th><td>None, ever. Nobody in Frostwick has missed a meeting</td></tr>
 <tr><th>The curse</th><td>An asset. Page one of the register</td></tr>

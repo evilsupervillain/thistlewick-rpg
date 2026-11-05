@@ -12,7 +12,7 @@ title: Maud Penhallow
 <tr><th>Known as</th><td>Miss Penhallow; the understudy</td></tr>
 <tr><th>Born</th><td>11 January 1984, <a href="../Places/Great_Dunnage">Great Dunnage</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
-<tr><th>Of</th><td>Fellow Blunt's yard, <a href="../Places/Great_Dunnage">Great Dunnage</a></td></tr>
+<tr><th>Of</th><td><a href="Fellow_Blunt">Fellow Blunt</a>'s yard, <a href="../Places/Great_Dunnage">Great Dunnage</a></td></tr>
 <tr><th>Age</th><td>Eighteen</td></tr>
 <tr><th>In the yard since</th><td>Nine</td></tr>
 <tr><th>Studied</th><td>Sword, horse, lineage, and how he stands</td></tr>

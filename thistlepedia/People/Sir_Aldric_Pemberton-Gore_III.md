@@ -19,7 +19,8 @@ title: Sir Aldric Pemberton-Gore III
 <tr><th>Good at</th><td>Defence; standing in front of whoever is bleeding; encouraging everybody</td></tr>
 <tr><th>Bad at</th><td>Damage, speed, gates</td></tr>
 <tr><th>Horse</th><td>Duchess, a grey mare, now a partner in haulage</td></tr>
-<tr><th>Squire</th><td>His nephew, who finds the gates</td></tr>
+<tr><th>Squire</th><td>His nephew, <a href="Pemberton-Gore_IV">Pemberton-Gore IV</a>, who finds the gates</td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>North gate of Thistlewick</th><td>Found unaided once, 9 June 2001</td></tr>
 </table>
 

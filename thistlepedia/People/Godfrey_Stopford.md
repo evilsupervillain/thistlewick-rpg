@@ -15,7 +15,7 @@ title: Godfrey Stopford
 <tr><th>Chosen</th><td>1980, Chosen One number forty-six</td></tr>
 <tr><th>Got as far as</th><td><a href="../Places/The_Gloamwood">The Gloamwood</a>, the first path, about half way</td></tr>
 <tr><th>Decided</th><td>That the woods were enough</td></tr>
-<tr><th>Party</th><td>Five, who said: fair</td></tr>
+<tr><th>Party</th><td>Five, who said: fair. Among them <a href="Nabb">Nabb</a>, cook, and <a href="Tolly">Tolly</a>, maps</td></tr>
 <tr><th>Armour</th><td>Very good, and oiled</td></tr>
 <tr><th>Correspondence</th><td>Two letters a month, received; none sent; all answered</td></tr>
 <tr><th>Songs about him</th><td>None. One four-bar rest</td></tr>

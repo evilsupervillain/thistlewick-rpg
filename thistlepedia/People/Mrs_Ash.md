@@ -13,7 +13,7 @@ title: Mrs Ash
 <tr><th>Born</th><td>Margaret, 20 November 1947, in old Ashcombe, under what is now the lake. Her maiden name went under with it, and she has asked me to leave it there</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Surname</th><td>Ash, since about 1990, to save the postman</td></tr>
-<tr><th>Son</th><td>Corvin, born 1970</td></tr>
+<tr><th>Son</th><td><a href="Corvin_Ash">Corvin</a>, born 1970</td></tr>
 <tr><th>Wrote to him</th><td>Wednesdays and Saturdays, for eleven years, at the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a></td></tr>
 <tr><th>He wrote back</th><td>Once, to the Ruins of Ashcombe. The Ruins wrote back</td></tr>
 <tr><th>Kitchen</th><td>New. You can see every potato</td></tr>

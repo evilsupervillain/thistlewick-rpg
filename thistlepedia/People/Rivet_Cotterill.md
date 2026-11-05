@@ -12,6 +12,11 @@ title: Rivet Cotterill
 <tr><th>Known as</th><td>Rivet</td></tr>
 <tr><th>Born</th><td>3 February 1978, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Cotter_Cotterill">Cotter</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Sister-in-law</th><td><a href="Bessie_Cotterill">Bessie</a>, Cotter's wife</td></tr>
 <tr><th>Named for</th><td>A rivet, which holds two plates together, permanently, and is never asked whether it would like to</td></tr>
 <tr><th>Works</th><td>The foundry. Days, while Da does nights</td></tr>
 <tr><th>Conversations with his father</th><td>One a day, at six, two words long. Some mornings the weather</td></tr>

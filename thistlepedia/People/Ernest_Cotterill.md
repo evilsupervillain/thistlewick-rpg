@@ -12,6 +12,10 @@ title: Ernest Cotterill
 <tr><th>Known as</th><td>Mr Cotterill; Da; Ern, by the foundry</td></tr>
 <tr><th>Born</th><td>9 January 1951, <a href="../Places/Upper_Clanging">Upper Clanging</a>, the house at the end of the street, in the room he now sleeps in, by day</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Married</th><td><a href="Nora_Cotterill">Nora Sprag</a>, 1975</td></tr>
+<tr><th>Children</th><td>Ten: <a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a>, <a href="Shim_Cotterill">Shim</a>, <a href="Spare_Cotterill">Spare</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Daughter-in-law</th><td><a href="Bessie_Cotterill">Bessie</a></td></tr>
+<tr><th>Grandchild</th><td><a href="Cotter_Cotterill">Cotter</a> and <a href="Bessie_Cotterill">Bessie</a>'s, summer 2000. Unnamed, here, by request</td></tr>
 <tr><th>Works</th><td>The foundry. Nights: twelve on, twelve off, six days</td></tr>
 <tr><th>On nights since</th><td>1978</td></tr>
 <tr><th>Off nights</th><td>Once, spring 2000, for <a href="Washer_Cotterill">Washer</a></td></tr>

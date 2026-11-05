@@ -12,6 +12,11 @@ title: Gudgeon Cotterill
 <tr><th>Known as</th><td>Gudgeon; Miss Cotterill, at the counter, where it is official</td></tr>
 <tr><th>Born</th><td>12 January 1980, <a href="../Places/Upper_Clanging">Upper Clanging</a>; entered in the register in somebody else's hand, which she has looked at, and would have done better</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters</th><td><a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Sister-in-law</th><td><a href="Bessie_Cotterill">Bessie</a>, Cotter's wife</td></tr>
 <tr><th>Named for</th><td>A gudgeon, which is a pin. <a href="Grommet_Cotterill">Grommet</a> says that one is fine</td></tr>
 <tr><th>Works</th><td>The Parish Rooms: the register, the census, and the forms</td></tr>
 <tr><th>Hand</th><td>The best <a href="Mrs_Tunnicliffe">Mrs Tunnicliffe</a> has had, out of eleven</td></tr>

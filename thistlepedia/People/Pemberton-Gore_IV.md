@@ -12,6 +12,8 @@ title: Pemberton-Gore IV
 <tr><th>Known as</th><td>The Fourth; young Aldric, by Mrs Puddifoot, when he has muddy boots</td></tr>
 <tr><th>Born</th><td>Aldric Pemberton-Gore, 9 February 1981, at <a href="../Places/Fenmarch_Hall">Fenmarch Hall</a>, the son of Sir Aldric the Third's younger brother</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Uncle</th><td><a href="Sir_Aldric_Pemberton-Gore_III">Sir Aldric Pemberton-Gore III</a></td></tr>
+<tr><th>Grandfather</th><td>Sir Aldric the Second, who came over the wall</td></tr>
 <tr><th>Found the gate</th><td>First time, at ten. First of the family who ever has</td></tr>
 <tr><th>Scratched</th><td>FOUND IT, on the inside of the left-hand gatepost, at ten</td></tr>
 <tr><th>Portrait</th><td>1999. The only one in the gallery facing out</td></tr>

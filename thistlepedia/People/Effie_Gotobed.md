@@ -13,7 +13,9 @@ title: Effie Gotobed
 <tr><th>Born</th><td>Euphemia Gotobed, 2 October 1990, <a href="../Places/Much_Pottering">Much Pottering</a>; three months older than her pen pal, which she has mentioned</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Of</th><td>The Gotobeds' cottage, and its gate, at about the time of the post</td></tr>
-<tr><th>Pen pal</th><td>Spare Cotterill, of <a href="../Places/Upper_Clanging">Upper Clanging</a>, since 1997, by order of the parish council</td></tr>
+<tr><th>Pen pal</th><td><a href="Spare_Cotterill">Spare Cotterill</a>, of <a href="../Places/Upper_Clanging">Upper Clanging</a>, since 1997, by order of the parish council</td></tr>
+<tr><th>Father</th><td><a href="Humphrey_Gotobed">Humphrey Gotobed</a>, Adventurer (Retired)</td></tr>
+<tr><th>Mother</th><td><a href="Marjorie_Gotobed">Marjorie Gotobed</a></td></tr>
 <tr><th>Is</th><td>Nearly a princess. It is different. It is nearly</td></tr>
 <tr><th>Village has</th><td>A volcano (dormant); a sea serpent (in the pond)</td></tr>
 <tr><th>Village actually has</th><td>A bonfire; a carp; a pig</td></tr>

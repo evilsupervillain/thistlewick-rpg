@@ -4,6 +4,8 @@
 
 ## The Forty-Eighth and his company
 
+All eleven are listed together, with where each was found, under <a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a>.
+
 <div class="gallery">
 <figure><a href="Bram_Thistle"><img src="../images/portraits/Bram_Thistle.png" alt="Bram Thistle"></a><figcaption><a href="Bram_Thistle">Bram Thistle</a></figcaption></figure>
 <figure><a href="Merribell"><img src="../images/portraits/Merribell.png" alt="Merribell"></a><figcaption><a href="Merribell">Merribell</a></figcaption></figure>

@@ -15,7 +15,8 @@ title: Ysolde Marrow
 <tr><th>Trade</th><td>Field medicine, forty years of it</td></tr>
 <tr><th>Of</th><td><a href="../Places/Nether_Sopping">Nether Sopping</a>, the table by the bar in the <a href="../Places/The_Slain_Wyvern">Slain Wyvern</a></td></tr>
 <tr><th>Age</th><td>Eighty</td></tr>
-<tr><th>Kept alive</th><td>The Forty-Fourth, nine years, on and off; a duke's son, nine weeks</td></tr>
+<tr><th>Kept alive</th><td><a href="Ambrose_Fitch">The Forty-Fourth</a>, nine years, on and off; a duke's son, nine weeks</td></tr>
+<tr><th>Party</th><td>The Forty-Fourth's, <a href="Ambrose_Fitch">Ambrose Fitch</a>; medic</td></tr>
 <tr><th>His hit points</th><td>Four. She counted</td></tr>
 <tr><th>Chairs</th><td><a href="../Institutions/The_Healers_Table">The Healers' Table</a></td></tr>
 <tr><th>Never been to</th><td><a href="../Places/Thistlewick">Thistlewick</a></td></tr>

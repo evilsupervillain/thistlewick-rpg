@@ -12,6 +12,11 @@ title: Tappet Cotterill
 <tr><th>Known as</th><td>Tappet</td></tr>
 <tr><th>Born</th><td>28 January 1982, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Sister-in-law</th><td><a href="Bessie_Cotterill">Bessie</a>, Cotter's wife</td></tr>
 <tr><th>Named for</th><td>A tappet, which is pushed, so that something else can open</td></tr>
 <tr><th>Works</th><td>Carting, for the foundry; and the shift at the Hoyle Works, which is Miss Hoyle, <a href="Nib">Nib</a>, and her</td></tr>
 <tr><th>Brings up</th><td>The castings, on Tuesdays. Six crates. Same place as always</td></tr>

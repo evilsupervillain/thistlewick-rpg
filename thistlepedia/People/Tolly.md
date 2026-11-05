@@ -12,7 +12,8 @@ title: Tolly
 <tr><th>Known as</th><td>Tolly, of the Forty-Sixth; Miss Toller, on the post office's books</td></tr>
 <tr><th>Born</th><td>Margaret Toller, 2 March 1960, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
-<tr><th>Party</th><td>The Forty-Sixth's, 1980; maps</td></tr>
+<tr><th>Party</th><td>The <a href="Godfrey_Stopford">Forty-Sixth</a>'s, 1980; maps</td></tr>
+<tr><th>Companion</th><td><a href="Nabb">Nabb</a>, cook, who writes in the round hand</td></tr>
 <tr><th>Writes</th><td>Every month, in the narrow hand</td></tr>
 <tr><th>Stamps</th><td>Bought in twos. It's a long way</td></tr>
 <tr><th>Sheet of stamps</th><td>Bought, once, 1989. Gone off the counter. Came back, 2000. Forty</td></tr>

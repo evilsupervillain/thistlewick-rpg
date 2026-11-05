@@ -12,6 +12,13 @@ title: Spare Cotterill
 <tr><th>Known as</th><td>Spare; the Ninth</td></tr>
 <tr><th>Born</th><td>2 January 1991, the house at the end of the street, <a href="../Places/Upper_Clanging">Upper Clanging</a>. Ninth</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Grommet_Cotterill">Grommet</a> and <a href="Clevis_Cotterill">Clevis</a></td></tr>
+<tr><th>Sisters</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Sister-in-law</th><td><a href="Bessie_Cotterill">Bessie</a>, Cotter's wife</td></tr>
+<tr><th>Pen pal</th><td><a href="Effie_Gotobed">Effie Gotobed</a>, of Much Pottering</td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a>, the ninth of the Cotterills</td></tr>
 <tr><th>Trade</th><td>Brushing the ninety tubes of the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a> boiler, since 1997. Paid in buns</td></tr>
 <tr><th>Age</th><td>Nine at the time of the Quest; eleven now</td></tr>

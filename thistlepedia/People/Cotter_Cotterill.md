@@ -14,6 +14,11 @@ title: Cotter Cotterill
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Named for</th><td>A cotter pin, which holds a wheel on</td></tr>
 <tr><th>Married</th><td><a href="Bessie_Cotterill">Bessie Marsden</a>, 1999</td></tr>
+<tr><th>Father</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
+<tr><th>Mother</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers</th><td><a href="Rivet_Cotterill">Rivet</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
+<tr><th>Child</th><td>Summer 2000, on time. Unnamed, here, by request</td></tr>
 <tr><th>Worked</th><td>The big furnace, the Iron Company, <a href="../Places/Great_Dunnage">Great Dunnage</a>, 1994-2000</td></tr>
 <tr><th>Walked home</th><td>Every Saturday: eleven miles up the valley, and eleven back for the Monday</td></tr>
 <tr><th>Boots</th><td>Shod at heel and toe with somebody else's heel-irons</td></tr>

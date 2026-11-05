@@ -12,6 +12,7 @@ title: Clem Blagg
 <tr><th>Known as</th><td>Clem</td></tr>
 <tr><th>Born</th><td>3 January 1993, <a href="../Places/Frostwick">Frostwick</a>, in the snow, which was on schedule</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Grandmother</th><td><a href="Wilhelmina_Blagg">Wilhelmina Blagg</a>, the Chair. Nan</td></tr>
 <tr><th>Does</th><td>The lanterns</td></tr>
 <tr><th>Has read</th><td>Everything</td></tr>
 <tr><th>Knows off by heart</th><td>All the minutes</td></tr>

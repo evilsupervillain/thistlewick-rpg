@@ -16,7 +16,8 @@ title: Ambrose Fitch
 <tr><th>Mother</th><td>Born a Bother, at the lighthouse</td></tr>
 <tr><th>Cousin</th><td><a href="Ferrety_Bother">Ferrety Bother</a>, along the coast</td></tr>
 <tr><th>Chosen</th><td>1960</td></tr>
-<tr><th>Kept alive by</th><td>Ysolde Marrow, nine years, on and off</td></tr>
+<tr><th>Kept alive by</th><td><a href="Ysolde_Marrow">Ysolde Marrow</a>, nine years, on and off</td></tr>
+<tr><th>Medic</th><td><a href="Ysolde_Marrow">Ysolde Marrow</a>, of his party</td></tr>
 <tr><th>Pensioned to</th><td><a href="../Places/Nether_Sopping">Nether Sopping</a>, by clause nineteen</td></tr>
 <tr><th>Written to by Thistlewick</th><td>Never</td></tr>
 <tr><th>Watered</th><td>A pot with a dead thing in it, every morning, forty years</td></tr>

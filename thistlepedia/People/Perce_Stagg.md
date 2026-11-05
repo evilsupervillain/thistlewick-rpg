@@ -16,7 +16,7 @@ title: Perce Stagg
 <tr><th>Chosen</th><td>No. Nobody chose him</td></tr>
 <tr><th>Got as far as</th><td><a href="../Places/Frostwick">Frostwick</a>. The winter was in the way</td></tr>
 <tr><th>So</th><td>He saw to it</td></tr>
-<tr><th>Married</th><td>Ida, 1961</td></tr>
+<tr><th>Married</th><td><a href="Ida_Stagg">Ida</a>, 1961</td></tr>
 <tr><th>Festival</th><td>The twelfth. Ribbon at noon. He does the face</td></tr>
 <tr><th>Lanterns</th><td>Ever such good ones</td></tr>
 <tr><th>Has mentioned that he was not chosen</th><td>Never. Nobody asked</td></tr>

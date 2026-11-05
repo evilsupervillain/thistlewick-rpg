@@ -14,7 +14,7 @@ title: King Aldous
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Reigned</th><td>Since 1961</td></tr>
 <tr><th>Married</th><td>Queen Isobel, 1975; widowed 1983</td></tr>
-<tr><th>Children</th><td>One. Taken eleven times, twelve if you count the eagle</td></tr>
+<tr><th>Children</th><td>One, <a href="Princess_Rosamund">Rosamund</a>. Taken eleven times, twelve if you count the eagle</td></tr>
 <tr><th>Reward posted</th><td>Her hand, or half the kingdom. Eleven times</td></tr>
 <tr><th>Taken</th><td>The half. Every time. Very sensible</td></tr>
 <tr><th>Holds</th><td>One two-thousand-and-forty-eighth of Fairholme</td></tr>

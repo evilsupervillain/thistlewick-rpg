@@ -12,6 +12,8 @@ title: Roland Fairweather
 <tr><th>Known as</th><td>The Guest Star</td></tr>
 <tr><th>Born</th><td>8 February 1966. Where is the subject of a review meeting, and has been since 1978</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Understudy</th><td><a href="Maud_Penhallow">Maud Penhallow</a></td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>Of</th><td>A table by the fire in the Slain Wyvern, between engagements</td></tr>
 <tr><th>Trade</th><td>Being extremely good at this</td></tr>
 <tr><th>Since</th><td>The age of eleven (the Wyrm of Ickworth, 1977)</td></tr>

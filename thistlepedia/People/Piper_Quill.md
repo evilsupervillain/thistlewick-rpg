@@ -12,6 +12,8 @@ title: Piper Quill
 <tr><th>Known as</th><td>Piper Quill, Chronicler</td></tr>
 <tr><th>Born</th><td>10 January 1976, <a href="../Places/Thistlewick">Thistlewick</a>, in the Quills' house. Her aunt wrote a verse for it, which does not mention her</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Aunt</th><td><a href="Ambrosine_Quill">Ambrosine Quill</a></td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, usually on a table</td></tr>
 <tr><th>Trade</th><td>Bard; chronicler, unofficial</td></tr>
 <tr><th>Family</th><td>The Quills, official chroniclers for four generations</td></tr>

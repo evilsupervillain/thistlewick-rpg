@@ -12,6 +12,7 @@ title: Zephyrine Vance
 <tr><th>Known as</th><td>Formerly of the College</td></tr>
 <tr><th>Born</th><td>15 January 1968. She says she was very small and nothing caught fire, and her mother says otherwise</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>Of</th><td>The <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, Thistlewick, "just passing through" since 1989</td></tr>
 <tr><th>Trade</th><td>Hedge mage; fire person</td></tr>
 <tr><th>Educated</th><td>The <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a>; best in her year at Kindle</td></tr>

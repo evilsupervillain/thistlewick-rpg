@@ -13,7 +13,7 @@ title: Mrs Thistle
 <tr><th>Born</th><td>Annie Brook, 6 June 1957, at the mill below <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td>Will Thistle, turnip farmer, 1977</td></tr>
-<tr><th>Son</th><td>Bram, born 1979</td></tr>
+<tr><th>Son</th><td><a href="Bram_Thistle">Bram</a>, born 1979</td></tr>
 <tr><th>Is</th><td>Alive, well, and has read the version that says otherwise</td></tr>
 <tr><th>Makes</th><td>A good pie. She asked me to put that in</td></tr>
 <tr><th>Pie dish</th><td>Went in 1989. Came back in 2000. She never missed it</td></tr>

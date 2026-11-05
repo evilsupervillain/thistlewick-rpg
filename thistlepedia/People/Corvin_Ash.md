@@ -12,6 +12,8 @@ title: Corvin Ash
 <tr><th>Known as</th><td>The Brooding One; the Doomed Rival</td></tr>
 <tr><th>Born</th><td>13 January 1970, old <a href="../Places/Ashcombe">Ashcombe</a>, in the house with the step</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Mother</th><td><a href="Mrs_Ash">Mrs Ash</a>, who is fine</td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>Of</th><td><a href="../Places/Ashcombe">Ashcombe</a>; for eleven years, the corner of the Slain Wyvern</td></tr>
 <tr><th>Trade</th><td>Rival of a great hero, according to a fortune-teller, for two crowns</td></tr>
 <tr><th>Age</th><td>Thirty-two</td></tr>

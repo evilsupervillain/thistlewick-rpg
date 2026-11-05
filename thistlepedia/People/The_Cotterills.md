@@ -12,7 +12,7 @@ title: The Cotterills
 <tr><th>Of</th><td><a href="../Places/Upper_Clanging">Upper Clanging</a>, the house at the end of the street, and most of the street</td></tr>
 <tr><th>Mam</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
 <tr><th>Da</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a>, on nights</td></tr>
-<tr><th>Children</th><td>Ten</td></tr>
+<tr><th>Children</th><td>Ten: <a href="Cotter_Cotterill">Cotter</a>, <a href="Rivet_Cotterill">Rivet</a>, <a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a>, <a href="Shim_Cotterill">Shim</a>, <a href="Spare_Cotterill">Spare</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
 <tr><th>Named for</th><td>Fastenings, nearly</td></tr>
 <tr><th>Tin cups on the rain barrel</th><td>Ten, on ten nails</td></tr>
 <tr><th>Mr Cotterill's view of the walk home</th><td>Has never once minded it</td></tr>

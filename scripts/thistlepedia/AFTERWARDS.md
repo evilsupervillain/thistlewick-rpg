@@ -1360,3 +1360,28 @@ makes them family.
   about the oil.
 * Ferrety: Ambrose could see the light from his chair, "and he supposed that
   was close, for Bothers".
+
+## Relatives and companions in the infoboxes; the Forty-Eighth Company (5 November 2026, Mike)
+
+Asked for by Mike: every bio's infobox links the people it is related to, and
+the people its subject went on a quest with. Every relationship was already
+stated somewhere on the wiki; the rows link it, they do not add it.
+
+* **The Forty-Eighth Company** (`People/The_Forty-Eighth_Company.md`) is a
+  name Hosea gives them, not one they use. Each of the eleven links it in a
+  *Company* row instead of listing the other ten. Its table gives where each
+  member was found, which comes from their own *Of* rows. Its one invention
+  is the marginalia: asked who was the best company on the road, eight said
+  Bram, Bram said Mrs Thistle's pies, Spare said Spare, and Nix asked what
+  the question was worth.
+* Eldest Sir Aldric (born 1954, forty-six in 2000), youngest Spare (nine).
+* **The Cotterills** carry the full list: father, mother, brothers and
+  sisters in order of birth, Bessie as sister-in-law, and on Cotter, Ernest,
+  Nora and Winnie the child of summer 2000, unnamed.
+* Earlier companies: Ysolde Marrow was the Forty-Fourth's medic (from Ambrose
+  Fitch's article). Nabb and Tolly were the Forty-Sixth's. Merrow Halgate's
+  and Councillor Dree's Chosen Ones are not named, on purpose, and stay that
+  way.
+* Norbert Pelling's *First loss* row linked to Maud Penhallow. It was framed
+  by his wife, Maud Pelling, and his own article says they are two different
+  Mauds, so the link is gone.

@@ -12,6 +12,7 @@ title: Dorcas Thrupp
 <tr><th>Known as</th><td>Mrs Thrupp, which is a courtesy; Dorcas, to her sister, in writing, since 2000</td></tr>
 <tr><th>Born</th><td>4 June 1948, at the <a href="../Places/The_Gilded_Turnip">Gilded Turnip</a>, <a href="../Places/Thistlewick">Thistlewick</a>, the elder of two</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Sister</th><td><a href="Prudence_Thrupp">Prudence Thrupp</a>, the younger, of the Gilded Turnip</td></tr>
 <tr><th>Keeps</th><td><a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>, <a href="../Places/Nether_Sopping">Nether Sopping</a>, for longer than she will say</td></tr>
 <tr><th>Over the mantel</th><td>A wyvern. A goose. Two plaques. Dusted the same morning, in an order she has not disclosed</td></tr>
 <tr><th>Spoke to her sister</th><td>Until 1970. Then not, for thirty years. Then by post</td></tr>

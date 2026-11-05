@@ -13,6 +13,11 @@ title: Bessie Cotterill
 <tr><th>Born</th><td>Elizabeth Marsden, 5 May 1977, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
 <tr><th>Married</th><td><a href="Cotter_Cotterill">Cotter Cotterill</a>, the eldest, 18 September 1999</td></tr>
+<tr><th>Grandmother</th><td><a href="Winnie_Marsden">Winnie Marsden</a></td></tr>
+<tr><th>Father-in-law</th><td><a href="Ernest_Cotterill">Ernest Cotterill</a></td></tr>
+<tr><th>Mother-in-law</th><td><a href="Nora_Cotterill">Nora Cotterill</a></td></tr>
+<tr><th>Brothers-in-law</th><td><a href="Rivet_Cotterill">Rivet</a>, <a href="Grommet_Cotterill">Grommet</a>, <a href="Clevis_Cotterill">Clevis</a> and <a href="Spare_Cotterill">Spare</a></td></tr>
+<tr><th>Sisters-in-law</th><td><a href="Gudgeon_Cotterill">Gudgeon</a>, <a href="Tappet_Cotterill">Tappet</a>, <a href="Ferrule_Cotterill">Ferrule</a>, <a href="Shim_Cotterill">Shim</a> and <a href="Washer_Cotterill">Washer</a></td></tr>
 <tr><th>Has her dinner</th><td>At her mother-in-law's. There is always more than they need</td></tr>
 <tr><th>Has the house to herself</th><td>Second Saturday</td></tr>
 <tr><th>Cradle</th><td>Her gran's. It went years ago. It came back. Nobody has said anything</td></tr>

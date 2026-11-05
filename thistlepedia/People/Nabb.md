@@ -12,7 +12,8 @@ title: Nabb
 <tr><th>Known as</th><td>Nabb, of the Forty-Sixth</td></tr>
 <tr><th>Born</th><td>14 October 1960, <a href="../Places/Nether_Sopping">Nether Sopping</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
-<tr><th>Party</th><td>The Forty-Sixth's, 1980; cook</td></tr>
+<tr><th>Party</th><td>The <a href="Godfrey_Stopford">Forty-Sixth</a>'s, 1980; cook</td></tr>
+<tr><th>Companion</th><td><a href="Tolly">Tolly</a>, maps, who writes in the narrow hand</td></tr>
 <tr><th>Got as far as</th><td><a href="../Places/The_Gloamwood">The Gloamwood</a>, the first path, about half way</td></tr>
 <tr><th>Said</th><td>Fair</td></tr>
 <tr><th>Writes</th><td>Every month, in the round hand</td></tr>

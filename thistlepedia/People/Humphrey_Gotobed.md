@@ -12,6 +12,8 @@ title: Humphrey Gotobed
 <tr><th>Known as</th><td>Mr Gotobed; H. Gotobed, Adventurer (Retired), on the brass plate</td></tr>
 <tr><th>Born</th><td>7 November 1944, at Brinkworth Halt, a railway cottage "on the way to everywhere"</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Wife</th><td><a href="Marjorie_Gotobed">Marjorie</a>, rescued by mistake, 1984</td></tr>
+<tr><th>Daughter</th><td><a href="Effie_Gotobed">Effie</a>, born 1990</td></tr>
 <tr><th>Trade</th><td>Adventurer, 1962-1983. Retired</td></tr>
 <tr><th>Roads taken</th><td>Every one on the map, out to every edge, and then quite straight back to Much Pottering</td></tr>
 <tr><th>Last quest</th><td>To rescue a lady. Knocked on the wrong door</td></tr>

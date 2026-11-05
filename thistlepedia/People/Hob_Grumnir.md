@@ -20,7 +20,8 @@ title: Hob Grumnir
 <tr><th>Bad at</th><td>Speed, magic, being subtle</td></tr>
 <tr><th>Pricing</th><td>"Take it"</td></tr>
 <tr><th>Invoicing</th><td>A shelf</td></tr>
-<tr><th>Rival</th><td>Bryd Ollerenshaw, of <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Rival</th><td><a href="Bryd_Ollerenshaw">Bryd Ollerenshaw</a>, of <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 </table>
 
 <p class="lede"><b>Hob Grumnir</b> is the blacksmith of <a href="../Places/Thistlewick">Thistlewick</a>, third of that forge, and an enormous man who talks to his hammers. Two of the hammers have names. One of them, he insists, talks back. She is called <b>Beatrice</b>, and she joined the Forty-Eighth's company on the same morning he did, because, as he explained, "Beatrice comes. I come with Beatrice. That's the arrangement and it's not up for discussion, mainly because she'd win."</p>

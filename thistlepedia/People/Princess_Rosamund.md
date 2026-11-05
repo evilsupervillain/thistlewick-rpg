@@ -12,6 +12,8 @@ title: Princess Rosamund
 <tr><th>Known as</th><td>Princess Rosamund; Her Highness; "the bag by the window", by the Heroes' Guild</td></tr>
 <tr><th>Born</th><td>14 February 1978, at the palace, <a href="../Places/Fairholme">Fairholme</a>; the only child of <a href="King_Aldous">King Aldous</a> and Queen Isobel</td></tr>
 <tr><th>Sex</th><td>Female</td></tr>
+<tr><th>Father</th><td><a href="King_Aldous">King Aldous</a></td></tr>
+<tr><th>Mother</th><td>Queen Isobel, who died in 1983</td></tr>
 <tr><th>Kidnapped</th><td>Eleven times, 1986-1999. Twelve, if you count the eagle (1996). The Palace does not</td></tr>
 <tr><th>Rescued</th><td>Eleven times, by eleven shareholders</td></tr>
 <tr><th>Bag</th><td>By the window, packed. It is always the bag by the window</td></tr>

@@ -16,7 +16,7 @@ title: Norbert Pelling
 <tr><th>Post</th><td>Station Four: Combat. The ambush, contracted to lose, since 1981</td></tr>
 <tr><th>Losses</th><td>Three thousand, one hundred and five, by 2000</td></tr>
 <tr><th>Wins</th><td>None, which is the job</td></tr>
-<tr><th>First loss</th><td>Framed, by <a href="Maud_Penhallow">Maud</a></td></tr>
+<tr><th>First loss</th><td>Framed, by Maud</td></tr>
 <tr><th>Lunch</th><td>Packed, with a note: LOSE WELL, LOVE</td></tr>
 <tr><th>Contract</th><td>Provides for a lie down after. Best part of the job</td></tr>
 <tr><th>On till</th><td>Four</td></tr>

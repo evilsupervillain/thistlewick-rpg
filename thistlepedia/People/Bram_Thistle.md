@@ -12,6 +12,9 @@ title: Bram Thistle
 <tr><th>Known as</th><td>The Forty-Eighth; Chosen One No. 48; Bram</td></tr>
 <tr><th>Born</th><td>3 October 1979, <a href="../Places/Thistlewick">Thistlewick</a>, in the room under the sword, in the middle of the turnip harvest, which was brought in on time</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Father</th><td>Will Thistle, turnip farmer</td></tr>
+<tr><th>Mother</th><td><a href="Mrs_Thistle">Mrs Thistle</a></td></tr>
+<tr><th>Company</th><td><a href="The_Forty-Eighth_Company">The Forty-Eighth Company</a></td></tr>
 <tr><th>Of</th><td><a href="../Places/Thistlewick">Thistlewick</a>, two fields from Prophecy Hall</td></tr>
 <tr><th>Trade</th><td>Turnips</td></tr>
 <tr><th>Chosen</th><td>Third Age 2000, in his sleep, by the <a href="../Institutions/The_Prophecy_Committee">Prophecy Committee</a>, nobody objecting</td></tr>
