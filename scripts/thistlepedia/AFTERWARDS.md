@@ -1103,3 +1103,25 @@ plates. What the captions add:
   several times. Breakfast has not decided. **The baby is still not said to
   have been born**, and the wiki never says Biscuit is her name: only
   Mirabel says it.
+
+## Miss Fettle (5 November 2026, Mike)
+
+* Born 1975 in Great Dunnage, over a cutler's; her father let her take the
+  handles off things if she put them back. Appraiser to the Company since
+  1997, at twenty-two. **She has no first name in the wiki**: the Company's
+  roll has never needed one, and she changed the subject to a tang.
+* Her card (canon: she gives Corvin one) reads FETTLE. Appraiser to the
+  Company. Weapons, plate, heirlooms. Tangs: no charge.
+* The stamped Form C-1 over her bench (canon, after COR-5) is reconciled with
+  Corvin's article ("the form, which he has not filled in") by the triplicate:
+  the third copy is stamped by the Appraiser on the day of issue whatever
+  happens to the other two, and is blank. Whether he took the curse in play
+  is left unsaid.
+* "Somebody loved this, once": the wiki says she was right, and it was his
+  grandfather (COR-2); the name stays where Corvin's article put it.
+* At the Assize she was the only one to ask who made Beatrice, and asked it
+  first; Hob has thanked her for it.
+* Since 2000 she has issued two more Forms C-1, to members of the Sable Hart
+  in hoods, and stamped neither: they brought the form and not the thirty
+  crowns. Great Dunnage's children bring her butter knives.
+* Marginalia: she had the cap off Hosea's pen and asked after the nib.

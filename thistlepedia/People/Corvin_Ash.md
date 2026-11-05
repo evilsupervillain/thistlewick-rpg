@@ -51,7 +51,7 @@ The hero came in at last, in 2000, and asked him along, and he said "If fate dem
 
 **Mother Selvidge.** She is still working the fairs, and did not remember him, and read him again for two crowns, and got a long life, a useful trade, and no destiny whatsoever. He asked her to do it again, and she did, and got the same. On the third reading she put the cards down and told him, kindly and without mystery, that she says the rival thing to about four young men a year, because it is the reading that makes them stand up straight, and that it has never once been wrong, in the sense that they all went and did something. She has read him three times. She has never once been wrong.
 
-**The appraisal.** He took the sword to Miss Fettle at the Smiths' Hall in <a href="../Places/Great_Dunnage">Great Dunnage</a>, expecting a curse. There is no curse. It is a very good sword in poor condition, and she was enthusiastic about the tang. He asked how much a curse would cost. It is not expensive. There is a form. He has the form, if he wants one.
+**The appraisal.** He took the sword to <a href="Miss_Fettle">Miss Fettle</a> at the Smiths' Hall in <a href="../Places/Great_Dunnage">Great Dunnage</a>, expecting a curse. There is no curse. It is a very good sword in poor condition, and she was enthusiastic about the tang. He asked how much a curse would cost. It is not expensive. There is a form. He has the form, if he wants one.
 
 ## Afterwards
 

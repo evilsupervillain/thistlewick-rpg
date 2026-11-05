@@ -51,7 +51,7 @@ Clauses four to thirty-nine I have not seen in writing, and Warden Crabbe has of
 
 **Warden Crabbe**, the Junior Warden, keeps the Schedule, aloud, and the cards on the hall's exhibits, in writing, among them the one on a suit of armour entered for the prize *by a smith who wishes to remain anonymous*.
 
-**Miss Fettle**, Appraiser to the Company, is a young woman in round spectacles who looks at swords the way other people look at sunsets. She will ask after the tang. Everybody looks at the blade. Nobody ever asks after the tang. It is the most important part of the whole sword, and it is hidden, and she always asks. She does not charge for tangs. She also does curses, elective, on Form C-1, in triplicate, and they are mostly paperwork; the economy one lasts until you next sleep in a proper bed.
+**<a href="../People/Miss_Fettle">Miss Fettle</a>**, Appraiser to the Company, is a young woman in round spectacles who looks at swords the way other people look at sunsets. She will ask after the tang. Everybody looks at the blade. Nobody ever asks after the tang. It is the most important part of the whole sword, and it is hidden, and she always asks. She does not charge for tangs. She also does curses, elective, on Form C-1, in triplicate, and they are mostly paperwork; the economy one lasts until you next sleep in a proper bed.
 
 ## Beatrice
 

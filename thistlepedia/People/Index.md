@@ -221,6 +221,7 @@ At <a href="../Places/Great_Dunnage">Great Dunnage</a>.
 <figure><a href="Mr_Tweddle"><img src="../images/portraits/Mr_Tweddle.png" alt="Mr Tweddle"></a><figcaption><a href="Mr_Tweddle">Mr Tweddle</a></figcaption></figure>
 <figure><a href="Septimus_Dray"><img src="../images/portraits/Septimus_Dray.png" alt="Septimus Dray"></a><figcaption><a href="Septimus_Dray">Mr Dray</a></figcaption></figure>
 <figure><a href="Lettice_Moon"><img src="../images/portraits/Lettice_Moon.png" alt="Lettice Moon"></a><figcaption><a href="Lettice_Moon">Miss Moon</a></figcaption></figure>
+<figure><a href="Miss_Fettle"><img src="../images/portraits/Miss_Fettle.png" alt="Miss Fettle"></a><figcaption><a href="Miss_Fettle">Miss Fettle</a></figcaption></figure>
 <figure><a href="Fellow_Blunt"><img src="../images/portraits/Fellow_Blunt.png" alt="Fellow Blunt"></a><figcaption><a href="Fellow_Blunt">Fellow Blunt</a></figcaption></figure>
 </div>
 
