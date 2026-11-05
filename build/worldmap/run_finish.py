@@ -31,6 +31,7 @@ OUT = os.path.join(HERE, 'worldmap.json')
 ROUND11 = os.path.join(HERE, 'round11.json')
 ROUND12 = os.path.join(HERE, 'round12.json')
 ROUND13 = os.path.join(HERE, 'round13.json')
+ROUND14 = os.path.join(HERE, 'round14.json')
 
 # The Former Premises: the castle row of Mike's floating island, the two cells
 # an airship sets down on. Named up here because `sink_islets` has to be told
@@ -605,6 +606,18 @@ def main(argv):
             w.g.set(x, y, z, t)
     print("Mike's round thirteen: %d cells" % len(round13))
 
+    # Mike's round fourteen (5 Nov 2026), laid the same way: the Fen Road
+    # drawn south from a signpost at the fork east of Great Dunnage to the
+    # Cinder Fen, a pass east from Great Dunnage past Carn Drey's cave to
+    # Upper Clanging's road, and three lakes opened to the sea - in the
+    # north-west under a new bridge, in the south desert, and in the east.
+    with open(ROUND14) as f:
+        round14 = json.load(f)
+    for x, y, tiles in round14:
+        for z, t in enumerate(tiles):
+            w.g.set(x, y, z, t)
+    print("Mike's round fourteen: %d cells" % len(round14))
+
     # The Crab of Unusual Size's beach (Mike, 30 Oct 2026): the `Dirt` mound
     # beside it, which read as a mountain and nothing worth investigating,
     # is taken up, and a trail of tracks runs sideways along the beach from
@@ -632,7 +645,7 @@ def main(argv):
     print("encounter entries widened to snow and desert: %d"
           % F.point_at(w, F.REG_NORTH, (F.REG_SNOW, F.REG_DESERT)))
 
-    w.save(settle=False)                # keeps rounds eleven to thirteen's shapes
+    w.save(settle=False)                # keeps rounds eleven to fourteen's shapes
     print("wrote %s" % OUT)
 
     if '--stage' in argv:

@@ -324,11 +324,13 @@ WORLD_SIGN_COAST = (63, 80)     # was (28,45): the two ends of the coast road
 # and the west road's own is `WORLD_JUNCTION`, which always was a constant.
 
 # ZEPH-4's road (`../QUESTS.md` E16): the causeway out of the burnt Cinder Fen,
-# (47,118), runs north to Great Dunnage. Its signpost stands beside the gate,
-# south-east of `DUNNAGE_STEP`, a `WB_SIGN` read from beside like the four
-# above; and the Fen end of the road is the cell north of the Fen's own. Both
-# checked open four ways against the finished `data/Map008.json`.
-FEN_ROAD_SIGN = (33, 53)
+# (47,118), runs north to Great Dunnage. Its signpost stands at the fork on
+# the road east of the gate, where Mike drew the road south (round fourteen,
+# 5 Nov 2026; it was (33,53), beside the gate), a `WB_SIGN` read from beside
+# like the four above; and the Fen end of the road is the cell north of the
+# Fen's own. Both checked open four ways against the finished
+# `data/Map008.json`.
+FEN_ROAD_SIGN = (34, 55)
 FEN_ROAD_END = (47, 117)
 
 # ROL-5's understudy (`../QUESTS.md` E17): at the Bell's snug table, south of
@@ -375,15 +377,16 @@ MAP_DROWNED_STREET = 66
 # ROL-2's dungeon (`../QUESTS.md` E18): under Carn Drey, the hill east of
 # Great Dunnage, in no place, drawn by `q_roland.py`. Its world-map door is a
 # `WB_CAVE` event in the hill's south face, there only once the party has
-# gone to see; the way back out comes down one cell east, the side the road
-# is on. Both checked open four ways; the cell south of the cave is not.
+# gone to see; the way back out comes down on the road one cell south, which
+# is Mike's pass from Great Dunnage (round fourteen, 5 Nov 2026; it was one
+# east, which the pass made hill). Both checked open four ways.
 # The card is on the Bell's snug table, Map 65, read from beside.
 MAP_CARN_DREY = 67
 # The Obligatory Tower's door on the world map, Map 8: `journey` builds it,
 # and ROL-5's telling after the ending sets its self switch A by script.
 TOWER_DOOR_EVENT = 4
 CARN_DREY = (39, 55)
-CARN_DREY_STEP = (40, 55)
+CARN_DREY_STEP = (39, 56)
 SNUG_CARD = (4, 8)
 # MER-3 (QUESTS.md E3): the Slain Wyvern's back room, in Map 14's black east,
 # where the Healers' Table meets once a year. Mike made it a cellar in October

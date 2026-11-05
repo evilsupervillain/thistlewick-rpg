@@ -139,6 +139,10 @@ Four things were true of the specification and are worth not rediscovering:
       round13.json    his pass of 30 Oct 2026, laid after that: the forests
                       and ranges near the middle made less symmetrical
                       (layer 1 only, 77 cells)
+      round14.json    his pass of 5 Nov 2026, laid after that: the Fen Road
+                      drawn south to the Cinder Fen, a pass from Great
+                      Dunnage past Carn Drey to Upper Clanging, and three
+                      lakes opened to the sea (377 cells, layers 0, 1, 3)
       worldmap.json   the finished map. **This is Map 8**: `journey.world_map`
                       loads it, so a rebuild of the game picks up whatever
                       `run_finish.py` last wrote. Never edited by hand

@@ -105,8 +105,8 @@
   {
    "goto": [
     8,
-    40,
-    55
+    39,
+    56
    ]
   },
   {
@@ -136,7 +136,7 @@
    "frames": 5
   },
   {
-   "key": "ArrowLeft",
+   "key": "ArrowUp",
    "gap": 30
   },
   {
@@ -157,14 +157,14 @@
    "label": "walked onto the cave: Fellow Blunt's plate; Not yet"
   },
   {
-   "key": "ArrowRight",
+   "key": "ArrowDown",
    "gap": 30
   },
   {
    "eval": "window._mark(); window._pick = 0"
   },
   {
-   "key": "ArrowLeft",
+   "key": "ArrowUp",
    "gap": 30
   },
   {
@@ -421,11 +421,11 @@
    "check": "[$gameMap.mapId(), $gamePlayer.x, $gamePlayer.y, $gameScreen.tone().join(',')]",
    "expect": [
     8,
-    40,
-    55,
+    39,
+    56,
     "0,0,0,0"
    ],
-   "label": "out by the stairs, east of the cave, the gloom lifted"
+   "label": "out by the stairs, on the road south of the cave, the gloom lifted"
   },
   {
    "eval": "window._mark(); window._pick = undefined; $gameMap.event(83).start()"

@@ -225,12 +225,24 @@
    "gap": 30
   },
   {
+   "key": "ArrowRight",
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
+   "key": "ArrowDown",
+   "gap": 30
+  },
+  {
    "check": "[$gamePlayer.x, $gamePlayer.y]",
    "expect": [
-    32,
-    53
+    33,
+    55
    ],
-   "label": "beside the sign"
+   "label": "beside the sign, at the fork on the road east of the gate"
   },
   {
    "key": "ArrowRight",
@@ -239,8 +251,8 @@
   {
    "check": "[$gamePlayer.x, $gamePlayer.y, $gamePlayer.direction()]",
    "expect": [
-    32,
-    53,
+    33,
+    55,
     6
    ],
    "label": "the sign blocks its cell; facing it"
@@ -264,8 +276,8 @@
    "check": "[window._has('THE FEN ROAD.'), $gamePlayer.x, $gamePlayer.y]",
    "expect": [
     true,
-    32,
-    53
+    33,
+    55
    ],
    "label": "read from beside; Not now"
   },
