@@ -457,6 +457,7 @@ FACES = {
     "Miss Fettle": ("Gen_People6", 4),
     # Cotter, generated: SF_Actor2 7 read as a woman.
     "Cotter": ("Supplied2", 2),                # Mike drew him (3 Nov)
+    "Washer": ("Supplied2", 3),                # asleep; Mike drew it (4 Nov)
     # SPA-1's courier (QUESTS.md F2), generated: red coat, flat cap.
     "Courier": ("Supplied", 3),                # Mike drew him (3 Nov)
     # SPA-4, Much Pottering (QUESTS.md F3), all generated: Spare's pen pal,
@@ -561,13 +562,16 @@ def say(speaker, lines, *, face=True, indent=0, position=2):
     return out
 
 
-def narrate(lines, indent=0):
-    """Screen text with nobody speaking - descriptions, and the narrator."""
+def narrate(lines, indent=0, face=None):
+    """Screen text with nobody speaking - descriptions, and the narrator.
+    `face` names a `FACES` key to show beside it, for somebody who is being
+    looked at and cannot say anything (Washer)."""
+    name, index = FACES[face] if face else ("", 0)
     out = []
     for page in _pages(lines):
         for line in page:
-            _check_width(line, "", None)
-        out += R.text(page, indent=indent)
+            _check_width(line, name, None)
+        out += R.text(page, face_name=name, face_index=index, indent=indent)
     return out
 
 

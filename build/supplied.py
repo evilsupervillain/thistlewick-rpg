@@ -34,6 +34,7 @@ PORTRAITS = [
     ("Supplied2", 0, "mr_dray_portrait.png"),      # Mr Dray
     ("Supplied2", 1, "spare_cotterill_portrait.png"),   # Spare
     ("Supplied2", 2, "cotter_cotterill_portrait.png"),  # Cotter
+    ("Supplied2", 3, "washer_portrait.png"),            # Washer, asleep (4 Nov)
 ]
 
 # The whole portrait each face was cut from, 330x350 like the stock busts,
@@ -52,6 +53,7 @@ PICTURES = {
     "mr_dray_portrait.png": "mr_dray_picture.png",
     "spare_cotterill_portrait.png": "spare_cotterill_picture.png",
     "cotter_cotterill_portrait.png": "cotter_cotterill_picture.png",
+    "washer_portrait.png": "washer_picture.png",
 }
 
 

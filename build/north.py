@@ -225,20 +225,20 @@ def washer_event(event_id, x, y):
     """Map 21: the tenth Cotterill, asleep on the end of Mrs Cotterill's
     bench from the morning after SPA-3; looked at once, then in passing."""
     first = S.narrate([
-        "Washer Cotterill, the tenth. Asleep on the end of the",
-        "bench, in a shawl that has been round all nine of the",
-        "others."])
+        "Washer Cotterill, the tenth. Asleep on the",
+        "end of the bench, in a shawl that has been",
+        "round all nine of the others."], face="Washer")
     first += S.narrate([
-        "A hand comes out of the shawl and takes hold of your",
-        "finger. It does not give it back."])
+        "A hand comes out of the shawl and takes hold",
+        "of your finger. It does not give it back."], face="Washer")
     first += S.say("Mrs Cotterill", ["They all do that.",
                                      "Spare held on till teatime."])
     first += S.narrate([
-        "Eventually it lets go. Washer has not woken up for any",
-        "of this."])
+        "Eventually it lets go. Washer has not woken",
+        "up for any of this."], face="Washer")
     first += [R.self_switch("A", True)]
-    again = S.narrate(["Washer is asleep, with one fist out of the shawl,",
-                       "ready."])
+    again = S.narrate(["Washer is asleep, with one fist out of the",
+                       "shawl, ready."], face="Washer")
     img = R.image("!$Washer", 0, direction=2)
     born = {"switch1Valid": True, "switch1Id": db.SW_SPA3_DONE}
     return R.event(event_id, "Washer", x, y, [

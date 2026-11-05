@@ -477,7 +477,7 @@ Shared event-building helpers: how people talk, how doors work, and the
 ```
 sprite(key)                                          The (sheet, index) a speaker's event is drawn with: SPRITES, else their face.
 say(speaker, lines, *, face=True, indent=0, position=2) One person saying something, over as many windows as it takes.
-narrate(lines, indent=0)                             Screen text with nobody speaking - descriptions, and the narrator.
+narrate(lines, indent=0, face=None)                  Screen text with nobody speaking - descriptions, and the narrator.
 trope(indent=0)                                      Bump the cliché counter. The ending reads the total back to the player,
 blush(indent=0)                                      Bump the count of things nobody quite said.
 companion_story(actor_id, indent=0)                  A companion quest is finished: turn on that companion's story switch,
@@ -498,7 +498,7 @@ recruit(event_id, actor_id, name, x, y, sheet, index, *, pitch, accept, decline,
 roster_amendment(companions=None, clerk='Clerk')     A dismissal form. Lets the player swap a companion out without
 ```
 
-### `FACES` — who already has a face (222)
+### `FACES` — who already has a face (223)
 
 The key is what `say()` prints as the speaker's name. Adding somebody here is how a new character gets a portrait; sharing an existing sheet and index is normal and the reasons are commented in the module.
 
@@ -555,10 +555,10 @@ Miss Moon             The Convenor          Fellow Grice          Fellow Amory
 Fellow Blunt          Mr Pennock            Professor Mott        Dr Furze
 Mother Grizel         Dr Hobday             Nan Gilly             Mr Spence
 Ambrosine             Lorrimer              Maud                  Miss Fettle
-Cotter                Courier               Effie                 Mrs Gotobed
-Mr Gotobed            Mr Dibble             Mrs Throssell         Mr Cobley
-Thalion               Aelwen                Elowen                Calder
-Ninian                The Copyist
+Cotter                Washer                Courier               Effie
+Mrs Gotobed           Mr Gotobed            Mr Dibble             Mrs Throssell
+Mr Cobley             Thalion               Aelwen                Elowen
+Calder                Ninian                The Copyist
 ```
 
 
