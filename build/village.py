@@ -384,7 +384,7 @@ def village_events():
     gossip += S.say("Villager", [
         "Goat abstained.",
         "Very dignified about it."], face="Gossip")
-    add(q_hob.owned("gossip", S.npc(21, "Gossip", 24, 16, gossip,  # HOB-1
+    add(q_hob.owned("gossip", S.npc(21, "Gossip", 18, 13, gossip,  # HOB-1
                                   *S.sprite("Gossip"), direction=4)))
 
     # -- 22: the market stall --------------------------------------------------
