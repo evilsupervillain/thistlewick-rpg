@@ -1339,3 +1339,24 @@ plates. What the captions add:
 * He keeps the boat shed's key "because he is always there".
 * Marginalia: Hosea's own tide table, from the Chandler's, agrees with his
   on most days; Hosea has not mentioned it. The fare is a penny.
+
+## Ambrose Fitch and Ferrety Bother, cousins (5 November 2026, Mike)
+
+Asked for by Mike: the two shared a face in the game until Bother got his own
+(`story.FACES`, 3 Nov), and the new one still looks like Fitch's, so the wiki
+makes them family.
+
+* **First cousins.** Ambrose's mother was a Bother, the saint's
+  granddaughter and Ferrety's father's sister, born in the lighthouse; she
+  went inland to Thistlewick to marry, "having had enough of stairs". So
+  Ambrose was born in Thistlewick (1934, as before) and "there are no other
+  Bothers" stays true by name.
+* From 1960 the light Ambrose's window faced was kept by his uncle, and from
+  1970 by Ferrety. Neither was a man for visiting: they met about once a year
+  in the town by accident and nodded. "Ignored for forty years" is
+  Thistlewick's, and is untouched.
+* Nether Sopping could never tell them apart: Ferrety was thanked for the
+  Dark Lord about monthly and said it was the other one; Ambrose was asked
+  about the oil.
+* Ferrety: Ambrose could see the light from his chair, "and he supposed that
+  was close, for Bothers".

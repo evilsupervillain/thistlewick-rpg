@@ -13,6 +13,8 @@ title: Ambrose Fitch
 <tr><th>Born</th><td>14 May 1934, <a href="../Places/Thistlewick">Thistlewick</a></td></tr>
 <tr><th>Died</th><td>About 1999</td></tr>
 <tr><th>Sex</th><td>Male</td></tr>
+<tr><th>Mother</th><td>Born a Bother, at the lighthouse</td></tr>
+<tr><th>Cousin</th><td><a href="Ferrety_Bother">Ferrety Bother</a>, along the coast</td></tr>
 <tr><th>Chosen</th><td>1960</td></tr>
 <tr><th>Kept alive by</th><td>Ysolde Marrow, nine years, on and off</td></tr>
 <tr><th>Pensioned to</th><td><a href="../Places/Nether_Sopping">Nether Sopping</a>, by clause nineteen</td></tr>
@@ -30,6 +32,8 @@ title: Ambrose Fitch
 He went north as they all did, with a sword and a medic, and the medic was <a href="Ysolde_Marrow">Ysolde Marrow</a>, who kept him alive for nine years on and off and has never been entirely sure how. He did the sword. He came home.
 
 Clause nineteen sent him forty miles south to a cottage on the front, with a window that looks out at the sea and at the end of the north road where it comes over the hill, and a pension, and nothing else. Thistlewick did not write. He had a chair, turned to face the window, and on the sill a pot with a dead thing in it, which he watered every morning for forty years. It was dead when he bought it. Ysolde asked him why, and he said it was the principle. <a href="Halbert_Quy">Halbert Quy</a>, who lived next door from 1970, says that nothing ever grew. "Nothing grew then, either."
+
+The window had one other thing in it. His mother was a Bother, the saint's granddaughter, who was born in <a href="../Places/The_Lighthouse_of_Saint_Bother">the lighthouse</a> and went inland to Thistlewick to marry, having had, she said, enough of stairs; and so the light on the point east of the town was kept, all the forty years he sat facing it, by his uncle and then, from 1970, by his first cousin, <a href="Ferrety_Bother">Ferrety Bother</a>. Neither of them was a man for visiting. They met, Ferrety says, about once a year, in the town, by accident, and nodded, and each said that the other was looking well, and Nether Sopping, which could not tell them apart, spent forty years thanking the wrong one. Ferrety was thanked for the Dark Lord at least once a month. Ambrose was asked about the oil.
 
 Ysolde says that he used to say there was a whole trade in it: you keep someone alive, and then they go and live, and you don't get to see much of it. She says he was right about most things.
 
@@ -73,5 +77,6 @@ Thistlewick has not written. I have checked. But the Committee's minute book for
 - <a href="../Places/The_Barrow_of_the_Forty-Fourth">The Barrow of the Forty-Fourth</a>
 - <a href="Ysolde_Marrow">Ysolde Marrow</a>
 - <a href="Halbert_Quy">Halbert Quy</a>, next door
+- <a href="Ferrety_Bother">Ferrety Bother</a>, his cousin, who kept the light
 - <a href="../History/The_Chosen_Ones">The Chosen Ones</a>
 - <a href="Merrow_Halgate">Merrow Halgate</a>

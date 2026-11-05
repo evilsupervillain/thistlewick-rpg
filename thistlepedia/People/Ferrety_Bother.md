@@ -14,6 +14,7 @@ title: Ferrety Bother
 <tr><th>Sex</th><td>Male</td></tr>
 <tr><th>Keeper of</th><td><a href="../Places/The_Lighthouse_of_Saint_Bother">The Lighthouse of Saint Bother</a>, since 1970. The fourth generation</td></tr>
 <tr><th>Great-grandmother</th><td>The saint. She'd have hated the fuss</td></tr>
+<tr><th>Cousin</th><td><a href="Ambrose_Fitch">Ambrose Fitch</a>, the Forty-Fourth</td></tr>
 <tr><th>Stairs climbed</th><td>Eleven thousand times, by 2000</td></tr>
 <tr><th>Jumpers</th><td>A great many, all identical, all with a lighthouse on</td></tr>
 <tr><th>Has walked to the crossroads</th><td>Once</td></tr>
@@ -27,7 +28,9 @@ title: Ferrety Bother
 
 Her book, on the top floor, is signed *S. Bother*. Her first name is not in it, or anywhere in the lighthouse, and the family says she would have hated the fuss of a first name too. The tapestries of her on the ground floor were made by her son's wife, Ferrety's grandmother, who also found something on the rocks one winter, which is in a pickling jar in the store and has never been named. The deckchair tapestry, with SHE'D HAVE HATED THE FUSS embroidered underneath, is Ferrety's, done in the winter of 1971, his first as keeper, when he had a great many evenings.
 
-He was born in the tower, in February, in a gale. His father, who was keeping the light that night, came down the stairs between trimming the wick and trimming it again, and went back up. There are no other Bothers. He has never married. He says that there was never anybody who wanted to live up eleven floors of stairs, and when I pointed out that it is six, he said that it is six going up.
+He was born in the tower, in February, in a gale. His father, who was keeping the light that night, came down the stairs between trimming the wick and trimming it again, and went back up. There are no other Bothers. There was a Fitch: his father's sister went inland to Thistlewick to marry, having had enough of stairs, and her son was <a href="Ambrose_Fitch">Ambrose Fitch</a>, the Forty-Fourth Chosen One, who came home in 1960 and was given a cottage on the front at Nether Sopping, along the coast, with a window that faced the light. They had the family face between them, grey and bearded, and the town could never tell which of them it was looking at. For forty years Ferrety was thanked in the street for the Dark Lord, and said that it was the other one, and Ambrose was asked about the oil, and said the same. I asked whether they were close. He said that they nodded, about once a year, when they met in the town by accident, and that he kept the light lit, and that Ambrose could see it from his chair, and that he supposed that was close, for Bothers.
+
+He has never married. He says that there was never anybody who wanted to live up eleven floors of stairs, and when I pointed out that it is six, he said that it is six going up.
 
 ## Out of oil
 
@@ -53,4 +56,5 @@ He is sixty-four. The lamp needed oil again in the spring of 2001, and somebody 
 
 - <a href="../Places/The_Lighthouse_of_Saint_Bother">The Lighthouse of Saint Bother</a>
 - <a href="Lavinia_Barrow">Lavinia Barrow</a>
+- <a href="Ambrose_Fitch">Ambrose Fitch</a>, his cousin, who faced the light
 - <a href="../History/The_Chosen_Ones">The Chosen Ones</a>, who walked home by the light
