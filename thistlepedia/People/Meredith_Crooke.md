@@ -31,11 +31,18 @@ I have asked for the first three and been told that they are available to enroll
 
 ## The bounty
 
+<figure class="thumb right">
+<img src="../images/battlers/Meredith_Crooke.png" alt="Meredith Crooke with a sword, in a blue cloak" width="180">
+<figcaption>In the western hills, with the trainees watching.</figcaption>
+</figure>
+
 The Guild's card read: BOUNTY: M. CROOKE, BANDIT CHIEF. *Camp in the western hills. Runs a six-week banditry apprenticeship with a syllabus. Reward: 1200 crowns and the Guild's quiet relief.* The Forty-Eighth's party went up into the hills in the year 2000 and found the camp, and her, and four trainee bandits in a semicircle behind her, taking notes.
 
 She fought with two of them at her side, as a demonstration. She lost, as a demonstration. When it was over she said, "Good! Did you all see the footwork?" and the cohort had, to a bandit, written down the footwork. She handed over the takings herself, and told the party to go and claim their bounty, and to tell Registrar Pell that her pass rate that year was ninety per cent, which was more than his Guild could say for anything. Mr Pell was told. He did not reply. The card on the Guild's board has DISCHARGED across it now, and somebody has pinned her syllabus up beside it, as a curiosity.
 
 To anybody who went back to the camp afterwards she said, "Week five. Come back Thursday, and let them see it done to you properly." Nobody did.
+
+<div class="clear"></div>
 
 ## Module seven
 

@@ -8,6 +8,7 @@ title: Something Unscheduled
 
 <table class="infobox">
 <caption>Something Unscheduled</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/battlers/Something_Unscheduled.png" alt="Something Unscheduled, large, purple and beaming" width="176"><span class="infobox-caption">Item six</span></td></tr>
 <tr><th>Known as</th><td>Something Unscheduled; item six on the schedule</td></tr>
 <tr><th>Born</th><td>Not anticipated</td></tr>
 <tr><th>Sex</th><td>Not applicable. <i>It</i>, which is what it calls itself</td></tr>

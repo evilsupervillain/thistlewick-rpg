@@ -26,6 +26,11 @@ title: Norbert Pelling
 
 ## The gap in the fence
 
+<figure class="thumb right">
+<img src="../images/battlers/Norbert.png" alt="Norbert in a red bandana, with a club" width="180">
+<figcaption>Bandit (Tutorial), to lose.</figcaption>
+</figure>
+
 He was born in 1961, two fields over, on his father's farm, and worked it until 1981, when the Guild advertised a contractor's post at Firstfield, *Bandit (Tutorial), to lose*, and Maud Crisp, who was not yet his wife, read it out to him over the fence and said that he would be perfect, and meant it nicely. He applied. He was the only applicant. The Guild says that is lore. Maud says it is because nobody else in the county could lose with any conviction.
 
 The sign at the gap reads AMBUSH IN PROGRESS. PLEASE QUEUE. THE AMBUSH IS CONTRACTED TO LOSE. THE AMBUSH WOULD LIKE YOU TO KNOW HE TRIES. He tries. He puts down his sandwich. He wipes his hands on his trousers. Then:
@@ -33,6 +38,8 @@ The sign at the gap reads AMBUSH IN PROGRESS. PLEASE QUEUE. THE AMBUSH IS CONTRA
 > "STAND AND DELIVER! ...your best attack, if you'd be so kind. I'm the tutorial ambush. Norbert. Pleased to meet you."
 
 He announces every swing a turn in advance, for the education of the young. When hit, he goes down, quite convincingly: "Oh! Ooh. You've got me. Down I go. Lovely. Lovely stuff." Then he has a lie down, for twenty minutes, which is in the contract, and which he says is the best part of the job. "Mind the sandwich."
+
+<div class="clear"></div>
 
 ## The other way
 

@@ -1012,3 +1012,21 @@ the sill; the 1997 Almanac. The turnip count is **not printed** (Bram asked).
   it is the same turnip under the paint.
 * Bram's experiment with the pot asks whether a turnip minds where it is.
   Hosea promised not to say this, and does not quite keep the promise.
+
+## The plates (4 November 2026)
+
+The Bestiary and nine people's pages now carry every enemy's battler, as
+plates. What the captions add:
+
+* The plates are Hosea's, not Wren's: drawn for him from the adventurers'
+  accounts. Wren allowed them if each caption gave what the thing is called,
+  and said so wherever a plate is wrong.
+* Wrong plates, so captioned: the Territorial Crab (drawn red; it is green),
+  the Crab of Unusual Size (drawn blue, the adventurer having run out of red),
+  the Gull With Ambitions (drawn as a winged woman; it is a gull), the Thing
+  in the Woods (drawn as one many-headed animal; it is nine snakes), and the
+  Draught (drawn as the parish imagined it; it is a weasel).
+* Somebody coming up has a plate, "drawn by somebody who also did not see
+  them". Something in the sand has one by somebody standing on it.
+* A small temptation is not described, but nobody thought to forbid drawing it.
+* Washer's portrait was drawn on the morning she was born, 21 March 2000.

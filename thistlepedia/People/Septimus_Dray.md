@@ -28,6 +28,11 @@ It is a long black wooden pipe bent back and forth on itself, like a drain that 
 
 ## The Contest
 
+<figure class="thumb right">
+<img src="../images/battlers/Mr_Dray_Other_Wind.png" alt="Mr Dray with his serpent" width="112">
+<figcaption>Other Wind, eleven minutes of it.</figcaption>
+</figure>
+
 The Contest at the Sign of the Bell is always tonight; in most years it simply has not had the entries. Mr Dray entered in 1974 and came second, of two. He entered again in 1988 and came second, of two. Asked how he had done, the evening the Forty-Eighth's company came in, he said:
 
 > "Dray. Instrumental (Other Wind). Second place, twice. There were two entries, both times."
@@ -38,9 +43,18 @@ He came third. He was pleased with this all week.
 
 <div class="marginalia">I have heard the serpent. Mr Dray was kind enough to play it to me in his back kitchen, with the door shut, for the length of a cup of tea, and then for the length of a second cup, because I had drunk the first one quickly. I did not know what to say afterwards, and said that it was a remarkable instrument. He said that it was, and that most people didn't say so, and gave me a third cup. I have not been able to improve on "remarkable", and I have tried. - H.B.</div>
 
+<div class="clear"></div>
+
 ## Afterwards
 
+<figure class="thumb right">
+<img src="../images/battlers/The_Back_Table.png" alt="A big man from the back table, in a beanie, fists up" width="96">
+<figcaption>The back table, which had views.</figcaption>
+</figure>
+
 He is seventy-one. He has entered every Contest since, now that there are Contests worth entering, Instrumental (Other Wind), the category still having nobody else in it. In 2001 he came fourth, of nine, which he says is the most people he has ever beaten in one evening. He is working on a shorter piece, of nine minutes, at the panel's suggestion. Mrs Harbottle has told him privately that the serpent is a six, and that a six is a very respectable number, and he has had it painted on the case.
+
+<div class="clear"></div>
 
 ## See also
 

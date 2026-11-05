@@ -10,6 +10,7 @@ title: Eighty-Four
 
 <table class="infobox">
 <caption>Attempt Eighty-Four</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/battlers/Attempt_Eighty-Four.png" alt="Attempt Eighty-Four, a tall red engine on legs" width="180"><span class="infobox-caption">In the field, 2000, out of her neighbours</span></td></tr>
 <tr><th>Known as</th><td>Eighty-Four; Attempt 84; "her", at the works</td></tr>
 <tr><th>Laid down</th><td>14 April 1857, the <a href="../Institutions/The_Hoyle_Works">Hoyle Works</a>, bay 84</td></tr>
 <tr><th>Sex</th><td>Not applicable. <i>Her</i>, by the custom of the works, which she has earned</td></tr>

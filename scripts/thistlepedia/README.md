@@ -58,7 +58,12 @@ speaker's face (the Cotterills, Mr and Mrs). Hosea's picture on the landing
 page is not a portrait and not in the manifest: it is
 `thistlepedia/images/Hosea_Bellwether_at_work.jpg`, Mike's 800x848 engraving
 scaled to 440 wide; his bio keeps the in-game bust.
-When final art lands in `img/` under the same names, rerun it; `--check` says
+The same script copies every enemy's battler out of `img/sv_enemies/` into
+`thistlepedia/images/battlers/`, named after the enemy in `data/Enemies.json`,
+with its `battlerHue` applied and its margin trimmed: those are the Bestiary's
+plates, and each is used once, on the entry or person's page it belongs to.
+A plated entry is followed by `<div class="clear"></div>` so the plate cannot
+float into the next section. When final art lands in `img/` under the same names, rerun it; `--check` says
 whether any copy is stale.
 
 **Red links.** Write links to articles as ordinary links whether or not the

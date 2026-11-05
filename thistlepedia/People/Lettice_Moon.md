@@ -29,6 +29,11 @@ She wrote the first verse at fourteen, at her sewing, and has added to it ever s
 
 ## The Contest
 
+<figure class="thumb right">
+<img src="../images/battlers/Miss_Moon_Ballad_Sad.png" alt="Miss Moon in black, with a white handkerchief" width="123">
+<figcaption>Ballad, Sad, fourth verse.</figcaption>
+</figure>
+
 > "Moon. Ballad (Sad). Fourteen verses. Nobody survives."
 
 She went second, after Mr Dray. Nine from Mr Ambler, two from Miss Quayle, five from Mrs Harbottle, who said afterwards that she had marked the craft and not the body count. Sixteen. When Piper Quill took the stage with a Ballad (Not Sad), which nobody had ever entered, Miss Moon was part of the floor, with Mr Dray and the back table, and contributed, as is the custom of the Bell, a very sad verse of her own from the side, to bring the room's spirits down to where she felt they ought to be. Somewhere in the fourth verse she sat down, to a smattering, and heard the rest.
@@ -36,6 +41,8 @@ She went second, after Mr Dray. Nine from Mr Ambler, two from Miss Quayle, five 
 It was a ballad about a farm boy who walked north, and nobody died in it, and it was all true. She told me that she sat through the whole of it waiting for somebody to die, and that nobody did, and that she found she did not mind. The next time the Forty-Eighth's company saw her, she said:
 
 > "I've changed the ending. Somebody survives verse three. Briefly."
+
+<div class="clear"></div>
 
 ## Afterwards
 

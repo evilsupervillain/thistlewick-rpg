@@ -14,6 +14,11 @@ The south is better documented than the north, because Nether Sopping is full of
 
 ### Shore crab
 
+<figure class="thumb right">
+<img src="../images/battlers/Territorial_Crab.png" alt="A red crab with its claws raised" width="131">
+<figcaption>The Territorial Crab, from an account. It is green. The adventurer had red.</figcaption>
+</figure>
+
 **What it is.** The common shore crab. Green, broad, sideways.
 
 **Called.** The Territorial Crab.
@@ -24,7 +29,14 @@ The south is better documented than the north, because Nether Sopping is full of
 
 **Remarks.** Nether Sopping's rule two is that the crab on the west beach is nobody's fault and is not to be provoked. It is a good rule for any crab.
 
+<div class="clear"></div>
+
 ### Shore crab (very large)
+
+<figure class="thumb right">
+<img src="../images/battlers/The_Crab_Of_Unusual_Size.png" alt="A very large blue crab with its claws raised" width="131">
+<figcaption>The Crab of Unusual Size, by the same adventurer, who had run out of red.</figcaption>
+</figure>
 
 **What it is.** A shore crab, the same species as the above. Very large. The size of a garden shed.
 
@@ -38,7 +50,14 @@ The south is better documented than the north, because Nether Sopping is full of
 
 **Remarks.** Four smaller crabs hold the beach now, between them, badly. They are the same species. They will be large in time, if nobody minds them.
 
+<div class="clear"></div>
+
 ### Herring gull
+
+<figure class="thumb right">
+<img src="../images/battlers/Gull_With_Ambitions.png" alt="A winged woman with green and brown feathers" width="150">
+<figcaption>The Gull With Ambitions, as an adventurer drew it. Miss Halloway asks me to say that it is a gull.</figcaption>
+</figure>
 
 **What it is.** The herring gull.
 
@@ -48,15 +67,29 @@ The south is better documented than the north, because Nether Sopping is full of
 
 **Description.** Has worked out that adventurers carry food and that adventurers are, as a class, slow. Both observations are correct.
 
+<div class="clear"></div>
+
 ### Not described: something in the sand
 
+<figure class="thumb right">
+<img src="../images/battlers/Something_In_The_Sand.png" alt="A great banded worm with a flower of teeth" width="180">
+<figcaption>Something in the sand, drawn by somebody who was standing on it at the time. Not described.</figcaption>
+</figure>
+
 **What it is.** I do not know. I have not seen it. Nether Sopping does not swim off the west beach and has never written down why, and I have not swum off it either. I have measured the hole it leaves. The hole is a good size. I am not entering an animal on the strength of a hole, and I would ask everybody else not to.
+
+<div class="clear"></div>
 
 ## The Bottomless Pit
 
 The Pit is a hole in a hillside, four feet deep, with a turnstile. It is called bottomless as a courtesy.
 
 ### Badger
+
+<figure class="thumb right">
+<img src="../images/battlers/The_Thing_At_The_Bottom.png" alt="A large badger sitting in a nest of bones and rags" width="180">
+<figcaption>The Thing at the Bottom. A badger.</figcaption>
+</figure>
 
 **What it is.** The badger, *Meles meles*. Very large.
 
@@ -68,13 +101,22 @@ The Pit is a hole in a hillside, four feet deep, with a turnstile. It is called 
 
 **Method.** The Forty-Eighth's company came and saw the badger, which is what the custodian had been asking the Guild to do for forty years. The Guild had told him that a badger was not a monster. The Guild was correct. It was a badger. It left, at speed, and took one boot with it, and had earned the boot.
 
+<div class="clear"></div>
+
 ### Urn
+
+<figure class="thumb right">
+<img src="../images/battlers/Lost_Property.png" alt="A dark round pot with eyes in its mouth" width="66">
+<figcaption>Lost Property. Unclaimed.</figcaption>
+</figure>
 
 **What it is.** An urn. Not an animal.
 
 **Called.** Lost Property.
 
 **Remarks.** Two hundred years at the bottom of a pit will do this to anything, apparently, including an urn. I do not know why it moves. Neither, so far as I could tell, does it.
+
+<div class="clear"></div>
 
 ### Not described: something in the crack
 
@@ -86,6 +128,11 @@ The Pit is a hole in a hillside, four feet deep, with a turnstile. It is called 
 
 ### Hound
 
+<figure class="thumb right">
+<img src="../images/battlers/Barrow_Hound.png" alt="A big grey dog, hackles up" width="180">
+<figcaption>The Barrow Hound, on duty.</figcaption>
+</figure>
+
 **What it is.** A dog. A large one.
 
 **Called.** The Barrow Hound.
@@ -96,11 +143,18 @@ The Pit is a hole in a hillside, four feet deep, with a turnstile. It is called 
 
 **Remarks.** Something still uses the alcove. On a mossy pillar near it, at the height of a big dog's shoulder, the moss has been worn smooth by something leaning there, every day, very contentedly, for a very long time. I have not catalogued what. I have catalogued the moss. I am not a sentimental woman, and I left the dish where it was.
 
+<div class="clear"></div>
+
 ## Not animals
 
 **Grave goods (animated).** A full suit of armour, buried with a man who would have preferred the money. Not an animal.
 
 **The previous occupant.** Was in the mound first, and has views about the extension. A person, and long dead, and entitled to the views. Not catalogued.
+
+<div class="gallery plates">
+<figure><img src="../images/battlers/Grave_Goods_Animated.png" alt="A suit of black armour with a cloak"><figcaption>Grave goods (animated)</figcaption></figure>
+<figure><img src="../images/battlers/Previous_Occupant.png" alt="A cowled figure in purple with a staff"><figcaption>The previous occupant, with views</figcaption></figure>
+</div>
 
 ## See also
 

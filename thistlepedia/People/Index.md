@@ -169,7 +169,7 @@ At <a href="../Places/Wayside_Sights">Wayside sights</a>.
 
 ### The Cotterills, one at a time
 
-Ten children, two parents and a daughter-in-law, in order of age, as Gudgeon would want. The ninth is above; the tenth has no portrait yet, and is at <a href="Washer_Cotterill">Washer Cotterill</a>.
+Ten children, two parents and a daughter-in-law, in order of age, as Gudgeon would want. The ninth is above. The tenth was drawn on the morning she was born, and has not sat still for one since.
 
 <div class="gallery">
 <figure><a href="Nora_Cotterill"><img src="../images/portraits/Nora_Cotterill.png" alt="Mrs Cotterill"></a><figcaption><a href="Nora_Cotterill">Mrs Cotterill</a></figcaption></figure>
@@ -183,6 +183,7 @@ Ten children, two parents and a daughter-in-law, in order of age, as Gudgeon wou
 <figure><a href="Grommet_Cotterill"><img src="../images/portraits/Grommet_Cotterill.png" alt="Grommet"></a><figcaption><a href="Grommet_Cotterill">Grommet</a></figcaption></figure>
 <figure><a href="Clevis_Cotterill"><img src="../images/portraits/Clevis_Cotterill.png" alt="Clevis"></a><figcaption><a href="Clevis_Cotterill">Clevis</a></figcaption></figure>
 <figure><a href="Shim_Cotterill"><img src="../images/portraits/Shim_Cotterill.png" alt="Shim"></a><figcaption><a href="Shim_Cotterill">Shim</a></figcaption></figure>
+<figure><a href="Washer_Cotterill"><img src="../images/portraits/Washer_Cotterill.png" alt="Washer"></a><figcaption><a href="Washer_Cotterill">Washer</a></figcaption></figure>
 </div>
 
 ### Upper Clanging

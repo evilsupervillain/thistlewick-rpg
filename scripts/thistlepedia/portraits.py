@@ -29,10 +29,19 @@ For each portrait the first of these that exists wins:
 
 So when the finished pictures go into `img/pictures/` under the same names,
 a rerun is the whole of the update.
+
+It does the same for the Bestiary's plates: every enemy in `data/Enemies.json`
+that has a battler is copied from `img/sv_enemies/` into
+`thistlepedia/images/battlers/`, named after the enemy (`Bandit (Trainee)` is
+`Bandit_Trainee.png`), with its `battlerHue` applied the way the engine's
+`ColorFilter` applies it and the empty margin trimmed off. That list is read
+from the game too, so a new enemy or a redrawn battler is a rerun.
 """
 import ast
+import colorsys
 import json
 import os
+import re
 import sys
 
 from PIL import Image
@@ -42,6 +51,8 @@ GAME = os.path.dirname(os.path.dirname(HERE))
 OUT = os.path.join(GAME, "thistlepedia", "images", "portraits")
 MANIFEST = os.path.join(HERE, "portraits.json")
 ART = os.path.join(HERE, "art")
+
+BATTLERS = os.path.join(GAME, "thistlepedia", "images", "battlers")
 
 FACE_W = FACE_H = 144   # MZ's face cell; a face sheet is 4 across, 2 down
 
@@ -88,6 +99,42 @@ def render(name, sheet, index):
     return cell, os.path.relpath(sheet_path, GAME) + f" cell {index}"
 
 
+def battler_name(enemy):
+    """`Bandit (Trainee)` -> `Bandit_Trainee`: the plate's file name."""
+    return re.sub(r"[^A-Za-z0-9-]+", "_", enemy).strip("_")
+
+
+def rotate_hue(image, hue):
+    """The engine's battler hue: rotate each pixel's hue in HSL by `hue`
+    degrees, keeping saturation, lightness and alpha."""
+    if not hue % 360:
+        return image
+    shift = (hue % 360) / 360.0
+    data = bytearray(image.tobytes())
+    for i in range(0, len(data), 4):
+        if data[i + 3]:
+            h, l, s = colorsys.rgb_to_hls(data[i] / 255, data[i + 1] / 255, data[i + 2] / 255)
+            rgb = colorsys.hls_to_rgb((h + shift) % 1.0, l, s)
+            data[i:i + 3] = bytes(round(c * 255) for c in rgb)
+    return Image.frombytes("RGBA", image.size, bytes(data))
+
+
+def battlers():
+    """(file name, image, source) for every enemy with a battler."""
+    enemies = json.load(open(os.path.join(GAME, "data", "Enemies.json"), encoding="utf-8"))
+    for enemy in enemies:
+        if not enemy or not enemy.get("battlerName"):
+            continue
+        source = os.path.join(GAME, "img", "sv_enemies", enemy["battlerName"] + ".png")
+        image = rotate_hue(Image.open(source).convert("RGBA"), enemy.get("battlerHue", 0))
+        box = image.getbbox()
+        if box:
+            image = image.crop(box)
+        hue = f" hue {enemy['battlerHue']}" if enemy.get("battlerHue") else ""
+        yield (battler_name(enemy["name"]) + ".png", image,
+               os.path.relpath(source, GAME) + hue)
+
+
 def same(path, image):
     if not os.path.exists(path):
         return False
@@ -116,15 +163,30 @@ def main(argv):
                 image.save(target, optimize=True)
     orphans = sorted(f for f in os.listdir(OUT)
                      if f.endswith(".png") and f not in wanted)
+    os.makedirs(BATTLERS, exist_ok=True)
+    plates = set()
+    for filename, image, source in battlers():
+        target = os.path.join(BATTLERS, filename)
+        plates.add(filename)
+        if listing:
+            print(f"battlers/{filename:32} {source}")
+        if not same(target, image):
+            stale.append("battlers/" + filename[:-4])
+            if not check:
+                image.save(target, optimize=True)
+    orphans += sorted("battlers/" + f for f in os.listdir(BATTLERS)
+                      if f.endswith(".png") and f not in plates)
     if check:
         for name in stale:
             print(f"stale: {name}.png")
         for f in orphans:
-            print(f"not in portraits.json: {f}")
+            print(f"not in portraits.json or Enemies.json: {f}")
         return 1 if stale or orphans else 0
     for f in orphans:
-        os.remove(os.path.join(OUT, f))
-    print(f"{len(wanted)} portraits; {len(stale)} written, {len(orphans)} removed")
+        os.remove(os.path.join(os.path.dirname(BATTLERS), f) if f.startswith("battlers/")
+                  else os.path.join(OUT, f))
+    print(f"{len(wanted)} portraits and {len(plates)} battlers; "
+          f"{len(stale)} written, {len(orphans)} removed")
     return 0
 
 

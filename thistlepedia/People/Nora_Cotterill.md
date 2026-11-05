@@ -47,11 +47,18 @@ That was the whole of her case against the <a href="../Places/The_Obligatory_Tow
 
 ## The argument
 
+<figure class="thumb right">
+<img src="../images/battlers/Mrs_Cotterill.png" alt="Mrs Cotterill in a cardigan, arms folded" width="87">
+<figcaption>In the front room. She was right.</figcaption>
+</figure>
+
 The argument was fought in the front room, many times, with Spare on his own, and the rest of the family arranged on the stairs to watch. Her moves have been written down by <a href="Clevis_Cotterill">Clevis</a>, who kept a book on the outcome, and who describes them as: *You Are Nine*, which hurt; *Ask Your Father*, which sent Mr Cotterill in, who said "Mam," and was told "I know"; *That Is Not The Point*, which does nothing whatsoever, and is not meant to; and *I Have Said No*, which is the one that ends it. She was immune to his tantrum. She is the only person in the world who is. She has had nine years' practice and eight children's before that.
 
 She won every time, until the day she did not. She stopped at a quarter. What she said then is in Spare's article, and I will only give the terms, which she set out like a contract, and which Miss <a href="Pargeter">Pargeter</a> of <a href="../Places/Frostwick">Frostwick</a>, when I read them to her, said were the best-drafted she had heard in the north: *Jumper on. You do not go in first. You write. It does not have to be long, and it does not have to be true.* And to the Forty-Eighth: "And you. Bring him back."
 
 He was brought back. "You did not," she said to Spare, when he told her that he had gone in first, which he had not, quite. "Tea is at six. Wash your hands."
+
+<div class="clear"></div>
 
 ## The letters
 

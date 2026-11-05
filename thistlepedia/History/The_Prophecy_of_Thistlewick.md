@@ -94,6 +94,11 @@ This is why ITEM 1, which had stood unticked in the <a href="../Institutions/The
 
 ## How it ended
 
+<figure class="thumb right">
+<img src="../images/battlers/THE_PROPHECY.png" alt="The Prophecy, an unrolled scroll, crackling with purple light" width="180">
+<figcaption>Clause twelve, enforcing itself.</figcaption>
+</figure>
+
 The Forty-Eighth beat Grimspite, as forty-seven had before him. Clause twelve unrolled - the Prophecy itself, the width of the room, moving like something with an opinion - to renew him, and then, instead of renewing him, it turned to the party. It had found a party of the correct size, at the correct place, on the correct date.
 
 > THE CHOSEN ONE SHALL BE CHOSEN. A NEW DARK LORD SHALL BE APPOINTED. THE ROLE IS VACANT. CONGRATULATIONS.
@@ -109,6 +114,8 @@ The Committee keeps it still, rolled, in Prophecy Hall, with two clauses struck.
 **Why the role was vacant this time.** Grimspite said clause twelve had renewed him forty-seven times before anybody reached the stairs. On the forty-eighth it declared the post vacant instead. Nobody has told me why, and I have three theories from three tables in the <a href="../Places/The_Slain_Wyvern">Wyvern</a>, which I give without preference: that it was because he said *thank you*, which in forty-seven fights he had never said; that it was because the Forty-Eighth was still in the room, listening, which in forty-seven fights none of them had been; and that the clause had always said so and nobody had read that far down. Grimspite, asked by letter, replied that it was a very good question and that he had a kettle on.
 
 </div>
+
+<div class="clear"></div>
 
 ## See also
 

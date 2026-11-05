@@ -8,6 +8,7 @@ title: Washer Cotterill
 
 <table class="infobox">
 <caption>Washer Cotterill</caption>
+<tr><td colspan="2" class="infobox-image"><img src="../images/portraits/Washer_Cotterill.png" alt="Washer Cotterill as a newborn, asleep, swaddled in a yellow blanket" width="200"><span class="infobox-caption">21 March 2000, on the hooter</span></td></tr>
 <tr><th>Known as</th><td>Washer; the tenth; "not Washer", formerly, by Da</td></tr>
 <tr><th>Born</th><td>21 March 2000, at six in the morning, on the hooter, at the house at the end of the street, <a href="../Places/Upper_Clanging">Upper Clanging</a></td></tr>
 <tr><th>Sex</th><td>Female</td></tr>

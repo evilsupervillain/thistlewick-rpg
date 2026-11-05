@@ -35,6 +35,11 @@ Ysolde says that he used to say there was a whole trade in it: you keep someone 
 
 ## The mound
 
+<figure class="thumb right">
+<img src="../images/battlers/The_Forty-Fourth.png" alt="The Forty-Fourth in gold armour with a red cloak and a sword" width="180">
+<figcaption>The way this went, and they both knew it.</figcaption>
+</figure>
+
 He died about the year 1999. Thistlewick, which had not once written, sent masons. In the eastern hills above the north road they raised a long barrow, at some expense, with a stone door, a curse, and THISTLEWICK REMEMBERS cut over the entrance, and inside it, in a chamber chalked with a circle, they set the Forty-Fourth in armour, with a sword, in the exact centre, the way the dead hero in the mound is set, so that he could fight the living one. It is on the sign outside. It is in the chalk. It is in the shape of the room.
 
 So that is what he did. When the Forty-Eighth came, with a Guild Card, Ambrose Fitch said that he would shake his hand but there was a way this went and they both knew it, and they did what's done, and it took four minutes. "Forty years I've been waiting to have that fight and it took four minutes." Then he sat down on the floor of his own burial chamber, which the shape of the room does not allow for, and explained why he had done it, if he did not want to.
@@ -46,6 +51,8 @@ He gave the Forty-Eighth the sword and the ring, given rather than taken, which 
 > "A bench. Top of the mound. Facing the sea. You can see the north road from up there. People walk that road tired and there's nowhere for them to sit down for four miles. Forty years of standing in a circle and that's what I want. A bench. Anyone's bench. Not mine. Anyone's."
 
 And a message: if they saw Ysolde, and they would, tell her he said she was right about the four hit points.
+
+<div class="clear"></div>
 
 ## The bench
 

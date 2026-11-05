@@ -22,6 +22,8 @@ A type specimen is measured, not killed. Every type specimen in this Bestiary wa
 
 I describe only what I have seen, or what has been described to me by a witness I would trust with a ruler. Where I have not seen a thing, I say so, and list it, and do not describe it.
 
+<div class="marginalia">The plates are mine, not Miss Halloway's. They were drawn for me from the accounts of the adventurers who met these animals, which is to say as each one looked while somebody was hitting it, and one or two by people who had plainly never seen a crab. Miss Halloway agreed to them on two conditions: that every caption gives what the thing is called, and not what it is, that being where a name for how something died belongs; and that wherever a plate is wrong, the caption says so. Several captions say so. - H.B.</div>
+
 ## The catalogue
 
 | Filed under | Also called | Where | Entry |

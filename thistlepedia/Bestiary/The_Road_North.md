@@ -14,6 +14,11 @@ Every Chosen One of Thistlewick has walked this road, and forty-seven of them ha
 
 ### Turnip
 
+<figure class="thumb right">
+<img src="../images/battlers/Militant_Turnip.png" alt="A turnip in a helmet, with a spear and a shield" width="126">
+<figcaption>The Militant Turnip, from an account. It is armed. That is the part I cannot account for.</figcaption>
+</figure>
+
 **What it is.** A turnip, *Brassica rapa*.
 
 **Called.** The Militant Turnip.
@@ -26,7 +31,14 @@ Every Chosen One of Thistlewick has walked this road, and forty-seven of them ha
 
 **Remarks.** The Forty-Eighth takes these personally, and was not, I noticed, in the least surprised by them.
 
+<div class="clear"></div>
+
 ### Carrion crow
+
+<figure class="thumb right">
+<img src="../images/battlers/Crow_of_Foreshadowing.png" alt="A black crow, wings up" width="100">
+<figcaption>The Crow of Foreshadowing, about to caw. Count them.</figcaption>
+</figure>
 
 **What it is.** The carrion crow, *Corvus corone*.
 
@@ -38,9 +50,16 @@ Every Chosen One of Thistlewick has walked this road, and forty-seven of them ha
 
 **Remarks.** Crows caw in threes. They also caw in twos, fours and elevens. The threes are remembered, because something important is generally about to happen to a party of adventurers, and the twos are not. I counted for a week. The crow is not foreshadowing anything. The adventurers are.
 
+<div class="clear"></div>
+
 ## The road and the wood
 
 ### Oak
+
+<figure class="thumb right">
+<img src="../images/battlers/Grumblewood_Treant.png" alt="A gnarled oak with a face in the trunk" width="180">
+<figcaption>The Grumblewood Treant, objecting.</figcaption>
+</figure>
 
 **What it is.** A tree. An oak, I think, from the leaf; it would not hold still for the bark.
 
@@ -52,7 +71,14 @@ Every Chosen One of Thistlewick has walked this road, and forty-seven of them ha
 
 **Method.** We walked past it. It objected. It was then engaged, which is a step I resent in a tree more than in anything else in this volume, because a tree has nowhere to go.
 
+<div class="clear"></div>
+
 ### Marsh light
+
+<figure class="thumb right">
+<img src="../images/battlers/Wisp_of_Mild_Concern.png" alt="A green light in a crackle of pale fire" width="93">
+<figcaption>The Wisp of Mild Concern. Mildly.</figcaption>
+</figure>
 
 **What it is.** A light. Not an animal. A small burning gas, which hovers, and is seen at dusk in damp places.
 
@@ -64,7 +90,14 @@ Every Chosen One of Thistlewick has walked this road, and forty-seven of them ha
 
 **Remarks.** I list it because it is in every adventurer's account of the road, and because it looks worried, and readers have asked me what about. It is not worried. It is a gas. The worry is the observer's, and I would not presume to say what about.
 
+<div class="clear"></div>
+
 ### Chest mimic
+
+<figure class="thumb right">
+<img src="../images/battlers/Chest_Definitely_A_Chest.png" alt="A treasure chest with teeth and a tongue" width="102">
+<figcaption>The Chest (Definitely A Chest), open.</figcaption>
+</figure>
 
 **What it is.** An ambush predator, chest-shaped.
 
@@ -76,7 +109,14 @@ Every Chosen One of Thistlewick has walked this road, and forty-seven of them ha
 
 **Method.** Opened. Then engaged. I would like it noted that I said so first.
 
+<div class="clear"></div>
+
 ### The Thing in the Woods
+
+<figure class="thumb right">
+<img src="../images/battlers/The_Thing_In_The_Woods.png" alt="A green serpent with many heads" width="180">
+<figcaption>The Thing in the Woods, as the adventurers saw it: one animal, with a great many heads. It is nine snakes.</figcaption>
+</figure>
 
 **What it is.** Nine crested grass snakes, courting.
 
@@ -94,11 +134,18 @@ In spring they gather to court, and nine is usual, and they knot together. From 
 
 **Remarks.** Everything we killed that week was in the middle of courting. I do not say that to upset anybody. I say it because it goes in the monograph.
 
+<div class="clear"></div>
+
 ## The Tower
 
 The Obligatory Tower is, I am told, under contract, and so is most of what is in it. I have catalogued what I could.
 
 ### Bat
+
+<figure class="thumb right">
+<img src="../images/battlers/Tower_Bat.png" alt="A small brown bat" width="108">
+<figcaption>The Tower Bat.</figcaption>
+</figure>
 
 **What it is.** A bat. Several species; the commonest in the Tower is a small brown bat of a kind found in any roof.
 
@@ -108,7 +155,14 @@ The Obligatory Tower is, I am told, under contract, and so is most of what is in
 
 **Remarks.** There are always bats. It is said to be in the contract. I have not seen the contract. I have seen the bats, and they would be there anyway. A tall stone building with a roof is a bat's idea of a good contract.
 
+<div class="clear"></div>
+
 ### Gargoyle
+
+<figure class="thumb right">
+<img src="../images/battlers/Load-Bearing_Gargoyle.png" alt="A grey stone knight with a sword" width="151">
+<figcaption>The Load-Bearing Gargoyle, off its post, which raises the questions.</figcaption>
+</figure>
 
 **What it is.** Masonry. Not an animal.
 
@@ -118,9 +172,17 @@ The Obligatory Tower is, I am told, under contract, and so is most of what is in
 
 **Remarks.** It is structurally important, and it attacks anyway, which raises questions about the Tower. <a href="../People/Ott_Hoyle">Miss Hoyle</a> of <a href="../Places/Upper_Clanging">Upper Clanging</a> asked one of those questions, in writing, and it went up the Tower with the Forty-Eighth, and I understand that it was not answered. I am not competent to answer it. I list the gargoyle so that the next person who asks what the Tower is made of has a place to start: in part, it is made of things that do not want to be in it.
 
+<div class="clear"></div>
+
 ## Persons
 
 The following are met on the road north and are reported in adventurers' accounts as monsters. They are persons. A **goblin** is a person: the one I met had a list of grievances and read from it, which is more than most people do. A **bandit (trainee)** is a person, in the fourth week of a six-week apprenticeship, with a syllabus. A **skeleton (intern)** is the remains of a person, employed, unpaid, for the experience, and I do not catalogue staff. I have not described any of them. See the <a href="./">index</a>.
+
+<div class="gallery plates">
+<figure><img src="../images/battlers/Disgruntled_Goblin.png" alt="A green goblin with a club and a shield"><figcaption>A goblin, with grievances</figcaption></figure>
+<figure><img src="../images/battlers/Bandit_Trainee.png" alt="A bandit with a dagger"><figcaption>A bandit, in week four</figcaption></figure>
+<figure><img src="../images/battlers/Skeleton_Intern.png" alt="A skeleton in a satchel, with a clipboard"><figcaption>A skeleton, interning</figcaption></figure>
+</div>
 
 ## See also
 
