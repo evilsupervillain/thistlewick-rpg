@@ -1310,3 +1310,32 @@ plates. What the captions add:
 * The watcher at the next table (NIX-4) is not named. Marginalia: he never
   bought spectacles because being suspected was being looked at; he asked
   Hosea not to put it in, and it is in the margin.
+
+## The Gatekeeper (5 November 2026, Mike)
+
+* **No birth year and no age.** He is in Thistlewick's orbit, where nobody
+  may notice, count or explain (`TIMELINE.md`, the gradient), and his face
+  is young while he has waved off forty-seven; he will not say how long he
+  has kept the gate, and Hosea points at Two Reckonings rather than doing
+  the sum. He has a name and asked for "the Gatekeeper" in the book.
+* Every Chosen One came up the square alone the first morning and was sent
+  back to ask around (section four, subsection b); Bram included.
+* He saw Sir Aldric most days for six years and thought he was waiting for
+  somebody. He did not read the notice.
+* Marginalia: the small letters on POINT OF NO RETURN are in the same hand
+  as a label under the key's nail, KEY (GATE). Hosea has not asked.
+* Afterwards: the game's own postgame line, "All of them, I'm told" / "One
+  of them came back here", as on the Thistlewick page. He still turns back
+  anybody alone, out of habit.
+
+## The Ferryman (5 November 2026, Mike)
+
+* Born 1951 in Nether Sopping; worked other people's boats from twelve.
+  **Bought the boat in 1989**, from Nix's "I've had it since the week
+  after" and her eleven years. Has been to the end of the pier and back;
+  **has never crossed** - the tide is a published joke that never turns
+  (`AUDIT.md`), so by 2002 he is still giving it a few more days.
+* The boat is unnamed; he will name her on the first crossing.
+* He keeps the boat shed's key "because he is always there".
+* Marginalia: Hosea's own tide table, from the Chandler's, agrees with his
+  on most days; Hosea has not mentioned it. The fare is a penny.

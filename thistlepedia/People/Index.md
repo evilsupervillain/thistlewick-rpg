@@ -56,6 +56,7 @@ At <a href="../Places/Thistlewick">Thistlewick</a>.
 <figure><a href="Mrs_Thistle"><img src="../images/portraits/Mrs_Thistle.png" alt="Mrs Thistle"></a><figcaption><a href="Mrs_Thistle">Mrs Thistle</a></figcaption></figure>
 <figure><a href="Prudence_Thrupp"><img src="../images/portraits/Prudence_Thrupp.png" alt="Prudence Thrupp"></a><figcaption><a href="Prudence_Thrupp">Prudence Thrupp</a></figcaption></figure>
 <figure><a href="Mrs_Lumb"><img src="../images/portraits/Mrs_Lumb.png" alt="Mrs Lumb"></a><figcaption><a href="Mrs_Lumb">Mrs Lumb</a></figcaption></figure>
+<figure><a href="The_Gatekeeper"><img src="../images/portraits/The_Gatekeeper.png" alt="The Gatekeeper"></a><figcaption><a href="The_Gatekeeper">The Gatekeeper</a></figcaption></figure>
 </div>
 
 ### Nether Sopping
@@ -68,6 +69,7 @@ At <a href="../Places/Nether_Sopping">Nether Sopping</a>.
 <figure><a href="Lavinia_Barrow"><img src="../images/portraits/Lavinia_Barrow.png" alt="Mrs Barrow"></a><figcaption><a href="Lavinia_Barrow">Mrs Barrow</a></figcaption></figure>
 <figure><a href="Sops"><img src="../images/portraits/Sops.png" alt="Sops"></a><figcaption><a href="Sops">Sops</a></figcaption></figure>
 <figure><a href="Tibb"><img src="../images/portraits/Tibb.png" alt="Tibb"></a><figcaption><a href="Tibb">Tibb</a></figcaption></figure>
+<figure><a href="The_Ferryman"><img src="../images/portraits/The_Ferryman.png" alt="The Ferryman"></a><figcaption><a href="The_Ferryman">The Ferryman</a></figcaption></figure>
 <figure><a href="Nabb"><img src="../images/portraits/Nabb.png" alt="Nabb"></a><figcaption><a href="Nabb">Nabb</a></figcaption></figure>
 <figure><a href="Tolly"><img src="../images/portraits/Tolly.png" alt="Tolly"></a><figcaption><a href="Tolly">Tolly</a></figcaption></figure>
 <figure><a href="Hulda_Bole"><img src="../images/portraits/Hulda_Bole.png" alt="Hulda Bole"></a><figcaption><a href="Hulda_Bole">Hulda Bole</a></figcaption></figure>
