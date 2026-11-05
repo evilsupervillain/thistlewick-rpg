@@ -37,7 +37,7 @@ She was the best student of her year. Hedge magic is the discipline of doing the
 
 ## The letter
 
-It came. It bore the Collegium's crest, and it informed her that she was on study leave. "STUDY leave. I was EXPELLED. There was an ENQUIRY. It used the phrase TWICE." It turned out that the papers expelling her had been drafted and initialled and never filed, and she had therefore been on unpaid study leave for eleven years, in good standing, and owed eleven years of library fines. The fines were the largest sum of money anyone on the Quest ever saw written down. Sub-Librarian Prewitt was courteous, immovable and correct.
+It came. It bore the Collegium's crest, and it informed her that she was on study leave. "STUDY leave. I was EXPELLED. There was an ENQUIRY. It used the phrase TWICE." It turned out that the papers expelling her had been drafted and initialled and never filed, and she had therefore been on unpaid study leave for eleven years, in good standing, and owed eleven years of library fines. The fines were the largest sum of money anyone on the Quest ever saw written down. <a href="Sub-Librarian_Prewitt">Sub-Librarian Prewitt</a> was courteous, immovable and correct.
 
 How the matter ended depends on whom you ask, and I have asked her, and the answer I got was a look. The Collegium's register says she is a member of the Collegium in good standing, with her fines paid on the Library desk out of a purse. I have also seen a letter, in her hand, filing her own expulsion, eleven years after the event, at her own request. I have printed both, because one of them is true, and she has asked me to leave it that way.
 

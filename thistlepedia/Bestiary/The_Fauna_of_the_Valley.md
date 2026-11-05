@@ -12,7 +12,7 @@ title: The Fauna of the Valley
 <caption>The Fauna of the Valley, by What They Are</caption>
 <tr><th>Author</th><td>W. Halloway</td></tr>
 <tr><th>Published</th><td>2000, by the Collegium Arcanum</td></tr>
-<tr><th>Bound by</th><td>Sub-Librarian Prewitt, by hand</td></tr>
+<tr><th>Bound by</th><td><a href="../People/Sub-Librarian_Prewitt">Sub-Librarian Prewitt</a>, by hand</td></tr>
 <tr><th>Type specimens</th><td>Eleven. Measured, not killed</td></tr>
 <tr><th>Reviewers</th><td>Professor Mott; Dr Furze; the Honorary Fellow</td></tr>
 <tr><th>Subscribers</th><td>Bound in at the back</td></tr>

@@ -1125,3 +1125,24 @@ plates. What the captions add:
   in hoods, and stamped neither: they brought the form and not the thirty
   crowns. Great Dunnage's children bring her butter knives.
 * Marginalia: she had the cap off Hosea's pen and asked after the nib.
+
+## Sub-Librarian Prewitt (5 November 2026, Mike)
+
+* Born 1946; Sub-Librarian since 1971. **There is no Librarian**: the post
+  has been with a committee since before she came, so she cannot succeed to
+  it. No first name, and none asked for.
+* **ZEPH-1's ending stays undecided.** The page says only what both branches
+  share: Gedge lifting the Register on a day that was not a Monday, a line
+  ruled under the number, something written beneath it in capitals (PAID IN
+  GOOD FAITH or CLOSED), and her looking at it sometimes. It does not print
+  the figure, and does not say she sat down (that is the paid branch only).
+* WRE-1 canon has her binding the monograph, "which she has not done for
+  anybody in eleven years". Hosea asks who the last was, eleven years before
+  (1989); she says the Library does not discuss its readers. Deliberately
+  unanswered. She has bound nothing since.
+* The hourglass "measures an hour".
+* Marginalia: Hosea asked to borrow the Collegium's statutes, was referred to
+  the Committee for Readers, has been on its list since spring 2001, checked
+  the clause another way, and told her so she could close the referral.
+* Afterwards: Mr Pennock shares the east end of her desk; the reader from
+  Michaelmas is still waiting, and she brings him a glass of water at four.
