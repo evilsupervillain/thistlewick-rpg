@@ -334,7 +334,7 @@ def village_events():
         "and the Dark Lord's got a tower. Only one of",
         "those is going to spoil my supper."])
     add(q_hob.owned("farmer", S.npc(16, "Farmer", 13, 19, farmer,  # HOB-1
-                                  "People2", 6)))
+                                  *S.sprite("Farmer"))))
 
     # -- 17: the scarecrow -----------------------------------------------------
     add(S.sign(17, "Scarecrow", 18, 24, [

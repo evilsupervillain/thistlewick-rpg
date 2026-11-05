@@ -41,7 +41,7 @@ FACES = {
     "Councillor": ("People1", 3),
     "Councillor Fenn": ("People4", 2),
     "Old Man": ("Gen_People16", 6),
-    "Farmer": ("People2", 6),
+    "Farmer": ("Gen_People18", 1),       # was Splint's (Mike, 5 Nov)
     "Fisher": ("People1", 4),
     "Child": ("Gen_People16", 7),
     "Innkeeper": ("People2", 3),
@@ -205,9 +205,10 @@ FACES = {
     # one line in one room. The nine heroes take the Actor-sheet faces that no
     # companion and nobody else in the game is wearing, which is the joke - a
     # hero is a hero is a hero. The two farmers are a married couple, one
-    # rescue between them; Mr Budge is the `Farmer`'s face, since he is one,
-    # and Mrs Budge the bonnet. Mr Pilbeam, who was only passing, has the most
-    # ordinary face in the box.
+    # rescue between them; Mr Budge has the stock farmer's face, People2:6,
+    # since he is one (Thistlewick's `Farmer` is drawn now, and Splint keeps
+    # it too), and Mrs Budge the bonnet. Mr Pilbeam, who was only passing,
+    # has the most ordinary face in the box.
     "Tamsin": ("Actor1", 1), "Brannoc": ("Actor1", 2), "Kit": ("Actor1", 3),
     "Osric": ("Actor1", 6), "Aurel": ("Actor2", 0), "Hild": ("Actor2", 1),
     "Morwen": ("Actor2", 5), "Leof": ("Actor2", 6), "Valen": ("Actor3", 2),

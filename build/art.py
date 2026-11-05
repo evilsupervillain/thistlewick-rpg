@@ -384,6 +384,10 @@ SHEETS = {
         # (Mike, 4 Nov). Sixty-odd, a sword-and-horse yard: grey, cropped,
         # a waxed moustache, a leather jerkin in brown and grey.
         (0, "fellow-blunt.json"),       # not ready; in the stone
+        # Thistlewick's farmer, Bram's actual boss, who wore Fenwick Splint's
+        # face - goggles and all (Mike, 5 Nov). A straw hat, side-whiskers
+        # and a waistcoat; the weevils have had a good look.
+        (1, "thistlewick-farmer.json"),  # who's doing the west field?
     ],
 }
 
