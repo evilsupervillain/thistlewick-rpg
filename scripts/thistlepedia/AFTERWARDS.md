@@ -1055,3 +1055,19 @@ plates. What the captions add:
 * The Barrow Hound was drawn as a wolf by somebody who did not stay for the
   collar.
 * Grimspite's armour is issued with the post, and is not his size.
+
+## Fenwick Splint (5 November 2026, Mike)
+
+* His birth year is not given; he would rather it were not printed beside
+  "custodian".
+* His forty years of reports began in 1960, the year the Guild was founded
+  (`TIMELINE.md`); Pell keeps them all, under S, and they never asked for
+  anything but a visit.
+* The board's CHILDREN 1 CROWN is the game's; the second line he added after
+  2000, SITE OF THE BADGER, 1960-2000, is not.
+* Pell says Splint is not strictly the parish, and that nobody has wanted to
+  argue with him about a sock.
+* Hosea supposes the seven hundred crowns came out of forty years of two
+  crowns at a time, and has not asked.
+* The Guild has still not sent anybody to see the badger; Pell says the matter
+  is closed, there being no badger.

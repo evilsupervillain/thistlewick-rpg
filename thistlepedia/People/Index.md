@@ -74,6 +74,7 @@ At <a href="../Places/Nether_Sopping">Nether Sopping</a>.
 <figure><a href="Jack_Furrow"><img src="../images/portraits/Jack_Furrow.png" alt="Jack Furrow"></a><figcaption><a href="Jack_Furrow">Jack Furrow</a></figcaption></figure>
 <figure><a href="Jill_Furrow"><img src="../images/portraits/Jill_Furrow.png" alt="Jill Furrow"></a><figcaption><a href="Jill_Furrow">Jill Furrow</a></figcaption></figure>
 <figure><a href="Ferrety_Bother"><img src="../images/portraits/Ferrety_Bother.png" alt="Ferrety Bother"></a><figcaption><a href="Ferrety_Bother">Ferrety Bother</a></figcaption></figure>
+<figure><a href="Fenwick_Splint"><img src="../images/portraits/Fenwick_Splint.png" alt="Fenwick Splint"></a><figcaption><a href="Fenwick_Splint">Fenwick Splint</a></figcaption></figure>
 </div>
 
 ## On the road, and the sites along it

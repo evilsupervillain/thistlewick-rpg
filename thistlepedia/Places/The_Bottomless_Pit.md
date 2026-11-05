@@ -10,7 +10,7 @@ title: The Bottomless Pit
 <caption>The Bottomless Pit</caption>
 <tr><th>Known as</th><td>The Bottomless Pit; a wonder of the district</td></tr>
 <tr><th>Where</th><td>A hillside in the western hills, west of <a href="Thistlewick">Thistlewick</a>; <a href="Nether_Sopping">Nether Sopping</a>'s, by custom</td></tr>
-<tr><th>Custodian</th><td>Fenwick Splint</td></tr>
+<tr><th>Custodian</th><td><a href="../People/Fenwick_Splint">Fenwick Splint</a></td></tr>
 <tr><th>Admission</th><td>2 crowns. Children, 1. Free, for ever, to one party</td></tr>
 <tr><th>Refunds</th><td>None, re: depth</td></tr>
 <tr><th>Depth</th><td>Four feet</td></tr>
@@ -19,7 +19,7 @@ title: The Bottomless Pit
 <tr><th>Contents</th><td>Two hundred years of lost property, mostly eaten; socks, odd</td></tr>
 </table>
 
-<p class="lede">The <b>Bottomless Pit</b> is a hole in a hillside in the western hills, with a hut, a rope and a turnstile, kept by its custodian, <b>Fenwick Splint</b>, as a wonder of the district. It is four feet deep. It is called the Bottomless Pit because "the Pit" is not a wonder of the district.</p>
+<p class="lede">The <b>Bottomless Pit</b> is a hole in a hillside in the western hills, with a hut, a rope and a turnstile, kept by its custodian, <a href="../People/Fenwick_Splint">Fenwick Splint</a>, as a wonder of the district. It is four feet deep. It is called the Bottomless Pit because "the Pit" is not a wonder of the district.</p>
 
 "Two crowns and you may look into the Bottomless Pit, which is a wonder of the district and, I'll be straight with you, four feet deep." Mr Splint says this to every visitor, and then he says to mind the step, and then he says that there isn't one, and that that is the joke, and that he does it every time. He does.
 
@@ -42,5 +42,6 @@ The Forty-Eighth's company came and saw the badger. It was the size of a hay car
 ## See also
 
 - <a href="Nether_Sopping">Nether Sopping</a>
+- <a href="../People/Fenwick_Splint">Fenwick Splint</a>
 - <a href="../Institutions/The_Adventurers_Guild">The Adventurers' Guild (Provisional)</a>
 - <a href="../Bestiary/">The Bestiary</a>
