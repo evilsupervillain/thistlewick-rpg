@@ -215,14 +215,38 @@ def clanging_map():
     # (13, 40) is the end of Mrs Cotterill's bench.
     m["events"].append(q_spare.bessie_at_the_door(len(m["events"]), 11, 40))
     # ...and from the morning after, Washer is asleep on the other end of it
-    # (Mike's sprite, 4 November): Mam is to stay sat down for a week.
-    m["events"].append(R.event(len(m["events"]), "Washer", 13, 40, [
-        R.page([], img=R.image(""), trigger=0, priority=0, through=True),
-        R.page([], img=R.image("!$Washer", 0, direction=2), trigger=0,
-               priority=1, conditions={"switch1Valid": True,
-                                       "switch1Id": db.SW_SPA3_DONE}),
-    ]))
+    # (Mike's sprite, 4 November): Mam is to stay sat down for a week. The
+    # finger is Spare's line on the step, happening to Bram.
+    m["events"].append(washer_event(len(m["events"]), 13, 40))
     return m
+
+
+def washer_event(event_id, x, y):
+    """Map 21: the tenth Cotterill, asleep on the end of Mrs Cotterill's
+    bench from the morning after SPA-3; looked at once, then in passing."""
+    first = S.narrate([
+        "Washer Cotterill, the tenth. Asleep on the end of the",
+        "bench, in a shawl that has been round all nine of the",
+        "others."])
+    first += S.narrate([
+        "A hand comes out of the shawl and takes hold of your",
+        "finger. It does not give it back."])
+    first += S.say("Mrs Cotterill", ["They all do that.",
+                                     "Spare held on till teatime."])
+    first += S.narrate([
+        "Eventually it lets go. Washer has not woken up for any",
+        "of this."])
+    first += [R.self_switch("A", True)]
+    again = S.narrate(["Washer is asleep, with one fist out of the shawl,",
+                       "ready."])
+    img = R.image("!$Washer", 0, direction=2)
+    born = {"switch1Valid": True, "switch1Id": db.SW_SPA3_DONE}
+    return R.event(event_id, "Washer", x, y, [
+        R.page([], img=R.image(""), trigger=0, priority=0, through=True),
+        R.page(first, img=img, trigger=0, priority=1, conditions=born),
+        R.page(again, img=img, trigger=0, priority=1, conditions=dict(
+            born, selfSwitchValid=True, selfSwitchCh="A")),
+    ])
 
 
 def clanging_events():
