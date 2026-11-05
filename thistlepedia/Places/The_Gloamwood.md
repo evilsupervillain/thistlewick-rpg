@@ -57,7 +57,7 @@ The clearing has a ring of mushrooms round it, very large, very even and very ob
 
 ## The Gloamwood Society
 
-The **Gloamwood Society** was founded in 1960 to prove that the Thing in the Woods is not there. It has nine members, meets at the <a href="The_Gilded_Turnip">Gilded Turnip</a> on Thursdays, walks the wood once a year, and has published *The Sighting* four times a year for forty years, edited by Mr Dunmore. For forty years it took anything: a shape, a smell, a feeling. For forty years it found nothing, so far, that would stand up.
+The **Gloamwood Society** was founded in 1960 to prove that the Thing in the Woods is not there. It has nine members, meets at the <a href="The_Gilded_Turnip">Gilded Turnip</a> on Thursdays, walks the wood once a year, and has published *The Sighting* four times a year for forty years, edited by Mr Dunmore, under the chair of <a href="../People/Mrs_Lumb">Mrs Lumb</a>. For forty years it took anything: a shape, a smell, a feeling. For forty years it found nothing, so far, that would stand up.
 
 In the year 2000 Miss Halloway read all forty years of *The Sighting* in an afternoon, and told them that she could prove it did not exist, and that it never had, and the whole Society leaned forward as one. The walk was that night. It is always that night, when there is news. I was not there, and I have the account from Mr Dunmore's issue one hundred and sixty, which they printed extra of, and from Miss Halloway, who corrected it.
 
@@ -82,4 +82,5 @@ The Gloamwood is the only road between the south and the works town of <a href="
 - <a href="../People/Godfrey_Stopford">Godfrey Stopford</a>, the Forty-Sixth
 - <a href="../History/The_Chosen_Ones">The Chosen Ones</a>
 - <a href="../People/Wren_Halloway">Wren Halloway</a>
+- <a href="../People/Mrs_Lumb">Mrs Lumb</a>, chair of the Society
 - <a href="../Bestiary/">The Bestiary</a>

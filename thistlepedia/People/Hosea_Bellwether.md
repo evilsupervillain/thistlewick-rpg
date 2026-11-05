@@ -36,7 +36,7 @@ I have sat at the table by the fire in the <a href="../Places/The_Slain_Wyvern">
 
 Volume Two, the history proper, was compiled at that table, from first-hand accounts. Everybody in the room had been on one, and not one of them would tell a historian. They told the Forty-Eighth. He was going north; he was in it. So I asked him to do the thing I could not, and go round the room and be told: six first-hand accounts, heard properly, to the end, and then come back. I paid, handsomely, for a man with ink hands.
 
-Nobody does it. They get two and go and look at a dungeon. He did all six. They came from <a href="Ysolde_Marrow">Ysolde Marrow</a>, <a href="Hulda_Bole">Hulda Bole</a>, <a href="Nabb">Nabb</a>, <a href="Merrow_Halgate">Merrow Halgate</a>, Councillor Dree, and <a href="Perpetua_Small">the young lady with the tiara</a>, who is going to work it out any day now, and it will be marvellous.
+Nobody does it. They get two and go and look at a dungeon. He did all six. They came from <a href="Ysolde_Marrow">Ysolde Marrow</a>, <a href="Hulda_Bole">Hulda Bole</a>, <a href="Nabb">Nabb</a>, <a href="Merrow_Halgate">Merrow Halgate</a>, <a href="Councillor_Dree">Councillor Dree</a>, and <a href="Perpetua_Small">the young lady with the tiara</a>, who is going to work it out any day now, and it will be marvellous.
 
 With those, the history was complete. It is not accurate, because Merrow's bridge and Dree's chair cannot both be true on a Tuesday, but it is complete. It runs to four hundred pages and a pamphlet. At the bottom of page four hundred and one, in small type, there is a footnote that says the Forty-Eighth listened. Nobody else has one of those.
 

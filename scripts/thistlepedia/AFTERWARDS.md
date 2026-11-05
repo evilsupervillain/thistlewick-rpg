@@ -1250,3 +1250,63 @@ plates. What the captions add:
 * Mrs Dewhirst says she paid for the snug and Roland's half, unseen.
 * Afterwards: the snug is still booked quarterly in his name by standing
   order, uncancelled; Maud has her pie at the RESERVED table.
+
+## Mrs Lumb (5 November 2026, Mike)
+
+* **Hester** is from `build/characters/hester-lumb.json`; the game says only
+  "Mrs Lumb". Born 1931 in Thistlewick; chair of the Gloamwood Society since
+  its first Thursday in 1960, when nine people who had heard of the Thing
+  and not seen it agreed it ought to be settled. "Whoever says somebody
+  ought to is" made chair.
+* The Society's object, framed by the door on the back of a bill of fare:
+  *to establish that there is nothing in the Gloamwood*.
+* Ten badges were made in 1960, one spare; Wren's was the spare.
+* Marginalia: Bram, who had been in the clearing, was asked every Thursday
+  for sightings and said he had none, from the game's own "you are not
+  going to tell them anyway".
+* Afterwards: the 2001 meeting voted nine to nothing to carry on ("a thing
+  that has been proved wants keeping proved"); *The Sighting* still
+  reports nothing, in full.
+
+## Miss Privet (5 November 2026, Mike)
+
+* Born 1938 in a lane off the west road; taught by an aunt, out of no book.
+  Her spell is a charm that stops ink freezing, which is why the igloo has
+  minutes. "Privet (minutes)" in the minutes; no first name.
+* The privet, quickset and dunnock coincidence was raised in the second
+  year and minuted as a coincidence.
+* "Oh. It's Vance." is the only time she has put her pen down; a two-line
+  gap in the minutes is left there. Kindle minuted as *a demonstration*.
+* Sixty-one names carried forward by 2002, three of them Zephyrine's;
+  Hosea proposed the sixty-second and will not print it.
+* The meeting count follows Wayside Sights (ninth in 2000, eleven by 2002).
+
+## Mr Cobley (5 November 2026, Mike)
+
+* Born 1934 in Much Pottering. The 1970 start (`TIMELINE.md`) is one
+  evening's ripple in the middle of the pond. He named Old Tom because he
+  was old and "looked like a Tom"; knows he is a carp because nothing else
+  would be that patient. Fishes with bread, which the duck takes ("in Old
+  Tom's pay").
+* Effie asked him at six (1997) and they have had the carp/serpent
+  exchange weekly since.
+* Marginalia: he does not want to catch him - "then he would only be that
+  big".
+* Afterwards: Mr Gotobed walks him round the pond. On the dragon in the
+  pond (Effie's canon line, "Mr Cobley's furious"): it would put Old Tom
+  off, and Effie has written asking it to leave.
+
+## Councillor Dree (5 November 2026, Mike)
+
+* Born 1922. A parish councillor before he was an advisor; the title stayed.
+  **His party and his Chosen One are left unnamed** at his request.
+* Short-sighted forty years and never owned spectacles; the "strange eyes
+  at night" were squinting.
+* **Merrow's bridge and Dree's chair are not reconciled** (the canon says
+  they cannot both be true on a Tuesday); each says the other is probably
+  thinking of a Wednesday.
+* The certificate was issued by a magistrate on the way home, after an
+  examination of his eyes, and is kept in the hat.
+* The watcher at the next table (NIX-4) is not named. Marginalia: he never
+  bought spectacles because being suspected was being looked at; he asked
+  Hosea not to put it in, and it is in the margin.

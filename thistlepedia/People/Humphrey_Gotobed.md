@@ -55,7 +55,7 @@ He taught Effie to read off the map. He is, his wife says, the reason Effie thin
 
 ## Afterwards
 
-He is fifty-seven. He was out when I called, the first time rescuing Mrs Throssell's cat from the oak (it was the branch, which is marked, and then the trunk), and the second time walking Mr Cobley round the pond, in case Old Tom should turn over again, which he has not. I left my questions with Mrs Gotobed. They came back by Effie, in the post, a fortnight later, answered in red ink, on a map.
+He is fifty-seven. He was out when I called, the first time rescuing Mrs Throssell's cat from the oak (it was the branch, which is marked, and then the trunk), and the second time walking <a href="Mr_Cobley">Mr Cobley</a> round the pond, in case Old Tom should turn over again, which he has not. I left my questions with Mrs Gotobed. They came back by Effie, in the post, a fortnight later, answered in red ink, on a map.
 
 ## See also
 

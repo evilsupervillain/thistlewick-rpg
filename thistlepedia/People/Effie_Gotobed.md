@@ -69,4 +69,5 @@ She is eleven, and still waits at the gate for the post, and it still comes abou
 - <a href="../Places/Much_Pottering">Much Pottering</a>
 - <a href="Marjorie_Gotobed">Marjorie Gotobed</a>
 - <a href="Humphrey_Gotobed">Humphrey Gotobed</a>
+- <a href="Mr_Cobley">Mr Cobley</a>, and the carp
 - <a href="Ferrule_Cotterill">Ferrule Cotterill</a>, who is quite big

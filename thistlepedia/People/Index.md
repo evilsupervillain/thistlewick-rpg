@@ -55,6 +55,7 @@ At <a href="../Places/Thistlewick">Thistlewick</a>.
 <div class="gallery">
 <figure><a href="Mrs_Thistle"><img src="../images/portraits/Mrs_Thistle.png" alt="Mrs Thistle"></a><figcaption><a href="Mrs_Thistle">Mrs Thistle</a></figcaption></figure>
 <figure><a href="Prudence_Thrupp"><img src="../images/portraits/Prudence_Thrupp.png" alt="Prudence Thrupp"></a><figcaption><a href="Prudence_Thrupp">Prudence Thrupp</a></figcaption></figure>
+<figure><a href="Mrs_Lumb"><img src="../images/portraits/Mrs_Lumb.png" alt="Mrs Lumb"></a><figcaption><a href="Mrs_Lumb">Mrs Lumb</a></figcaption></figure>
 </div>
 
 ### Nether Sopping
@@ -71,6 +72,7 @@ At <a href="../Places/Nether_Sopping">Nether Sopping</a>.
 <figure><a href="Tolly"><img src="../images/portraits/Tolly.png" alt="Tolly"></a><figcaption><a href="Tolly">Tolly</a></figcaption></figure>
 <figure><a href="Hulda_Bole"><img src="../images/portraits/Hulda_Bole.png" alt="Hulda Bole"></a><figcaption><a href="Hulda_Bole">Hulda Bole</a></figcaption></figure>
 <figure><a href="Perpetua_Small"><img src="../images/portraits/Perpetua_Small.png" alt="Perpetua Small"></a><figcaption><a href="Perpetua_Small">Perpetua Small</a></figcaption></figure>
+<figure><a href="Councillor_Dree"><img src="../images/portraits/Councillor_Dree.png" alt="Councillor Dree"></a><figcaption><a href="Councillor_Dree">Councillor Dree</a></figcaption></figure>
 <figure><a href="Jack_Furrow"><img src="../images/portraits/Jack_Furrow.png" alt="Jack Furrow"></a><figcaption><a href="Jack_Furrow">Jack Furrow</a></figcaption></figure>
 <figure><a href="Jill_Furrow"><img src="../images/portraits/Jill_Furrow.png" alt="Jill Furrow"></a><figcaption><a href="Jill_Furrow">Jill Furrow</a></figcaption></figure>
 <figure><a href="Ferrety_Bother"><img src="../images/portraits/Ferrety_Bother.png" alt="Ferrety Bother"></a><figcaption><a href="Ferrety_Bother">Ferrety Bother</a></figcaption></figure>
@@ -147,6 +149,7 @@ At <a href="../Places/Wayside_Sights">Wayside sights</a>.
 <figure><a href="Mother_Selvidge"><img src="../images/portraits/Mother_Selvidge.png" alt="Mother Selvidge"></a><figcaption><a href="Mother_Selvidge">Mother Selvidge</a></figcaption></figure>
 <figure><a href="Elias_Meech"><img src="../images/portraits/Elias_Meech.png" alt="Elias Meech"></a><figcaption><a href="Elias_Meech">Elias Meech</a></figcaption></figure>
 <figure><a href="Dunnock"><img src="../images/portraits/Dunnock.png" alt="Dunnock"></a><figcaption><a href="Dunnock">Dunnock</a></figcaption></figure>
+<figure><a href="Miss_Privet"><img src="../images/portraits/Miss_Privet.png" alt="Miss Privet"></a><figcaption><a href="Miss_Privet">Miss Privet</a></figcaption></figure>
 <figure><a href="The_Drainage_Commissioner"><img src="../images/portraits/The_Drainage_Commissioner.png" alt="The Drainage Commissioner"></a><figcaption><a href="The_Drainage_Commissioner">The Drainage Commissioner</a></figcaption></figure>
 <figure><a href="Edwin_Tarrant"><img src="../images/portraits/Edwin_Tarrant.png" alt="Edwin Tarrant, the Hermit"></a><figcaption><a href="Edwin_Tarrant">The Hermit</a></figcaption></figure>
 <figure><a href="Somebody_Large"><img src="../images/portraits/Somebody_Large.png" alt="Somebody Large"></a><figcaption><a href="Somebody_Large">Somebody Large</a></figcaption></figure>
@@ -255,6 +258,7 @@ And <a href="Something_Unscheduled">Something Unscheduled</a>, at the bottom of 
 <div class="gallery">
 <figure><a href="Effie_Gotobed"><img src="../images/portraits/Effie_Gotobed.png" alt="Effie Gotobed"></a><figcaption><a href="Effie_Gotobed">Effie Gotobed</a></figcaption></figure>
 <figure><a href="Marjorie_Gotobed"><img src="../images/portraits/Marjorie_Gotobed.png" alt="Marjorie Gotobed"></a><figcaption><a href="Marjorie_Gotobed">Mrs Gotobed</a></figcaption></figure>
+<figure><a href="Mr_Cobley"><img src="../images/portraits/Mr_Cobley.png" alt="Mr Cobley"></a><figcaption><a href="Mr_Cobley">Mr Cobley</a></figcaption></figure>
 </div>
 
 And <a href="Humphrey_Gotobed">Humphrey Gotobed</a>, adventurer, retired, who was out.

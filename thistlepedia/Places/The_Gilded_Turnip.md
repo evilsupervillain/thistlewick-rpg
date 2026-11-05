@@ -50,7 +50,7 @@ was worth the journey, and the wait.</p>
 
 **The Regular**, whose cousin was the Thirty-Ninth. Lovely tower, apparently. Since the ending, lovely coast, apparently.
 
-**The Gloamwood Society**, which meets at the table by the door on Thursdays: nine members, forty years, a walk once a year, and a quarterly, *The Sighting*, edited by Mr Dunmore. Mrs Lumb does the talking. Miss Pellow saw the Thing in the Woods in 1971, and counted nine, and was the only one who got it right. The Society's long work came to its conclusion in the year 2000, with the help of Miss Halloway, and is described under <a href="The_Gloamwood">The Gloamwood</a>.
+**The Gloamwood Society**, which meets at the table by the door on Thursdays: nine members, forty years, a walk once a year, and a quarterly, *The Sighting*, edited by Mr Dunmore. <a href="../People/Mrs_Lumb">Mrs Lumb</a> does the talking. Miss Pellow saw the Thing in the Woods in 1971, and counted nine, and was the only one who got it right. The Society's long work came to its conclusion in the year 2000, with the help of Miss Halloway, and is described under <a href="The_Gloamwood">The Gloamwood</a>.
 
 **Zephyrine Vance** drank at the table by the window for eleven years, being just passing through, like somebody waiting for a letter. The letter came, on thick cream paper with a purple seal, and Prudence propped it against the glass where she would see it: the <a href="../Institutions/The_Collegium_Arcanum">Collegium Arcanum</a>'s eleventh notice of outstanding fines. See her article. The table is still hers when she wants it. She does not sit at it like that any more. There is a scorch mark on the ceiling above it, which was a moth.
 

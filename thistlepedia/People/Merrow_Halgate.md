@@ -52,4 +52,5 @@ People believe him about that.
 - <a href="../History/The_Prophecy_of_Thistlewick">The Prophecy of Thistlewick</a>
 - <a href="Grimspite_the_Inevitable">Grimspite the Inevitable</a>
 - <a href="../Places/The_Slain_Wyvern">The Slain Wyvern</a>
+- <a href="Councillor_Dree">Councillor Dree</a>, and the chair
 - <a href="Ambrose_Fitch">Ambrose Fitch</a>

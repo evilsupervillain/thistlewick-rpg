@@ -87,7 +87,7 @@
 
 ## M
 
-<span class="trope" title="Walked into: the Slain Wyvern">**The mysterious advisor.**</span> Kindly, old, and watched from week three, because in every story the kindly old advisor turns out to be the villain. Councillor Dree was watched for eleven weeks and then tied up, and was not the villain, and sits alone in the Slain Wyvern now, deliberately, with great composure. Still annoyed: Councillor Dree, very politely.
+<span class="trope" title="Walked into: the Slain Wyvern">**The mysterious advisor.**</span> Kindly, old, and watched from week three, because in every story the kindly old advisor turns out to be the villain. <a href="../People/Councillor_Dree">Councillor Dree</a> was watched for eleven weeks and then tied up, and was not the villain, and sits alone in the Slain Wyvern now, deliberately, with great composure. Still annoyed: Councillor Dree, very politely.
 
 
 ## N
