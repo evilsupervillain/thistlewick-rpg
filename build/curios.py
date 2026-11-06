@@ -30,7 +30,11 @@ those, for ever; without it the `then` looks go round again, or `look` does.
 `party` is a list of `(actor_id, windows)`: the first of them who is in the
 party says theirs after `look`, once. `trope` names a kind of cliche from
 CURIOS.md 4, which counts once in the whole game however many barrels share
-it. `loot` is commands run once, after the first look.
+it. `loot` is commands run once, after the first look. `sprite` is a tile id
+the event draws itself, nudged by `offset` pixels (`js/plugins/TOQ_Offset.js`)
+- for a thing that has to sit off the grid, like a plant in a pot's mouth,
+and that a map tile would make walkable (a passable tile on top of a blocked
+one wins).
 
 How many times a curio has been looked at lives in `$gameSystem._curios`,
 keyed `"map:event"`, which is saved with the game; the twins of a multi-cell
@@ -55,7 +59,9 @@ SPEAKERS = {db.BRAM: "Bram", db.MERRI: "Merribell", db.HOB: "Hob",
 
 class Curio:
     def __init__(self, name, cells, tile, look, then=(), again=None,
-                 party=(), trope=None, loot=(), hung=0):
+                 party=(), trope=None, loot=(), hung=0, sprite=0,
+                 offset=(0, 0)):
+        self.sprite, self.offset = sprite, tuple(offset)
         self.name, self.cells = name, [tuple(c) for c in cells]
         # A thing hung so high on a two-row wall face that nobody can stand
         # next to it answers from the blank face cell under it; `hung` is
@@ -191,9 +197,12 @@ def events(curios, first_id=FIRST_ID):
         cmds = commands(c, eid)
         for i, (x, y) in enumerate(c.cells):
             name = c.name if i == 0 else "%s (%d)" % (c.name, i + 1)
+            note = "<curio>"
+            if c.offset != (0, 0):
+                note += "<offset:%d,%d>" % c.offset
             out.append(R.event(eid + i, name, x, y, [R.page(
-                cmds, img=R.image(""), trigger=0, priority=1,
-                direction_fix=True, through=True)], note="<curio>"))
+                cmds, img=R.image(tile_id=c.sprite), trigger=0, priority=1,
+                direction_fix=True, through=True)], note=note))
         eid += len(c.cells)
     return out
 

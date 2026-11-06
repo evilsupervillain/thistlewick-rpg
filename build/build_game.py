@@ -1243,6 +1243,10 @@ def main():
     R.upsert_plugin(GAME, "TOQ_Battlebacks",
                     "A battle background chosen by region, terrain or "
                     "column, from tags in a map's note.")
+    # A curio's own sprite, off the grid: `<offset>` in an event's note.
+    R.upsert_plugin(GAME, "TOQ_Offset",
+                    "An event's picture nudged by pixels, from a tag in "
+                    "its note.")
     quests.build(GAME)                  # G0: the quest log (QUESTS.md)
 
     print("built The Obligatory Quest")

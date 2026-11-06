@@ -7,6 +7,7 @@ kind to everyone in the room (NORTH.md 1.6: nobody is diminished by their
 own punchline, and Ysolde, Merrow and Ambrose least of all)."""
 
 import db
+import mapkit as K
 from curios import curio as C
 
 # ----------------------------------------------- Map 14, the Slain Wyvern --
@@ -317,6 +318,20 @@ SOPPING = [
         "Another bollard. There is a little brass plate on the top: "
         "THIS BOLLARD IS FOR BOATS. Under that, worn almost away: AND "
         "FOR GRANDAD."]),
+
+    # --- the front door nobody answers (Ambrose Fitch's, `south.py` 15),
+    # whose own page mentions "a pot with a dead thing in it". The dead
+    # thing was a `Dead Grass A` tile on layer 3, which is passable and
+    # made the pot walkable; it is the event's own sprite now, raised into
+    # the pot's mouth (Mike, 5 Nov 2026).
+    C("Pot", (15, 9), "Pot", [
+        ["A pot by the front door, and in it something that",
+         "was a plant once. A card in the soil says:",
+         "PLEASE WATER."],
+        ["It stands under the eaves, where the rain cannot",
+         "reach it. In Nether Sopping, that makes it the only",
+         "plant in town to have died of thirst."]],
+      sprite=K.sf_tile("Outside_B", "Dead Grass A"), offset=(-1, -14)),
 ]
 
 # ------------------------------------------------ Map 15, the Guild --
