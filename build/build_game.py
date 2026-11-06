@@ -1141,7 +1141,10 @@ def build_system():
         "partyMembers": [db.BRAM],
         "testBattlers": [], "testTroopId": db.TR_TURNIPS,
         "optFollowers": True, "optSideView": True, "optDisplayTp": True,
-        "optAutosave": False, "optDrawTitle": True,
+        "optAutosave": False,
+        # The title is lettered into the picture (Mike's, 5 Nov 2026), so the
+        # engine must not draw it again over the top.
+        "optDrawTitle": False,
         "switches": switches, "variables": variables,
         # WRE-3's badge is Wren's alone: a type of its own (QUESTS.md 0.5).
         "armorTypes": system["armorTypes"][:db.AT_BADGE] + ["Badge", "Rosette", "Coat", "Robe", "Scarf", "Pamphlet", "Escutcheon", "Washer"],
@@ -1163,7 +1166,10 @@ def build_system():
                             "volume": 90},
                     "characterName": "Vehicle", "characterIndex": 3,
                     "startMapId": 0, "startX": 0, "startY": 0},
-        "title1Name": "Bigtree", "title2Name": "",
+        "title1Name": "Obligatory_Quest", "title2Name": "",
+        # The menu goes down on the grass to the lower left, off Bram's face.
+        "titleCommandWindow": {"background": 0, "offsetX": -270,
+                               "offsetY": 70},
         "titleBgm": {"name": "Theme3", "pan": 0, "pitch": 100, "volume": 80},
         "battleBgm": {"name": "Battle2", "pan": 0, "pitch": 100, "volume": 85},
         "victoryMe": {"name": "Victory1", "pan": 0, "pitch": 100, "volume": 85},
