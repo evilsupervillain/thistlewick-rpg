@@ -2,6 +2,8 @@
 
 <p class="lede">The world is about a hundred and twenty days' walk across in either direction, by the reckoning of anyone who has tried it, and most of those days are spent in a field. What follows are the parts that are not field.</p>
 
+<figure class="thumb center"><img src="../images/World.png" alt="A map of the whole world, north at the top: snow across the north with Coldbarrow and Frostwick in it, the Obligatory Tower in the middle, Thistlewick and Nether Sopping on the inner sea below it, forest and desert down the west, and the Collegium Arcanum, Ashcombe and Fairholme across the water to the east" width="720"><figcaption>The world, north at the top. Thistlewick is nearly in the middle. Nobody has told it "nearly"</figcaption></figure>
+
 ## The road north
 
 | Place | What it is |
