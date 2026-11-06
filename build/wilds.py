@@ -490,7 +490,7 @@ def pit_map():
 
     m = K.new_map(PIT_W, PIT_H, K.TS_DUNGEON, name="The Bottomless Pit",
                   bgm="Dungeon2", encounter_step=34,
-                  battleback=("Stone1", "Ruins1"),
+                  battleback=("Stone1", "Stone1"),
                   encounters=[(db.TR_PIT_MIX, 5, [1]),
                               (db.TR_GULLS, 2, [1])])
     m["data"] = g.data
@@ -643,7 +643,7 @@ def barrow_map():
 
     m = K.new_map(BARROW_W, BARROW_H, K.TS_DUNGEON,
                   name="The Barrow of the Forty-Fourth", bgm="Dungeon6",
-                  encounter_step=28, battleback=("Stone1", "Ruins1"),
+                  encounter_step=28, battleback=("DirtCave", "DirtCave"),
                   encounters=[(db.TR_BARROW_MIX, 4, [1]),
                               (db.TR_WRAITHS, 4, [1]),
                               (db.TR_GRAVE_GOODS, 3, [1])])

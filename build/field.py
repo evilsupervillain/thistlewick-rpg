@@ -972,9 +972,9 @@ def crag_map():
     m = K.new_map(CRAG_W, CRAG_H, K.TS_CLANGING_IN,
                   name="The Wreck of the One Hundred and Ninety-Ninth",
                   bgm="Ship2", encounter_step=34,
-                  # Not "Ship", which is the deck of a wooden sailing ship.
-                  # Plating, in a dark battered interior.
-                  battleback=("Cobblestones3", "Ruins3"),
+                  # Not "Ship", which is the deck of a wooden sailing ship:
+                  # a deck of boards in a battered interior (Mike, 5 Nov).
+                  battleback=("Wood1", "Ruins3"),
                   encounters=[(db.TR_CRAG_MIX, 4, [1]),
                               (db.TR_SALVAGE, 4, [1]),
                               (db.TR_PRESSURE, 3, [1])])

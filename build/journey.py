@@ -204,6 +204,19 @@ def world_map():
                       (db.TR_COAST_MIX, 3, [REG_COAST]),
                   ])
     m["data"] = data
+    # A fight is fought on the ground it starts on (Mike, 5 Nov 2026), and
+    # the engine's own overworld table only runs on a map with no background
+    # of its own - and would put Rocky Land on lava. These are World_A2's
+    # kinds; `js/plugins/TOQ_Battlebacks.js` reads the tags, the first match
+    # wins, and grass is the map's own pair. The coast is all beach.
+    m["note"] = "\n".join("<battleback %s: %s>" % rule for rule in [
+        ("region %d" % REG_COAST, "Sand/Desert"),
+        ("terrain 40,41,44,47", "Snowfield/Snowfield"),   # snow, its forest, hills
+        ("terrain 32,33,36,46", "Desert/Desert"),         # sand, palms, sandstone
+        ("terrain 24,25,28,34", "Wasteland/Wasteland"),   # wasteland, dead trees, rock
+        ("terrain 26,27", "DirtField/Wasteland"),
+        ("terrain 20,21", "Grassland/Forest"),
+    ])
 
     evs = world_events()
     south = W.south_events(len(evs) + 1)
@@ -665,10 +678,14 @@ def tower_map():
     K.paint_regions(g, K.TS_DUNGEON, 1)
     m = K.new_map(T.MAP_W, T.MAP_H, K.TS_DUNGEON, name="The Obligatory Tower",
                   bgm="Dungeon5", encounter_step=30,
-                  battleback=("Stone1", "Ruins1"),
+                  battleback=("Fort1", "Tower"),
                   encounters=[(db.TR_SKELETONS, 5, [1]),
                               (db.TR_TOWER_MIX, 4, [1]),
                               (db.TR_GARGOYLES, 3, [1])])
+    # Floor 2 is the guard floor, and its fights are in front of the racks
+    # (Mike, 5 Nov 2026); `js/plugins/TOQ_Battlebacks.js` reads the tag.
+    m["note"] = "<battleback x %d-%d: Fort1/Fort2>" % (
+        T.origin(2), T.origin(2) + T.FLOOR_W - 1)
     m["data"] = g.data
     m["events"] = [None] + tower_events()
     return m
@@ -837,7 +854,7 @@ def summit_map():
     four thousand years, and the stairs up from the barred door."""
     m = K.new_map(T.SUMMIT_W, T.SUMMIT_H, K.TS_DUNGEON,
                   name="The Obligatory Tower - Summit", bgm="Dungeon7",
-                  battleback=("DemonCastle1", "DemonCastle1"))
+                  battleback=("Castle1", "DemonCastle3"))
     m["data"] = T.summit_draw().data
     m["events"] = [None] + summit_events()
     return m

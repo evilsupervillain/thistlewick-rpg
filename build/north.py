@@ -204,7 +204,7 @@ def clanging_map():
     Only the events are built here."""
     data = HD.load(MAP_CLANGING, TOWN_W, TOWN_H, K.TS_CLANGING)
     m = K.new_map(TOWN_W, TOWN_H, K.TS_CLANGING, name="Upper Clanging",
-                  bgm="Town8")
+                  bgm="Town8", battleback=("Cobblestones5", "Town1"))
     m["data"] = data
     m["events"] = [None] + clanging_events()
     # the cobbles are five wide, columns 15 to 19

@@ -3,5 +3,6 @@
 var $plugins =
 [
 {"name":"TOQ_Mountain","status":true,"description":"The Stair under the mountain: a circle of lamplight, and no Game Over.","parameters":{"commonEvent":"7","mapId":"34","x":"7","y":"13"}},
-{"name":"QuestLog","status":true,"description":"A quest log that reads quest state from switches, variables and self switches.","parameters":{"menuName":"Quests","menuSwitch":"0","banner":"true","bannerFrames":"120","newText":"New quest:","updateText":"Quest updated:","completeText":"Quest complete:","failText":"Quest failed:","newSe":"Item3","updateSe":"Book1","completeSe":"Chime2","failSe":"Down2","tracker":"false","trackerOption":"Quest Tracker","trackerPosition":"top-right","tabNames":"Active, Completed, Failed","emptyText":"Nothing here yet.","maskText":"???","rewardLabel":"Reward:"}}
+{"name":"QuestLog","status":true,"description":"A quest log that reads quest state from switches, variables and self switches.","parameters":{"menuName":"Quests","menuSwitch":"0","banner":"true","bannerFrames":"120","newText":"New quest:","updateText":"Quest updated:","completeText":"Quest complete:","failText":"Quest failed:","newSe":"Item3","updateSe":"Book1","completeSe":"Chime2","failSe":"Down2","tracker":"false","trackerOption":"Quest Tracker","trackerPosition":"top-right","tabNames":"Active, Completed, Failed","emptyText":"Nothing here yet.","maskText":"???","rewardLabel":"Reward:"}},
+{"name":"TOQ_Battlebacks","status":true,"description":"A battle background chosen by region, terrain or column, from tags in a map's note.","parameters":{}}
 ];

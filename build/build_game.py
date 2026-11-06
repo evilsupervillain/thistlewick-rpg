@@ -1233,6 +1233,10 @@ def main():
                     {"commonEvent": str(db.CE_CONTINUANCE),
                      "mapId": str(places.MAP_CONTINUANCE),
                      "x": str(mountain.PORCH[0]), "y": str(mountain.PORCH[1])})
+    # The world map's biomes and the Tower's guard floor: `<battleback>` tags.
+    R.upsert_plugin(GAME, "TOQ_Battlebacks",
+                    "A battle background chosen by region, terrain or "
+                    "column, from tags in a map's note.")
     quests.build(GAME)                  # G0: the quest log (QUESTS.md)
 
     print("built The Obligatory Quest")
