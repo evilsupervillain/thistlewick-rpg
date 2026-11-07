@@ -173,8 +173,8 @@
     {
       "check": "(() => { const s = $gameActors.actor(11); const e = $dataMap.events[13].pages[0]; return [s.faceName(), s.faceIndex(), s.characterName(), s.characterIndex(), e.image.characterName, e.image.characterIndex, s.battlerName()]; })()",
       "expect": [
-        "Gen_People14",
-        4,
+        "Supplied2",
+        1,
         "Gen_People14",
         4,
         "Gen_People14",

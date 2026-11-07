@@ -216,7 +216,7 @@
       "advance": 40
     },
     {
-      "check": "[window._has('He said call it Washer,'), window._page(11)]",
+      "check": "[window._has('He said call her Washer,'), window._page(11)]",
       "expect": [true, 7],
       "label": "Mrs Cotterill: Washer, and then her short line"
     },

@@ -459,7 +459,7 @@
       "label": "read out; done; Spare's story; the scene over"
     },
     {
-      "check": "[window._has('I did more potatoes anyway.'), window._has('Nib pays her.'), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
+      "check": "[window._has('I did more potatoes anyway.'), window._has('Nib pays her,'), $gameVariables.value(2) - window._tropes, $gameVariables.value(7) - window._blushes]",
       "expect": [
         true,
         true,

@@ -114,8 +114,32 @@
       "frames": 30
     },
     {
+      "comment": "Row 9 has Fitch's pot on it at (15,9) since 6 Nov, and row 10 the noticeboard at (10,10), so step down round the one and back up round the other."
+    },
+    {
       "key": "ArrowLeft",
-      "times": 13
+      "times": 4,
+      "gap": 30
+    },
+    {
+      "key": "ArrowDown",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 5,
+      "gap": 30
+    },
+    {
+      "key": "ArrowUp",
+      "times": 1,
+      "gap": 30
+    },
+    {
+      "key": "ArrowLeft",
+      "times": 4,
+      "gap": 30
     },
     {
       "key": "ArrowUp",

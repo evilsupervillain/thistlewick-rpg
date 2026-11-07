@@ -56,7 +56,7 @@
       "advance": 60
     },
     {
-      "check": "[$gameSwitches.value(63), $gameMap.event(13).findProperPageIndex(), window._faces.every(f => f === 'Gen_People14:4')]",
+      "check": "[$gameSwitches.value(63), $gameMap.event(13).findProperPageIndex(), window._faces.every(f => f === 'Supplied2:1')]",
       "expect": [
         true,
         3,
@@ -305,7 +305,7 @@
       "label": "the pitch whole, 'Not yet', no Mam, no fight"
     },
     {
-      "check": "[window._faces.every(f => f === 'Gen_People14:4'), $gameMap.event(13).findProperPageIndex(), $gameVariables.value(2) - window._tropes]",
+      "check": "[window._faces.every(f => f === 'Supplied2:1'), $gameMap.event(13).findProperPageIndex(), $gameVariables.value(2) - window._tropes]",
       "expect": [
         true,
         5,
